@@ -14,3 +14,15 @@ Both text and annotation datasets: CC BY-NC 4.0, https://creativecommons.org/lic
 
 Offline font: Estrangelo Edessa, the unmodified official Meltho Webfont by Beth Mardutho. Copyright, redistribution license and provenance accompany the original fonts at `assets/fonts/Meltho-LICENSE.txt` and `assets/fonts/EstrangeloEdessa-SOURCE.json`.
 
+
+## Supplemental NT attestations for contextual lemma review
+
+Some supplementary OT lemma decisions cite the MIT-licensed ETCBC Syriac New Testament (syrnt 0.1, commit dae3eb6ff62b9b272fb503646796c25d248175ce), https://github.com/ETCBC/syrnt. This dataset derives from SEDRA. Sources include the Ancient Biblical Manuscript Center, George A. Kiraz, James W. Bennett, Hannes Vlaardingerbroek and Dirk Roorda. See `syrnt-LICENSE.txt` for the original license. The OT contextual decisions and their NT references are retained in `peshitta-nt-context-review.json`.
+
+## UniMorph contextual lemma supplement
+
+`peshitta-lexical-context-review.json` contains Safran AI contextual decisions using UniMorph Syriac by Charbel El-Khaissi, derived from SEDRA. Source https://github.com/unimorph/syc at commit `2e94e69b8c20f57e2593b70ff4c73fe3d5a2066e`. The supplement and associated derived decision data are CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/ . Safran changes include selection of 71 OT positions, contextual acceptance or withholding, edition matching and explanatory notes. UniMorph agreement shares SEDRA provenance and does not constitute independent verification. The underlying Peshitta text retains its separately stated license.
+
+## Corpus and dictionary contextual supplement
+
+`peshitta-corpus-dictionary-review.json` contains Safran AI contextual decisions for 999 additional main lemmas, using the embedded ETCBC Syriac corpus and specific SEDRA entries. It is distributed under CC BY-NC 4.0, https://creativecommons.org/licenses/by-nc/4.0/ . ETCBC and SEDRA attribution and source versions remain as stated above and in their bundled source notices. Changes include contextual selection, retention of canonical ETCBC main lemmas, exact native position matching and explanatory notes. The review does not claim independent scholarly verification. UniMorph Syriac / Charbel El-Khaissi helped select the candidates. Its copied form evidence occurs only in the developer audit and retains CC BY-SA 3.0, separately from the quoted ETCBC text and annotations.

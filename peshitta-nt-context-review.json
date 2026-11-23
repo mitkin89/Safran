@@ -1,0 +1,3590 @@
+{
+  "source": "ETCBC/syrnt, SEDRA-derived; Safran contextual review",
+  "commit": "dae3eb6ff62b9b272fb503646796c25d248175ce",
+  "books": [
+    {
+      "book": "Job",
+      "textHash": "b4af54a06bedea462a44e8ab9ba6b3741537faa9f1f0e025fffc808c0c46905c",
+      "entries": [
+        {
+          "id": "79090",
+          "form": "ܡܕܡ",
+          "chapter": 1,
+          "verse": 10,
+          "parts": [
+            [
+              "ܡܕܡ",
+              "MDM",
+              "subs"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܡܕܡ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 12,
+              "verse": 44,
+              "id": 20540
+            },
+            {
+              "lemma": "ܡܕܡ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 18,
+              "verse": 22,
+              "id": 33948
+            }
+          ],
+          "note": "„Alles, was er hat“: substantivisches Indefinitum nach „alles“ und vor dem Relativsatz."
+        },
+        {
+          "id": "79118",
+          "form": "ܡܕܡ",
+          "chapter": 1,
+          "verse": 12,
+          "parts": [
+            [
+              "ܡܕܡ",
+              "MDM",
+              "subs"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܡܕܡ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 12,
+              "verse": 44,
+              "id": 20540
+            },
+            {
+              "lemma": "ܡܕܡ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 18,
+              "verse": 22,
+              "id": 33948
+            }
+          ],
+          "note": "„Alles, was er hat“: substantivisches Indefinitum nach „alles“ und vor dem Relativsatz."
+        },
+        {
+          "id": "79176",
+          "form": "ܘܐܡܪ",
+          "chapter": 1,
+          "verse": 16,
+          "parts": [
+            [
+              "ܘ",
+              "W",
+              "conj"
+            ],
+            [
+              "ܐܡܪ",
+              ">MR",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 30,
+              "id": 9512
+            },
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 22,
+              "verse": 58,
+              "id": 36501
+            }
+          ],
+          "note": "Verb der Redeeinleitung „und er sagte“, mit nachfolgendem Empfänger."
+        },
+        {
+          "id": "79197",
+          "form": "ܘܐܡܪ",
+          "chapter": 1,
+          "verse": 17,
+          "parts": [
+            [
+              "ܘ",
+              "W",
+              "conj"
+            ],
+            [
+              "ܐܡܪ",
+              ">MR",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 30,
+              "id": 9512
+            },
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 22,
+              "verse": 58,
+              "id": 36501
+            }
+          ],
+          "note": "Verb der Redeeinleitung „und er sagte“, mit nachfolgendem Empfänger."
+        },
+        {
+          "id": "79220",
+          "form": "ܘܐܡܪ",
+          "chapter": 1,
+          "verse": 18,
+          "parts": [
+            [
+              "ܘ",
+              "W",
+              "conj"
+            ],
+            [
+              "ܐܡܪ",
+              ">MR",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 30,
+              "id": 9512
+            },
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 22,
+              "verse": 58,
+              "id": 36501
+            }
+          ],
+          "note": "Verb der Redeeinleitung „und er sagte“, mit nachfolgendem Empfänger."
+        },
+        {
+          "id": "83855",
+          "form": "ܝ̇ܕܥ",
+          "chapter": 23,
+          "verse": 8,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 70,
+              "id": 12840
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 68,
+              "id": 21899
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "85654",
+          "form": "ܐܡ̇ܪ",
+          "chapter": 32,
+          "verse": 10,
+          "parts": [
+            [
+              "ܐܡܪ",
+              ">MR",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 43,
+              "id": 9702
+            },
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 24,
+              "id": 19767
+            }
+          ],
+          "note": "Erste Person „ich sage“, mit dem Sprecherpronomen als nachgestelltem Subjekt."
+        },
+        {
+          "id": "85757",
+          "form": "ܝ̇ܕܥ",
+          "chapter": 32,
+          "verse": 22,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 72,
+              "id": 12863
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 71,
+              "id": 21948
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "78928",
+          "form": "ܚܕ",
+          "chapter": 1,
+          "verse": 1,
+          "sedra": {
+            "id": "950",
+            "lemma": "ܚܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 33,
+              "id": 9573
+            },
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Luke",
+              "chapter": 16,
+              "verse": 1,
+              "id": 32685
+            }
+          ],
+          "note": "Zahlwort „eins/einer“ als Attribut oder in der Wendung „einer von“."
+        },
+        {
+          "id": "78929",
+          "form": "ܐܝܬ",
+          "chapter": 1,
+          "verse": 1,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 33,
+              "id": 9574
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 18,
+              "verse": 2,
+              "id": 33630
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "79091",
+          "form": "ܕܐܝܬ",
+          "chapter": 1,
+          "verse": 10,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 18,
+              "verse": 25,
+              "id": 8038
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 5,
+              "verse": 26,
+              "id": 16102
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "79108",
+          "form": "ܕܐܝܬ",
+          "chapter": 1,
+          "verse": 11,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 18,
+              "verse": 25,
+              "id": 8038
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 5,
+              "verse": 26,
+              "id": 16102
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "79119",
+          "form": "ܕܐܝܬ",
+          "chapter": 1,
+          "verse": 12,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 18,
+              "verse": 25,
+              "id": 8038
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 5,
+              "verse": 26,
+              "id": 16102
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "80247",
+          "form": "ܗܘܘ",
+          "chapter": 6,
+          "verse": 16,
+          "sedra": {
+            "id": "783",
+            "lemma": "ܗܘܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܗܘܐ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 9,
+              "verse": 22,
+              "id": 43725
+            },
+            {
+              "lemma": "ܗܘܐ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 17,
+              "verse": 4,
+              "id": 59308
+            }
+          ],
+          "note": "Vergangenheitskopula beziehungsweise Verb „geschehen“ in der rückblickenden Aussage."
+        },
+        {
+          "id": "87456",
+          "form": "ܐܪܥܐ",
+          "chapter": 39,
+          "verse": 24,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "James",
+              "chapter": 5,
+              "verse": 17,
+              "id": 98347
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Revelation",
+              "chapter": 7,
+              "verse": 1,
+              "id": 105137
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        }
+      ]
+    },
+    {
+      "book": "I Samuel",
+      "textHash": "228d4114c1b74561cffd1cde606f7d13f9e570604291945f4a07184628cc68e1",
+      "entries": [
+        {
+          "id": "108568",
+          "form": "ܝܕܥܝܢ",
+          "chapter": 2,
+          "verse": 12,
+          "parts": [
+            [
+              "ܝܕܥܝܢ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 9,
+              "verse": 32,
+              "id": 18489
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 19,
+              "verse": 32,
+              "id": 60841
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "109026",
+          "form": "ܡܫܟܚ",
+          "chapter": 3,
+          "verse": 2,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 5,
+              "id": 16385
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 3,
+              "id": 34215
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "109547",
+          "form": "ܡܫܟܚ",
+          "chapter": 4,
+          "verse": 15,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 5,
+              "id": 16385
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 3,
+              "id": 34215
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "114870",
+          "form": "ܝܕܥ",
+          "chapter": 17,
+          "verse": 28,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 13,
+              "verse": 18,
+              "id": 46238
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 20,
+              "verse": 29,
+              "id": 61416
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "115293",
+          "form": "ܝܕܥ",
+          "chapter": 17,
+          "verse": 55,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 72,
+              "id": 12863
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 71,
+              "id": 21948
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "116668",
+          "form": "ܝܕܥ",
+          "chapter": 20,
+          "verse": 30,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 70,
+              "id": 12840
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 68,
+              "id": 21899
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "118481",
+          "form": "ܝܕܥ",
+          "chapter": 25,
+          "verse": 11,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 72,
+              "id": 12863
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 71,
+              "id": 21948
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "119816",
+          "form": "ܝܕܥ",
+          "chapter": 28,
+          "verse": 9,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "108816",
+          "form": "ܒܢܝ̈",
+          "chapter": 2,
+          "verse": 26,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 23,
+              "verse": 14,
+              "id": 10386
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 16,
+              "verse": 15,
+              "id": 32909
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "109506",
+          "form": "ܝܕ",
+          "chapter": 4,
+          "verse": 13,
+          "sedra": {
+            "id": "74",
+            "lemma": "ܐܝܕܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܕܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 20,
+              "verse": 30,
+              "id": 9017
+            },
+            {
+              "lemma": "ܐܝܕܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 10,
+              "verse": 46,
+              "id": 19375
+            }
+          ],
+          "note": "„An der Seite des Weges“: Nomen Hand in der präpositionalen Wendung ܥܠ ܝܕ."
+        },
+        {
+          "id": "110663",
+          "form": "ܐܪܥܐ",
+          "chapter": 8,
+          "verse": 8,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "110858",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 9,
+          "verse": 2,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 9,
+              "id": 13020
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 1,
+              "verse": 16,
+              "id": 22948
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "111630",
+          "form": "ܐܪܥܐ",
+          "chapter": 10,
+          "verse": 18,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "112148",
+          "form": "ܐܪܥܐ",
+          "chapter": 12,
+          "verse": 6,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "112176",
+          "form": "ܐܪܥܐ",
+          "chapter": 12,
+          "verse": 8,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "114388",
+          "form": "ܚܕ",
+          "chapter": 16,
+          "verse": 18,
+          "sedra": {
+            "id": "950",
+            "lemma": "ܚܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Mark",
+              "chapter": 9,
+              "verse": 17,
+              "id": 18271
+            },
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Luke",
+              "chapter": 11,
+              "verse": 45,
+              "id": 30296
+            }
+          ],
+          "note": "Zahlwort „eins/einer“ als Attribut oder in der Wendung „einer von“."
+        }
+      ]
+    },
+    {
+      "book": "II Samuel",
+      "textHash": "dac71b6fb4c819d28a3173b026cea38835df5ff79f69b5df9025fba939e866fa",
+      "entries": [
+        {
+          "id": "122427",
+          "form": "ܝܕܥܝܢ",
+          "chapter": 3,
+          "verse": 38,
+          "parts": [
+            [
+              "ܝܕܥܝܢ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 20,
+              "verse": 22,
+              "id": 8898
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 10,
+              "verse": 38,
+              "id": 19254
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "123703",
+          "form": "ܝܕܥ",
+          "chapter": 7,
+          "verse": 20,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "125683",
+          "form": "ܡܫܟܚ",
+          "chapter": 13,
+          "verse": 2,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 5,
+              "id": 16385
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 3,
+              "id": 34215
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "127959",
+          "form": "ܝܕܥ",
+          "chapter": 17,
+          "verse": 8,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "129348",
+          "form": "ܝܕܥ",
+          "chapter": 19,
+          "verse": 23,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 70,
+              "id": 12840
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 68,
+              "id": 21899
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "129457",
+          "form": "ܡܫܟܚ",
+          "chapter": 19,
+          "verse": 29,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 23,
+              "verse": 4,
+              "id": 36712
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 19,
+              "verse": 6,
+              "id": 48914
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "121564",
+          "form": "ܚܕ",
+          "chapter": 2,
+          "verse": 18,
+          "sedra": {
+            "id": "950",
+            "lemma": "ܚܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 15,
+              "id": 16537
+            },
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Luke",
+              "chapter": 15,
+              "verse": 19,
+              "id": 32515
+            }
+          ],
+          "note": "Zahlwort „eins/einer“ als Attribut oder in der Wendung „einer von“."
+        },
+        {
+          "id": "121586",
+          "form": "ܐܢܬ",
+          "chapter": 2,
+          "verse": 20,
+          "sedra": {
+            "id": "9891",
+            "lemma": "ܐܢܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Matthew",
+              "chapter": 16,
+              "verse": 16,
+              "id": 7087
+            },
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 61,
+              "id": 21808
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der zweiten Person, im Satz direkt an den Gesprächspartner gerichtet."
+        },
+        {
+          "id": "123217",
+          "form": "ܕܐܝܬ",
+          "chapter": 6,
+          "verse": 12,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 18,
+              "verse": 25,
+              "id": 8038
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 5,
+              "verse": 26,
+              "id": 16102
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "123360",
+          "form": "ܚܕ",
+          "chapter": 6,
+          "verse": 20,
+          "sedra": {
+            "id": "950",
+            "lemma": "ܚܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 15,
+              "id": 16537
+            },
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Luke",
+              "chapter": 15,
+              "verse": 19,
+              "id": 32515
+            }
+          ],
+          "note": "Zahlwort „eins/einer“ als Attribut oder in der Wendung „einer von“."
+        },
+        {
+          "id": "123478",
+          "form": "ܐܪܥܐ",
+          "chapter": 7,
+          "verse": 6,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "124338",
+          "form": "ܚܕ",
+          "chapter": 9,
+          "verse": 11,
+          "sedra": {
+            "id": "950",
+            "lemma": "ܚܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 15,
+              "id": 16537
+            },
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Luke",
+              "chapter": 15,
+              "verse": 19,
+              "id": 32515
+            }
+          ],
+          "note": "Zahlwort „eins/einer“ als Attribut oder in der Wendung „einer von“."
+        },
+        {
+          "id": "125869",
+          "form": "ܚܕ",
+          "chapter": 13,
+          "verse": 13,
+          "sedra": {
+            "id": "950",
+            "lemma": "ܚܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 15,
+              "id": 16537
+            },
+            {
+              "lemma": "ܚܕ",
+              "pos": "numeral",
+              "book": "Luke",
+              "chapter": 15,
+              "verse": 19,
+              "id": 32515
+            }
+          ],
+          "note": "Zahlwort „eins/einer“ als Attribut oder in der Wendung „einer von“."
+        },
+        {
+          "id": "126931",
+          "form": "ܕܐܝܬ",
+          "chapter": 15,
+          "verse": 4,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 12,
+              "verse": 11,
+              "id": 4639
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 15,
+              "verse": 4,
+              "id": 32281
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "128056",
+          "form": "ܐܪܥܐ",
+          "chapter": 17,
+          "verse": 12,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "James",
+              "chapter": 5,
+              "verse": 17,
+              "id": 98347
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Revelation",
+              "chapter": 7,
+              "verse": 1,
+              "id": 105137
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "129943",
+          "form": "ܐܪܥܐ",
+          "chapter": 20,
+          "verse": 10,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "James",
+              "chapter": 5,
+              "verse": 17,
+              "id": 98347
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Revelation",
+              "chapter": 7,
+              "verse": 1,
+              "id": 105137
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "130067",
+          "form": "ܐܢܬ",
+          "chapter": 20,
+          "verse": 17,
+          "sedra": {
+            "id": "9891",
+            "lemma": "ܐܢܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 11,
+              "id": 13040
+            },
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Mark",
+              "chapter": 8,
+              "verse": 29,
+              "id": 17924
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der zweiten Person, im Satz direkt an den Gesprächspartner gerichtet."
+        },
+        {
+          "id": "130250",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 21,
+          "verse": 2,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 9,
+              "id": 13020
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 1,
+              "verse": 16,
+              "id": 22948
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "131742",
+          "form": "ܐܢܐ",
+          "chapter": 24,
+          "verse": 10,
+          "sedra": {
+            "id": "178",
+            "lemma": "ܐܢܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Luke",
+              "chapter": 16,
+              "verse": 27,
+              "id": 33095
+            },
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Acts",
+              "chapter": 26,
+              "verse": 3,
+              "id": 64131
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der ersten Person als Subjekt der Rede oder Handlung."
+        }
+      ]
+    },
+    {
+      "book": "Psalms",
+      "textHash": "7a4070950b05c252f976b70882d70a19a8f01a27c015a7a9f99b77905856456b",
+      "entries": [
+        {
+          "id": "137271",
+          "form": "ܝܕܥ",
+          "chapter": 40,
+          "verse": 10,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "140923",
+          "form": "ܝܕܥ",
+          "chapter": 69,
+          "verse": 6,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "141051",
+          "form": "ܝܕܥ",
+          "chapter": 69,
+          "verse": 20,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "143241",
+          "form": "ܝܕܥ",
+          "chapter": 81,
+          "verse": 6,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 18,
+              "id": 53498
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "2_Corinthians",
+              "chapter": 5,
+              "verse": 21,
+              "id": 78920
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "150827",
+          "form": "ܝܕܥ",
+          "chapter": 139,
+          "verse": 2,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "151236",
+          "form": "ܝܕܥ",
+          "chapter": 142,
+          "verse": 4,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 4,
+              "id": 12964
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 21,
+              "verse": 17,
+              "id": 50240
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "136281",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 35,
+          "verse": 12,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 6,
+              "verse": 2,
+              "id": 1839
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 32,
+              "id": 19885
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "137932",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 45,
+          "verse": 3,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 6,
+              "verse": 2,
+              "id": 1839
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 32,
+              "id": 19885
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "140687",
+          "form": "ܨܒܝܢ",
+          "chapter": 68,
+          "verse": 17,
+          "sedra": {
+            "id": "2652",
+            "lemma": "ܨܒܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܨܒܐ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 66,
+              "id": 12790
+            },
+            {
+              "lemma": "ܨܒܐ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 10,
+              "verse": 36,
+              "id": 19233
+            }
+          ],
+          "note": "Verb „wollen/begehren“, mit dem Personalpronomen der Angesprochenen als Subjekt."
+        },
+        {
+          "id": "143285",
+          "form": "ܐܪܥܐ",
+          "chapter": 81,
+          "verse": 11,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "144698",
+          "form": "ܢܦܩܕ",
+          "chapter": 91,
+          "verse": 11,
+          "sedra": {
+            "id": "2567",
+            "lemma": "ܦܩܕ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܦܩܕ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 4,
+              "verse": 6,
+              "id": 936
+            },
+            {
+              "lemma": "ܦܩܕ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 4,
+              "verse": 10,
+              "id": 24842
+            }
+          ],
+          "note": "Verb „befehlen“ mit den Engeln als Empfängern des Befehls."
+        },
+        {
+          "id": "147638",
+          "form": "ܝܡܝܢܝ",
+          "chapter": 110,
+          "verse": 1,
+          "sedra": {
+            "id": "1389",
+            "lemma": "ܝܡܝܢܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܝܡܝܢܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 22,
+              "verse": 44,
+              "id": 10206
+            },
+            {
+              "lemma": "ܝܡܝܢܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 12,
+              "verse": 36,
+              "id": 20428
+            }
+          ],
+          "note": "„Zu meiner Rechten“, nominale Ortsangabe nach „setze dich“."
+        },
+        {
+          "id": "148394",
+          "form": "ܗܘܬ",
+          "chapter": 118,
+          "verse": 23,
+          "sedra": {
+            "id": "783",
+            "lemma": "ܗܘܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܗܘܐ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 21,
+              "verse": 42,
+              "id": 9695
+            },
+            {
+              "lemma": "ܗܘܐ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 12,
+              "verse": 11,
+              "id": 20040
+            }
+          ],
+          "note": "Vergangenheitskopula beziehungsweise Verb „geschehen“ in der rückblickenden Aussage."
+        },
+        {
+          "id": "150430",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 135,
+          "verse": 8,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 6,
+              "verse": 2,
+              "id": 1839
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 32,
+              "id": 19885
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        }
+      ]
+    },
+    {
+      "book": "Isaiah",
+      "textHash": "0edf3dc1041da636a21ca83fc8f340b15288fa00296e1fd883db319f97f72733",
+      "entries": [
+        {
+          "id": "202279",
+          "form": "ܒܨܗܝܘܢ",
+          "chapter": 28,
+          "verse": 16,
+          "parts": [
+            [
+              "ܒ",
+              "B",
+              "prep"
+            ],
+            [
+              "ܨܗܝܘܢ",
+              "YHJWN",
+              "subs"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܨܗܝܘܢ",
+              "pos": "noun",
+              "book": "Romans",
+              "chapter": 9,
+              "verse": 33,
+              "id": 69219
+            },
+            {
+              "lemma": "ܨܗܝܘܢ",
+              "pos": "noun",
+              "book": "1_Peter",
+              "chapter": 2,
+              "verse": 6,
+              "id": 98823
+            }
+          ],
+          "note": "Ortsname Zion nach der Präposition „in“, in der Aussage vom Legen des Steins."
+        },
+        {
+          "id": "202608",
+          "form": "ܡܫܟܚ",
+          "chapter": 29,
+          "verse": 11,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 23,
+              "verse": 4,
+              "id": 36712
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 19,
+              "verse": 6,
+              "id": 48914
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "207192",
+          "form": "ܝ̇ܕܥ",
+          "chapter": 44,
+          "verse": 8,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 26,
+              "verse": 72,
+              "id": 12863
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 71,
+              "id": 21948
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "197030",
+          "form": "ܠܒܗ",
+          "chapter": 6,
+          "verse": 10,
+          "sedra": {
+            "id": "1619",
+            "lemma": "ܠܒܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܠܒܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 13,
+              "verse": 15,
+              "id": 5348
+            },
+            {
+              "lemma": "ܠܒܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 28,
+              "verse": 27,
+              "id": 65723
+            }
+          ],
+          "note": "„Sein Herz“ mit Rückbezug auf das Volk, als Subjekt des Dickwerdens."
+        },
+        {
+          "id": "197031",
+          "form": "ܕܥܡܐ",
+          "chapter": 6,
+          "verse": 10,
+          "sedra": {
+            "id": "2337",
+            "lemma": "ܥܡܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܥܡܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 13,
+              "verse": 15,
+              "id": 5349
+            },
+            {
+              "lemma": "ܥܡܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 28,
+              "verse": 27,
+              "id": 65724
+            }
+          ],
+          "note": "„Des Volkes“, Genitiv zum unmittelbar vorhergehenden Herzen."
+        },
+        {
+          "id": "198631",
+          "form": "ܐܪܥܐ",
+          "chapter": 11,
+          "verse": 16,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "207232",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 44,
+          "verse": 11,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 6,
+              "verse": 2,
+              "id": 1839
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 32,
+              "id": 19885
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        }
+      ]
+    },
+    {
+      "book": "Hosea",
+      "textHash": "3da572442d078df4430778079af0310992dc648649c0be1c2200a2ed4f71f626",
+      "entries": [
+        {
+          "id": "261299",
+          "form": "ܝܕܥ",
+          "chapter": 5,
+          "verse": 3,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 13,
+              "verse": 18,
+              "id": 46238
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 20,
+              "verse": 29,
+              "id": 61416
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "260868",
+          "form": "ܐܪܥܐ",
+          "chapter": 2,
+          "verse": 17,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "262111",
+          "form": "ܒܢܝ",
+          "chapter": 9,
+          "verse": 12,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 6,
+              "verse": 2,
+              "id": 1839
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 32,
+              "id": 19885
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "262647",
+          "form": "ܐܪܥܐ",
+          "chapter": 12,
+          "verse": 10,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "262763",
+          "form": "ܐܪܥܐ",
+          "chapter": 13,
+          "verse": 4,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        }
+      ]
+    },
+    {
+      "book": "Nahum",
+      "textHash": "6c33d77bd2c16eded6109767aa974c3b92c72b93c841c22ace1c7f7f3b22195c",
+      "entries": [
+        {
+          "id": "268735",
+          "form": "ܡܬܚܫܒܝܢ",
+          "chapter": 1,
+          "verse": 9,
+          "parts": [
+            [
+              "ܡܬܚܫܒܝܢ",
+              "XCB",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܚܫܒ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 16,
+              "verse": 8,
+              "id": 6982
+            },
+            {
+              "lemma": "ܚܫܒ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 5,
+              "verse": 22,
+              "id": 25646
+            }
+          ],
+          "note": "Reflexives Verb des Denkens in der Frage „was denkt ihr über den Herrn?“. "
+        }
+      ]
+    },
+    {
+      "book": "Malachi",
+      "textHash": "c0a00c909c8d8cd871c143509cdf3bb7fcf02fbe2a7d876c416a3e36cbce93a1",
+      "entries": [
+        {
+          "id": "275068",
+          "form": "ܡܫܕܪ",
+          "chapter": 3,
+          "verse": 1,
+          "parts": [
+            [
+              "ܡܫܕܪ",
+              "CDR",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܕܪ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 23,
+              "verse": 34,
+              "id": 10655
+            },
+            {
+              "lemma": "ܫܕܪ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 10,
+              "verse": 3,
+              "id": 29071
+            }
+          ],
+          "note": "Aktives Partizip „ich sende“, mit dem Boten als Objekt."
+        },
+        {
+          "id": "274768",
+          "form": "ܕܐܝܬ",
+          "chapter": 1,
+          "verse": 14,
+          "sedra": {
+            "id": "102",
+            "lemma": "ܐܝܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 13,
+              "verse": 43,
+              "id": 5770
+            },
+            {
+              "lemma": "ܐܝܬ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 7,
+              "verse": 16,
+              "id": 17289
+            }
+          ],
+          "note": "Existenzpartikel in einer Existenz- oder Besitzkonstruktion, teilweise nach der Relativpartikel."
+        },
+        {
+          "id": "275428",
+          "form": "ܐܢܐ",
+          "chapter": 3,
+          "verse": 23,
+          "sedra": {
+            "id": "178",
+            "lemma": "ܐܢܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Matthew",
+              "chapter": 28,
+              "verse": 18,
+              "id": 13950
+            },
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Luke",
+              "chapter": 10,
+              "verse": 3,
+              "id": 29072
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der ersten Person als Subjekt der Rede oder Handlung."
+        }
+      ]
+    },
+    {
+      "book": "I Chronicles",
+      "textHash": "f2762fc3fbf082ab0bcfea7ca300f97b907060d3c55e62959a6ef39d307477f9",
+      "entries": [
+        {
+          "id": "312735",
+          "form": "ܕܦܩܕ",
+          "chapter": 15,
+          "verse": 15,
+          "parts": [
+            [
+              "ܕ",
+              "D",
+              "prep"
+            ],
+            [
+              "ܦܩܕ",
+              "PQD",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܦܩܕ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 1,
+              "verse": 44,
+              "id": 14459
+            },
+            {
+              "lemma": "ܦܩܕ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 5,
+              "verse": 14,
+              "id": 25531
+            }
+          ],
+          "note": "Verb „befehlen“ im Relativsatz, mit Mose als Subjekt."
+        },
+        {
+          "id": "315275",
+          "form": "ܡܫܟܚ",
+          "chapter": 21,
+          "verse": 30,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 5,
+              "id": 16385
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 3,
+              "id": 34215
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "313172",
+          "form": "ܐܢܐ",
+          "chapter": 16,
+          "verse": 18,
+          "sedra": {
+            "id": "178",
+            "lemma": "ܐܢܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Luke",
+              "chapter": 4,
+              "verse": 6,
+              "id": 24802
+            },
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "John",
+              "chapter": 13,
+              "verse": 26,
+              "id": 46354
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der ersten Person als Subjekt der Rede oder Handlung."
+        },
+        {
+          "id": "313559",
+          "form": "ܐܪܥܐ",
+          "chapter": 17,
+          "verse": 5,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        }
+      ]
+    },
+    {
+      "book": "II Chronicles",
+      "textHash": "f9f6b814a46801da7288052365a46cb031ab4b0e774a2d7f339653183671fd6e",
+      "entries": [
+        {
+          "id": "320328",
+          "form": "ܡܫܟܚܝܢ",
+          "chapter": 7,
+          "verse": 2,
+          "parts": [
+            [
+              "ܡܫܟܚܝܢ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 48,
+              "id": 34784
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 6,
+              "verse": 10,
+              "id": 53164
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "320452",
+          "form": "ܡܫܟܚ",
+          "chapter": 7,
+          "verse": 7,
+          "parts": [
+            [
+              "ܡܫܟܚ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 6,
+              "verse": 5,
+              "id": 16385
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 3,
+              "id": 34215
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "322347",
+          "form": "ܝ̇ܕܥ",
+          "chapter": 13,
+          "verse": 7,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 9,
+              "verse": 33,
+              "id": 28638
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 2,
+              "verse": 9,
+              "id": 38726
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "326921",
+          "form": "ܘܐܡܪ",
+          "chapter": 25,
+          "verse": 16,
+          "parts": [
+            [
+              "ܘ",
+              "W",
+              "conj"
+            ],
+            [
+              "ܐܡܪ",
+              ">MR",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Matthew",
+              "chapter": 18,
+              "verse": 29,
+              "id": 8096
+            },
+            {
+              "lemma": "ܐܡܪ",
+              "pos": "verb",
+              "book": "Mark",
+              "chapter": 1,
+              "verse": 40,
+              "id": 14412
+            }
+          ],
+          "note": "Verb der Redeeinleitung „und er sagte“, mit nachfolgendem Empfänger."
+        },
+        {
+          "id": "328371",
+          "form": "ܡܫܟܚܝܢ",
+          "chapter": 29,
+          "verse": 34,
+          "parts": [
+            [
+              "ܡܫܟܚܝܢ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 19,
+              "verse": 48,
+              "id": 34784
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 6,
+              "verse": 10,
+              "id": 53164
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "328464",
+          "form": "ܡܫܟܚܝܢ",
+          "chapter": 30,
+          "verse": 3,
+          "parts": [
+            [
+              "ܡܫܟܚܝܢ",
+              "CKX",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Acts",
+              "chapter": 25,
+              "verse": 7,
+              "id": 63723
+            },
+            {
+              "lemma": "ܫܟܚ",
+              "pos": "verb",
+              "book": "Hebrews",
+              "chapter": 9,
+              "verse": 9,
+              "id": 94807
+            }
+          ],
+          "note": "Prädikat des Könnens in negierter Konstruktion, anschließend eine Tätigkeit oder ein Satz mit ܕ."
+        },
+        {
+          "id": "331337",
+          "form": "ܝܕܥ",
+          "chapter": 35,
+          "verse": 22,
+          "parts": [
+            [
+              "ܝܕܥ",
+              "JD<",
+              "verb"
+            ]
+          ],
+          "ntSources": [
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "Luke",
+              "chapter": 9,
+              "verse": 33,
+              "id": 28638
+            },
+            {
+              "lemma": "ܝܕܥ",
+              "pos": "verb",
+              "book": "John",
+              "chapter": 2,
+              "verse": 9,
+              "id": 38726
+            }
+          ],
+          "note": "Prädikat „wissen/kennen“ mit Personalpronomen oder Vergangenheitskopula im unmittelbaren Zusammenhang."
+        },
+        {
+          "id": "318464",
+          "form": "ܐܢܐ",
+          "chapter": 1,
+          "verse": 12,
+          "sedra": {
+            "id": "178",
+            "lemma": "ܐܢܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Luke",
+              "chapter": 10,
+              "verse": 35,
+              "id": 29536
+            },
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Acts",
+              "chapter": 3,
+              "verse": 6,
+              "id": 51544
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der ersten Person als Subjekt der Rede oder Handlung."
+        },
+        {
+          "id": "319530",
+          "form": "ܐܪܥܐ",
+          "chapter": 5,
+          "verse": 10,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "319610",
+          "form": "ܐܪܥܐ",
+          "chapter": 6,
+          "verse": 5,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "319706",
+          "form": "ܐܪܥܐ",
+          "chapter": 6,
+          "verse": 11,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "320736",
+          "form": "ܐܪܥܐ",
+          "chapter": 7,
+          "verse": 22,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "321927",
+          "form": "ܕܥܡܐ",
+          "chapter": 10,
+          "verse": 27,
+          "sedra": {
+            "id": "2337",
+            "lemma": "ܥܡܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܥܡܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 13,
+              "verse": 15,
+              "id": 5349
+            },
+            {
+              "lemma": "ܥܡܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 28,
+              "verse": 27,
+              "id": 65724
+            }
+          ],
+          "note": "„Des Volkes“, Genitiv zum unmittelbar vorhergehenden Herzen."
+        },
+        {
+          "id": "321961",
+          "form": "ܐܪܥܐ",
+          "chapter": 10,
+          "verse": 28,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "322763",
+          "form": "ܐܢܬ",
+          "chapter": 14,
+          "verse": 10,
+          "sedra": {
+            "id": "9891",
+            "lemma": "ܐܢܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Matthew",
+              "chapter": 16,
+              "verse": 16,
+              "id": 7087
+            },
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Mark",
+              "chapter": 14,
+              "verse": 61,
+              "id": 21808
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der zweiten Person, im Satz direkt an den Gesprächspartner gerichtet."
+        },
+        {
+          "id": "324977",
+          "form": "ܐܪܥܐ",
+          "chapter": 20,
+          "verse": 24,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "James",
+              "chapter": 5,
+              "verse": 17,
+              "id": 98347
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Revelation",
+              "chapter": 7,
+              "verse": 1,
+              "id": 105137
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "329761",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 32,
+          "verse": 23,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 9,
+              "id": 13020
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 1,
+              "verse": 16,
+              "id": 22948
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        }
+      ]
+    },
+    {
+      "book": "Joel",
+      "textHash": "ba11a70f0273081b6a25f99321496271285a12891270988664246ae668bd9983",
+      "entries": [
+        {
+          "id": "263174",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 1,
+          "verse": 12,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 6,
+              "verse": 2,
+              "id": 1839
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 32,
+              "id": 19885
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "263555",
+          "form": "ܐܢܐ",
+          "chapter": 2,
+          "verse": 19,
+          "sedra": {
+            "id": "178",
+            "lemma": "ܐܢܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Matthew",
+              "chapter": 28,
+              "verse": 18,
+              "id": 13950
+            },
+            {
+              "lemma": "ܐܢܐ",
+              "pos": "pronoun",
+              "book": "Luke",
+              "chapter": 10,
+              "verse": 3,
+              "id": 29072
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der ersten Person als Subjekt der Rede oder Handlung."
+        },
+        {
+          "id": "263722",
+          "form": "ܫܡܗ",
+          "chapter": 3,
+          "verse": 5,
+          "sedra": {
+            "id": "3233",
+            "lemma": "ܫܡܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܫܡܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 2,
+              "verse": 21,
+              "id": 51098
+            },
+            {
+              "lemma": "ܫܡܐ",
+              "pos": "noun",
+              "book": "Romans",
+              "chapter": 10,
+              "verse": 13,
+              "id": 69368
+            }
+          ],
+          "note": "„Seinen Namen“, als Objekt des Anrufens, unmittelbar vor „des Herrn“."
+        }
+      ]
+    },
+    {
+      "book": "Amos",
+      "textHash": "0df71134de9de7afa0f42116fa9a229d6c1ffd9ac891a4847dff4f75df04a21f",
+      "entries": [
+        {
+          "id": "264466",
+          "form": "ܐܪܥܐ",
+          "chapter": 3,
+          "verse": 1,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "265994",
+          "form": "ܐܪܥܐ",
+          "chapter": 9,
+          "verse": 7,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        }
+      ]
+    },
+    {
+      "book": "Micah",
+      "textHash": "cdd246ae2d14050e3a8ea7171f5323d05deb2eca2327e78d592490491a47209b",
+      "entries": [
+        {
+          "id": "268197",
+          "form": "ܐܪܥܐ",
+          "chapter": 6,
+          "verse": 4,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        },
+        {
+          "id": "268570",
+          "form": "ܐܪܥܐ",
+          "chapter": 7,
+          "verse": 15,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        }
+      ]
+    },
+    {
+      "book": "Ezra",
+      "textHash": "f8ff4667e6768213529e0171ce54a071da8daaf876c86a8dd39082735b8e56da",
+      "entries": [
+        {
+          "id": "352244",
+          "form": "ܠܗܫܐ",
+          "chapter": 3,
+          "verse": 6,
+          "sedra": {
+            "id": "827",
+            "lemma": "ܗܫܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܗܫܐ",
+              "pos": "particle",
+              "book": "Luke",
+              "chapter": 24,
+              "verse": 41,
+              "id": 37874
+            },
+            {
+              "lemma": "ܗܫܐ",
+              "pos": "particle",
+              "book": "John",
+              "chapter": 16,
+              "verse": 24,
+              "id": 47688
+            }
+          ],
+          "note": "Zeitadverb „jetzt“ in der festen Wendung „bis jetzt“."
+        },
+        {
+          "id": "353605",
+          "form": "ܒܢ̈ܝ",
+          "chapter": 7,
+          "verse": 7,
+          "sedra": {
+            "id": "467",
+            "lemma": "ܒܪܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Matthew",
+              "chapter": 27,
+              "verse": 9,
+              "id": 13020
+            },
+            {
+              "lemma": "ܒܪܐ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 1,
+              "verse": 16,
+              "id": 22948
+            }
+          ],
+          "note": "Plural „Söhne“ im Konstruktus, gefolgt von Israel oder Mensch. SEDRA und NT führen die Grundform ܒܪܐ."
+        },
+        {
+          "id": "354687",
+          "form": "ܐܢܬܘܢ",
+          "chapter": 9,
+          "verse": 11,
+          "sedra": {
+            "id": "9891",
+            "lemma": "ܐܢܬ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Matthew",
+              "chapter": 10,
+              "verse": 11,
+              "id": 3696
+            },
+            {
+              "lemma": "ܐܢܬ",
+              "pos": "pronoun",
+              "book": "Mark",
+              "chapter": 11,
+              "verse": 2,
+              "id": 19475
+            }
+          ],
+          "note": "Selbständiges Personalpronomen der zweiten Person, im Satz direkt an den Gesprächspartner gerichtet."
+        }
+      ]
+    },
+    {
+      "book": "Nehemiah",
+      "textHash": "4c2a79260e6fab97ad436968caed4bcc5511a2768dfc572ec1d63fd96db51fb5",
+      "entries": [
+        {
+          "id": "355807",
+          "form": "ܠܗܫܐ",
+          "chapter": 2,
+          "verse": 16,
+          "sedra": {
+            "id": "827",
+            "lemma": "ܗܫܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܗܫܐ",
+              "pos": "particle",
+              "book": "Luke",
+              "chapter": 24,
+              "verse": 41,
+              "id": 37874
+            },
+            {
+              "lemma": "ܗܫܐ",
+              "pos": "particle",
+              "book": "John",
+              "chapter": 16,
+              "verse": 24,
+              "id": 47688
+            }
+          ],
+          "note": "Zeitadverb „jetzt“ in der festen Wendung „bis jetzt“."
+        },
+        {
+          "id": "356798",
+          "form": "ܩܫܝ̈ܫܐ",
+          "chapter": 5,
+          "verse": 7,
+          "sedra": {
+            "id": "2898",
+            "lemma": "ܩܫܝܫܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܩܫܝܫܐ",
+              "pos": "noun",
+              "book": "Mark",
+              "chapter": 15,
+              "verse": 1,
+              "id": 21984
+            },
+            {
+              "lemma": "ܩܫܝܫܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 24,
+              "verse": 1,
+              "id": 63220
+            }
+          ],
+          "note": "Substantiv „Älteste“, als Personen neben den Würdenträgern genannt."
+        },
+        {
+          "id": "356909",
+          "form": "ܡܠܬܐ",
+          "chapter": 5,
+          "verse": 13,
+          "sedra": {
+            "id": "1793",
+            "lemma": "ܡܠܬܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܡܠܬܐ",
+              "pos": "noun",
+              "book": "Luke",
+              "chapter": 9,
+              "verse": 45,
+              "id": 28806
+            },
+            {
+              "lemma": "ܡܠܬܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 15,
+              "verse": 6,
+              "id": 58177
+            }
+          ],
+          "note": "„Diese Zusage/Sache“, vor dem Demonstrativpronomen, als Gegenstand des Erfüllens."
+        },
+        {
+          "id": "358719",
+          "form": "ܐܪܥܐ",
+          "chapter": 9,
+          "verse": 18,
+          "sedra": {
+            "id": "302",
+            "lemma": "ܐܪܥܐ"
+          },
+          "ntSources": [
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Acts",
+              "chapter": 7,
+              "verse": 40,
+              "id": 53819
+            },
+            {
+              "lemma": "ܐܪܥܐ",
+              "pos": "noun",
+              "book": "Hebrews",
+              "chapter": 8,
+              "verse": 9,
+              "id": 94586
+            }
+          ],
+          "note": "Nomen „Land/Erde“ nach einer Ortspräposition; im jeweiligen Vers Boden oder Herkunftsland."
+        }
+      ]
+    }
+  ]
+}

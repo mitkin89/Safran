@@ -1,0 +1,55 @@
+{
+  "repository": "https://github.com/ETCBC/syrnt",
+  "commit": "dae3eb6ff62b9b272fb503646796c25d248175ce",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha": "f4ecc578f4fa344010b5b2f7fb2016e3d35666d3"
+    },
+    {
+      "path": "tf/0.1/book@en.tf",
+      "sha": "1d0d475f68b856c2f612f678cfab97ac9c787f1c"
+    },
+    {
+      "path": "tf/0.1/chapter.tf",
+      "sha": "d88e88d7bbe29ca1d56ed18b5d4cdb6960a4d23a"
+    },
+    {
+      "path": "tf/0.1/lexeme.tf",
+      "sha": "620ad3cfeb1c02430255acfb2d25bb3c6075f363"
+    },
+    {
+      "path": "tf/0.1/lexeme_sedra.tf",
+      "sha": "153cb5a87c76b9c0168bb4fbe320e48fb9bf4569"
+    },
+    {
+      "path": "tf/0.1/oslots.tf",
+      "sha": "db8b955ec172a5033305e68d0249f315f219f92a"
+    },
+    {
+      "path": "tf/0.1/otype.tf",
+      "sha": "650b1c27a381f092a14ebc59e0ed51ebeb199373"
+    },
+    {
+      "path": "tf/0.1/prefix.tf",
+      "sha": "69200bd105678afc6f39c35a7556529e91551d2c"
+    },
+    {
+      "path": "tf/0.1/sp.tf",
+      "sha": "3eeea69b11db1873b6a5082d8f4c794fea4dea76"
+    },
+    {
+      "path": "tf/0.1/suffix.tf",
+      "sha": "adf9666cdf7649e301ef45225a83f74f89f493e3"
+    },
+    {
+      "path": "tf/0.1/verse.tf",
+      "sha": "7caad7f6a907228f6e0be4c888d1aca5a32a18de"
+    },
+    {
+      "path": "tf/0.1/word.tf",
+      "sha": "3618f92d1162cdb43f0bb73c4e1269695270f6c9"
+    }
+  ]
+}

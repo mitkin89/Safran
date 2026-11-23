@@ -1,0 +1,163 @@
+{
+  "unimorph": {
+    "repository": "https://github.com/unimorph/syc",
+    "commit": "2e94e69b8c20f57e2593b70ff4c73fe3d5a2066e",
+    "file": "syc",
+    "sha256": "f8ab11544e820b0bc951808c8fd27a5680dc7c10c90e07ec7782bdee9d20d4ad",
+    "license": "CC BY-SA 3.0",
+    "derivesFrom": "SEDRA"
+  },
+  "sedra": {
+    "url": "https://sedra.bethmardutho.org/downloads/latest.json",
+    "generated_at": "2026-11-22T03:00:26Z",
+    "files": [
+      {
+        "table": "sources",
+        "path": "/downloads/2026-11-22/sources.jsonl.gz",
+        "rows": 32,
+        "bytes": 1550,
+        "sha256": "08b5cef1e004a8f527878a4d816fcd062dd001b00bcde1388c2d45b9b5cd9eaf"
+      },
+      {
+        "table": "category_types",
+        "path": "/downloads/2026-11-22/category_types.jsonl.gz",
+        "rows": 20,
+        "bytes": 303,
+        "sha256": "74620eb39e08ef65cc06efcf1e0996c66e9e8b2fe6292666f8d21f37a41859e5"
+      },
+      {
+        "table": "languages",
+        "path": "/downloads/2026-11-22/languages.jsonl.gz",
+        "rows": 16,
+        "bytes": 332,
+        "sha256": "28661c78e5982ded713069490875c2cb4581483a4ddebd8418b9d04286669c22"
+      },
+      {
+        "table": "kaylos",
+        "path": "/downloads/2026-11-22/kaylos.jsonl.gz",
+        "rows": 28,
+        "bytes": 537,
+        "sha256": "a0623e790e96d7439e9889a65c81064b469fe8575e0ec8d3906a57b23b0d5939"
+      },
+      {
+        "table": "stems",
+        "path": "/downloads/2026-11-22/stems.jsonl.gz",
+        "rows": 10,
+        "bytes": 5036,
+        "sha256": "13325d1ecabdc858cff1571984a8bc879482a793579a83f4f0eec5ac48c04316"
+      },
+      {
+        "table": "tenses",
+        "path": "/downloads/2026-11-22/tenses.jsonl.gz",
+        "rows": 7,
+        "bytes": 151,
+        "sha256": "490974fea8113be5ede3e659007b1682f3a0712e074ec028a355369e2ad660a6"
+      },
+      {
+        "table": "numbers",
+        "path": "/downloads/2026-11-22/numbers.jsonl.gz",
+        "rows": 2,
+        "bytes": 106,
+        "sha256": "9633249f002b72e5ac0f1113dcaa57fc806985208b0670632c755091ad1e5b53"
+      },
+      {
+        "table": "persons",
+        "path": "/downloads/2026-11-22/persons.jsonl.gz",
+        "rows": 3,
+        "bytes": 111,
+        "sha256": "d7af8c4015560d3c0882b48a544a335e1a4c953700f0fe1e882bc93e9dc77be9"
+      },
+      {
+        "table": "genders",
+        "path": "/downloads/2026-11-22/genders.jsonl.gz",
+        "rows": 3,
+        "bytes": 115,
+        "sha256": "3b583445eb75bbba975cba9e64fa2f82225aa8aa249ff7003fa224d8aa0b7b76"
+      },
+      {
+        "table": "states",
+        "path": "/downloads/2026-11-22/states.jsonl.gz",
+        "rows": 3,
+        "bytes": 119,
+        "sha256": "8cb315eebfd0ec638e3f4b0ac2eb6743deec118566e7e6a4cd98003e5c7203b1"
+      },
+      {
+        "table": "vowels",
+        "path": "/downloads/2026-11-22/vowels.jsonl.gz",
+        "rows": 5,
+        "bytes": 159,
+        "sha256": "6fa5b891902eb6ed7cd1efc23e14f61e17c7ef87370539593099397e1943ee6b"
+      },
+      {
+        "table": "authors",
+        "path": "/downloads/2026-11-22/authors.jsonl.gz",
+        "rows": 28,
+        "bytes": 7339,
+        "sha256": "711c7e31b3ea219753cfbc3bb816e4fcdb05fc46ad89b6092f82cd20c0972ba6"
+      },
+      {
+        "table": "transliteration_schemes",
+        "path": "/downloads/2026-11-22/transliteration_schemes.jsonl.gz",
+        "rows": 5,
+        "bytes": 161,
+        "sha256": "99e9dab72a1840a13f102c753848bdef55515a30a60597d590429b0283687ce4"
+      },
+      {
+        "table": "transliteration_patterns",
+        "path": "/downloads/2026-11-22/transliteration_patterns.jsonl.gz",
+        "rows": 335,
+        "bytes": 2487,
+        "sha256": "1ae24373bcde42e351532f39d61bb622849cd1fca88727072f76023bdb06fd06"
+      },
+      {
+        "table": "conjugation_templates",
+        "path": "/downloads/2026-11-22/conjugation_templates.jsonl.gz",
+        "rows": 2559,
+        "bytes": 34721,
+        "sha256": "8eb33fbfbecb41fa7d5af0a18bfea535840b2583521e5c513ecd84fd39f7fb31"
+      },
+      {
+        "table": "roots",
+        "path": "/downloads/2026-11-22/roots.jsonl.gz",
+        "rows": 3465,
+        "bytes": 138518,
+        "sha256": "c17f39771522b5ded20b086f65424d1fc7a7bc390548f132fd21f174ae8bd905"
+      },
+      {
+        "table": "lexemes",
+        "path": "/downloads/2026-11-22/lexemes.jsonl.gz",
+        "rows": 35892,
+        "bytes": 2274532,
+        "sha256": "43b40090c642cc4b8baf147c095f0f37452663c0b86e283ecbaba0652b34802d"
+      },
+      {
+        "table": "words",
+        "path": "/downloads/2026-11-22/words.jsonl.gz",
+        "rows": 65000,
+        "bytes": 4927123,
+        "sha256": "aafb6d89352483f5c35e120300649ab4a656dc837c118ac6a487542f78062b74"
+      },
+      {
+        "table": "glosses",
+        "path": "/downloads/2026-11-22/glosses.jsonl.gz",
+        "rows": 67692,
+        "bytes": 1500772,
+        "sha256": "e533ea9b5d089ee20b8ebaeca4941a8cc49bea77dedd1d07fa8317b36f5575cb"
+      },
+      {
+        "table": "etymologies",
+        "path": "/downloads/2026-11-22/etymologies.jsonl.gz",
+        "rows": 3078,
+        "bytes": 49146,
+        "sha256": "53f5c308e110dc6a96c087503a723fa15dd3b26e4f3f9727fc0caddb71cf698a"
+      },
+      {
+        "table": "conjugations",
+        "path": "/downloads/2026-11-22/conjugations.jsonl.gz",
+        "rows": 0,
+        "bytes": 23,
+        "sha256": "30e6fa98fb48c2b132824d1ac5e2243c0be9e9082ff32598d34d7687ca7f6c7f"
+      }
+    ]
+  }
+}

@@ -146,6 +146,20 @@ test('Peshitta review fills missing words alongside the embedded morphology', as
  assert(news.results.some(hit => hit.loc.path[0] === 48 && hit.loc.label === '23' && hit.analysisReference === 'SEDRA #6339'));
  assert.equal(news.lemmaCoverage.withLemma, news.lemmaCoverage.words);
 });
+test('NT-supported Peshitta context reviews retain their separate provenance', async () => {
+ const bundle = path.join(__dirname, '../bundled');
+ const entries = require('../bundled/manifest.json').items.filter(e => e.title === 'Isaiah' && e.versionTitle.startsWith('ETCBC Peshitta'));
+ const result = await C.search({dir: bundle, entries, params: {query: 'ܨܗܝܘܢ', lemma: true, perFile: 500}});
+ const zion = result.results.find(hit => hit.loc.path[0] === 27 && hit.loc.label === '16' && hit.snippet.hit === 'ܒܨܗܝܘܢ');
+ assert.equal(zion?.analysisSource, 'Safran (KI-Kontextprüfung mit NT-Belegen)');
+ assert.equal(zion.analysisReference, 'syrnt · Romans 9:33 · syrnt · 1_Peter 2:6');
+ const heart = await C.search({dir: bundle, entries, params: {query: 'ܠܒܐ', lemma: true, perFile: 500}});
+ const reviewed = heart.results.find(hit => hit.loc.path[0] === 5 && hit.loc.label === '10' && hit.snippet.hit === 'ܠܒܗ');
+ assert.equal(reviewed?.analysisSource, 'Safran (KI-Kontextprüfung mit NT-Belegen)');
+ assert(reviewed.analysisReference.startsWith('SEDRA #1619 · syrnt'));
+ const surface = await C.search({dir: bundle, entries, params: {query: 'ܨܗܝܘܢ', lemma: false}});
+ assert(!surface.results.some(hit => hit.snippet.hit === 'ܒܨܗܝܘܢ'));
+});
 test('Syriac punctuation does not shift verse positions or cross-language peers', async () => {
  const bundle = path.join(__dirname, '../bundled');
  const entries = require('../bundled/manifest.json').items.filter(e => e.title === 'Ruth' && /^(Westminster|ETCBC Peshitta)/.test(e.versionTitle));
@@ -224,4 +238,24 @@ test('word-card lemma scope excludes homonyms of Strong 2805 even when their spe
  assert.equal(lemma.stats[0].n, 1);
  const family = await find({ query: 'חשב', concordanceRoot: '2805' });
  assert.deepEqual(family.results.map(r => r.matchedLemmaId), ['2805', '2803', '4284']);
+});
+
+test('UniMorph context supplement admits reviewed positions and withholds incompatible homographs', async () => {
+ const review = require('../peshitta-lexical-context-review.json');
+ const decisions = require('../tools/peshitta/lexical-context-decisions.json').decisions;
+ const manifest = require('../bundled/manifest.json').items;
+ assert.equal(decisions.length, 121);
+ assert.equal(review.books.reduce((n, b) => n + b.entries.length, 0), 71);
+ const queries = new Map();
+ for (const decision of decisions) {
+  const lemma = decision.lexicalEvidence.candidates[0].lemma;
+  const key = JSON.stringify([decision.book, lemma]);
+  if (!queries.has(key)) {
+   const entries = manifest.filter(e => e.title === decision.book && e.versionTitle.startsWith('ETCBC Peshitta'));
+   queries.set(key, await C.search({dir: path.join(__dirname, '../bundled'), entries, params: {query: lemma, lemma: true, perFile: 10000, limit: 10000}}));
+  }
+  const hits = queries.get(key).results.filter(hit => hit.loc.path[0] === decision.chapter - 1 && Number(hit.loc.label) === decision.verse && hit.snippet.hit === decision.form && hit.analysisSource === review.source);
+  assert.equal(hits.length > 0, decision.contextReview.accepted, `${decision.book} ${decision.chapter}:${decision.verse} ${decision.form}`);
+  if (decision.contextReview.accepted) assert(hits.every(hit => hit.basis === 'lemma' && hit.analysisReference.startsWith('UniMorph Syriac')));
+ }
 });

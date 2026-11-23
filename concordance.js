@@ -7,10 +7,19 @@ let syriacReviewCatalog;
 const syriacReviews = new Map();
 function syriacReview(book) {
   if (syriacReviews.has(book)) return syriacReviews.get(book);
-  syriacReviewCatalog ||= new Map([
-    require('./peshitta-ruth-lemma-review.json'), require('./peshitta-isaiah-lemma-review.json'),
-    ...require('./peshitta-lemma-assignments.json').books,
-  ].map(review => [review.book, review]));
+  if (!syriacReviewCatalog) {
+    const reviews = [require('./peshitta-ruth-lemma-review.json'), require('./peshitta-isaiah-lemma-review.json'),
+      ...require('./peshitta-lemma-assignments.json').books];
+    const catalog = new Map(reviews.map(review => [review.book, review]));
+    const supplements = [require('./peshitta-nt-context-review.json'), require('./peshitta-lexical-context-review.json'),
+      require('./peshitta-corpus-dictionary-review.json')].flatMap(source => source.books);
+    for (const supplement of supplements) {
+      const review = catalog.get(supplement.book);
+      if (review && supplement.textHash !== review.textHash) throw new Error('Peshitta review edition mismatch');
+      catalog.set(supplement.book, review ? {...review, entries: [...review.entries, ...supplement.entries]} : supplement);
+    }
+    syriacReviewCatalog = catalog;
+  }
   const review = syriacReviewCatalog.get(book);
   if (!review) {
     syriacReviews.set(book, null);
@@ -34,6 +43,23 @@ function syriacReview(book) {
     if (row.alignedSources) analysis = {
       lemmas, source: 'ETCBC Syriac (automatischer Übersetzungsabgleich)',
       reference: row.alignedSources.map(({book, ref}) => `${book} ${ref}`).join(' · '),
+    };
+    if (row.ntSources) analysis = {
+      lemmas: analysis.lemmas, source: 'Safran (KI-Kontextprüfung mit NT-Belegen)',
+      reference: [
+        row.sedra && `SEDRA #${row.sedra.id}`,
+        ...row.ntSources.map(({book, chapter, verse}) => `syrnt · ${book} ${chapter}:${verse}`),
+      ].filter(Boolean).join(' · '),
+    };
+    if (row.unimorph) analysis = {
+      lemmas: analysis.lemmas, source: 'Safran (KI-Kontextprüfung mit UniMorph-Belegen)',
+      reference: `UniMorph Syriac · ${row.contextLemma} · ${row.unimorph.grammar.join(' / ')}`,
+    };
+    if (row.corpusDictionaryReview) analysis = {
+      lemmas: analysis.lemmas, source: 'Safran (KI-Kontextprüfung mit ETCBC- und SEDRA-Belegen)',
+      reference: [`SEDRA #${row.corpusDictionaryReview.sedraId}`,
+        ...row.corpusDictionaryReview.sources.map(s => `ETCBC Syriac · ${s.book} ${s.chapter}:${s.verse}`),
+      ].join(' · '),
     };
     words.set(row.id, { ...row, analysis });
   }
@@ -108,7 +134,7 @@ function analyses(e, d, html, p, ts, validHash, locate) {
   }
   return null;
 }
-async function search({ dir, entries, params, onProgress = () => {}, isCancelled = () => false }) {
+async function search({ dir, entries, params, onProgress = () => {}, onOccurrence = null, isCancelled = () => false }) {
   const qt = tokens(String(params.query || '').trim()), q = qt[0]?.key;
   const empty = { results: [], stats: [], dist: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, concordance: true, coverage: { annotated: 0, surface: 0 }, hitsByBasis: { lemma: 0, surface: 0, root: 0 }, errors: 0 };
   if (!q || String(params.query).length > 100 || qt.length !== 1 || /[*?]/.test(params.query)) return { ...empty, error: 'Bitte ein einzelnes Wort ohne Platzhalter eingeben.' };
@@ -152,6 +178,9 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
         o++; passage = true;
         const basis = family ? 'root' : exactLemma || lemmaHit ? 'lemma' : 'surface';
         out.hitsByBasis[basis]++;
+        // Audit consumers receive all matches, including those beyond the UI display caps.
+        if (onOccurrence) onOccurrence({title: e.title, path: p, position: i + 1, form: t.text, basis,
+          analysisSource: basis === 'surface' ? '' : aa.source, analysisReference: aa?.reference || ''});
         if (out.results.length >= limit) { out.truncated = true; continue; }
         if (shown >= perFile) { out.capped = true; continue; }
         const loc = locate(p), before = text.slice(ts[Math.max(0, i - 7)].start, t.start), after = text.slice(t.end, ts[Math.min(ts.length - 1, i + 7)].end);

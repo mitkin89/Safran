@@ -1,0 +1,1046 @@
+{
+  "source": "Safran (KI-Kontextprüfung mit UniMorph-Belegen)",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "derivedFrom": "UniMorph Syriac (Charbel El-Khaissi), SEDRA-derived",
+  "repository": "https://github.com/unimorph/syc",
+  "commit": "2e94e69b8c20f57e2593b70ff4c73fe3d5a2066e",
+  "books": [
+    {
+      "book": "Job",
+      "textHash": "b4af54a06bedea462a44e8ab9ba6b3741537faa9f1f0e025fffc808c0c46905c",
+      "entries": [
+        {
+          "id": "83455",
+          "form": "ܐܒܕܢܗ",
+          "chapter": 21,
+          "verse": 20,
+          "contextLemma": "ܐܒܕܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Verderben“ als Objekt von „sehen“."
+        },
+        {
+          "id": "85960",
+          "form": "ܬܪܝܨܘܬܗ",
+          "chapter": 33,
+          "verse": 23,
+          "contextLemma": "ܬܪܝܨܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „seine Aufrichtigkeit“ als Objekt von „zeigen“."
+        },
+        {
+          "id": "85989",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 33,
+          "verse": 26,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "86435",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 35,
+          "verse": 8,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "86522",
+          "form": "ܕܓ̈ܠܢ",
+          "chapter": 36,
+          "verse": 4,
+          "contextLemma": "ܕܓܠܐ",
+          "unimorph": {
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;PSS1P;SG"
+            ]
+          },
+          "note": "Prädikatives Adjektiv „falsch“ zu „meine Worte“, keine Verbform."
+        }
+      ]
+    },
+    {
+      "book": "I Samuel",
+      "textHash": "228d4114c1b74561cffd1cde606f7d13f9e570604291945f4a07184628cc68e1",
+      "entries": [
+        {
+          "id": "112156",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 12,
+          "verse": 7,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "119427",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 26,
+          "verse": 23,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "117112",
+          "form": "ܪܝܪܗ",
+          "chapter": 21,
+          "verse": 14,
+          "contextLemma": "ܪܝܪܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Speichel“ als Objekt von „herabfließen lassen“."
+        },
+        {
+          "id": "118445",
+          "form": "ܥܠܝܡ̈ܘܗܝ",
+          "chapter": 25,
+          "verse": 9,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+        },
+        {
+          "id": "118487",
+          "form": "ܥܠܝ̈ܡܘܗܝ",
+          "chapter": 25,
+          "verse": 12,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „seine jungen Männer“ als Satzsubjekt."
+        }
+      ]
+    },
+    {
+      "book": "Psalms",
+      "textHash": "7a4070950b05c252f976b70882d70a19a8f01a27c015a7a9f99b77905856456b",
+      "entries": [
+        {
+          "id": "138568",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 50,
+          "verse": 6,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "145324",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 97,
+          "verse": 6,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "145402",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 98,
+          "verse": 2,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "146656",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 106,
+          "verse": 3,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "136379",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 35,
+          "verse": 24,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "136570",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 37,
+          "verse": 6,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "137263",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 40,
+          "verse": 10,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "137275",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 40,
+          "verse": 11,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "138840",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 51,
+          "verse": 16,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "140269",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 65,
+          "verse": 6,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "141359",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 71,
+          "verse": 15,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "141371",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 71,
+          "verse": 16,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "141465",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 72,
+          "verse": 3,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "149336",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 119,
+          "verse": 142,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "151397",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 143,
+          "verse": 11,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "140266",
+          "form": "ܩܕܝܫܘܬܗ",
+          "chapter": 65,
+          "verse": 5,
+          "contextLemma": "ܩܕܝܫܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „seine Heiligkeit“ nach „von“, bezogen auf den Tempel."
+        },
+        {
+          "id": "147480",
+          "form": "ܝܬܡ̈ܝܗܘܢ",
+          "chapter": 109,
+          "verse": 12,
+          "contextLemma": "ܝܬܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „ihre Waisen“ nach „über“."
+        }
+      ]
+    },
+    {
+      "book": "Proverbs",
+      "textHash": "e9ba45eb9b0d9984ef52a640299a897c3576695683750fa1aa80cc6f1910ff82",
+      "entries": [
+        {
+          "id": "179473",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 11,
+          "verse": 5,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "179308",
+          "form": "ܡܣܟܢܘܬܗܘܢ",
+          "chapter": 10,
+          "verse": 15,
+          "contextLemma": "ܡܣܟܢܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          },
+          "note": "Substantiv „ihre Armut“ als nominale Prädikation."
+        },
+        {
+          "id": "179480",
+          "form": "ܙܕܝܩܘܬܗܘܢ",
+          "chapter": 11,
+          "verse": 6,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          },
+          "note": "Substantiv „ihre Gerechtigkeit“ als Satzsubjekt."
+        }
+      ]
+    },
+    {
+      "book": "Isaiah",
+      "textHash": "0edf3dc1041da636a21ca83fc8f340b15288fa00296e1fd883db319f97f72733",
+      "entries": [
+        {
+          "id": "206692",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 42,
+          "verse": 21,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "210852",
+          "form": "ܙܕܝܩܘܬܟ",
+          "chapter": 58,
+          "verse": 8,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "208019",
+          "form": "ܙܕܝܩܘܬܝ",
+          "chapter": 46,
+          "verse": 13,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "209178",
+          "form": "ܙܕܝܩܘܬܝ",
+          "chapter": 51,
+          "verse": 5,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "210606",
+          "form": "ܙܕܝܩܘܬܝ",
+          "chapter": 57,
+          "verse": 12,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "196430",
+          "form": "ܕܢܚܗ",
+          "chapter": 4,
+          "verse": 2,
+          "contextLemma": "ܕܢܚܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Aufgang/Spross“ als Subjekt nach „wird sein“."
+        },
+        {
+          "id": "197799",
+          "form": "ܛܢܢܗ",
+          "chapter": 9,
+          "verse": 6,
+          "contextLemma": "ܛܢܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Eifer“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "201725",
+          "form": "ܛܢܢܗ",
+          "chapter": 26,
+          "verse": 11,
+          "contextLemma": "ܛܢܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Eifer“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "205189",
+          "form": "ܛܢܢܗ",
+          "chapter": 37,
+          "verse": 32,
+          "contextLemma": "ܛܢܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Eifer“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "197895",
+          "form": "ܥܠܝܡ̈ܝܗܘܢ",
+          "chapter": 9,
+          "verse": 16,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „ihre jungen Männer“ als nominales Satzglied."
+        },
+        {
+          "id": "197897",
+          "form": "ܝܬ̈ܡܝܗܘܢ",
+          "chapter": 9,
+          "verse": 16,
+          "contextLemma": "ܝܬܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „ihre Waisen“ nach „über“."
+        },
+        {
+          "id": "205771",
+          "form": "ܥܡܝܪܗ",
+          "chapter": 40,
+          "verse": 7,
+          "contextLemma": "ܥܡܝܪܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Gras“ mit anschließendem Genitivattribut."
+        },
+        {
+          "id": "207228",
+          "form": "ܐܘܡ̈ܢܝܗܘܢ",
+          "chapter": 44,
+          "verse": 11,
+          "contextLemma": "ܐܘܡܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „ihre Handwerker“ als Satzsubjekt."
+        },
+        {
+          "id": "211717",
+          "form": "ܙܕܝܩܘܬܗ̇",
+          "chapter": 62,
+          "verse": 1,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „ihre Gerechtigkeit“ als Satzsubjekt."
+        },
+        {
+          "id": "211726",
+          "form": "ܙܕܝܩܘܬܟܝ",
+          "chapter": 62,
+          "verse": 2,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SF;SG"
+            ]
+          },
+          "note": "Substantiv „deine Gerechtigkeit“ als Objekt von „sehen“."
+        },
+        {
+          "id": "211897",
+          "form": "ܣܘܡܩܝܢ",
+          "chapter": 63,
+          "verse": 2,
+          "contextLemma": "ܣܘܡܩܐ",
+          "unimorph": {
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;ABS;PL",
+              "N;PSS1P;PL"
+            ]
+          },
+          "note": "Prädikatives Adjektiv „rot“ zu „deine Gewänder“."
+        },
+        {
+          "id": "212076",
+          "form": "ܛܢܢܟ",
+          "chapter": 63,
+          "verse": 15,
+          "contextLemma": "ܛܢܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          },
+          "note": "Substantiv „dein Eifer“ in der Frage „wo ist“."
+        },
+        {
+          "id": "212208",
+          "form": "ܙܕܝܩܘܬܢ",
+          "chapter": 64,
+          "verse": 5,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1P;SG"
+            ]
+          },
+          "note": "Substantiv „unsere Gerechtigkeit“ im nominalen Vergleich."
+        }
+      ]
+    },
+    {
+      "book": "Hosea",
+      "textHash": "3da572442d078df4430778079af0310992dc648649c0be1c2200a2ed4f71f626",
+      "entries": [
+        {
+          "id": "262351",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 10,
+          "verse": 12,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "261812",
+          "form": "ܣܐܡܗܘܢ",
+          "chapter": 8,
+          "verse": 4,
+          "contextLemma": "ܣܐܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          },
+          "note": "Substantiv „ihr Silber“ als Material der Götzen."
+        },
+        {
+          "id": "262725",
+          "form": "ܣܐܡܗܘܢ",
+          "chapter": 13,
+          "verse": 2,
+          "contextLemma": "ܣܐܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          },
+          "note": "Substantiv „ihr Silber“ als Material der Götzen."
+        },
+        {
+          "id": "261997",
+          "form": "ܐܟܘܠܘܗܝ",
+          "chapter": 9,
+          "verse": 4,
+          "contextLemma": "ܐܟܘܠܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „seine Esser“ nach „alle“."
+        }
+      ]
+    },
+    {
+      "book": "Micah",
+      "textHash": "cdd246ae2d14050e3a8ea7171f5323d05deb2eca2327e78d592490491a47209b",
+      "entries": [
+        {
+          "id": "268228",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 6,
+          "verse": 5,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        }
+      ]
+    },
+    {
+      "book": "II Chronicles",
+      "textHash": "f9f6b814a46801da7288052365a46cb031ab4b0e774a2d7f339653183671fd6e",
+      "entries": [
+        {
+          "id": "319957",
+          "form": "ܙܕܝܩܘܬܗ",
+          "chapter": 6,
+          "verse": 23,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "331677",
+          "form": "ܥܠܝܡ̈ܝܗܘܢ",
+          "chapter": 36,
+          "verse": 17,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „ihre jungen Männer“ als nominales Satzglied."
+        },
+        {
+          "id": "319074",
+          "form": "ܐܘܪܟܗܝܢ",
+          "chapter": 3,
+          "verse": 11,
+          "contextLemma": "ܐܘܪܟܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PF;SG"
+            ]
+          },
+          "note": "Substantiv „ihre Länge“ mit Maßangabe zu den Flügeln."
+        },
+        {
+          "id": "319138",
+          "form": "ܐܘܪܟܗܘܢ",
+          "chapter": 3,
+          "verse": 15,
+          "contextLemma": "ܐܘܪܟܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          },
+          "note": "Substantiv „ihre Länge“ mit Maßangabe zu den Säulen."
+        }
+      ]
+    },
+    {
+      "book": "Esther",
+      "textHash": "f89cad64010e460baf411cccc9709b0278b2725f035b753a032c4fd3becfa751",
+      "entries": [
+        {
+          "id": "285731",
+          "form": "ܥܠܝܡ̈ܘܗܝ",
+          "chapter": 2,
+          "verse": 2,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+        },
+        {
+          "id": "287004",
+          "form": "ܥܠܝܡ̈ܘܗܝ",
+          "chapter": 6,
+          "verse": 3,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+        },
+        {
+          "id": "287032",
+          "form": "ܥܠܝܡ̈ܘܗܝ",
+          "chapter": 6,
+          "verse": 5,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+        }
+      ]
+    },
+    {
+      "book": "II Samuel",
+      "textHash": "dac71b6fb4c819d28a3173b026cea38835df5ff79f69b5df9025fba939e866fa",
+      "entries": [
+        {
+          "id": "124757",
+          "form": "ܟܦܣܗ̇",
+          "chapter": 11,
+          "verse": 4,
+          "contextLemma": "ܟܦܣܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „ihre Unreinheit“ nach der Präposition „von“."
+        },
+        {
+          "id": "127765",
+          "form": "ܪܚܡܘܬܗ",
+          "chapter": 16,
+          "verse": 17,
+          "contextLemma": "ܪܚܡܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „Freundschaft“ mit Suffix in der nominalen Frage."
+        },
+        {
+          "id": "130813",
+          "form": "ܙܕܝܩܘܬܝ",
+          "chapter": 22,
+          "verse": 21,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        },
+        {
+          "id": "130845",
+          "form": "ܙܕܝܩܘܬܝ",
+          "chapter": 22,
+          "verse": 25,
+          "contextLemma": "ܙܕܝܩܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          },
+          "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+        }
+      ]
+    },
+    {
+      "book": "Ecclesiastes",
+      "textHash": "516fd94d9fe0f92a5215bac2a784b2dd88c92a5a371831678fe8190a1dba7f02",
+      "entries": [
+        {
+          "id": "192395",
+          "form": "ܐ̈ܟܘܠܝܗ̇",
+          "chapter": 5,
+          "verse": 10,
+          "contextLemma": "ܐܟܘܠܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „ihre Esser“ als Satzsubjekt."
+        },
+        {
+          "id": "192778",
+          "form": "ܓܘܚܟܗܘܢ",
+          "chapter": 7,
+          "verse": 6,
+          "contextLemma": "ܓܘܚܟܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          },
+          "note": "Substantiv „ihr Lachen“ im Vergleichssatz."
+        }
+      ]
+    },
+    {
+      "book": "Song of Songs",
+      "textHash": "eb90ce29692aacd495f29f2057481bf2d96755d554dee1480713222217c36420",
+      "entries": [
+        {
+          "id": "194845",
+          "form": "ܒܣܝܡܘܬܝ",
+          "chapter": 5,
+          "verse": 1,
+          "contextLemma": "ܒܣܝܡܘܬܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          },
+          "note": "Substantiv „meine Süßigkeit“ als Objekt von „essen“."
+        },
+        {
+          "id": "194969",
+          "form": "ܐܘ̈ܟܡܢ",
+          "chapter": 5,
+          "verse": 11,
+          "contextLemma": "ܐܘܟܡܐ",
+          "unimorph": {
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;PSS1P;SG"
+            ]
+          },
+          "note": "Prädikatives Adjektiv „schwarz“ zu den Haarlocken."
+        }
+      ]
+    },
+    {
+      "book": "Amos",
+      "textHash": "0df71134de9de7afa0f42116fa9a229d6c1ffd9ac891a4847dff4f75df04a21f",
+      "entries": [
+        {
+          "id": "264393",
+          "form": "ܥܠܝ̈ܡܝܟܘܢ",
+          "chapter": 2,
+          "verse": 11,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „eure jungen Männer“ nach „aus“."
+        },
+        {
+          "id": "264821",
+          "form": "ܥܠܝܡ̈ܝܟܘܢ",
+          "chapter": 4,
+          "verse": 10,
+          "contextLemma": "ܥܠܝܡܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS2PM;PL"
+            ]
+          },
+          "note": "Pluralisches Substantiv „eure jungen Männer“ als Objekt von „töten“."
+        }
+      ]
+    },
+    {
+      "book": "Habakkuk",
+      "textHash": "54cae3cb0b08fa03df27bdbee5d7e7acf06883b9704e6f5396106dbceb908066",
+      "entries": [
+        {
+          "id": "269677",
+          "form": "ܐܘܡܢܗ",
+          "chapter": 2,
+          "verse": 18,
+          "contextLemma": "ܐܘܡܢܐ",
+          "unimorph": {
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          },
+          "note": "Substantiv „sein Handwerker“ im nominalen Satzglied."
+        }
+      ]
+    }
+  ]
+}

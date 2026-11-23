@@ -47,3 +47,40 @@ node tools/peshitta/context-review.cjs --assign-missing /tmp/safran-peshitta-aud
 The batch excludes Ruth and Isaiah, which have their own reviews. It writes a report per book and a coverage summary. It also accepts a repeated translation alignment if the same Syriac form and one-to-one Hebrew lemma occur at least twelve times across at least four annotated books, with no conflicting same-form corpus analysis. These entries retain two source references and have a separate label in search. The batch never uses its own transferred analyses to generate other assignments.
 
 Use `--include-embedded-gaps` to include books with partial embedded morphology. This adds the individual reviews in `embedded-gap-context.json` and leaves existing source analyses in place. To use the repeated translation alignment for Isaiah, append `--include-repeated-alignment` to the individual-book audit and accepted export commands.
+
+## Additional NT attestations
+
+`nt-source.json` pins the MIT-licensed ETCBC/syrnt source commit and Git blob hashes. With those Text-Fabric files in a local directory, combine the existing open-word audit with NT attestations:
+
+```sh
+node tools/peshitta/nt-evidence.cjs /tmp/safran-syrnt /path/to/offene-wortstellen.jsonl /tmp/safran-combined-evidence
+```
+
+The output preserves each OT position and its candidate analyses, adding exact-form NT lemmas, parts of speech, occurrence counts and references. It also reports which existing SEDRA candidates have the same headword. The NT lexicon is itself derived from SEDRA, so agreement between these datasets shares provenance. This command prepares evidence for contextual review and does not publish new concordance assignments.
+
+The context check adds a separate finding for each open position. It requires a single NT lemma and part of speech for that form, the same immediate neighbors in at least two NT books, and agreement with a single ETCBC OT analysis. Multiple occurrences of the same form in an OT verse are left for individual resolution. The subset individually reviewed in its OT context is stored in `peshitta-nt-context-review.json` with NT references and explanatory notes. The original NT source license accompanies the app in `bundled/syrnt-LICENSE.txt`.
+
+## UniMorph and current SEDRA lexical evidence
+
+`lexical-source.json` pins the UniMorph Syriac commit and file hash, and records the SEDRA weekly manifest used for comparison. Place `unimorph-syc.tsv`, `sedra-latest.json` and the additional SEDRA tables from that manifest in a source directory. Tables already held under `tools/sedra/source/` are verified against the weekly manifest.
+
+```sh
+node tools/peshitta/lexical-evidence.cjs /tmp/safran-lexical-sources /path/to/combined-evidence.jsonl /tmp/safran-lexical-review
+```
+
+The command excludes positions already resolved by `peshitta-nt-context-review.json`, preserves the remaining OT context and NT evidence, and adds UniMorph lemmas and grammatical tags for the same normalized form. It reports matches to the existing SEDRA headwords and form evidence absent from SEDRA lookup. UniMorph Syriac derives from SEDRA, and normalization merges vocalized and unvocalized spellings. Multiple homonyms may remain under the same normalized lemma. The result supplies candidates for contextual review.
+
+The 121 additional positions without existing SEDRA lookup hits have been individually read in their supplied OT verse contexts. `lexical-context-decisions.json` preserves all candidates, contexts and decisions, including 50 withheld positions. The 71 accepted positions are exported in `peshitta-lexical-context-review.json`. Each entry retains its native ID, exact spelling, edition hash, candidate grammar and review note. These are AI contextual decisions, not independent scholarly verification. Several same-spelling candidates are incompatible verbs or proper names, so UniMorph form agreement alone must never publish an assignment. The supplement and derived decision data are distributed under CC BY-SA 3.0 with attribution to UniMorph Syriac / Charbel El-Khaissi and its SEDRA provenance.
+
+## Context batch of 1,000 additional positions
+
+`lexical-context-batch-1000.json` records 1,000 further previously unresolved positions selected from six frequent nominal form groups. Each entry preserves its full verse, lexical candidates, exact native ID, individual decision and edition hash. The assistant read the local verse contexts and inspected exceptional constructions in full. Of this deliberately favorable subset, 999 main-lemma assignments were accepted and one construction in Proverbs 21:20 was withheld. This acceptance rate does not estimate the unresolved corpus as a whole and does not represent independent scholarly verification.
+
+The main lemmas retain the canonical ETCBC lemma spelling to join the existing concordance. Exact-form annotated source locations in two different books and a specific SEDRA entry accompany every accepted position. UniMorph was used to select and corroborate candidates. It shares SEDRA provenance. The suffixed house form receives only its main lemma, without choosing between the competing pronoun analyses.
+
+```sh
+node tools/peshitta/export-context-batch.cjs tools/peshitta/lexical-context-batch-1000.json peshitta-corpus-dictionary-review.json
+node --test tests/peshitta-context-batch.test.js tests/concordance.test.js
+```
+
+The exporter validates frozen decisions, exact source IDs and editions, source noun analyses, dictionary agreement and lack of overlap with earlier assignments. It never approves a candidate itself. The regression searches every accepted native word position under the canonical lemma and checks the withheld position as well. Runtime provenance is labelled as an AI context review with ETCBC and SEDRA attestations. Original embedded morphology remains unchanged.

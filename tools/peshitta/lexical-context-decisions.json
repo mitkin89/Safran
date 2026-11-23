@@ -1,0 +1,6334 @@
+{
+  "source": "https://github.com/unimorph/syc",
+  "commit": "2e94e69b8c20f57e2593b70ff4c73fe3d5a2066e",
+  "license": "CC BY-SA 3.0",
+  "decisions": [
+    {
+      "book": "Job",
+      "id": "82367",
+      "form": "ܒܛܢܘ",
+      "chapter": 15,
+      "verse": 35,
+      "reason": "no-candidate",
+      "context": "ܒܛܢܘ ܥܘ̣ܠܐ ܘܝܠܕܘ ܥܬܐ ܘܟܪ̈ܣܬܗܘܢ ܡ̈ܠܝܢ ܢܟܠܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2029",
+        "ref": "15:35",
+        "form": "הָרֹ֣ה"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܒܛܢܘܬܐ",
+            "spellings": [
+              "ܒܛܢܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „sie empfingen“, kein Substantiv „Schwangerschaft“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "211008",
+      "form": "ܒܛܢܘ",
+      "chapter": 59,
+      "verse": 4,
+      "reason": "no-candidate",
+      "context": "ܘܠܝܬ ܕܩ̇ܪܐ ܒܙܕܝܩܘܬܐ ܘܠܝܬ ܕܕܐ̇ܢ ܒܗܝܡܢܘܬܐ ܐܬܬܟܠܘ ܥܠ ܣܪܝܩܘܬܐ ܘܡܠܠܘ ܪܝܩܢܘܬܐ ܒܛܢܘ ܥܘܠܐ ܘܝܠܕܘ ܟܐ̈ܒܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2029",
+        "ref": "59:4",
+        "form": "הָר֥וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܒܛܢܘܬܐ",
+            "spellings": [
+              "ܒܛܢܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „sie empfingen“, kein Substantiv „Schwangerschaft“."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "82454",
+      "form": "ܚ̇ܒܪܘ",
+      "chapter": 16,
+      "verse": 9,
+      "reason": "no-candidate",
+      "context": "ܪܘܓܙܗ ܬܒܪܢܝ ܘܦܫܚܢܝ ܘܚ̇ܪܩ ܥܠܝ ܫܢ̈ܘܗܝ ܒ̈ܥܠܕܒܒܝ ܚ̇ܒܪܘ ܥܝ̈ܢܝܗܘܢ ܥܠܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3913",
+        "ref": "16:9",
+        "form": "יִלְט֖וֹשׁ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܒܪܘܬܐ",
+            "spellings": [
+              "ܚܒܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verbales Prädikat bei „meine Feinde“, die nominale Analyse „Gemeinschaft“ passt nicht."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "83455",
+      "form": "ܐܒܕܢܗ",
+      "chapter": 21,
+      "verse": 20,
+      "reason": "no-candidate",
+      "context": "ܘܢܚ̈ܙܝܢ ܥܝ̈ܢܘܗܝ ܐܒܕܢܗ ܘܡܢ ܚܡܬܗ ܕܐܠܗܐ ܢܫܬܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3589",
+        "ref": "21:20",
+        "form": "כִּיד֑וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܒܕܢܐ",
+            "spellings": [
+              "ܐܒܕܢܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Verderben“ als Objekt von „sehen“."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "85413",
+      "form": "ܟܕܒܬ",
+      "chapter": 31,
+      "verse": 28,
+      "reason": "no-candidate",
+      "context": "ܐܦ ܗܘ ܚܙܐ ܟܠܗܝܢ ܨܢܥ̈ܬܝ ܐܢ ܟܕܒܬ ܩܕܡ ܐܠܗܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3584",
+        "ref": "31:28",
+        "form": "כִחַ֖שְׁתִּי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܟܕܒܐ",
+            "spellings": [
+              "ܟܕܒܐ"
+            ],
+            "grammar": [
+              "ADJ;PSSD;PL;FEM",
+              "ADJ;PSSD;SG;MASC"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „ich verleugnete/log“, kein Adjektiv."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "85960",
+      "form": "ܬܪܝܨܘܬܗ",
+      "chapter": 33,
+      "verse": 23,
+      "reason": "no-candidate",
+      "context": "ܐܢ ܐܝܬ ܠܗ ܡܠܐܟܐ ܕܫ̇ܡܥ ܠܗ ܚܕܐ ܡܢ ܐܠܦ ܢܚܘܐ ܠܐܢܫܐ ܬܪܝܨܘܬܗ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3476",
+        "ref": "33:23",
+        "form": "יָשְׁרֽוֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܬܪܝܨܘܬܐ",
+            "spellings": [
+              "ܬܪܝܨܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „seine Aufrichtigkeit“ als Objekt von „zeigen“."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "85989",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 33,
+      "verse": 26,
+      "reason": "hebrew-alignment-only",
+      "context": "ܘܢܨܠܐ ܩܕܡ ܐܠܗܐ ܘܢܫܡܥܝܘܗܝ ܘܢܨܛܒܐ ܒܗ ܘܢܬܚܙܐ ܩܕܡܘܗܝ ܒܫܘܒܚܐ ܘܢܦܪܘܥ ܠܒܪܢܫܐ ܙܕܝܩܘܬܗ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "33:26",
+        "form": "צִדְקָתֽוֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "112156",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 12,
+      "verse": 7,
+      "reason": "corpus-spelling-only",
+      "context": "ܩܘܡܘ ܗܫܐ ܘܐܕܘܢܟܘܢ ܩܕܡ ܡܪܝܐ ܒܟܠܗ̇ ܙܕܝܩܘܬܗ ܕܥܒܕ ܥܡܟܘܢ ܘܥܡ ܐ̈ܒܗܝܟܘܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "119427",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 26,
+      "verse": 23,
+      "reason": "hebrew-alignment-only",
+      "context": "ܘܡܪܝܐ ܢܗܦܟ ܠܓܒܪܐ ܙܕܝܩܘܬܗ ܘܗܝܡܢܘܬܗ ܕܐܫܠܡܟ ܡܪܝܐ ܝܘܡܢܐ ܒܐ̈ܝܕܝ ܘܠܐ ܨܒܝܬ ܠܡܘܫܛܘ ܐܝܕܝ ܒܡܫܝܚܗ ܕܡܪܝܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "26:23",
+        "form": "צִדְקָת֖וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "138568",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 50,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܢܚܘܘܢ ܫܡܝܐ ܙܕܝܩܘܬܗ ܡܛܠ ܕܐܠܗܐ ܗܘ ܕܝܢܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "50:6",
+        "form": "צִדְק֑וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "145324",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 97,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܚܘܝܘ ܫܡܝܐ ܙܕܝܩܘܬܗ ܘܚܙܘ ܟܠܗܘܢ ܥܡ̈ܡܐ ܐܝܩܪܗ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "97:6",
+        "form": "צִדְק֑וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "145402",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 98,
+      "verse": 2,
+      "reason": "hebrew-alignment-only",
+      "context": "ܚܘܝ ܡܪܝܐ ܦܘܪܩܢܗ ܘܠܥܝܢ ܥܡ̈ܡܐ ܓܠܐ ܙܕܝܩܘܬܗ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "98:2",
+        "form": "צִדְקָתֽוֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "146656",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 106,
+      "verse": 3,
+      "reason": "hebrew-alignment-only",
+      "context": "ܛܘܒܝܗܘܢ ܠܐܝܠܝܢ ܕܢܛܪܝܢ ܕܝܢ̈ܘܗܝ ܘܥܒܕܝܢ ܙܕܝܩܘܬܗ ܒܟܠܙܒܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "106:3",
+        "form": "צְדָקָ֣ה"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Proverbs",
+      "id": "179473",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 11,
+      "verse": 5,
+      "reason": "hebrew-alignment-only",
+      "context": "ܙܕܝܩܘܬܗ ܕܬܡܝܡܐ ܬܬܪܘܨ ܐܘܪܚܗ ܘܒܥܘ̣ܠܗ ܢܦܠ ܥ̇ܘܠܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "11:5",
+        "form": "צִדְקַ֣ת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "206692",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 42,
+      "verse": 21,
+      "reason": "corpus-spelling-only",
+      "context": "ܡܪܝܐ ܨܒܐ ܡܛܠ ܙܕܝܩܘܬܗ ܕܢܘܪܒ ܢܡܘܣܐ ܘܢܫܒܚܝܘܗܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "42:21",
+        "form": "צִדְק֑וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Hosea",
+      "id": "262351",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 10,
+      "verse": 12,
+      "reason": "corpus-spelling-only",
+      "context": "ܙܪܘܥܘ ܠܟܘܢ ܙܕܝܩܘܬܐ ܘܚܨܘܕܘ ܦܘܡܗ ܕܛܝܒܘܬܐ ܐܢܗܪܘ ܠܟܘܢ ܫܪܓܐ ܡܛܘܠ ܕܙܒܢܐ ܗܘ ܠܡܒܥܝܗ ܠܡܪܝܐ ܥܕ ܐܬܐ ܘܡܚܘܐ ܠܟܘܢ ܙܕܝܩܘܬܗ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "10:12",
+        "form": "צֶ֖דֶק"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Micah",
+      "id": "268228",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 6,
+      "verse": 5,
+      "reason": "hebrew-alignment-only",
+      "context": "ܥܡܝ ܐܬܕܟܪ ܗܟܝܠ ܡܢܐ ܐܬܪܥܝ ܥܠܝܟ ܒܠܩ ܡܠܟܐ ܕܡܘܐܒ ܘܡܢܐ ܥܢܝܗܝ ܒܠܥܡ ܒܪ ܒܥܘܪ ܡܢ ܣܛܝܡ ܘܥܕܡܐ ܠܓܠܓܠ ܡܛܠ ܕܝܕܥ ܙܕܝܩܘܬܗ ܕܡܪܝܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "6:5",
+        "form": "צִדְק֥וֹת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "II Chronicles",
+      "id": "319957",
+      "form": "ܙܕܝܩܘܬܗ",
+      "chapter": 6,
+      "verse": 23,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܐܢܬ ܬܫܡܥ ܒܩܠ ܨܠܘܬܗܘܢ ܡܢ ܕܘܟܬܟ ܡܢ ܫܡܝܐ ܘܬܥܒܕ ܘܬܕܘܢ ܠܥܒ̣̈ܕܝܟ ܠܡܚܝܒܘ ܠܚܝܒܐ ܘܠܡܬܠ ܐܘܪܚܗ ܒܪܫܗ ܘܠܡܙܕܩܘ ܠܙܕܝܩܐ ܘܠܡܬܠ ܠܗ ܐܝܟ ܙܕܝܩܘܬܗ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „seine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "86435",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 35,
+      "verse": 8,
+      "reason": "corpus-spelling-only",
+      "context": "ܠܢܦܫܟ ܗܘ ܪܘܫܥܟ ܘܠܢܦܫܟ ܗܝ ܙܕܝܩܘܬܟ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "35:8",
+        "form": "צִדְקָתֶֽךָ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "136379",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 35,
+      "verse": 24,
+      "reason": "corpus-spelling-only",
+      "context": "ܕܘܢܝܢܝ ܐܝܟ ܙܕܝܩܘܬܟ ܡܪܝܐ ܕܠܐ ܢܚܕܘܢ ܠܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "136570",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 37,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܡܦܩ ܐܝܟ ܢܘܗܪܐ ܙܕܝܩܘܬܟ ܘܕܝܢ̈ܝܟ ܐܝܟ ܛܗܪܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "37:6",
+        "form": "צִדְקֶ֑ךָ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "137263",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 40,
+      "verse": 10,
+      "reason": "corpus-spelling-only",
+      "context": "ܣܒܪܬ ܙܕܝܩܘܬܟ ܒܥܕܬܐ ܪܒܬܐ ܘܣܦܘ̈ܬܝ ܠܐ ܟܠܝܬ ܡܪܝܐ ܐܢܬ ܝܕܥ ܐܢܬ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "40:10",
+        "form": "צֶ֨דֶק"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "137275",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 40,
+      "verse": 11,
+      "reason": "corpus-spelling-only",
+      "context": "ܕܠܐ ܛܫܝܬ ܙܕܝܩܘܬܟ ܒܓܘ ܠܒܝ ܐܠܐ ܦܘܪܩܢܟ ܘܗܝܡܢܘܬܟ ܐܡܪܬ ܘܠܐ ܛܫܝܬ ܛܝܒܘܬܟ ܘܗܝܡܢܘܬܟ ܡܢ ܥܕܬܐ ܪܒܬܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "40:11",
+        "form": "צִדְקָתְךָ֬"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "138840",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 51,
+      "verse": 16,
+      "reason": "corpus-spelling-only",
+      "context": "ܦܨܢܝ ܡܢ ܕܡܐ ܐܠܗܝ ܐܠܗܐ ܕܙܕܝܩܘܬܝ ܘܢܫܒܚ ܠܫܢܝ ܙܕܝܩܘܬܟ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "51:16",
+        "form": "צִדְקָתֶֽךָ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "140269",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 65,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܡܢ ܙܕܝܩܘܬܟ ܕܚܝܠܬܐ ܥܢܝܢܝ ܐܠܗܐ ܦܪܘܩܢ ܣܒܪܐ ܕܟܠܗܘܢ ܣܘ̈ܦܝܗ̇ ܕܐܪܥܐ ܘܕܥܡ̈ܡܐ ܪ̈ܚܝܩܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "141359",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 71,
+      "verse": 15,
+      "reason": "corpus-spelling-only",
+      "context": "ܦܘܡܝ ܢܣܒܪ ܙܕܝܩܘܬܟ ܘܟܠܗ ܝܘܡܐ ܒܬܫ̈ܒܚܬܟ ܡܛܠ ܕܠܐ ܝܕܥܬ ܣܦܪܘܬܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "71:15",
+        "form": "צִדְקָתֶ֗ךָ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "141371",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 71,
+      "verse": 16,
+      "reason": "corpus-spelling-only",
+      "context": "ܐܥܘܠ ܒܓܢܒܪܘܬܗ ܕܡܪܝܐ ܘܐܥܗܕ ܙܕܝܩܘܬܟ ܒܠܚܘܕܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "71:16",
+        "form": "צִדְקָתְךָ֣"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "141465",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 72,
+      "verse": 3,
+      "reason": "corpus-spelling-only",
+      "context": "ܢܫܩܠܘܢ ܛܘܪ̈ܐ ܫܠܡܐ ܠܥܡܟ ܘܪ̈ܡܬܐ ܙܕܝܩܘܬܟ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "72:3",
+        "form": "בִּצְדָקָֽה"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "149336",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 119,
+      "verse": 142,
+      "reason": "corpus-spelling-only",
+      "context": "ܙܕܝܩܘܬܟ ܩܝܡܐ ܠܥܠܡ ܘܢܡܘܣܟ ܒܫܪܪܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "119:142",
+        "form": "צִדְקָתְךָ֣"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "151397",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 143,
+      "verse": 11,
+      "reason": "corpus-spelling-only",
+      "context": "ܡܛܠ ܫܡܟ ܡܪܝܐ ܒܝܐܝܢܝ ܘܡܛܠ ܙܕܝܩܘܬܟ ܐܦܩ ܢܦܫܝ ܡܢ ܐܘܠܨܢܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "210852",
+      "form": "ܙܕܝܩܘܬܟ",
+      "chapter": 58,
+      "verse": 8,
+      "reason": "corpus-spelling-only",
+      "context": "ܗܝܕܝܢ ܢܬܦܬܚ ܢܘܗܪܟ ܐܝܟ ܨܦܪܐ ܘܙܕܝܩܘܬܟ ܒܥܓܠ ܬܕܢܚ ܘܬܐܙܠ ܩܕܡܝܟ ܙܕܝܩܘܬܟ ܘܐܝܩܪܗ ܕܡܪܝܐ ܢܟܢܫܟ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܟ",
+              "lexeme": "K",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "58:8",
+        "form": "צִדְקֶ֔ךָ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „deine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "86522",
+      "form": "ܕܓ̈ܠܢ",
+      "chapter": 36,
+      "verse": 4,
+      "reason": "no-candidate",
+      "context": "ܒܪܡ ܫܪܝܪܐܝܬ ܗ̈ܘܝ ܕܓ̈ܠܢ ܡ̈ܠܝ ܘܕܠܐ ܡܘܡ ܗܝ ܝܕܥܬܝ ܥܡܟ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܕܓܠܐ",
+            "spellings": [
+              "ܕܓܠܐ"
+            ],
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Prädikatives Adjektiv „falsch“ zu „meine Worte“, keine Verbform."
+      }
+    },
+    {
+      "book": "Job",
+      "id": "87291",
+      "form": "ܒܪ̈ܟܢ",
+      "chapter": 39,
+      "verse": 3,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܐܡܬܝ ܒܪ̈ܟܢ ܘܝ̈ܠܕܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܒܪܟ",
+              "lexeme": "BRK",
+              "pos": "verb"
+            },
+            {
+              "form": "ܢ",
+              "lexeme": "N",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Joshua"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3766",
+        "ref": "39:3",
+        "form": "תִּ֭כְרַעְנָה"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܒܪܟܐ",
+            "spellings": [
+              "ܒܪܟܐ"
+            ],
+            "grammar": [
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „sie knien/niederkauern“ parallel zu „gebären“, keine suffigierte Nomenform."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "117112",
+      "form": "ܪܝܪܗ",
+      "chapter": 21,
+      "verse": 14,
+      "reason": "no-candidate",
+      "context": "ܘܫܢܝ ܛܥܡܗ ܒܥܝ̈ܢܘܗܝ ܘܐܫܬܟܪ ܒܥܝܢ̈ܝܗܘܢ ܘܝܬܒ ܥܠ ܐܣܟܘܦܬܐ ܕܬܪܥܐ ܘܐܪܡܝ ܪܝܪܗ ܥܠ ܕܩܢܗ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7388",
+        "ref": "21:14",
+        "form": "רִיר֖וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܪܝܪܐ",
+            "spellings": [
+              "ܪܝܪܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Speichel“ als Objekt von „herabfließen lassen“."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "118445",
+      "form": "ܥܠܝܡ̈ܘܗܝ",
+      "chapter": 25,
+      "verse": 9,
+      "reason": "hebrew-alignment-only",
+      "context": "ܘܐܬܘ ܥܠܝܡ̈ܘܗܝ ܕܕܘܝܕ ܘܐܡܪܘ ܠܢܒܠ ܟܠܗܝܢ ܡ̈ܠܐ ܗܠܝܢ ܒܫܡܗ ܕܕܘܝܕ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܥܠܝܡܘ",
+              "lexeme": "<LJM",
+              "pos": "adjv"
+            },
+            {
+              "form": "ܗܝ",
+              "lexeme": "HJ",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Numbers",
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5288",
+        "ref": "25:9",
+        "form": "נַעֲרֵ֣י"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Esther",
+      "id": "285731",
+      "form": "ܥܠܝܡ̈ܘܗܝ",
+      "chapter": 2,
+      "verse": 2,
+      "reason": "hebrew-alignment-only",
+      "context": "ܘܐܡܪܘ ܠܗ ܥܠܝܡ̈ܘܗܝ ܠܡ̇ܠܟܐ ܘܡܫ̈ܡܫܢܘܗܝ܆ ܢܒܥܘܢ ܠܡ̇ܠܟܐ ܥܠܝܡ̈ܬܐ ܕܫܦܝ̣ܪ̈ܢ ܒܚܙܘܗܝܢ.",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܥܠܝܡܘ",
+              "lexeme": "<LJM",
+              "pos": "adjv"
+            },
+            {
+              "form": "ܗܝ",
+              "lexeme": "HJ",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Numbers",
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5288",
+        "ref": "2:2",
+        "form": "נַעֲרֵֽי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Esther",
+      "id": "287004",
+      "form": "ܥܠܝܡ̈ܘܗܝ",
+      "chapter": 6,
+      "verse": 3,
+      "reason": "hebrew-alignment-only",
+      "context": "ܘܐܡ̣ܪ ܡ̇ܠܟܐ. ܡܢܐ ܐܬܥܒܕ ܐܝܩܪܐ ܘܪܒܘܬܐ ܠܡܘܪܕܟܝ ܥܠ ܗܕܐ ܐܡ̇ܪܝܢ ܠܗ ܥܠܝܡ̈ܘܗܝ ܠܡ̇ܠܟܐ ܘܡܫ̈ܡܫܢܘܗܝ. ܠܐ ܐܬܥܒܕ ܠܗ ܡܕܡ ܀",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܥܠܝܡܘ",
+              "lexeme": "<LJM",
+              "pos": "adjv"
+            },
+            {
+              "form": "ܗܝ",
+              "lexeme": "HJ",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Numbers",
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5288",
+        "ref": "6:3",
+        "form": "נַעֲרֵ֤י"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Esther",
+      "id": "287032",
+      "form": "ܥܠܝܡ̈ܘܗܝ",
+      "chapter": 6,
+      "verse": 5,
+      "reason": "hebrew-alignment-only",
+      "context": "ܐܡ̇ܪܝܢ ܠܗ ܥܠܝܡ̈ܘܗܝ ܠܡ̇ܠܟܐ. ܗܐ ܗܡܢ ܩܐ̇ܡ ܒܕܪܬܐ. ܘܐܡ̣ܪ ܡ̇ܠܟܐ ܢ̇ܥܘܠ.",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܥܠܝܡܘ",
+              "lexeme": "<LJM",
+              "pos": "adjv"
+            },
+            {
+              "form": "ܗܝ",
+              "lexeme": "HJ",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Numbers",
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5288",
+        "ref": "6:5",
+        "form": "נַעֲרֵ֤י"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „seine jungen Männer/Diener“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "118487",
+      "form": "ܥܠܝ̈ܡܘܗܝ",
+      "chapter": 25,
+      "verse": 12,
+      "reason": "hebrew-alignment-only",
+      "context": "ܘܗܦܟܘ ܥܠܝ̈ܡܘܗܝ ܕܕܘܝܕ ܠܐܘܪܚܗܘܢ ܘܚܘܝܘ ܠܕܘܝܕ ܟܠܗܝܢ ܡ̈ܠܐ ܗܠܝܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܥܠܝܡܘ",
+              "lexeme": "<LJM",
+              "pos": "adjv"
+            },
+            {
+              "form": "ܗܝ",
+              "lexeme": "HJ",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Numbers",
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5288",
+        "ref": "25:12",
+        "form": "נַעֲרֵֽי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „seine jungen Männer“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "118593",
+      "form": "ܓܪ̈ܒܝܢ",
+      "chapter": 25,
+      "verse": 18,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܐܣܬܪܗܒܬ ܐܒܝܓܠ ܘܢܣܒܬ ܡܐܬܝܢ ܕܠܚܡܐ ܘܬܪ̈ܝܢ ܓܪ̈ܒܝܢ ܕܚܡܪܐ ܘܚܡܫ ܥܢܐ ܟܕ ܡܬܩ̈ܢܢ ܘܚܡܫ ܣܐ̈ܝܢ ܩ̈ܠܝܬܐ ܘܡܐܐ ܓܘܒ̈ܢܝܢ ܘܡܐܬܝܢ ܕܒ̈ܠܝܢ ܘܣܡܬ ܥܠ ܚܡܪܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܓܪܒܝܢ",
+              "lexeme": "GRB=",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5035 a",
+        "ref": "25:18",
+        "form": "נִבְלֵי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܓܪܒܝܐ",
+            "spellings": [
+              "ܓܪܒܝܐ"
+            ],
+            "grammar": [
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Behälter für Wein, die Bedeutung des vorgeschlagenen Lemmas ist nicht hinreichend abgesichert."
+      }
+    },
+    {
+      "book": "I Samuel",
+      "id": "119852",
+      "form": "ܐܣܩܝ",
+      "chapter": 28,
+      "verse": 11,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܐܡܪܬ ܐܢܬܬܐ ܠܡ̇ܢ ܐܣܩ ܠܟ ܘܐܡܪ ܠܫܡܘܐܝܠ ܐܣܩܝ ܠܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܐܣܩܝ",
+              "lexeme": "SLQ",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5927",
+        "ref": "28:11",
+        "form": "הַֽעֲלִי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܣܩܐ",
+            "spellings": [
+              "ܐܣܩܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „lass heraufkommen“, kein Substantiv."
+      }
+    },
+    {
+      "book": "II Samuel",
+      "id": "124757",
+      "form": "ܟܦܣܗ̇",
+      "chapter": 11,
+      "verse": 4,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܫܕܪ ܕܘܝܕ ܡܠܐܟܐ ܘܕܒܪܗ̇ ܘܥܠܬ ܠܘܬܗ ܘܕܡܟ ܥܡܗ̇ ܟܕ ܣܚܬ ܡܢ ܟܦܣܗ̇ ܘܗܦܟܬ ܬܘܒ ܘܐܙܠܬ ܠܒܝܬܗ̇",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܟܦܣ",
+              "lexeme": "KPS",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H=",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Leviticus"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܟܦܣܐ",
+            "spellings": [
+              "ܟܦܣܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihre Unreinheit“ nach der Präposition „von“."
+      }
+    },
+    {
+      "book": "II Samuel",
+      "id": "127765",
+      "form": "ܪܚܡܘܬܗ",
+      "chapter": 16,
+      "verse": 17,
+      "reason": "no-candidate",
+      "context": "ܐܡܪ ܠܗ ܐܒܫܠܘܡ ܠܚܘܫܝ ܗܕܐ ܗܝ ܪܚܡܘܬܗ ܕܪܚܡܟ ܠܡܢܐ ܠܐ ܐܙܠܬ ܥܡ ܪܚܡܟ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2617 a",
+        "ref": "16:17",
+        "form": "חַסְדְּךָ֖"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܪܚܡܘܬܐ",
+            "spellings": [
+              "ܪܚܡܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „Freundschaft“ mit Suffix in der nominalen Frage."
+      }
+    },
+    {
+      "book": "II Samuel",
+      "id": "130813",
+      "form": "ܙܕܝܩܘܬܝ",
+      "chapter": 22,
+      "verse": 21,
+      "reason": "syriac-context-only",
+      "context": "ܘܦܪܥܢܝ ܡܪܝܐ ܐܝܟ ܙܕܝܩܘܬܝ ܘܐܝܟ ܕܟܝܘܬܐ ܕܐܝܕܝ ܦܢܝ ܠܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܝ",
+              "lexeme": "J",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Psalms"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "II Samuel",
+      "id": "130845",
+      "form": "ܙܕܝܩܘܬܝ",
+      "chapter": 22,
+      "verse": 25,
+      "reason": "syriac-context-only",
+      "context": "ܘܦܪܥܢܝ ܡܪܝܐ ܐܝܟ ܙܕܝܩܘܬܝ ܘܐܝܟ ܕܟܝܘܬܐ ܕܐ̈ܝܕܝ ܠܘܩܒܠ ܥܝܢ̈ܘܗܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܝ",
+              "lexeme": "J",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Psalms"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "208019",
+      "form": "ܙܕܝܩܘܬܝ",
+      "chapter": 46,
+      "verse": 13,
+      "reason": "corpus-spelling-only",
+      "context": "ܩܪܒܬ ܙܕܝܩܘܬܝ ܠܡܐܬܐ ܘܦܘܪܩܢܝ ܠܐ ܢܘܚܪ ܘܐܬܠ ܒܨܗܝܘܢ ܦܘܪܩܢܐ ܘܠܐܝܣܪܝܠ ܬܫܒܘܚܬܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܝ",
+              "lexeme": "J",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Psalms"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "46:13",
+        "form": "צִדְקָתִי֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "209178",
+      "form": "ܙܕܝܩܘܬܝ",
+      "chapter": 51,
+      "verse": 5,
+      "reason": "corpus-spelling-only",
+      "context": "ܩܪܒܬ ܙܕܝܩܘܬܝ ܘܢܦܩ ܦܘܪܩܢܝ ܘܒܕܪܥܝ ܥܡ̈ܡܐ ܢܬܕܝܢܘܢ ܠܝ ܢܣ̈ܟܝܢ ܓܙܪ̈ܬܐ ܘܠܕܪܥܝ ܢܣܒܪ̈ܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܝ",
+              "lexeme": "J",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Psalms"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "51:5",
+        "form": "צִדְקִי֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "210606",
+      "form": "ܙܕܝܩܘܬܝ",
+      "chapter": 57,
+      "verse": 12,
+      "reason": "corpus-spelling-only",
+      "context": "ܐܢܐ ܐܚܘܐ ܙܕܝܩܘܬܝ ܘܥ̇ܒ̈ܕܝܟܝ ܠܐ ܢܘܬܪܘܢܟܝ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܝ",
+              "lexeme": "J",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Psalms"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "57:12",
+        "form": "צִדְקָתֵ֑ךְ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Suffigiertes Substantiv „meine Gerechtigkeit“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "135856",
+      "form": "ܙܡܪܘ",
+      "chapter": 33,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܐܘܕܘ ܠܗ ܒܟܢܪܐ ܘܒܩܝܬܪܐ ܕܥܣܪ̈ ܡ̈ܢܝܢ ܙܡܪܘ ܠܗ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "33:2",
+        "form": "זַמְּרוּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "138211",
+      "form": "ܙܡܪܘ",
+      "chapter": 47,
+      "verse": 7,
+      "reason": "no-candidate",
+      "context": "ܙܡܪܘ ܠܐܠܗܐ ܒܫܘܒܚܐ ܙܡܪܘ ܠܡܠܟܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "47:7",
+        "form": "זַמְּר֣וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "138214",
+      "form": "ܙܡܪܘ",
+      "chapter": 47,
+      "verse": 7,
+      "reason": "no-candidate",
+      "context": "ܙܡܪܘ ܠܐܠܗܐ ܒܫܘܒܚܐ ܙܡܪܘ ܠܡܠܟܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "47:7",
+        "form": "זַמְּר֖וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "138222",
+      "form": "ܙܡܪܘ",
+      "chapter": 47,
+      "verse": 8,
+      "reason": "no-candidate",
+      "context": "ܡܛܠ ܕܡܠܟܐ ܕܟܠܗ̇ ܐܪܥܐ ܐܠܗܐ ܗܘ ܙܡܪܘ ܠܗ ܫܘܒܚܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "47:8",
+        "form": "זַמְּר֥וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "140349",
+      "form": "ܙܡܪܘ",
+      "chapter": 66,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܙܡܪܘ ܠܐܝܩܪܐ ܕܫܡܗ ܙܡܪܘ ܠܐܝܩܪܐ ܕܬܫܒܘܚܬܗ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "66:2",
+        "form": "זַמְּר֥וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "140352",
+      "form": "ܙܡܪܘ",
+      "chapter": 66,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܙܡܪܘ ܠܐܝܩܪܐ ܕܫܡܗ ܙܡܪܘ ܠܐܝܩܪܐ ܕܬܫܒܘܚܬܗ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7760 a",
+        "ref": "66:2",
+        "form": "שִׂ֥ימוּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "140579",
+      "form": "ܙܡܪܘ",
+      "chapter": 68,
+      "verse": 5,
+      "reason": "no-candidate",
+      "context": "ܙܡܪܘ ܠܐܠܗܐ ܘܫܒܚܘ ܠܫܡܗ ܫܒܚܘ ܠܕܪܟܝܒ ܠܡܥܪܒܐ ܡܪܝܐ ܫܡܗ ܐܬܥܫܢܘ ܩܕܡܘܗܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7891",
+        "ref": "68:5",
+        "form": "שִׁ֤ירוּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "140841",
+      "form": "ܙܡܪܘ",
+      "chapter": 68,
+      "verse": 33,
+      "reason": "no-candidate",
+      "context": "ܡ̈ܠܟܘܬܐ ܕܐܪܥܐ ܫܒܚܝܢ ܠܐܠܗܐ ܙܡܪܘ ܠܡܪܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "68:33",
+        "form": "זַמְּר֖וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "145421",
+      "form": "ܙܡܪܘ",
+      "chapter": 98,
+      "verse": 5,
+      "reason": "no-candidate",
+      "context": "ܙܡܪܘ ܠܡܪܝܐ ܒܟܢܪ̈ܐ ܘܒܩܠܐ ܕܙܡܪܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "98:5",
+        "form": "זַמְּר֣וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "150382",
+      "form": "ܙܡܪܘ",
+      "chapter": 135,
+      "verse": 3,
+      "reason": "no-candidate",
+      "context": "ܫܒܚܘ ܠܡܪܝܐ ܡܛܠ ܕܛܒ ܗܘ ܙܡܪܘ ܠܫܡܗ ܡܛܠ ܕܒܣܝܡ ܗܘ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "135:3",
+        "form": "זַמְּר֥וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "151825",
+      "form": "ܙܡܪܘ",
+      "chapter": 147,
+      "verse": 7,
+      "reason": "no-candidate",
+      "context": "ܫܒܚܘ ܠܡܪܝܐ ܒܫܘܒܚܐ ܙܡܪܘ ܠܡܪܝܐ ܒܟܢܪ̈ܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "147:7",
+        "form": "זַמְּר֖וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "198680",
+      "form": "ܙܡܪܘ",
+      "chapter": 12,
+      "verse": 5,
+      "reason": "corpus-spelling-only",
+      "context": "ܙܡܪܘ ܠܡܪܝܐ ܡܛܠ ܕܓܐܝܘܬܐ ܥܒܕ ܝܕܝܥܐ ܗܝ ܗܕܐ ܒܟܠܗ̇ ܐܪܥܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܡܪܘ",
+              "lexeme": "ZMR",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "Psalms"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2167",
+        "ref": "12:5",
+        "form": "זַמְּר֣וּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܡܪܘܬܐ",
+            "spellings": [
+              "ܙܡܪܘܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „singt“, kein Substantiv „Gesang“."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "137940",
+      "form": "ܒܪܟܟ",
+      "chapter": 45,
+      "verse": 3,
+      "reason": "no-candidate",
+      "context": "ܕܫܦܝܪ ܒܚܙܘܗ ܡܢ ܒܢ̈ܝ ܐܢܫܐ ܐܬܢܣܟܘ ܪ̈ܚܡܐ ܥܠ ܣܦܘ̈ܬܟ ܡܛܠ ܗܢܐ ܒܪܟܟ ܐܠܗܐ ܠܥܠܡ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:1288",
+        "ref": "45:3",
+        "form": "בֵּֽרַכְךָ֖"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܒܪܟܐ",
+            "spellings": [
+              "ܒܪܟܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „er segnete dich“, kein suffigiertes Substantiv."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "140266",
+      "form": "ܩܕܝܫܘܬܗ",
+      "chapter": 65,
+      "verse": 5,
+      "reason": "no-candidate",
+      "context": "ܛܘܒܘܗܝ ܠܡܢ ܕܨܒܐ ܐܢܬ ܒܗ ܘܡܩܪܒ ܐܢܬ ܠܗ ܕܢܥܡܪ ܒܕܝܪܟ ܘܢܣܒܥ ܡܢ ܛܒܬ̈ܗ ܕܒܝܬܟ ܘܡܢ ܩܕܝܫܘܬܗ ܕܗܝܟܠܟ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6918",
+        "ref": "65:5",
+        "form": "קְ֝דֹ֗שׁ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܩܕܝܫܘܬܐ",
+            "spellings": [
+              "ܩܕܝܫܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „seine Heiligkeit“ nach „von“, bezogen auf den Tempel."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "145873",
+      "form": "ܓܡܪ̈ܢ",
+      "chapter": 102,
+      "verse": 28,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܐܢܬ ܐܝܟ ܕܐܝܬܝܟ ܐܢܬ ܘܫ̈ܢܝܟ ܠܐ ܓܡܪ̈ܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܓܡܪܢ",
+              "lexeme": "GMR",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "Numbers"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:8552",
+        "ref": "102:28",
+        "form": "יִתָּֽמּוּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܓܡܪܐ",
+            "spellings": [
+              "ܓܡܪܐ"
+            ],
+            "grammar": [
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verbales Prädikat „enden“, kein suffigiertes Substantiv."
+      }
+    },
+    {
+      "book": "Psalms",
+      "id": "147480",
+      "form": "ܝܬܡ̈ܝܗܘܢ",
+      "chapter": 109,
+      "verse": 12,
+      "reason": "no-candidate",
+      "context": "ܘܠܐ ܢܗܘܐ ܠܗܘܢ ܡܪܚܡܢܐ ܘܠܐ ܢܗܘܐ ܕܡܪܚܡ ܥܠ ܝܬܡ̈ܝܗܘܢ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܝܬܡܐ",
+            "spellings": [
+              "ܝܬܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „ihre Waisen“ nach „über“."
+      }
+    },
+    {
+      "book": "Proverbs",
+      "id": "179308",
+      "form": "ܡܣܟܢܘܬܗܘܢ",
+      "chapter": 10,
+      "verse": 15,
+      "reason": "no-candidate",
+      "context": "ܩܢܝܢܐ ܕܥܬܝܪ̈ܐ ܟܪ̈ܟܐ ܥܫܝ̈ܢܐ ܘܬܒܪܐ ܕܡܣ̈ܟܢܐ ܡܣܟܢܘܬܗܘܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7389 a",
+        "ref": "10:15",
+        "form": "רֵישָֽׁם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܡܣܟܢܘܬܐ",
+            "spellings": [
+              "ܡܣܟܢܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihre Armut“ als nominale Prädikation."
+      }
+    },
+    {
+      "book": "Proverbs",
+      "id": "179480",
+      "form": "ܙܕܝܩܘܬܗܘܢ",
+      "chapter": 11,
+      "verse": 6,
+      "reason": "no-candidate",
+      "context": "ܙܕܝܩܘܬܗܘܢ ܕܬܪ̈ܝܨܐ ܬܦܨܐ ܐܢܘܢ ܘܥܘ̈ܠܐ ܒܥܘ̣ܠܗܘܢ ܢܬܬܚܕܘܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "11:6",
+        "form": "צִדְקַ֣ת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihre Gerechtigkeit“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Ecclesiastes",
+      "id": "192395",
+      "form": "ܐ̈ܟܘܠܝܗ̇",
+      "chapter": 5,
+      "verse": 10,
+      "reason": "no-candidate",
+      "context": "ܒܣܘܓܐܐ ܕܛܒܬܐ ܣܓܝܘ ܐ̈ܟܘܠܝܗ̇ ܘܡܢܐ ܝܘܬܪܢܐ ܠܩܢܝܗ̇ ܐܠܐ ܐܢ ܚܙܬܐ ܕܥܝ̈ܢܘܗܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:398",
+        "ref": "5:10",
+        "form": "אוֹכְלֶ֑יהָ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܟܘܠܐ",
+            "spellings": [
+              "ܐܟܘܠܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „ihre Esser“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Ecclesiastes",
+      "id": "192778",
+      "form": "ܓܘܚܟܗܘܢ",
+      "chapter": 7,
+      "verse": 6,
+      "reason": "no-candidate",
+      "context": "ܡܛܘܠ ܕܐܝܟ ܩܠܐ ܕܟܘ̈ܒܐ ܬܚܝܬ ܩܕܣܐ ܗܟܢܐ ܓܘܚܟܗܘܢ ܕܣ̈ܟܠܐ ܘܐܦ ܗܢܐ ܗܒܠܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7814",
+        "ref": "7:6",
+        "form": "שְׂחֹ֣ק"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܓܘܚܟܐ",
+            "spellings": [
+              "ܓܘܚܟܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihr Lachen“ im Vergleichssatz."
+      }
+    },
+    {
+      "book": "Song of Songs",
+      "id": "194262",
+      "form": "ܝܬܟܝ",
+      "chapter": 1,
+      "verse": 8,
+      "reason": "no-candidate",
+      "context": "ܐܠܐ ܬܕܥܝܢ ܝܬܟܝ ܫܦܝܪܬ ܒܢܫ̈ܐ ܬܝ ܐܢܬܝ ܒܥܩܒܬܐ ܕܥܢܐ ܘܪܥܝ ܓܕܝ̈ܟܝ ܒܡܫܟܢܐ ܕܪ̈ܥܘܬܐ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܝܬܐ",
+            "spellings": [
+              "ܝܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SF;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Reflexiver Gebrauch „dich selbst“, nominale Lemmazuordnung nicht abgesichert."
+      }
+    },
+    {
+      "book": "Song of Songs",
+      "id": "194649",
+      "form": "ܫܬܩܟܝ",
+      "chapter": 4,
+      "verse": 1,
+      "reason": "no-candidate",
+      "context": "ܗܐ ܫܦܝܪܬܝ̈ ܩܪܝܒܬܝ̈ ܗܐ ܫܦܝܪܬܝ ܥܝܢ̈ܝܟܝ ܕܝܘܢܐ ܠܒܪ ܡܢ ܫܬܩܟܝ ܣܥܪܟܝ ܐܝܟ ܓܙܪܐ ܕܥ̈ܙܐ ܕܣܠܩ ܡܢ ܛܘܪܐ ܕܓܠܥܕ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6777",
+        "ref": "4:1",
+        "form": "לְצַמָּתֵ֑ךְ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܫܬܩܐ",
+            "spellings": [
+              "ܫܬܩܐ"
+            ],
+            "grammar": [
+              "N;PSS2SF;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Im Kontext ist eine Bedeckung/Schleier gemeint, die Zuordnung bleibt lexikalisch mehrdeutig."
+      }
+    },
+    {
+      "book": "Song of Songs",
+      "id": "194681",
+      "form": "ܫܬܩܟܝ",
+      "chapter": 4,
+      "verse": 3,
+      "reason": "no-candidate",
+      "context": "ܐܝܟ ܚܘܛܐ ܕܙܚܘܪܝܬܐ ܣ̈ܦܘܬܟܝ ܘܡܡܠܠܟܝ ܝܐܐ ܐܝܟ ܨܠܦܐ ܕܪܘܡܢܐ ܩܕܠܟܝ ܡܛܠ ܫܬܩܟܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6777",
+        "ref": "4:3",
+        "form": "לְצַמָּתֵֽךְ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܫܬܩܐ",
+            "spellings": [
+              "ܫܬܩܐ"
+            ],
+            "grammar": [
+              "N;PSS2SF;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Im Kontext ist eine Bedeckung/Schleier gemeint, die Zuordnung bleibt lexikalisch mehrdeutig."
+      }
+    },
+    {
+      "book": "Song of Songs",
+      "id": "195098",
+      "form": "ܫܬܩܟܝ",
+      "chapter": 6,
+      "verse": 7,
+      "reason": "no-candidate",
+      "context": "ܐܝܟ ܨܠܦܐ ܕܪܘܡܢܐ ܩܕܠܟܝ ܠܒܪ ܡܢ ܫܬܩܟܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6777",
+        "ref": "6:7",
+        "form": "לְצַמָּתֵֽךְ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܫܬܩܐ",
+            "spellings": [
+              "ܫܬܩܐ"
+            ],
+            "grammar": [
+              "N;PSS2SF;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Im Kontext ist eine Bedeckung/Schleier gemeint, die Zuordnung bleibt lexikalisch mehrdeutig."
+      }
+    },
+    {
+      "book": "Song of Songs",
+      "id": "194845",
+      "form": "ܒܣܝܡܘܬܝ",
+      "chapter": 5,
+      "verse": 1,
+      "reason": "no-candidate",
+      "context": "ܐܬܝܬ ܠܓܢܬܝ ܚܬܝ ܟܠܬܐ ܐܬܝܬ ܠܓܢܬܝ ܩܛܦܬ ܡܘܪܝ ܥܡ ܒܣ̈ܡܢܝ ܐܟܠܬ ܒܣܝܡܘܬܝ ܥܡ ܕܒܫܝ ܐܫܬܝܬ ܚܡܪܝ ܥܡ ܚܠܒܝ ܐܟܘܠܘ ܚܒܪ̈ܝ̈ ܘܐܫܬܘ ܘܪܘܘ ܕܕ̈ܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3293 b",
+        "ref": "5:1",
+        "form": "יַעְרִי֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܒܣܝܡܘܬܐ",
+            "spellings": [
+              "ܒܣܝܡܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „meine Süßigkeit“ als Objekt von „essen“."
+      }
+    },
+    {
+      "book": "Song of Songs",
+      "id": "194969",
+      "form": "ܐܘ̈ܟܡܢ",
+      "chapter": 5,
+      "verse": 11,
+      "reason": "no-candidate",
+      "context": "ܪܝܫܗ ܐܝܟ ܟܐܦܐ ܕܕܗܒܐ ܩ̈ܘܨܬܗ ܡܦܫ̈ܛܢ ܐܘ̈ܟܡܢ ܐܝܟ ܥܘܪ̈ܒܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7838",
+        "ref": "5:11",
+        "form": "שְׁחֹר֖וֹת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܘܟܡܐ",
+            "spellings": [
+              "ܐܘܟܡܐ"
+            ],
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Prädikatives Adjektiv „schwarz“ zu den Haarlocken."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "196430",
+      "form": "ܕܢܚܗ",
+      "chapter": 4,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܒܗ ܒܝܘܡܐ ܗ̇ܘ ܢܗܘܐ ܕܢܚܗ ܕܡܪܝܐ ܠܫܘܒܚܐ ܘܠܐܝܩܪܐ ܘܦܐܪ̈ܐ ܕܐܪܥܐ ܠܓܐܝܘܬܐ ܘܠܫܘܒܚܐ ܠܡܕܡ ܕܐܫܬܚܪ ܡܢ ܐܝܣܪܝܠ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6780",
+        "ref": "4:2",
+        "form": "צֶ֣מַח"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܕܢܚܐ",
+            "spellings": [
+              "ܕܢܚܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Aufgang/Spross“ als Subjekt nach „wird sein“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "197799",
+      "form": "ܛܢܢܗ",
+      "chapter": 9,
+      "verse": 6,
+      "reason": "no-candidate",
+      "context": "ܠܡܣܓܝܘ ܫܘܠܛܢܗ ܘܠܫܠܡܗ ܠܝܬ ܣܟܐ ܥܠ ܟܘܪܣܝܗ ܕܕܘܝܕ ܘܥܠ ܡܠܟܘܬܗ ܕܢܬܩܢܝܗ̇ ܘܢܣܡܟܝܗ̇ ܒܕܝܢܐ ܘܒܙܕܝܩܘܬܐ ܡܟܝܠ ܘܥܕܡܐ ܠܥܠܡ ܛܢܢܗ ܕܡܪܝܐ ܚܝܠܬܢܐ ܥܒ̇ܕ ܗܕܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7068",
+        "ref": "9:6",
+        "form": "קִנְאַ֛ת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܛܢܢܐ",
+            "spellings": [
+              "ܛܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Eifer“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "201725",
+      "form": "ܛܢܢܗ",
+      "chapter": 26,
+      "verse": 11,
+      "reason": "no-candidate",
+      "context": "ܡܪܝܐ ܒܪܡܘܬܐ ܕܐ̈ܝܕܝܟ ܠܐ ܢܚܙܘܢ ܢܚܙܘܢ ܘܢܒܗܬܘܢ ܛܢܢܗ ܕܥܡܐ ܘܐܝܟ ܬܢܘܪܐ ܬܐܟܘܠ ܐܢܘܢ ܠܒ̈ܥܠܕܒܒܝܟ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7068",
+        "ref": "26:11",
+        "form": "קִנְאַת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܛܢܢܐ",
+            "spellings": [
+              "ܛܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Eifer“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "205189",
+      "form": "ܛܢܢܗ",
+      "chapter": 37,
+      "verse": 32,
+      "reason": "no-candidate",
+      "context": "ܡܛܠ ܕܡܢ ܐܪܫܠܡ ܢܦ̇ܩ ܫܪܟܢܐ ܘܢܫܬܘܙܒ ܡܢ ܛܘܪܐ ܕܨܗܝܘܢ ܛܢܢܗ ܕܡܪܝܐ ܚܝܠܬܢܐ ܥܒ̇ܕ ܗܕܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7068",
+        "ref": "37:32",
+        "form": "קִנְאַ֛ת"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܛܢܢܐ",
+            "spellings": [
+              "ܛܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Eifer“ im jeweiligen nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "197895",
+      "form": "ܥܠܝܡ̈ܝܗܘܢ",
+      "chapter": 9,
+      "verse": 16,
+      "reason": "no-candidate",
+      "context": "ܡܛܠ ܗܢܐ ܠܐ ܢܚܕܐ ܡܪܝܐ ܥܠ ܥܠܝܡ̈ܝܗܘܢ ܘܥܠ ܝܬ̈ܡܝܗܘܢ ܘܥܠ ܐܪ̈ܡܠܬܗܘܢ ܠܐ ܢܪܚܦ ܡܛܠ ܕܟܠܗܘܢ ܚܠܦܝܢ ܘܒܝܫܝܢ ܘܟܠ ܦܘܡ ܡܡܠܠ ܫܛܝܘܬܐ ܘܒܗܠܝܢ ܟܠܗܝܢ ܠܐ ܗܦܟ ܪܘܓܙܗ ܘܬܘܒ ܐܝܕܗ ܪܡܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:970",
+        "ref": "9:16",
+        "form": "בַּחוּרָ֜יו"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „ihre jungen Männer“ als nominales Satzglied."
+      }
+    },
+    {
+      "book": "II Chronicles",
+      "id": "331677",
+      "form": "ܥܠܝܡ̈ܝܗܘܢ",
+      "chapter": 36,
+      "verse": 17,
+      "reason": "no-candidate",
+      "context": "ܘܐܣܩ ܥܠܝܗܘܢ ܠܡܠܟܐ ܕܟܠܕ̈ܝܐ ܘܩܛܠ ܥܠܝܡ̈ܝܗܘܢ ܒܚܪܒܐ ܒܝܬ ܡܩܕܫܗܘܢ ܘܠܐ ܚܣ ܥܠ ܓܕܘܕ̈ܐ ܘܥܠ ܒܬܘ̈ܠܬܐ ܘܥܠ ܩܫܝ̈ܫܐ ܐܦ ܠܐ ܥܠ ܝܢ̇ܩ̈ܝ ܚܠܒܐ ܟܠܗܘܢ ܐܫܠܡ ܒܐܝܕܗ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:970",
+        "ref": "36:17",
+        "form": "בַּחוּרֵיהֶ֤ם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „ihre jungen Männer“ als nominales Satzglied."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "197897",
+      "form": "ܝܬ̈ܡܝܗܘܢ",
+      "chapter": 9,
+      "verse": 16,
+      "reason": "no-candidate",
+      "context": "ܡܛܠ ܗܢܐ ܠܐ ܢܚܕܐ ܡܪܝܐ ܥܠ ܥܠܝܡ̈ܝܗܘܢ ܘܥܠ ܝܬ̈ܡܝܗܘܢ ܘܥܠ ܐܪ̈ܡܠܬܗܘܢ ܠܐ ܢܪܚܦ ܡܛܠ ܕܟܠܗܘܢ ܚܠܦܝܢ ܘܒܝܫܝܢ ܘܟܠ ܦܘܡ ܡܡܠܠ ܫܛܝܘܬܐ ܘܒܗܠܝܢ ܟܠܗܝܢ ܠܐ ܗܦܟ ܪܘܓܙܗ ܘܬܘܒ ܐܝܕܗ ܪܡܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3490",
+        "ref": "9:16",
+        "form": "יְתֹמָ֤יו"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܝܬܡܐ",
+            "spellings": [
+              "ܝܬܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „ihre Waisen“ nach „über“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "205771",
+      "form": "ܥܡܝܪܗ",
+      "chapter": 40,
+      "verse": 7,
+      "reason": "no-candidate",
+      "context": "ܐܝܒܫ ܥܡܝܪܐ ܘܚܡܐ ܥܘܦܝܐ ܡܛܠ ܕܪܘܚܗ ܕܡܪܝܐ ܢܫܒܬ ܒܗ ܗܟܢܐ ܗܘ ܥܡܝܪܗ ܕܥܡܐ ܗܢܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2682 a",
+        "ref": "40:7",
+        "form": "חָצִ֖יר"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܡܝܪܐ",
+            "spellings": [
+              "ܥܡܝܪܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Gras“ mit anschließendem Genitivattribut."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "207228",
+      "form": "ܐܘܡ̈ܢܝܗܘܢ",
+      "chapter": 44,
+      "verse": 11,
+      "reason": "no-candidate",
+      "context": "ܗܐ ܟܠܗܘܢ ܐܘܡ̈ܢܝܗܘܢ ܚܪܫܝܢ ܐܢܘܢ ܡܢ ܒܢ̈ܝ ܐܢܫܐ ܢܬܟܢܫܘܢ ܟܘܠܗܘܢ ܘܢܩܘܡܘܢ ܘܢܒܗܬܘܢ ܘܢܚܦܪܘܢ ܐܟܚܕܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2270",
+        "ref": "44:11",
+        "form": "חֲבֵרָיו֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܘܡܢܐ",
+            "spellings": [
+              "ܐܘܡܢܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „ihre Handwerker“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "209871",
+      "form": "ܐܘܪܟܝ",
+      "chapter": 54,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܐܦܬܝ ܐܬܪܐ ܕܡܫܟ̈ܢܝܟܝ ܘܝܪ̈ܝܥܬܐ ܕܡܫܟ̈ܢܝܟܝ ܡܬܘܚܝ ܘܠܐ ܬܚܘܣܝܢ ܐܘܪܟܝ ܛܘܢܒܝ̈ܟܝ ܘܣܟ̈ܝܟܝ ܫܪܪܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:748",
+        "ref": "54:2",
+        "form": "הַאֲרִ֨יכִי֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܘܪܟܐ",
+            "spellings": [
+              "ܐܘܪܟܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „verlängere“, kein Substantiv."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "209874",
+      "form": "ܫܪܪܝ",
+      "chapter": 54,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܐܦܬܝ ܐܬܪܐ ܕܡܫܟ̈ܢܝܟܝ ܘܝܪ̈ܝܥܬܐ ܕܡܫܟ̈ܢܝܟܝ ܡܬܘܚܝ ܘܠܐ ܬܚܘܣܝܢ ܐܘܪܟܝ ܛܘܢܒܝ̈ܟܝ ܘܣܟ̈ܝܟܝ ܫܪܪܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2388",
+        "ref": "54:2",
+        "form": "חַזֵּֽקִי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܫܪܪܐ",
+            "spellings": [
+              "ܫܪܪܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Imperativ „befestige“, kein Substantiv."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "211717",
+      "form": "ܙܕܝܩܘܬܗ̇",
+      "chapter": 62,
+      "verse": 1,
+      "reason": "corpus-spelling-only",
+      "context": "ܡܛܠ ܨܗܝܘܢ ܠܐ ܐܫܬܘܩ ܘܡܛܠ ܐܘܪܫܠܡ ܠܐ ܐܫܠܐ ܥܕܡܐ ܕܬܦܘܩ ܙܕܝܩܘܬܗ̇ ܐܝܟ ܢܘܗܪܐ ܘܦܘܪܩܢܗ̇ ܐܝܟ ܠܡܦܐܕܐ ܢܕܠܩ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Deuteronomy",
+            "Judges",
+            "Psalms",
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "62:1",
+        "form": "צִדְקָ֔הּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihre Gerechtigkeit“ als Satzsubjekt."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "211726",
+      "form": "ܙܕܝܩܘܬܟܝ",
+      "chapter": 62,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܘܢܚܙܘܢ ܥܡ̈ܡܐ ܙܕܝܩܘܬܟܝ ܘܟܠܗܘܢ ܡ̈ܠܟܐ ܐܝܩܪܟܝ ܘܢܬܩܪܐ ܠܟܝ ܫܡܐ ܚܕܬܐ ܕܦܘܡܗ ܕܡܪܝܐ ܢܣܝܡܝܘܗܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6664",
+        "ref": "62:2",
+        "form": "צִדְקֵ֔ךְ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS2SF;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „deine Gerechtigkeit“ als Objekt von „sehen“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "211897",
+      "form": "ܣܘܡܩܝܢ",
+      "chapter": 63,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܠܡܢܐ ܣܘܡܩܝܢ ܢܚ̈ܬܝܟ ܘܠܒܘܫ̈ܝܟ ܐܝܟ ܗ̇ܘ ܕܥ̇ܨܪ ܒܡܥܨܪܬܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:122 a",
+        "ref": "63:2",
+        "form": "אָדֹ֖ם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܣܘܡܩܐ",
+            "spellings": [
+              "ܣܘܡܩܐ"
+            ],
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;ABS;PL",
+              "N;PSS1P;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Prädikatives Adjektiv „rot“ zu „deine Gewänder“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "212076",
+      "form": "ܛܢܢܟ",
+      "chapter": 63,
+      "verse": 15,
+      "reason": "no-candidate",
+      "context": "ܚܘܪ ܡܢ ܫܡܝܐ ܘܚܙܝ ܡܢ ܡܕܝܪ̈ܝܟ ܩܕܝܫܐ̈ ܘܡܫܒܚܐ ܐܝܟܘ ܛܢܢܟ ܘܓܢܒܪܘܬܟ ܘܗܘܦܟܐ ܕܡ̈ܥܝܟ ܘܕܪ̈ܚܡܝܟ ܕܐܬܗܦܟܘ ܥܠܝܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7068",
+        "ref": "63:15",
+        "form": "קִנְאָֽתְךָ֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܛܢܢܐ",
+            "spellings": [
+              "ܛܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS2SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „dein Eifer“ in der Frage „wo ist“."
+      }
+    },
+    {
+      "book": "Isaiah",
+      "id": "212208",
+      "form": "ܙܕܝܩܘܬܢ",
+      "chapter": 64,
+      "verse": 5,
+      "reason": "corpus-spelling-only",
+      "context": "ܕܗܘܝܢ ܐܝܟ ܛܡ̈ܐܐ ܟܘܠܢ ܘܐܝܟ ܐܘܪܩܥܬܐ ܕܟܦܣܢܝܬܐ ܟܠܗ̇ ܙܕܝܩܘܬܢ ܢܬܪܢ ܐܝܟ ܛܪ̈ܦܐ ܟܠܢ ܘܐܝܟ ܥܠܥܠܐ ܫܩܠܘܢ ܚ̈ܛܗܝܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܙܕܝܩܘܬ",
+              "lexeme": "ZDJQW",
+              "pos": "subs"
+            },
+            {
+              "form": "ܢ",
+              "lexeme": "N",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Daniel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6666",
+        "ref": "64:5",
+        "form": "צִדְקֹתֵ֑ינוּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܙܕܝܩܘܬܐ",
+            "spellings": [
+              "ܙܕܝܩܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „unsere Gerechtigkeit“ im nominalen Vergleich."
+      }
+    },
+    {
+      "book": "Hosea",
+      "id": "261812",
+      "form": "ܣܐܡܗܘܢ",
+      "chapter": 8,
+      "verse": 4,
+      "reason": "corpus-spelling-only",
+      "context": "ܐܡܠܟܘ ܐܠܐ ܠܐ ܡܢܝ ܘܐܫܬܠܛܘ ܘܠܐ ܐܘܕܥܘܢܝ ܣܐܡܗܘܢ ܘܕܗܒܗܘܢ ܥܒܕܘ ܠܗܘܢ ܦܬܟܪܐ ܕܢܐܒܕܘܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܣܐܡ",
+              "lexeme": "S>M",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗܘܢ",
+              "lexeme": "HWN",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3701",
+        "ref": "8:4",
+        "form": "כַּסְפָּ֣ם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܣܐܡܐ",
+            "spellings": [
+              "ܣܐܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihr Silber“ als Material der Götzen."
+      }
+    },
+    {
+      "book": "Hosea",
+      "id": "262725",
+      "form": "ܣܐܡܗܘܢ",
+      "chapter": 13,
+      "verse": 2,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܗܫܐ ܐܘܣܦܘ ܠܡܚܛܐ ܘܥܒܕܘ ܠܗܘܢ ܢܣܝܟܐ ܡܢ ܣܐܡܗܘܢ ܒܕܡܘܬܗܘܢ ܦܬܟܪܐ ܥܒܕܐ ܕܢܓܪܐ ܘܐܡܪܝܢ ܗܘܘ ܠܗܘܢ ܕܒܚܝ ܒܢܝ ܐܢܫܐ ܘܠܥܓܠܐ ܡܢܫܩܝܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܣܐܡ",
+              "lexeme": "S>M",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗܘܢ",
+              "lexeme": "HWN",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܣܐܡܐ",
+            "spellings": [
+              "ܣܐܡܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihr Silber“ als Material der Götzen."
+      }
+    },
+    {
+      "book": "Hosea",
+      "id": "261997",
+      "form": "ܐܟܘܠܘܗܝ",
+      "chapter": 9,
+      "verse": 4,
+      "reason": "no-candidate",
+      "context": "ܠܐ ܢܢܩܘܢ ܠܡܪܝܐ ܚܡܪܐ ܘܠܐ ܢܒܣܡܘܢ ܠܗ ܕܒܚܝܗܘܢ ܐܝܟ ܠܚܡܐ ܗܘ ܠܗܘܢ ܕܐܘܠܨܢܐ ܟܠ ܐܟܘܠܘܗܝ ܢܬܛܢܦܘܢ ܡܛܠ ܕܠܚܡܐ ܕܢܦܫܗܘܢ ܠܐ ܥܐܠ ܠܒܝܬܗ ܕܡܪܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:398",
+        "ref": "9:4",
+        "form": "אֹכְלָ֖יו"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܟܘܠܐ",
+            "spellings": [
+              "ܐܟܘܠܐ"
+            ],
+            "grammar": [
+              "N;PSS3SM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „seine Esser“ nach „alle“."
+      }
+    },
+    {
+      "book": "Amos",
+      "id": "264393",
+      "form": "ܥܠܝ̈ܡܝܟܘܢ",
+      "chapter": 2,
+      "verse": 11,
+      "reason": "no-candidate",
+      "context": "ܘܐܩܝܡܬ ܡܢ ܒ̈ܢܝܟܘܢ ܢܒ̈ܝܐ ܘܡܢ ܥܠܝ̈ܡܝܟܘܢ ܢܙܝܪ̈ܐ ܕܠܡܐ ܠܐ ܐܝܬܝܗܝܢ ܗܠܝܢ ܒܢ̈ܝ ܐܝܣܪܝܠ ܐܡܪ ܡܪܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS2PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „eure jungen Männer“ nach „aus“."
+      }
+    },
+    {
+      "book": "Amos",
+      "id": "264821",
+      "form": "ܥܠܝܡ̈ܝܟܘܢ",
+      "chapter": 4,
+      "verse": 10,
+      "reason": "no-candidate",
+      "context": "ܫܕܪܬ ܒܟܘܢ ܡܘܬܢܐ ܒܐܘܪܚܐ ܕܡܨܪܝܢ ܘܩܛܠܬ ܒܚܪܒܐ ܥܠܝܡ̈ܝܟܘܢ ܥܡ ܫܒܝܬܐ ܕܪ̈ܟܫܟܘܢ ܘܐܡܚܝܬ ܪܝܚ ܣܪܝܘܬܟܘܢ ܒܐ̈ܦܝܟܘܢ ܘܠܐ ܐܬܦܢܝܬܘܢ ܠܘܬܝ ܐܡܪ ܡܪܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:970",
+        "ref": "4:10",
+        "form": "בַּח֣וּרֵיכֶ֔ם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܥܠܝܡܐ",
+            "spellings": [
+              "ܥܠܝܡܐ"
+            ],
+            "grammar": [
+              "N;PSS2PM;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Pluralisches Substantiv „eure jungen Männer“ als Objekt von „töten“."
+      }
+    },
+    {
+      "book": "Obadiah",
+      "id": "266237",
+      "form": "ܬܝܡܢ",
+      "chapter": 1,
+      "verse": 9,
+      "reason": "competing-analyses",
+      "context": "ܘܢܬܒܙܘܢ ܓܢܒܪ̈ܝܟܝ ܬܝܡܢ ܘܢܐܒܕ ܐܢܫܐ ܡܢ ܛܘܪܐ ܕܥܣܘ ܡܢ ܩܛܠܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܬܝܡܢ",
+              "lexeme": "TJMN=",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Joshua",
+            "Jeremiah",
+            "Ezekiel"
+          ]
+        },
+        {
+          "parts": [
+            {
+              "form": "ܬܝܡܢ",
+              "lexeme": "TJMN",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "I Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:8487",
+        "ref": "1:9",
+        "form": "תֵּימָ֑ן"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܬܝܡܢܐ",
+            "spellings": [
+              "ܬܝܡܢܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG",
+              "N;PSSD;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Teman, keine abgesicherte Zuordnung zum vorgeschlagenen Gemeinnamen."
+      }
+    },
+    {
+      "book": "I Chronicles",
+      "id": "307202",
+      "form": "ܬܝܡܢ",
+      "chapter": 1,
+      "verse": 36,
+      "reason": "competing-analyses",
+      "context": "ܘܒܢ̈ܘܗܝ ܕܐܠܝܦܙ ܬܝܡܢ ܘܐܘܡܪ ܘܝܨܦܘ ܘܓܥܬܡ ܘܩܢܙ ܘܬܡܢܥ ܘܥܡܠܝܩ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܬܝܡܢ",
+              "lexeme": "TJMN=",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "Joshua",
+            "Jeremiah",
+            "Ezekiel"
+          ]
+        },
+        {
+          "parts": [
+            {
+              "form": "ܬܝܡܢ",
+              "lexeme": "TJMN",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "Genesis",
+            "I Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:8487",
+        "ref": "1:36",
+        "form": "תֵּימָ֤ן"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܬܝܡܢܐ",
+            "spellings": [
+              "ܬܝܡܢܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG",
+              "N;PSSD;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Teman, keine abgesicherte Zuordnung zum vorgeschlagenen Gemeinnamen."
+      }
+    },
+    {
+      "book": "Micah",
+      "id": "268223",
+      "form": "ܣܛܝܡ",
+      "chapter": 6,
+      "verse": 5,
+      "reason": "corpus-spelling-only",
+      "context": "ܥܡܝ ܐܬܕܟܪ ܗܟܝܠ ܡܢܐ ܐܬܪܥܝ ܥܠܝܟ ܒܠܩ ܡܠܟܐ ܕܡܘܐܒ ܘܡܢܐ ܥܢܝܗܝ ܒܠܥܡ ܒܪ ܒܥܘܪ ܡܢ ܣܛܝܡ ܘܥܕܡܐ ܠܓܠܓܠ ܡܛܠ ܕܝܕܥ ܙܕܝܩܘܬܗ ܕܡܪܝܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܣܛܝܡ",
+              "lexeme": "SVJM",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "Joshua"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:7851",
+        "ref": "6:5",
+        "form": "הַשִּׁטִּים֙"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܣܛܝܡܐ",
+            "spellings": [
+              "ܣܛܝܡܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG",
+              "N;PSSD;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Orts-/Personenname, keine abgesicherte Zuordnung zum vorgeschlagenen Gemeinnamen."
+      }
+    },
+    {
+      "book": "Ezra",
+      "id": "351962",
+      "form": "ܣܛܝܡ",
+      "chapter": 2,
+      "verse": 55,
+      "reason": "corpus-spelling-only",
+      "context": "ܒܢ̈ܝ ܥܒ̇ܪ ܒܢ̈ܝ ܫܠܝܡ ܒܢ̈ܝ ܣܛܝܡ ܒܢ̈ܝ ܐܣܦܪܘܬ ܒܢ̈ܝ ܦܪܘܕܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܣܛܝܡ",
+              "lexeme": "SVJM",
+              "pos": "subs"
+            }
+          ],
+          "seenIn": [
+            "Joshua"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:5479",
+        "ref": "2:55",
+        "form": "סֹטַ֥י"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܣܛܝܡܐ",
+            "spellings": [
+              "ܣܛܝܡܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG",
+              "N;PSSD;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Orts-/Personenname, keine abgesicherte Zuordnung zum vorgeschlagenen Gemeinnamen."
+      }
+    },
+    {
+      "book": "Habakkuk",
+      "id": "269677",
+      "form": "ܐܘܡܢܗ",
+      "chapter": 2,
+      "verse": 18,
+      "reason": "no-candidate",
+      "context": "ܡܢܐ ܐܘܬܪ ܓܠܝܦܐ ܕܓܠܦܗ ܐܘܡܢܗ ܘܢܣܝܟܐ ܗܘ ܘܝܘܠܦܢܐ ܕܓܠܐ ܕܐܬܬܟܠ ܠܒܐ ܕܐܘܡܢܗ ܥܠܘܗܝ ܠܡܥܒܕ ܦܬܟܪܐ ܚܪܫܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:3336",
+        "ref": "2:18",
+        "form": "יֹֽצְר֔וֹ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܘܡܢܐ",
+            "spellings": [
+              "ܐܘܡܢܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „sein Handwerker“ im nominalen Satzglied."
+      }
+    },
+    {
+      "book": "Esther",
+      "id": "285789",
+      "form": "ܕܓܠܝ",
+      "chapter": 2,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܕܓܠܝ ܡܢ ܐܘܪܫܠܡ. ܥܠ ܓܠܘܬܐ ܕܓܠܝܬ ܥܡ ܝܘܟܢܝܐ ܡ̇ܠܟܐ ܕܝܗܘܕܐ. ܕܓܠܝ ܢܒܘ ܟܕ ܢܨ̇ܪ ܡ̇ܠܟܐ ܕܒ̇ܒܠ.",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܕ",
+              "lexeme": "D",
+              "pos": "prep"
+            },
+            {
+              "form": "ܓܠܝ",
+              "lexeme": "GLJ",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܕܓܠܐ",
+            "spellings": [
+              "ܕܓܠܐ"
+            ],
+            "grammar": [
+              "ADJ;PSSD;PL;FEM",
+              "N;PSS1S;PL",
+              "N;PSS1S;SG",
+              "N;PSSD;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Relativpartikel mit Verb „wegführen“, kein Nomen/Adjektiv „falsch“."
+      }
+    },
+    {
+      "book": "Esther",
+      "id": "285799",
+      "form": "ܕܓܠܝ",
+      "chapter": 2,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܕܓܠܝ ܡܢ ܐܘܪܫܠܡ. ܥܠ ܓܠܘܬܐ ܕܓܠܝܬ ܥܡ ܝܘܟܢܝܐ ܡ̇ܠܟܐ ܕܝܗܘܕܐ. ܕܓܠܝ ܢܒܘ ܟܕ ܢܨ̇ܪ ܡ̇ܠܟܐ ܕܒ̇ܒܠ.",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܕ",
+              "lexeme": "D",
+              "pos": "prep"
+            },
+            {
+              "form": "ܓܠܝ",
+              "lexeme": "GLJ",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܕܓܠܐ",
+            "spellings": [
+              "ܕܓܠܐ"
+            ],
+            "grammar": [
+              "ADJ;PSSD;PL;FEM",
+              "N;PSS1S;PL",
+              "N;PSS1S;SG",
+              "N;PSSD;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Relativpartikel mit Verb „wegführen“, kein Nomen/Adjektiv „falsch“."
+      }
+    },
+    {
+      "book": "I Chronicles",
+      "id": "308411",
+      "form": "ܕܓܠܝ",
+      "chapter": 5,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܐܒܕܝܐ ܒܪܗ ܕܓܠܝ ܬܓܠܬܦܠܣܪ ܡܠܟܐ ܕܐܬܘܪ ܗܘ ܗܘܐ ܪܝܫܐ ܕܫܒܛܐ ܕܒܝܬ ܪܘܒܝܠ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܕ",
+              "lexeme": "D",
+              "pos": "prep"
+            },
+            {
+              "form": "ܓܠܝ",
+              "lexeme": "GLJ",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܕܓܠܐ",
+            "spellings": [
+              "ܕܓܠܐ"
+            ],
+            "grammar": [
+              "ADJ;PSSD;PL;FEM",
+              "N;PSS1S;PL",
+              "N;PSS1S;SG",
+              "N;PSSD;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Relativpartikel mit Verb „wegführen“, kein Nomen/Adjektiv „falsch“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "357502",
+      "form": "ܕܓܠܝ",
+      "chapter": 7,
+      "verse": 6,
+      "reason": "corpus-spelling-only",
+      "context": "ܗܠܝܢ ܒܢ̈ܝ ܡܕܝܢܬܐ ܕܣܠܩܘ ܡܢ ܫܒܝܐ ܕܓܠܘܬܐ ܕܓܠܝ ܢܒܘܟܕܢܨܪ ܡܠܟܐ ܕܒܒܠ ܘܗܦܟܘ ܠܐܘܪܫܠܡ ܘܠܝܗܘܕ ܓܒܪܐ ܠܩܪܝܬܗ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܕ",
+              "lexeme": "D",
+              "pos": "prep"
+            },
+            {
+              "form": "ܓܠܝ",
+              "lexeme": "GLJ",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "II Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܕܓܠܐ",
+            "spellings": [
+              "ܕܓܠܐ"
+            ],
+            "grammar": [
+              "ADJ;PSSD;PL;FEM",
+              "N;PSS1S;PL",
+              "N;PSS1S;SG",
+              "N;PSSD;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Relativpartikel mit Verb „wegführen“, kein Nomen/Adjektiv „falsch“."
+      }
+    },
+    {
+      "book": "I Chronicles",
+      "id": "316452",
+      "form": "ܚܢܢܝ",
+      "chapter": 25,
+      "verse": 25,
+      "reason": "no-candidate",
+      "context": "ܕܬܡܢܬܥܣܪ ܚܢܢܝ ܘܒܢ̈ܘܗܝ ܘܐܚ̈ܘܗܝ ܬܪܥܣܪ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2607",
+        "ref": "25:25",
+        "form": "לַחֲנָ֔נִי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Ezra",
+      "id": "355170",
+      "form": "ܚܢܢܝ",
+      "chapter": 10,
+      "verse": 20,
+      "reason": "no-candidate",
+      "context": "ܡܢ ܒܢ̈ܝ ܐܡܝܪ ܚܢܢܝ ܘܙܟܪܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2607",
+        "ref": "10:20",
+        "form": "חֲנָ֖נִי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "355346",
+      "form": "ܚܢܢܝ",
+      "chapter": 1,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܘܐ̣ܬܐ ܚܢܢܝ ܚܕ ܡܢ ܐܚ̈ܝ ܗܘ ܘܓܒܪ̈ܐ ܝܗܘ̈ܕܝܐ ܘܫ̇ܐܠܬ ܐܢܘܢ ܥܠ ܝܗܘ̈ܕܝܐ ܐܝܠܝܢ ܕܝܬܪܘ ܡܢ ܫܒܝܐ ܘܐܦ ܥܠ ܐܘܪܫܠܡ ܡܕܝܢܬܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2607",
+        "ref": "1:2",
+        "form": "חֲנָ֜נִי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "357774",
+      "form": "ܚܢܢܝ",
+      "chapter": 7,
+      "verse": 49,
+      "reason": "no-candidate",
+      "context": "ܒܢ̈ܝ ܚܢܢܝ ܒܢ̈ܝ ܥܕܐ ܒܢ̈ܝ ܚܓܪ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2605",
+        "ref": "7:49",
+        "form": "חָנָ֥ן"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "359151",
+      "form": "ܚܢܢܝ",
+      "chapter": 10,
+      "verse": 11,
+      "reason": "no-candidate",
+      "context": "ܘܐܚܝ̈ܗܘܢ ܫܟܢܝܐ ܘܐܘܪܝܐ ܩܠܛܝܐ ܦܠܛܝܐ ܚܢܢܝ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2605",
+        "ref": "10:11",
+        "form": "חָנָֽן"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "359190",
+      "form": "ܚܢܢܝ",
+      "chapter": 10,
+      "verse": 23,
+      "reason": "no-candidate",
+      "context": "ܦܠܛܝܐ ܚܢܢܝ ܥܢܢܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2605",
+        "ref": "10:23",
+        "form": "חָנָ֖ן"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "359202",
+      "form": "ܚܢܢܝ",
+      "chapter": 10,
+      "verse": 27,
+      "reason": "no-candidate",
+      "context": "ܐܚܝܐ ܚܢܢܝ ܥ̣ܢܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2605",
+        "ref": "10:27",
+        "form": "חָנָ֖ן"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "Nehemiah",
+      "id": "360124",
+      "form": "ܚܢܢܝ",
+      "chapter": 12,
+      "verse": 36,
+      "reason": "no-candidate",
+      "context": "ܘܐܚܘ̈ܗܝ ܫܡܥܝܐ ܘܥܙܪܐܝܠ ܡܠܠ ܓܠܠ ܥܛܙ ܢܬܢܝܐܝܠ ܚܢܢܝ ܝܗܘܕܐ ܒܡܐ̈ܢܐ ܕܬܫܒܚ̈ܬܐ ܕܕܘܝܕ ܢܒܝܐ ܥܒ̣ܕܐ ܕܡܪܝܐ ܘܥܙܪܐ ܣ̇ܦܪܐ ܩܕܡܝܗܘܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2607",
+        "ref": "12:36",
+        "form": "חֲנָ֔נִי"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܢܢܐ",
+            "spellings": [
+              "ܚܢܢܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Hanani, kein suffigiertes Substantiv „meine Gnade“."
+      }
+    },
+    {
+      "book": "I Chronicles",
+      "id": "317049",
+      "form": "ܚܠܕܝ",
+      "chapter": 27,
+      "verse": 15,
+      "reason": "no-candidate",
+      "context": "ܕܬܪܥܣܪ ܠܝܪܚܐ ܕܬܪܥܣܪ ܚܠܕܝ ܢܛܘܦܬܝܐ ܡܢ ܕܒܝܬ ܥܢܬܘܢܐܝܠ ܘܥܠ ܦܠܓܘܬܗ ܥܣܪܝܢ ܘܐܪ̈ܒܥܐ ܐ̈ܠܦܝܢ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:2469",
+        "ref": "27:15",
+        "form": "חֶלְדַּ֥י"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܚܠܕܝܬܐ",
+            "spellings": [
+              "ܚܠܕܝܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Eigenname Heldai, kein abgesicherter Bezug zum vorgeschlagenen Gemeinnamen."
+      }
+    },
+    {
+      "book": "I Chronicles",
+      "id": "317704",
+      "form": "ܡܣܟܢܘܬܝ",
+      "chapter": 29,
+      "verse": 3,
+      "reason": "no-candidate",
+      "context": "ܘܟܠ ܡܕܡ ܕܡܬܒܥܐ ܠܗ ܠܒܝܬܐ ܛܝܒܬ ܘܬܩܢܬ ܠܗ ܡܢ ܡܣܟܢܘܬܝ ܘܟܣܦܐ ܛܝܒܬ ܠܢܦܩܬܗ ܕܒܝܬܐ ܕܐܠܗܝ ܡܢ ܡܣܟܢܘܬܝ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܡܣܟܢܘܬܐ",
+            "spellings": [
+              "ܡܣܟܢܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Kontext einer persönlichen Gabe, die nominale Bedeutung bedarf weiterer lexikalischer Prüfung."
+      }
+    },
+    {
+      "book": "I Chronicles",
+      "id": "317711",
+      "form": "ܡܣܟܢܘܬܝ",
+      "chapter": 29,
+      "verse": 3,
+      "reason": "no-candidate",
+      "context": "ܘܟܠ ܡܕܡ ܕܡܬܒܥܐ ܠܗ ܠܒܝܬܐ ܛܝܒܬ ܘܬܩܢܬ ܠܗ ܡܢ ܡܣܟܢܘܬܝ ܘܟܣܦܐ ܛܝܒܬ ܠܢܦܩܬܗ ܕܒܝܬܐ ܕܐܠܗܝ ܡܢ ܡܣܟܢܘܬܝ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܡܣܟܢܘܬܐ",
+            "spellings": [
+              "ܡܣܟܢܘܬܐ"
+            ],
+            "grammar": [
+              "N;PSS1S;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Kontext einer persönlichen Gabe, die nominale Bedeutung bedarf weiterer lexikalischer Prüfung."
+      }
+    },
+    {
+      "book": "II Chronicles",
+      "id": "319074",
+      "form": "ܐܘܪܟܗܝܢ",
+      "chapter": 3,
+      "verse": 11,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܟܢ̈ܦܐ ܕܟܪ̈ܘܒܐ ܐܘܪܟܗܝܢ ܐܡ̈ܐ ܥܣܪܝܢ ܟܢܦܐ ܚܕܐ ܐܡ̈ܐ ܚܡܫ ܢܩܦܐ ܠܐܣܬܗ ܕܒܝܬܐ ܘܟܢܦܐ ܐܚܪܬܐ ܐܡ̈ܐ ܚܡܫ ܢܩܦܐ ܠܟܢܦܗ ܕܟܪܘܒܐ ܐܚܪܢܐ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܐܘܪܟ",
+              "lexeme": ">WRK",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗܝܢ",
+              "lexeme": "HJN",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:753",
+        "ref": "3:11",
+        "form": "אָרְכָּ֖ם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܘܪܟܐ",
+            "spellings": [
+              "ܐܘܪܟܐ"
+            ],
+            "grammar": [
+              "N;PSS3PF;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihre Länge“ mit Maßangabe zu den Flügeln."
+      }
+    },
+    {
+      "book": "II Chronicles",
+      "id": "319111",
+      "form": "ܦܪ̈ܝܣܢ",
+      "chapter": 3,
+      "verse": 13,
+      "reason": "corpus-spelling-only",
+      "context": "ܟܢܦܝ̈ܗܘܢ ܕܟܪ̈ܘܒܐ ܗܠܝܢ ܦܪ̈ܝܣܢ ܐܡ̈ܐ ܥܣܪܝܢ ܘܗܢܘܢ ܩ̇ܝܡܝܢ ܥܠ ܪ̈ܓܠܝܗܘܢ ܘܐܦܝ̈ܗܘܢ ܠܓܘ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܦܪܝܣܢ",
+              "lexeme": "PRS",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "I Kings"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:6566",
+        "ref": "3:13",
+        "form": "פֹּֽרְשִׂ֖ים"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܦܪܝܣܬܐ",
+            "spellings": [
+              "ܦܪܝܣܬܐ"
+            ],
+            "grammar": [
+              "N;ABS;PL"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Prädikatives Partizip „ausgebreitet“, die vorgeschlagene Nomenanalyse ist nicht abgesichert."
+      }
+    },
+    {
+      "book": "II Chronicles",
+      "id": "319138",
+      "form": "ܐܘܪܟܗܘܢ",
+      "chapter": 3,
+      "verse": 15,
+      "reason": "corpus-spelling-only",
+      "context": "ܘܥܒܕ ܩܕܡܘܗܝ ܕܒܝܬܐ ܪܒܐ ܐܣܛܘ̈ܢܐ ܬܪܝܢ ܐܘܪܟܗܘܢ ܐܡ̈ܝܢ ܬܡܢܥܣܪܐ ܘܚܬ̈ܐ ܕܥܠ ܪ̈ܫܝܗܘܢ ܚܡܫ ܐܡ̈ܝܢ ܪܘܡܗܝܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܐܘܪܟ",
+              "lexeme": ">WRK",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗܘܢ",
+              "lexeme": "HWN",
+              "pos": "pron"
+            }
+          ],
+          "seenIn": [
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:753",
+        "ref": "3:15",
+        "form": "אֹ֑רֶךְ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܘܪܟܐ",
+            "spellings": [
+              "ܐܘܪܟܐ"
+            ],
+            "grammar": [
+              "N;PSS3PM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": true,
+        "note": "Substantiv „ihre Länge“ mit Maßangabe zu den Säulen."
+      }
+    },
+    {
+      "book": "II Chronicles",
+      "id": "320887",
+      "form": "ܐܣܩܗ̇",
+      "chapter": 8,
+      "verse": 11,
+      "reason": "no-candidate",
+      "context": "ܒܪܡ ܒܪܬܗ ܕܦܪܥܘܢ ܐܣܩܗ̇ ܗܘܐ ܫܠܝܡܘܢ ܡܢ ܩܪܝܬܗ ܕܕܘܝܕ ܠܒܝܬܐ ܕܒܢܐ ܠܗ̇ ܡܛܠ ܕܐܡܪ ܗܘܐ ܠܐ ܬܬܒ ܐܢܬܬܐ ܥܡܝ ܒܒܝܬܗ ܕܕܘܝܕ ܡܠܟܐ ܕܝܣܪܝܠ ܡܛܠ ܕܩܕܝܫ ܗܘ ܕܥܠܬ ܠܗ ܩܒܘܬܗ ܕܡܪܝܐ",
+      "etcbc": [],
+      "sedra": [],
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܐܣܩܐ",
+            "spellings": [
+              "ܐܣܩܐ"
+            ],
+            "grammar": [
+              "N;PSS3SF;SG",
+              "N;PSS3SM;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „er brachte sie hinauf“, kein suffigiertes Substantiv."
+      }
+    },
+    {
+      "book": "Ezra",
+      "id": "352955",
+      "form": "ܩܛܝܪ̈ܢ",
+      "chapter": 5,
+      "verse": 8,
+      "reason": "corpus-spelling-only",
+      "context": "ܢܗܘܐ ܕܝܢ ܝ̇ܕܥ ܡܠܟܐ ܕܐܙܠܢ ܠܝܗܘܕ ܡܕܝܢܬܐ ܕܐܠܗܐ ܪܒܐ ܘܗܝ ܡܬܒܢܝܐ ܒܟܐ̈ܦܐ ܪ̈ܘܪܒܬܐ ܘܥܪ̈ܩܐ ܣܘܓܐܐ ܩܛܝܪ̈ܢ ܒܐܣ̈ܝܗ̇ ܘܥܒ̈ܝܕܬܐ ܪ̈ܘܪܒܬܐ ܡܬܥ̈ܒܕܢ ܬܡܢ ܘܥܒ̇ܕܐ ܪܒܐ ܣ̇ܠܩ ܘܐ̇ܙܠ ܠܪܝܫ ܒܐܝ̈ܕܝܗܘܢ",
+      "etcbc": [
+        {
+          "parts": [
+            {
+              "form": "ܩܛܝܪܢ",
+              "lexeme": "QVR",
+              "pos": "verb"
+            }
+          ],
+          "seenIn": [
+            "Ezekiel"
+          ]
+        }
+      ],
+      "sedra": [],
+      "hebrew": {
+        "strong": "A:7761",
+        "ref": "5:8",
+        "form": "מִתְּשָׂ֣ם"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܩܛܝܪܐ",
+            "spellings": [
+              "ܩܛܝܪܐ"
+            ],
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Prädikative Form „gebunden“, Wortart und Lemma bleiben abzusichern."
+      }
+    },
+    {
+      "book": "Ezra",
+      "id": "354847",
+      "form": "ܟܕܒܢ",
+      "chapter": 10,
+      "verse": 2,
+      "reason": "no-candidate",
+      "context": "ܘܥ̣ܢܐ ܫܟܢܝܐ ܒܪ ܢܚܐܝܠ ܡܢ ܒܢ̈ܝ ܥܝܠܡ ܘܐ̣ܡܪ ܠܥܙܪܐ ܣ̇ܦܪܐ ܚܢܢ ܟܕܒܢ ܒܡܪܝܐ ܐܠܗܢ ܘܐܘܬܒܢ ܢܫ̈ܐ ܢܘܟܪ̈ܝܬܐ ܡܢ ܥܡܡ̈ܐ ܕܐܪܥܐ ܡܟܝܠ ܐܝܬ ܣܒܪܐ ܠܐܝܣܪܝܠ ܡܛܠ ܗܕܐ",
+      "etcbc": [],
+      "sedra": [],
+      "hebrew": {
+        "strong": "H:4603",
+        "ref": "10:2",
+        "form": "מָעַ֣לְנוּ"
+      },
+      "ntEvidence": {
+        "finding": "no-exact-nt-form",
+        "matches": [],
+        "dictionaryAgreement": [],
+        "contextFinding": "not-single-nt-analysis",
+        "contextMatches": []
+      },
+      "lexicalEvidence": {
+        "finding": "single-unimorph-lemma",
+        "candidates": [
+          {
+            "lemma": "ܟܕܒܐ",
+            "spellings": [
+              "ܟܕܒܐ"
+            ],
+            "grammar": [
+              "ADJ;ABS;PL;FEM",
+              "N;PSS1P;SG"
+            ]
+          }
+        ],
+        "dictionaryAgreement": [],
+        "sourceFamily": "SEDRA",
+        "newFormEvidence": true
+      },
+      "contextReview": {
+        "accepted": false,
+        "note": "Verb „wir handelten treulos“, kein Adjektiv/Substantiv."
+      }
+    }
+  ],
+  "licenseScope": "UniMorph-derived form/lemma evidence and Safran contextual decisions. Quoted Peshitta text and ETCBC annotations retain CC BY-NC 4.0. See bundled/peshitta-LICENSES.md."
+}
