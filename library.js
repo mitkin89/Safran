@@ -956,6 +956,7 @@
 
   // reader-module:word-cards
   const wordCardsUI = window.LibraryWordCards.create({
+    syntaxSection: context => wordPopupUI.syntaxSection(context),
     get $() { return $; },
     get $$() { return $$; },
     get BG() { return BG; },
@@ -2672,7 +2673,7 @@
     const lastSearch = searchUI.getLastSearch();
     if (!lastSearch) return;
     saveScroll();
-    const nv = { group: null, sres: { q: lastSearch.query || I18N.t(lastSearch.syntax ? 'Syntaktische Suche (Pentateuch)' : 'Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
+    const nv = { group: null, sres: { q: lastSearch.query || I18N.t(lastSearch.syntax ? 'Klauselsuche (Tanach)' : 'Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
     addTab(nv); view = nv;
     showTab('read'); showView();
   };

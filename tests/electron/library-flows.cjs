@@ -89,10 +89,22 @@ module.exports=async function setup({profile,docs,handlers}){
       document.querySelector('#sxGo').click();
     }`);
     await waitFor("document.querySelector('#sOut .sres bdi') && document.querySelector('#sxGo').textContent==='Syntax suchen'",'Syntaktische Suche im Pentateuch');
-    assert.deepEqual(searchRequests.at(-1).syntax,{verb:'ברא',subject:'אלהים'});
+    assert.deepEqual(searchRequests.at(-1).syntax,{verb:'ברא',subject:'אלהים',object:'',referents:false});
     assert.deepEqual(await js("Array.from(document.querySelectorAll('#sOut .sres:first-child mark'), el => el.textContent)"),['ברא','אלהים']);
     assert((await js("document.querySelector('#sOut .sres').textContent")).includes('Subjekt'));
     console.log('Electron: Syntaktische Suche mit markiertem Verb und Subjekt bestanden.');
+
+    await js("document.querySelector('#sOut .sres').click()");
+    await waitFor("document.querySelector('#rOut .row[data-l=\"5\"] .cell[data-mt] .w')",'Westminster im Leser');
+    await js(`document.querySelectorAll('#rOut .row[data-l="5"] .cell[data-mt] .w[data-m]')[5].click()`);
+    await waitFor("document.querySelector('#wpop .macula-target') && document.querySelector('#rOut .macula-mark')",'MACULA-Satzrolle im Wort-Popup');
+    await js("document.querySelector('#wpop .macula-target').click()");
+    assert.equal(await js("document.querySelector('#rOut .macula-mark').textContent.replace(/[^א-ת]/g,'')"),'אלהים');
+    await js("document.querySelector('#wpop .wcard').click()");
+    await waitFor("document.querySelector('#wcBody .macula-roles')",'MACULA-Satzrolle in der Wortkarte');
+    await js("document.querySelector('#formsPanel').hidden=true");
+    console.log('Electron: MACULA-Wortklick, Bezugswortmarkierung und Wortkarte bestanden.');
+
 
 
     holdSearch=true;await search();await search(pane);

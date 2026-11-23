@@ -556,6 +556,7 @@ ipcMain.handle('off:library', async () => {
 });
 
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
+ipcMain.handle('off:wordSyntax', (_e, book, verse, position) => require('./tanakh-syntax').wordRoles(book, verse, position));
 
 const cacheDirOf = lib => path.join(lib.dir, '.searchcache');
 let warming = null;
@@ -579,7 +580,8 @@ ipcMain.handle('off:search', async (e, o = {}) => {
     const params = {
       concordance: !!o.concordance, crossLanguage: !!o.crossLanguage, query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
       distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
-      syntax: o.syntax == null ? null : { verb: str(o.syntax.verb).slice(0, 128), subject: str(o.syntax.subject).slice(0, 256) },
+      syntax: o.syntax == null ? null : { verb: str(o.syntax.verb).slice(0, 128), subject: str(o.syntax.subject).slice(0, 256),
+        object: str(o.syntax.object).slice(0, 256), referents: o.syntax.referents === true },
       limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
     };
     const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });

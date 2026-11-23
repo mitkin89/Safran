@@ -207,25 +207,29 @@ window.LibrarySearch = (() => {
         : '';
       $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
     }
-    const syntaxParams = () => ({ verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim() });
+    const syntaxParams = () => ({
+      verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim(),
+      object: $('#sxObject').value.trim(), referents: $('#sxReferents').checked,
+    });
     function runSyntaxSearch() {
       if (sBusy()) return O.cancelSearch();
       const syntax = syntaxParams();
-      const subjects = syntax.subject.split(/[\s,]+/u).filter(Boolean);
-      const terms = [syntax.verb, ...subjects].filter(Boolean);
-      const valid = terms.length && subjects.length <= 12
+      const split = value => value.split(/[\s,]+/u).filter(Boolean);
+      const subjects = split(syntax.subject), objects = split(syntax.object);
+      const terms = [syntax.verb, ...subjects, ...objects].filter(Boolean);
+      const valid = terms.length && subjects.length <= 12 && objects.length <= 12
         && terms.every(term => /^[\u0591-\u05C7א-ת]+$/u.test(term) && /[א-ת]/u.test(term));
       const error = $('#sxError');
       error.hidden = !!valid;
       if (!valid) {
-        error.textContent = I18N.t('Gib ein hebräisches Verb-Lemma oder bis zu zwölf Subjekt-Lemmata ein.');
+        error.textContent = I18N.t('Gib ein hebräisches Verb-Lemma oder bis zu zwölf Subjekt- bzw. Objekt-Lemmata ein.');
         return;
       }
       return runSearch(null, syntax);
     }
     $('#sxGo').onclick = runSyntaxSearch;
     $('#sSyntax').addEventListener('keydown', event => {
-      if (event.key === 'Enter' && event.target.tagName === 'INPUT') {
+      if (event.key === 'Enter' && event.target.type === 'text') {
         event.preventDefault();
         if (!sBusy()) runSyntaxSearch();
       }
@@ -282,8 +286,10 @@ window.LibrarySearch = (() => {
       const sn = r.snippet;
       if (r.concordance) return `<div class="sres ccRow" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.analysisSource ? ' · ' + esc(r.analysisSource) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
       const roles = (r.syntax || []).map(pair => {
-        const subjects = pair.subjects.map(subject => `<bdi lang="he">${esc(subject.text)}</bdi>${subject.ref ? ` (${esc(subject.ref)})` : ''}`).join(' · ');
-        return `<div class="muted">${esc(I18N.t('Verb'))} <bdi lang="he">${esc(pair.verb)}</bdi> · ${esc(I18N.t('Subjekt'))} ${subjects}</div>`;
+        const parts = [[I18N.t('Verb'), [{ text: pair.verb }]], [I18N.t('Subjekt'), pair.subjects],
+          [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
+        return `<div class="muted">${parts.filter(([, refs]) => refs?.length).map(([name, refs]) =>
+          `${esc(name)} ${refs.map(ref => `<bdi lang="he">${esc(ref.text)}</bdi>${ref.ref ? ` (${esc(ref.ref)})` : ''}`).join(', ')}`).join(' · ')}</div>`;
       }).join('');
       return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}</div>`;
     };

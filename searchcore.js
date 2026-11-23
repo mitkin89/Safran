@@ -9,7 +9,7 @@ const SefOrder = require('./order');
 const Morph = require('./morph');
 const GMorph = require('./gmorph');
 const Bavli = require('./bavli-core');
-const PentateuchSyntax = require('./pentateuch-syntax');
+const TanakhSyntax = require('./tanakh-syntax');
 let bavliData = null;
 function bavliLemma(id) {
   if (!Bavli.own(id)) return '';
@@ -177,7 +177,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   if (units.length === 1 && !multi) query = units[0].words[0]; // ein einzelnes Wort: wie bisher (Satzzeichen drumherum zählen nicht)
   const q = R.normalize(query);
   const G = cleanGram(params.gram);
-  const syntaxOn = params.syntax != null, syntax = syntaxOn && PentateuchSyntax.cleanQuery(params.syntax);
+  const syntaxOn = params.syntax != null, syntax = syntaxOn && TanakhSyntax.cleanQuery(params.syntax);
   const gramOn = !!G || syntaxOn;
   if ((syntaxOn && !syntax) || (!q && !gramOn)) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
   const terms = [query, ...extra].filter(t => String(t || '').trim());
@@ -193,7 +193,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const wlcTitles = new Set(wlc ? entries.filter(isWlc).map(e => e.title) : []);
   const skip = e => wlc && e.kind === 'he' && wlcTitles.has(e.title) && !isWlc(e) && /^Tanakh/.test((e.categories || [])[0] || '');
   const lemMatcher = lemma && !exact ? S.makeMatcher({ terms: words, fuzzy, prefix, distance, ordered }) : null;
-  const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? PentateuchSyntax.supports(e) : gramOn ? isMorph(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
+  const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? TanakhSyntax.supports(e) : gramOn ? isMorph(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
   const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
@@ -207,8 +207,8 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
       try { d = JSON.parse(await fs.readFile(path.join(dir, e.rel), 'utf8')); } catch { /* überspringen */ }
       if (d) {
         let locator = null, shown = 0, hits = 0; const qL = q ? letters(query) : '';
-        const syntaxMatcher = syntax && PentateuchSyntax.createMatcher(
-          require('./bundled/syntax/' + e.title + '.json'), syntax, d.text,
+        const syntaxMatcher = syntax && TanakhSyntax.createMatcher(
+          TanakhSyntax.load(e.title), syntax, d.text,
           str => [...str.matchAll(SPAN)].map(m => ({ form: m[3], normalized: letters(m[3]), lemma: m[1], morph: m[2] })),
           word => !G || gramTest(G, gramOf(word.morph, word.lemma)),
         );
