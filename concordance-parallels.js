@@ -33,10 +33,10 @@ async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=_
   if(offset!==C.tokens(C.textOf(html)).length)return [];
   return out;
  }
- function peer(d,c,v,words,source,mtRef){
+ function peer(d,c,v,words,source,mtRef,positions){
   const p=[c,v],loc=R.makeLocator(d.text,d.sectionNames)(p);if(!loc)return null;
   const text=C.textOf(d.text[c]?.[v]||''),hit=words.join(' ');
-  return {rel:d.entry.rel,title:d.entry.title,versionTitle:d.entry.versionTitle,kind:d.entry.kind,language:d.entry.language,path:p,loc:{path:loc.path,label:loc.label},where:[loc.sectionLabel,loc.label].filter(Boolean).join(' · '),snippet:{before:'',hit,after:''},words,sub:false,concordance:true,basis:'alignment',analysisSource:source,mtRef,context:text};
+  return {rel:d.entry.rel,title:d.entry.title,versionTitle:d.entry.versionTitle,kind:d.entry.kind,language:d.entry.language,path:p,loc:{path:loc.path,label:loc.label},where:[loc.sectionLabel,loc.label].filter(Boolean).join(' · '),snippet:{before:'',hit,after:''},words,sub:false,concordance:true,basis:'alignment',analysisSource:source,mtRef,context:text,positions};
  }
  for(const r of results){
   if(isCancelled())break;
@@ -58,12 +58,12 @@ async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=_
   if(!mt.length||!Number.isInteger(c)||!Number.isInteger(v))continue;
   if(syRow&&!PA.verse(b.sy,(c+1)+':'+(v+1),heWords(b.h.text[c]?.[v])))continue;
   const hw=heWords(b.h.text[c]?.[v]),ref=(c+1)+':'+(v+1),mtRef=r.title+' '+ref;
-  if(r.rel!==b.h.entry.rel){const p=peer(b.h,c,v,mt.map(i=>hw[i-1]).filter(Boolean),'MT anchor',mtRef);if(p)r.parallels.push(p);}
-  if(b.g&&r.rel!==b.g.entry.rel){gGroups=gGroups.length?gGroups:greekGroups(b.h,b.g,c,v);const words=gGroups.filter(x=>x.ix.some(i=>mt.includes(i))&&x.text).map(x=>x.text);if(words.length){const p=peer(b.g,c,v,words,'CATSS / Tov–Kraft',mtRef);if(p)r.parallels.push(p);}}
+  if(r.rel!==b.h.entry.rel){const p=peer(b.h,c,v,mt.map(i=>hw[i-1]).filter(Boolean),'MT anchor',mtRef,mt);if(p)r.parallels.push(p);}
+  if(b.g&&r.rel!==b.g.entry.rel){gGroups=gGroups.length?gGroups:greekGroups(b.h,b.g,c,v);const matched=gGroups.filter(x=>x.ix.some(i=>mt.includes(i))&&x.text),words=matched.map(x=>x.text);if(words.length){const p=peer(b.g,c,v,words,'CATSS / Tov–Kraft',mtRef,matched.flatMap(x=>x.positions));if(p)r.parallels.push(p);}}
   if(b.s&&r.rel!==b.s.entry.rel){
    syRow=syRow||PA.verse(b.sy,ref,hw);if(!syRow)continue;
-   const groups=new Map();syRow.links.forEach((ix,j)=>{if(!ix.some(i=>mt.includes(i)))return;const native=syRow.refs?.[j]||ref,record=b.s.syriacMorphology?.words?.[syRow.ids?.[j]];if(!record||record[0]!==syRow.sy[j]||record[2]+':'+record[3]!==native)return;const words=groups.get(native)||[];words.push(syRow.sy[j]);groups.set(native,words);});
-   for(const [native,words]of groups){const [sc,sv]=native.split(':').map(n=>+n-1),verseKey=Array.isArray(b.s.text[sc])?sv:String(sv+1),p=peer(b.s,sc,verseKey,words,syRow.review?'Peshitta · checked ('+syRow.review.by+')':'Peshitta · automatic alignment',mtRef);if(p)r.parallels.push(p);}
+   const groups=new Map();syRow.links.forEach((ix,j)=>{if(!ix.some(i=>mt.includes(i)))return;const native=syRow.refs?.[j]||ref,record=b.s.syriacMorphology?.words?.[syRow.ids?.[j]];if(!record||record[0]!==syRow.sy[j]||record[2]+':'+record[3]!==native)return;const group=groups.get(native)||{words:[],ids:[]};group.words.push(syRow.sy[j]);group.ids.push(syRow.ids[j]);groups.set(native,group);});
+   for(const [native,group]of groups){const words=group.words;const [sc,sv]=native.split(':').map(n=>+n-1),verseKey=Array.isArray(b.s.text[sc])?sv:String(sv+1),p=peer(b.s,sc,verseKey,words,syRow.review?'Peshitta · checked ('+syRow.review.by+')':'Peshitta · automatic alignment',mtRef,(C.syriacWordSpans(b.s.text[sc]?.[verseKey],C.tokens(C.textOf(b.s.text[sc]?.[verseKey]||'')))||[]).flatMap((w,i)=>group.ids.includes(w.id)?[i+1]:[]));if(p)r.parallels.push(p);}
   }
   await new Promise(resolve=>setImmediate(resolve));
  }

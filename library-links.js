@@ -405,16 +405,17 @@ window.LibraryLinks = (() => {
         const pref = { he: host.disp.pvHe || '', de: host.disp.pvDe || '', x: host.disp.pvX || '' };
         const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? '\u0003original' : '');
         let r;
-        if (pick?.exact) {
+        if(pick?.concordance){const html=window.ConcordancePreview.render(pick.concordance,host.esc);if(!html)return;r={previewHtml:host.pvVer(pick.concordance.versionTitle)+html};}
+        else if (pick?.exact) {
           try { r = await exactVerse(pick.exact); } catch { r = {}; }
         } else r = pvCache.get(ck);
         if (!r) { try { r = await LK.preview(ref, pick && (pick.greek || pick.targum) ? ['other'] : ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (request !== hovRequest || !a.isConnected) return; // Maus ist inzwischen woanders
-        const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
+        const none = !r.previewHtml && !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
         const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${host.R.cleanHtml(host.R.splitFootnotes(p.he ? host.stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
-        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + host.pvVer(p.versionTitle) + `<div class="pvp" data-vt="${host.esc(p.versionTitle || '')}"${p.he ? ' data-he="1"' : ''}>${partHtml(p)}</div>`).join('') : r.items && r.items.length ? host.pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${host.esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
+        const html = r.previewHtml || (r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + host.pvVer(p.versionTitle) + `<div class="pvp" data-vt="${host.esc(p.versionTitle || '')}"${p.he ? ' data-he="1"' : ''}>${partHtml(p)}</div>`).join('') : r.items && r.items.length ? host.pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${host.esc(I18N.t('Keine Vorschau möglich.'))}</i>`);
         // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
         const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${host.esc(versNote(a))}</div>` : '')
           // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen

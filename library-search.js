@@ -18,6 +18,7 @@ window.LibrarySearch = (() => {
       g.classList.toggle('primary', !sBusy());
       $('#sxGo').textContent = g.textContent;
       $('#sxGo').classList.toggle('primary', !sBusy());
+      $('#sxAdvancedGo').textContent=g.textContent;
     };
     function setSearchMode(mode) {
       if (searchMode === mode) return;
@@ -85,7 +86,7 @@ window.LibrarySearch = (() => {
       for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
       $('#sMode').value = sModeSel[slot];
       const m = $('#sMode').value, fuzzy = $('#sFuzzy').checked, d = +$('#sDist').value, sh = sShape(v), p = [];
-      if (gram) p.push(I18N.t('Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b'));
+      if (gram) p.push(I18N.t('Grammatik-Suche: Tanach (Westminster)'));
       else p.push(I18N.t(l === 'auto' && !v ? 'Sprache richtet sich nach der Schrift der Eingabe' : kinds.length > 2 ? 'Sucht in allen Sprachen' : kinds.length === 2 ? 'Sucht deutsch und englisch' : kinds[0] === 'he' ? 'Sucht hebräisch' : kinds[0] === 'de' ? 'Sucht deutsch' : kinds[0] === 'en' ? 'Sucht englisch' : 'Sucht in anderen Sprachen'));
       if (!gram) p.push(I18N.t(m === 'lemma' && slot === 'gr' ? 'alle Wortformen in der Septuaginta (Lemma), sonst ganze Wörter' : m === 'lemma' ? 'alle Wortformen im Tanach, sonst ganze Wörter (mit Vorsilben)' : m === 'prefix' ? 'ganze Wörter, hebräische Vorsilben erlaubt' : m === 'exact' ? 'nur genau dieses Wort' : fuzzy ? 'ganze Wörter' : 'auch Wortteile'));
       if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
@@ -259,6 +260,7 @@ window.LibrarySearch = (() => {
         v.versionTitle === 'Westminster Leningrad Codex (OSHB, mit Morphologie)')).map(g => g.title));
       select.replaceChildren(select.options[0], ...SefOrder.sortTitles([...titles], title => title).map(title => new Option(title, title)));
       select.value = titles.has(book) ? book : '';
+      const advanced=$('#sxAdvancedBook'),saved=advanced.value;advanced.replaceChildren(...[...select.options].map(o=>o.cloneNode(true)));advanced.value=titles.has(saved)?saved:'';
     }
     let bhsaStatusRequested = false;
     function loadBhsaStatus() {
@@ -271,10 +273,19 @@ window.LibrarySearch = (() => {
         bhsaStatus.textContent = status.ready ? I18N.t('ETCBC BHSA · {} von {} Versen zugeordnet',
           status.aligned.toLocaleString(I18N.loc), status.total.toLocaleString(I18N.loc))
           : I18N.t('Die mitgelieferten BHSA-Daten konnten nicht gelesen werden.');
+        $('#sxAdvancedStatus').textContent=bhsaStatus.textContent;
       };
       O.bhsaStatus().then(show, () => show({ ready: false }));
     }
-    const syntaxParams = () => ({
+    const syntaxBuilder=window.LibrarySyntaxBuilder.create({root:$('#sxBuilder'),esc,t:key=>I18N.t(key)});
+    $('#sxPatternExample').onclick=()=>syntaxBuilder.set({op:'all',children:[{op:'term',role:'verb'},
+      {op:'related',relation:'child',child:{op:'all',children:[{op:'term',role:'relation',value:'Attr'},{op:'term',role:'verb',gram:{stem:'h'}}]}}]});
+    $('#sxAdvanced').onchange=()=>{
+      $('#sxSimple').hidden=$('#sxAdvanced').checked;
+      $('#sxBuilderPanel').hidden=!$('#sxAdvanced').checked;
+      $('#sxError').hidden=true;
+    };
+    const syntaxParams = () => $('#sxAdvanced').checked ? {pattern:syntaxBuilder.query()} : ({
       verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim(),
       object: $('#sxObject').value.trim(), referents: $('#sxReferents').checked,
       ...(!$('#sxBhsa').hidden ? { domain: $('#sxDomain').value, relation: $('#sxResumption').checked ? 'Resu' : '' } : {}),
@@ -282,6 +293,10 @@ window.LibrarySearch = (() => {
     function runSyntaxSearch() {
       if (sBusy()) return O.cancelSearch();
       const syntax = syntaxParams();
+      if(syntax.pattern){
+        if(!syntaxBuilder.valid()){$('#sxError').hidden=false;$('#sxError').textContent=I18N.t('Prüfe die Bedingungen: hebräische Lemmata, höchstens 40 Elemente und 6 Ebenen.');return;}
+        return runSearch(null,syntax);
+      }
       const split = value => value.split(/[\s,]+/u).filter(Boolean);
       const subjects = split(syntax.subject), objects = split(syntax.object);
       const terms = [syntax.verb, ...subjects, ...objects].filter(Boolean);
@@ -315,7 +330,7 @@ window.LibrarySearch = (() => {
     async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
       const q = syntax ? '' : $('#sq').value.trim();
-      const cc = !syntax && isConcordance(), gram = cc ? null : gramParams(syntax ? 'sx' : '');
+      const cc = !syntax && isConcordance(), gram = cc || syntax?.pattern ? null : gramParams(syntax ? 'sx' : '');
       if (cc && (!/^[\p{L}\p{M}\p{N}]+$/u.test(q))) { $('#sInfo').textContent = I18N.t('Bitte ein einzelnes Wort ohne Platzhalter eingeben.'); return; }
       if (!q && !gram && !syntax) return;
       const kinds = gram || syntax ? ['he'] : cc && $('#sConcordanceCross').checked && /[\u05d0-\u05ea\u0710-\u072f\u0370-\u03ff\u1f00-\u1fff]/u.test(q) ? ['he','other'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
@@ -326,7 +341,7 @@ window.LibrarySearch = (() => {
       $('#sInfo').textContent = 'Suche läuft …';
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
       $('#sLemmaCoverage').innerHTML = '';
-      const book = syntax ? $('#sxBook').value : '';
+      const book = syntax ? $(syntax.pattern?'#sxAdvancedBook':'#sxBook').value : '';
       const titles = syntax ? (book ? [book] : []) : [...sTitles];
       const sp = {
         query: q, kinds, gram, syntax,
@@ -379,9 +394,10 @@ window.LibrarySearch = (() => {
           [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
         const labels = parts.filter(([, refs]) => refs?.length).map(([name, refs]) =>
           `${esc(name)} ${refs.map(ref => `<bdi lang="he">${esc(ref.text)}</bdi>${ref.ref ? ` (${esc(ref.ref)})` : ''}`).join(', ')}`);
+        if(pair.clauseRef)labels.push(esc(I18N.t('Klausel {}',pair.clauseRef)));
         if (pair.bhsa) {
           const domains = { N: 'Erzählung', D: 'Erläuterung des Erzählers', Q: 'Direkte Rede' };
-          labels.push(['BHSA', domains[pair.bhsa.domain], pair.bhsa.resumes && 'Wiederaufnahme']
+          labels.push(['BHSA', domains[pair.bhsa.domain], pair.bhsa.resumes && 'Wiederaufnahme',pair.bhsa.relation]
             .filter(Boolean).map(name => esc(I18N.t(name))).join(' · '));
         }
         return `<div class="muted">${labels.join(' · ')}</div>`;

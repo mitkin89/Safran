@@ -184,7 +184,7 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
         if (out.results.length >= limit) { out.truncated = true; continue; }
         if (shown >= perFile) { out.capped = true; continue; }
         const loc = locate(p), before = text.slice(ts[Math.max(0, i - 7)].start, t.start), after = text.slice(t.end, ts[Math.min(ts.length - 1, i + 7)].end);
-        out.results.push({ rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, language: e.language, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? [loc.sectionLabel, loc.label].filter(Boolean).join(' · ') : '', snippet: { before, hit: t.text, after }, words: [t.text], sub: false, concordance: true, basis, analysisSource: basis === 'surface' ? '' : aa.source, ...(lemmaHit && aa.reference ? { analysisReference: aa.reference } : {}), ...(family ? { matchedLemma: aa.lemmas[0] || '', matchedLemmaId: aa.lemmaId } : {}), position: i + 1 });
+        out.results.push({ rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, language: e.language, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? [loc.sectionLabel, loc.label].filter(Boolean).join(' · ') : '', snippet: { before, hit: t.text, after }, words: [t.text], sub: false, concordance: true, basis, analysisSource: basis === 'surface' ? '' : aa.source, ...(lemmaHit && aa.reference ? { analysisReference: aa.reference } : {}), ...(family ? { matchedLemma: aa.lemmas[0] || '', matchedLemmaId: aa.lemmaId } : {}), position: i + 1, context: text, positions: [i + 1] });
         shown++;
       }
       if (passage) h++;

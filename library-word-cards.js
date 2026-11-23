@@ -1313,8 +1313,20 @@ window.LibraryWordCards = (() => {
     if (!button) return;
     const hit = wcConcordance.results[+button.dataset.ccHit];
     const target = button.dataset.ccPeer == null ? hit : hit?.parallels?.[+button.dataset.ccPeer];
-    if (target) host.openConcordanceHit(target, host.BG(e));
+    if (target) {host.hovApi?.hide();host.openConcordanceHit(target, host.BG(e));}
   });
+  { // Aligned Greek/Syriac peers: full native verse, exact aligned positions.
+    const box=host.$('#fmConcordanceBody');
+    const start=e=>{
+      const button=e.target.closest('[data-cc-hit]');
+      if(!button||button.contains(e.relatedTarget)||wcConcordance?.token!==wcToken||!host.hovApi)return;
+      const row=wcConcordance.results[+button.dataset.ccHit],hit=button.dataset.ccPeer==null?row:row?.parallels?.[+button.dataset.ccPeer];
+      if(hit)host.hovApi.start(button,[hit.title,hit.where].join(' · '),true,false,{concordance:hit});
+    };
+    const stop=e=>{const b=e.target.closest('[data-cc-hit]');if(b&&!b.contains(e.relatedTarget))host.hovApi?.hide();};
+    box.addEventListener('mouseover',start);box.addEventListener('focusin',start);
+    box.addEventListener('mouseout',stop);box.addEventListener('focusout',stop);
+  }
   host.$('#fmHead').addEventListener('click', e => { const scope=e.target.closest('[data-wc-scope]');if(scope){wcScope(scope.dataset.wcScope==='family');return;}const hom=e.target.closest('.wcTrHm[data-lem]');if(hom){wcTrLemma(hom.dataset.lem);return;}const b = e.target.closest('.wdict'); if (b) host.openDict(b.dataset.q,null,b.dataset.sedraId); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !host.$('#formsPanel').hidden && !host.$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
   // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile

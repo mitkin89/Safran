@@ -159,7 +159,7 @@
           <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
         </div>
         <details id="gramBox" class="gram">
-          <summary title="Sucht im Tanach (Westminster) und in Berakhot 2a–10b (Safran-Morphologie) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach / Bavli)</summary>
+          <summary title="Sucht im Tanach (Westminster) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach)</summary>
           <div class="gramRow">
             <label>Wortart <select id="gPos"><option value="">–</option><option value="V">Verb</option><option value="Nc">Nomen</option><option value="Np">Eigenname</option><option value="Ng">Gentilizium</option><option value="A">Adjektiv / Zahl</option><option value="P">Pronomen</option><option value="R">Präposition</option><option value="C">Konjunktion</option><option value="D">Adverb</option><option value="T">Partikel</option></select></label>
             <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal / Pe‘al</option><option value="N">Nif‘al</option><option value="p">Pi‘el / Pa‘el</option><option value="P">Pu‘al / Itpa‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option><option value="a">Af‘el (aram.)</option><option value="i">Itpe‘el (aram.)</option><option value="G">Itaf‘al (aram.)</option></select></label>
@@ -198,6 +198,8 @@
       </div>
       <div id="sSyntax" role="tabpanel" aria-labelledby="sSyntaxTab" hidden>
         <form id="sxForm">
+          <label class="sxBuilderToggle"><input id="sxAdvanced" type="checkbox"> Erweiterter Suchaufbau (UND / ODER / NICHT)</label>
+          <div id="sxSimple">
           <div class="sxRoles">
             <label>Subjekt-Lemma <input id="sxSubject" lang="he" dir="rtl" maxlength="256" aria-describedby="sxHint"></label>
             <label>Verb-Lemma <input id="sxVerb" lang="he" dir="rtl" maxlength="128" aria-describedby="sxHint"></label>
@@ -222,6 +224,16 @@
             <div id="sxGrammar" class="gramRow"></div>
             <p class="muted">Die Grammatikfilter gelten für das Verb.</p>
           </details>
+          </div>
+          <section id="sxBuilderPanel" hidden>
+            <p class="muted">Bedingungen einer Gruppe gelten für dasselbe Prädikat und seine Klausel. Verknüpfte Klauseln werden ausdrücklich hinzugefügt. NICHT prüft nur vorhandene Annotationen.</p>
+            <label>Buch <select id="sxAdvancedBook"><option value="">Alle Bücher</option></select></label>
+            <p id="sxAdvancedStatus" class="muted" aria-live="polite"></p>
+            <button id="sxPatternExample" type="button">Beispiel: attributive Hifil-Klausel</button>
+            <div id="sxBuilder"></div>
+            <button id="sxAdvancedGo" type="submit" class="primary">Suchen</button>
+            <p class="muted">Es werden nur mit Westminster abgeglichene Klauseln durchsucht. Attr bezeichnet die BHSA-Beziehung „attributiv“; Mutter-/Tochterbeziehungen folgen den BHSA-Verweisen; Wort- und Phrasenanker werden nur bei eindeutiger Klauselzuordnung verwendet.</p>
+          </section>
           <p id="sxError" role="alert" hidden></p>
         </form>
       </div>
@@ -595,6 +607,7 @@
   <script src="portraits/index.js"></script>
   <div id="ilPop" class="ilpop" role="dialog" aria-label="Interlinear" hidden></div>
   <script src="rendering-search.js"></script>
+  <script src="concordance-preview.js"></script>
   <script src="library-word-cards.js"></script>
   <script src="library-navigation.js"></script>
   <script src="textcrit-core.js"></script>
@@ -650,6 +663,8 @@
   <script src="peshitta-alignment.js"></script>
   <script src="library-interlinear.js"></script>
   <script src="library-dictionary.js"></script>
+  <script src="syntax-pattern.js"></script>
+  <script src="library-syntax-builder.js"></script>
   <script src="library-search.js"></script>
   <script src="chapter-comparison.js"></script>
   <script src="library-chapter-comparison.js"></script>

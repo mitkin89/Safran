@@ -126,7 +126,7 @@ async function buildCache({ dir, entries, cacheDir, isCancelled = () => false })
   return built;
 }
 
-// ---------- Grammatik-Suche (Westminster und eigene Bavli-Ausgabe): Wortart, Stamm, Zeitform, Person, Genus, Numerus, Status, Suffix, Artikel ----------
+// ---------- Grammatik-Suche (nur Westminster-Tanach): Wortart, Stamm, Zeitform, Person, Genus, Numerus, Status, Suffix, Artikel ----------
 const GRAM_KEYS = ['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'];
 // Hauptsegment eines OSHB-Morphcodes ("HVqp3ms", "HR/Td/Ncfsa" …) in seine Merkmale zerlegen
 function gramOf(m, l) {
@@ -187,7 +187,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const syntaxOn = params.syntax != null, syntax = syntaxOn && TanakhSyntax.cleanQuery(params.syntax);
   const gramOn = !!G || syntaxOn;
   if ((syntaxOn && !syntax) || (!q && !gramOn)) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
-  const usesBhsa = syntax && (syntax.bhsa.domain || syntax.bhsa.relation);
+  const usesBhsa = syntax && (syntax.pattern || syntax.bhsa.domain || syntax.bhsa.relation);
   const bhsaIndex = usesBhsa ? await (params.bhsaFile ? BHSA.readIndex(params.bhsaFile) : BHSA.readBundled()) : null;
   const terms = [query, ...extra].filter(t => String(t || '').trim());
   const advanced = multi || terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
@@ -202,7 +202,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const wlcTitles = new Set(wlc ? entries.filter(isWlc).map(e => e.title) : []);
   const skip = e => wlc && e.kind === 'he' && wlcTitles.has(e.title) && !isWlc(e) && /^Tanakh/.test((e.categories || [])[0] || '');
   const lemMatcher = lemma && !exact ? S.makeMatcher({ terms: words, fuzzy, prefix, distance, ordered }) : null;
-  const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? TanakhSyntax.supports(e) : gramOn ? isMorph(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
+  const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? TanakhSyntax.supports(e) : gramOn ? TanakhSyntax.supports(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
   const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
@@ -218,7 +218,10 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
         let locator = null, shown = 0, hits = 0; const qL = q ? letters(query) : '';
         const predicateMatches = word => !G || gramTest(G, gramOf(word.morph, word.lemma));
         const bhsa = bhsaIndex?.books[e.title];
-        const syntaxMatcher = !syntax ? null : usesBhsa && !syntax.subjects.size && !syntax.objects.size
+        const syntaxMatcher = !syntax ? null : syntax.pattern
+          ? require('./syntax-pattern-matcher').create(TanakhSyntax.load(e.title), bhsa, d.text, syntax.pattern, syntaxWords,
+            (word,gram)=>!!word && gramTest({pos:'V',...gram},gramOf(word.morph,word.lemma)),westminsterLemma,bhsaIndex.clauseParents)
+          : usesBhsa && !syntax.subjects.size && !syntax.objects.size
           ? BHSA.clauseMatcher(bhsa, { ...syntax.bhsa, verb: syntax.verb }, syntaxWords, word => {
             if (!G && !syntax.verb) return true;
             const grammar = gramOf(word.morph, word.lemma);

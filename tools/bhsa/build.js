@@ -108,6 +108,24 @@ function build(dir) {
     }
   }
 
+  // A clause may depend on a phrase or word. Resolve that explicit anchor to
+  // its owning clause only when every anchor slot belongs to one unique clause.
+  const owner = new Uint32Array(wordForms.length), ambiguous = new Set();
+  for(const [id,c] of clauses)for(const slot of slots(c.slots)){
+    if(owner[slot] && owner[slot]!==id)ambiguous.add(slot);else owner[slot]=id;
+  }
+  const wanted=new Set([...clauses.values()].map(c=>Number(c.mother)).filter(id=>Number.isInteger(id)&&id>=wordForms.length&&!clauses.has(id)));
+  const anchors=new Map();
+  for(const [id,spec]of records(dir,'oslots'))if(wanted.has(id))anchors.set(id,spec);
+  for(const [id,c]of clauses){
+    const mother=/^\d+$/.test(c.mother||'')?Number(c.mother):0;
+    if(clauses.has(mother)){c.motherClause=mother;continue;}
+    const positions=mother>0&&mother<wordForms.length?[mother]:anchors.has(mother)?[...slots(anchors.get(mother))]:[];
+    const owners=new Set(positions.map(slot=>ambiguous.has(slot)?0:owner[slot]));
+    c.motherClause=owners.size===1&&!owners.has(0)?[...owners][0]:null;
+    if(c.motherClause===id)c.motherClause=null;
+  }
+
   const bundled = path.join(root, 'bundled');
   const books = new Map(require('../../bundled/manifest.json').items.filter(supports).map(entry =>
     [entry.title, JSON.parse(readFileSync(path.join(bundled, entry.rel), 'utf8')).text]));
@@ -152,10 +170,11 @@ function build(dir) {
       const positions = [...counts].filter(([i, count]) => count === verse.lengths[i]).map(([i]) => i);
       if (!positions.length) continue;
       result[verse.book][verse.ref][1].push([id, clause.txt, clause.relation === 'Resu',
-        parent ? [parent.book, parent.ref] : null, positions]);
+        parent ? [parent.book, parent.ref] : null, positions, clause.relation || 'NA',
+        clause.motherClause || null]);
     }
   }
-  return { version: source.format, revision: source.revision, aligned, total: verses.size, books: result };
+  return { version: source.format, revision: source.revision, patternVersion: 1, clauseParents: Object.fromEntries([...clauses].map(([id,c])=>[id,c.motherClause||null])), aligned, total: verses.size, books: result };
 }
 
 if (require.main === module) {

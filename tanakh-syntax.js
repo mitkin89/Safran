@@ -15,6 +15,7 @@ function load(book) {
 }
 
 function cleanQuery(query) {
+  if(query?.pattern){const pattern=require('./syntax-pattern').clean(query.pattern);return pattern?{pattern,bhsa:{}}:null;}
   const verb = String(query?.verb ?? '').trim();
   const split = value => String(value ?? '').trim().split(/[\s,]+/).filter(Boolean);
   const subjects = split(query?.subject), objects = split(query?.object);

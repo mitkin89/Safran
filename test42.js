@@ -86,8 +86,8 @@ assert(fs.readFileSync(path.join(__dirname, 'library.html'), 'utf8').includes('s
 (async () => {
   const opts = { dir: path.join(__dirname, 'bundled'), entries: [item], params: { query: '', gram: { pos: 'V', stem: 'q', tense: 'i' }, perFile: 1000, limit: 1000 } };
   const results = await searchFiles(opts);
-  assert(results.results.some(r => r.path[0] === 2 && r.path[1] === 6 && r.words.includes('לתני')), 'Bavli-Grammatiksuche findet לתני nicht');
-  assert(!results.results.some(r => r.path[0] === 14 && r.path[1] === 12 && r.words.includes('נשרא')), 'Unbestimmte Flexion darf nicht als Imperfekt gelten');
+  assert.strictEqual(results.results.length, 0, 'Bavli ist aus der Grammatiksuche ausgeschlossen');
+  assert.strictEqual(results.scanned, 0, 'Grammatikfilter lesen keine Bavli-Dateien');
   const lemma = await searchFiles({ ...opts, params: { query: 'קום', lemma: true, perFile: 1000, limit: 1000 } });
   assert(lemma.results.some(r => r.path[0] === 14 && r.path[1] === 27), 'Bavli-Lemmasuche findet תיקו unter קום nicht');
   console.log('Bavli: 18 Amudim / 490 Segmente / 10786 Wortannotationen, Suchwege und Quelltreue geprüft.');

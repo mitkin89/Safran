@@ -2510,3 +2510,19 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 #allPanel .lhead { flex-wrap: wrap; }
 #allPanel .wholeBtn { font-size: calc(12px * var(--ap-scale, 1)); }
 #allPanel #apFsMinus, #allPanel #apFsPlus { font-size: 14px; flex: none; }
+
+/* Nested syntax query groups */
+.sxBuilderToggle { display: block; margin-bottom: 12px; }
+#sxBuilder fieldset { min-width: 0; border: 1px solid var(--line); border-inline-start: 3px solid var(--accent); border-radius: 7px; margin: 10px 0; padding: 8px 10px; }
+#sxBuilder fieldset fieldset { margin-inline-start: 12px; }
+#sxBuilder .bar { flex-wrap: wrap; gap: 7px; align-items: end; }
+#sxBuilder .sxCondition { margin: 10px 0; }
+#sxBuilder label { display: flex; flex-direction: column; gap: 3px; font-size: .9em; }
+#sxBuilder input { width: 12em; max-width: 100%; }
+#sxBuilder select { max-width: 100%; }
+#sxBuilderPanel > p { max-width: 70em; }
+
+#lkHover .concordancePreview { font-size: 1.25em; line-height: 1.65; }
+#lkHover .concordancePreview[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.6em; }
+
+#lkHover .concordancePreview[lang="he"] { font-family: var(--he-font); }
