@@ -396,7 +396,7 @@ window.LibraryWordPopup = (() => {
     // Do not invalidate its pending lazy morphology load in this handler.
     const smr=e.target.closest('.smr-word');if(smr)return force?showSamaritanWord(smr):undefined;
     const sy=e.target.closest('.syw[data-si]');if(sy){showSyriacWord(sy);return;}
-    const w = e.target.closest('.w[data-m], .wt[data-m], .wq[data-m], .wg');
+    const w = e.target.closest('.w[data-m], .wa[data-m], .wt[data-m], .wq[data-m], .wg');
     gTok++; // ein noch ladendes griechisches Wort-Popup gilt nicht mehr
     // griechischer Text ohne Wortgruppen (Rahlfs): jedes Wort ist anklickbar
     const gc = !w && !e.target.closest('#wpop, a, button, small, sup, .note, .lab, .head') ? e.target.closest('.cell[data-gt]') : null;
@@ -431,6 +431,7 @@ window.LibraryWordPopup = (() => {
     wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}${mainSeg && mainSeg.lemma ? `<button class="wforms wcard" data-he-lemma="${esc(mainSeg.lemma)}" title="Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes">Wortkarte</button><button class="wforms wtable" title="Alle im Tanach belegten Formen dieses Wortes als Tabelle">Alle Formen (Tabelle)</button>` : ''}`;
     if (mainSeg && mainSeg.lemma) loadForms().catch(() => {}); // Formen-Index schon laden, damit die Tabelle sofort da ist
     const wInfo = { lemma: mainSeg && mainSeg.lemma, word: w.textContent, m: w.dataset.m, l: w.dataset.l };
+    if (w.classList.contains('wa')) wpop.querySelector('.wtop').insertAdjacentHTML('afterend', `<div class="muted wa-note">${esc(I18N.t('Aleppo-Text; Analyse des entsprechenden Wortes im Leningradensis (OSHB)'))}</div>`);
     document.body.appendChild(wpop);
     wPhono(w, wpop);
     const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
@@ -452,7 +453,7 @@ window.LibraryWordPopup = (() => {
   }
   $('#rOut').addEventListener('click',e=>{if(e.detail>1)return;showReaderWord(e);});
   async function openPreferred(e,current=()=>true){
-    const context=!!e.target.closest('.w[data-m],.wt[data-m],.wq[data-m],.wg,.syw[data-si],.smr-word,.cell[data-gt]');
+    const context=!!e.target.closest('.w[data-m],.wa[data-m],.wt[data-m],.wq[data-m],.wg,.syw[data-si],.smr-word,.cell[data-gt]');
     if(!context)return {context:false};
     const loading=showReaderWord(e,true),token=gTok;
     await loading;

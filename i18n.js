@@ -1219,6 +1219,7 @@
     "{} Segmente · Kapitelmarken nicht gefunden (alles in einem Kapitel ab Startkapitel)": "{} segments · no chapter markers found (everything in one chapter from the start chapter)",
     "Alle {}": "All {}",
     "{} ausgewählt": "{} selected",
+    "Aleppo-Text; Analyse des entsprechenden Wortes im Leningradensis (OSHB)": "Aleppo text; analysis of the corresponding word in the Leningrad Codex (OSHB)",
   };
 
   const HTML = {

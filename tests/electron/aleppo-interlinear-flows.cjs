@@ -17,6 +17,12 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  const n=await js("[...document.querySelectorAll('#rOut .row[data-l]')].find(r=>/\\b1$/.test(r.dataset.l))?.querySelectorAll('.ilt.il-ma .ils').length||0");
  assert(n>10,'Jesaja 1,1 hat Wort für Wort eine Aleppo-Zeile ('+n+')');
  assert(!(await js("Boolean(document.querySelector('.ilt.il-ma.il-ma-lost'))")),'Jesaja 1 liegt im erhaltenen Teil');
+ // Wörter der Aleppo-Zeile sind anklickbar wie der MT: Morphologie des entsprechenden Leningrad-Wortes
+ await js("{const w=document.querySelector('.ilt.il-ma .wa[data-m]');w.scrollIntoView({block:'center'});w.click();}");
+ await waitFor("document.querySelector('#wpop .wa-note')&&document.querySelector('#wpop .wseg')",'Morphologie-Popup für ein Aleppo-Wort');
+ assert(await js("document.querySelector('#wpop .wa-note').textContent.includes('Leningrad Codex')"));
+ assert(await js("document.querySelector('#wpop .wforms')"),'Wortkarte erreichbar');
+ await js("document.querySelector('#wpop .wx').click()");
  await js("document.querySelector('#rSection').value='35';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('.ilt.il-ma .ils[class*=il-ma-]')",'Jesaja 36: Abweichungen markiert');
  const diff=await js("document.querySelector('.ilt.il-ma .ils[class*=il-ma-]').title");

@@ -2412,3 +2412,5 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .ilt.il-ma .il-ma-a { color: var(--fg); border-bottom: 1px dashed var(--muted); }
 .ilt.il-ma .il-plus, .ilt.il-ma .il-minus { color: var(--fg); }
 .ilt.il-ma.il-ma-lost::after { content: "*"; margin-inline-start: .2em; opacity: .7; }
+.ilt.il-ma .wa { cursor: pointer; }
+.ilt.il-ma .wa:hover, .ilt.il-ma .wa.sel { color: var(--fg); text-decoration: underline; text-underline-offset: .25em; }

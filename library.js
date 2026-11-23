@@ -2421,7 +2421,7 @@
   window.addEventListener('keydown',e=>{if(e.key==='Escape')wordOpenToken++;},true);
   const dblWord = async e => {
     if(e.target.closest('a,button,select,input,textarea,.lab,.bm,sup,.nm,.footnote-marker')||Date.now()-fnClickT<700)return;
-    const marked=e.target.closest('.w[data-m],.wt[data-m],.wq[data-m],.syw[data-si],.smr-word');
+    const marked=e.target.closest('.w[data-m],.wa[data-m],.wt[data-m],.wq[data-m],.syw[data-si],.smr-word');
     const w=(String(window.getSelection()).trim()||marked?.textContent||'').replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu,'');
     if(!w||w.length>80||/\s/.test(w))return;
     const token=++wordOpenToken;
@@ -2435,7 +2435,7 @@
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;
     CSS.highlights.delete('wsel');
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wt[data-m], .wq[data-m], .wg, #wpop, .head')) return;
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wa[data-m], .wt[data-m], .wq[data-m], .wg, #wpop, .head')) return;
     if (String(window.getSelection())) return;
     try {
       const r = document.caretRangeFromPoint(e.clientX, e.clientY);
