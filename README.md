@@ -229,6 +229,8 @@ When an app update includes a different version of an existing text, Safran asks
 | Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
 | S. Krauss, *Talmudische Archäologie* (vols. I–III, 1910–1912) | full text with endnotes, figures and outline; the register is a dictionary of its own |
 
+Goldschmidt's complete Talmud and the 19th-century Talmud translations are also published as an open dataset: [german-talmud-translations](https://github.com/mitkin89/german-talmud-translations), DOI [10.5281/zenodo.24466136](https://doi.org/10.5281/zenodo.24466136).
+
 </details>
 
 Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the biblical Qumran scrolls (36 books) and all 735 non-biblical scrolls (the 40 largest as separate books, the rest per cave) with lemma and morphology, Targum Onkelos, Pseudo-Jonathan and Neofiti, and the Septuagint: the CATSS text for the Tanakh and 21 Greek files after Rahlfs for Hosea, Esther with its additions and the deuterocanonical books (Maccabees 1–4, Sirach, Wisdom, Tobit, Judith, Baruch, Letter of Jeremiah, Susanna, Bel, 1 Esdras, Odes, Psalms of Solomon), with lemma and parsing for every Greek word (lxx-morph). Sources and licenses: [SOURCES.md](SOURCES.md).

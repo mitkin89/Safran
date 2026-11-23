@@ -229,6 +229,8 @@ Wenn ein Update eine andere Fassung eines bereits vorhandenen Textes mitliefert,
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
 | S. Krauss, *Talmudische Archäologie* (Bd. I–III, 1910–1912) | ganzer Text mit Anmerkungen, Abbildungen und Gliederung; das Register ist ein eigenes Wörterbuch |
 
+Goldschmidts vollständiger Talmud und die Talmudübersetzungen des 19. Jahrhunderts gibt es auch als offenen Datensatz: [german-talmud-translations](https://github.com/mitkin89/german-talmud-translations), DOI [10.5281/zenodo.24466136](https://doi.org/10.5281/zenodo.24466136).
+
 </details>
 
 Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die biblischen Qumran-Rollen (36 Bücher) und alle 735 nichtbiblischen Rollen (die 40 größten als eigene Bücher, die übrigen je Höhle) mit Lemma und Morphologie, Targum Onkelos, Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
