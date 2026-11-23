@@ -58,6 +58,7 @@ Quelle und Lizenz: Original work of the Open Scriptures Hebrew Bible available a
 - **Ähnliche Kapitel** (`similar-chapters.js`) – aus den OSHB-Lemmata (CC BY 4.0) berechnet mit `tools/oshb/similar_chapters.py`.
 
 - **Levys Wörterbücher** – Jacob Levy, *Neuhebräisches und chaldäisches Wörterbuch über die Talmudim und Midraschim* (Bd. 1–4, 2. Aufl. Berlin/Wien 1924, mit den Nachträgen von Fleischer und Goldschmidt) und *Chaldäisches Wörterbuch über die Targumim* (Bd. 1–2), gemeinfrei; eigene Transkription nach den Seitenbildern in eScriptorium mit Claude (2026), Abkürzungen und Stellenangaben per Skript ausgezeichnet (`tools/levy-talmud/`, `tools/levy-targum/`). Auch als eigener Datensatz veröffentlicht: [mitkin89/levy-dictionaries](https://github.com/mitkin89/levy-dictionaries), DOI [10.5281/zenodo.24465108](https://doi.org/10.5281/zenodo.24465108) (CC BY 4.0).
+- **Krauss** – Samuel Krauss, *Griechische und lateinische Lehnwörter im Talmud, Midrasch und Targum*, Teil II (Berlin 1899, mit Bemerkungen von Immanuel Löw) und *Talmudische Archäologie* (Bd. I–III, Leipzig 1910–1912, Digitalisate des Getty Research Institute im Internet Archive), gemeinfrei; eigene Transkription nach Seitenbildern in eScriptorium mit Claude (2026), Abkürzungen und Stellen per Skript ausgezeichnet. Auch als eigener Datensatz veröffentlicht: [mitkin89/krauss-works](https://github.com/mitkin89/krauss-works), DOI [10.5281/zenodo.24465261](https://doi.org/10.5281/zenodo.24465261) (CC BY 4.0).
 
 ## Bibelkarte
 

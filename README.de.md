@@ -180,7 +180,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 
 Beide Levy-Wörterbücher gibt es auch als offenen Datensatz: [levy-dictionaries](https://github.com/mitkin89/levy-dictionaries), DOI [10.5281/zenodo.24465108](https://doi.org/10.5281/zenodo.24465108).
 
-Krauss’ ***Talmudische Archäologie*** (Bd. I–III, Leipzig 1910–1912) selbst steht in der Bibliothek: der ganze Text mit allen Anmerkungen, Abbildungen und Gliederung. Seine Stellenangaben sind Links, und das Register oben dient als Index dazu.
+Krauss’ ***Talmudische Archäologie*** (Bd. I–III, Leipzig 1910–1912) selbst steht in der Bibliothek: der ganze Text mit allen Anmerkungen, Abbildungen und Gliederung. Seine Stellenangaben sind Links, und das Register oben dient als Index dazu. Beide Werke von Krauss gibt es auch als offenen Datensatz: [mitkin89/krauss-works](https://github.com/mitkin89/krauss-works), DOI [10.5281/zenodo.24465261](https://doi.org/10.5281/zenodo.24465261).
 
 <p align="center">
   <a href="screenshots/dictionary-search.png"><img src="screenshots/dictionary-search.png" alt="Wörterbuch-Reiter: eine Suche nach Prosbul, beantwortet von Hamburgers Real-Encyclopädie und Jastrow, links Letzte Suchen, rechts Favoriten" width="900"></a><br>
