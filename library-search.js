@@ -12,7 +12,12 @@ window.LibrarySearch = (() => {
     // ----- Suchmaske: Sprache und Treffer-Art (zwei Auswahlfelder statt vieler Häkchen) -----
     let sPending = 0; // laufende Suchen: solange heißt der Knopf „Abbrechen“
     const sBusy = () => sPending > 0;
-    const sSetBusy = () => { const g = $('#sGo'); g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen'); g.classList.toggle('primary', !sBusy()); };
+    const sSetBusy = () => {
+      const g = $('#sGo');
+      g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen');
+      g.classList.toggle('primary', !sBusy());
+      $('#sxGo').textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Syntax suchen');
+    };
     const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
     // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
     function sKinds() {
@@ -199,19 +204,43 @@ window.LibrarySearch = (() => {
         : '';
       $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
     }
-    async function runSearch(only) {
+    const syntaxParams = () => ({ verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim() });
+    function runSyntaxSearch() {
+      if (sBusy()) return O.cancelSearch();
+      const syntax = syntaxParams();
+      const subjects = syntax.subject.split(/[\s,]+/u).filter(Boolean);
+      const terms = [syntax.verb, ...subjects].filter(Boolean);
+      const valid = terms.length && subjects.length <= 12
+        && terms.every(term => /^[\u0591-\u05C7א-ת]+$/u.test(term) && /[א-ת]/u.test(term));
+      const error = $('#sxError');
+      error.hidden = !!valid;
+      if (!valid) {
+        error.textContent = I18N.t('Gib ein hebräisches Verb-Lemma oder bis zu zwölf Subjekt-Lemmata ein.');
+        return;
+      }
+      return runSearch(null, syntax);
+    }
+    $('#sxGo').onclick = runSyntaxSearch;
+    $('#sSyntax').addEventListener('keydown', event => {
+      if (event.key === 'Enter' && event.target.tagName === 'INPUT') {
+        event.preventDefault();
+        if (!sBusy()) runSyntaxSearch();
+      }
+    });
+    $('#sSyntax').addEventListener('input', () => { $('#sxError').hidden = true; });
+    async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
-      const q = $('#sq').value.trim();
+      const q = syntax ? '' : $('#sq').value.trim();
       const gram = gramParams();
-      if (!q && !gram) return;
-      const kinds = gram ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
+      if (!q && !gram && !syntax) return;
+      const kinds = gram || syntax ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
       sPending++; sSetBusy();
       $('#sProgress').hidden = false; $('#sProgressBar').removeAttribute('value'); $('#sProgressLabel').textContent = I18N.t('Suche läuft …');
       $('#sInfo').textContent = 'Suche läuft …';
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
       const sp = {
         query: q, extra: [], distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-        categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram,
+        categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram, syntax,
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
       };
       lastSearch = { ...sp };
@@ -238,7 +267,11 @@ window.LibrarySearch = (() => {
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
-      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
+      const roles = (r.syntax || []).map(pair => {
+        const subjects = pair.subjects.map(subject => `<bdi lang="he">${esc(subject.text)}</bdi>${subject.ref ? ` (${esc(subject.ref)})` : ''}`).join(' · ');
+        return `<div class="muted">${esc(I18N.t('Verb'))} <bdi lang="he">${esc(pair.verb)}</bdi> · ${esc(I18N.t('Subjekt'))} ${subjects}</div>`;
+      }).join('');
+      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}</div>`;
     };
     const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
     function searchGroups() {
@@ -273,7 +306,7 @@ window.LibrarySearch = (() => {
     // Treffer als Lesetext: wie beim Lesen, jede Fundstelle als Zeile mit den gewählten Versionen nebeneinander, geordnet nach Buch und Kapitel
     let sRead = false; try { sRead = localStorage.getItem('searchRead') === '1'; } catch { /* egal */ }
     function showSearchResults() { renderSearchList(); }
-    $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore'); });
+    $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore', lastSearch?.syntax); });
     $('#sExport').onclick = async () => {
       const csv = ['Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r)].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
       const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));

@@ -2664,7 +2664,7 @@
     const lastSearch = searchUI.getLastSearch();
     if (!lastSearch) return;
     saveScroll();
-    const nv = { group: null, sres: { q: lastSearch.query || I18N.t('Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
+    const nv = { group: null, sres: { q: lastSearch.query || I18N.t(lastSearch.syntax ? 'Syntaktische Suche (Pentateuch)' : 'Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
     addTab(nv); view = nv;
     showTab('read'); showView();
   };

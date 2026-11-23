@@ -81,6 +81,20 @@ module.exports=async function setup({profile,docs,handlers}){
     console.log('Electron: Suchmodul mit Favoriten, Einzelbuch-Rücksprung und Suche im gelesenen Buch bestanden.');
     console.log('Electron: Echte Such-Worker, Treffermarkierung und Sprung zum Vers bestanden.');
 
+    await js(`{
+      document.querySelector('#sAdv').open = true;
+      document.querySelector('#sSyntax').open = true;
+      document.querySelector('#sxVerb').value = 'ברא';
+      document.querySelector('#sxSubject').value = 'אלהים';
+      document.querySelector('#sxGo').click();
+    }`);
+    await waitFor("document.querySelector('#sOut .sres bdi') && document.querySelector('#sxGo').textContent==='Syntax suchen'",'Syntaktische Suche im Pentateuch');
+    assert.deepEqual(searchRequests.at(-1).syntax,{verb:'ברא',subject:'אלהים'});
+    assert.deepEqual(await js("Array.from(document.querySelectorAll('#sOut .sres:first-child mark'), el => el.textContent)"),['ברא','אלהים']);
+    assert((await js("document.querySelector('#sOut .sres').textContent")).includes('Subjekt'));
+    console.log('Electron: Syntaktische Suche mit markiertem Verb und Subjekt bestanden.');
+
+
     holdSearch=true;await search();await search(pane);
     await until(()=>gates.length===2,'Zwei unabhängige Suchaufträge');
     assert.notEqual(gates[0].job.owner,gates[1].job.owner);

@@ -8,6 +8,13 @@ window.I18N_HE = {
     "Textfassung konnte nicht geprüft werden": "לא ניתן לאמת את גרסת הטקסט",
 
     "Grammatik (Tanach / Bavli)": "דקדוק (תנ״ך / בבלי)",
+    "Syntaktische Suche (Pentateuch)": "חיפוש תחבירי (חומש)",
+    "Verb-Lemma": "ערך מילוני של הפועל",
+    "Subjekt-Lemma": "ערך מילוני של הנושא",
+    "Syntax suchen": "חיפוש תחבירי",
+    "Subjekt": "נושא",
+    "Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).": "יש להזין לפחות ערך מילוני עברי אחד. יש להפריד ערכי נושא בפסיקים. המסננים הדקדוקיים חלים על הפועל. מקור: MACULA Hebrew (וסטמינסטר).",
+    "Gib ein hebräisches Verb-Lemma oder bis zu zwölf Subjekt-Lemmata ein.": "יש להזין ערך מילוני עברי אחד של פועל או עד שנים עשר ערכי נושא.",
     "Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b": "חיפוש דקדוקי: תנ״ך (וסטמינסטר) וברכות ב ע״א–י ע״ב",
     "Mehrdeutig: mehrere Analysen": "עמום: כמה ניתוחים אפשריים",
     "Teilweise bestimmt: Merkmale bleiben offen": "ניתוח חלקי: כמה מאפיינים אינם מוכרעים",

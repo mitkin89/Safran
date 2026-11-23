@@ -395,6 +395,13 @@
     "Textfassung konnte nicht geprüft werden": "Text version could not be verified",
 
     "Grammatik (Tanach / Bavli)": "Grammar (Tanakh / Bavli)",
+    "Syntaktische Suche (Pentateuch)": "Syntax search (Pentateuch)",
+    "Verb-Lemma": "Verb lemma",
+    "Subjekt-Lemma": "Subject lemma",
+    "Syntax suchen": "Search syntax",
+    "Subjekt": "Subject",
+    "Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).": "Enter at least one Hebrew lemma. Separate multiple subject lemmas with commas. Grammar filters apply to the verb. Source: MACULA Hebrew (Westminster).",
+    "Gib ein hebräisches Verb-Lemma oder bis zu zwölf Subjekt-Lemmata ein.": "Enter one Hebrew verb lemma or up to twelve subject lemmas.",
     "Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b": "Grammar search: Tanakh (Westminster) and Berakhot 2a–10b",
     "Mehrdeutig: mehrere Analysen": "Ambiguous: multiple analyses",
     "Teilweise bestimmt: Merkmale bleiben offen": "Partly parsed: some features remain open",

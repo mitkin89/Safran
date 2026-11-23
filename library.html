@@ -164,6 +164,16 @@
             <button id="gClear" type="button">Zurücksetzen</button>
           </div>
         </details>
+        <details id="sSyntax" class="gram">
+          <summary>Syntaktische Suche (Pentateuch)</summary>
+          <div class="gramRow">
+            <label>Verb-Lemma <input id="sxVerb" dir="rtl" placeholder="ברא" maxlength="128"></label>
+            <label>Subjekt-Lemma <input id="sxSubject" dir="rtl" placeholder="אלהים, יהוה" maxlength="256"></label>
+            <button id="sxGo" type="button">Syntax suchen</button>
+          </div>
+          <p class="muted">Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).</p>
+          <p id="sxError" role="alert" hidden></p>
+        </details>
         <details id="sHelp" class="help">
           <summary>Hilfe: mehrere Wörter, Wortfolge, Platzhalter und Fuzzy</summary>
           <p data-i18n="h12"><b>Mehrere Wörter:</b> Schreibe sie einfach hintereinander ins Suchfeld, beliebig viele. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie unter „Erweitert“ bei „Abstand“ gewählt (Standard: höchstens 10 Wörter dazwischen). Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie eingegeben. Beispiel: <code>anf* gott erd*</code> findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>

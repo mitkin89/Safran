@@ -9,6 +9,7 @@ const SefOrder = require('./order');
 const Morph = require('./morph');
 const GMorph = require('./gmorph');
 const Bavli = require('./bavli-core');
+const PentateuchSyntax = require('./pentateuch-syntax');
 let bavliData = null;
 function bavliLemma(id) {
   if (!Bavli.own(id)) return '';
@@ -174,8 +175,10 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const multi = units.length > 1 || (units.length === 1 && (units[0].words.length > 1 || units[0].quoted));
   if (units.length === 1 && !multi) query = units[0].words[0]; // ein einzelnes Wort: wie bisher (Satzzeichen drumherum zählen nicht)
   const q = R.normalize(query);
-  const G = cleanGram(params.gram), gramOn = !!G;
-  if (!q && !gramOn) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
+  const G = cleanGram(params.gram);
+  const syntaxOn = params.syntax != null, syntax = syntaxOn && PentateuchSyntax.cleanQuery(params.syntax);
+  const gramOn = !!G || syntaxOn;
+  if ((syntaxOn && !syntax) || (!q && !gramOn)) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
   const terms = [query, ...extra].filter(t => String(t || '').trim());
   const advanced = multi || terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
   const words = multi
@@ -189,7 +192,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const wlcTitles = new Set(wlc ? entries.filter(isWlc).map(e => e.title) : []);
   const skip = e => wlc && e.kind === 'he' && wlcTitles.has(e.title) && !isWlc(e) && /^Tanakh/.test((e.categories || [])[0] || '');
   const lemMatcher = lemma && !exact ? S.makeMatcher({ terms: words, fuzzy, prefix, distance, ordered }) : null;
-  const list = SefOrder.sortTitles(entries.filter(e => (gramOn ? isMorph(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
+  const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? PentateuchSyntax.supports(e) : gramOn ? isMorph(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
   const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
@@ -203,9 +206,20 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
       try { d = JSON.parse(await fs.readFile(path.join(dir, e.rel), 'utf8')); } catch { /* überspringen */ }
       if (d) {
         let locator = null, shown = 0, hits = 0; const qL = q ? letters(query) : '';
+        const syntaxMatcher = syntax && PentateuchSyntax.createMatcher(
+          require('./bundled/syntax/' + e.title + '.json'), syntax, d.text,
+          str => [...str.matchAll(SPAN)].map(m => ({ form: m[3], normalized: letters(m[3]), lemma: m[1], morph: m[2] })),
+          word => !G || gramTest(G, gramOf(word.morph, word.lemma)),
+        );
         R.walkStrings(d.text, [], (str, p) => {
-          if (truncated) return;
-          const wg = wlcGram(str, G, qL); if (!wg || !wg.ok.some(Boolean)) return;
+          if (truncated || (syntaxMatcher && isCancelled())) return;
+          const match = syntaxMatcher && syntaxMatcher(p);
+          if (syntaxMatcher && !match) return;
+          const wg = match ? {
+            n: match.words.map(w => w.normalized).join(' '),
+            ok: match.words.map((_w, i) => match.positions.has(i)),
+          } : wlcGram(str, G, qL);
+          if (!wg || !wg.ok.some(Boolean)) return;
           hits++;
           if (shown >= perFile) { capped = true; return; }
           locator = locator || R.makeLocator(d.text, d.sectionNames);
@@ -214,6 +228,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
           const mm = { idx, toks: [...n.matchAll(/[\p{L}\p{N}]+/gu)].map(m => ({ w: m[0], s: m.index, e: m.index + m[0].length })) };
           const r = { rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? (loc.label ? `${loc.sectionLabel} · ${loc.label}` : loc.sectionLabel) : '' };
           r.snippet = { before: '', hit: '', after: '' }; r.parts = S.snippetParts(n, mm);
+          if (match) r.syntax = match.evidence;
           r.words = [...new Set(idx.map(i => mm.toks[i] && n.slice(mm.toks[i].s, mm.toks[i].e)).filter(Boolean))]; r.sub = false;
           results.push(r); shown++;
           if (results.length >= limit) truncated = true;
