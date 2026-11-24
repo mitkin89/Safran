@@ -4,8 +4,12 @@ module.exports=async({js,waitFor,book})=>{
  await book('Genesis');await waitFor("document.querySelector('#rOut .verse-tool')&&!document.querySelector('#lkBtn').hidden",'Versnummern und Verknüpfungen geladen');
  assert(await js("!document.querySelector('#rOut .lab .lk')"),'keine Kettensymbole am Versrand');
  assert.equal(await js("document.querySelector('#rOut .row[data-l=\"4\"] .verse-tool').title"),'Werkzeuge zu Vers 4 öffnen');
- await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click();document.querySelector('#rOut .row[data-l=\"1\"] .txt').click()");
- assert(await js("document.querySelector('#dockTabs').hidden&&document.querySelector('#leftDockTabs').hidden"),'freier Rand und Text öffnen kein Werkzeug');
+ assert(await js("[...document.querySelectorAll('#rOut .lab .bm')].every(s=>getComputedStyle(s).opacity==='1')"),'Sterne sind ohne Hover sichtbar');
+ assert.equal(await js("getComputedStyle(document.querySelector('#rOut .verse-tool')).borderTopWidth"),'0px');
+ await js("document.querySelector('#rOut .row[data-l=\"1\"] .txt').click()");
+ assert(await js("document.querySelector('#dockTabs').hidden&&document.querySelector('#leftDockTabs').hidden"),'Lesetext öffnet kein Werkzeug');
+ await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
+ await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#cmtTitle').textContent.includes(':1')",'Freier Versrand öffnet dasselbe Werkzeug wie die Nummer');
  await js("document.querySelector('#rOut .row[data-l=\"2\"] .verse-tool').click()");
  await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#cmtTitle').textContent.includes(':2')",'Versbutton öffnet Kommentare rechts');
  assert.equal(await js("document.querySelector('#cmtPanel').dataset.studySide"),'right');
@@ -22,5 +26,5 @@ module.exports=async({js,waitFor,book})=>{
  await js("document.querySelector('#dockTabs [data-panel=masora]').click()");await waitFor("!document.querySelector('#masoraPanel').hidden",'Masora rechts');
  await js("document.querySelector('#masoraScope').value='chapter';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#masoraClose').click();document.querySelector('#rOut .row[data-l=\"4\"] .verse-tool').click()");
  await waitFor("!document.querySelector('#masoraPanel').hidden&&document.querySelector('#masoraScope').value==='verse'&&document.querySelector('#masoraPlace').textContent.endsWith('1:4')",'Versbutton öffnet die zuletzt verwendete Masora zum ausgewählten Vers');
- console.log('Electron: visible verse buttons, inactive blank margins, remembered right-side verse tools and chapter/verse toggles passed.');
+ console.log('Electron: unboxed verse numbers, clickable margins, permanent stars, remembered right-side verse tools and chapter/verse toggles passed.');
 };

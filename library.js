@@ -1421,7 +1421,7 @@
     if (!row) return;
     if (e.target.closest('.slk')) return sresSelect(row, 'lk');
     if (e.target.closest('.scm')) return sresSelect(row, 'cmt');
-    if (e.target.closest('.verse-tool')) sresSelect(row, lastVerseTool==='link'?'lk':'cmt');
+    if (e.target.closest('.lab')&&!e.target.closest('.bm,.aud,.mtj')) sresSelect(row, lastVerseTool==='link'?'lk':'cmt');
   });
   // Vorschläge beim Tippen (Springen-Feld und „Neuer Tab“): Buchname eintippen, z. B. „ge“ → Genesis
   let suggEl = null;
@@ -3255,9 +3255,10 @@
   }, { passive: true });
   $('#cmtPrev').onclick = () => stepCmt(-1);
   $('#cmtNext').onclick = () => stepCmt(1);
-  // Only the visible verse button opens tools; blank margin and reader text do not.
+  // The verse number and its blank margin open the same tool; separate margin actions retain their own behavior.
   $('#rOut').addEventListener('click', e => {
-    const button=e.target.closest('.verse-tool'),row=button?.closest('.row[data-l]');
+    if(e.target.closest('.bm,.aud,.mtj,a,input,select,textarea,button:not(.verse-tool)'))return;
+    const label=e.target.closest('.lab'),row=label?.closest('.row[data-l]');
     if(!row||view?.sres)return;
     AP.whole=false;cmtWhole=false;
     let tool=lastVerseTool;
