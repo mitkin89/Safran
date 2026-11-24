@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "corrections": [
+    {
+      "context": "2643f8cf-035a-41c8-957a-d49462539617",
+      "ordinal": 10405,
+      "sourceHash": "ce8f207cf02599b96d44da42d54c1466068f4e82093c62e7320ba003e4ff50f9",
+      "reading": "50037bf0-6d42-4b92-ae2d-3149520c59ca",
+      "source": "לאׄ לָאיש לׄבׄ",
+      "before": {
+        "uuid": "50037bf0-6d42-4b92-ae2d-3149520c59ca",
+        "de": "„nicht Mannes,“ — 32-mal.",
+        "status": "draft",
+        "uncertain": [],
+        "method": "aligned-quotation-and-formula",
+        "attribution": "Philippson · Jeremiah 10:23",
+        "source": "לאׄ לָאיש לׄבׄ",
+        "sourceReferences": []
+      },
+      "after": {
+        "uuid": "50037bf0-6d42-4b92-ae2d-3149520c59ca",
+        "de": "Listeneintrag 31: „לָאיש“ zweiunddreißigmal.",
+        "status": "draft",
+        "uncertain": [],
+        "method": "source-register-correction",
+        "correctionId": "50037bf0-6d42-4b92-ae2d-3149520c59ca"
+      },
+      "reason": "The first marked number is register entry 31 in the continuous register (entries 1–90), not the Hebrew negation. The final marked number 32 is the occurrence count. Neighboring entries and the source-bound manual review establish the distinction."
+    }
+  ]
+}

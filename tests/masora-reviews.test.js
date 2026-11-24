@@ -12,7 +12,7 @@ test('review refuses changed source and leaves unselected contexts untouched',()
  const record={uuid:'not-selected'};assert.equal(review.apply({uuid:'not-selected'},record),record);
 });
 test('review report distinguishes attempted, improved and completed notes',()=>{
- const report=require('../tools/masora/reviews/round-1-report.json');assert.deepEqual(M.reviews,[report]);assert.equal(report.selectedNotes,5000);
+ const report=require('../tools/masora/reviews/round-1-report.json');assert.deepEqual(M.reviews.find(r=>r.round===1),report);assert.equal(report.selectedNotes,5000);
  assert.equal(report.changedNotes+report.unchangedNotes,5000);assert.equal(report.resolvedNotes+report.improvedPartialNotes,report.changedNotes);
  assert.equal(report.remainingPartialNotes+report.resolvedNotes,5000);assert(report.resolvedReadings>=report.resolvedNotes);assert(report.changedReadings>=report.changedNotes);
  assert.equal(report.remainingPartialReadings+report.resolvedReadings,report.baselinePartialReadings);

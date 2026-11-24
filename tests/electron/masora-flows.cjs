@@ -108,7 +108,7 @@ module.exports=async({win,js,waitFor,book})=>{
  const translationIndex=require('../../masora-translations/index');
  let revised;
  for(const batch of translationIndex.batches){for(const record of Object.values(require('../../'+batch.file).notes)){
-  const reading=record.readings.find(r=>/review/.test(r.method||'')&&r.source.length>35);
+  const reading=record.readings.find(r=>r.reviewRound===2&&/review/.test(r.method||'')&&r.source.length>35);
   if(reading){revised={uuid:record.uuid,source:reading.source,de:reading.de};break;}
  }if(revised)break;}
  assert(revised,'at least one actual reviewed translation');
