@@ -9,3 +9,7 @@ The clause search matches the verb and its own subject or direct object. Searche
 To regenerate the indexes, run `python tools/tanakh-syntax/build.py /path/to/macula-hebrew/WLC/lowfat` with the pinned source checkout. The builder prints the aligned verse and predicate counts per book.
 
 Additional `constituents` records retain MACULA `pp`, `adv`, and `o2` groups plus lexical modifiers/genitive dependents from `NpAdjp` and `NPofNP`. Attribute governors and directly introducing prepositions are retained where unambiguous. Heads, spans and governors use the same exact Westminster alignment and source revision. `o2` is not interpreted as an indirect-object category, and `pp` is not automatically interpreted as an adverbial or recipient. Missing mappings retain explicit incompleteness for three-valued search evaluation.
+
+Additional nominal-clause role records, exact source head/segment metadata and canonical `participantref` chains use the same pinned source and exact alignment. Canonical source segment IDs remain distinct even when segments share a reading token. Missing reference chains do not establish that entities differ. Original subject/object pair records are preserved.
+
+The separate `../syntax-semantic.json` contains Safran editorial **working** assignments, not independently reviewed and not attributed to MACULA as semantic labels. Every entry supplies a source verse quotation, exact text signature and contextual rationale. These are limited positive annotations, not a complete semantic corpus or automatic preposition-based classification.

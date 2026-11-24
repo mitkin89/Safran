@@ -276,6 +276,7 @@
       <div id="sChart" hidden></div>
       <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <div id="sProgress" hidden><progress id="sProgressBar" max="1" aria-label="Suchfortschritt"></progress> <span id="sProgressLabel" class="muted"></span></div>
+      <div id="sSyntaxCoverage"></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sLemmaCoverage"></div>
       <div id="sOut"></div>
@@ -707,6 +708,8 @@
   <script src="syntax-explanation.js"></script>
   <script src="semantic-fields.js"></script>
   <script src="library-semantic.js"></script>
+  <script src="syntax-tree.js"></script>
+  <script src="syntax-coverage.js"></script>
   <script src="library-search.js"></script>
   <script src="chapter-comparison.js"></script>
   <script src="library-chapter-comparison.js"></script>

@@ -2571,3 +2571,14 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 #smEdit input { width:min(100%,38rem); display:block; }
 .smReason { margin-top:8px; font-size:.9em; color:var(--muted); }
 .smTranslation { margin-top:8px; padding:8px 12px; border-inline-start:3px solid var(--accent); }
+.sxSourceTree, .sxCoverage { margin: 12px 0; padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
+.sxTreeScroll { overflow: auto; max-height: 560px; }
+.sxSentenceTree, .sxSentenceTree ul { list-style: none; margin: 5px 0; padding-inline-start: 22px; }
+.sxSentenceTree ul { border-inline-start: 1px solid var(--line); }
+.sxSentenceTree li { margin: 6px 0; }
+.sxTreeNode { display: inline-block; border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+.sxTreeNode bdi { font: 1.25em var(--he-font, serif); }
+.sxTreeUnmapped { text-decoration: underline dotted; color: var(--muted); }
+.sxCoverage table { border-collapse: collapse; }
+.sxCoverage th, .sxCoverage td { border: 1px solid var(--line); padding: 5px 9px; text-align: start; }
+.sxSourceTree .pvhl { background: color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px var(--accent); font-weight: 700; }

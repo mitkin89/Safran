@@ -4,6 +4,7 @@
 import argparse
 from collections import defaultdict
 import hashlib
+import gzip
 import json
 from pathlib import Path
 import re
@@ -134,9 +135,11 @@ def build(book, code, chapters, book_number, source_dir):
     ambiguous = set()
     by_id = {}
     clauses = []
+    sentences = []
     for chapter in range(1, chapters + 1):
         xml_file = source_dir / f'{book_number:02}-{code}-{chapter:03}-lowfat.xml'
         root = ET.parse(xml_file).getroot()
+        sentences.extend(node for node in root.iter('sentence'))
         clauses.extend(node for node in root.iter('wg') if node.get('class') == 'cl')
         for word in root.iter('w'):
             c, v, ordinal = word_ref(word)
@@ -212,7 +215,7 @@ def build(book, code, chapters, book_number, source_dir):
                 if not loc or len(loc) != 1 or len(loc[0][1]) != 1 or not lemma:
                     complete = False
                     continue
-                heads.append([loc[0][0], loc[0][1][0], lemma])
+                heads.append([loc[0][0], loc[0][1][0], lemma, dict(form=letters(word.text or ''), morph=word.get('lang', 'H')+word.get('morph', ''), lemma=re.sub(r'^0+', '', word.get('strongnumberx', '')), sourceId=word.get(XML_ID))])
             if not refs or not source_heads or not heads:
                 complete = False
             governors = []
@@ -231,6 +234,24 @@ def build(book, code, chapters, book_number, source_dir):
                 groups.append(dict(refs=refs, heads=heads, **(dict(governors=governors, governorComplete=governor_complete) if owners is not None else {}), prepositions=sorted({letters(w.get('lemma', '')) for w in node if w.tag == 'w' and w.get('class') == 'prep'})))
         return dict(complete=complete, groups=groups)
 
+    identities = defaultdict(list)
+    for word in by_id.values():
+        if word.get('class') not in HEAD_CLASSES | {'adv'}:
+            continue
+        own = locations([word_ref(word)])
+        lemma = letters(word.get('lemma', ''))
+        if len(own) != 1 or len(own[0][1]) != 1 or not lemma:
+            continue
+        target = own
+        canonical = word.get(XML_ID)
+        if word.get('participantref'):
+            linked = antecedents([word], 'participantref', by_id)
+            target = locations(sorted({word_ref(w) for w in linked}))
+            canonical = next(iter(linked)).get(XML_ID) if len(linked) == 1 else None
+        if canonical and len(target) == 1 and len(target[0][1]) == 1:
+            identities[own[0][0]].append([own[0][1][0], lemma, target[0][0], target[0][1][0], canonical, bool(word.get('participantref'))])
+
+    nominals = defaultdict(list)
     grouped_pairs = defaultdict(list)
     grouped_roles = defaultdict(list)
     for clause in clauses:
@@ -262,13 +283,20 @@ def build(book, code, chapters, book_number, source_dir):
             'prepositional': extra_groups([n for n in clause if n.get('role') == 'pp']),
             'attribute': extra_groups(list(owners), owners),
         }
+        if not predicates:
+            refs = locations(tuple(ref for child in clause for ref in role_words(child)))
+            if refs:
+                roles = dict(extras, subject=extra_groups(subject_nodes), object=extra_groups(object_nodes))
+                record = dict(refs=refs, roles=roles)
+                for ref, _ in refs:
+                    nominals[ref].append(record)
         for word in predicates:
             verb = locations([word_ref(word)])
             lemma = letters(word.get('lemma', ''))
             if not lemma or not verb or len(verb[0][1]) != 1:
                 continue
             key, (position,) = verb[0]
-            constituents[key].append([position, extras])
+            constituents[key].append([position, dict(extras, subject=extra_groups(subject_nodes), object=extra_groups(object_nodes))])
             linked = antecedents(subject_heads, 'participantref', by_id) if subject_nodes else antecedents([word], 'subjref', by_id)
             refs = locations(sorted({word_ref(w) for w in linked}))
             resolved_heads = head_lemmas(linked) if refs else ()
@@ -286,7 +314,10 @@ def build(book, code, chapters, book_number, source_dir):
         return {key: list({json.dumps(row, ensure_ascii=False): row for row in rows[key]}.values())
                 for key in sorted(rows, key=lambda ref: tuple(map(int, ref.split(':'))))}
 
-    payload = dict(version=2, source=SOURCE, text=signatures, pairs=unique(grouped_pairs), roles=unique(grouped_roles), constituents=unique(constituents))
+    payload = dict(version=2, source=SOURCE, text=signatures, pairs=unique(grouped_pairs), roles=unique(grouped_roles), constituents=unique(constituents),
+                   identities=unique(identities), nominals=unique(nominals),
+                   coverage=dict(sourceVerses=len(verses), alignedVerses=len(alignments),
+                                 unalignedVerses=len(verses)-len(alignments), sourceClauses=len(clauses)))
     destination = ROOT / 'bundled' / 'syntax' / f'{book}.json'
     # One line per verse makes index changes easier to review.
     content = '{\n' + ',\n'.join(
@@ -296,6 +327,33 @@ def build(book, code, chapters, book_number, source_dir):
         for field, value in payload.items()
     ) + '\n}\n'
     destination.write_text(content, encoding='utf-8', newline='\n')
+    tree_text = {}
+    def tree_node(node):
+        if node.tag == 'w':
+            c, v, ordinal = word_ref(node)
+            mapping, signature = alignments.get((c, v), ({}, ''))
+            ref = verse_key(c, v)
+            ids = list(mapping.get(ordinal, ()))
+            if signature:
+                tree_text[ref] = signature
+            return dict(kind='word', role=node.get('role', ''), form=node.text or '',
+                        lemma=letters(node.get('lemma', '')), ref=ref, indices=ids)
+        return dict(kind=node.get('class', 'sentence'), role=node.get('role', ''),
+                    rule=node.get('rule', ''), children=[tree_node(n) for n in node if n.tag in {'w', 'wg'}])
+    trees, by_ref = [], defaultdict(list)
+    for sentence in sentences:
+        nodes = [tree_node(n) for n in sentence if n.tag == 'wg']
+        if not nodes:
+            continue
+        refs = sorted({verse_key(c,v) for c,v,_ in word_refs(sentence)})
+        idx = len(trees)
+        trees.append(dict(id=sentence.get('id', ''), children=nodes))
+        for ref in refs:
+            by_ref[ref].append(idx)
+    tree_dir = ROOT / 'bundled' / 'syntax-trees'
+    tree_dir.mkdir(exist_ok=True)
+    tree_payload = dict(version=1, source=SOURCE, text=tree_text, trees=trees, byRef=dict(by_ref))
+    (tree_dir / f'{book}.json.gz').write_bytes(gzip.compress(encode(tree_payload).encode('utf-8'), mtime=0))
     usable = sum(map(len, payload['pairs'].values()))
     print(f'{book}: {len(alignments)}/{len(verses)} verses aligned, {usable} predicate records; '
           f'SHA-256 {hashlib.sha256(content.encode()).hexdigest()}', flush=True)

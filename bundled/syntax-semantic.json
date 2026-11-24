@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "source": "Safran editorial working annotations",
+  "status": "not independently reviewed",
+  "method": "Individual contextual assignments; no automatic classification by preposition or verb lemma. Only listed positive roles are annotated; all other roles remain unknown.",
+  "records": [
+    {
+      "book": "Genesis",
+      "ref": "12:7",
+      "anchor": 6,
+      "anchorForm": "אתן",
+      "role": "recipient",
+      "indices": [
+        5
+      ],
+      "signature": "וירא יהוה אל אברם ויאמר לזרעך אתן את הארץ הזאת ויבן שם מזבח ליהוה הנראה אליו",
+      "quotation": "וַיֵּרָ֤א יְהוָה֙ אֶל אַבְרָ֔ם וַיֹּ֕אמֶר לְזַ֨רְעֲךָ֔ אֶתֵּ֖ן אֶת הָאָ֣רֶץ הַזֹּ֑את וַיִּ֤בֶן שָׁם֙ מִזְבֵּ֔חַ לַיהוָ֖ה הַנִּרְאֶ֥ה אֵלָֽיו",
+      "rationale": "Nachkommen als Empfänger der zugesagten Landgabe."
+    },
+    {
+      "book": "Genesis",
+      "ref": "15:18",
+      "anchor": 9,
+      "anchorForm": "נתתי",
+      "role": "recipient",
+      "indices": [
+        8
+      ],
+      "signature": "ביום ההוא כרת יהוה את אברם ברית לאמר לזרעך נתתי את הארץ הזאת מנהר מצרים עד הנהר הגדל נהר פרת",
+      "quotation": "בַּיּ֣וֹם הַה֗וּא כָּרַ֧ת יְהוָ֛ה אֶת אַבְרָ֖ם בְּרִ֣ית לֵאמֹ֑ר לְזַרְעֲךָ֗ נָתַ֨תִּי֙ אֶת הָאָ֣רֶץ הַזֹּ֔את מִנְּהַ֣ר מִצְרַ֔יִם עַד הַנָּהָ֥ר הַגָּדֹ֖ל נְהַר פְּרָֽת",
+      "rationale": "Nachkommen als Empfänger der Landgabe im Bundesspruch."
+    },
+    {
+      "book": "Genesis",
+      "ref": "18:7",
+      "anchor": 9,
+      "anchorForm": "ויתן",
+      "role": "recipient",
+      "indices": [
+        11
+      ],
+      "signature": "ואל הבקר רץ אברהם ויקח בן בקר רך וטוב ויתן אל הנער וימהר לעשות אתו",
+      "quotation": "וְאֶל הַבָּקָ֖ר רָ֣ץ אַבְרָהָ֑ם וַיִּקַּ֨ח בֶּן בָּקָ֜ר רַ֤ךְ וָטוֹב֙ וַיִּתֵּ֣ן אֶל הַנַּ֔עַר וַיְמַהֵ֖ר לַעֲשׂ֥וֹת אֹתֽוֹ",
+      "rationale": "Der Knecht empfängt das zur Zubereitung übergebene Tier."
+    },
+    {
+      "book": "Genesis",
+      "ref": "20:14",
+      "anchor": 6,
+      "anchorForm": "ויתן",
+      "role": "recipient",
+      "indices": [
+        7
+      ],
+      "signature": "ויקח אבימלך צאן ובקר ועבדים ושפחת ויתן לאברהם וישב לו את שרה אשתו",
+      "quotation": "וַיִּקַּ֨ח אֲבִימֶ֜לֶךְ צֹ֣אן וּבָקָ֗ר וַעֲבָדִים֙ וּשְׁפָחֹ֔ת וַיִּתֵּ֖ן לְאַבְרָהָ֑ם וַיָּ֣שֶׁב ל֔וֹ אֵ֖ת שָׂרָ֥ה אִשְׁתּֽוֹ",
+      "rationale": "Abraham empfängt Abimelechs Gaben."
+    },
+    {
+      "book": "Genesis",
+      "ref": "21:27",
+      "anchor": 4,
+      "anchorForm": "ויתן",
+      "role": "recipient",
+      "indices": [
+        5
+      ],
+      "signature": "ויקח אברהם צאן ובקר ויתן לאבימלך ויכרתו שניהם ברית",
+      "quotation": "וַיִּקַּ֤ח אַבְרָהָם֙ צֹ֣אן וּבָקָ֔ר וַיִּתֵּ֖ן לַאֲבִימֶ֑לֶךְ וַיִּכְרְת֥וּ שְׁנֵיהֶ֖ם בְּרִֽית",
+      "rationale": "Abimelech empfängt Abrahams Schafe und Rinder."
+    },
+    {
+      "book": "Genesis",
+      "ref": "24:53",
+      "anchor": 7,
+      "anchorForm": "ויתן",
+      "role": "recipient",
+      "indices": [
+        8
+      ],
+      "signature": "ויוצא העבד כלי כסף וכלי זהב ובגדים ויתן לרבקה ומגדנת נתן לאחיה ולאמה",
+      "quotation": "וַיּוֹצֵ֨א הָעֶ֜בֶד כְּלֵי כֶ֨סֶף וּכְלֵ֤י זָהָב֙ וּבְגָדִ֔ים וַיִּתֵּ֖ן לְרִבְקָ֑ה וּמִ֨גְדָּנֹ֔ת נָתַ֥ן לְאָחִ֖יהָ וּלְאִמָּֽהּ",
+      "rationale": "Rebekka empfängt Schmuck und Kleider."
+    },
+    {
+      "book": "Genesis",
+      "ref": "24:53",
+      "anchor": 10,
+      "anchorForm": "נתן",
+      "role": "recipient",
+      "indices": [
+        11,
+        12
+      ],
+      "signature": "ויוצא העבד כלי כסף וכלי זהב ובגדים ויתן לרבקה ומגדנת נתן לאחיה ולאמה",
+      "quotation": "וַיּוֹצֵ֨א הָעֶ֜בֶד כְּלֵי כֶ֨סֶף וּכְלֵ֤י זָהָב֙ וּבְגָדִ֔ים וַיִּתֵּ֖ן לְרִבְקָ֑ה וּמִ֨גְדָּנֹ֔ת נָתַ֥ן לְאָחִ֖יהָ וּלְאִמָּֽהּ",
+      "rationale": "Bruder und Mutter Rebekkas empfangen Kostbarkeiten."
+    },
+    {
+      "book": "Genesis",
+      "ref": "35:12",
+      "anchor": 3,
+      "anchorForm": "נתתי",
+      "role": "recipient",
+      "indices": [
+        4,
+        5
+      ],
+      "signature": "ואת הארץ אשר נתתי לאברהם וליצחק לך אתננה ולזרעך אחריך אתן את הארץ",
+      "quotation": "וְאֶת הָאָ֗רֶץ אֲשֶׁ֥ר נָתַ֛תִּי לְאַבְרָהָ֥ם וּלְיִצְחָ֖ק לְךָ֣ אֶתְּנֶ֑נָּה וּֽלְזַרְעֲךָ֥ אַחֲרֶ֖יךָ אֶתֵּ֥ן אֶת הָאָֽרֶץ",
+      "rationale": "Abraham und Isaak als Empfänger der Landgabe."
+    },
+    {
+      "book": "Genesis",
+      "ref": "35:12",
+      "anchor": 10,
+      "anchorForm": "אתן",
+      "role": "recipient",
+      "indices": [
+        8
+      ],
+      "signature": "ואת הארץ אשר נתתי לאברהם וליצחק לך אתננה ולזרעך אחריך אתן את הארץ",
+      "quotation": "וְאֶת הָאָ֗רֶץ אֲשֶׁ֥ר נָתַ֛תִּי לְאַבְרָהָ֥ם וּלְיִצְחָ֖ק לְךָ֣ אֶתְּנֶ֑נָּה וּֽלְזַרְעֲךָ֥ אַחֲרֶ֖יךָ אֶתֵּ֥ן אֶת הָאָֽרֶץ",
+      "rationale": "Jakobs Nachkommen als Empfänger der Landgabe."
+    },
+    {
+      "book": "Genesis",
+      "ref": "45:22",
+      "anchor": 6,
+      "anchorForm": "נתן",
+      "role": "recipient",
+      "indices": [
+        5
+      ],
+      "signature": "לכלם נתן לאיש חלפות שמלת ולבנימן נתן שלש מאות כסף וחמש חלפת שמלת",
+      "quotation": "לְכֻלָּ֥ם נָתַ֛ן לָאִ֖ישׁ חֲלִפ֣וֹת שְׂמָלֹ֑ת וּלְבִנְיָמִ֤ן נָתַן֙ שְׁלֹ֣שׁ מֵא֣וֹת כֶּ֔סֶף וְחָמֵ֖שׁ חֲלִפֹ֥ת שְׂמָלֹֽת",
+      "rationale": "Benjamin empfängt Silber und Gewänder."
+    },
+    {
+      "book": "Genesis",
+      "ref": "30:30",
+      "anchor": 14,
+      "anchorForm": "אעשה",
+      "role": "beneficiary",
+      "indices": [
+        17
+      ],
+      "signature": "כי מעט אשר היה לך לפני ויפרץ לרב ויברך יהוה אתך לרגלי ועתה מתי אעשה גם אנכי לביתי",
+      "quotation": "כִּ֡י מְעַט֩ אֲשֶׁר הָיָ֨ה לְךָ֤ לְפָנַי֙ וַיִּפְרֹ֣ץ לָרֹ֔ב וַיְבָ֧רֶךְ יְהוָ֛ה אֹתְךָ֖ לְרַגְלִ֑י וְעַתָּ֗ה מָתַ֛י אֶֽעֱשֶׂ֥ה גַם אָנֹכִ֖י לְבֵיתִֽי",
+      "rationale": "Jakob fragt nach dem Wirtschaften zugunsten seines eigenen Hauses."
+    },
+    {
+      "book": "Leviticus",
+      "ref": "19:10",
+      "anchor": 9,
+      "anchorForm": "תעזב",
+      "role": "beneficiary",
+      "indices": [
+        7,
+        8
+      ],
+      "signature": "וכרמך לא תעולל ופרט כרמך לא תלקט לעני ולגר תעזב אתם אני יהוה אלהיכם",
+      "quotation": "וְכַרְמְךָ֙ לֹ֣א תְעוֹלֵ֔ל וּפֶ֥רֶט כַּרְמְךָ֖ לֹ֣א תְלַקֵּ֑ט לֶֽעָנִ֤י וְלַגֵּר֙ תַּעֲזֹ֣ב אֹתָ֔ם אֲנִ֖י יְהוָ֥ה אֱלֹהֵיכֶֽם",
+      "rationale": "Arme und Fremde profitieren vom Zurücklassen der Nachlese."
+    },
+    {
+      "book": "Leviticus",
+      "ref": "23:22",
+      "anchor": 15,
+      "anchorForm": "תעזב",
+      "role": "beneficiary",
+      "indices": [
+        13,
+        14
+      ],
+      "signature": "ובקצרכם את קציר ארצכם לא תכלה פאת שדך בקצרך ולקט קצירך לא תלקט לעני ולגר תעזב אתם אני יהוה אלהיכם",
+      "quotation": "וּֽבְקֻצְרְכֶ֞ם אֶת קְצִ֣יר אַרְצְכֶ֗ם לֹֽא תְכַלֶּ֞ה פְּאַ֤ת שָֽׂדְךָ֙ בְּקֻצְרֶ֔ךָ וְלֶ֥קֶט קְצִירְךָ֖ לֹ֣א תְלַקֵּ֑ט לֶֽעָנִ֤י וְלַגֵּר֙ תַּעֲזֹ֣ב אֹתָ֔ם אֲנִ֖י יְהוָ֥ה אֱלֹהֵיכֶֽם",
+      "rationale": "Arme und Fremde profitieren vom Zurücklassen der Erntenachlese."
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "24:19",
+      "anchor": 13,
+      "anchorForm": "יהיה",
+      "role": "beneficiary",
+      "indices": [
+        10,
+        11,
+        12
+      ],
+      "signature": "כי תקצר קצירך בשדך ושכחת עמר בשדה לא תשוב לקחתו לגר ליתום ולאלמנה יהיה למען יברכך יהוה אלהיך בכל מעשה ידיך",
+      "quotation": "כִּ֣י תִקְצֹר֩ קְצִֽירְךָ֨ בְשָׂדֶ֜ךָ וְשָֽׁכַחְתָּ֧ עֹ֣מֶר בַּשָּׂדֶ֗ה לֹ֤א תָשׁוּב֙ לְקַחְתּ֔וֹ לַגֵּ֛ר לַיָּת֥וֹם וְלָאַלְמָנָ֖ה יִהְיֶ֑ה לְמַ֤עַן יְבָרֶכְךָ֙ יְהוָ֣ה אֱלֹהֶ֔יךָ בְּכֹ֖ל מַעֲשֵׂ֥ה יָדֶֽיךָ",
+      "rationale": "Fremder, Waise und Witwe sollen von der vergessenen Garbe profitieren."
+    },
+    {
+      "book": "Genesis",
+      "ref": "1:17",
+      "anchor": 0,
+      "anchorForm": "ויתן",
+      "role": "location",
+      "indices": [
+        3
+      ],
+      "signature": "ויתן אתם אלהים ברקיע השמים להאיר על הארץ",
+      "quotation": "וַיִּתֵּ֥ן אֹתָ֛ם אֱלֹהִ֖ים בִּרְקִ֣יעַ הַשָּׁמָ֑יִם לְהָאִ֖יר עַל הָאָֽרֶץ",
+      "rationale": "Das Himmelsgewölbe ist der Ort, an dem Gott die Lichter anbringt."
+    },
+    {
+      "book": "Genesis",
+      "ref": "2:8",
+      "anchor": 0,
+      "anchorForm": "ויטע",
+      "role": "location",
+      "indices": [
+        4
+      ],
+      "signature": "ויטע יהוה אלהים גן בעדן מקדם וישם שם את האדם אשר יצר",
+      "quotation": "וַיִּטַּ֞ע יְהוָ֧ה אֱלֹהִ֛ים גַּן בְעֵ֖דֶן מִקֶּ֑דֶם וַיָּ֣שֶׂם שָׁ֔ם אֶת הָֽאָדָ֖ם אֲשֶׁ֥ר יָצָֽר",
+      "rationale": "Eden lokalisiert den von Gott gepflanzten Garten."
+    },
+    {
+      "book": "Genesis",
+      "ref": "2:15",
+      "anchor": 5,
+      "anchorForm": "וינחהו",
+      "role": "location",
+      "indices": [
+        6
+      ],
+      "signature": "ויקח יהוה אלהים את האדם וינחהו בגן עדן לעבדה ולשמרה",
+      "quotation": "וַיִּקַּ֛ח יְהוָ֥ה אֱלֹהִ֖ים אֶת הָֽאָדָ֑ם וַיַּנִּחֵ֣הוּ בְגַן עֵ֔דֶן לְעָבְדָ֖הּ וּלְשָׁמְרָֽהּ",
+      "rationale": "Der Garten ist der Ort, an den Gott den Menschen setzt."
+    },
+    {
+      "book": "Genesis",
+      "ref": "18:1",
+      "anchor": 6,
+      "anchorForm": "ישב",
+      "role": "location",
+      "indices": [
+        7
+      ],
+      "signature": "וירא אליו יהוה באלני ממרא והוא ישב פתח האהל כחם היום",
+      "quotation": "וַיֵּרָ֤א אֵלָיו֙ יְהוָ֔ה בְּאֵלֹנֵ֖י מַמְרֵ֑א וְה֛וּא יֹשֵׁ֥ב פֶּֽתַח הָאֹ֖הֶל כְּחֹ֥ם הַיּֽוֹם",
+      "rationale": "Der Zelteingang lokalisiert Abrahams Sitzen."
+    },
+    {
+      "book": "Genesis",
+      "ref": "26:17",
+      "anchor": 3,
+      "anchorForm": "ויחן",
+      "role": "location",
+      "indices": [
+        4
+      ],
+      "signature": "וילך משם יצחק ויחן בנחל גרר וישב שם",
+      "quotation": "וַיֵּ֥לֶךְ מִשָּׁ֖ם יִצְחָ֑ק וַיִּ֥חַן בְּנַֽחַל גְּרָ֖ר וַיֵּ֥שֶׁב שָֽׁם",
+      "rationale": "Das Tal von Gerar lokalisiert Isaaks Lager."
+    },
+    {
+      "book": "Exodus",
+      "ref": "19:2",
+      "anchor": 5,
+      "anchorForm": "ויחנו",
+      "role": "location",
+      "indices": [
+        6
+      ],
+      "signature": "ויסעו מרפידים ויבאו מדבר סיני ויחנו במדבר ויחן שם ישראל נגד ההר",
+      "quotation": "וַיִּסְע֣וּ מֵרְפִידִ֗ים וַיָּבֹ֨אוּ֙ מִדְבַּ֣ר סִינַ֔י וַֽיַּחֲנ֖וּ בַּמִּדְבָּ֑ר וַיִּֽחַן שָׁ֥ם יִשְׂרָאֵ֖ל נֶ֥גֶד הָהָֽר",
+      "rationale": "Die Wüste lokalisiert das Lagern Israels."
+    }
+  ]
+}

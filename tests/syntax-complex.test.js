@@ -77,7 +77,7 @@ test('All 39 additional indexes keep heads and governors inside text-verified so
   for(const [ref,rows]of Object.entries(index.constituents))for(const [at,roles]of rows){
    assert(index.text[ref]?.split(' ')[at],file+' '+ref);
    for(const [role,data]of Object.entries(roles)){
-    assert(['secondObject','adverbial','prepositional','attribute'].includes(role));assert.equal(typeof data.complete,'boolean');
+    assert(['secondObject','adverbial','prepositional','attribute','subject','object'].includes(role));assert.equal(typeof data.complete,'boolean');
     for(const group of data.groups){groups++;
      for(const [r,ids]of group.refs)for(const i of ids)assert(index.text[r]?.split(' ')[i],file+' '+r);
      for(const [r,i,lemma]of group.heads){assert(group.refs.some(([v,ids])=>v===r&&ids.includes(i)));assert.match(lemma,/^[א-ת]+$/u);}
