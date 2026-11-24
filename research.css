@@ -296,3 +296,33 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 
 #researchRoot .rw-history { display:flex; gap:4px; }
 #researchRoot .rw-history button { font-size:21px; padding:3px 10px; min-width:34px; }
+
+/* Editing and spatial arrangement share the same full source cards. */
+#researchRoot.rw-spatial-editor { max-width:none; }
+#researchRoot.rw-spatial-editor .rw-layout { grid-template-columns:180px minmax(0,1fr); gap:16px; }
+#rwBlocks { container-type:inline-size; }
+#researchRoot .rw-arrangement.classic { grid-template-columns:minmax(0,var(--rw-side-col,28fr)) minmax(0,var(--rw-main-col,44fr)) minmax(0,var(--rw-side-col,28fr)); align-items:start; gap:12px; }
+#researchRoot .rw-arrangement:not(.classic)>.rw-drop-region { border:0; padding:0; }
+#researchRoot .rw-arrangement .rw-region-title { margin:0 0 14px; color:var(--muted); font-size:13px; font-weight:650; }
+#researchRoot .rw-arrangement.classic>.rw-drop-region { padding:12px 8px; border-width:1px; background:var(--rw-soft); }
+#researchRoot .rw-arrangement.classic>.main { border-color:color-mix(in srgb,var(--accent) 40%,var(--line)); }
+#researchRoot .rw-arrangement .rw-block { min-width:0; }
+#researchRoot .rw-arrangement.classic .rw-block { padding:14px 12px; }
+#researchRoot .rw-arrangement.classic .rw-block-head { flex-wrap:wrap; gap:7px; }
+#researchRoot .rw-arrangement.classic .rw-block-head h3 { flex-basis:calc(100% - 65px); }
+#researchRoot .rw-arrangement.classic .rw-block-actions { flex:1 1 100%; flex-wrap:wrap; margin:0; justify-content:flex-end; }
+#researchRoot .rw-arrangement .rw-placement { flex-wrap:wrap; }
+#researchRoot .rw-arrangement .rw-placement select { max-width:100%; min-width:0; }
+#researchRoot .rw-arrangement.classic .rw-edition { margin-inline-start:0; white-space:normal; }
+#researchRoot .rw-arrangement.classic .rw-citation>div { grid-template-columns:minmax(0,1fr); }
+#researchRoot .rw-arrangement .rw-drop-hint { padding:12px 4px; margin:0; }
+@container(max-width:900px){
+  #researchRoot .rw-arrangement.classic { grid-template-columns:minmax(0,1fr); }
+  #researchRoot .rw-arrangement.classic>.main { order:0; }
+  #researchRoot .rw-arrangement.classic>.left { order:1; }
+  #researchRoot .rw-arrangement.classic>.right { order:2; }
+  #researchRoot .rw-arrangement.classic>.bottom { order:3; }
+}
+@media(max-width:760px){#researchRoot.rw-spatial-editor .rw-layout{grid-template-columns:minmax(0,1fr)}}
+
+#researchRoot .rw-arrangement.classic .rw-source-footer>button { max-width:100%; white-space:normal; text-align:start; }
