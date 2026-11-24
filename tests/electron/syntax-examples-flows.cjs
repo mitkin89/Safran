@@ -6,7 +6,7 @@ module.exports=async({js,waitFor,win})=>{
  await js("document.querySelector('nav [data-tab=search]').click();document.querySelector('#sSyntaxTab').click()");
  assert(await js("document.querySelector('#sxExamples').hidden"));
  await js("document.querySelector('[data-syntax-kind=clause]').click()");
- await waitFor("document.querySelectorAll('[data-sx-example]').length===4",'Beispiele neben der Klauselsuche');
+ await waitFor("document.querySelectorAll('[data-sx-example]').length===7",'Beispiele neben der Klauselsuche');
  const layout=await js("({left:document.querySelector('.sleft').getBoundingClientRect().right,right:document.querySelector('#sxExamples').getBoundingClientRect().left})");assert(layout.right>=layout.left,'Beispiele stehen seitlich');
  await js("document.querySelector('#sxgStem').value='N';document.querySelector('#sxgTense').value='w';document.querySelector('#sxReferents').checked=true;document.querySelector('#sxDomain').value='Q';document.querySelector('#sxResumption').checked=true;document.querySelector('#sxBook').value='Isaiah';document.querySelector('#sOut').innerHTML='<p id=exampleSentinel>Bestehende Treffer</p>'");
  await load('god-creates');
@@ -18,8 +18,15 @@ module.exports=async({js,waitFor,win})=>{
  await js("document.querySelector('#sxBook').value='Genesis';document.querySelector('#sxGo').click()");
  await waitFor("document.querySelector('#sxGo').textContent==='Suchen' && document.querySelector('#sOut .sres')",'Vorausgefüllte einfache Suche');
  assert(await js("document.querySelector('#sOut').textContent.includes('Kapitel 1 · 1')"));
+ await load('rich-jacob-love');
+ const rich=await js("({syntax:{subject:document.querySelector('#sxSubject').value,verb:document.querySelector('#sxVerb').value,object:document.querySelector('#sxObject').value,domain:document.querySelector('#sxDomain').value,referents:document.querySelector('#sxReferents').checked},gram:[...document.querySelectorAll('#sxGrammar select')].filter(s=>s.value).map(s=>s.value)})");
+ assert.deepEqual(rich.syntax,{subject:'יעקב',verb:'אהב',object:'רחל',domain:'N',referents:true});assert.equal(rich.gram.length,8);
+ await shot('complex-clause-examples');
+ await js("document.querySelector('#sxBook').value='Genesis';document.querySelector('#sxGo').click()");
+ await waitFor("document.querySelector('#sxGo').textContent==='Suchen' && document.querySelector('#sOut .sres')",'Komplexe einfache Suche');
+ assert(await js("document.querySelector('#sOut').textContent.includes('Kapitel 29 · 18')"));
  await js("document.querySelector('#sxAdvanced').checked=true;document.querySelector('#sxAdvanced').dispatchEvent(new Event('change'));document.querySelector('#sxSavedPatterns summary').click();document.querySelector('#sOut').innerHTML='<p id=exampleSentinel>Bestehende Treffer</p>'");
- assert.equal(await js("document.querySelectorAll('[data-sx-example]').length"),6);
+ assert.equal(await js("document.querySelectorAll('[data-sx-example]').length"),12);
  const advanced=await js("window.SyntaxExamples.examples.filter(e=>e.query.type==='advanced').map(e=>e.id)");
  for(const id of advanced){
   await load(id);assert(await js("!!document.querySelector('#exampleSentinel')"),'kein Suchstart '+id);
@@ -32,7 +39,7 @@ module.exports=async({js,waitFor,win})=>{
  await waitFor("document.querySelector('#sxAdvancedGo').textContent==='Suchen' && document.querySelector('#sOut .sres')",'Erstes Beispiel über echte App-IPC');
  assert(await js("document.querySelector('#sOut').textContent.includes('Kapitel 1 · 3')"));
  assert(await js("!document.querySelector('#sInfo').textContent.includes('0 von 0 Dateien')"));
- await load('spirit-genitive');await shot('advanced-examples');
+ await load('rich-plant');await shot('complex-advanced-examples');await load('spirit-genitive');await shot('advanced-examples');
  await js("document.querySelector('#sxAdvancedBook').value='Genesis';document.querySelector('#sxAdvancedGo').click()");
  await waitFor("document.querySelector('#sxAdvancedGo').textContent==='Suchen' && document.querySelector('#sOut .sres')",'Vorausgefüllte erweiterte Suche');
  assert(await js("document.querySelector('#sOut').textContent.includes('Kapitel 1 · 2')"));
