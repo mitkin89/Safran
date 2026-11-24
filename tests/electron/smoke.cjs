@@ -12,7 +12,7 @@ const docs=new Map();let oldTranslation=false,win;
 const hash=text=>crypto.createHash('sha256').update(JSON.stringify(text)).digest('hex');
 function add(book,kind,pattern){const item=manifest.items.find(e=>e.title===book&&e.kind===kind&&pattern.test(e.versionTitle));assert(item);const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',item.rel)));const entry={...item,own:false,bytes:Buffer.byteLength(JSON.stringify(doc))};docs.set(entry.rel,{...doc,entry,textHash:hash(doc.text)});}
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
-if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_SEMANTIC==='1')add('Genesis','other',/^Septuaginta \(CATSS\)/);
+if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_SEMANTIC==='1'||process.env.SAFRAN_SMOKE_SENSES==='1')add('Genesis','other',/^Septuaginta \(CATSS\)/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_TCSEARCH==='1')add('Genesis','other',/^ETCBC Peshitta/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Ruth','other',/^ETCBC Peshitta/);
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
@@ -57,6 +57,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  const expectedTitles=new Set([...docs.values()].map(doc=>doc.entry.title)).size;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_SENSES==='1'){await require('./semantic-context-flows.cjs')({js,waitFor,win});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_SEMANTIC==='1'){await require('./semantic-flows.cjs')({js,waitFor,win});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_OUTLINES==='1'){
   await require('./outline-search-flows.cjs')({js,waitFor,book});

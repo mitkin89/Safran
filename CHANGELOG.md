@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Contextual meaning pilot:** distinguish fear, reverence, ambiguous and other usages for 25 Hebrew Genesis occurrences, with explicit reasons and unassigned status elsewhere. Add per-occurrence local corrections/reset, persistent local storage, source-verse fingerprints, sense filters and CSV evidence. Starter assignments are AI-assisted editorial work, not independently specialist-reviewed. Include OSHB 3373 in the fear field.
 - **Semantic fields:** new offline search tab with ten explicit Hebrew/Greek lemma sets, visible membership and per-result evidence. Supports custom local fields, source/book selection, exact OSHB homonyms, aligned German renderings with source-fingerprint checks, counts/export and highlighted results-as-reader. This is a potential-passage search, not contextual sense disambiguation; see `docs/semantic-search.md`.
 
 ### Unreleased

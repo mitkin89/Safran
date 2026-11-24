@@ -11,10 +11,12 @@ const fields = [
       "Furcht",
       "Schrecken",
       "Ehrfurcht",
+      "Gottesfurcht",
       "fear"
     ],
     "he": [
       "3372",
+      "3373",
       "3374",
       "6342",
       "6343"
@@ -240,6 +242,7 @@ const fields = [
   }
 ];
 const heNames = {
+  "3373": ["יָרֵא","fearing","fürchtend"],
   "1": [
     "אָב",
     "father",

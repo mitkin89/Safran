@@ -2758,6 +2758,7 @@
   $('#sOut').addEventListener('contextmenu', e => {
     const el = e.target.closest('.sres');
     if (!el || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
+    if(e.target.closest('.smSenseEditor'))return;
     const r = searchUI.resultAt(+el.dataset.i, el.dataset.cp);
     const entry = r && entries.find(x => x.rel === r.rel);
     const g = entry && groupsByKey.get(keyOf(entry));
@@ -2771,7 +2772,7 @@
   });
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
-    if (!el || e.target.closest('.sxExplain, .sxSourceTree')) return;
+    if (!el || e.target.closest('.sxExplain, .sxSourceTree, .smSenseEditor')) return;
     const r = searchUI.resultAt(+el.dataset.i, el.dataset.cp);
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;

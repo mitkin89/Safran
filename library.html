@@ -188,6 +188,7 @@
           <p class="muted">Findet mögliche Belege über Lemmata, unabhängig von der Wortform. Mehrdeutige Wörter können im Kontext eine andere Bedeutung haben. Keine vollständige Erfassung eines Themas.</p>
           <label for="smField">Bedeutungsfeld auswählen</label><select id="smField" size="7" aria-describedby="smMembers"></select>
           <div id="smMembers" aria-live="polite"></div>
+          <div id="smSenseControls"><label>Bedeutung im Kontext <select id="smSense"><option value="all">Alle Bedeutungen und unzugeordnete Belege</option><option value="fear">Angst / Bedrohung</option><option value="reverence">Ehrfurcht / Gottesfurcht</option><option value="uncertain">Nicht eindeutig</option><option value="other">Anderer Gebrauch</option><option value="unreviewed">Noch nicht zugeordnet</option></select></label><p class="muted">Startzuordnungen: hebräische Belege in Genesis. KI-gestützt redaktionell bearbeitet, nicht unabhängig fachlich geprüft. Andere Belege bleiben unzugeordnet; lokale Korrekturen sind möglich.</p></div>
           <div class="bar"><label>Quellen <select id="smLanguage"><option value="both">Hebräisch und Griechisch</option><option value="he">Tanach (Westminster)</option><option value="gr">Septuaginta</option></select></label><label>Buch <select id="smBook"></select></label></div>
           <p class="muted">Deutsche Entsprechungen erscheinen bei passenden öffentlichen Wortzuordnungen und unveränderten Textfassungen. Sie zählen nicht als zusätzliche Belege.</p>
         </form>
@@ -707,6 +708,7 @@
   <script src="search-categories.js"></script>
   <script src="syntax-explanation.js"></script>
   <script src="semantic-fields.js"></script>
+  <script src="semantic-context.js"></script>
   <script src="library-semantic.js"></script>
   <script src="syntax-tree.js"></script>
   <script src="syntax-coverage.js"></script>

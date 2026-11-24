@@ -49,3 +49,32 @@ SAFRAN_SMOKE_SEMANTIC=1 npm run test:smoke
 ```
 
 The real Electron test uses the production renderer and preload with real local search workers and public fixture texts in a temporary profile. It checks Greek/Hebrew hits, German highlights, creating a custom set, reader highlights and returning to normal text search. It makes no network requests and does not touch the user's library. Set `SAFRAN_SEMANTIC_QA_DIR` to retain a screenshot.
+
+## Context pilot: fear and reverence in Genesis
+
+For the built-in fear field, **Bedeutung im Kontext** filters individual occurrences by fear/threat, reverence/fear of God, ambiguous, other usage, or unassigned. The default includes all of them. The adjective/participle identifier `3373` is now included alongside `3372`, `3374`, `6342`, and `6343`; this includes Genesis 22:12 and 32:12.
+
+The initial contextual dataset (`semantic-context-genesis.json`) covers all **25 occurrences in 24 verses** returned by those identifiers in the shipped Hebrew Westminster Genesis. It contains 18 fear assignments, three reverence assignments, two ambiguous occurrences (both in 28:17), and two other usages (the divine designation “Fear of Isaac”, 31:42 and 31:53). Assignments were made with AI-assisted editorial reading of the source passages and their translation/context. **They have not been independently reviewed by a human specialist.** They are visible, explained and correctable, rather than presented as unquestionable scholarly decisions. Other books, Greek occurrences and other fields have no inferred contextual assignments. This is not a complete classification of all biblical expressions of fear.
+
+Examples:
+
+- Genesis 3:10: fear and hiding because of nakedness.
+- Genesis 20:8: fear in reaction to a divine warning; the presence of a divine reference does not mechanically mean reverence.
+- Genesis 20:11; 22:12; 42:18: reverence/fear of God as an ethical or obedient attitude.
+- Genesis 28:17: fright and religious awe cannot confidently be separated.
+- Genesis 31:42, 53: the expression designates the invoked God rather than an immediately experienced emotion.
+
+Negated fear, such as “do not fear”, remains in the fear sense. It does not assert that the person actually experienced fear. Counts above the results show the number of matched source words before the sense filter, distinguishing editorial assignments, local assignments and unassigned occurrences. An override withdrawing an assignment is counted as unassigned while retaining its local provenance. Normal result counts, distributions, exports and German highlighting follow the selected sense **per word**, not merely per verse.
+
+Expand **Zuordnung ändern** at a specific occurrence, choose a sense and provide a reason, then select **Korrektur lokal speichern**. Local corrections take priority over the starter data. The option *Noch nicht zugeordnet* can explicitly withdraw a starter assignment for that occurrence. **Lokale Korrektur zurücksetzen** removes only that local override, revealing the original starter assignment (or unassigned state) again. Overrides survive renderer/app restarts in this device's `semanticCorrections` local storage; they are not sent to GitHub or a cloud service. The limit is 2,000 local assignments. CSV exports include the displayed sense, provenance and reason.
+
+Every assignment binds the book, exact edition, language, verse path, one-based word position, full lemma identifier and SHA-256 of the source verse HTML. A changed verse never reuses the old assignment silently. It becomes unassigned (or uses a matching current starter assignment); a source-change notice accompanies stale records. Another occurrence of the same lemma is unaffected.
+
+Verification:
+
+```sh
+node --test tests/semantic-context.test.js
+SAFRAN_SMOKE_SENSES=1 npm run test:smoke
+```
+
+Tests check every starter fingerprint and word position against the actual public source; the contrast between fear and reverence; explicit ambiguity; changed-source rejection; per-word filtering; local override/reset; German projection; and the real production-renderer workflow including persistence after reload and remaining in search while editing.

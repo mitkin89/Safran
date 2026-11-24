@@ -1,0 +1,31 @@
+'use strict';
+const assert=require('node:assert/strict');
+module.exports=async({js,waitFor,win})=>{
+ const run=async sense=>{await js(`document.querySelector('#smSense').value=${JSON.stringify(sense)};document.querySelector('#smGo').click()`);await waitFor("document.querySelector('#smGo').textContent==='Suchen' && document.querySelector('#sOut .smReason')",'Kontextfilter '+sense);};
+ await js("document.querySelector('nav [data-tab=search]').click();document.querySelector('#sSemanticTab').click();document.querySelector('#smQuery').value='Angst';document.querySelector('#smQuery').dispatchEvent(new Event('input'));document.querySelector('#smLanguage').value='he';document.querySelector('#smBook').value='Genesis'");
+ await run('reverence');
+ assert.equal(await js("document.querySelectorAll('#sOut .smSenseEditor').length"),3);
+ assert(await js("document.querySelector('#sOut').textContent.includes('Kapitel 22 · 12')"),'Gottesfürchtig as own lemma 3373');
+ assert(await js("document.querySelector('#sLemmaCoverage').textContent.includes('25 Startzuordnungen')"));
+ await run('uncertain');
+ assert.equal(await js("document.querySelectorAll('#sOut .smSenseEditor').length"),2);
+ await js("document.querySelector('#sOut .smSenseEditor summary').click();document.querySelector('#sOut [data-sm-note]').value='';document.querySelector('#sOut [data-sm-save]').click()");
+ assert.equal(await js("document.documentElement.dataset.tab"),'search');
+ assert(await js("!document.querySelector('#sOut [data-sm-error]').hidden"));
+ await js("document.querySelector('#sOut [data-sm-sense]').value='fear';document.querySelector('#sOut [data-sm-note]').value='Lokale Testprüfung: hier Angst.';document.querySelector('#sOut [data-sm-save]').click()");
+ await waitFor("document.querySelector('#smGo').textContent==='Suchen' && document.querySelectorAll('#sOut .smSenseEditor').length===1",'Korrektur betrifft nur ein Vorkommen');
+ assert.equal(await js("JSON.parse(localStorage.getItem('semanticCorrections')).length"),1);
+ assert(await js("document.querySelector('#sOut .smContext bdi').textContent.replace(/[^א-ת]/g,'')==='נורא'"),'unverändertes zweites Vorkommen');
+ await run('fear');
+ assert(await js("document.querySelector('#sOut').textContent.includes('Lokale Testprüfung: hier Angst.')"));
+ // Reload the production renderer: the override remains, without changing the shipped seed.
+ await win.reload();await waitFor("document.querySelector('#tree .lib-item') && document.querySelector('#sSemanticTab')",'Neustart');
+ await js("document.querySelector('nav [data-tab=search]').click();document.querySelector('#sSemanticTab').click();document.querySelector('#smQuery').value='Angst';document.querySelector('#smQuery').dispatchEvent(new Event('input'));document.querySelector('#smLanguage').value='he';document.querySelector('#smBook').value='Genesis'");
+ await run('fear');
+ assert(await js("document.querySelector('#sOut').textContent.includes('Lokale Testprüfung: hier Angst.')"));
+ await js("{const ed=[...document.querySelectorAll('#sOut .smSenseEditor')].find(e=>e.querySelector('[data-sm-note]').value.includes('Lokale Testprüfung'));ed.open=true;ed.querySelector('[data-sm-reset]').click();}");
+ await waitFor("document.querySelector('#smGo').textContent==='Suchen' && !document.querySelector('#sOut').textContent.includes('Lokale Testprüfung')",'Zurücksetzen');
+ assert.equal(await js("JSON.parse(localStorage.getItem('semanticCorrections')).length"),0);
+ await run('uncertain');assert.equal(await js("document.querySelectorAll('#sOut .smSenseEditor').length"),2);
+ console.log('Electron: contextual filters, per-occurrence correction, required reason, no unintended navigation, persistence and reset passed.');
+};

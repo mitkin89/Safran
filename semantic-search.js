@@ -1,6 +1,7 @@
 'use strict';
 // Exact lemma membership, never a prediction of the meaning in this context.
 const fs = require('node:fs/promises'), path = require('node:path'), crypto = require('node:crypto');
+const Context = require('./semantic-context');
 const Fields = require('./semantic-fields'), R = require('./reader'), S = require('./search');
 const Order = require('./order'), Morph = require('./morph'), GM = require('./gmorph');
 const { textOf } = require('./concordance'), Sources = require('./alignment-sources');
@@ -78,7 +79,8 @@ async function translations({dir, entries, source, doc, rows, isCancelled}) {
   }
 }
 async function search({dir, entries, params, onProgress=()=>{}, isCancelled=()=>false}) {
-  const field = Fields.resolve(params.semantic);
+  const request=Context.request(params.semantic);
+  const field = Fields.resolve(request);
   const out = {results:[],stats:[],dist:[],scanned:0,total:0,truncated:false,capped:false,cancelled:false,semantic:field};
   if (!field) return {...out,error:'Bitte ein gültiges Bedeutungsfeld auswählen.'};
   lex ||= load('oshb-lemmas.js','OSHB_LEMMAS');
@@ -88,6 +90,10 @@ async function search({dir, entries, params, onProgress=()=>{}, isCancelled=()=>
     const known=new Set(greek.L.map(rec=>Fields.fold(rec.split('\t')[0])));
     if(field.gr.some(l=>!known.has(Fields.fold(l))))return {...out,error:'Griechisches Lemma im Septuaginta-Index nicht belegt.'};
   }
+  const contextual=field.id==='fear'&&!field.custom;
+  const local=new Map((request.corrections||[]).map(r=>[Context.key(r),r]));
+  const seeds=new Map(contextual?require('./semantic-context-genesis.json').records.map(r=>[Context.key(r),r]):[]);
+  if(contextual)out.semanticCoverage={total:0,editorial:0,local:0,unreviewed:0,stale:0};
   const he = new Set(field.he), gr = new Set(field.gr.map(Fields.fold));
   const list = Order.sortTitles(entries.filter(e=>e.kind==='he' && /^Westminster/.test(e.versionTitle||'') && he.size || e.kind==='other' && /^Septuaginta \(/.test(e.versionTitle||'') && gr.size && GM.bookIndex(greek,e.title,e.versionTitle)>=0),e=>e.title);
   out.total=list.length;
@@ -100,16 +106,26 @@ async function search({dir, entries, params, onProgress=()=>{}, isCancelled=()=>
     let hits=0,occ=0,shown=0;const selected=[];
     for (let k=0;k<rows.length;k++) {
       if (k%32===0) { await new Promise(resolve=>setImmediate(resolve)); if(isCancelled())break; }
-      const {html,p}=rows[k], words=rowWords(e,html,p), ix=[];
+      const {html,p}=rows[k], words=rowWords(e,html,p); let ix=[];
       words.forEach((w,i)=>{if(e.kind==='he'?he.has(w.id):gr.has(Fields.fold(w.id)))ix.push(i);});
       if(!ix.length)continue;
       const text=textOf(html), spans=ranges(text,words.map(w=>w.form)); if(spans.some(x=>!x))continue;
+      const contexts=new Map(), signature=contextual?crypto.createHash('sha256').update(html).digest('hex'):null;
+      if(contextual){
+        for(const i of ix){
+          const record={book:e.title,versionTitle:e.versionTitle,kind:e.kind,path:p,position:i+1,id:words[i].id,signature};
+          const context=Context.classify(record,local,seeds);contexts.set(i,context);
+          out.semanticCoverage.total++;out.semanticCoverage[context.sense==='unreviewed'?'unreviewed':context.basis]++;if(context.stale)out.semanticCoverage.stale++;
+        }
+        if(request.sense!=='all')ix=ix.filter(i=>contexts.get(i).sense===request.sense);
+        if(!ix.length)continue;
+      }
       hits++;occ+=ix.length;
       if(out.results.length>=limit){out.truncated=true;continue;}
       if(shown>=perFile){out.capped=true;continue;}
       const r=result(e,d,p,text,spans,ix); r.positions=ix.map(i=>i+1);
-      r.semantic={fieldId:field.id,title:field.title,en:field.en,custom:!!field.custom,
-        matches:ix.map(i=>({id:words[i].id,lemma:e.kind==='he'?lex[words[i].id][0]:words[i].id,form:words[i].form,position:i+1,source:e.kind==='he'?'OSHB':'lxx-morph'}))};
+      r.semantic={fieldId:field.id,title:field.title,en:field.en,custom:!!field.custom,...(contextual?{signature}:{}),
+        matches:ix.map(i=>({id:words[i].id,lemma:e.kind==='he'?lex[words[i].id][0]:words[i].id,form:words[i].form,position:i+1,source:e.kind==='he'?'OSHB':'lxx-morph',...(contextual?{context:contexts.get(i)}:{})}))};
       out.results.push(r);selected.push(r);shown++;
     }
     await translations({dir,entries,source:e,doc:d,rows:selected,isCancelled});

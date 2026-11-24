@@ -430,6 +430,7 @@ window.LibrarySearch = (() => {
           : '')
         + (res.crossLanguage ? ' · ' + I18N.t('Entsprechungen aus Wortzuordnungen; getrennt von den Vorkommenszahlen.') : '')
         + (res.errors ? ' · ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
+      if(res.semanticCoverage){const c=res.semanticCoverage;$('#sLemmaCoverage').textContent=I18N.t('{} Wortbelege erfasst: {} Startzuordnungen, {} lokale Zuordnungen, {} noch nicht zugeordnet. Zählung vor Bedeutungsfilter.',c.total,c.editorial,c.local,c.unreviewed);}
       if (res.semantic) $('#sInfo').textContent += ' ' + I18N.t('Mögliche Belege nach Lemmazugehörigkeit; deutsche Entsprechungen zählen nicht zusätzlich.') + (res.errors ? ' ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
       if (res.concordance) $('#sLemmaCoverage').innerHTML = concordanceCoverageHtml(res);
       sSumState = { res, onlyTitle, n: 40 };
@@ -442,10 +443,15 @@ window.LibrarySearch = (() => {
     }
     // Treffer pro Vers zusammenfassen: derselbe Vers in mehreren Fassungen erscheint einmal; die übrigen Fassungen klappen darunter auf
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
+    $('#sOut').addEventListener('click',event=>{
+      const button=event.target.closest('[data-sm-save],[data-sm-reset]');if(!button)return;
+      event.preventDefault();event.stopPropagation();const editor=button.closest('.smSenseEditor');
+      if(semanticUI.correct(sResults[+editor.dataset.smI],+editor.dataset.smMatch,editor,button.hasAttribute('data-sm-reset')))runSearch(sSumState?.onlyTitle||undefined);
+    });
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
       if (r.concordance) return `<div class="sres ccRow" tabindex="0" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wortfamilie' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" tabindex="0" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
-      const semantic = r.semantic ? `<div class="smReason">${esc(I18N.t('Bedeutungsfeld'))}: <b>${esc(I18N.lang==='en'?r.semantic.en:r.semantic.title)}</b> · ${esc(I18N.t('Gefunden über'))} ${r.semantic.matches.map(m=>`<bdi>${esc(m.lemma)}</bdi> <small>${esc(m.source)}${m.source==='OSHB'?' H'+esc(m.id):''}</small>`).join(' · ')}${r.semantic.translationSkipped?' · '+esc(I18N.t('Abweichende Übersetzung: Wortmarkierung ausgelassen.')):''}</div>${(r.parallels||[]).map((p,j)=>`<div class="sres smTranslation" data-i="${i}" data-cp="${j}"><small>${esc(shortVer(p.versionTitle))} · ${esc(I18N.t('Zugeordnete deutsche Wiedergabe'))}</small><div>${p.parts.map(x=>x.m?'<mark>'+esc(x.t)+'</mark>':esc(x.t)).join('')}</div></div>`).join('')}` : '';
+      const semantic = semanticUI.evidence(r,i,shortVer);
       const roles = (r.syntax || []).map(pair => {
         const parts = [[I18N.t('Verb'), pair.verb ? [{ text: pair.verb }] : []], [I18N.t('Subjekt'), pair.subjects],
           [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
@@ -498,7 +504,7 @@ window.LibrarySearch = (() => {
     $('#sExport').onclick = async () => {
       const sem = !!sResults[0]?.semantic;
       if (sem) {
-        const rows=[['Titel','Version','Stelle','Text','Bedeutungsfeld','Lemmata','Deutsche Entsprechungen'],...sResults.map(r=>[r.title,r.versionTitle,r.where,plainSnip(r),r.semantic.title,r.semantic.matches.map(m=>m.lemma+' ('+m.id+')').join(' | '),(r.parallels||[]).map(p=>p.versionTitle+': '+plainSnip(p)).join(' | ')])];
+        const rows=[['Titel','Version','Stelle','Text','Bedeutungsfeld','Lemmata','Kontextzuordnung','Deutsche Entsprechungen'],...sResults.map(r=>[r.title,r.versionTitle,r.where,plainSnip(r),r.semantic.title,r.semantic.matches.map(m=>m.lemma+' ('+m.id+')').join(' | '),r.semantic.matches.filter(m=>m.context).map(m=>m.position+': '+I18N.t(window.SemanticContext.labels[m.context.sense])+' ['+m.context.basis+'] '+(m.context.note||'')).join(' | '),(r.parallels||[]).map(p=>p.versionTitle+': '+plainSnip(p)).join(' | ')])];
         const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');
         const result=await window.api.saveFile('Bedeutungsfelder.csv','\ufeff'+csv);if(result?.error)alert(result.error);return;
       }
