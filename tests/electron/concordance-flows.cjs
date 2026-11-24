@@ -111,5 +111,12 @@ module.exports=async({win,js,waitFor})=>{
   assert(await js("!document.querySelector('#sOut .ccRow') && [...document.querySelectorAll('#sLemmaCoverage tbody tr')].some(row=>row.textContent.includes('Ruth')&&row.lastElementChild.textContent==='0')"));
  }
  ipcMain.removeHandler('file:save');
+ if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){
+  await js("document.querySelector('[data-tab=read]').click();[...document.querySelectorAll('#tree .lib-item')].find(a=>a.dataset.key.endsWith('¦Genesis')).click()");await waitFor("document.querySelector('#rSection option[value=\"27\"]')",'Genesis 28 wählen');
+  await js("{const he=[...document.querySelectorAll('#verList input[data-rel]')].find(e=>e.dataset.rel.includes('Westminster'));if(!he.checked){he.checked=true;he.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#rSection').value='27';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));}");
+  const headWord="document.querySelector('#rOut .row[data-l=\"11\"] .cell[data-k=he] .w[data-l=\"4763\"]')";await waitFor(headWord,'Genesis 28,11 מראשתיו');await js(headWord+".dispatchEvent(new MouseEvent('dblclick',{bubbles:true}))");await waitFor("!document.querySelector('#formsPanel').hidden&&!document.querySelector('#fmConcordance').disabled",'Wortkarte Strong 4763');await js("document.querySelector('#fmConcordance').click()");
+  const target="[...document.querySelectorAll('#fmConcordanceBody .wcCcHit')].find(h=>h.querySelector('button > span')?.textContent.includes('28 · 11'))";await waitFor(target+"?.querySelector('.wcCcPeer bdi[lang=grc]')",'LXX in der Konkordanz für Genesis 28,11');assert.equal(await js(target+".querySelector('.wcCcPeer bdi[lang=grc]').textContent"),'πρὸς κεφαλῆς αὐτοῦ');
+  await js(target+".scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-genesis-28-11-lxx.png',i.toPNG()));
+ }
  console.log('Electron: Werkübergreifende Konkordanz, ganze Wörter, Zählung, Werkfilter, Originalstelle, CSV, Verlauf und OSHB-Grundformen bestanden.');
 };
