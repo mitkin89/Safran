@@ -2371,6 +2371,8 @@
       const items = [];
       if (word) items.push({ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) });
       items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+      const selection=researchUI?.getReaderSelection();
+      if(selection?.labels?.length)items.push({label:I18N.t('Zum Quellenblatt hinzufügen …'),fn:()=>researchUI.captureSelection(selection)});
       ctxShow(e, items); return;
     }
     if (!row || !view || !view.group) return;
@@ -2919,6 +2921,15 @@
     showTab, getView: () => view, getRow: () => cmtRow,
     getSearch: () => searchUI.researchSnapshot(),
     notesChanged: () => notesUI.loadNotes(),
+    getReaderSelection: () => {
+      const sel=window.getSelection(),out=$('#rOut');if(!sel?.rangeCount||sel.isCollapsed)return {};
+      const range=sel.getRangeAt(0),node=sel.anchorNode?.nodeType===1?sel.anchorNode:sel.anchorNode?.parentElement;
+      if(!node?.closest('#rOut')||!out.contains(range.endContainer))return {};
+      const rel=node.closest('.cell[data-rel]')?.dataset.rel;
+      const labels=$$('#rOut .row[data-l]').filter(row=>range.intersectsNode(rel?row.querySelector(`.cell[data-rel="${CSS.escape(rel)}"]`)||row:row)).map(row=>row.dataset.l);
+      return {rel,labels};
+    },
+
     openRef: async ref => {
       const g = [...groupsByKey.values()].find(g => ref.rel ? g.versions.some(v => v.rel === ref.rel) : g.key === ref.key);
       if (ref.rel && !g) throw Error('Diese Edition ist nicht mehr in der Bibliothek.');

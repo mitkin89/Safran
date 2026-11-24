@@ -2,6 +2,18 @@
 
 Über **Projekt verwalten → Neues Projekt** im Reiter **Recherche** ein Projekt mit Titel, Beschreibung und Schlagwörtern anlegen. Darin liegen Quellenblätter, Sammlungen und Notizen. Die Einträge lassen sich nach Text, Quelle, Thema und Schlagwort filtern. Projekte können archiviert und später wieder geöffnet werden.
 
+## Quellen direkt hinzufügen
+
+Im geöffneten Quellenblatt **＋ Quelle hinzufügen** wählen:
+
+1. **Stellenangabe:** etwa `Hiob 7,1–3`, `Gen.1,1`, `Rashi on Genesis 1:1:2` oder `Berakhot 2a:1–3` eingeben und die Vorschau anzeigen. Die Suche verwendet die lokale Bibliothek und die native Zählung jeder Ausgabe. Fehlende Zeilen werden gemeldet; es wird keine andere Ausgabe als Ersatz eingesetzt.
+2. **Edition:** die zuletzt hinzugefügte Ausgabe wird vorgeschlagen, auch bei einem weiteren Buch derselben Edition. Die vollständige Editionsangabe und der tatsächliche Text stehen in der Vorschau. **Hinzufügen** übernimmt genau diese Quellenkopie.
+3. **Textsuche:** nach einem Wort oder Textausschnitt suchen; optional nach Sprache oder auf Kommentare einschränken. Einen Treffer anklicken, die Vorschau prüfen und hinzufügen. Die Suche läuft unabhängig vom normalen Suchreiter, zeigt höchstens 40 Treffer und 5 je Edition und kann durch Schließen des Fensters abgebrochen werden. Nach 30 Sekunden wird eine noch laufende Suche beendet, ohne Vollständigkeit zu behaupten.
+
+Bei komplexen Werken ohne passende Kapitel-/Versstruktur lässt sich der Text über die Textsuche oder den geöffneten Lesetext erfassen. Es werden höchstens 500 ausgewählte Zeilen bzw. 50 native Abschnitte je direkter Stellenübernahme hinzugefügt; größere Bereiche bitte getrennt übernehmen.
+
+Im Lesefenster Verse mit der Maus markieren, rechtsklicken und **Zum Quellenblatt hinzufügen …** wählen. Alternativ **＋ Quellenblatt** verwenden. **Geöffneter Text** übernimmt Edition und Zeilenauswahl; die Vorschau enthält die vollständigen ausgewählten Zeilen. Wenn gerade eine Notiz geöffnet ist, wird das zuletzt bearbeitete Quellenblatt im aktuellen Projekt als Ziel vorgeschlagen.
+
 ## Quellenblätter erstellen
 
 1. Im Lesefenster einen Text öffnen. **＋ Quellenblatt** zeigt eine ausdrückliche Editions- und Abschnittsauswahl. Die aktuell gewählten Zeilen werden vorgeschlagen. Leere Zeilenauswahl übernimmt den ganzen Abschnitt; `1–3, 7` übernimmt die entsprechenden vorhandenen Zeilen. Fehlende Zeilen werden als Fehler gemeldet.
@@ -14,6 +26,20 @@ Links stehen die Einträge des Projekts, rechts das aktuelle Arbeitsblatt. **Bes
 Quellenauszüge sind gespeicherte Kopien; Bibliothekstexte werden dabei nicht bearbeitet. Änderungen am Auszug werden im Export als **Bearbeiteter Auszug** ausgewiesen. Die ursprüngliche Kopie und der SHA256-Hash des Editionstextes bleiben im Projektpaket erhalten. Die normale Leserübernahme lässt Fußnoten und deren Zeichen weg; die Übernahme von Suchtreffern enthält die vorhandenen Fußnotentexte, damit Treffer darin erhalten bleiben. Formatierung wird in Klartext überführt.
 
 **Quellenangabe** auf der Quellenkarte enthält Werk, vollständigen Editionstitel, Fundstelle, Quellen-URL und explizit vorhandene Angaben zu Übersetzer, Herausgeber, Verlag und Jahr. Fehlende Angaben bleiben leer und können ergänzt werden; Namen werden nicht aus Autorenporträts erraten. Exporte zeigen die Quellenangabe am Auszug und gesammelt im Quellenverzeichnis. Dies ist eine allgemeine bibliografische Darstellung, keine Auswahl zwischen CSL-Zitierstilen.
+
+## Haupttext mit Randkommentaren
+
+Unter **Layout → Anordnung → Haupttext mit Randkommentaren** steht ein Layout mit vier Bereichen bereit:
+
+- **Haupttext:** breite mittlere Spalte.
+- **Linker Rand** und **Rechter Rand:** Kommentare oder Übersetzungen neben dem Haupttext.
+- **Unten:** weitere Texte unter einer Trennlinie, auf drei Spalten verteilt.
+
+Im **⋯**-Menü jeder Quellenkarte den **Bereich** auswählen. Die Reihenfolge innerhalb eines Bereichs entspricht der Reihenfolge der Karten. Quellen, eigene Texte, Überschriften und verknüpfte Notizen können in jedem Bereich stehen. Die Zuordnung verschiebt den Inhalt, verändert aber nicht seinen Wortlaut.
+
+Im Layoutmenü lassen sich Hoch-/Querformat, Breite des Haupttexts, drei Schriftgrößen und die Anzeige des Blatttitels einstellen. **Vorschau** öffnet die Layoutansicht mit dem aktuellen Entwurf; **Bearbeiten** kehrt zu den Karten zurück. Die eigentliche Seiteneinteilung erfolgt beim PDF-Druck. Längere Inhalte dürfen auf Folgeseiten weiterlaufen und werden nicht zum Einpassen abgeschnitten.
+
+PDF und HTML verwenden diese Spaltenanordnung; DOCX enthält bearbeitbare Tabellen mit entsprechenden Breiten und Schriftgrößen. Word kann abhängig von installierten Schriften und Textverarbeitung anders umbrechen. Die Bereiche werden ausdrücklich zugewiesen: es gibt keinen automatischen Überlauf vom Randkommentar in den unteren Bereich und keine automatische absatzweise Kopplung an den Haupttext. Layout und Bereichszuordnung bleiben beim Speichern und beim Austausch des Projektpakets erhalten.
 
 ## Sammlungen und Rechercheergebnisse
 

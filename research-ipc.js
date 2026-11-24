@@ -1,8 +1,9 @@
 'use strict';
 const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto');
 const S=require('./research-store'),E=require('./research-export'),R=require('./reader'),LK=require('./links');
+const Sources=require('./research-sources'),{SearchJobs,ownerOf,runSearchWorker}=require('./search-jobs');
 function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,BrowserWindow,winOf,tempDir,broadcast=()=>{}}){
- let current;
+ let current;const sourceJobs=new SearchJobs();
  async function store(){const lib=await getLibrary();if(!current||current.dir!==lib.dir)current={dir:lib.dir,store:new S.ResearchStore(lib.dir)};return current.store;}
  async function state(){const data=await(await store()).read();try{return {...data,legacyNotes:(await readLegacyNotes()).map(n=>({...n,refs:S.legacyRefs(n)}))};}catch(e){return {...data,legacyNotes:[],legacyError:e.message};}}
  async function rich(rel){const lib=await getLibrary(),entry=lib.index.entries[rel];if(!entry)throw Error('Diese Edition ist nicht in der Bibliothek.');const doc=await lib.read(rel);const raw=JSON.parse(await fs.readFile(path.join(lib.dir,rel),'utf8'));return {doc:{...doc,translator:raw.translator||raw.versionTranslator,editor:raw.editor,publisher:raw.publisher,year:raw.year},entry};}
@@ -13,6 +14,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   return S.capture(doc,entry,req,doc.textHash);
  }
  ipcMain.handle('research:state',state);
+ ipcMain.handle('research:sheetPreview',async(_e,sheet)=>{const data=await state();return E.html(S.entity('sheets',sheet),[...data.notes,...data.legacyNotes]);});
  ipcMain.handle('research:put',async(_e,kind,record,version)=>{
   if(!['projects','sheets','collections','notes'].includes(kind))throw Error('Unbekannter Datentyp.');
   await(await store()).put(kind,record,version);broadcast();return state();
@@ -27,6 +29,27 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
  });
  ipcMain.handle('research:sections',async(_e,rel)=>{const {doc,entry}=await rich(rel);return {sections:R.sectionsOf(doc.text,doc.sectionNames).map(s=>({path:s.path,label:s.label})),citation:S.metadata(doc,entry,'')};});
  ipcMain.handle('research:capture',(_e,request)=>captured(request));
+ ipcMain.handle('research:sourceEditions',async(_e,query)=>{
+  const lib=await getLibrary(),entries=Object.values(lib.index.entries),ref=Sources.parse(query,entries);
+  return {reference:ref,editions:Sources.editions(entries,ref.title)};
+ });
+ ipcMain.handle('research:sourcePreview',async(_e,request)=>{
+  const lib=await getLibrary(),ref=Sources.parse(request.query,Object.values(lib.index.entries)),{doc,entry}=await rich(request.rel);
+  if(entry.title!==ref.title)throw Error('Die gewählte Edition gehört nicht zu diesem Werk.');
+  return Sources.plans(doc,ref).map(req=>S.capture(doc,entry,req,doc.textHash));
+ });
+ ipcMain.handle('research:cancelSourceSearch',(e,id)=>{sourceJobs.cancel(ownerOf(e),id);return true;});
+ ipcMain.handle('research:searchSources',async(e,request)=>{
+  if(typeof request.query!=='string'||request.query.trim().length<2||request.query.length>500)throw Error('Bitte mindestens zwei Zeichen als Suchtext eingeben.');
+  const lib=await getLibrary(),entries=Object.values(lib.index.entries).filter(e=>
+   (!request.language||e.language===request.language)&&(!request.comments||(e.categories||[]).some(c=>/commentary|kommentar/i.test(c))));
+  const job=sourceJobs.begin(ownerOf(e),request.requestId),timer=setTimeout(()=>sourceJobs.cancel(job.owner,job.requestId),30000);
+  try{
+   const res=await runSearchWorker({dir:lib.dir,entries,params:{query:request.query.trim(),limit:40,perFile:5,countAll:false,parse:false},cacheDir:null},job,()=>{});
+   return {results:res.results.map(h=>({rel:h.rel,title:h.title,versionTitle:h.versionTitle,where:h.where,path:h.path,snippet:(h.snippet?.before||'')+(h.snippet?.hit||'')+(h.snippet?.after||'')})),cancelled:res.cancelled,limited:res.truncated||res.capped,scanned:res.scanned,total:res.total};
+  }finally{clearTimeout(timer);sourceJobs.finish(job);}
+ });
+
  ipcMain.handle('research:captureCommentary',async(_e,request)=>{
   const {doc,entry}=await rich(request.rel),ref=String(request.ref||''),parts=LK.splitRef(ref);
   if(parts.book!==doc.title&&parts.book!==entry.title)throw Error('Kommentar und Edition passen nicht zusammen.');
@@ -71,7 +94,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   if(format==='pdf'){
    const tmp=path.join(tempDir(),'safran-sheet-'+crypto.randomUUID()+'.html');await fs.writeFile(tmp,html,'utf8');
    const win=new BrowserWindow({show:false,webPreferences:{sandbox:true,javascript:false}});
-   try{win.webContents.setWindowOpenHandler(()=>({action:'deny'}));await win.loadFile(tmp);content=await win.webContents.printToPDF({pageSize:'A4',printBackground:true});}finally{win.destroy();await fs.rm(tmp,{force:true});}
+   try{win.webContents.setWindowOpenHandler(()=>({action:'deny'}));await win.loadFile(tmp);content=await win.webContents.printToPDF({pageSize:'A4',landscape:sheet.layout?.orientation==='landscape',preferCSSPageSize:true,printBackground:true});}finally{win.destroy();await fs.rm(tmp,{force:true});}
   }else if(format==='html')content=html;
   await fs.writeFile(chosen.filePath,content);return {path:chosen.filePath};
  }

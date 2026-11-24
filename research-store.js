@@ -1,7 +1,7 @@
 'use strict';
 // Local research records. Source snapshots never change the library editions.
 const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto');
-const R=require('./reader');
+const R=require('./reader'),Layout=require('./research-layout');
 const MAX_BYTES=32*1024*1024,MAX_RECORDS=10000;
 const clone=x=>structuredClone(x),uid=()=>crypto.randomUUID(),now=()=>new Date().toISOString();
 function text(v,max=2000000){if(v==null)return '';if(typeof v!=='string'||v.length>max)throw Error('Text fehlt oder ist zu lang.');return v;}
@@ -17,7 +17,7 @@ function legacyRefs(n){
 }
 function block(b){
  if(!b||!['source','text','heading','note'].includes(b.type))throw Error('Unbekannter Quellenblatt-Baustein.');
- return {id:id(b.id||uid()),type:b.type,title:text(b.title,20000),text:text(b.text),originalText:text(b.originalText??b.text),
+ return {id:id(b.id||uid()),type:b.type,region:Layout.regions.includes(b.region)?b.region:'main',title:text(b.title,20000),text:text(b.text),originalText:text(b.originalText??b.text),
   citation:citation(b.citation),reference:b.reference?reference(b.reference):null,sourceHash:text(b.sourceHash,128),capturedAt:text(b.capturedAt,100),
   noteId:b.noteId?id(b.noteId):'',noteSnapshot:b.noteSnapshot?note(b.noteSnapshot):null,
   search:b.search?{query:text(b.search.query,20000),capturedAt:text(b.search.capturedAt,100),complete:b.search.complete===true}:null};
@@ -30,7 +30,7 @@ function entity(kind,x){
  if(kind==='notes')return note(x);
  if(!['sheets','collections'].includes(kind))throw Error('Unbekannter Datentyp.');
  const key=kind==='sheets'?'blocks':'items',xs=x[key]||[];if(!Array.isArray(xs)||xs.length>2000)throw Error('Zu viele Bausteine.');
- const out={...base,projectId:id(x.projectId),[key]:xs.map(block)};
+ const out={...base,projectId:id(x.projectId),[key]:xs.map(block),...(kind==='sheets'?{layout:Layout.layout(x.layout)}:{})};
  if(new Set(out[key].map(b=>b.id)).size!==out[key].length)throw Error('Doppelte Baustein-Kennung.');return out;
 }
 const empty=()=>({version:1,revision:0,projects:[],sheets:[],collections:[],notes:[]});

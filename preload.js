@@ -131,11 +131,16 @@ contextBridge.exposeInMainWorld('api', {
 
 contextBridge.exposeInMainWorld('research', {
   state: () => ipcRenderer.invoke('research:state'),
+  sheetPreview: sheet => ipcRenderer.invoke('research:sheetPreview', sheet),
   put: (kind, record, version) => ipcRenderer.invoke('research:put', kind, record, version),
   remove: (kind, id, version) => ipcRenderer.invoke('research:remove', kind, id, version),
   legacyNote: (record, ts) => ipcRenderer.invoke('research:legacyNote', record, ts),
   sections: rel => ipcRenderer.invoke('research:sections', rel),
   capture: request => ipcRenderer.invoke('research:capture', request),
+  sourceEditions: query => ipcRenderer.invoke('research:sourceEditions', query),
+  sourcePreview: request => ipcRenderer.invoke('research:sourcePreview', request),
+  searchSources: request => ipcRenderer.invoke('research:searchSources', request),
+  cancelSourceSearch: id => ipcRenderer.invoke('research:cancelSourceSearch', id),
   captureCommentary: request => ipcRenderer.invoke('research:captureCommentary', request),
   captureHits: request => ipcRenderer.invoke('research:captureHits', request),
   import: () => ipcRenderer.invoke('research:import'),

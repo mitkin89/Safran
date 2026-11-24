@@ -7,7 +7,10 @@ window.LibraryResearch = (() => {
   function create(host) {
     const root = document.getElementById('researchRoot');
     const editingBlocks = new Set(), expandedBlocks = new Set();
-    let messageError = false, editRevision = 0;
+    let messageError = false, editRevision = 0, sourceRequestId = 0, pagePreview = false;
+    const lastSheetKey='researchLastSheet', lastEditionKey='researchLastEdition';
+    function rememberSheet(){if(kind==='sheets'&&draft)try{localStorage.setItem(lastSheetKey,JSON.stringify({id:draft.id,projectId:draft.projectId}));}catch{}}
+    function editionPreference(editions){let last;try{last=JSON.parse(localStorage.getItem(lastEditionKey));}catch{}return editions.find(e=>e.rel===last?.rel)||editions.find(e=>e.versionTitle===last?.versionTitle)||editions.find(e=>e.language==='German')||editions[0];}
     let state = null, projectId = '', kind = 'sheets', draft = null, legacy = false, dirty = false, filter = '', message = '', pending = false;
     const draftKey = 'researchDraft:' + (window.frameElement ? 'pane' : 'main');
     const allNotes = () => [...state.notes, ...state.legacyNotes];
@@ -70,7 +73,7 @@ window.LibraryResearch = (() => {
       kind = type; draft = rec ? copy(rec) : null;
       if (draft && kind === 'notes') draft.refs = copy(noteRefs(draft));
       legacy = kind === 'notes' && !!draft && state.legacyNotes.some(x => x.id === draft.id);
-      dirty = false; editingBlocks.clear(); expandedBlocks.clear(); persist();
+      dirty = false; editingBlocks.clear(); expandedBlocks.clear(); persist(); rememberSheet();
     }
     function itemMeta(x) {
       if (kind === 'notes') return (x.topics?.length ? x.topics : x.tags || []).join(' · ') || (!x.projectId ? 'Ohne Projekt' : 'Notiz');
@@ -79,6 +82,7 @@ window.LibraryResearch = (() => {
     }
     function render() {
       if (!state) return;
+      root.classList.toggle('rw-page-preview',pagePreview&&kind==='sheets');
       const p = currentProject(), matches = rows().filter(x => JSON.stringify(x).toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
       const projectMenu = `<button data-a="projectNew">Neues Projekt</button>${p ? '<button data-a="projectEdit">Projekt bearbeiten</button>' : ''}<button data-a="import">Projektpaket importieren …</button>${p ? '<div class="rw-menu-divider"></div><button data-export="json">Projekt teilen …</button><div class="rw-menu-caption">Weitere Datenexporte</div><button data-export="csv">Forschungsdaten CSV …</button><button data-export="jsonld">Annotationen JSON-LD …</button>' : ''}`;
       root.innerHTML = `<div class="rw-projectbar"><label for="rwProject">Projekt</label><select id="rwProject"><option value="">Projekt wählen</option>${state.projects.map(x => `<option class="nt" value="${esc(x.id)}" ${x.id === projectId ? 'selected' : ''}>${esc(x.title)}${x.archived ? ' (archiviert)' : ''}</option>`).join('')}</select>${menu('Projekt verwalten', projectMenu, 'project')}<span class="spacer"></span><details class="rw-help"><summary>Hilfe</summary><p>Öffne einen Text im Reiter Lesen und übernimm ihn mit „＋ Quellenblatt“. Eigene Texte und Notizen kannst du hier hinzufügen.</p><p>Über „Projekt verwalten“ kannst du das gesamte Projekt als Datei teilen oder importieren.</p></details></div>
@@ -107,12 +111,15 @@ window.LibraryResearch = (() => {
       if (kind === 'notes') {
         body += `<section class="rw-note-refs"><h3>Verknüpfte Textstellen <span class="rw-count">${draft.refs?.length || 0}</span></h3>${(draft.refs || []).map((r, i) => `<div class="rw-reference"><div><button class="rw-ref-link nt" data-open-ref="${i}">${esc(r.label)}</button><small class="nt">${esc(r.citation?.edition || '')}</small></div><button data-remove-ref="${i}" title="Fundstelle entfernen" aria-label="Fundstelle entfernen">✕</button></div>`).join('') || '<p class="muted">Welche Textstellen gehören zu dieser Notiz?</p>'}<div class="rw-toolbar"><button data-a="reference">Quelle verknüpfen</button><button class="rw-quiet" data-a="manualRef">Weitere Fundstelle …</button></div></section>`;
       } else {
-        body += `<div id="rwBlocks">${blocks.map((b, i) => blockEditor(b, i)).join('') || '<div class="rw-sheet-empty"><h3>Womit möchtest du beginnen?</h3><p>Übernimm eine Stelle aus deinem geöffneten Lesetext oder schreibe einen eigenen Gedanken auf.</p><div class="rw-toolbar"><button data-a="addSource">Quelle aus Lesetext</button><button data-a="addText">Eigenen Text schreiben</button></div></div>'}</div>`;
-        const add = '<button data-a="addSource">Quelle aus Lesetext</button><button data-a="addText">Eigener Text</button><button data-a="addHeading">Überschrift</button><button data-a="addNote">Notiz verknüpfen</button>' + (kind === 'sheets' ? '<button data-a="fromCollection">Aus Sammlung übernehmen</button>' : '');
-        body += `<div class="rw-add-row">${menu('＋ Hinzufügen', add, 'add', 'rw-menu-start')}</div>`;
+        body += `<div id="rwBlocks">${blocks.map((b, i) => blockEditor(b, i)).join('') || '<div class="rw-sheet-empty"><h3>Womit möchtest du beginnen?</h3><p>Gib eine Stelle ein, suche nach einem Text oder schreibe einen eigenen Gedanken auf.</p><div class="rw-toolbar"><button data-a="addSource">Quelle hinzufügen</button><button data-a="addText">Eigenen Text schreiben</button></div></div>'}</div>`;
+        const add = '<button data-a="addSource">Quelle hinzufügen</button><button data-a="addText">Eigener Text</button><button data-a="addHeading">Überschrift</button><button data-a="addNote">Notiz verknüpfen</button>' + (kind === 'sheets' ? '<button data-a="fromCollection">Aus Sammlung übernehmen</button>' : '');
+        body += `<div class="rw-add-row"><button data-a="addSource">＋ Quelle hinzufügen</button>${menu('Weitere Inhalte', add.replace('<button data-a="addSource">Quelle hinzufügen</button>',''), 'add', 'rw-menu-start')}</div>`;
       }
+      const layout=draft.layout||{template:'linear',orientation:'portrait',mainWidth:44,mainSize:18,sideSize:10,bottomSize:10};
+      const layouts=kind==='sheets'?menu('Layout',`<label><input type="checkbox" data-layout="showTitle" ${layout.showTitle!==false?'checked':''}> Blatttitel anzeigen</label><label>Anordnung<select data-layout="template"><option value="linear" ${layout.template!=='classic'?'selected':''}>Untereinander</option><option value="classic" ${layout.template==='classic'?'selected':''}>Haupttext mit Randkommentaren</option></select></label><label>Seite<select data-layout="orientation"><option value="portrait" ${layout.orientation!=='landscape'?'selected':''}>A4 Hochformat</option><option value="landscape" ${layout.orientation==='landscape'?'selected':''}>A4 Querformat</option></select></label>${layout.template==='classic'?'<p class="rw-field-hint">Ordne Inhalte über ihr Kartenmenü den vier Bereichen zu.</p>'+[['mainWidth','Breite des Haupttexts (%)',30,60,44],['mainSize','Haupttext (pt)',10,30,18],['sideSize','Randkommentare (pt)',8,20,10],['bottomSize','Unterer Bereich (pt)',8,20,10]].map(([k,t,min,max,def])=>`<label>${t}<input type="number" data-layout="${k}" min="${min}" max="${max}" value="${layout[k]??def}"></label>`).join(''):''}`,'layout'):'';
+      if(pagePreview&&kind==='sheets')body='<div class="rw-page-hint">Die Vorschau zeigt die Anordnung mit den aktuellen, auch ungespeicherten Inhalten.</div><iframe id="rwPagePreview" title="Seitenvorschau" sandbox="allow-same-origin"></iframe>';
       const exports = kind === 'sheets' ? menu('Exportieren', ['pdf', 'docx', 'html'].map((f, i) => `<button data-sheet-export="${f}">${['PDF', 'Word (.docx)', 'HTML'][i]} exportieren …</button>`).join(''), 'sheet-export') : '';
-      return `<div class="rw-editorbar"><span id="rwSaveState" class="rw-save-state ${dirty ? 'is-dirty' : ''}">${dirty ? 'Ungespeichert' : 'Gespeichert'}</span><span class="spacer"></span>${exports}<button data-a="save" class="primary" ${!dirty ? 'disabled' : ''} title="Speichern (⌘/Strg+S)">Speichern</button>${menu('⋯', '<button data-a="reload">Neu laden / Entwurf verwerfen</button><div class="rw-menu-divider"></div><button class="rw-danger" data-a="delete">Entfernen</button>', 'entry', 'rw-entry-menu')}</div><div class="rw-editorfields">${body}</div>`;
+      return `<div class="rw-editorbar"><span id="rwSaveState" class="rw-save-state ${dirty ? 'is-dirty' : ''}">${dirty ? 'Ungespeichert' : 'Gespeichert'}</span><span class="spacer"></span>${layouts}${kind==='sheets'?`<button data-a="pagePreview" aria-pressed="${pagePreview}">${pagePreview?'Bearbeiten':'Vorschau'}</button>`:''}${exports}<button data-a="save" class="primary" ${!dirty ? 'disabled' : ''} title="Speichern (⌘/Strg+S)">Speichern</button>${menu('⋯', '<button data-a="reload">Neu laden / Entwurf verwerfen</button><div class="rw-menu-divider"></div><button class="rw-danger" data-a="delete">Entfernen</button>', 'entry', 'rw-entry-menu')}</div><div class="rw-editorfields">${body}</div>`;
     }
     function blockEditor(b, i) {
       const n = b.type === 'note' ? allNotes().find(n => n.id === b.noteId) || b.noteSnapshot : null;
@@ -120,18 +127,30 @@ window.LibraryResearch = (() => {
       const editing = editingBlocks.has(b.id), expanded = expandedBlocks.has(b.id), long = text.length > 750 || text.split('\n').length > 8;
       const type = {source: 'Quelle', text: 'Eigener Text', heading: 'Überschrift', note: 'Notiz'}[b.type];
       const blockTitle = b.type === 'source' ? [title || b.citation?.work, b.citation?.locator].filter(Boolean).join(' · ') : title || type;
-      const controls = `<button data-move="-1" ${!i ? 'disabled' : ''}>↑ Nach oben</button><button data-move="1" ${i === (draft[kind === 'sheets' ? 'blocks' : 'items'].length - 1) ? 'disabled' : ''}>↓ Nach unten</button><div class="rw-menu-divider"></div><button class="rw-danger" data-drop="1">Entfernen</button>`;
+      const regions=[['main','Haupttext'],['left','Linker Rand'],['right','Rechter Rand'],['bottom','Unten']];
+      const placement=kind==='sheets'&&draft.layout?.template==='classic'?`<label>Bereich<select data-region>${regions.map(([k,t])=>`<option value="${k}" ${(b.region||'main')===k?'selected':''}>${t}</option>`).join('')}</select></label><div class="rw-menu-divider"></div>`:'';
+      const controls = `${placement}<button data-move="-1" ${!i ? 'disabled' : ''}>↑ Nach oben</button><button data-move="1" ${i === (draft[kind === 'sheets' ? 'blocks' : 'items'].length - 1) ? 'disabled' : ''}>↓ Nach unten</button><div class="rw-menu-divider"></div><button class="rw-danger" data-drop="1">Entfernen</button>`;
       const content = editing && !n ? `<div class="rw-block-fields">${b.type !== 'heading' ? field('Überschrift (optional)', 'title', b.title) : ''}${field(b.type === 'source' ? 'Quellenauszug' : b.type === 'heading' ? 'Überschrift' : 'Text', 'text', b.text, true)}${b.type === 'source' ? '<p class="rw-field-hint">Änderungen am Wortlaut werden im Export als bearbeiteter Auszug gekennzeichnet.</p>' : ''}</div>` : `<div class="rw-block-preview ${long && !expanded ? 'is-collapsed' : ''} ${b.type === 'source' ? 'rw-quote' : ''}"><p class="rw-pre nt" dir="auto">${esc(text) || '<span class="rw-placeholder">Noch kein Text.</span>'}</p></div>${long && !editing ? `<button class="rw-expand" data-expand="1" aria-expanded="${expanded}">${expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}</button>` : ''}`;
-      return `<article class="rw-block ${b.type}" data-block="${i}"><div class="rw-block-head"><span class="rw-block-number">${i + 1}</span><h3 class="${title || b.type === 'source' ? 'nt' : ''}">${esc(blockTitle)}</h3><div class="rw-block-actions">${!n ? `<button data-block-edit="1" aria-expanded="${editing}">${editing ? 'Fertig' : 'Bearbeiten'}</button>` : ''}${menu('⋯', controls, 'block-' + i)}</div></div>${b.type === 'source' && b.citation?.edition ? `<div class="rw-edition nt" title="${esc(b.citation.edition)}">${esc(b.citation.edition)}</div>` : ''}${content}${b.type === 'source' && b.text !== b.originalText ? '<span class="rw-edited">Bearbeiteter Auszug</span>' : ''}${n ? '<small class="rw-field-hint">Verknüpfte Notiz · aktueller Stand</small>' : ''}
+      return `<article class="rw-block ${b.type}" data-block="${i}"><div class="rw-block-head"><span class="rw-block-number">${i + 1}</span><h3 class="${title || b.type === 'source' ? 'nt' : ''}">${esc(blockTitle)}</h3>${placement?`<small class="rw-region-badge">${regions.find(([k])=>k===(b.region||'main'))[1]}</small>`:''}<div class="rw-block-actions">${!n ? `<button data-block-edit="1" aria-expanded="${editing}">${editing ? 'Fertig' : 'Bearbeiten'}</button>` : ''}${menu('⋯', controls, 'block-' + i)}</div></div>${b.type === 'source' && b.citation?.edition ? `<div class="rw-edition nt" title="${esc(b.citation.edition)}">${esc(b.citation.edition)}</div>` : ''}${content}${b.type === 'source' && b.text !== b.originalText ? '<span class="rw-edited">Bearbeiteter Auszug</span>' : ''}${n ? '<small class="rw-field-hint">Verknüpfte Notiz · aktueller Stand</small>' : ''}
       ${b.type === 'source' ? `<div class="rw-source-footer">${b.reference ? '<button class="rw-quiet" data-source-open="1">Im Lesetext öffnen ↗</button>' : ''}<details class="rw-citation"><summary>Quellenangabe</summary><div><p class="rw-field-hint">Ergänze hier fehlende Angaben zur verwendeten Ausgabe.</p>${[['work','Werk'],['edition','Edition'],['translator','Übersetzer'],['editor','Herausgeber'],['publisher','Verlag / Ort'],['year','Jahr'],['locator','Fundstelle'],['url','Quellen-URL']].map(([k,t]) => field(t, 'cite.' + k, b.citation?.[k])).join('')}<details class="rw-provenance"><summary>Übernahmeinformationen</summary><small class="nt">${esc(b.capturedAt)}<br>SHA256: ${esc(b.sourceHash)}</small></details></div></details></div>` : ''}
       ${b.search ? `<details class="rw-search-info"><summary>Aus Suchtreffern übernommen</summary><p class="nt">${esc(b.search.query)}</p><p class="rw-field-hint">Gespeicherter Ausschnitt der Trefferliste · ${esc(b.search.capturedAt)}</p></details>` : ''}</article>`;
     }
     function bindEditor() {
       root.querySelectorAll('#rwEditor > .rw-editorfields > label [data-f], #rwEditor .rw-document-meta [data-f]').forEach(el => el.oninput = () => { draft[el.dataset.f] = ['tags','topics'].includes(el.dataset.f) ? split(el.value) : el.value; changed(); });
+      root.querySelectorAll('[data-layout]').forEach(el=>el.onchange=()=>{
+        const key=el.dataset.layout,value=el.type==='checkbox'?el.checked:el.type==='number'?Number(el.value):el.value;
+        if(el.type==='number'&&(!Number.isFinite(value)||value<Number(el.min)||value>Number(el.max))){el.reportValidity();return;}
+        draft.layout={template:'linear',orientation:'portrait',mainWidth:44,mainSize:18,sideSize:10,bottomSize:10,...draft.layout,[key]:value};
+        if(key==='template'&&value==='classic')draft.layout.orientation='landscape';
+        changed();render();const d=root.querySelector('[data-menu=layout]');if(d)d.open=true;
+      });
+      const frame=root.querySelector('#rwPagePreview');
+      if(frame){void A.sheetPreview(copy(draft)).then(html=>{if(frame.isConnected)frame.srcdoc=html;}).catch(e=>status(e.message,true));}
       const np = root.querySelector('#rwNoteProject'); if (np) np.onchange = () => { draft.projectId = np.value; changed(); };
       root.querySelectorAll('[data-block]').forEach(article => {
         const i = +article.dataset.block, blocks = draft[kind === 'sheets' ? 'blocks' : 'items'], b = blocks[i];
         article.querySelectorAll('[data-f]').forEach(el => el.oninput = () => { if (el.dataset.f.startsWith('cite.')) { b.citation ||= {}; b.citation[el.dataset.f.slice(5)] = el.value; } else b[el.dataset.f] = el.value; changed(); });
+        const region=article.querySelector('[data-region]');if(region)region.onchange=()=>{b.region=region.value;changed();render();};
         const edit = article.querySelector('[data-block-edit]');
         if (edit) edit.onclick = () => { editingBlocks.has(b.id) ? editingBlocks.delete(b.id) : editingBlocks.add(b.id); render(); const target = root.querySelector(`[data-block="${i}"] ${editingBlocks.has(b.id) ? 'textarea' : '[data-block-edit]'}`); target?.focus({preventScroll:true}); };
         const expand = article.querySelector('[data-expand]'); if (expand) expand.onclick = () => { expandedBlocks.has(b.id) ? expandedBlocks.delete(b.id) : expandedBlocks.add(b.id); render(); root.querySelector(`[data-block="${i}"] [data-expand]`)?.focus({preventScroll:true}); };
@@ -162,6 +181,7 @@ window.LibraryResearch = (() => {
     }
     function projectSources(){return [...state.sheets.filter(s=>s.projectId===projectId).flatMap(s=>s.blocks),...state.collections.filter(c=>c.projectId===projectId).flatMap(c=>c.items)].filter(b=>b.reference);}
     async function action(a) {
+      if(a==='pagePreview'){pagePreview=!pagePreview;render();return;}
       if(a==='projectNew'||a==='projectEdit') {
         if(!leave())return;const old=a==='projectEdit'?currentProject():null;
         const d=await modal(old?'Projekt bearbeiten':'Neues Rechercheprojekt',field('Titel','title',old?.title)+field('Beschreibung','description',old?.description,true)+field('Schlagwörter (Komma getrennt)','tags',old?.tags?.join(', '))+(old?`<label><input type="checkbox" id="rwArchived" ${old.archived?'checked':''}> Archiviert</label>`:''),'Speichern');if(!d)return;
@@ -184,7 +204,7 @@ window.LibraryResearch = (() => {
             draft.version=saved.version;draft.ts=saved.ts;dirty=true;
             message='Weitere Änderungen noch nicht gespeichert.';
           }
-          persist();
+          persist();rememberSheet();
         }
         const active = root.contains(document.activeElement) ? document.activeElement : null;
         const f = active?.dataset.f, index = active?.closest('[data-block]')?.dataset.block;
@@ -206,7 +226,7 @@ window.LibraryResearch = (() => {
       if(!draft)throw Error('Bitte zuerst einen Eintrag öffnen.');
       const blocks=draft[kind==='sheets'?'blocks':'items'];
       if(a==='addText'||a==='addHeading'){const b=blank(a==='addText'?'text':'heading');blocks.push(b);editingBlocks.add(b.id);changed();render();root.querySelector(`[data-block="${blocks.length-1}"] textarea`)?.focus();}
-      if(a==='addSource')await captureDialog();
+      if(a==='addSource')await sourcePicker();
       if(a==='addNote'){
         const n=await choose('Notiz verknüpfen',allNotes().filter(n=>n.projectId===projectId||!n.projectId));if(!n)return;
         blocks.push({...blank('note'),noteId:n.id,noteSnapshot:{...copy(n),refs:noteRefs(n),projectId},title:n.title||'Notiz',text:n.note||''});changed();render();
@@ -233,19 +253,62 @@ window.LibraryResearch = (() => {
       const existing=options.find(x=>x.id===d.querySelector('#rwTarget').value),title=d.querySelector('[data-f="title"]').value;closeModal(d);
       kind=k;draft=existing?copy(existing):{id:uid(),projectId,title,description:'',tags:[],version:0,[toCollection?'items':'blocks']:[]};draft[toCollection?'items':'blocks'].push(...items);legacy=false;dirty=true;persist();message='Übernommen. Bitte den Entwurf speichern.';host.showTab('research');render();
     }
-    async function captureDialog(){
-      const v=host.getView(),loaded=v?.loaded||[],sec=v?.sections?.[v.idx];
-      if(!loaded.length||!sec)throw Error('Bitte zuerst einen Text im Lesefenster öffnen.');
-      const opts=loaded.map(d=>({rel:d.entry.rel,title:d.entry.title+' · '+(d.entry.versionTitle||d.versionTitle||d.entry.language)}));
-      // Select an edition explicitly; never use a preview's unrelated fallback version.
-      const d=await modal('Quelle aus Bibliothek übernehmen',`<label>Edition<select id="rwCaptureEdition">${opts.map(x=>`<option class="nt" value="${esc(x.rel)}">${esc(x.title)}</option>`).join('')}</select></label><label>Abschnitt<select id="rwCaptureSection"></select></label>`+field('Zeilen / Verse (leer = ganzer Abschnitt; z. B. 1–3, 7)','labels',[...(v.vf?.set||[])].join(', ')||host.getRow()||'')+'<p class="muted">Der Wortlaut wird als Quellenkopie mit Edition und Fundstelle gespeichert. Fußnoten werden hier nicht übernommen.</p>','Übernehmen',dlg=>{
-        const ed=dlg.querySelector('#rwCaptureEdition'),ss=dlg.querySelector('#rwCaptureSection');
-        let generation=0;
-        const load=async()=>{const g=++generation;ss.disabled=true;dlg.querySelector('[type="submit"]').disabled=true;try{const data=await A.sections(ed.value);if(g!==generation)return;ss.innerHTML=data.sections.map(s=>`<option value="${esc(JSON.stringify(s.path))}" ${JSON.stringify(s.path)===JSON.stringify(sec.path)?'selected':''}>${esc(s.label)}</option>`).join('');ss.disabled=false;dlg.querySelector('[type="submit"]').disabled=!data.sections.length;}catch(e){dlg.querySelector('.rw-error').textContent=e.message;}};ed.onchange=load;void load();
-      });if(!d)return;
-      const req={rel:d.querySelector('#rwCaptureEdition').value,sectionPath:JSON.parse(d.querySelector('#rwCaptureSection').value),labels:d.querySelector('[data-f="labels"]').value};closeModal(d);
-      const b=await A.capture(req);if(draft&&['sheets','collections'].includes(kind)){draft[kind==='sheets'?'blocks':'items'].push(b);changed();host.showTab('research');render();}else await acceptSources([b]);
+    async function sourcePicker(options={}){
+      await ensureProject();
+      const view=host.getView(),loaded=view?.loaded||[],section=view?.sections?.[view.idx];
+      const selection=options.selection||host.getReaderSelection?.()||{};
+      const fixed=draft&&['sheets','collections'].includes(kind)&&draft.projectId===projectId;
+      let last;try{last=JSON.parse(localStorage.getItem(lastSheetKey));}catch{}
+      const targets=state.sheets.filter(s=>s.projectId===projectId),preferred=targets.find(s=>s.id===last?.id)||targets.at(-1);
+      const dlg=document.createElement('dialog');dlg.className='rw-dialog rw-source-dialog';
+      dlg.innerHTML=`<form><h2>Quelle hinzufügen</h2><div class="rw-source-tabs"><button type="button" data-source-mode="reference">Stellenangabe</button><button type="button" data-source-mode="text">Textsuche</button>${loaded.length&&section?'<button type="button" data-source-mode="reader">Geöffneter Text</button>':''}</div><div id="rwSourceQueryPanel"><label>Stelle oder Suchtext<input id="rwSourceQuery" autocomplete="off" placeholder="z. B. Hiob 7,1–3"></label><div id="rwSourceFilters" hidden><label>Sprache<select id="rwSourceLanguage"><option value="">Alle Sprachen</option><option value="German">Deutsch</option><option value="Hebrew">Hebräisch</option><option value="English">Englisch</option><option value="Greek">Griechisch</option><option value="Aramaic">Aramäisch</option></select></label><label><input id="rwSourceComments" type="checkbox"> Nur Kommentare</label></div></div><div id="rwSourceReader" hidden><label>Edition<select id="rwCaptureEdition">${loaded.map(d=>`<option class="nt" value="${esc(d.entry.rel)}">${esc(d.entry.versionTitle||d.versionTitle||d.entry.title)}</option>`).join('')}</select></label><label>Abschnitt<select id="rwCaptureSection"></select></label>${field('Zeilen / Verse (leer = ganzer Abschnitt)','labels',(selection.labels||[...(view?.vf?.set||[])].map(String)).join(', ')||host.getRow()||'')}<p class="rw-field-hint">Markierte Zeilen werden vollständig übernommen.</p></div><div class="rw-toolbar"><button type="submit" id="rwSourceFind">Anzeigen</button></div><p id="rwSourceStatus" role="status" aria-live="polite"></p><div id="rwSourceResults"></div><label id="rwSourceEditionLabel" hidden>Edition<select id="rwSourceEdition"></select></label><div id="rwSourcePreview" class="rw-source-preview"></div><p class="rw-error" role="alert"></p>${fixed?`<p class="rw-source-target">Ziel: <b class="nt">${esc(draft.title)}</b></p>`:`<label>Zielblatt<select id="rwSourceTarget">${targets.map(s=>`<option class="nt" value="${esc(s.id)}" ${s.id===preferred?.id?'selected':''}>${esc(s.title)}</option>`).join('')}<option value="">Neues Quellenblatt</option></select></label><label id="rwSourceNewTitleLabel" ${preferred?'hidden':''}>Titel<input id="rwSourceNewTitle" value="Neues Quellenblatt"></label>`}<div class="rw-source-footer"><button type="button" id="rwSourceAdd" class="primary" disabled>Hinzufügen</button><button type="button" id="rwSourceCancel">Abbrechen</button></div></form>`;
+      document.body.append(dlg);
+      const $=s=>dlg.querySelector(s),query=$('#rwSourceQuery'),result=$('#rwSourceResults'),preview=$('#rwSourcePreview'),edition=$('#rwSourceEdition'),add=$('#rwSourceAdd'),find=$('#rwSourceFind'),info=$('#rwSourceStatus'),error=$('.rw-error');
+      let mode=options.reader&&loaded.length&&section?'reader':'reference',blocks=[],generation=0,closed=false,activeSearch=null,referenceQuery='',selectedEdition=null;
+      const cancelSearch=()=>{if(activeSearch!==null){void A.cancelSourceSearch(activeSearch);activeSearch=null;}};
+      function invalidate(){generation++;cancelSearch();blocks=[];add.disabled=true;find.disabled=false;error.textContent='';preview.innerHTML='';info.textContent='';}
+      function showPreview(items){blocks=items;add.disabled=!items.length;preview.innerHTML=items.map(b=>`<article><h3 class="nt">${esc(b.title)} · ${esc(b.citation.locator)}</h3><small class="nt">${esc(b.citation.edition)}</small><p class="nt" dir="auto">${esc(b.text)}</p></article>`).join('');}
+      function fail(e){error.textContent=String(e.message||e).replace(/^Error invoking remote method '[^']*': (Error: )?/,'');}
+      async function previewReference(g){try{selectedEdition=edition.selectedOptions[0]?.dataset;const items=await A.sourcePreview({query:referenceQuery,rel:edition.value});if(!closed&&g===generation)showPreview(items);}catch(e){if(!closed&&g===generation)fail(e);}}
+      async function readerSections(){const g=++generation;add.disabled=true;find.disabled=true;try{const data=await A.sections($('#rwCaptureEdition').value);if(closed||g!==generation)return;const matches=data.sections.some(s=>JSON.stringify(s.path)===JSON.stringify(section.path));$('#rwCaptureSection').innerHTML=(!matches?'<option value="" selected disabled>Dieser Abschnitt fehlt in dieser Edition.</option>':'')+data.sections.map(s=>`<option value="${esc(JSON.stringify(s.path))}" ${JSON.stringify(s.path)===JSON.stringify(section.path)?'selected':''}>${esc(s.label)}</option>`).join('');find.disabled=!data.sections.length||!matches;}catch(e){if(!closed&&g===generation)fail(e);}}
+      async function search(){
+        invalidate();const g=generation;find.disabled=true;info.textContent=mode==='text'?'Suche läuft …':'Vorschau wird geladen …';
+        try{
+          if(mode==='reader'){
+            const b=await A.capture({rel:$('#rwCaptureEdition').value,sectionPath:JSON.parse($('#rwCaptureSection').value),labels:$('[data-f="labels"]').value});if(closed||g!==generation)return;selectedEdition={rel:b.reference.rel,versionTitle:b.citation.edition};showPreview([b]);
+          }else if(mode==='reference'){
+            referenceQuery=query.value;const data=await A.sourceEditions(referenceQuery);if(closed||g!==generation)return;
+            const preferred=editionPreference(data.editions);edition.innerHTML=data.editions.map(e=>`<option class="nt" value="${esc(e.rel)}" data-rel="${esc(e.rel)}" data-version-title="${esc(e.versionTitle)}" ${e.rel===preferred?.rel?'selected':''}>${esc(e.versionTitle)} · ${esc(e.language)}</option>`).join('');$('#rwSourceEditionLabel').hidden=false;await previewReference(g);
+          }else{
+            const id=++sourceRequestId;activeSearch=id;const data=await A.searchSources({query:query.value,language:$('#rwSourceLanguage').value,comments:$('#rwSourceComments').checked,requestId:id});if(closed||g!==generation)return;activeSearch=null;
+            info.textContent=data.cancelled?'Suche abgebrochen.':data.results.length?'Treffer auswählen; jede Edition wird einzeln angezeigt.':'Keine Treffer in den durchsuchten lokalen Quellen.';
+            if(data.limited)info.textContent+=' Anzeige begrenzt: höchstens 40 Treffer, 5 je Edition.';
+            result.innerHTML=data.results.map((h,i)=>`<button type="button" data-source-hit="${i}"><b class="nt">${esc(h.title)} · ${esc(h.where)}</b><small class="nt">${esc(h.versionTitle)}</small><span class="nt" dir="auto">${esc(h.snippet)}</span></button>`).join('');
+            result.querySelectorAll('[data-source-hit]').forEach(b=>b.onclick=async()=>{const h=data.results[+b.dataset.sourceHit],next=++generation;add.disabled=true;error.textContent='';preview.innerHTML='';try{const items=await A.captureHits({hits:[h],query:query.value,complete:false});if(!closed&&next===generation){selectedEdition={rel:h.rel,versionTitle:h.versionTitle};showPreview(items);result.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));}}catch(e){if(!closed&&next===generation)fail(e);}});
+          }
+          if(mode!=='text'&&g===generation)info.textContent=blocks.length?'Prüfe den Auszug und füge ihn anschließend hinzu.':'';
+        }catch(e){if(!closed&&g===generation){info.textContent='';fail(e);}}finally{if(!closed&&g===generation)find.disabled=false;}
+      }
+      function setMode(next){invalidate();mode=next;result.innerHTML='';$('#rwSourceEditionLabel').hidden=true;$('#rwSourceQueryPanel').hidden=mode==='reader';$('#rwSourceReader').hidden=mode!=='reader';$('#rwSourceFilters').hidden=mode!=='text';query.placeholder=mode==='text'?'Wort oder Textausschnitt suchen …':'z. B. Hiob 7,1–3';find.textContent=mode==='text'?'Suchen':'Vorschau anzeigen';dlg.querySelectorAll('[data-source-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sourceMode===mode)));if(mode==='reader')void readerSections();else{find.disabled=false;query.focus();}}
+      dlg.querySelectorAll('[data-source-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.sourceMode));
+      query.oninput=()=>{invalidate();result.innerHTML='';$('#rwSourceEditionLabel').hidden=true;};
+      edition.onchange=()=>{invalidate();void previewReference(generation);};
+      $('#rwSourceLanguage').onchange=invalidate;$('#rwSourceComments').onchange=invalidate;
+      if(loaded.length){const selected=loaded.find(d=>d.entry.rel===selection.rel)?.entry||editionPreference(loaded.map(d=>d.entry));if(selected)$('#rwCaptureEdition').value=selected.rel;$('#rwCaptureEdition').onchange=()=>{invalidate();void readerSections();};$('#rwCaptureSection').onchange=()=>{invalidate();find.disabled=!$('#rwCaptureSection').value;};$('[data-f="labels"]').oninput=invalidate;}
+      const target=$('#rwSourceTarget');if(target)target.onchange=()=>$('#rwSourceNewTitleLabel').hidden=!!target.value;
+      dlg.querySelector('form').onsubmit=e=>{e.preventDefault();void search();};
+      const chosen=await new Promise(resolve=>{dlg.onclose=()=>{closed=true;generation++;cancelSearch();resolve(null);};$('#rwSourceCancel').onclick=()=>dlg.close();add.onclick=()=>{if(!blocks.length)return;const title=$('#rwSourceNewTitle')?.value.trim();if(target&&!target.value&&!title){error.textContent='Bitte einen Titel eingeben.';return;}resolve({items:copy(blocks),target:target?.value,title,edition:selectedEdition?{rel:selectedEdition.rel||edition.value,versionTitle:selectedEdition.versionTitle}:null});dlg.close();};dlg.showModal();setMode(mode);});
+      dlg.remove();if(!chosen)return;
+      if(chosen.edition)try{localStorage.setItem(lastEditionKey,JSON.stringify(chosen.edition));}catch{}
+      if(fixed){draft[kind==='sheets'?'blocks':'items'].push(...chosen.items);changed();}
+      else{
+        if(!leave())return;
+        const existing=state.sheets.find(s=>s.id===chosen.target&&s.projectId===projectId);kind='sheets';legacy=false;
+        draft=existing?copy(existing):{id:uid(),projectId,title:chosen.title,description:'',tags:[],version:0,blocks:[]};draft.blocks.push(...chosen.items);changed();
+      }
+      rememberSheet();host.showTab('research');render();
     }
+    const captureDialog=()=>sourcePicker({reader:true});
     document.addEventListener('click', e => { if (!e.target.closest('.rw-menu')) closeMenus(); });
     document.addEventListener('keydown', e => {
       if (document.documentElement.dataset.tab !== 'research' || document.querySelector('dialog[open]')) return;
@@ -256,7 +319,7 @@ window.LibraryResearch = (() => {
         if (open) { e.preventDefault(); closeMenus(); open.querySelector('summary')?.focus(); }
       }
     });
-    document.getElementById('rResearchBtn').onclick=()=>run(captureDialog);
+    const readerButton=document.getElementById('rResearchBtn');let buttonSelection=null;readerButton.onpointerdown=()=>buttonSelection=host.getReaderSelection?.();readerButton.onclick=()=>{const selection=buttonSelection;buttonSelection=null;void run(()=>sourcePicker({reader:true,selection}));};
     document.addEventListener('click',e=>{const b=e.target.closest('.cmtResearch');if(!b)return;e.preventDefault();e.stopPropagation();void run(async()=>{const source=await A.captureCommentary({ref:b.dataset.ref,rel:b.dataset.rel});await acceptSources([source]);});});
     document.getElementById('sResearchBtn').onclick=()=>run(async()=>{
       const s=host.getSearch();if(!s.hits?.length)throw Error('Bitte zuerst eine Textsuche mit Fundstellen ausführen.');
@@ -266,7 +329,7 @@ window.LibraryResearch = (() => {
     });
     A.onChanged(()=>{if(document.documentElement.dataset.tab==='research'){if(dirty)status('Es gibt einen neueren Speicherstand. Dein Entwurf bleibt erhalten; Speichern prüft auf Konflikte.');else void open();}});
     window.addEventListener('focus',()=>{if(document.documentElement.dataset.tab==='research'&&!dirty)void open();});
-    return {open,captureDialog};
+    return {open,captureDialog,getReaderSelection:()=>host.getReaderSelection?.(),captureSelection:selection=>run(()=>sourcePicker({reader:true,selection}))};
   }
   return {create};
 })();
