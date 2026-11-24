@@ -35,7 +35,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('.masora-primary .masora-explanation').open=true");
  assert(await js("document.querySelector('.masora-explanation').textContent.includes('Lesehilfe')"));
  // The unique phrase marks both reader words; the ambiguous single word offers both source verses.
- await js("document.querySelector('.masora-primary .masora-word').click()");
+ await js("[...document.querySelectorAll('.masora-primary .masora-word')].find(b=>b.textContent.includes('אשרי האיש')).click()");
  await waitFor("document.querySelectorAll('#rOut .tc-mt-selected').length===2",'Wortgruppe im Lesetext markiert');
  await waitFor("(()=>{const r=document.querySelector('#rOut .row[data-l=\"1\"]');let p=r.parentElement;while(p&&p!==document.body&&!(p.scrollHeight>p.clientHeight+1&&/(auto|scroll)/.test(getComputedStyle(p).overflowY)))p=p.parentElement;const root=!p||p===document.body;if(root)p=document.scrollingElement;const a=r.getBoundingClientRect(),b=root?{top:0,bottom:innerHeight}:p.getBoundingClientRect();const desired=Math.max(0,Math.min(p.scrollHeight-p.clientHeight,p.scrollTop+a.top-b.top-(p.clientHeight-a.height)/2));return Math.abs(p.scrollTop-desired)<8;})()",'Zielvers wird im Lesebereich zentriert');
  assert(await js("[...document.querySelectorAll('#rOut .tc-mt-selected')].every(w=>w.closest('.cell').dataset.rel.includes('Westminster'))"));
@@ -87,7 +87,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]')",'Genesis 1,2');
  await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
- await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:2') && document.querySelectorAll('.masora-primary .masora-entry').length===16 && !document.querySelector('#masoraMore')",'Kein leeres Nachladen für ausgeblendete Seitennotizen');
+ await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:2') && document.querySelectorAll('.masora-primary .masora-entry').length===53 && !document.querySelector('#masoraMore')",'Kein leeres Nachladen für ausgeblendete Seitennotizen');
  await js("document.querySelector('#masoraWhole').click()");
  await waitFor("document.querySelectorAll('.masora-primary .masora-entry').length===100 && document.querySelector('#masoraMore')",'Kapitel mit echten weiteren Notizen');
  await js("document.querySelector('#masoraMore').click()");
@@ -104,5 +104,64 @@ module.exports=async({win,js,waitFor,book})=>{
  assert(await js("window.MASORA_TRANSLATION_INDEX.count===26969 && Object.keys(window.MASORA_TRANSLATION_PARTS[10].notes).length>0"));
  await js("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const e=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation'),p=document.querySelector('#masoraPanel');p.scrollTop+=e.getBoundingClientRect().top-p.querySelector('.masora-head').getBoundingClientRect().bottom-8;requestAnimationFrame(resolve);})))");
  fs.writeFileSync('/tmp/safran-masora-complete-translations.png',(await win.webContents.capturePage()).toPNG());
+ // Parenthetical context and a source suffix must not hide the real Job 2:13 head.
+ await book('Job');await waitFor("document.querySelector('#rSection option[value=\"1\"]')",'Hiob 2 verfügbar');
+ await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"13\"]')",'Hiob 2,13');
+ await js("document.querySelector('#rOut .row[data-l=\"13\"] .lab').click();document.querySelector('#masoraMs').value=window.MASORA_INDEX.manuscripts.find(m=>m.label==='Vat.Urb.ebr.1').id;document.querySelector('#masoraQuery').value='גדל';document.querySelector('#masoraType').value='masora';document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('.masora-primary [data-masora-context=\"77cd9d16-679d-4ee7-b32d-c0e5f99a3390\"]')",'גדל mit Kontext in der Versansicht');
+ await js("[...document.querySelectorAll('.masora-primary .masora-word')].find(b=>b.textContent.includes('גדל (כי גדל)')).click()");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"13\"] .tc-mt-selected')",'גדל trotz Maqqef im Lesetext markiert');
+ assert.deepEqual(await js("[...document.querySelectorAll('#rOut .tc-mt-selected')].map(w=>window.MasoraData.wordTokens(w.textContent).join(' '))"),['גדל']);
+ fs.writeFileSync('/tmp/safran-masora-job-context.png',(await win.webContents.capturePage()).toPNG());
+ // A shared label belongs in both verse views, with a direct mark action in each.
+ await book('Psalms');await waitFor("document.querySelector('#rSection option[value=\"3\"]')",'Psalmen 3 und 4 verfügbar');
+ for(const chapter of [3,4]){
+  await js(`document.querySelector('#rSection').value='${chapter-1}';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);
+  await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]')",'Psalmüberschrift');
+  await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click();document.querySelector('#masoraMs').value=window.MASORA_INDEX.manuscripts.find(m=>m.label==='B32inf.').id;document.querySelector('#masoraQuery').value='מזמור לדוד';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+  await waitFor(`document.querySelector('#masoraPlace').textContent.endsWith('${chapter}:1') && [...document.querySelectorAll('.masora-primary .masora-word')].some(b=>b.textContent.includes('מזמור לדוד')) && !document.querySelector('.masora-primary .masora-choices')`,'Gemeinsame Notiz im jeweiligen Vers');
+  await js("[...document.querySelectorAll('.masora-primary .masora-word')].find(b=>b.textContent.includes('מזמור לדוד')).click()");
+  await waitFor("document.querySelectorAll('#rOut .row[data-l=\"1\"] .tc-mt-selected').length===2",'Beide Wörter im ausgewählten Psalm markiert');
+ }
+ await book('Job');await waitFor("document.querySelector('#rSection option[value=\"3\"]')",'Zurück zu Hiob');
+ await js("document.querySelector('#masoraMs').value=window.MASORA_INDEX.manuscripts.find(m=>m.label==='Vat.Urb.ebr.1').id");
+ // The long Ginsburg/Okhla label is an exact word reference too.
+ await js("document.querySelector('#rSection').value='3';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"5\"]')",'Hiob 4,5');
+ await js("document.querySelector('#rOut .row[data-l=\"5\"] .lab').click();document.querySelector('#masoraQuery').value='עדיך';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelector('.masora-primary [data-masora-context=\"320be318-cab1-40c6-bff2-a82fbc2cffea\"]')",'Ginsburg/Okhla-Notiz zu עדיך');
+ await js("[...document.querySelectorAll('.masora-primary .masora-word')].find(b=>b.textContent.includes('עדיך')).click()");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"5\"] .tc-mt-selected')",'עדיך im Lesetext markiert');
+ assert.deepEqual(await js("[...document.querySelectorAll('#rOut .tc-mt-selected')].flatMap(w=>window.MasoraData.wordTokens(w.textContent))"),['עדיך']);
+ fs.writeFileSync('/tmp/safran-masora-job4-word.png',(await win.webContents.capturePage()).toPNG());
+ // MT fallback also navigates and marks the manuscript's abbreviated divine name.
+ await book('Psalms');await waitFor("document.querySelector('#rSection option[value=\"1\"]')",'Psalm 2 verfügbar');
+ await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]')",'Psalm 2,2');
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click();document.querySelector('#masoraMs').value=window.MASORA_INDEX.manuscripts.find(m=>m.label==='B32inf.').id;document.querySelector('#masoraQuery').value='על ייי';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelector('.masora-primary [data-masora-context=\"81bf9869-2fa5-4f56-9143-b12e5ccd0ff9\"]')",'MT-Wortbezug im Masora-Panel');
+ await js("document.querySelector('.masora-primary .masora-word').click()");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"2\"] .tc-mt-selected').length===2",'MT-Rückfall markiert die ausgeschriebene Gottesbezeichnung');
+ // Explicit label references restrict the note to its stated verse.
+ await js("document.querySelector('#rSection').value='7';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"10\"]')",'Psalm 8,10');
+ await js("document.querySelector('#rOut .row[data-l=\"10\"] .lab').click();document.querySelector('#masoraQuery').value='ייי אדנינו (8:10)';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelector('.masora-primary [data-masora-context=\"67ff9320-95aa-4981-b6b3-472f15f96b86\"]')",'Stellenangabe im Label ausgewertet');
+ await js("document.querySelector('.masora-primary .masora-word').click()");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"10\"] .tc-mt-selected').length===2 && !document.querySelector('#rOut .row[data-l=\"2\"] .tc-mt-selected')",'Psalm 8,10 statt des gleichen Ausdrucks in Vers 2 markiert');
+ await js("document.querySelector('#rSection').value='36';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"26\"]')",'Psalm 37,26');
+ await js("document.querySelector('#rOut .row[data-l=\"26\"] .lab').click();document.querySelector('#masoraQuery').value='וזרעו';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelector('.masora-primary [data-masora-context=\"25aeb2a9-2f5c-495c-8103-54d163d2a95f\"]') && !document.querySelector('.masora-primary [data-masora-context=\"4532ea53-46c9-492a-acd6-c8da6ced85ad\"]')",'Label mit 37,26 erscheint nicht beim falschen Vers');
+ await js("document.querySelector('.masora-primary [data-masora-context=\"25aeb2a9-2f5c-495c-8103-54d163d2a95f\"]').closest('.masora-word-group').querySelector('.masora-word').click()");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"26\"] .tc-mt-selected')",'וזרעו markiert');
+ await js("document.querySelector('#rSection').value='11';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"7\"]')",'Psalm 12,7');
+ await js("document.querySelector('#rOut .row[data-l=\"7\"] .lab').click();document.querySelector('#masoraQuery').value='אמרות (2)';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("[...document.querySelectorAll('.masora-primary .masora-word')].some(b=>b.textContent.includes('(2)'))",'Nummeriertes Label bleibt sichtbar');
+ await js("document.querySelector('.masora-primary .masora-word').click()");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"7\"] .tc-mt-selected').length===2",'Nummeriertes Label markiert passende Vorkommen ohne erfundene Ordinaldeutung');
+ fs.writeFileSync('/tmp/safran-masora-numbered-label.png',(await win.webContents.capturePage()).toPNG());
  console.log('Electron: Masorah verse scope, unique/ambiguous word navigation, reader highlights, filters, fonts and pinning passed offline.');
 };

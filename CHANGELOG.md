@@ -2,6 +2,14 @@
 
 ### Unreleased
 
+- Evaluate explicit Masorah label references such as וזרעו 37,26 and ייי אדנינו (8:10), verify the spelling at the stated verse, retain numbered identifiers without inventing ordinal meanings, and accept Latin diacritics in bibliography suffixes. Recheck all 26,969 entries: 84 additional links, 21,694 linked entries and 5,275 still without a recognized word reference.
+
+- Show Masorah notes at every exact matching verse, including shared headings in Psalms 3:1 and 4:1. Mark the current verse directly and retain all verse choices in chapter view. Include 2,731 entries with multiple word references, bringing linked entries to 21,610 and leaving 5,359 without a recognized word reference.
+
+- Audit all 26,969 transcribed Masorah contexts against the 39 bundled Westminster books. Recognize explicit bibliography suffixes and Hebrew word separators; add 436 source-guarded MT fallback links and preserve ambiguity. Raise unique browsing links from 15,566 to 18,879, including the magna note for עדיך in Job 4:5. Keep a reproducible per-context audit and source hashes.
+
+- Resolve Masorah word labels with a verified Hebrew context and recognized manuscript/Ginsburg suffixes, including גדל (כי גדל) in Job 2:13. Keep ambiguous or editorial labels unresolved and preserve the original transcription.
+
 - Fix Research verse-aligned source sheets leaving the centre empty below each verse. Restore commentary flow in preview, HTML and PDF while keeping each comment with its verse; let a longer comment use the full width after the opposite comment ends. Verify real bilingual Deuteronomy exports and oversized comments without losing text or moving later verses ahead.
 
 - Add an optional left study area beside the existing right sidebar. Keep different tools open independently, with separate tab history, pins, close actions and saved widths/floating geometry; switch between preserved areas in narrow windows.

@@ -128,26 +128,32 @@ The default **Ausgewählter Vers** view follows the selected reader verse (or th
 visible reading position on opening). It first restricts pages to explicit
 BibleText references covering that verse. Citation references in the notes never
 supply page coverage. It then shows source note labels matching a whole Hebrew
-word or phrase exactly once in the page's verse-referenced BibleText readings.
+word or phrase in the page's verse-referenced BibleText readings. A note is shown
+at every matching verse, including repeated headings such as Psalm 3:1 and 4:1.
 Matching ignores pointing and word separators, preserves consonants, and rejects
-labels containing editorial prose or Latin disambiguators. Readings carrying a
+labels containing editorial prose or unrecognized Latin disambiguators. Explicit
+`(M1)`-style manuscript suffixes and `Gins.1, gimel #72`-style citations are
+recognized without changing the displayed label. A Hebrew parenthetical context
+is used only if it contains the head exactly once and matches the source BibleText;
+for example, `גדל (כי גדל) (M1)` resolves to Job 2:13 and highlights `גדל`.
+Multiple context occurrences remain ambiguous. Readings carrying a
 verse range or multiple references do not supply a precise word location.
 
 These are **automatically derived word references**, not publisher-confirmed
 note-to-word anchors. A unique spelling match is useful for browsing but cannot
 establish which occurrence an editor intended. The UI states the automatic basis.
-Ambiguous labels, unmatched notes and notes concerning another verse remain in
+Unmatched labels and notes concerning another verse remain in
 **Weitere Notizen der Handschriftenseite**, collapsed by default. No source
 transcription or published target metadata is rewritten.
 
 Clicking a Hebrew label with one match opens its verse and highlights the matching
-word/phrase in the actual Westminster reader text. With multiple matches, the
-label offers the source verses for the user to choose. Word matching is repeated
+word/phrase in the actual Westminster reader text. In chapter scope, multiple matching verses are offered for navigation; in a
+selected verse the label marks its occurrences in that verse directly. Word matching is repeated
 against the displayed reading, never an imported token index or translation. All
 matching occurrences in a user-selected verse are highlighted if the spelling
 repeats. If the displayed reading lacks that spelling, Safran reports this rather
 than highlighting another word. Page-wide notes remain available in the chapter view and full collection search;
-the selected-verse view only shows uniquely anchored notes. Manuscript/type filters are under **Weitere Filter**.
+the selected-verse view shows notes with at least one exact match in that verse. Manuscript/type filters are under **Weitere Filter**.
 
 ## Word overview and German reading aids
 
@@ -257,3 +263,50 @@ are draft translations and 33,578 partial. Reprocessing the initial package redu
 its open contexts from 3,521 to 2,866, resolving 655 additional contexts as working
 translations. The open figures are retained explicitly and are not counted as
 completed critical translations.
+
+## Complete offline MT word-reference audit
+
+`node tools/masora/build-word-links.js` checks all 26,969 transcribed Masorah
+contexts against the 39 bundled Westminster books. It rebuilds
+`masora-word-links.js` and `tools/masora/word-links-audit.json` deterministically.
+The report records every context UUID, original label, result category, source
+matches and MT matches. The link artifact pins the source index, manuscript and
+Westminster file hashes. Source transcriptions and published anchors are unchanged.
+
+The label parser recognizes an explicit bibliography vocabulary (Ginsburg,
+Okhla/Ognibeni, Weil and their citation syntax), manuscript suffixes, Hebrew
+parenthetical context and hyphen-separated words. Unknown editorial prose and alternative readings stay unresolved. Explicit
+chapter/verse references before, after or in parentheses restrict matches to
+that verse and still require the word to occur in the source or covered MT
+text. Numeric parenthetical identifiers such as `(2)` stay visible and are
+recorded in the audit. Their meaning is not guessed: all exact occurrences
+are offered as browsing targets, without asserting that `(2)` means the second
+occurrence. Bibliography matching folds Latin diacritics such as `Ḥet` only in
+the citation suffix; Hebrew consonants and original source labels stay unchanged. Existing source readings are never overridden by an MT guess. Every exact
+source occurrence is retained as a browsing target, also across several verses. Exact MT search examines the chapters named
+by the page's BibleText references, and accepts candidates only within those
+references' verse coverage. References inside Masorah lists never enlarge this
+search domain. Pointing and word separators are ignored; manuscript `יי`/`ייי`
+divine-name abbreviations, also with common prefixes, match `יהוה`. No general
+spelling correction, stemming or fuzzy matching is used.
+
+Current results: 18,510 unique source-BibleText matches, 437 additional unique
+MT matches, 2,696 multiple source matches, 51 multiple MT matches, 3,094 labels
+without an MT match and 2,181 labels outside the recognized syntax. Thus 18,947
+contexts have one exact occurrence, 2,747 have multiple exact occurrences, and
+5,275 have no recognized word reference. All 21,694 linked contexts are displayed
+at each matched verse. Multiple matches do not establish which occurrence an
+editor intended; they provide all applicable navigation targets. The MT check
+confirms 17,771 of the unique source matches; 739 source matches are not confirmed
+in Westminster and retain their explicitly source-based status. This may reflect
+spelling or transcription differences; it is not an automatic correction of
+those manuscripts. A unique browsing link is not a verified scholarly anchor.
+
+The UI loads the MT links with the Masora index. A fallback is used only if no
+source-BibleText match exists and the page ID, complete label, Bible coverage and
+BibleText snapshot still agree. The reader then matches the displayed Hebrew
+text again before highlighting. Unit tests reproduce the entire audit and verify
+its hashes; native Electron tests cover Job 2:13, the long bibliography label for
+`עדיך` in Job 4:5, the divine-name fallback in Psalm 2:2, shared headings
+in Psalms 3:1/4:1, explicit references in Psalms 8:10/37:26 and numbered
+labels in Psalm 12:7. Numbered labels remain separate displayed word groups.

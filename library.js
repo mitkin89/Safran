@@ -3068,7 +3068,7 @@
       const row=$$('#rOut .row[data-l]').find(r=>r.dataset.l===String(location.verse));
       // Match the actual Hebrew reading, never a translation or an imported word index.
       const cell=row&&[...row.querySelectorAll('.cell[data-rel]')].find(c=>/Westminster/.test(c.dataset.rel));
-      const words=cell?[...cell.querySelectorAll('.w[data-l]')]:[],tokens=words.flatMap(word=>D.wordTokens(word.textContent).map(text=>({text,word}))),needle=D.wordTokens(location.phrase),selected=new Set();
+      const words=cell?[...cell.querySelectorAll('.w[data-l]')]:[],tokens=words.flatMap(word=>D.matchTokens(word.textContent).map(text=>({text,word}))),needle=D.matchTokens(location.phrase),selected=new Set();
       if(row){await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));if(request!==masoraWordRequest)return false;row.scrollIntoView({block:'center',behavior:'smooth'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1200);}
       if(!needle.length)return !!row;
       for(let i=0;i<=tokens.length-needle.length;i++)if(needle.every((w,j)=>tokens[i+j].text===w))for(let j=0;j<needle.length;j++)selected.add(tokens[i+j].word);

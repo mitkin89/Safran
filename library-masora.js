@@ -19,8 +19,9 @@ window.LibraryMasora = (() => {
     }
     function applyFont(){body.style.fontSize=fontSize+'px';$('#masoraFsMinus').disabled=fontSize<=12;$('#masoraFsPlus').disabled=fontSize>=28;}
     function getIndex(){
-      return index?Promise.resolve(index):indexPending||(indexPending=load('masora-index.js',()=>window.MASORA_INDEX).then(d=>{
-        if(d?.schema!==1)throw Error('Unsupported Masorah index');index=d;
+      return index?Promise.resolve(index):indexPending||(indexPending=load('masora-index.js',()=>window.MASORA_INDEX).then(async d=>{
+        if(d?.schema!==1)throw Error('Unsupported Masorah index');
+        D.setWordLinks(await load('masora-word-links.js',()=>window.MASORA_WORD_LINKS));index=d;
         $('#masoraMs').innerHTML='<option value="">'+safe(t('Alle Handschriften'))+'</option>'+d.manuscripts.map(m=>'<option value="'+safe(m.id)+'">'+safe(m.label)+'</option>').join('');
         return d;
       }).finally(()=>{indexPending=null;}));
@@ -56,8 +57,10 @@ window.LibraryMasora = (() => {
       return '<button type="button" class="masora-word" data-masora-target="'+id+'" title="'+safe(t('Wort im Lesetext markieren'))+'">'+label+'</button>';
     }
     function entryLabel(hit){
-      const label='<bdi lang="he" dir="rtl">'+safe(hit.entry.label)+'</bdi>',matches=D.locations(hit.page,hit.entry);
-      if(matches.length===1){const loc=matches[0],ctx=context(),same=$('#masoraScope').value==='verse'&&ctx?.book===loc.book&&ctx.chapter===loc.chapter&&ctx.verse===loc.verse;return wordButton(loc,label)+(same?'':' <small class="muted">'+safe(t(loc.book)+' '+loc.chapter+':'+loc.verse)+'</small>');}
+      const label='<bdi lang="he" dir="rtl">'+safe(hit.entry.label)+'</bdi>',all=D.locations(hit.page,hit.entry),ctx=context();
+      const local=$('#masoraScope').value==='verse'?all.filter(m=>m.book===ctx?.book&&m.chapter===ctx.chapter&&m.verse===ctx.verse):[];
+      const matches=local.length?local:all;
+      if(matches.length&&new Set(matches.map(m=>m.label)).size===1){const loc=matches[0],ctx=context(),same=$('#masoraScope').value==='verse'&&ctx?.book===loc.book&&ctx.chapter===loc.chapter&&ctx.verse===loc.verse;return wordButton(loc,label)+(same?'':' <small class="muted">'+safe(t(loc.book)+' '+loc.chapter+':'+loc.verse)+'</small>');}
       if(!matches.length)return label;
       const verses=[...new Map(matches.map(m=>[m.label,m])).values()];
       return '<details class="masora-choices"><summary>'+label+'</summary><p class="muted">'+safe(t('Das Wort kommt auf dieser Seite mehrfach vor. Welche Stelle möchtest du anzeigen?'))+'</p>'+verses.map(m=>wordButton(m,safe(t(m.book)+' '+m.chapter+':'+m.verse))).join(' ')+'</details>';

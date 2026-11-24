@@ -1,6 +1,7 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const index=require('../masora-index.js'),report=require('../tools/masora/import-report.json'),D=require('../library-masora-data.js');
+D.setWordLinks(require('../masora-word-links.js'));
 const root=path.join(__dirname,'..'),datasets=Object.fromEntries(index.manuscripts.map(m=>[m.id,require('../'+m.file)]));
 test('published BIMA projection retains every selected context and reading with source provenance',()=>{
   if(!process.env.SAFRAN_MASORA_PARTIAL)assert.equal(index.complete,true,'A production import must account for all selected public pages');
@@ -84,17 +85,35 @@ test('word references match whole phrases and preserve ambiguity on the real Psa
   assert.deepEqual(D.locations(p,note).map(m=>m.label),['Psalms 1:1','Psalms 2:12']);
   const phrase=p.contexts.find(c=>c.type==='mp'&&c.label==='אשרי האיש');
   const hits=[note,phrase].map(entry=>({page:p,entry})),split=D.forVerse(hits,{book:'Psalms',chapter:1,verse:1});
-  assert.equal(split.primary.length,1);assert.equal(split.primary[0].entry,phrase);
-  assert.equal(split.related.length,1);assert.equal(split.related[0].entry,note);
+  assert.equal(split.primary.length,2);assert(split.primary.some(h=>h.entry===phrase));assert(split.primary.some(h=>h.entry===note));
+  assert.equal(split.related.length,0);
+  for(const verse of [1,2]){const chapter=verse===1?1:2,v=verse===1?1:12;assert.equal(D.forVerse([{page:p,entry:note}],{book:'Psalms',chapter,verse:v}).primary.length,1);}
+  const title=p.contexts.find(c=>c.label==='מזמור לדוד');assert(title);for(const chapter of [3,4])assert.equal(D.forVerse([{page:p,entry:title}],{book:'Psalms',chapter,verse:1}).primary.length,1);
   assert.deepEqual(D.locations(p,{uuid:'made-up',label:'שרי'}),[],'no substring matching');
   assert.deepEqual(D.locations(p,{uuid:'editorial',label:'אשרי I'}),[],'do not reinterpret editorial labels');
 });
+test('Job 2:13 Masorah heads resolve through explicit Hebrew context and source suffixes',()=>{
+  const ms=index.manuscripts.find(m=>m.label==='Vat.Urb.ebr.1'),p=datasets[ms.id].pages.find(p=>p.id==='195fe2dd-53c5-4411-8887-31c1e6281f35');
+  const notes=p.contexts.filter(c=>c.label?.startsWith('גדל (כי גדל)'));
+  assert.equal(notes.length,2);
+  for(const entry of notes){
+    const before=JSON.stringify(entry),matches=D.locations(p,entry);
+    assert.equal(matches.length,1);assert.equal(matches[0].label,'Job 2:13');assert.equal(matches[0].phrase,'גדל');
+    assert.equal(D.wordTokens(D.text(p.contexts.find(c=>c.type==='BibleText').readings.find(r=>r.uuid===matches[0].sourceReading)))[matches[0].wordIndex],'גדל');
+    assert.equal(D.forVerse([{page:p,entry}],{book:'Job',chapter:2,verse:13}).primary.length,1);
+    assert.equal(JSON.stringify(entry),before,'keep the complete source label and reading unchanged');
+  }
+  for(const label of ['גדל (כי קטן) (M1)','גדל (גדל גדל) (M1)','גדל (כי גדל) uncertain','גדל (written as כי גדל)'])assert.deepEqual(D.locations(p,{uuid:label,label}),[]);
+  const ambiguous={contexts:[{type:'BibleText',readings:[{uuid:'r',text:'כִּֽי־גָדַ֥ל כי גדל',references:[{label:'Job 2:13'}]}]}]};
+  assert.equal(D.locations(ambiguous,{uuid:'repeated-context',label:'גדל (כי גדל) (M1)'}).length,2,'context matches still preserve ambiguity');
+});
+
 test('citation-only notes and repeated occurrences cannot manufacture a unique word anchor',()=>{
   const note={uuid:'m',label:'דבר',type:'mp',readings:[{text:'דבר',references:[{label:'Ps 1:1'}]}]};
   const p={bibleRefs:['Ps 1:1'],contexts:[note]};assert.deepEqual(D.locations(p,note),[]);
   const repeated={bibleRefs:['Ps 1:1'],contexts:[note,{type:'BibleText',readings:[{uuid:'r',text:'דבר דבר',references:[{label:'Ps 1:1'}]}]}]};
   assert.equal(D.locations(repeated,note).length,2);
-  assert.equal(D.forVerse([{page:repeated,entry:note}],{book:'Psalms',chapter:1,verse:1}).primary.length,0);
+  assert.equal(D.forVerse([{page:repeated,entry:note}],{book:'Psalms',chapter:1,verse:1}).primary.length,1);
 });
 
 test('Masorah explanations only infer explicit counts and preserve uncertain notes',()=>{
@@ -128,4 +147,64 @@ test('the Munich Genesis note explains its count and adjacent word combination',
   const ms=index.manuscripts.find(m=>m.label==='Munich.Cod.hebr.2');
   const e=datasets[ms.id].pages.flatMap(p=>p.contexts).find(e=>e.uuid==='f2c81271-75c8-452b-a617-24a4ff0f32ea');
   const result=D.explain(e);assert.equal(result.count,2);assert.equal(result.partial,false);assert.deepEqual(result.refs,['Jer 32:27']);assert.match(result.meaning,/Vergleichsbelege/);
+});
+
+test('bibliography parsing resolves the actual Job 4:5 magna label and rejects unknown prose',()=>{
+ const m=index.manuscripts.find(m=>m.label==='Vat.Urb.ebr.1'),p=datasets[m.id].pages.find(p=>p.id==='f95506b2-3b6f-488d-8573-5ad7617288a4'),e=p.contexts.find(e=>e.uuid==='320be318-cab1-40c6-bff2-a82fbc2cffea');
+ assert.equal(D.locations(p,e).length,1);assert.equal(D.locations(p,e)[0].label,'Job 4:5');assert.equal(D.locations(p,e)[0].phrase,'עדיך');
+ assert.equal(D.labelTarget('על-ציון').needle.join(' '),'על ציון');
+ for(const label of ['עדיך uncertain Gins.2, ain #131','עדיך Gins.2, ain #131 conjecture','עדיך (written as אליך)','עדיך II'])assert.equal(D.labelTarget(label),null);
+});
+test('MT fallback is bounded by source page identity and does not replace ambiguous source matches',()=>{
+ const m=index.manuscripts.find(m=>m.label==='B32inf.'),p=datasets[m.id].pages.find(p=>p.id==='7f51c986-fc48-4540-891e-77349906660a'),e=p.contexts.find(e=>e.uuid==='81bf9869-2fa5-4f56-9143-b12e5ccd0ff9');
+ assert.equal(D.sourceLocations(p,e).length,0);assert.equal(D.locations(p,e)[0].label,'Psalms 2:2');assert.equal(D.locations(p,e)[0].method,'westminster-page-coverage');
+ assert.deepEqual(D.matchTokens('על ייי'),D.matchTokens('עַל־יְהוָה'));assert.deepEqual(D.matchTokens('ולייי'),D.matchTokens('וליהוה'));
+ for(const changed of [{...p,id:'wrong'},{...p,bibleRefs:['Ps 8:1']},{...p,contexts:[]}])assert.deepEqual(D.locations(changed,e),[]);
+ assert.deepEqual(D.locations({...p,contexts:[]},{...e,label:'שם אחר'}),[]);
+ const ambiguous={...p,contexts:[{type:'BibleText',readings:[{uuid:'r',text:'על ייי על ייי',references:[{label:'Ps 2:2'}]}]}]};
+ assert.equal(D.locations(ambiguous,e).length,2);
+});
+test('all transcribed Masorah notes have a reproducible MT audit with pinned source hashes',()=>{
+ const {links,report:audit}=require('../tools/masora/build-word-links').build(),stored=require('../masora-word-links'),saved=require('../tools/masora/word-links-audit.json');
+ const digest=x=>crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');
+ assert.equal(digest(links),digest(stored));assert.equal(digest(audit),digest(saved));assert.equal(audit.rows.length,26969);assert.equal(links.source.westminster.length,39);
+ assert.equal(audit.linked+audit.open,audit.counts.total);assert.equal(audit.unique+audit.multiple,audit.linked);assert.equal(Object.keys(links.notes).length,audit.counts.mtUnique+audit.counts.mtAmbiguous);
+ for(const row of audit.rows){const n=row.reason==='mtUnique'?row.mt:row.source;if(['sourceUnique','mtUnique'].includes(row.reason))assert.equal(n.length,1);}
+});
+test('every exact source or MT occurrence is visible in its own verse, without losing the other targets',()=>{
+ let multiple=0;
+ for(const ms of index.manuscripts)for(const page of datasets[ms.id].pages)for(const entry of page.contexts){
+  if(!['mp','mm','mf'].includes(entry.type)||!entry.readings.some(r=>D.text(r)))continue;
+  const matches=D.locations(page,entry);if(matches.length<2)continue;multiple++;
+  for(const target of new Map(matches.map(m=>[m.label,m])).values()){
+   const split=D.forVerse([{page,entry}],target);assert.equal(split.primary.length,1);assert.equal(split.primary[0].locations.length,matches.length);
+   assert(split.primary[0].verseLocations.every(m=>m.label===target.label));
+   assert.equal(D.wordGroups(split.primary)[0].location.label,target.label);
+  }
+ }
+ assert.equal(multiple,require('../tools/masora/word-links-audit.json').multiple);
+});
+test('explicit label references constrain matches and do not merely disappear during parsing',()=>{
+ const page={id:'label-ref-fixture',bibleRefs:['Ps 37:25','Ps 37:26'],contexts:[{type:'BibleText',readings:[{uuid:'a',text:'וזרעו וזרעו',references:[{label:'Ps 37:25'}]},{uuid:'b',text:'וזרעו',references:[{label:'Ps 37:26'}]}]}]};
+ for(const label of ['37,26 וזרעו','וזרעו 37,26','וזרעו (37:26)','וזרעו (Ps 37:26)']){
+  const matches=D.locations(page,{uuid:label,label});assert.equal(matches.length,1);assert.equal(matches[0].label,'Psalms 37:26');assert.equal(matches[0].phrase,'וזרעו');
+ }
+ for(const label of ['וזרעו 37,27','וזרעו (Gen 37:26)','וזרעו (Unknown 37:26)'])assert.deepEqual(D.locations(page,{uuid:label,label}),[]);
+ const wrongRef=D.labelTarget('וזרעו 37,25');assert(!D.targetMatches(wrongRef,{book:'Psalms',chapter:37,verse:26}));
+});
+test('actual numbered, explicitly referenced and diacritic bibliography labels retain their original text',()=>{
+ const cases=[['ייי אדנינו (8:10)',['Psalms 8:10']],[' 37,25 וזרעו',['Psalms 37:25']],['וזרעו 37,26',['Psalms 37:26']],[' 37,15 תשברנה',['Psalms 37:15']],['תשברנה 37,17',['Psalms 37:17']],['אמרות (1)',['Psalms 12:7']],['אמרות (2)',['Psalms 12:7']],['ידי (1)',['Psalms 18:21','Psalms 18:25','Psalms 18:35']],['ידי (2)',['Psalms 18:21','Psalms 18:25','Psalms 18:35']],['ידי (3)',['Psalms 18:21','Psalms 18:25','Psalms 18:35']],['חגור OH #18 / OP #17 / Ginsburg I Ḥet #38, p. 478',['Psalms 45:4']]];
+ const m=index.manuscripts.find(m=>m.label==='B32inf.');
+ for(const [label,expected]of cases){
+  const p=datasets[m.id].pages.find(p=>p.contexts.some(e=>e.label===label)),e=p.contexts.find(e=>e.label===label),before=JSON.stringify(e);
+  assert.deepEqual([...new Set(D.locations(p,e).map(m=>m.label))],expected);assert.equal(JSON.stringify(e),before);
+ }
+ assert.equal(D.labelTarget('ידי (3)').numberTag,3);
+});
+
+test('numbered labels stay separate in the displayed word groups',()=>{
+ const m=index.manuscripts.find(m=>m.label==='B32inf.'),page=datasets[m.id].pages.find(p=>p.id==='76b8e427-05ef-48e2-8250-d8b2ee2520d0');
+ const hits=page.contexts.filter(e=>/^אמרות \([12]\)$/.test(e.label)).map(entry=>({page,entry}));
+ const groups=D.wordGroups(D.forVerse(hits,{book:'Psalms',chapter:12,verse:7}).primary);
+ assert.equal(groups.length,2);assert.deepEqual(groups.map(g=>g.label),['אמרות (1)','אמרות (2)']);
 });
