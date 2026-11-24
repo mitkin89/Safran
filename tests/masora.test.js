@@ -67,3 +67,32 @@ test('the source type mf is Masora finalis, not a classification of figurative l
   assert(mf.length>0);
   for(const c of mf)assert.match(c.description,/Masora Finalis/i);
 });
+
+
+test('verse browsing uses BibleText coverage, never citations in the Masorah',()=>{
+  const p={id:'p',bibleRefs:['Ps 1:1','Ps 1:3'],contexts:[{uuid:'bt',type:'BibleText',readings:[]},{uuid:'m',type:'mp',label:'דבר',readings:[{text:'ג',references:[{label:'Ps 1:2'}]}]}]};
+  const i={manuscripts:[{id:'m'}],chapters:{'Psalms 1':[['m','p']]},pages:{p:{manuscript:'m'}}},ds={m:{pages:[p]}};
+  assert.equal(D.query(i,ds,{book:'Psalms',chapter:1,verse:2},{scope:'verse'}).length,0);
+  assert.equal(D.query(i,ds,{book:'Psalms',chapter:1,verse:3},{scope:'verse'}).length,1);
+  assert(D.covers({bibleRefs:['Ps 1:3–5']},{book:'Psalms',chapter:1,verse:4}));
+  assert(!D.covers({bibleRefs:['Ps 1:3–5']},{book:'Psalms',chapter:1,verse:6}));
+});
+test('word references match whole phrases and preserve ambiguity on the real Psalms page',()=>{
+  const m=index.manuscripts.find(m=>m.label==='B32inf.');
+  const p=datasets[m.id].pages.find(p=>p.id==='7f51c986-fc48-4540-891e-77349906660a');
+  const note=p.contexts.find(c=>c.type==='mp'&&c.label==='אשרי');
+  assert.deepEqual(D.locations(p,note).map(m=>m.label),['Psalms 1:1','Psalms 2:12']);
+  const phrase=p.contexts.find(c=>c.type==='mp'&&c.label==='אשרי האיש');
+  const hits=[note,phrase].map(entry=>({page:p,entry})),split=D.forVerse(hits,{book:'Psalms',chapter:1,verse:1});
+  assert.equal(split.primary.length,1);assert.equal(split.primary[0].entry,phrase);
+  assert.equal(split.related.length,1);assert.equal(split.related[0].entry,note);
+  assert.deepEqual(D.locations(p,{uuid:'made-up',label:'שרי'}),[],'no substring matching');
+  assert.deepEqual(D.locations(p,{uuid:'editorial',label:'אשרי I'}),[],'do not reinterpret editorial labels');
+});
+test('citation-only notes and repeated occurrences cannot manufacture a unique word anchor',()=>{
+  const note={uuid:'m',label:'דבר',type:'mp',readings:[{text:'דבר',references:[{label:'Ps 1:1'}]}]};
+  const p={bibleRefs:['Ps 1:1'],contexts:[note]};assert.deepEqual(D.locations(p,note),[]);
+  const repeated={bibleRefs:['Ps 1:1'],contexts:[note,{type:'BibleText',readings:[{uuid:'r',text:'דבר דבר',references:[{label:'Ps 1:1'}]}]}]};
+  assert.equal(D.locations(repeated,note).length,2);
+  assert.equal(D.forVerse([{page:repeated,entry:note}],{book:'Psalms',chapter:1,verse:1}).primary.length,0);
+});

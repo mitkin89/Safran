@@ -34,7 +34,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#masoraFsPlus').click()");
  assert.equal(await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)"),size+1);
  await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
- await waitFor("!document.querySelector('#masoraPanel').hidden && document.querySelector('#masoraPlace').textContent.includes('Genesis 1') && !document.querySelector('#masoraPlace').textContent.includes(':')",'Masora bleibt korrekt auf Kapitelebene bei Versauswahl');
+ await waitFor("!document.querySelector('#masoraPanel').hidden && document.querySelector('#masoraPlace').textContent.includes('Genesis 1:2')",'Masora folgt dem ausgewählten Vers');
  await js("document.querySelector('#nextSec').click()");
  await waitFor("document.querySelector('#masoraPlace').textContent.includes('Genesis 2')",'Masora folgt dem Kapitel');
  assert.equal(await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)"),size+1);

@@ -3,6 +3,43 @@
   'use strict';
   const fold=s=>String(s||'').normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g,'').toLowerCase();
   const MASORA=new Set(['mp','mm','mf']);
+  // Word matches support navigation; they are not publisher-confirmed note anchors.
+  const BOOKS={"Gen":"Genesis","Ge":"Genesis","Ex":"Exodus","Exod":"Exodus","Lev":"Leviticus","Lv":"Leviticus","Num":"Numbers","Nu":"Numbers","Deut":"Deuteronomy","Dt":"Deuteronomy","Dtn":"Deuteronomy","Jos":"Joshua","Josh":"Joshua","Jdg":"Judges","Judg":"Judges","Jud":"Judges","Ruth":"Ruth","Rt":"Ruth","1Sam":"I Samuel","1 Sam":"I Samuel","I Sam":"I Samuel","2Sam":"II Samuel","2 Sam":"II Samuel","II Sam":"II Samuel","1 Kings":"I Kings","2 Kings":"II Kings","1 Chronicles":"I Chronicles","2 Chronicles":"II Chronicles","1 Samuel":"I Samuel","2 Samuel":"II Samuel","1Kgs":"I Kings","1 Kgs":"I Kings","I Kings":"I Kings","2Kgs":"II Kings","2 Kgs":"II Kings","II Kings":"II Kings","1Chr":"I Chronicles","1 Chr":"I Chronicles","2Chr":"II Chronicles","2 Chr":"II Chronicles","Ezra":"Ezra","Esr":"Ezra","Neh":"Nehemiah","Esth":"Esther","Est":"Esther","Job":"Job","Hi":"Job","Ps":"Psalms","Psa":"Psalms","Prov":"Proverbs","Pr":"Proverbs","Prv":"Proverbs","Eccl":"Ecclesiastes","Qoh":"Ecclesiastes","Song":"Song of Songs","Cant":"Song of Songs","Isa":"Isaiah","Is":"Isaiah","Jes":"Isaiah","Jer":"Jeremiah","Lam":"Lamentations","Ezek":"Ezekiel","Ez":"Ezekiel","Dan":"Daniel","Dn":"Daniel","Hos":"Hosea","Joel":"Joel","Amos":"Amos","Am":"Amos","Obad":"Obadiah","Ob":"Obadiah","Jonah":"Jonah","Jon":"Jonah","Mic":"Micah","Mi":"Micah","Nah":"Nahum","Hab":"Habakkuk","Zeph":"Zephaniah","Zech":"Zechariah","Hag":"Haggai","Mal":"Malachi","Genesis":"Genesis","Exodus":"Exodus","Leviticus":"Leviticus","Numbers":"Numbers","Deuteronomy":"Deuteronomy","Joshua":"Joshua","Judges":"Judges","I Samuel":"I Samuel","II Samuel":"II Samuel","I Chronicles":"I Chronicles","II Chronicles":"II Chronicles","Nehemiah":"Nehemiah","Esther":"Esther","Psalms":"Psalms","Proverbs":"Proverbs","Ecclesiastes":"Ecclesiastes","Song of Songs":"Song of Songs","Isaiah":"Isaiah","Jeremiah":"Jeremiah","Lamentations":"Lamentations","Ezekiel":"Ezekiel","Daniel":"Daniel","Hosea":"Hosea","Obadiah":"Obadiah","Micah":"Micah","Nahum":"Nahum","Habakkuk":"Habakkuk","Zephaniah":"Zephaniah","Zechariah":"Zechariah","Haggai":"Haggai","Malachi":"Malachi"};
+  const wordTokens=s=>String(s||'').normalize('NFD').replace(/[\u0591-\u05bd\u05bf-\u05c2\u05c4-\u05c7]/g,'').match(/[\u05d0-\u05ea]+/g)||[];
+  function bibleRef(label){
+    const m=/^(.+?)\.?\s+(\d+):(\d+)(?:\s*[-–]\s*(?:(\d+):)?(\d+))?$/.exec(String(label||'').trim());
+    return m&&BOOKS[m[1]]?{book:BOOKS[m[1]],chapter:+m[2],verse:+m[3],endChapter:+(m[4]||m[2]),endVerse:+(m[5]||m[3])}:null;
+  }
+  function covers(page,ctx){
+    return page.bibleRefs.some(label=>{const r=bibleRef(label);return r&&r.book===ctx.book&&ctx.chapter>=r.chapter&&ctx.chapter<=r.endChapter&&(ctx.chapter!==r.chapter||ctx.verse>=r.verse)&&(ctx.chapter!==r.endChapter||ctx.verse<=r.endVerse);});
+  }
+  const locationCache=new WeakMap();
+  function locations(page,entry){
+    if(!locationCache.has(page))locationCache.set(page,new Map());
+    const cache=locationCache.get(page);if(cache.has(entry.uuid))return cache.get(entry.uuid);
+    const label=String(entry.label||'').trim(),needle=wordTokens(label),found=[];
+    // A source label containing editorial prose or alternative lemmas has no safe phrase match.
+    if(needle.length&&/^[\u0590-\u05ff\s]+$/.test(label)){
+      for(const c of page.contexts.filter(c=>c.type==='BibleText'))for(const r of c.readings){
+        if(r.references?.length!==1)continue;
+        const ref=bibleRef(r.references[0].label);if(!ref||ref.chapter!==ref.endChapter||ref.verse!==ref.endVerse)continue;
+        const words=wordTokens(text(r));
+        for(let i=0;i<=words.length-needle.length;i++)if(needle.every((w,j)=>words[i+j]===w)){
+          found.push({...ref,label:ref.book+' '+ref.chapter+':'+ref.verse,phrase:label,sourceReading:r.uuid,wordIndex:i});
+        }
+      }
+    }
+    cache.set(entry.uuid,found);return found;
+  }
+  function forVerse(hits,ctx){
+    const primary=[],related=[];
+    for(const hit of hits){
+      const matches=locations(hit.page,hit.entry),h={...hit,locations:matches};
+      if(matches.length===1&&matches[0].book===ctx.book&&matches[0].chapter===ctx.chapter&&matches[0].verse===ctx.verse)primary.push(h);
+      else related.push(h);
+    }
+    return {primary,related};
+  }
   function pageIds(index,context,scope='chapter'){
     if(scope==='all')return null;
     if(scope==='citations')return new Set((index.citations?.[context.book+' '+context.chapter]||[]).map(row=>row[1]));
@@ -41,6 +78,7 @@
       if(manuscript&&meta.id!==manuscript)continue;
       for(const page of datasets[meta.id]?.pages||[]){
         if(ids!==null&&!ids.has(page.id))continue;
+        if(scope==='verse'&&context.verse&&!covers(page,context))continue;
         for(const entry of page.contexts){
           if(entry.type==='BibleText'||cited&&!cited.has(page.id+'|'+entry.uuid))continue;
           if(type==='masora'?!MASORA.has(entry.type):type&&entry.type!==type)continue;
@@ -53,6 +91,6 @@
     }
     return hits;
   }
-  const api={pageIds,manuscripts,text,prose,referenceSummary,query};
+  const api={pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraData=api;
 })(typeof window!=='undefined'?window:globalThis);

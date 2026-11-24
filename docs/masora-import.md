@@ -63,14 +63,13 @@ the published source, not a new edition or an independent verification of its te
 The chapter index is derived **only** from references of `BibleText` readings. A
 Masora note's references often enumerate other occurrences: they must not be turned
 into the note's target verse. Likewise a note label matching a word is not sufficient
-to determine an exact verse. No label matching or geometric alignment is performed.
+to determine an exact verse. No geometric alignment is performed. Safran separately derives candidate word references as described below.
 
-Consequently the default tool shows **notes on manuscript pages containing Bible
+The **Aktuelles Kapitel** scope shows **notes on manuscript pages containing Bible
 text from the current chapter**. A page may contain neighbouring chapters and its
 notes may concern those verses. The interface states this explicitly and lists the
-source page's Bible references. The header therefore names the chapter, without implying a precise verse anchor
-for every displayed note. Changing the selected verse within the chapter retains
-the same result and scroll state.
+source page's Bible references. In chapter scope, the header names the chapter without implying a precise verse anchor
+for every note; selecting another verse retains the same chapter results.
 
 Notes on standalone Masorah lists or pages without recognized BibleText references
 remain available through **Gesamter Bestand** and the manuscript/text/type filters.
@@ -122,3 +121,30 @@ The other imported contexts include glosses, scribal notes, commentary and
 unclassified source material. Their types remain as supplied. `mf` denotes
 **Masora finalis**, not a layout classification as Masora figurata. Physical layout
 can be consulted through the linked facsimile in BIMA.
+
+## Verse browsing and reader word navigation
+
+The default **Ausgewählter Vers** view follows the selected reader verse (or the
+visible reading position on opening). It first restricts pages to explicit
+BibleText references covering that verse. Citation references in the notes never
+supply page coverage. It then shows source note labels matching a whole Hebrew
+word or phrase exactly once in the page's verse-referenced BibleText readings.
+Matching ignores pointing and word separators, preserves consonants, and rejects
+labels containing editorial prose or Latin disambiguators. Readings carrying a
+verse range or multiple references do not supply a precise word location.
+
+These are **automatically derived word references**, not publisher-confirmed
+note-to-word anchors. A unique spelling match is useful for browsing but cannot
+establish which occurrence an editor intended. The UI states the automatic basis.
+Ambiguous labels, unmatched notes and notes concerning another verse remain in
+**Weitere Notizen der Handschriftenseite**, collapsed by default. No source
+transcription or published target metadata is rewritten.
+
+Clicking a Hebrew label with one match opens its verse and highlights the matching
+word/phrase in the actual Westminster reader text. With multiple matches, the
+label offers the source verses for the user to choose. Word matching is repeated
+against the displayed reading, never an imported token index or translation. All
+matching occurrences in a user-selected verse are highlighted if the spelling
+repeats. If the displayed reading lacks that spelling, Safran reports this rather
+than highlighting another word. The page-wide notes and full collection search
+remain available. Manuscript/type filters are under **Weitere Filter**.

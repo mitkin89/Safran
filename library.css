@@ -2624,8 +2624,8 @@ html.split #masoraPanel { right: var(--p2w); }
 .masora-page { margin-top: 1.4em; border-top: 2px solid var(--line); padding-top: .6em; }
 #masoraBody .masora-page h3 { font-size: .95em; overflow-wrap: anywhere; }
 .masora-entry { border-bottom: 1px solid var(--line); padding-block: .6em; }
-.masora-entry h4 { margin: .2em 0; font-size: 1em; }
-.masora-entry h4 bdi { font-family: var(--he-font); font-size: 1.35em; }
+.masora-entry-head { margin: .2em 0; font-size: 1em; font-weight: bold; }
+.masora-entry-head bdi { font-family: var(--he-font); font-size: 1.35em; }
 .masora-kind { color: var(--muted); font-size: .8em; font-weight: normal; margin-inline-end: .5em; }
 .masora-he { font-family: var(--he-font); font-size: 1.55em; line-height: 1.65; white-space: pre-wrap; margin-block: .5em; }
 .masora-note { white-space: pre-wrap; }
@@ -2634,3 +2634,20 @@ html.split #masoraPanel { right: var(--p2w); }
 .masora-count { font-weight: 600; }
 .tc-tov-source-details { margin: .3em 0 .6em; padding-left: .5em; border-left: 1px solid var(--line); }
 .tc-tov-source-details > summary { cursor: pointer; color: var(--muted); font-size: .85em; }
+
+.masora-word { appearance: none; background: none; border: 0; color: var(--accent); font: inherit; padding: 0; cursor: pointer; }
+.masora-word:hover, .masora-word:focus-visible { text-decoration: underline; text-underline-offset: .2em; }
+.masora-word:focus-visible, .masora-choices > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.masora-choices { display: inline-block; vertical-align: top; }
+.masora-choices > summary { cursor: pointer; color: var(--accent); }
+.masora-choices p { font-weight: normal; font-size: .85em; }
+.masora-choices .masora-word { margin: .3em .5em .3em 0; }
+.masora-related { margin-top: 1em; border-top: 1px solid var(--line); padding-top: .7em; }
+.masora-related > summary, .masora-settings > summary { cursor: pointer; }
+.masora-settings .bar { margin-top: .5em; }
+#masoraWordStatus:empty { display: none; }
+#masoraWordStatus { color: var(--accent); }
+
+#masoraBody .masora-page { margin-top: .6em; padding-block: .4em; border-top: 1px solid var(--line); }
+.masora-page-source > summary { cursor: pointer; font-size: .85em; color: var(--muted); }
+.masora-page-source[open] > summary { margin-bottom: .5em; }
