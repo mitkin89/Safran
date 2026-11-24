@@ -123,7 +123,7 @@ window.LibraryResearch = (() => {
 
       }
       const layout=draft.layout||{template:'linear',orientation:'portrait',mainWidth:44,mainSize:18,sideSize:10,bottomSize:10};
-      const layouts=kind==='sheets'?menu('Layout',`<label><input type="checkbox" data-layout="showTitle" ${layout.showTitle!==false?'checked':''}> Blatttitel anzeigen</label><label>Anordnung<select data-layout="template"><option value="linear" ${layout.template!=='classic'?'selected':''}>Untereinander</option><option value="classic" ${layout.template==='classic'?'selected':''}>Haupttext mit Randkommentaren</option></select></label><label>Seite<select data-layout="orientation"><option value="portrait" ${layout.orientation!=='landscape'?'selected':''}>A4 Hochformat</option><option value="landscape" ${layout.orientation==='landscape'?'selected':''}>A4 Querformat</option></select></label>${layout.template==='classic'?'<p class="rw-field-hint">Wähle den Bereich direkt auf der Karte oder ziehe Texte in „Anordnen“.</p><p class="rw-field-hint">Leere Randspalten vergrößern den Haupttext automatisch.</p>'+[['mainWidth','Breite des Haupttexts (%)',30,60,44],['mainSize','Haupttext (pt)',10,30,18],['sideSize','Randkommentare (pt)',8,20,10],['bottomSize','Unterer Bereich (pt)',8,20,10]].map(([k,t,min,max,def])=>slider(t,'rwLayout-'+k,layout[k]??def,min,max,1,`data-layout="${k}"`,k==='mainWidth'?'%':'pt')).join(''):''}`,'layout'):'';
+      const layouts=kind==='sheets'?menu('Layout',`<label><input type="checkbox" data-layout="showTitle" ${layout.showTitle!==false?'checked':''}> Blatttitel anzeigen</label><label>Anordnung<select data-layout="template"><option value="linear" ${layout.template!=='classic'?'selected':''}>Untereinander</option><option value="classic" ${layout.template==='classic'?'selected':''}>Haupttext mit Randkommentaren</option></select></label><label>Seite<select data-layout="orientation"><option value="portrait" ${layout.orientation!=='landscape'?'selected':''}>A4 Hochformat</option><option value="landscape" ${layout.orientation==='landscape'?'selected':''}>A4 Querformat</option></select></label>${layout.template==='classic'?'<p class="rw-field-hint">Wähle den Bereich direkt auf der Karte oder ziehe Texte in „Anordnen“.</p><p class="rw-field-hint">Leere Randspalten vergrößern den Haupttext automatisch.</p>'+[['mainWidth','Breite des Haupttexts (%)',30,60,44],['mainSize','Haupttext (pt)',10,30,18],['sideSize','Randkommentare (pt)',8,20,10],['bottomSize','Unterer Bereich (pt)',8,20,10]].map(([k,t,min,max,def])=>slider(t,'rwLayout-'+k,layout[k]??def,min,max,1,`data-layout="${k}"`,k==='mainWidth'?'%':'pt')).join('')+(blocks.some(b=>b.presentation)?'<p class="rw-field-hint">Einzelschriftgrößen unter „Übersetzung / Interlinear“ haben Vorrang vor den Layout-Schriftgrößen.</p>':''):''}`,'layout'):'';
       if(arrangeMode&&kind==='sheets')body=arrangement(blocks);
       if(pagePreview&&kind==='sheets')body='<div class="rw-page-hint">Die Vorschau zeigt die Anordnung mit den aktuellen, auch ungespeicherten Inhalten.</div><iframe id="rwPagePreview" title="Seitenvorschau" sandbox="allow-same-origin"></iframe>';
       const exports = kind === 'sheets' ? menu('Exportieren', ['pdf', 'docx', 'html'].map((f, i) => `<button data-sheet-export="${f}">${['PDF', 'Word (.docx)', 'HTML'][i]} exportieren …</button>`).join(''), 'sheet-export') : '';
@@ -183,28 +183,59 @@ window.LibraryResearch = (() => {
     }
     async function translationPicker(source){
       const sheetId=draft.id,savedKind=kind,editions=await A.translationEditions(copy(source.reference));
-      const sourceSize=source.presentation?.sourceSize||(draft.layout?.template==='classic'?draft.layout[(source.region||'main')==='main'?'mainSize':source.region==='bottom'?'bottomSize':'sideSize']:12)||18,translationSize=source.presentation?.translationSize||Math.min(sourceSize,12);
-      const d=document.createElement('dialog');d.className='rw-dialog rw-edition-dialog';
-      d.innerHTML='<form><h2>Übersetzung anzeigen</h2>'+`<p class="nt">${esc(source.reference.label)}</p><select id="rwTranslationEdition" hidden aria-hidden="true" tabindex="-1">${editions.map(e=>`<option value="${esc(e.rel)}" class="nt" ${source.presentation?.companion.reference.rel===e.rel?'selected':''}>${esc(e.versionTitle)} · ${esc(e.language)}</option>`).join('')}</select>${editionChoices(editions,source.presentation?.companion.reference.rel||editions[0]?.rel,'rwPairedEdition')}<label>Anzeige<select id="rwTranslationMode"><option value="parallel">Nebeneinander</option><option value="interlinear" ${source.presentation?.mode==='interlinear'?'selected':''}>Interlinear (vorhandene Wortzuordnung)</option><option value="none">Nur dieser Text</option></select></label><div class="rw-pair-fonts">${slider('Dieser Text (pt)','rwPairSourceSize',sourceSize,8,36,.5)}${slider('Gewählte Ausgabe (pt)','rwPairTranslationSize',translationSize,8,36,.5)}</div><p class="rw-field-hint">Interlinear erfordert passende Original- und Übersetzungsausgaben. Zusätze erscheinen mit +. Änderungen am Auszug müssen vorher zurückgenommen werden.</p>`+'<p class="rw-error" role="alert"></p><div class="rw-toolbar"><button type="submit" class="primary">Anzeigen</button><button type="button" data-translation-cancel>Abbrechen</button></div></form>';
+      const configuredSize=Number(draft.layout?.template==='classic'?draft.layout[(source.region||'main')==='main'?'mainSize':source.region==='bottom'?'bottomSize':'sideSize']:12);
+      const regionSize=Number.isFinite(configuredSize)&&configuredSize>=8&&configuredSize<=36?configuredSize:18;
+      const sourceSize=source.presentation?.sourceSize||regionSize,translationSize=source.presentation?.translationSize||Math.min(sourceSize,12);
+      const d=document.createElement('dialog');d.className='rw-dialog rw-edition-dialog rw-pair-dialog';
+      d.innerHTML='<form><h2>Übersetzung anzeigen</h2>'+`<p class="nt">${esc(source.reference.label)}</p><select id="rwTranslationEdition" hidden aria-hidden="true" tabindex="-1">${editions.map(e=>`<option value="${esc(e.rel)}" class="nt" ${source.presentation?.companion.reference.rel===e.rel?'selected':''}>${esc(e.versionTitle)} · ${esc(e.language)}</option>`).join('')}</select>${editionChoices(editions,source.presentation?.companion.reference.rel||editions[0]?.rel,'rwPairedEdition')}<div class="rw-pair-tuning"><div class="rw-pair-settings"><label>Anzeige<select id="rwTranslationMode"><option value="parallel">Nebeneinander</option><option value="interlinear" ${source.presentation?.mode==='interlinear'?'selected':''}>Interlinear (vorhandene Wortzuordnung)</option><option value="none">Nur dieser Text</option></select></label><div class="rw-pair-fonts">${slider('Dieser Text (pt)','rwPairSourceSize',sourceSize,8,36,.5)}${slider('Gewählte Ausgabe (pt)','rwPairTranslationSize',translationSize,8,36,.5)}</div><p class="rw-field-hint">Interlinear erfordert passende Original- und Übersetzungsausgaben. Zusätze erscheinen mit +. Änderungen am Auszug müssen vorher zurückgenommen werden.</p></div><section class="rw-pair-live" aria-label="Live-Vorschau"><h3>Live-Vorschau</h3><p class="rw-pair-context nt">${esc(source.reference.label)}</p><p id="rwPairPreviewStatus" role="status" aria-live="polite"></p><div id="rwPairPreview" class="rw-pair-sample" aria-busy="true"></div></section></div>`+'<p class="rw-error" role="alert"></p><div class="rw-toolbar"><button type="submit" class="primary" disabled>Übernehmen</button><button type="button" data-translation-cancel>Abbrechen</button></div></form>';
       document.body.append(d);
       await new Promise(resolve=>{
-        let closed=false;const submit=d.querySelector('[type=submit]'),error=d.querySelector('.rw-error');
-        const finish=()=>{if(closed)return;closed=true;d.close();d.remove();resolve();};
-        d.onclose=finish;
-        d.querySelector('[data-translation-cancel]').onclick=finish;
-        bindSliders(d);
-        d.querySelectorAll('[name=rwPairedEdition]').forEach(e=>e.onchange=()=>{d.querySelector('#rwTranslationEdition').value=e.value;});
-        d.querySelector('form').onsubmit=async e=>{
-          e.preventDefault();if(submit.disabled)return;submit.disabled=true;error.textContent='';
+        let closed=false,generation=0,loaded=null,loadedKey='';const cache=new Map();
+        const submit=d.querySelector('[type=submit]'),error=d.querySelector('.rw-error'),sample=d.querySelector('#rwPairPreview'),info=d.querySelector('#rwPairPreviewStatus');
+        const mode=d.querySelector('#rwTranslationMode'),edition=d.querySelector('#rwTranslationEdition'),first=d.querySelector('#rwPairSourceSize'),second=d.querySelector('#rwPairTranslationSize');
+        const key=()=>JSON.stringify([mode.value,edition.value]);
+        const sizes=()=>({sourceSize:first.valueAsNumber,translationSize:second.valueAsNumber});
+        const finish=()=>{if(closed)return;closed=true;generation++;d.close();d.remove();resolve();};
+        function renderSample(){
+          if(closed||loadedKey!==key())return;
+          first.disabled=second.disabled=mode.value==='none';
+          if(mode.value==='none'){
+            sample.innerHTML=`<p class="nt rw-pre" dir="auto" style="font-size:${regionSize}pt">${esc(source.text.split('\n').slice(0,3).join('\n'))}</p>`;
+            const lines=source.text.split('\n').length;info.textContent=I18N.t('Nur dieser Text · Schriftgröße aus dem Layout.')+(lines>3?' '+I18N.t('Erste {} von {} Zeilen.',3,lines):'');
+          }else{
+            const preview={...loaded,...sizes(),rows:loaded.rows.slice(0,3)};
+            sample.innerHTML=presentationHtml({...source,presentation:preview});
+            info.textContent=loaded.rows.length>3?I18N.t('Erste {} von {} Zeilen · Schriftgrößen wie im Export.',3,loaded.rows.length):I18N.t('Schriftgrößen wie im Export.');
+          }
+          sample.setAttribute('aria-busy','false');
+        }
+        async function load(){
+          const g=++generation,wanted=key(),selectedMode=mode.value,rel=edition.value;loaded=null;loadedKey='';submit.disabled=true;sample.innerHTML='';sample.setAttribute('aria-busy','true');error.textContent='';info.textContent='Vorschau wird geladen …';
+          first.disabled=second.disabled=selectedMode==='none';
           try{
-            const mode=d.querySelector('#rwTranslationMode').value,rel=d.querySelector('#rwTranslationEdition').value;
-            const presentation=mode==='none'?null:await A.translationPreview({source:copy(source),rel,mode,sourceSize:d.querySelector('#rwPairSourceSize').valueAsNumber,translationSize:d.querySelector('#rwPairTranslationSize').valueAsNumber});if(closed)return;
+            const result=selectedMode==='none'?null:cache.has(wanted)?cache.get(wanted):await A.translationPreview({source:copy(source),rel,mode:selectedMode});
+            if(closed||g!==generation||wanted!==key())return false;
+            if(result)cache.set(wanted,result);loaded=result;loadedKey=wanted;renderSample();submit.disabled=false;return true;
+          }catch(err){if(!closed&&g===generation&&wanted===key()){error.textContent=String(err.message||err).replace(/^Error invoking remote method '[^']*': (Error: )?/,'');info.textContent='';sample.setAttribute('aria-busy','false');}return false;}
+        }
+        d.onclose=finish;d.querySelector('[data-translation-cancel]').onclick=finish;
+        bindSliders(d);
+        for(const control of [first,second]){const readout=control.oninput;control.oninput=()=>{readout();renderSample();};}
+        mode.onchange=()=>void load();
+        edition.onchange=()=>{d.querySelectorAll('[name=rwPairedEdition]').forEach(e=>e.checked=e.value===edition.value);void load();};
+        d.querySelectorAll('[name=rwPairedEdition]').forEach(e=>e.onchange=()=>{edition.value=e.value;void load();});
+        d.querySelector('form').onsubmit=async e=>{
+          e.preventDefault();if(submit.disabled)return;const wanted=key();
+          if(loadedKey!==wanted&&!(await load()))return;
+          if(closed||wanted!==key()||loadedKey!==wanted)return;
+          try{
             if(draft?.id!==sheetId||kind!==savedKind)throw Error('Das Quellenblatt wurde gewechselt. Bitte erneut auswählen.');
             const current=draft[kind==='sheets'?'blocks':'items'].find(b=>b.id===source.id);if(!current)throw Error('Die Quellenkarte wurde entfernt.');
-            current.presentation=presentation;changed();render();finish();
-          }catch(err){if(!closed){error.textContent=String(err.message||err).replace(/^Error invoking remote method '[^']*': (Error: )?/,'');submit.disabled=false;}}
+            if(current.sourceHash!==source.sourceHash||current.text!==source.text||current.reference?.rel!==source.reference.rel)throw Error('Die Quellenkarte wurde inzwischen geändert. Bitte erneut öffnen.');
+            current.presentation=mode.value==='none'?null:{...copy(loaded),...sizes()};changed();render();finish();
+          }catch(err){error.textContent=String(err.message||err);}
         };
-        d.showModal();
+        d.showModal();void load();
       });
     }
     function updatePagePreview(frame){const request=++previewRequest;void A.sheetPreview(copy(draft)).then(html=>{if(frame.isConnected&&request===previewRequest)frame.srcdoc=html;}).catch(e=>{if(frame.isConnected&&request===previewRequest)status(e.message,true);});}
