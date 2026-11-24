@@ -377,3 +377,31 @@ their unresolved status.
 
 Regression examples include `רגלי` in Psalm 26:12, `נתת` in Psalm 61:6,
 `ואתנה` in Psalm 51:18 and both `משכנתה` and `ומגרת` in Exodus 3:22.
+
+
+### Anzeige von Belegzitaten
+
+Die deutsche Masora-Erläuterung zeigt die Regel (z. B. Anzahl, Schreibung oder
+Versposition). Übersetzungen der zitierten Bibelverse werden ausgelassen;
+hebräischer Wortlaut und die anklickbaren Stellenangaben bleiben sichtbar.
+Die gespeicherten Arbeitsübersetzungen und BIMA-Quellen bleiben unverändert.
+
+`tools/masora/quotation-display.js` erzeugt dafür
+`masora-quotation-display.js`. Automatisch zugeordnete Zitate erkennt bereits
+der Renderer an ihrer Methodenangabe. Für handverfasste Zitate vergleicht der
+Generator den hebräischen Quelltext mit dem mitgelieferten Westminster-Text.
+Nur an ausdrücklich zitierten Stellen erlaubt er eine begrenzte Abweichung
+(75 % passende Wörter, mindestens drei Wörter; Plene-Schreibungen und gekürzte
+Wortenden werden berücksichtigt). Das bestimmt ausschließlich die Rolle als
+Zitat, keine Textvariante oder Wortzuordnung. Zählzeichen und unsichere
+Quellzeichen verhindern diese Klassifikation. Die Anzeigezuordnung ist an
+UUID und exakten Quelltext gebunden und wird beim Übersetzungsaufbau erneuert.
+
+```sh
+node tools/masora/quotation-display.js
+node --test tests/masora-translations.test.js
+SAFRAN_SMOKE_MASORA_CONTROLS=1 electron tests/electron/smoke.cjs
+```
+
+„Handschriften“ öffnet eine eigene Auswahl; das Zahnrad enthält Suchbereich
+und Notizart. Escape schließt zuerst das offene Auswahlmenü.

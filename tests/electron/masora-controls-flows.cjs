@@ -1,0 +1,23 @@
+'use strict';
+const assert=require('node:assert/strict');
+module.exports=async({js,waitFor,book})=>{
+ await book('Genesis');await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]')",'Genesis 1:2');
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .verse-tool').click();if(document.querySelector('#dockTabs').hidden)document.querySelector('#studyBtn').click();document.querySelector('#dockTabs [data-panel=masora]').click()");
+ const selector='.masora-entry[data-masora-context="4ff77d42-d7f9-4444-9649-3427268811c1"]';
+ await waitFor(`document.querySelector(${JSON.stringify(selector)})?.querySelector('.masora-translation')`,'Masora list loaded');
+ const state=await js(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});return {explanation:e.querySelector('.masora-translation').textContent,hebrew:e.querySelector('.masora-transcription').textContent,refs:e.querySelectorAll('.masora-refs').length};})()`);
+ assert(state.explanation.includes('8-mal'));assert(state.explanation.includes('Und einmal.'));
+ assert(!state.explanation.includes('Und das Land'));assert(!state.explanation.includes('Aber die Erde'));assert(!state.explanation.includes('Philippson'));
+ assert(state.hebrew.includes('והארץ'));assert(state.refs>=8,'original references retained');
+ await js("document.querySelector('#masoraWitnesses').click()");
+ assert(await js("!document.querySelector('#masoraWitnessOptions').hidden && !document.querySelector('#masoraSettings').open && document.querySelector('#masoraWitnesses').getAttribute('aria-expanded')==='true' && document.activeElement.id==='masoraMs'"));
+ assert(await js("document.querySelector('#masoraWitnessOptions').getBoundingClientRect().height>0 && !document.querySelector('#masoraWitnessOptions #masoraType')"));
+ await js("document.querySelector('#masoraSettings summary').click()");
+ await waitFor("document.querySelector('#masoraSettings').open && document.querySelector('#masoraWitnessOptions').hidden",'separate settings');
+ assert(await js("!document.querySelector('#masoraSettings #masoraMs') && !!document.querySelector('#masoraSettings #masoraType')"));
+ await js("document.querySelector('#masoraWitnesses').click()");
+ assert(await js("!document.querySelector('#masoraSettings').open && !document.querySelector('#masoraWitnessOptions').hidden"));
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");
+ assert(await js("document.querySelector('#masoraWitnessOptions').hidden && document.activeElement.id==='masoraWitnesses' && !document.querySelector('#masoraPanel').hidden"));
+ console.log('Electron: Masora-Regeln ohne Versübersetzungen, Originalbelege und getrennte Handschriftenauswahl/Einstellungen bestanden.');
+};

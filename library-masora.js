@@ -76,7 +76,7 @@ window.LibraryMasora = (() => {
     function entryHtml(hit){
       const {page,entry,readings}=hit,info=D.explain(entry),kind=kinds[entry.type]||entry.type;
       const source='<details class="masora-page-source"><summary title="'+safe(hit.manuscript.label+' · '+(page.folio||page.label))+'">'+safe(t('Quelle'))+'</summary><p>'+safe(hit.manuscript.label)+' · '+safe(page.folio||page.label)+'</p><p class="muted">'+safe(D.referenceSummary(page.bibleRefs))+'</p><a class="masora-external" href="'+safe(page.url)+'">'+safe(t('Handschriftenseite in BIMA öffnen (online)'))+' ↗</a></details>';
-      const explanation=T.html(translationFor(entry),safe,t)||'<div class="masora-explanation" role="note" title="'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'"><div class="masora-interpretation-label">'+safe(t('Lesehilfe'))+'</div><p>'+safe(t(info.meaning))+'</p></div>';
+      const translation=translationFor(entry),explanation=translation?T.html(translation,safe,t):'<div class="masora-explanation" role="note" title="'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'"><div class="masora-interpretation-label">'+safe(t('Lesehilfe'))+'</div><p>'+safe(t(info.meaning))+'</p></div>';
       return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'" data-masora-type="'+safe(entry.type)+'"><div class="masora-entry-line"><span class="masora-kind" title="'+safe(t(kind))+'">'+safe(({mp:'Mp',mm:'Mm',mf:'Mf'})[entry.type]||t(kind))+'</span><div class="masora-transcription">'+readings.map(({source:r,text,notes})=>
         '<span class="masora-reading">'+(text?'<bdi class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</bdi>':'')+
         (r.references?.length?' <span class="masora-refs">'+r.references.map(ref=>referenceButton(ref,hit)).join(' · ')+'</span>':'')+
@@ -148,9 +148,11 @@ window.LibraryMasora = (() => {
     $('#masoraPrev').onclick=()=>stepVerse(-1);$('#masoraNext').onclick=()=>stepVerse(1);
     $('#masoraWhole').onclick=()=>{$('#masoraScope').value=$('#masoraScope').value==='chapter'?'verse':'chapter';filter();};
     $('#masoraSearchBtn').onclick=()=>{const search=$('#masoraSearch');search.hidden=!search.hidden;$('#masoraSearchBtn').setAttribute('aria-pressed',String(!search.hidden));if(!search.hidden)$('#masoraQuery').focus();};
-    $('#masoraWitnesses').onclick=()=>{$('#masoraSettings').open=true;$('#masoraMs').focus();};
-    document.addEventListener('pointerdown',e=>{const settings=$('#masoraSettings');if(settings.open&&!settings.contains(e.target)&&!e.target.closest('#masoraWitnesses'))settings.open=false;});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#masoraSettings').open){$('#masoraSettings').open=false;e.stopImmediatePropagation();$('#masoraSettings summary').focus();}},true);
+    function closeWitnesses(){ $('#masoraWitnessOptions').hidden=true;$('#masoraWitnesses').setAttribute('aria-expanded','false'); }
+    $('#masoraWitnesses').onclick=()=>{const options=$('#masoraWitnessOptions'),open=options.hidden;options.hidden=!open;$('#masoraWitnesses').setAttribute('aria-expanded',String(open));if(open){$('#masoraSettings').open=false;$('#masoraMs').focus();}};
+    $('#masoraSettings').addEventListener('toggle',()=>{if($('#masoraSettings').open)closeWitnesses();});
+    document.addEventListener('pointerdown',e=>{const settings=$('#masoraSettings');if(settings.open&&!settings.contains(e.target))settings.open=false;if(!e.target.closest('.masora-witness-picker'))closeWitnesses();});
+    document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(!$('#masoraWitnessOptions').hidden){closeWitnesses();e.stopImmediatePropagation();$('#masoraWitnesses').focus();}else if($('#masoraSettings').open){$('#masoraSettings').open=false;e.stopImmediatePropagation();$('#masoraSettings summary').focus();}},true);
     function followNow(){
       if(!follow||panel.hidden||getView()?.sres||(document.documentElement.dataset.tab||'read')!=='read')return;
       const row=getVisibleRow();if(row&&Number(row.dataset.l)!==context()?.verse)selectRow(row.dataset.l);

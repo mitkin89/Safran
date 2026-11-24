@@ -92,6 +92,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./version-menu-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_MASORA_CONTROLS==='1'){await require('./masora-controls-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MASORA==='1'){
   await require('./masora-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;

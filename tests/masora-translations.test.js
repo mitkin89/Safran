@@ -48,3 +48,18 @@ test('broken word spacing can yield an explicitly partial reading without changi
  assert.equal(R.canonicalSpacing({text:'ברא שית',references:['Gen 1:2']}),null);
  assert.equal(R.canonicalSpacing({text:'ברא שית',references:[]}),null);
 });
+
+
+test('Genesis 1:2 list keeps its Masorah rule but omits translated verse quotations',()=>{
+ const record=records.get('4ff77d42-d7f9-4444-9649-3427268811c1');assert(record);
+ const visible=record.readings.map(T.explanation).filter(Boolean);
+ assert.deepEqual(visible,[record.readings[0].de,'Und einmal.']);
+ const html=T.html(record,s=>String(s));
+ assert(html.includes('8-mal'));
+ assert(!html.includes('Aber die Erde war wüst'));
+ assert(!html.includes('Und das Land'));
+ assert(!html.includes('Philippson'));
+ assert.equal(T.html({readings:[record.readings[1]]},String),'');
+ assert.equal(T.explanation({method:'aligned-quotation-and-formula',de:'„Ein übersetztes Zitat“ — Defektiv geschrieben.'}),'Defektiv geschrieben.');
+ const quote=record.readings[2];assert.equal(T.explanation({...quote,source:'Andere Notiz',de:'Eine geänderte Erklärung.'}),'Eine geänderte Erklärung.');
+});

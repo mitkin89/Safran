@@ -14,13 +14,26 @@
   }
   return record;
  }
+ // Verse quotations already appear in Hebrew with their source references above.
+ // Keep the German rubric, rather than repeating the quotation in translation.
+ function explanation(reading){
+  const method=reading.method||'',de=String(reading.de||'');
+  if(/^(?:aligned-(?:juxtaposed-)?quotation(?:-resegmented|-candidate)?|exact-referenced-quotation-spans|lemma-plus-quotation)$/.test(method))return '';
+  if(method==='aligned-quotation-and-formula')return de.includes(' — ')?de.slice(de.indexOf(' — ')+3).trim():'';
+  if(method==='lemma-formula'&&de.includes(':')&&!/[א-ת]/.test(de.split(':')[0]))return de.slice(de.indexOf(':')+1).trim();
+  const quotations=typeof module!=='undefined'&&module.exports?require('./masora-quotation-display'):root.MASORA_QUOTATION_DISPLAY;
+  const display=quotations?.notes?.[reading.uuid];
+  if(display&&display[0]===reading.source)return display[1];
+  return de;
+ }
  function html(record,safe,t=x=>x){
   if(!record)return '';
-  const partial=record.readings.some(r=>r.status==='partial'),label=t('Übersetzung')+' · '+t(partial?'teilweise offen':'Arbeitsfassung');
-  return '<section class="masora-translation masora-explanation" role="note" aria-label="'+safe(t('Übersetzung'))+'"><div class="masora-interpretation-label" title="'+safe(t('Deutsche Arbeitsübersetzung, nicht fachlich abschließend geprüft.'))+'">'+safe(label)+(partial?' · '+safe(t('[ … ] = nicht sicher übersetzt.')):'')+'</div>'+record.readings.map(r=>{
-   const source=r.attribution||[r.edition,r.reference||r.ref||(r.sourceReferences||[]).join(' · ')].filter(Boolean).join(' · ');
-   return '<p class="masora-de" lang="de" dir="ltr" data-status="'+safe(r.status)+'">'+safe(r.de)+(source?'<small class="muted">'+safe(source)+'</small>':'')+'</p>';
-  }).join('')+'</section>';
+  const readings=record.readings.map(r=>({...r,de:explanation(r)})).filter(r=>r.de);
+  if(!readings.length)return '';
+  const partial=readings.some(r=>r.status==='partial'),label=t('Übersetzung')+' · '+t(partial?'teilweise offen':'Arbeitsfassung');
+  return '<section class="masora-translation masora-explanation" role="note" aria-label="'+safe(t('Übersetzung'))+'"><div class="masora-interpretation-label" title="'+safe(t('Deutsche Arbeitsübersetzung, nicht fachlich abschließend geprüft.'))+'">'+safe(label)+(partial?' · '+safe(t('[ … ] = nicht sicher übersetzt.')):'')+'</div>'+readings.map(r=>
+   '<p class="masora-de" lang="de" dir="ltr" data-status="'+safe(r.status)+'">'+safe(r.de)+'</p>'
+  ).join('')+'</section>';
  }
- const api={index,match,html};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraTranslations=api;
+ const api={index,match,html,explanation};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraTranslations=api;
 })(typeof window!=='undefined'?window:globalThis);

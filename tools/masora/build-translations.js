@@ -21,15 +21,17 @@ function build({regenerate=true}={}){
  require('./reviews/reuse').prepareBaseline(rows,translations);
  for(const src of rows)translations.set(src.uuid,reviews[1].apply(src,translations.get(src.uuid)));
  for(const review of reviews)review.finish();
+ const displayRecords=[];
  for(let part=0;part<Math.ceil(rows.length/2500);part++){
   const notes={};for(const src of rows.slice(part*2500,(part+1)*2500)){
    const tr=translations.get(src.uuid),enriched={ordinal:src.ordinal,uuid:src.uuid,sourceHash:src.sourceHash,label:src.label,type:src.type,readings:tr.readings.map((r,k)=>({...r,source:src.readings[k].text,sourceReferences:src.readings[k].references}))};
-   notes[src.uuid]=enriched;manifest.counts.notes++;if(tr.readings.some(r=>r.status==='partial'))manifest.counts.notesWithUnresolvedReadings++;
+   displayRecords.push(enriched);notes[src.uuid]=enriched;manifest.counts.notes++;if(tr.readings.some(r=>r.status==='partial'))manifest.counts.notesWithUnresolvedReadings++;
    for(const r of tr.readings){manifest.counts.readings++;manifest.counts[r.status==='draft'?'draftReadings':'partialReadings']++;}
   }
   const data={schema:1,part,notes},file='masora-translations/batch-'+part+'.js',script=wrap('root.MASORA_TRANSLATION_PARTS=root.MASORA_TRANSLATION_PARTS||{};root.MASORA_TRANSLATION_PARTS['+part+']=data;',data);fs.writeFileSync(path.join(root,file),script);
   manifest.batches.push({part,file,sha256:crypto.createHash('sha256').update(script).digest('hex'),ids:Object.keys(notes)});
  }
+ require('./quotation-display').write(displayRecords);
  manifest.reviews=reviews.map(review=>review.counts);
  for(const review of reviews)fs.writeFileSync(path.join(__dirname,'reviews/round-'+review.counts.round+'-report.json'),JSON.stringify(review.counts,null,2)+'\n');
  fs.writeFileSync(path.join(outDir,'index.js'),wrap('root.MASORA_TRANSLATION_INDEX=data;',manifest));return manifest;

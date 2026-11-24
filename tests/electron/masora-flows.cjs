@@ -7,7 +7,7 @@ module.exports=async({win,js,waitFor,book})=>{
  // Shared apparatus controls are functional, including scroll following and verse stepping.
  assert(await js("document.querySelector('#masoraPrev').disabled && !document.querySelector('#masoraNext').disabled"));
  await js("document.querySelector('#masoraSearchBtn').click()");assert(await js("!document.querySelector('#masoraSearch').hidden && document.activeElement.id==='masoraQuery'"));
- await js("document.querySelector('#masoraSearchBtn').click();document.querySelector('#masoraWitnesses').click()");assert(await js("document.querySelector('#masoraSettings').open && document.activeElement.id==='masoraMs'"));
+ await js("document.querySelector('#masoraSearchBtn').click();document.querySelector('#masoraWitnesses').click()");assert(await js("!document.querySelector('#masoraSettings').open && !document.querySelector('#masoraWitnessOptions').hidden && document.activeElement.id==='masoraMs'"));
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");assert(await js("!document.querySelector('#masoraSettings').open && !document.querySelector('#masoraPanel').hidden"));
  await js("document.querySelector('#masoraWhole').click()");await waitFor("document.querySelector('#masoraScope').value==='chapter' && document.querySelector('#masoraWhole').textContent==='Ausgewählter Vers'",'Kapitelumschaltung');
  await js("document.querySelector('#masoraWhole').click();document.querySelector('#masoraNext').click()");await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:2')",'Nächster Masora-Vers');
