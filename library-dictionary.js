@@ -77,7 +77,7 @@ window.LibraryDictionary = (() => {
       $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
         let sec = '';
         if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-        return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto"${/[\u0710-\u072f]/.test(x.head)?' lang="syr"':''}>${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId, x.html)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
+        return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto"${/[\u0710-\u072f]/.test(x.head)?' lang="syr"':''}>${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId, x.html)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : window.GreekAbbreviations?window.GreekAbbreviations.mark(x.html,x.dict):x.html)}</div></div>`;
       }).join('');
       $('#dictOut').scrollTop = 0;
     }

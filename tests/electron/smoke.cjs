@@ -56,7 +56,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
 (async()=>{
  await app.whenReady();app.dock?.hide();session.defaultSession.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*']},(_details,cb)=>cb({cancel:true}));
  const libraryFlows=await require('./library-flows.cjs')({profile,docs,handlers});
- const dictionaryFlows=await require('./dictionary-flows.cjs')({profile});
+ const dictionaryFlows=await require(process.env.SAFRAN_SMOKE_GREEK_ABBR==='1'?'./greek-abbreviations-flows.cjs':'./dictionary-flows.cjs')({profile});
  const researchFlows=await require('./research-flows.cjs')({profile,docs,handlers});
  win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
  const errors=[];win.webContents.on('console-message',event=>{if(event.level==='error'){errors.push(event.message);console.error('Renderer:',event.message)}});
@@ -84,7 +84,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  if(process.env.SAFRAN_SMOKE_SYNTAX==='1'){await require('./syntax-flows.cjs')({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
 
  if(process.env.SAFRAN_SMOKE_QUMRAN_ALL==='1'){await require('./qumran-all-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
- if(process.env.SAFRAN_SMOKE_DICT==='1'){await waitFor('window.OSHB_LEMMAS','Lemmaindex für den isolierten Wörterbuchtest');await dictionaryFlows({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_DICT==='1'||process.env.SAFRAN_SMOKE_GREEK_ABBR==='1'){await waitFor('window.OSHB_LEMMAS','Lemmaindex für den isolierten Wörterbuchtest');await dictionaryFlows({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_WORD_DBL==='1'){await require('./word-double-click-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_VERSE_TOOLS==='1'){await require('./verse-tools-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){await require('./bible-defaults-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
