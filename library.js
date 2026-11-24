@@ -302,6 +302,21 @@
       if (titles.length) prefVer[k] = titles; else delete prefVer[k];
     }
     try { localStorage.setItem('prefVer', JSON.stringify(prefVer)); } catch { /* egal */ }
+    // Manual reader choices become the Tanakh-wide translation preference too.
+    // Do not call this when opening a book with a fallback edition.
+    if(/^Tanakh\//.test(view.group.key||'')){
+      const translation=[...view.selected].map(rel=>view.group.versions.find(v=>v.rel===rel)).find(v=>v?.kind==='de'&&v.versionTitle!=='merged');
+      if(translation){
+        displayUI.rememberBibleTranslation(translation.versionTitle);
+        for(const tab of tabs){
+          if(tab===view||!/^Tanakh\//.test(tab.group?.key||''))continue;
+          const preferred=tab.group.versions.find(v=>v.kind==='de'&&v.versionTitle===translation.versionTitle);
+          if(!preferred)continue;
+          for(const rel of tab.selected)if(tab.group.versions.find(v=>v.rel===rel)?.kind==='de')tab.selected.delete(rel);
+          tab.selected.add(preferred.rel);
+        }
+      }
+    }
   }
   function rememberKinds() {
     if (!view || !view.group) return;

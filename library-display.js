@@ -123,7 +123,15 @@ window.LibraryDisplay = (() => {
     document.addEventListener('click', e => {
       if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
     });
-    return { state: disp, stripHe, mtHtml, taamLayout, apply: applyDisp };
+    function rememberBibleTranslation(title){
+      if(!title||disp.pvDe===title)return;
+      disp.pvDe=title;
+      try{localStorage.removeItem('wcTrSrc');localStorage.removeItem('fmTrSrc');}catch{}
+      if(typeof window.pvClear==='function')window.pvClear();
+      applyDisp(false);
+      if(!$('#dispPanel').hidden)pvDeFill();
+    }
+    return { state: disp, stripHe, mtHtml, taamLayout, apply: applyDisp, rememberBibleTranslation };
   }
   return { create };
 })();
