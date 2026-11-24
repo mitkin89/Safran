@@ -815,6 +815,7 @@ ipcMain.handle('notes:delete', (_e, id) => writeNotes(items => items.filter(x =>
 
 require('./research-ipc').register({
   ipcMain, getLibrary, readLegacyNotes: readNotes,
+  privateInterlinearRead: () => privateInterlinear.read(),
   commentaryLinks: async (book, chap) => {
     let rows = await (await getLinks()).forSection(book, chap);
     rows = await fillCommentaryGaps(book, chap, rows);

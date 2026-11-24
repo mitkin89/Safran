@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto');
-const S=require('./research-store'),R=require('./reader'),C=require('./research-comments'),V=require('./versemap'),cfg=require('./bundled/versification.json'),manifest=require('./interlin-sources');
+const S=require('./research-store'),R=require('./reader'),C=require('./research-comments'),V=require('./versemap'),cfg=require('./bundled/versification.json'),manifest=require('./interlin-sources'),Private=require('./private-interlinear');
 const hash=d=>crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex');
 function groups(words,segs){
  const parent=words.map((_,i)=>i),find=i=>parent[i]===i?i:parent[i]=find(parent[i]);
@@ -9,15 +9,25 @@ function groups(words,segs){
  for(const [ix,t]of segs){if(!ix.length){out.push({index:-1,original:'+',translation:t});continue;}const g=out.find(g=>g.index===find(ix[0]-1));g.parts.push(t);}
  return out.map(g=>({original:g.original,translation:g.parts?g.parts.join(' '):g.translation}));
 }
-async function aligned(book,sourceDoc,targetDoc,rows){
+async function aligned(book,sourceDoc,targetDoc,rows,privateRead=async()=>null){
  const sourceHash=hash(sourceDoc),targetHash=hash(targetDoc);
  const match=Object.entries(manifest).find(([,books])=>{const p=books[book];return p&&((p.he.versionTitle===sourceDoc.versionTitle&&p.he.textHash===sourceHash&&p.translation.versionTitle===targetDoc.versionTitle&&p.translation.textHash===targetHash)||(p.he.versionTitle===targetDoc.versionTitle&&p.he.textHash===targetHash&&p.translation.versionTitle===sourceDoc.versionTitle&&p.translation.textHash===sourceHash));});
- if(!match)throw Error('Für diese Ausgaben und Textstände ist keine passende Interlinear-Zuordnung vorhanden. Bitte nebeneinander anzeigen.');
- const raw=await fs.readFile(path.join(__dirname,'interlin',book.replace(/ /g,'_')+'.js'),'utf8'),marker='window.INTERLIN_PARTS['+JSON.stringify(book)+']=';
- const start=raw.indexOf(marker);if(start<0)throw Error('Interlinear-Daten fehlen.');const data=JSON.parse(raw.slice(start+marker.length).trim().replace(/;$/,''))[match[0]],he=match[1][book].he.versionTitle===sourceDoc.versionTitle?sourceDoc:targetDoc;
- return rows.map(row=>{const [ch,v]=row.key.split(':').map(Number),html=he.text[ch-1]?.[v-1],segs=data?.[row.key];if(typeof html!=='string'||!segs)throw Error('Für '+row.key+' fehlt die Wortzuordnung.');const tokens=[...html.matchAll(/<span class="w"[^>]*>([\s\S]*?)<\/span>/g)];const words=tokens.map((m,i)=>(i===0?S.plain(html.slice(0,m.index)):'')+S.plain(m[1])+S.plain(html.slice(m.index+m[0].length,tokens[i+1]?.index??html.length)));if(!words.length)throw Error('Westminster-Wörter fehlen.');return {...row,groups:groups(words,segs)};});
+ let data,he,translation;
+ if(match){
+  const raw=await fs.readFile(path.join(__dirname,'interlin',book.replace(/ /g,'_')+'.js'),'utf8'),marker='window.INTERLIN_PARTS['+JSON.stringify(book)+']=';
+  const start=raw.indexOf(marker);if(start<0)throw Error('Interlinear-Daten fehlen.');data=JSON.parse(raw.slice(start+marker.length).trim().replace(/;$/,''))[match[0]];he=match[1][book].he.versionTitle===sourceDoc.versionTitle?sourceDoc:targetDoc;
+ }else if((Private.VERSION.test(sourceDoc.versionTitle)&&/^Westminster/.test(targetDoc.versionTitle))||(Private.VERSION.test(targetDoc.versionTitle)&&/^Westminster/.test(sourceDoc.versionTitle))){
+  const local=await privateRead();if(local?.error)throw Error(local.error);data=local?.data?.BuberRosenzweig?.[book];he=Private.VERSION.test(sourceDoc.versionTitle)?targetDoc:sourceDoc;translation=he===sourceDoc?targetDoc:sourceDoc;
+  if(!data)throw Error('Für Buber/Rosenzweig fehlen passende lokal importierte Wortzuordnungen für '+book+'.');
+ }else throw Error('Für diese Ausgaben und Textstände ist keine passende Interlinear-Zuordnung vorhanden. Bitte nebeneinander anzeigen.');
+ return rows.map(row=>{const [ch,v]=row.key.split(':').map(Number),html=he.text[ch-1]?.[v-1],segs=data?.[row.key];if(typeof html!=='string'||!segs)throw Error('Für '+row.key+' fehlt die Wortzuordnung.');if(translation&&Private.plain(translation.text[ch-1]?.[v-1]||'')!==segs.map(s=>s[1]).join(' ').replace(/\s+/g,' ').trim())throw Error('Für '+row.key+' passt die private Wortzuordnung nicht zum gewählten Übersetzungstext.');const tokens=[...html.matchAll(/<span class="w"[^>]*>([\s\S]*?)<\/span>/g)];const words=tokens.map((m,i)=>(i===0?S.plain(html.slice(0,m.index)):'')+S.plain(m[1])+S.plain(html.slice(m.index+m[0].length,tokens[i+1]?.index??html.length)));if(!words.length)throw Error('Westminster-Wörter fehlen.');return {...row,groups:groups(words,segs)};});
 }
-async function prepare({source,rel,mode,sourceSize,translationSize},rich){
+async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,privateRead=async()=>null){
+ if(rels!==undefined){
+  if(!Array.isArray(rels)||!rels.length||rels.length>8||new Set(rels).size!==rels.length)throw Error('Bitte 1 bis 8 unterschiedliche Übersetzungen auswählen.');
+  const pairs=[];for(const selected of rels)pairs.push(await prepare({source,rel:selected,mode,sourceSize,translationSize},rich,privateRead));
+  return {...pairs[0],...(pairs.length>1?{additional:pairs.slice(1)}:{})};
+ }
  const sizes=require('./research-layout').pairSizes({sourceSize,translationSize});
  if(!['parallel','interlinear'].includes(mode))throw Error('Ungültige Übersetzungsanzeige.');
  if(source.type!=='source'||!source.reference?.rel||source.reference.rel===rel)throw Error('Bitte eine andere Ausgabe auswählen.');
@@ -49,7 +59,7 @@ async function prepare({source,rel,mode,sourceSize,translationSize},rich){
  // Keep every mapped native location, including chapter shifts, in the paired snapshot.
  const references=plans.map(req=>S.capture(b.doc,b.entry,req,b.doc.textHash).reference);
  companion.citation.locator=[...new Set(references.map(r=>r.citation.locator))].join('; ');companion.reference.citation=companion.citation;
- return {...sizes,mode,companion,rows:mode==='interlinear'?await aligned(book,a.doc,b.doc,rows):rows,references};
+ return {...sizes,mode,companion,rows:mode==='interlinear'?await aligned(book,a.doc,b.doc,rows,privateRead):rows,references};
 }
 async function editionPreview({source,rel},rich){
  if(source?.type!=='source'||!source.reference?.rel)throw Error('Quellenverknüpfung fehlt.');

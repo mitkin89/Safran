@@ -10,6 +10,8 @@
  function locator(value){
   const raw=str(value);if(!raw)return '';
   const parts=raw.split(/\s*;\s*/),groups=new Map();
+  const nodeParts=parts.map(p=>/^([^;·]+?)\s*·\s*(\d+[ab]?(?::\d+)+)$/.exec(p));
+  if(nodeParts.every(Boolean)){const nodes=new Map();for(const m of nodeParts){const node=m[1].trim();if(!nodes.has(node))nodes.set(node,[]);nodes.get(node).push(m[2]);}return [...nodes].map(([node,locs])=>node+' '+locator(locs.join('; '))).join('; ');}
   if(parts.every(p=>/^\d+[ab]?(?::\d+)+$/.test(p))){for(const p of parts){const xs=p.split(':'),last=xs.pop(),prefix=xs.join(':');if(!groups.has(prefix))groups.set(prefix,[]);if(!groups.get(prefix).includes(last))groups.get(prefix).push(last);}return [...groups].map(([prefix,xs])=>prefix+':'+ranges(xs)).join('; ');}
   for(const part of parts){
    const m=/^((?:Kapitel|Chapter|Daf|Folio)\s+\d+[ab]?)(?:\s*›\s*(?:Vers|Verse|Zeile|Line|Kommentar|Comment|Mischna|Mishnah)\s+\d+)*\s*(?:·\s*(.*))?$/i.exec(part);
@@ -20,7 +22,7 @@
   }
   return [...groups.values()].map(g=>g.heads[0]+(g.heads.length>1?','+g.heads.slice(1).join(':'):'')+(g.labels.length?(g.heads.length>1?':':', ')+ranges(g.labels):'')).join('; ');
  }
- function section(c={}){const raw=str(c.locator),m=/^(?:(?:Kapitel|Chapter|Daf|Folio)\s+)?(\d+[ab]?)(?=[: ,;·›]|$)/i.exec(raw);return m?m[1]:locator(raw);}
+ function section(c={}){const raw=str(c.locator),node=/^([^;·]+?)\s*·\s*(\d+[ab]?)(?=:)/.exec(raw);if(node)return node[1].trim()+' '+node[2];const m=/^(?:(?:Kapitel|Chapter|Daf|Folio)\s+)?(\d+[ab]?)(?=[: ,;·›]|$)/i.exec(raw);return m?m[1]:locator(raw);}
  function edition(c={}){
   const text=str(c.edition),year=str(c.year);
   if(text==='merged')return 'Standardtext'+(/^(he|Hebrew)$/i.test(c.language)?' (Hebräisch)':/^(en|English)$/i.test(c.language)?' (Englisch)':'');

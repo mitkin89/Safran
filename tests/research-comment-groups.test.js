@@ -7,6 +7,7 @@ test('compact citations keep native gaps, nested positions and unfamiliar locato
  assert.equal(C.locator('Kapitel 1 · 2; Kapitel 1 · 3'),'1, 2–3');
  assert.equal(C.locator('Kapitel 1 › Vers 2 · 1, 2'),'1,2:1–2');
  assert.equal(C.locator('12a:1:1; 12a:1:2; 12a:10:1'),'12a:1:1–2; 12a:10:1');
+ assert.equal(C.locator('Deuteronomy · 1:1; Deuteronomy · 1:6; Deuteronomy · 1:9'),'Deuteronomy 1:1, 6, 9');assert.equal(C.section({locator:'Deuteronomy · 1:1; Deuteronomy · 1:6'}),'Deuteronomy 1');
  assert.equal(C.locator('Beilage A, Blatt iv'),'Beilage A, Blatt iv');
  const c={work:'Bava Batra',locator:'Daf 12a · 1, 2, 3',edition:'Talmud Bavli. German trans. by Lazarus Goldschmidt, 1929 [de]',url:'https://example.org/full'};
  assert.equal(C.heading(c),'Goldschmidt (1929) · Bava Batra 12a, 1–3');assert(!C.compact(c).includes('https:'));assert(C.full(c).includes(c.url));assert(C.full(c).includes(c.edition));assert.equal(C.edition({edition:'Unknown complete edition'}),'Unknown complete edition');
@@ -26,7 +27,7 @@ test('moving a whole commentary group preserves every snapshot and validates bef
 });
 test('exports group headings and bibliography without altering individual stored sources',()=>{
  const blocks=[block('a'),block('b',1,2),block('c',10)],sheet={title:'Test',blocks,layout:{template:'classic',pageMargin:6,orientation:'landscape'}},before=JSON.stringify(sheet),model=E.documentModel(sheet),html=E.html(sheet);
- assert.equal(model.bibliography.length,1);assert.match(model.bibliography[0],/12a:1:1–2; 12a:10:1/);assert.equal((html.match(/<h2>Rashi on Bava Batra<\/h2>/g)||[]).length,1);assert.equal((html.match(/class="comment-fragment"/g)||[]).length,3);assert.match(html,/@page\{size:A4 landscape;margin:6mm/);assert.match(html,/width:285mm/);assert.equal(JSON.stringify(sheet),before);
+ assert.equal(model.bibliography.length,1);assert.match(model.bibliography[0],/12a:1:1–2; 12a:10:1/);assert.equal((html.match(/<h2>Rashi on Bava Batra<\/h2>/g)||[]).length,1);assert.equal((html.match(/class="comment-fragment"/g)||[]).length,3);assert.match(html,/<h2>Rashi on Bava Batra<\/h2><p class="citation">Standardtext \(Hebräisch\)<\/p>/);assert.match(html,/@page\{size:A4 landscape;margin:6mm/);assert.match(html,/width:285mm/);assert.equal(JSON.stringify(sheet),before);
  assert.equal(E.documentModel({...sheet,blocks:[blocks[0],block('en',1,1,{citation:{...blocks[0].citation,language:'English'}})]}).bibliography.length,2);
  assert.equal(L.layout({pageMargin:100}).pageMargin,25);assert.equal(L.layout({pageMargin:0}).pageMargin,6);
 });

@@ -2,7 +2,7 @@
 const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto');
 const S=require('./research-store'),E=require('./research-export'),R=require('./reader'),LK=require('./links');
 const Sources=require('./research-sources'),{SearchJobs,ownerOf,runSearchWorker}=require('./search-jobs');
-function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,BrowserWindow,winOf,tempDir,commentaryLinks=async()=>[],broadcast=()=>{}}){
+function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,BrowserWindow,winOf,tempDir,commentaryLinks=async()=>[],privateInterlinearRead=async()=>null,broadcast=()=>{}}){
  let current;const sourceJobs=new SearchJobs();
  async function store(){const lib=await getLibrary();if(!current||current.dir!==lib.dir)current={dir:lib.dir,store:new S.ResearchStore(lib.dir)};return current.store;}
  async function state(){const data=await(await store()).read();try{return {...data,legacyNotes:(await readLegacyNotes()).map(n=>({...n,refs:S.legacyRefs(n)}))};}catch(e){return {...data,legacyNotes:[],legacyError:e.message};}}
@@ -31,8 +31,14 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
  ipcMain.handle('research:capture',(_e,request)=>captured(request));
  ipcMain.handle('research:workEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel);return Sources.editions(Object.values((await getLibrary()).index.entries),entry.title);});
  ipcMain.handle('research:sourceEditionPreview',(_e,request)=>require('./research-translations').editionPreview(request,rich));
- ipcMain.handle('research:translationEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel);return Sources.editions(Object.values((await getLibrary()).index.entries),entry.title).filter(e=>e.rel!==entry.rel);});
- ipcMain.handle('research:translationPreview',(_e,request)=>require('./research-translations').prepare(request,rich));
+ ipcMain.handle('research:translationEditions',async(_e,reference)=>{
+  const {entry}=await rich(reference.rel),editions=Sources.editions(Object.values((await getLibrary()).index.entries),entry.title).filter(e=>e.rel!==entry.rel);
+  if(editions.some(e=>require('./private-interlinear').VERSION.test(e.versionTitle))||require('./private-interlinear').VERSION.test(entry.versionTitle||'')){
+   const local=await privateInterlinearRead(),verses=local?.data?.BuberRosenzweig?.[entry.title];
+   if(verses&&reference.sectionPath?.length===1&&reference.labels?.length&&reference.labels.every(v=>verses[(reference.sectionPath[0]+1)+':'+v]))for(const e of editions)if(require('./private-interlinear').VERSION.test(e.versionTitle)||/^Westminster/.test(e.versionTitle))e.interlinear=true;
+  }return editions;
+ });
+ ipcMain.handle('research:translationPreview',(_e,request)=>require('./research-translations').prepare(request,rich,privateInterlinearRead));
  ipcMain.handle('research:suggestWorks',async(_e,query)=>Sources.suggest(query,Object.values((await getLibrary()).index.entries)));
  ipcMain.handle('research:sourceEditions',async(_e,query)=>{
   const lib=await getLibrary(),entries=Object.values(lib.index.entries),ref=Sources.parse(query,entries);
@@ -68,17 +74,19 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   return S.block({type:'source',title:doc.title,text:body,originalText:body,citation:c,reference:{label:ref,rel:entry.rel,sectionPath:loc?.path||prefix,labels:loc?.label?[loc.label]:[],citation:c,quote:body},sourceHash:doc.textHash||crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex'),capturedAt:new Date().toISOString()});
  }
  ipcMain.handle('research:captureCommentary',(_e,request)=>commentaryCapture(request));
- ipcMain.handle('research:relatedComments',async(_e,reference)=>{
+ ipcMain.handle('research:relatedComments',async(_e,reference,options={})=>{
+  const query=String(options.query||'').trim().toLowerCase(),language=String(options.language||'');if(query.length>200||language.length>100)throw Error('Bitte einen kurzen Kommentarfilter eingeben.');
   const {doc,entry}=await rich(reference.rel),C=require('./research-comments'),where=C.targets(doc,entry,reference),refs=new Set();
   for(const section of where.sections){const links=await commentaryLinks(where.book,section.chapter);for(const l of links)if(C.overlaps(l,section.verses))refs.add(l.other);}
-  const lib=await getLibrary(),entries=Object.values(lib.index.entries),items=[],cache=new Map();let limited=false,unavailable=0;
+  const resultLimit=query||language?2000:200;
+  const lib=await getLibrary(),entries=Object.values(lib.index.entries),items=[],available=[],cache=new Map();let limited=false,unavailable=0;
   for(const ref of refs){const book=LK.splitRef(ref).book,candidates=entries.filter(e=>e.title===book||book.startsWith(e.title+', '));
    const exact=candidates.filter(e=>e.title===book),picked=exact.length?exact:candidates.filter(e=>e.title.length===Math.max(...candidates.map(e=>e.title.length)));
    if(!picked.length){unavailable++;continue;}
-   for(const e of picked){if(items.length>=200){limited=true;break;}try{const block=await commentaryCapture({ref,rel:e.rel},cache);items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,block});}catch(err){items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,error:err.message});}}
-   if(limited)break;
+   for(const e of picked)available.push({ref,e});
   }
-  return {items,limited,unavailable,warnings:where.warnings};
+  for(const {ref,e}of available){if(language&&e.language!==language||query&&![ref,e.title,e.versionTitle].join(' ').toLowerCase().includes(query))continue;if(items.length>=resultLimit){limited=true;break;}try{const block=await commentaryCapture({ref,rel:e.rel},cache);items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,block});}catch(err){items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,error:err.message});}}
+  return {items,limited,limit:resultLimit,unavailable,languages:[...new Set(available.map(x=>x.e.language).filter(Boolean))].sort(),warnings:where.warnings};
  });
 
 

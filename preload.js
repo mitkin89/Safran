@@ -141,7 +141,7 @@ contextBridge.exposeInMainWorld('research', {
   sourceEditionPreview: request => ipcRenderer.invoke('research:sourceEditionPreview', request),
   translationEditions: reference => ipcRenderer.invoke('research:translationEditions', reference),
   translationPreview: request => ipcRenderer.invoke('research:translationPreview', request),
-  relatedComments: reference => ipcRenderer.invoke('research:relatedComments', reference),
+  relatedComments: (reference,options) => ipcRenderer.invoke('research:relatedComments', reference,options),
   suggestWorks: query => ipcRenderer.invoke('research:suggestWorks', query),
   sourceEditions: query => ipcRenderer.invoke('research:sourceEditions', query),
   sourcePreview: request => ipcRenderer.invoke('research:sourcePreview', request),

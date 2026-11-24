@@ -8,8 +8,8 @@ function documentModel(sheet,notes=[]){
  const sources=[],byCite=new Map();
  const register=c=>{if(!c||!Object.values(c).some(Boolean))return null;const key=Cite.identity(c);if(!byCite.has(key)){byCite.set(key,sources.length);sources.push({...c,locations:[]});}const i=byCite.get(key);if(c.locator&&!sources[i].locations.includes(c.locator))sources[i].locations.push(c.locator);return i+1;};
  const blocks=resolveBlocks(sheet,notes).map(b=>{
-  const number=b.type==='source'?register(b.citation):null,companionNumber=b.presentation?register(b.presentation.companion.citation):null;
-  return {...b,citationText:number?Cite.compact(b.citation):'',citationNumber:number,companionCitationNumber:companionNumber,companionCitationText:companionNumber?Cite.compact(b.presentation.companion.citation):'',edited:b.type==='source'&&b.text!==b.originalText};
+  const number=b.type==='source'?register(b.citation):null,companionNumbers=b.presentation?[b.presentation,...(b.presentation.additional||[])].map(p=>register(p.companion.citation)):[],companionNumber=companionNumbers[0]||null;
+  return {...b,companionCitations:b.presentation?[b.presentation,...(b.presentation.additional||[])].map((p,i)=>({number:companionNumbers[i],text:Cite.compact(p.companion.citation)})):[],citationText:number?Cite.compact(b.citation):'',citationNumber:number,companionCitationNumber:companionNumber,companionCitationText:companionNumber?Cite.compact(b.presentation.companion.citation):'',edited:b.type==='source'&&b.text!==b.originalText};
  });
  const citations=sources.map(c=>({...c,locator:c.locations.join('; ')}));
  return {title:sheet.title,description:sheet.description||'',blocks,bibliography:citations.map(Cite.compact),bibliographyDetails:citations.map(Cite.full),layout:L.layout(sheet.layout)};
@@ -17,11 +17,11 @@ function documentModel(sheet,notes=[]){
 function html(sheet,notes=[]){
  const d=documentModel(sheet,notes),l=d.layout,classic=l.template==='classic',para=s=>esc(s).replace(/\n/g,'<br>');
  const render=b=>{
-  if(b.bundle){const xs=b.bundle,c={...xs[0].citation,locator:xs.map(x=>x.citation.locator).join('; ')};return '<section class="block comment-bundle"><h2>'+esc(c.work)+'</h2><p class="citation">'+esc(Cite.heading({...c,locator:Cite.section(c)}))+'</p>'+xs.map(x=>'<div class="comment-fragment"><small>'+esc(Cite.locator(x.citation.locator))+'</small><blockquote dir="auto">'+para(x.text)+'</blockquote>'+(x.edited?'<small>Bearbeiteter Auszug</small>':'')+'</div>').join('')+'<p class="citation">['+xs[0].citationNumber+'] '+esc(Cite.location(c))+'</p></section>';}
+  if(b.bundle){const xs=b.bundle,c={...xs[0].citation,locator:xs.map(x=>x.citation.locator).join('; ')};return '<section class="block comment-bundle"><h2>'+esc(c.work)+'</h2><p class="citation">'+esc(Cite.edition(c))+'</p>'+xs.map(x=>'<div class="comment-fragment"><small>'+esc(Cite.locator(x.citation.locator))+'</small><blockquote dir="auto">'+para(x.text)+'</blockquote>'+(x.edited?'<small>Bearbeiteter Auszug</small>':'')+'</div>').join('')+'<p class="citation">['+xs[0].citationNumber+'] '+esc(Cite.location(c))+'</p></section>';}
   if(b.type==='heading')return '<h2 dir="auto">'+para(b.text||b.title)+'</h2>';
   return '<section class="block '+b.type+'">'+(b.title?'<h2 dir="auto">'+esc(b.title)+'</h2>':'')+
    (b.presentation?Presentation.html(b,esc):b.type==='source'?'<blockquote dir="auto">'+para(b.text)+'</blockquote>':'<p dir="auto">'+para(b.text)+'</p>')+
-   (b.companionCitationText?'<p class="citation">['+b.companionCitationNumber+'] '+esc(b.companionCitationText)+'</p>':'')+(b.edited?'<p class="status">Bearbeiteter Auszug</p>':'')+(b.citationText?'<p class="citation">['+b.citationNumber+'] '+esc(classic?Cite.location(b.citation):b.citationText)+'</p>':'')+
+   b.companionCitations.map(c=>'<p class="citation">['+c.number+'] '+esc(c.text)+'</p>').join('')+(b.edited?'<p class="status">Bearbeiteter Auszug</p>':'')+(b.citationText?'<p class="citation">['+b.citationNumber+'] '+esc(classic?Cite.location(b.citation):b.citationText)+'</p>':'')+
    (b.noteSnapshot?.refs?.length?'<ul class="references">'+b.noteSnapshot.refs.map(r=>'<li>'+esc(r.label)+(r.citation?.edition?' — '+esc(r.citation.edition):'')+'</li>').join('')+'</ul>':'')+'</section>';
  };
  const g=L.group(d.blocks);
@@ -47,6 +47,12 @@ function docx(sheet,notes=[]){
  let body=(d.layout.showTitle?p(d.title,'Title'):'')+(d.description?p(d.description):'');
  const cell=(content,width)=>'<w:tc><w:tcPr><w:tcW w:w="'+width+'" w:type="pct"/></w:tcPr>'+content+'</w:tc>';
  const paired=(pr,size,width,citation)=>{
+  if(pr.additional?.length){
+   const pairs=[pr,...pr.additional];
+   if(pr.mode==='interlinear')return pairs.map(pair=>paired({...pair,additional:[]},size,width,citation)).join('');
+   const count=pairs.length+1,widths=Array.from({length:count},(_,i)=>Math.floor(5000/count)+(i===count-1?5000%count:0)),headings=[citation,...pairs.map(p=>p.companion.citation)];
+   return '<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>'+widths.map(w=>'<w:gridCol w:w="'+Math.floor(width*w/5000)+'"/>').join('')+'</w:tblGrid><w:tr>'+headings.map((c,i)=>cell(p(Cite.heading(c),'Caption',8),widths[i])).join('')+'</w:tr>'+pr.rows.map((r,i)=>'<w:tr>'+cell(p(r.label+'  '+r.original,'Normal',pr.sourceSize||size),widths[0])+pairs.map((pair,j)=>{const row=pair.rows[i];return cell(p((row?.targetLabel||r.label)+'  '+(!row||row.missing?'[Keine Übersetzung für diese Zeile]':row.translation),'Normal',pair.translationSize||size),widths[j+1]);}).join('')+'</w:tr>').join('')+'</w:tbl>';
+  }
   if(pr.mode==='parallel')return '<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/></w:tblPr><w:tblGrid><w:gridCol w:w="4000"/><w:gridCol w:w="4000"/></w:tblGrid><w:tr>'+cell(p(Cite.heading(citation),'Caption',8),2500)+cell(p(Cite.heading(pr.companion.citation),'Caption',8),2500)+'</w:tr>'+pr.rows.map(r=>'<w:tr>'+cell(p(r.label+'  '+r.original,'Normal',pr.sourceSize||size),2500)+cell(p(r.targetLabel+'  '+(r.missing?'[Keine Übersetzung für diese Zeile]':r.translation),'Normal',pr.translationSize||size),2500)+'</w:tr>').join('')+'</w:tbl>';
   const reverse=/^(?:Hebrew|he)$/i.test(pr.companion.citation.language),originalSize=(reverse?pr.translationSize:pr.sourceSize)||size||16,glossSize=(reverse?pr.sourceSize:pr.translationSize)||(size?size*.7:10);
   const centered=(s,n)=>p(s,'Normal',n).replaceAll('<w:pPr>','<w:pPr><w:jc w:val="center"/><w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/>');
@@ -54,10 +60,10 @@ function docx(sheet,notes=[]){
   return p(Cite.heading(citation)+'\n'+Cite.heading(pr.companion.citation),'Caption',8)+pr.rows.map(r=>p(r.label,'Caption',8)+Array.from({length:Math.ceil(r.groups.length/perRow)},(_,i)=>{const gs=r.groups.slice(i*perRow,i*perRow+perRow);const cw=Math.floor((width-240)/gs.length);return '<w:tbl><w:tblPr><w:tblW w:w="'+(width-240)+'" w:type="dxa"/><w:tblLayout w:type="fixed"/><w:bidiVisual/></w:tblPr><w:tblGrid>'+gs.map(()=>'<w:gridCol w:w="'+cw+'"/>').join('')+'</w:tblGrid><w:tr>'+gs.map(g=>'<w:tc><w:tcPr><w:tcW w:w="'+cw+'" w:type="dxa"/></w:tcPr>'+centered(g.original,originalSize)+centered(g.translation,glossSize)+'</w:tc>').join('')+'</w:tr></w:tbl>'+p('','Normal',1).replaceAll('<w:pPr>','<w:pPr><w:spacing w:after="40" w:line="40" w:lineRule="exact"/>');}).join('')).join('');
  };
  const render=(b,size=null,width=usable)=>{
-  if(b.bundle){const xs=b.bundle,c={...xs[0].citation,locator:xs.map(x=>x.citation.locator).join('; ')};return p(c.work,'Heading2',size)+p(Cite.heading({...c,locator:Cite.section(c)}),'Caption',8)+xs.map(x=>p(Cite.locator(x.citation.locator),'Caption',8)+p(x.text,'Quote',size)+(x.edited?p('Bearbeiteter Auszug','Caption',8):'')).join('')+p('['+xs[0].citationNumber+'] '+Cite.location(c),'Caption',8);}
+  if(b.bundle){const xs=b.bundle,c={...xs[0].citation,locator:xs.map(x=>x.citation.locator).join('; ')};return p(c.work,'Heading2',size)+p(Cite.edition(c),'Caption',8)+xs.map(x=>p(Cite.locator(x.citation.locator),'Caption',8)+p(x.text,'Quote',size)+(x.edited?p('Bearbeiteter Auszug','Caption',8):'')).join('')+p('['+xs[0].citationNumber+'] '+Cite.location(c),'Caption',8);}
   if(b.type==='heading')return p(b.text||b.title,'Heading1',size);
   let out=b.title?p(b.title,'Heading2',size):'';
-  if(b.presentation){out+=paired(b.presentation,size,width,b.citation);if(b.companionCitationText)out+=p('['+b.companionCitationNumber+'] '+b.companionCitationText,'Caption',8);}
+  if(b.presentation){out+=paired(b.presentation,size,width,b.citation);for(const c of b.companionCitations)out+=p('['+c.number+'] '+c.text,'Caption',8);}
   else out+=p(b.text,b.type==='source'?'Quote':'Normal',size);
   if(b.edited)out+=p('Bearbeiteter Auszug','Caption',8);
   if(b.citationText)out+=p('['+b.citationNumber+'] '+(d.layout.template==='classic'?Cite.location(b.citation):b.citationText),'Caption',d.layout.template==='classic'?8:null);
