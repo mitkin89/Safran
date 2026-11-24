@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
+from projection import load as load_projection, project as project_words
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = '47db250bd55d0d8577f2a94fba114ef16c35b23c'
@@ -156,28 +157,28 @@ def build(book, code, chapters, book_number, source_dir):
                 ambiguous.add((c, v))
 
     doc = json.loads((ROOT / 'bundled' / 'own' / book / 'he' / f'{VERSION}.json').read_text(encoding='utf-8'))
-    alignments = {}
-    for (c, v), words in verses.items():
-        if (c, v) in ambiguous or not (1 <= c <= len(doc['text'])) or not (1 <= v <= len(doc['text'][c - 1])):
+    proof_data, proof, target_tokens, target_signatures = load_projection(book, doc, SPAN)
+    source_rows = []
+    for (c,v), words in sorted(verses.items()):
+        if (c,v) in ambiguous:
             continue
-        expected = {n: ''.join(segment for _, segment in sorted(words[n].items())) for n in sorted(words)}
-        actual = [letters(m) for m in SPAN.findall(doc['text'][c - 1][v - 1])]
-        mapping = align(expected, actual)
-        if mapping:
-            alignments[c, v] = (mapping, ' '.join(actual))
-
-    signatures = {}
+        source_rows.append((verse_key(c,v), [((c,v,n), ''.join(segment for _,segment in sorted(words[n].items()))) for n in sorted(words)]))
+    projected, verified_refs = project_words(source_rows, target_tokens, proof, 'qere')
+    signatures = dict(target_signatures)
+    remapped = set()
+    for (c,v,n), locs in projected.items():
+        if any(ref != verse_key(c,v) for ref,_ in locs):
+            remapped.add(verse_key(c,v))
 
     def locations(refs):
         grouped = defaultdict(set)
-        for c, v, n in refs:
-            mapping, signature = alignments.get((c, v), ({}, ''))
-            if n not in mapping:
+        for key in refs:
+            locs = projected.get(key)
+            if not locs:
                 return []
-            key = verse_key(c, v)
-            signatures[key] = signature
-            grouped[key].update(mapping[n])
-        return [[key, sorted(indices)] for key, indices in grouped.items()]
+            for ref,indices in locs:
+                grouped[ref].update(indices)
+        return [[ref, sorted(indices)] for ref,indices in grouped.items()]
 
     # Additional source constituents are anchored to each predicate, without
     # changing the established subject/object record format.
@@ -316,8 +317,9 @@ def build(book, code, chapters, book_number, source_dir):
 
     payload = dict(version=2, source=SOURCE, text=signatures, pairs=unique(grouped_pairs), roles=unique(grouped_roles), constituents=unique(constituents),
                    identities=unique(identities), nominals=unique(nominals),
-                   coverage=dict(sourceVerses=len(verses), alignedVerses=len(alignments),
-                                 unalignedVerses=len(verses)-len(alignments), sourceClauses=len(clauses)))
+                   coverage=dict(sourceVerses=len(verses), alignedVerses=len(verified_refs),
+                                 unalignedVerses=len(verses)-len(verified_refs), targetVerses=len(target_signatures), remappedSourceVerses=len(remapped), variantVerses=len({target_tokens[i][0] for i,_,_ in proof['variants']}), sourceClauses=len(clauses)),
+                   alignment=dict(basis='qere', revision=proof_data['source']['revision'], variants=[[target_tokens[i][0],target_tokens[i][1],kind,identifier] for i,kind,identifier in proof['variants']]))
     destination = ROOT / 'bundled' / 'syntax' / f'{book}.json'
     # One line per verse makes index changes easier to review.
     content = '{\n' + ',\n'.join(
@@ -331,13 +333,12 @@ def build(book, code, chapters, book_number, source_dir):
     def tree_node(node):
         if node.tag == 'w':
             c, v, ordinal = word_ref(node)
-            mapping, signature = alignments.get((c, v), ({}, ''))
-            ref = verse_key(c, v)
-            ids = list(mapping.get(ordinal, ()))
-            if signature:
-                tree_text[ref] = signature
+            locs = locations([(c,v,ordinal)])
+            ref, ids = locs[0] if len(locs)==1 else (verse_key(c,v), [])
+            for r,_ in locs:
+                tree_text[r] = target_signatures[r]
             return dict(kind='word', role=node.get('role', ''), form=node.text or '',
-                        lemma=letters(node.get('lemma', '')), ref=ref, indices=ids)
+                        lemma=letters(node.get('lemma', '')), ref=ref, sourceRef=verse_key(c,v), indices=ids)
         return dict(kind=node.get('class', 'sentence'), role=node.get('role', ''),
                     rule=node.get('rule', ''), children=[tree_node(n) for n in node if n.tag in {'w', 'wg'}])
     trees, by_ref = [], defaultdict(list)
@@ -345,7 +346,7 @@ def build(book, code, chapters, book_number, source_dir):
         nodes = [tree_node(n) for n in sentence if n.tag == 'wg']
         if not nodes:
             continue
-        refs = sorted({verse_key(c,v) for c,v,_ in word_refs(sentence)})
+        refs = sorted({ref for key in word_refs(sentence) for ref,_ in projected.get(key,[])})
         idx = len(trees)
         trees.append(dict(id=sentence.get('id', ''), children=nodes))
         for ref in refs:
@@ -355,7 +356,7 @@ def build(book, code, chapters, book_number, source_dir):
     tree_payload = dict(version=1, source=SOURCE, text=tree_text, trees=trees, byRef=dict(by_ref))
     (tree_dir / f'{book}.json.gz').write_bytes(gzip.compress(encode(tree_payload).encode('utf-8'), mtime=0))
     usable = sum(map(len, payload['pairs'].values()))
-    print(f'{book}: {len(alignments)}/{len(verses)} verses aligned, {usable} predicate records; '
+    print(f'{book}: {len(verified_refs)}/{len(verses)} verses aligned, {usable} predicate records; '
           f'SHA-256 {hashlib.sha256(content.encode()).hexdigest()}', flush=True)
 
 

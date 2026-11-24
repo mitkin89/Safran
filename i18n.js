@@ -14,6 +14,13 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Lesebasis": "Reading basis",
+    "Verse im Lesetext": "Verses in the reading text",
+    "Quellzählung": "Source numbering",
+    "Nicht zugeordnete BHSA-Stellen": "Unaligned BHSA passages",
+    "Unterschiedliche Konsonantenfolge": "Different consonant sequence",
+    "MACULA folgt dem Qere, BHSA dem Ketiv. Beide Lesungen bleiben getrennt; ihre Wortpositionen werden nicht gleichgesetzt. Abweichende Versgrenzen werden auf die Zählung des Lesetexts abgebildet.": "MACULA follows Qere, BHSA follows Ketiv. The readings remain separate; their word positions are not equated. Different verse boundaries are projected onto reading-text numbering.",
+
     "Ohne Suchkontext": "Without search context",
     "Abgeglichene MACULA-Quellverse sind noch keine vollständig auswertbaren Suchkontexte; zusätzlich werden BHSA und die abgefragten Merkmale geprüft.": "Aligned MACULA source verses are not necessarily fully evaluable search contexts; BHSA alignment and the requested features are checked as well.",
     "MACULA-Quellverse": "MACULA source verses",

@@ -132,49 +132,46 @@ function build(dir) {
   const result = Object.fromEntries([...books.keys()].map(book => [book, {}]));
   const verseBySlot = new Uint32Array(wordForms.length), slotParts = [];
   let aligned = 0;
-  for (const [id, verse] of verses) {
-    const book = BOOKS[verse.book];
-    if (!books.has(book)) throw new Error('Unbekanntes BHSA-Buch: ' + verse.book);
-    const ref = verse.chapter + ':' + verse.verse;
-    const sourceSlots = [...slots(verse.slots)];
-    for (const slot of sourceSlots) verseBySlot[slot] = id;
-    verse.book = book;
-    verse.ref = ref;
-    const html = books.get(book)[Number(verse.chapter) - 1]?.[Number(verse.verse) - 1];
-    if (typeof html !== 'string') continue;
-    const words = [...html.matchAll(SPAN)].map(match => letters(match[1]));
-    const positions = alignVerse(sourceSlots, wordForms, words);
-    if (!positions) continue;
-    verse.lengths = words.map(word => word.length);
-    result[book][ref] = [words.join(' '), []];
-    sourceSlots.forEach((slot, i) => { slotParts[slot] = positions[i]; });
-    aligned++;
+  const byBook = new Map(), targetLengths=new Map();
+  for(const [id,verse]of verses){
+    const book=BOOKS[verse.book];if(!books.has(book))throw Error('Unknown BHSA book: '+verse.book);
+    verse.book=book;verse.ref=verse.chapter+':'+verse.verse;
+    const sourceSlots=[...slots(verse.slots)];for(const slot of sourceSlots)verseBySlot[slot]=id;
+    if(!byBook.has(book))byBook.set(book,[]);
+    byBook.get(book).push({ref:verse.ref,words:sourceSlots.map(key=>({key,form:wordForms[key]}))});
+  }
+  let projectionRevision;const rejectedAlignments=[];
+  for(const [book,rows]of byBook){
+    const P=require('./projection'),{data,proof,tokens}=P.load(book,books.get(book)),{mapping,verified,rejected}=P.project(rows,tokens,proof,'ketiv');
+    projectionRevision=data.source.revision;aligned+=verified.size;rejectedAlignments.push(...rejected.map(r=>({book,...r})));
+    const formsByRef=new Map();for(const t of tokens){if(!formsByRef.has(t.ref))formsByRef.set(t.ref,[]);formsByRef.get(t.ref).push(t.form);}
+    for(const [slot,parts]of mapping){slotParts[slot]=parts;for(const [ref]of parts)if(!result[book][ref]){
+      const words=formsByRef.get(ref);result[book][ref]=[words.join(' '),[]];targetLengths.set(book+'|'+ref,words.map(w=>w.length));
+    }}
   }
 
   for (const [id, clause] of clauses) {
     if (!/^[?NDQ]+$/.test(clause.txt || '')) continue;
     const byVerse = new Map();
     for (const slot of slots(clause.slots)) {
-      const verseId = verseBySlot[slot];
-      if (!slotParts[slot]) continue;
-      const counts = byVerse.get(verseId) || new Map();
-      for (const [i, length] of slotParts[slot]) counts.set(i, (counts.get(i) || 0) + length);
-      byVerse.set(verseId, counts);
+      const sourceVerse=verses.get(verseBySlot[slot]);
+      for(const [ref,i,length]of slotParts[slot]||[]){const key=sourceVerse.book+'|'+ref,counts=byVerse.get(key)||new Map();counts.set(i,(counts.get(i)||0)+length);byVerse.set(key,counts);}
     }
     // A resumption may point to a clause, phrase, or word node.
     const mother = clause.relation === 'Resu' && /^\d+$/.test(clause.mother || '') ? Number(clause.mother) : 0;
     const parentSlot = mother && (mother < wordForms.length ? mother : firstSlot[mother]);
-    const parent = parentSlot && verses.get(verseBySlot[parentSlot]);
-    for (const [verseId, counts] of byVerse) {
-      const verse = verses.get(verseId);
-      const positions = [...counts].filter(([i, count]) => count === verse.lengths[i]).map(([i]) => i);
+    const parentSource=parentSlot&&verses.get(verseBySlot[parentSlot]),parentRef=parentSlot&&slotParts[parentSlot]?.[0]?.[0];
+    const parent=parentRef?{book:parentSource.book,ref:parentRef}:null;
+    for (const [key, counts] of byVerse) {
+      const [book,ref]=key.split('|'),verse={book,ref};
+      const positions=[...counts].filter(([i,count])=>count===targetLengths.get(key)[i]).map(([i])=>i);
       if (!positions.length) continue;
       result[verse.book][verse.ref][1].push([id, clause.txt, clause.relation === 'Resu',
         parent ? [parent.book, parent.ref] : null, positions, clause.relation || 'NA',
         clause.motherClause || null,clause.kind||null,clause.type||null]);
     }
   }
-  return { version: source.format, revision: source.revision, patternVersion: 1, clauseFeatures: ['kind','typ'], clauseParents: Object.fromEntries([...clauses].map(([id,c])=>[id,c.motherClause||null])), aligned, total: verses.size, books: result };
+  return { version: source.format, revision: source.revision, patternVersion: 1, clauseFeatures: ['kind','typ'], clauseParents: Object.fromEntries([...clauses].map(([id,c])=>[id,c.motherClause||null])), alignment:{basis:'ketiv',revision:projectionRevision,rejected:rejectedAlignments}, targetAligned:Object.values(result).reduce((n,b)=>n+Object.keys(b).length,0), aligned, total: verses.size, books: result };
 }
 
 if (require.main === module) {
@@ -186,4 +183,4 @@ if (require.main === module) {
   console.log(`${Object.keys(index.books).length} books, ${index.aligned}/${index.total} verses aligned`);
 }
 
-module.exports = { build, alignVerse };
+module.exports = { build, alignVerse, records, slots, BOOKS, letters, SPAN };

@@ -2574,3 +2574,4 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .sxCoverage table { border-collapse: collapse; }
 .sxCoverage th, .sxCoverage td { border: 1px solid var(--line); padding: 5px 9px; text-align: start; }
 .sxSourceTree .pvhl { background: color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px var(--accent); font-weight: 700; }
+.sxCoverage li bdi { overflow-wrap: anywhere; white-space: normal; }
