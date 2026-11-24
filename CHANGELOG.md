@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- Add an optional left study area beside the existing right sidebar. Keep different tools open independently, with separate tab history, pins, close actions and saved widths/floating geometry; switch between preserved areas in narrow windows.
+
 - Masora: flacher Apparat mit einmaligem Bezugswort, direkt sichtbarem Originaltext samt Belegstellen und kleinen Aktionen für Erklärung/Quelle; unsichere Seitennotizen nur in der Kapitelansicht.
 
 - Masora: Wortübersicht mit kompakten Notizen, aufklappbaren deutschen Lesehilfen ohne Zeichenauflösung, direkten Belegstellen und Zentrierung des Zielverses.

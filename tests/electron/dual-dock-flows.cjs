@@ -1,0 +1,37 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+module.exports=async({win,js,waitFor,book})=>{
+ win.setSize(1700,1000);await book('Genesis');await waitFor("document.querySelector('#rOut .cell[data-mt] .w')",'Lesetext');
+ await js("if(document.querySelector('#dockTabs').hidden)document.querySelector('#studyBtn').click();document.querySelector('#dockTabs .dock-open-left').click()");
+ await waitFor("!document.querySelector('#leftDockTabs').hidden&&!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictPanel').dataset.studySide==='left'",'Wörterbuch links geöffnet');
+ await js("document.querySelector('#dictQ').value='אב';document.querySelector('#rOut .cell[data-mt] .w').click()");await waitFor("document.querySelector('#wpop .wcard')",'Wortkarte verfügbar');await js("document.querySelector('#wpop .wcard').click()");
+ await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#wcBody .wcSec')&&!document.querySelector('#dictPanel').hidden",'Wortkarte rechts und Wörterbuch links bleiben offen');
+ await js("document.querySelector('#dictQ').value='אב';document.querySelector('#dictGo').click()");await waitFor("document.querySelectorAll('#dictOut .dentry').length===2&&!document.querySelector('#formsPanel').hidden",'Wörterbuchsuche links erhält Wortkarte rechts');
+ assert.equal(await js("document.querySelector('#dictQ').value"),'אב');
+ await waitFor("document.querySelector('#dictPanel').getBoundingClientRect().right<document.querySelector('#formsPanel').getBoundingClientRect().left",'Zwei getrennte Bereiche');
+ await js("document.querySelector('#dockTabs [data-panel=textcrit]').click()");await waitFor("!document.querySelector('#textcritPanel').hidden&&!document.querySelector('#dictPanel').hidden",'Rechter Tabwechsel erhält links');
+ await js("document.querySelector('#leftDockTabs [data-panel=outline]').click()");await waitFor("!document.querySelector('#outlinePanel').hidden&&!document.querySelector('#textcritPanel').hidden&&document.querySelector('#dictPanel').hidden",'Linker Tabwechsel erhält rechts');
+ await js("document.querySelector('#leftDockTabs [data-panel=dict]').click()");await waitFor("!document.querySelector('#dictPanel').hidden&&!document.querySelector('#textcritPanel').hidden",'Wörterbuchzustand wiederhergestellt');assert.equal(await js("document.querySelector('#dictQ').value"),'אב');
+ await js("document.querySelector('#leftDockTabs .dock-back').click()");await waitFor("!document.querySelector('#outlinePanel').hidden&&!document.querySelector('#textcritPanel').hidden",'Eigener linker Verlauf');
+ await js("document.querySelector('#leftDockTabs [data-panel=dict]').click();document.querySelector('#dockTabs .dock-back').click()");await waitFor("!document.querySelector('#dictPanel').hidden&&!document.querySelector('#formsPanel').hidden",'Rechter Verlauf erhält links');
+ await js("document.querySelector('#dockTabs [data-panel=textcrit]').click()");
+ // Pinning and keyboard dismissal affect just the focused study area.
+ await js("document.querySelector('#leftDockTabs .dock-pin').click()");await waitFor("!document.querySelector('#dictPanel').classList.contains('docked')&&document.querySelector('#textcritPanel').classList.contains('docked')",'Nur linke Seite gelöst');
+ await waitFor("document.querySelector('#dictPanel').classList.contains('panel-sized')&&document.querySelector('#dictPanel').getBoundingClientRect().left<innerWidth/2",'Linkes schwebendes Fenster bleibt auf seiner Seite');
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");await waitFor("document.querySelector('#leftDockTabs').hidden&&!document.querySelector('#textcritPanel').hidden",'Escape schließt nur gelösten linken Bereich');
+ await js("document.querySelector('#dockTabs .dock-open-left').click();document.querySelector('#leftDockTabs .dock-pin').click()");await waitFor("document.querySelector('#dictPanel').classList.contains('docked')",'Linke Seite wieder angepinnt');
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");assert(await js("!document.querySelector('#dictPanel').hidden&&!document.querySelector('#textcritPanel').hidden"));
+ const rightWidth=await js("document.querySelector('#textcritPanel').getBoundingClientRect().width"),leftWidth=await js("document.querySelector('#dictPanel').getBoundingClientRect().width");
+ await waitFor("!document.querySelector('.panel-resize-handle[data-panel=dictPanel][data-edge=e]').hidden",'Linker Größenregler');
+ await js("document.querySelector('.panel-resize-handle[data-panel=dictPanel][data-edge=e]').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true,cancelable:true}))");
+ await waitFor(`document.querySelector('#dictPanel').getBoundingClientRect().width>${leftWidth+5}`,'Linke Breite wächst unabhängig');assert.equal(await js("document.querySelector('#textcritPanel').getBoundingClientRect().width"),rightWidth);
+ await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-dual-dock-wide.png',(await win.webContents.capturePage()).toPNG());
+ win.setSize(1000,900);await waitFor("getComputedStyle(document.querySelector('#dockTabs .dock-side-switch')).display!=='none'",'Schmale Ansicht mit Seitenwechsel');
+ await js("document.querySelector('#leftDockTabs .dock-side-switch').click()");await waitFor("getComputedStyle(document.querySelector('#textcritPanel')).visibility!=='hidden'&&getComputedStyle(document.querySelector('#dictPanel')).visibility==='hidden'",'Rechter Bereich im schmalen Fenster');
+ await js("document.querySelector('#dockTabs .dock-side-switch').click()");await waitFor("getComputedStyle(document.querySelector('#dictPanel')).visibility!=='hidden'&&getComputedStyle(document.querySelector('#textcritPanel')).visibility==='hidden'",'Linker Bereich im schmalen Fenster');assert.equal(await js("document.querySelector('#dictQ').value"),'אב');assert(await js("document.querySelector('#rOut').getBoundingClientRect().width>300"));
+ assert(await js("{const b=document.querySelector('#leftDockTabs').getBoundingClientRect();[...document.querySelectorAll('#leftDockTabs .dock-actions button')].filter(e=>getComputedStyle(e).display!=='none').every(e=>{const r=e.getBoundingClientRect();return r.left>=b.left&&r.right<=b.right+1;})}"),'Seitenwechsel, Schließen und Pin bleiben im schmalen Fenster erreichbar');
+ await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-dual-dock-narrow.png',(await win.webContents.capturePage()).toPNG());
+ win.setSize(1700,1000);await js("document.querySelector('#dictClose').click()");await waitFor("document.querySelector('#dictPanel').hidden&&!document.querySelector('#textcritPanel').hidden",'Schließen links erhält rechts');
+ await js("document.querySelector('#dockTabs .dock-open-left').click();document.querySelector('#tcClose').click()");await waitFor("document.querySelector('#textcritPanel').hidden&&!document.querySelector('#dictPanel').hidden&&!document.querySelector('#leftDockTabs').hidden",'Schließen rechts erhält links');
+ console.log('Electron: independent left/right study tools, tab state, pins, Escape, widths and narrow-window switching passed.');
+};

@@ -2415,10 +2415,11 @@
   try { if(localStorage.getItem('stackMode')==='split')stackMode='split'; const h=+localStorage.getItem('stackDictH');if(h>=15&&h<=85)document.documentElement.style.setProperty('--dict-h',h+'%'); } catch {}
   function syncStack() {
     let co = false; try { co = cmtOpen; } catch { /* beim Start noch nicht angelegt */ }
-    const both = !!(co && dictOpen) && document.documentElement.dataset.tab !== 'dict';
+    const both = !!(co && dictOpen) && $('#cmtPanel').dataset.studySide!== 'left' && $('#dictPanel').dataset.studySide!=='left' && document.documentElement.dataset.tab !== 'dict';
     const b = document.body.classList;
     const cw = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cmt-w')) || 400;
-    const wide = window.innerWidth - 2 * cw >= 900; // nur wenn dem Text daneben noch genug Breite bleibt: nebeneinander statt untereinander
+    const leftWidth=document.body.classList.contains('left-dock-open')?(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--left-dock-w'))||360):0;
+    const wide = window.innerWidth - leftWidth - 2 * cw >= 900; // nur wenn dem Text daneben noch genug Breite bleibt: nebeneinander statt untereinander
     b.toggle('stack-tabs', both && stackMode === 'tabs'); b.toggle('stack-split', both && stackMode === 'split' && !wide); b.toggle('stack-side', both && stackMode === 'split' && wide);
     b.toggle('stk-cmt', stackActive === 'cmt'); b.toggle('stk-dict', stackActive === 'dict');
     $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both; $('#stkMode').hidden = false;
@@ -3076,10 +3077,30 @@
   const PINS = { masora: ['#masoraPanel', '#masoraClose'], textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
   const pins = { masora: true, textcrit: true, forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
-  const pinPair = (a,b) => ['cmt','dict'].includes(a)&&['cmt','dict'].includes(b);
+  const panelSide=k=>$(PINS[k][0]).dataset.studySide==='left'?'left':'right';
+  let savedSides={};try{savedSides=JSON.parse(localStorage.getItem('studySides')||'{}')||{};}catch{}
+  for(const k in PINS)$(PINS[k][0]).dataset.studySide=savedSides[k]==='left'?'left':'right';
+  const assignSide=(key,side)=>{$(PINS[key][0]).dataset.studySide=side;try{localStorage.setItem('studySides',JSON.stringify(Object.fromEntries(Object.keys(PINS).map(k=>[k,panelSide(k)]))));}catch{}};
+  const focusStudySide=side=>{document.body.dataset.studyActive=side;};
+  const pinPair = (a,b) => panelSide(a)==='right'&&panelSide(b)==='right'&&['cmt','dict'].includes(a)&&['cmt','dict'].includes(b);
+  let leftDockTabs=null;
+  let leftPanelWidth=360;try{leftPanelWidth=+localStorage.getItem('studyLeftWidth')||360;}catch{}
+  function applyLeftWidth(){document.documentElement.style.setProperty('--left-study-w',Math.round(Math.max(280,Math.min(leftPanelWidth,innerWidth*.9)))+'px');}
+  applyLeftWidth();window.addEventListener('resize',applyLeftWidth);
+  const setLeftWidth=w=>{leftPanelWidth=w;applyLeftWidth();try{localStorage.setItem('studyLeftWidth',String(w));}catch{}};
+  for(const k in PINS)for(const event of ['pointerdown','focusin'])$(PINS[k][0]).addEventListener(event,()=>focusStudySide(panelSide(k)));
+  const updateDockWidths=()=>{
+    for(const side of ['left','right']){
+      const shown=Object.keys(PINS).map(k=>$(PINS[k][0])).filter(el=>!el.hidden&&el.classList.contains('docked')&&(el.dataset.studySide||'right')===side);
+      const width=Math.max(0,...shown.map(el=>el.getBoundingClientRect().width));
+      document.body.classList.toggle(side==='left'?'left-dock-open':'dock-open',shown.length>0);
+      document.documentElement.style.setProperty(side==='left'?'--left-dock-w':'--dock-w',width?width+'px':'');
+    }
+  };
   let pinBusy = false;
   const pinVis = { cmt: false, dict: false }; // zuletzt gesehene Sichtbarkeit von Kommentaren/Wörterbuch
-  const dockTabs = window.LibraryDockTabs.create({
+  const dockOptions = {
+    sideOf:panelSide,assignSide,onFocus:focusStudySide,focusSide:()=>document.body.dataset.studyActive||'right',
     $,panels:PINS,pins,automatic:()=>pinBusy,afterOpen:key=>pinSync(undefined,key),
     activePair: visible => visible.includes('cmt')&&visible.includes('dict')?stackActive:null,
     paired:(a,b)=>pinPair(a,b),
@@ -3088,32 +3109,32 @@
       cmt:()=>{toggleCmt(true);setStackActive('cmt');},dict:()=>{toggleDict(true);setStackActive('dict');},
       link:()=>{if($('#linkPanel').hidden)$('#lkBtn').click();},topic:()=>{if($('#topicPanel').hidden)$('#tpBtn').click();},
       outline:()=>{if($('#outlinePanel').hidden)$('#olBtn').click();},map:()=>{if($('#mapPanel').hidden)$('#mapBtn').click();}}
-  });
-  dockController=dockTabs;
+  };
+  const dockTabs=window.LibraryDockTabs.create({...dockOptions,peerVisible:()=>!!leftDockTabs?.visible,onOther:()=>leftDockTabs.toggle()});
+  leftDockTabs=window.LibraryDockTabs.create({...dockOptions,side:'left',activePair:()=>null,paired:()=>false,peerVisible:()=>dockTabs.visible});
+  const syncDocks=key=>{dockTabs.sync(key);leftDockTabs.sync(key);};
+  dockController={sync:syncDocks};
   const panelVisible={};
-  for(const id of ['tcBtn','lkBtn','tpBtn','mapBtn'])new MutationObserver(()=>dockTabs.sync()).observe($('#'+id),{attributes:true,attributeFilter:['hidden','disabled']});
+  for(const id of ['tcBtn','lkBtn','tpBtn','mapBtn'])new MutationObserver(()=>syncDocks()).observe($('#'+id),{attributes:true,attributeFilter:['hidden','disabled']});
   $('#studyBtn').onclick=()=>dockTabs.toggle();
   function pinSync(anchor, preferredKey) {
     if (pinBusy) return; pinBusy = true;
     try {
-      for(const k in PINS){const shown=!$(PINS[k][0]).hidden;if(shown&&!panelVisible[k]&&k!==preferredKey)pins[k]=dockTabs.pinMode;panelVisible[k]=shown;}
+      for(const k in PINS){const shown=!$(PINS[k][0]).hidden;if(shown&&!panelVisible[k]&&k!==preferredKey)pins[k]=(panelSide(k)==='left'?leftDockTabs:dockTabs).pinMode;panelVisible[k]=shown;}
       { // beide nicht angepinnt: öffnet man das eine, schließt sich das andere (schwebend nie untereinander)
         const vis = {}; for (const k of ['cmt', 'dict']) vis[k] = !$(PINS[k][0]).hidden;
-        if (anchor !== false) for (const k of ['cmt', 'dict']) { const o = k === 'cmt' ? 'dict' : 'cmt'; if (vis[k] && !pinVis[k] && !pins[k] && vis[o] && !pins[o]) { vis[o] = false; $(PINS[o][1]).click(); } }
+        if (anchor !== false) for (const k of ['cmt', 'dict']) { const o = k === 'cmt' ? 'dict' : 'cmt'; if (panelSide(k)===panelSide(o) && vis[k] && !pinVis[k] && !pins[k] && vis[o] && !pins[o]) { vis[o] = false; $(PINS[o][1]).click(); } }
         Object.assign(pinVis, vis);
       }
       const was = {}, now = {};
       for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
       const candidates=Object.keys(PINS).filter(k=>now[k]&&!was[k]);
       const fresh = preferredKey&&now[preferredKey]?[preferredKey]:candidates.slice(-1);
-      for (const k of fresh) for (const o in PINS) if (o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
+      for (const k of fresh) for (const o in PINS) if (panelSide(k)===panelSide(o) && o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
       const apply = () => {
         for (const k in PINS) { const el = $(PINS[k][0]); el.classList.toggle('docked', now[k] && !el.hidden); const b = el.querySelector('.pinB'); if (b) { b.classList.toggle('on', pins[k]); b.title = I18N.t(pins[k] ? 'Lösen: über dem Text schweben' : 'Anpinnen: neben dem Text festhalten'); } }
-        const any = Object.keys(PINS).some(k => $(PINS[k][0]).classList.contains('docked'));
-        document.body.classList.toggle('dock-open', any);
-        let w = 0; for (const k in PINS) { const el = $(PINS[k][0]); if (el.classList.contains('docked')) w = Math.max(w, el.getBoundingClientRect().width); }
-        document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : '');
-        dockTabs.sync(fresh.at(-1));
+        updateDockWidths();syncStack();
+        syncDocks(fresh.at(-1));
       };
       const changed = Object.keys(PINS).some(k => (now[k] && !$(PINS[k][0]).hidden) !== was[k]);
       if (changed && anchor !== false) withAnchor(apply); else apply();
@@ -3123,18 +3144,18 @@
   for (const k in PINS) {
     const el = $(PINS[k][0]), cl = $(PINS[k][1]); if (!el || !cl) continue;
     const b = document.createElement('button'); b.className = 'pinB'; b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v6" fill="none"/><path d="M9 3h6l-1 6.5 3.2 3.2V15H6.8v-2.3L10 9.5z"/></svg>';
-    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k];for(const o in PINS)pins[o]=pins[k]; if(!pins[k])dockTabs.remove(k); try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(undefined,k); };
+    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k];for(const o in PINS)if(panelSide(o)===panelSide(k))pins[o]=pins[k]; if(!pins[k])(panelSide(k)==='left'?leftDockTabs:dockTabs).remove(k); try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(undefined,k); };
     cl.before(b);
     el.classList.add('pinp');
     new MutationObserver(() => pinSync()).observe(el, { attributes: true, attributeFilter: ['hidden'] });
-    if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(()=>{ if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } })).observe(el);
+    if(window.ResizeObserver)new ResizeObserver(()=>requestAnimationFrame(updateDockWidths)).observe(el);
   }
   pinSync(false);
-  window.LibraryPanelResize.create({panels:Object.values(PINS).map(p=>p[0]),setDockWidth:w=>window.setPanelW(w)});
+  window.LibraryPanelResize.create({panels:Object.values(PINS).map(p=>p[0]),setDockWidth:(w,el)=>el?.dataset.studySide==='left'?setLeftWidth(w):window.setPanelW(w)});
   // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
-    if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
+    if (e.target.closest('.pinp, #dockTabs, #leftDockTabs, #cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
     for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); cmtFromBtn(); } });

@@ -1949,13 +1949,13 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 #tcBody .tc-dss-token, .tc-ken-reading bdi[lang="he"], .tc-ken-lemma bdi[lang="he"] { font-size: 1.2em; }
 
 /* All pinned study panels share one tab strip at the top-left of the dock. */
-#dockTabs { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); width: var(--dock-w, var(--cmt-w, 400px)); max-width: 90vw; box-sizing: border-box; height: 34px; display: flex; gap: 4px; align-items: center; overflow-x: auto; padding: 3px 8px; z-index: 22; background: var(--side-bg); border: 1px solid var(--line); scrollbar-width: thin; }
-#dockTabs[hidden] { display: none; }
-#dockTabs button { flex: 0 0 auto; font: 12px var(--ui-font, system-ui, sans-serif); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
-#dockTabs button[aria-selected="true"] { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); }
+:is(#dockTabs,#leftDockTabs) { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); width: var(--dock-w, var(--cmt-w, 400px)); max-width: 90vw; box-sizing: border-box; height: 34px; display: flex; gap: 4px; align-items: center; overflow-x: auto; padding: 3px 8px; z-index: 22; background: var(--side-bg); border: 1px solid var(--line); scrollbar-width: thin; }
+:is(#dockTabs,#leftDockTabs)[hidden] { display: none; }
+:is(#dockTabs,#leftDockTabs) button { flex: 0 0 auto; font: 12px var(--ui-font, system-ui, sans-serif); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+:is(#dockTabs,#leftDockTabs) button[aria-selected="true"] { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); }
 body.has-dock-tabs .pinp.docked { top: calc(91px - var(--hdoff, 0px)) !important; max-height: calc(100vh - 91px + var(--hdoff, 0px)); }
 body.has-dock-tabs #stackBar { display: none; }
-html[data-tab=dict] #dockTabs { display: none; }
+html[data-tab=dict] :is(#dockTabs,#leftDockTabs) { display: none; }
 
 /* The Samaritan row retains Tal's original red masks and its own word cards. */
 body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-font, "SBL Hebrew", serif); font-size: .8em; line-height: 1.35; color: var(--fg); }
@@ -2117,7 +2117,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .ken-witness-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 #kenWitness small { color: var(--muted); }
 
-#dockTabs .dock-tab-icon { margin-inline-end: .35em; }
+:is(#dockTabs,#leftDockTabs) .dock-tab-icon { margin-inline-end: .35em; }
 
 #tcMishnahWitnesses[hidden], #tcBibleWitnesses[hidden] { display:none; }
 #tcMishnahWitnesses { display:flex; flex-wrap:wrap; gap:12px; }
@@ -2293,26 +2293,26 @@ body.il .cell[data-k="he"] .ilt.il-ps { direction: rtl; font-family: "Safran Syr
 
 /* One study toolbar, aligned directly below the book tabs. */
 #stick :is(#cmtBtn,#tcBtn,#apBtn,#lkBtn,#olBtn,#tpBtn,#mapBtn) { display: none; }
-#dockTabs { top: var(--study-top, 40px); height: 38px; min-height: 38px; gap: 4px; padding: 4px 8px; container: study-tools / inline-size; box-shadow: 0 1px 5px #0002; }
-#dockTabs button { border: 0; background: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 28px; padding: 3px 8px; font-size: 12px; border-radius: 7px; }
-#dockTabs button:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 9%, transparent); }
-#dockTabs button[aria-selected="true"] { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
-#dockTabs button:disabled { opacity: .38; }
-#dockTabs .dock-back { border-inline-end: 1px solid var(--line); border-radius: 0; margin-inline-end: 3px; }
+:is(#dockTabs,#leftDockTabs) { top: var(--study-top, 40px); height: 38px; min-height: 38px; gap: 4px; padding: 4px 8px; container: study-tools / inline-size; box-shadow: 0 1px 5px #0002; }
+:is(#dockTabs,#leftDockTabs) button { border: 0; background: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 28px; padding: 3px 8px; font-size: 12px; border-radius: 7px; }
+:is(#dockTabs,#leftDockTabs) button:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 9%, transparent); }
+:is(#dockTabs,#leftDockTabs) button[aria-selected="true"] { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
+:is(#dockTabs,#leftDockTabs) button:disabled { opacity: .38; }
+:is(#dockTabs,#leftDockTabs) .dock-back { border-inline-end: 1px solid var(--line); border-radius: 0; margin-inline-end: 3px; }
 body.has-dock-tabs .pinp.docked { top: calc(var(--study-top, 40px) + var(--dock-tabs-h, 38px)) !important; max-height: calc(100vh - var(--study-top, 40px) - var(--dock-tabs-h, 38px)); }
 body.has-dock-tabs #stackBar { display: none; }
 body.has-dock-tabs.stack-split #dictPanel.docked { top: auto !important; }
 body.has-dock-tabs .pinp:not(.docked):not(.panel-sized) { top: calc(var(--study-top, 40px) + var(--dock-tabs-h, 38px)) !important; }
-#dockTabs.floating { max-width: none; z-index: 45; background: var(--bg); box-shadow: 0 -2px 12px #0003; }
-#dockTabs button.icon-only .dock-tab-label { display: none; }
-#dockTabs button.icon-only { padding-inline: 3px; min-width: 22px; }
+:is(#dockTabs,#leftDockTabs).floating { max-width: none; z-index: 45; background: var(--bg); box-shadow: 0 -2px 12px #0003; }
+:is(#dockTabs,#leftDockTabs) button.icon-only .dock-tab-label { display: none; }
+:is(#dockTabs,#leftDockTabs) button.icon-only { padding-inline: 3px; min-width: 22px; }
 #stick button.icon-only .bl { display: none; }
 #stick .bar.compact > button { flex: 0 0 auto; }
 
 body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
 
 /* Statistics views: compact direct access, separated by purpose. */
-#dockTabs button[hidden] { display: none; }
+:is(#dockTabs,#leftDockTabs) button[hidden] { display: none; }
 #apBody .apExplorer { display: grid; gap: 9px; margin: 14px 0; }
 #apBody .apChoiceGroup { --choice-accent: var(--accent); padding: 9px 10px 10px; border: 1px solid var(--line); border-inline-start: 3px solid var(--choice-accent); border-radius: 9px; background: color-mix(in srgb,var(--choice-accent) 3%,var(--card)); }
 #apBody .apChoiceGroup-1 { --choice-accent: #64b6a2; }
@@ -2354,8 +2354,8 @@ body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
 
 /* Pinning belongs to the shared sidebar, across all tool views. */
 body.has-dock-tabs .pinp .pinB { display: none; }
-#dockTabs .dock-pin { margin-inline-start: auto; }
-#dockTabs .dock-pin[aria-pressed=true] { background: color-mix(in srgb,var(--accent) 16%,transparent); color: var(--accent); }
+:is(#dockTabs,#leftDockTabs) .dock-pin { margin-inline-start: auto; }
+:is(#dockTabs,#leftDockTabs) .dock-pin[aria-pressed=true] { background: color-mix(in srgb,var(--accent) 16%,transparent); color: var(--accent); }
 
 /* Edition picker: full names, clear language groups, and morphology availability. */
 #verList { position: fixed; width: min(720px,calc(100vw - 32px)); min-width: 0; box-sizing: border-box; padding: 10px 12px; gap: 4px; overscroll-behavior: contain; }
@@ -2678,3 +2678,33 @@ html.split #masoraPanel { right: var(--p2w); }
 .masora-actions p { margin-block:4px; }
 .masora-actions .masora-explanation > p:first-of-type { color:var(--muted); }
 .masora-note { white-space:pre-wrap; }
+
+/* A second independent study area; tool controllers keep their own content. */
+#leftDockTabs { left:0;right:auto;width:var(--left-dock-w,var(--left-study-w,360px)); }
+#leftDockTabs.floating { left:auto; }
+.pinp[data-study-side=left] { --cmt-w:var(--left-study-w,360px); }
+body .pinp[data-study-side=left].docked { left:0!important;right:auto!important;width:var(--left-study-w,360px)!important;border-left:0;border-right:1px solid var(--line); }
+body.has-left-dock-tabs .pinp[data-study-side=left].docked { top:calc(var(--study-top,40px) + var(--dock-tabs-h,38px))!important;max-height:calc(100vh - var(--study-top,40px) - var(--dock-tabs-h,38px)); }
+body.left-dock-open #tab-read .layout { margin-left:calc(var(--left-dock-w,var(--left-study-w,360px)) + 20px); }
+:is(#dockTabs,#leftDockTabs) .dock-side-switch { display:none; }
+body.dual-dock-open.study-limited #tab-read .layout { grid-template-columns:1fr; }
+body.dual-dock-open.study-limited #tab-read .layout>aside { display:none; }
+body.dual-dock-open.study-compact #tab-read .layout { margin-left:0!important;margin-right:calc(var(--dock-w,var(--cmt-w,400px)) + 20px)!important; }
+body.dual-dock-open.study-compact[data-study-active=left] #tab-read .layout { margin-right:calc(var(--left-dock-w,var(--left-study-w,360px)) + 20px)!important; }
+body.dual-dock-open.study-compact #leftDockTabs { left:auto;right:var(--cmt-off,0px); }
+body.dual-dock-open.study-compact .pinp[data-study-side=left].docked { left:auto!important;right:var(--cmt-off,0px)!important; }
+body.dual-dock-open.study-compact[data-study-active=left] #dockTabs,body.dual-dock-open.study-compact[data-study-active=right] #leftDockTabs { visibility:hidden;pointer-events:none; }
+body.dual-dock-open.study-compact[data-study-active=left] .pinp[data-study-side=right],body.dual-dock-open.study-compact[data-study-active=right] .pinp[data-study-side=left] { visibility:hidden!important;pointer-events:none; }
+body.dual-dock-open.study-compact :is(#dockTabs,#leftDockTabs) .dock-side-switch { display:inline-flex; }
+
+:is(#dockTabs,#leftDockTabs) .dock-actions { display:flex;align-items:center;gap:4px;flex:0 0 auto;position:sticky;right:0;margin-inline-start:auto;background:var(--side-bg);z-index:1; }
+:is(#dockTabs,#leftDockTabs).floating .dock-actions { background:var(--bg); }
+
+body .pinp[data-study-side=left]:not(.panel-sized):not(.docked) { left:0!important;right:auto!important; }
+
+:is(#dockTabs,#leftDockTabs).tight { gap:1px;padding-inline:4px; }
+:is(#dockTabs,#leftDockTabs).tight button.icon-only { min-width:18px;padding-inline:1px; }
+:is(#dockTabs,#leftDockTabs).tight .dock-tab-icon { margin-inline:0; }
+:is(#dockTabs,#leftDockTabs).tight .dock-back { padding-inline:4px; }
+:is(#dockTabs,#leftDockTabs).tight .dock-actions { gap:1px; }
+:is(#dockTabs,#leftDockTabs).tight .dock-actions>button { padding-inline:3px; }
