@@ -3,7 +3,7 @@
 window.LibraryDisplay = (() => {
   'use strict';
   function create({ $, $$, esc, shortVer, getView, getGroups, renderSection,
-    olInlineOn, olInline, withAnchor }) {
+    olInlineOn, olInline, withAnchor, onBibleVersionsChanged=()=>{} }) {
     // ---------- Anzeigeoptionen ----------
     const DISP0 = { he: 1.3, gr: 1.15, en: 1, de: 1, niq: false, can: false, taam: 'off', shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
     let disp = { ...DISP0 };
@@ -101,8 +101,20 @@ window.LibraryDisplay = (() => {
       if (id === 'dPvDe' || id === 'dPvHe' || id === 'dPvX') { disp[{ dPvDe: 'pvDe', dPvHe: 'pvHe', dPvX: 'pvX' }[id]] = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
       if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
       applyDisp(id === 'dNiq' || id === 'dCan' || id === 'dTaam');
+      if (['dPvDe','dPvHe','dPvX'].includes(id)) onBibleVersionsChanged(id);
     });
     $('#dispClose').onclick = () => { $('#dispPanel').hidden = true; };
+    // The secondary reader and other windows share the same Bible defaults.
+    window.addEventListener('storage',e=>{
+      if(e.key!=='disp'||!e.newValue)return;
+      try{
+        const next=JSON.parse(e.newValue),changed=['pvHe','pvDe','pvX'].filter(k=>(disp[k]||'')!==(next[k]||''));
+        if(!changed.length)return;
+        for(const k of changed)disp[k]=next[k]||'';
+        if(typeof window.pvClear==='function')window.pvClear();
+        pvDeFill();onBibleVersionsChanged(changed.includes('pvDe')?'dPvDe':'dPvHe');
+      }catch{}
+    });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#dispPanel').hidden && !document.querySelector('dialog[open]')) { $('#dispPanel').hidden = true; e.stopPropagation(); } }, true);
     { // Gruppe „Fenster & Leisten“: auf- oder zugeklappt merken
       const d = $('#dgWin'); try { d.open = localStorage.getItem('dgWin') === '1'; } catch { /* egal */ }
@@ -111,7 +123,15 @@ window.LibraryDisplay = (() => {
     document.addEventListener('click', e => {
       if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
     });
-    return { state: disp, stripHe, mtHtml, taamLayout, apply: applyDisp };
+    function rememberBibleTranslation(title){
+      if(!title||disp.pvDe===title)return;
+      disp.pvDe=title;
+      try{localStorage.removeItem('wcTrSrc');localStorage.removeItem('fmTrSrc');}catch{}
+      if(typeof window.pvClear==='function')window.pvClear();
+      applyDisp(false);
+      if(!$('#dispPanel').hidden)pvDeFill();
+    }
+    return { state: disp, stripHe, mtHtml, taamLayout, apply: applyDisp, rememberBibleTranslation };
   }
   return { create };
 })();
