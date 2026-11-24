@@ -7,7 +7,7 @@ window.LibraryResearch = (() => {
   function create(host) {
     const root = document.getElementById('researchRoot');
     const editingBlocks = new Set(), expandedBlocks = new Set();
-    let messageError = false, editRevision = 0, sourceRequestId = 0, pagePreview = false, arrangeMode = false;
+    let messageError = false, editRevision = 0, sourceRequestId = 0, pagePreview = false, arrangeMode = false, previewRequest = 0;
     const lastSheetKey='researchLastSheet', lastEditionKey='researchLastEdition';
     function rememberSheet(){if(kind==='sheets'&&draft)try{localStorage.setItem(lastSheetKey,JSON.stringify({id:draft.id,projectId:draft.projectId}));}catch{}}
     function editionPreference(editions){let last;try{last=JSON.parse(localStorage.getItem(lastEditionKey));}catch{}return editions.find(e=>e.rel===last?.rel)||editions.find(e=>e.versionTitle===last?.versionTitle)||editions.find(e=>e.language==='German')||editions[0];}
@@ -48,6 +48,10 @@ window.LibraryResearch = (() => {
     }
     function leave() { return !dirty || window.confirm('Ungespeicherten Entwurf verwerfen?'); }
     function field(label, name, value = '', area = false) { return `<label>${esc(label)}${area ? `<textarea data-f="${name}" rows="4">${esc(value)}</textarea>` : `<input data-f="${name}" value="${esc(value)}">`}</label>`; }
+    function slider(label,id,value,min,max,step=1,attrs='',unit='pt'){
+      return `<label class="rw-slider" for="${id}"><span class="rw-slider-heading"><span>${esc(label)}</span><output class="nt" for="${id}">${esc(value)} ${unit}</output></span><input id="${id}" type="range" min="${min}" max="${max}" step="${step}" value="${esc(value)}" data-unit="${unit}" aria-label="${esc(label)}" ${attrs}></label>`;
+    }
+    function bindSliders(scope){scope.querySelectorAll('.rw-slider input[type=range]').forEach(el=>el.oninput=()=>{el.closest('.rw-slider').querySelector('output').textContent=el.value+' '+el.dataset.unit;});}
     function noteRefs(n) { return n.refs?.length ? n.refs : n.secLabel || n.excerpt ? [{label:[n.title,n.secLabel,n.row].filter(Boolean).join(' · '),quote:n.excerpt||''}] : []; }
     function blank(type, text = '') { return {id:uid(),type,title:'',text,originalText:text,citation:{},reference:null}; }
     async function refresh() {
@@ -100,7 +104,7 @@ window.LibraryResearch = (() => {
       root.querySelectorAll('[data-edit]').forEach(el => el.onclick = () => { if (!leave()) return; pickRecord(rows().find(x => x.id === el.dataset.edit)); render(); });
       root.querySelectorAll('[data-a]').forEach(el => el.onclick = () => { closeMenus(); void run(() => action(el.dataset.a)); });
       root.querySelectorAll('[data-export]').forEach(el => el.onclick = () => { closeMenus(); void run(() => exportRecord(el.dataset.export, 'project')); });
-      root.querySelectorAll('.rw-menu').forEach(d => d.addEventListener('toggle', () => { if (d.open) root.querySelectorAll('.rw-menu[open]').forEach(other => { if (other !== d) other.open = false; }); }));
+      root.querySelectorAll('.rw-menu').forEach(d => d.addEventListener('toggle', () => { if (d.isConnected && d.open) root.querySelectorAll('.rw-menu[open]').forEach(other => { if (other !== d) other.open = false; }); }));
       if (draft) bindEditor();
     }
     function editor() {
@@ -119,7 +123,7 @@ window.LibraryResearch = (() => {
 
       }
       const layout=draft.layout||{template:'linear',orientation:'portrait',mainWidth:44,mainSize:18,sideSize:10,bottomSize:10};
-      const layouts=kind==='sheets'?menu('Layout',`<label><input type="checkbox" data-layout="showTitle" ${layout.showTitle!==false?'checked':''}> Blatttitel anzeigen</label><label>Anordnung<select data-layout="template"><option value="linear" ${layout.template!=='classic'?'selected':''}>Untereinander</option><option value="classic" ${layout.template==='classic'?'selected':''}>Haupttext mit Randkommentaren</option></select></label><label>Seite<select data-layout="orientation"><option value="portrait" ${layout.orientation!=='landscape'?'selected':''}>A4 Hochformat</option><option value="landscape" ${layout.orientation==='landscape'?'selected':''}>A4 Querformat</option></select></label>${layout.template==='classic'?'<p class="rw-field-hint">Wähle den Bereich direkt auf der Karte oder ziehe Texte in „Anordnen“.</p>'+[['mainWidth','Breite des Haupttexts (%)',30,60,44],['mainSize','Haupttext (pt)',10,30,18],['sideSize','Randkommentare (pt)',8,20,10],['bottomSize','Unterer Bereich (pt)',8,20,10]].map(([k,t,min,max,def])=>`<label>${t}<input type="number" data-layout="${k}" min="${min}" max="${max}" value="${layout[k]??def}"></label>`).join(''):''}`,'layout'):'';
+      const layouts=kind==='sheets'?menu('Layout',`<label><input type="checkbox" data-layout="showTitle" ${layout.showTitle!==false?'checked':''}> Blatttitel anzeigen</label><label>Anordnung<select data-layout="template"><option value="linear" ${layout.template!=='classic'?'selected':''}>Untereinander</option><option value="classic" ${layout.template==='classic'?'selected':''}>Haupttext mit Randkommentaren</option></select></label><label>Seite<select data-layout="orientation"><option value="portrait" ${layout.orientation!=='landscape'?'selected':''}>A4 Hochformat</option><option value="landscape" ${layout.orientation==='landscape'?'selected':''}>A4 Querformat</option></select></label>${layout.template==='classic'?'<p class="rw-field-hint">Wähle den Bereich direkt auf der Karte oder ziehe Texte in „Anordnen“.</p><p class="rw-field-hint">Leere Randspalten vergrößern den Haupttext automatisch.</p>'+[['mainWidth','Breite des Haupttexts (%)',30,60,44],['mainSize','Haupttext (pt)',10,30,18],['sideSize','Randkommentare (pt)',8,20,10],['bottomSize','Unterer Bereich (pt)',8,20,10]].map(([k,t,min,max,def])=>slider(t,'rwLayout-'+k,layout[k]??def,min,max,1,`data-layout="${k}"`,k==='mainWidth'?'%':'pt')).join(''):''}`,'layout'):'';
       if(arrangeMode&&kind==='sheets')body=arrangement(blocks);
       if(pagePreview&&kind==='sheets')body='<div class="rw-page-hint">Die Vorschau zeigt die Anordnung mit den aktuellen, auch ungespeicherten Inhalten.</div><iframe id="rwPagePreview" title="Seitenvorschau" sandbox="allow-same-origin"></iframe>';
       const exports = kind === 'sheets' ? menu('Exportieren', ['pdf', 'docx', 'html'].map((f, i) => `<button data-sheet-export="${f}">${['PDF', 'Word (.docx)', 'HTML'][i]} exportieren …</button>`).join(''), 'sheet-export') : '';
@@ -181,13 +185,14 @@ window.LibraryResearch = (() => {
       const sheetId=draft.id,savedKind=kind,editions=await A.translationEditions(copy(source.reference));
       const sourceSize=source.presentation?.sourceSize||(draft.layout?.template==='classic'?draft.layout[(source.region||'main')==='main'?'mainSize':source.region==='bottom'?'bottomSize':'sideSize']:12)||18,translationSize=source.presentation?.translationSize||Math.min(sourceSize,12);
       const d=document.createElement('dialog');d.className='rw-dialog rw-edition-dialog';
-      d.innerHTML='<form><h2>Übersetzung anzeigen</h2>'+`<p class="nt">${esc(source.reference.label)}</p><select id="rwTranslationEdition" hidden aria-hidden="true" tabindex="-1">${editions.map(e=>`<option value="${esc(e.rel)}" class="nt" ${source.presentation?.companion.reference.rel===e.rel?'selected':''}>${esc(e.versionTitle)} · ${esc(e.language)}</option>`).join('')}</select>${editionChoices(editions,source.presentation?.companion.reference.rel||editions[0]?.rel,'rwPairedEdition')}<label>Anzeige<select id="rwTranslationMode"><option value="parallel">Nebeneinander</option><option value="interlinear" ${source.presentation?.mode==='interlinear'?'selected':''}>Interlinear (vorhandene Wortzuordnung)</option><option value="none">Nur dieser Text</option></select></label><div class="rw-pair-fonts"><label>Dieser Text (pt)<input id="rwPairSourceSize" type="number" min="8" max="36" step="0.5" value="${sourceSize}"></label><label>Gewählte Ausgabe (pt)<input id="rwPairTranslationSize" type="number" min="8" max="36" step="0.5" value="${translationSize}"></label></div><p class="rw-field-hint">Interlinear erfordert passende Original- und Übersetzungsausgaben. Zusätze erscheinen mit +. Änderungen am Auszug müssen vorher zurückgenommen werden.</p>`+'<p class="rw-error" role="alert"></p><div class="rw-toolbar"><button type="submit" class="primary">Anzeigen</button><button type="button" data-translation-cancel>Abbrechen</button></div></form>';
+      d.innerHTML='<form><h2>Übersetzung anzeigen</h2>'+`<p class="nt">${esc(source.reference.label)}</p><select id="rwTranslationEdition" hidden aria-hidden="true" tabindex="-1">${editions.map(e=>`<option value="${esc(e.rel)}" class="nt" ${source.presentation?.companion.reference.rel===e.rel?'selected':''}>${esc(e.versionTitle)} · ${esc(e.language)}</option>`).join('')}</select>${editionChoices(editions,source.presentation?.companion.reference.rel||editions[0]?.rel,'rwPairedEdition')}<label>Anzeige<select id="rwTranslationMode"><option value="parallel">Nebeneinander</option><option value="interlinear" ${source.presentation?.mode==='interlinear'?'selected':''}>Interlinear (vorhandene Wortzuordnung)</option><option value="none">Nur dieser Text</option></select></label><div class="rw-pair-fonts">${slider('Dieser Text (pt)','rwPairSourceSize',sourceSize,8,36,.5)}${slider('Gewählte Ausgabe (pt)','rwPairTranslationSize',translationSize,8,36,.5)}</div><p class="rw-field-hint">Interlinear erfordert passende Original- und Übersetzungsausgaben. Zusätze erscheinen mit +. Änderungen am Auszug müssen vorher zurückgenommen werden.</p>`+'<p class="rw-error" role="alert"></p><div class="rw-toolbar"><button type="submit" class="primary">Anzeigen</button><button type="button" data-translation-cancel>Abbrechen</button></div></form>';
       document.body.append(d);
       await new Promise(resolve=>{
         let closed=false;const submit=d.querySelector('[type=submit]'),error=d.querySelector('.rw-error');
         const finish=()=>{if(closed)return;closed=true;d.close();d.remove();resolve();};
         d.onclose=finish;
         d.querySelector('[data-translation-cancel]').onclick=finish;
+        bindSliders(d);
         d.querySelectorAll('[name=rwPairedEdition]').forEach(e=>e.onchange=()=>{d.querySelector('#rwTranslationEdition').value=e.value;});
         d.querySelector('form').onsubmit=async e=>{
           e.preventDefault();if(submit.disabled)return;submit.disabled=true;error.textContent='';
@@ -202,19 +207,21 @@ window.LibraryResearch = (() => {
         d.showModal();
       });
     }
+    function updatePagePreview(frame){const request=++previewRequest;void A.sheetPreview(copy(draft)).then(html=>{if(frame.isConnected&&request===previewRequest)frame.srcdoc=html;}).catch(e=>{if(frame.isConnected&&request===previewRequest)status(e.message,true);});}
     function bindEditor() {
+      bindSliders(root);
       root.querySelectorAll('#rwEditor > .rw-editorfields > label [data-f], #rwEditor .rw-document-meta [data-f]').forEach(el => el.oninput = () => { draft[el.dataset.f] = ['tags','topics'].includes(el.dataset.f) ? split(el.value) : el.value; changed(); });
       root.querySelectorAll('[data-layout]').forEach(el=>el.onchange=()=>{
-        const key=el.dataset.layout,value=el.type==='checkbox'?el.checked:el.type==='number'?Number(el.value):el.value;
-        if(el.type==='number'&&(!Number.isFinite(value)||value<Number(el.min)||value>Number(el.max))){el.reportValidity();return;}
+        const numeric=['range','number'].includes(el.type),key=el.dataset.layout,value=el.type==='checkbox'?el.checked:numeric?Number(el.value):el.value;
+        if(numeric&&(!Number.isFinite(value)||value<Number(el.min)||value>Number(el.max))){el.reportValidity();return;}
         draft.layout={template:'linear',orientation:'portrait',mainWidth:44,mainSize:18,sideSize:10,bottomSize:10,...draft.layout,[key]:value};
         if(key==='template'&&value==='classic')draft.layout.orientation='landscape';
-        changed();render();const d=root.querySelector('[data-menu=layout]');if(d)d.open=true;
+        changed();if(numeric){el.oninput?.();const frame=root.querySelector('#rwPagePreview');if(frame)updatePagePreview(frame);return;}render();const d=root.querySelector('[data-menu=layout]');if(d)d.open=true;
       });
       bindDragging();
       root.querySelectorAll('[data-a="classicArrange"]').forEach(e=>e.onclick=()=>{draft.layout={...draft.layout,template:"classic",orientation:"landscape"};changed();render();});
       const frame=root.querySelector('#rwPagePreview');
-      if(frame){void A.sheetPreview(copy(draft)).then(html=>{if(frame.isConnected)frame.srcdoc=html;}).catch(e=>status(e.message,true));}
+      if(frame)updatePagePreview(frame);
       const np = root.querySelector('#rwNoteProject'); if (np) np.onchange = () => { draft.projectId = np.value; changed(); };
       root.querySelectorAll('[data-block]').forEach(article => {
         const i = +article.dataset.block, blocks = draft[kind === 'sheets' ? 'blocks' : 'items'], b = blocks[i];

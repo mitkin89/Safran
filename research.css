@@ -246,3 +246,7 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 .rw-edition-dialog .rw-toolbar { position:sticky; bottom:0; background:var(--panel,var(--bg)); padding:10px 0; }
 #rwMainEditionPreview { max-height:220px; }
 .rw-edition-dialog [hidden] { display:none!important; }
+.rw-slider-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.rw-slider-heading output { flex-shrink:0; font-size:12px; font-variant-numeric:tabular-nums; padding:2px 7px; color:var(--fg); border:1px solid var(--line); border-radius:5px; }
+#researchRoot #rwEditor .rw-slider input[type=range],.rw-dialog .rw-slider input[type=range] { width:100%; min-height:30px; height:30px; padding:0; border:0; background:transparent; accent-color:var(--accent); cursor:pointer; }
+.rw-slider input[type=range]:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }

@@ -127,6 +127,7 @@
     "Ausgabe des Haupttextes wählen": "Choose main text edition",
     "Diese Ausgabe übernehmen": "Use this edition",
     "Der Wechsel übernimmt den Originaltext der gewählten Ausgabe. Bearbeitungen am Auszug und eine vorhandene Übersetzungsanzeige werden ersetzt. Verknüpfte Notizen behalten ihre bisherigen Quellenangaben.": "Changing editions uses the original text of the selected edition, replacing excerpt edits and any existing paired display. Linked notes retain their original source references.",
+    "Leere Randspalten vergrößern den Haupttext automatisch.": "Empty margin columns automatically widen the main text.",
     "Dieser Text (pt)": "This text (pt)",
     "Gewählte Ausgabe (pt)": "Selected edition (pt)",
     "Anordnen": "Arrange",
