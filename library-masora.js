@@ -45,7 +45,7 @@ window.LibraryMasora = (() => {
     }
     function entryLabel(hit){
       const label='<bdi lang="he" dir="rtl">'+safe(hit.entry.label)+'</bdi>',matches=D.locations(hit.page,hit.entry);
-      if(matches.length===1)return wordButton(matches[0],label)+' <small class="muted">'+safe(t(matches[0].book)+' '+matches[0].chapter+':'+matches[0].verse)+'</small>';
+      if(matches.length===1){const loc=matches[0],ctx=context(),same=$('#masoraScope').value==='verse'&&ctx?.book===loc.book&&ctx.chapter===loc.chapter&&ctx.verse===loc.verse;return wordButton(loc,label)+(same?'':' <small class="muted">'+safe(t(loc.book)+' '+loc.chapter+':'+loc.verse)+'</small>');}
       if(!matches.length)return label;
       const verses=[...new Map(matches.map(m=>[m.label,m])).values()];
       return '<details class="masora-choices"><summary>'+label+'</summary><p class="muted">'+safe(t('Das Wort kommt auf dieser Seite mehrfach vor. Welche Stelle möchtest du anzeigen?'))+'</p>'+verses.map(m=>wordButton(m,safe(t(m.book)+' '+m.chapter+':'+m.verse))).join(' ')+'</details>';
@@ -55,15 +55,14 @@ window.LibraryMasora = (() => {
       return loc?wordButton({...loc,phrase:''},safe(t(loc.book)+' '+loc.chapter+':'+loc.verse+(loc.endVerse!==loc.verse?'–'+loc.endVerse:''))):safe(ref.label);
     }
     function entryHtml(hit){
-      const {page,entry,readings}=hit,info=D.explain(entry),refs=info.refs.length;
-      const source='<details class="masora-page-source"><summary>'+safe(t('Handschrift'))+': '+safe(hit.manuscript.label)+' · '+safe(page.folio||page.label)+'</summary><p class="muted">'+safe(D.referenceSummary(page.bibleRefs))+'</p><a class="masora-external" href="'+safe(page.url)+'">'+safe(t('Handschriftenseite in BIMA öffnen (online)'))+' ↗</a></details>';
-      const explanation='<details class="masora-explanation"><summary>'+safe(t('Erklärung'))+'</summary><p class="muted">'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'</p><p>'+safe(t(info.meaning))+'</p>'+(refs?'<p class="masora-refs">'+safe(t('Belegstellen'))+': '+info.refs.map(label=>referenceButton({label})).join(' · ')+'</p>':'')+(info.features.length?info.features.map(f=>'<p>'+safe(t(f))+'</p>').join(''):'<p class="muted">'+safe(t('Eine konkrete Besonderheit der Schreibung, Vokalisierung oder Akzentuierung ist hier nicht sicher bestimmt.'))+'</p>')+'</details>';
-      return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'"><div class="masora-entry-head"><span class="masora-kind">'+safe(t(kinds[entry.type]||entry.type))+'</span> '+entryLabel(hit)+'</div>'+explanation+
-        '<details class="masora-transcription"><summary>'+safe(t('Original und Belegstellen'))+(refs?' · '+refs:'')+'<bdi class="masora-preview" dir="auto">'+safe(plain(readings[0]?.text||''))+'</bdi></summary>'+readings.map(({source:r,text,notes})=>
-        '<div class="masora-reading">'+(text?'<p class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</p>':'')+
-        (r.references?.length?'<span class="masora-refs">'+r.references.map(referenceButton).join(' · ')+'</span>':'')+
-        (notes?'<p class="masora-note" dir="auto">'+safe(plain(notes))+'</p>':'')+'</div>').join('')+
-        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</details>'+source+'</article>';
+      const {page,entry,readings}=hit,info=D.explain(entry),kind=kinds[entry.type]||entry.type;
+      const source='<details class="masora-page-source"><summary title="'+safe(hit.manuscript.label+' · '+(page.folio||page.label))+'">'+safe(t('Quelle'))+'</summary><p>'+safe(hit.manuscript.label)+' · '+safe(page.folio||page.label)+'</p><p class="muted">'+safe(D.referenceSummary(page.bibleRefs))+'</p><a class="masora-external" href="'+safe(page.url)+'">'+safe(t('Handschriftenseite in BIMA öffnen (online)'))+' ↗</a></details>';
+      const explanation='<details class="masora-explanation"><summary>'+safe(t('Erklärung'))+'</summary><p class="muted">'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'</p><p>'+safe(t(info.meaning))+'</p>'+(info.features.length?info.features.map(f=>'<p>'+safe(t(f))+'</p>').join(''):'')+'</details>';
+      return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'" data-masora-type="'+safe(entry.type)+'"><div class="masora-entry-line"><span class="masora-kind" title="'+safe(t(kind))+'">'+safe(({mp:'Mp',mm:'Mm',mf:'Mf'})[entry.type]||t(kind))+'</span><div class="masora-transcription">'+readings.map(({source:r,text,notes})=>
+        '<span class="masora-reading">'+(text?'<bdi class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</bdi>':'')+
+        (r.references?.length?' <span class="masora-refs">'+r.references.map(referenceButton).join(' · ')+'</span>':'')+
+        (notes?' <span class="masora-note" dir="auto">'+safe(plain(notes))+'</span>':'')+'</span>').join('<span class="masora-separator" aria-hidden="true"> · </span>')+
+        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-actions">'+explanation+source+'</div></article>';
     }
     async function render(){
       const ctx=context();if(!ctx){close();return;}if(panel.hidden)return;
@@ -72,7 +71,6 @@ window.LibraryMasora = (() => {
       const key=JSON.stringify([ctx.book,ctx.chapter,options.scope==='verse'?ctx.verse:null,options,limit]);
       if(body.dataset.resultKey===key)return;
       const listKey=JSON.stringify([ctx.book,ctx.chapter,options.scope==='verse'?ctx.verse:null,options]);
-      const keepRelated=body.dataset.listKey===listKey&&body.querySelector('.masora-related')?.open;
       const token=++generation;body.dataset.resultKey='';
       body.innerHTML='<p class="muted">'+safe(t('Masora wird geladen …'))+'</p>';
       try{
@@ -85,14 +83,13 @@ window.LibraryMasora = (() => {
         const pageCount=new Set(hits.map(h=>h.page.id)).size;
         const count=verseMode?(split.primary.length===1?t('1 wortbezogene Notiz zum Vers'):t('{} wortbezogene Notizen zum Vers',split.primary.length)):t('{} Notizen auf {} Handschriftenseiten',hits.length,pageCount);
         const explanation=verseMode?'Automatisch ermittelter Wortbezug. Klicke auf das Wort, um es im Lesetext zu markieren.':options.scope==='citations'?'Die Notizen zitieren Bibelstellen aus diesem Kapitel. Das Zitat bestimmt nicht die Verankerung am Handschriftenwort.':'Die Auswahl folgt dem Bibeltext der Handschriftenseite. Die Masora-Notizen können auch benachbarte Verse betreffen.';
-        const intro='<p class="masora-count">'+safe(count)+'</p><p class="muted masora-scope-note">'+safe(t(explanation))+'</p>';
+        const intro='<p class="masora-count">'+safe(count)+'</p><details class="masora-scope-info"><summary>'+safe(t('Wortbezug'))+'</summary><p class="muted masora-scope-note">'+safe(t(explanation))+'</p></details>';
         function renderHits(list){
-          return D.wordGroups(list).map((group,i)=>'<section class="masora-word-group" data-word-group="'+i+'"><h3><bdi dir="rtl" lang="he">'+safe(group.label)+'</bdi> <small class="muted">'+group.hits.length+' '+safe(t('Notizen'))+'</small></h3>'+group.hits.map(entryHtml).join('')+'</section>').join('');
+          return D.wordGroups(list).map((group,i)=>'<section class="masora-word-group" data-word-group="'+i+'"><h3 class="masora-entry-head">'+entryLabel(group.hits[0])+'</h3><div class="masora-group-readings">'+group.hits.map(entryHtml).join('')+'</div></section>').join('');
         }
         const groups=D.wordGroups(split.primary.slice(0,limit));
         const navigation=groups.length?'<nav class="masora-word-nav" aria-label="'+safe(t('Bezugswörter'))+'">'+groups.map((g,i)=>'<button type="button" data-masora-group="'+i+'"><bdi dir="rtl" lang="he">'+safe(g.label)+'</bdi> <small>'+g.hits.length+'</small></button>').join('')+'</nav>':'';
-        const rows='<div class="masora-primary">'+renderHits(split.primary.slice(0,limit))+'</div>' +(verseMode&&!split.primary.length?'<p class="masora-no-word">'+safe(t('Für diesen Vers wurde kein eindeutiger Wortbezug ermittelt. Weitere Notizen findest du unten bei der Handschriftenseite.'))+'</p>':'')+
-          (split.related.length?'<details class="masora-related"'+(keepRelated?' open':'')+'><summary>'+safe(t('Weitere Notizen der Handschriftenseite ({})',split.related.length))+'</summary><p class="muted">'+safe(t('Diese Notizen sind dem ausgewählten Vers nicht eindeutig zugeordnet.'))+'</p>'+renderHits(split.related.slice(0,limit))+'</details>':'');
+        const rows='<div class="masora-primary">'+renderHits(split.primary.slice(0,limit))+'</div>'+(verseMode&&!split.primary.length?'<p class="masora-no-word">'+safe(t('Für diesen Vers wurde kein eindeutiger Wortbezug ermittelt. Die Kapitelansicht zeigt die Notizen der Handschriftenseiten.'))+'</p>':'');
         const empty=hits.length?'':'<p class="masora-empty">'+safe(t('Keine passenden Notizen im importierten Bestand.'))+'</p>'+
           (['chapter','verse'].includes(options.scope)?'<button type="button" id="masoraBrowse">'+safe(t('Gesamten Bestand durchsuchen'))+'</button>':'');
         body.innerHTML='<p id="masoraWordStatus" role="status"></p>'+intro+navigation+rows+empty+(hits.length>limit?'<button type="button" id="masoraMore">'+safe(t('Weitere anzeigen'))+'</button>':'')+

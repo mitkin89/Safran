@@ -146,15 +146,17 @@ label offers the source verses for the user to choose. Word matching is repeated
 against the displayed reading, never an imported token index or translation. All
 matching occurrences in a user-selected verse are highlighted if the spelling
 repeats. If the displayed reading lacks that spelling, Safran reports this rather
-than highlighting another word. The page-wide notes and full collection search
-remain available. Manuscript/type filters are under **Weitere Filter**.
+than highlighting another word. Page-wide notes remain available in the chapter view and full collection search;
+the selected-verse view only shows uniquely anchored notes. Manuscript/type filters are under **Weitere Filter**.
 
 ## Word overview and German reading aids
 
 The panel groups notes with a unique source-word anchor across manuscript witnesses,
 ordered by verse and source word position. Word buttons navigate the overview;
-original readings and manuscript provenance remain available in separate disclosures.
-References next to each reading and in the explanation can open the cited verse.
+the word appears once in a left lemma column, with flat apparatus rows on the right.
+Original readings and their references are always visible together. Only the German
+reading aid and manuscript provenance use small disclosures. References next to
+each reading can open the cited verse.
 These citations are not promoted to word anchors. Navigation centers the reader row
 and highlights only an explicitly matching source phrase in the displayed Westminster
 reading.
