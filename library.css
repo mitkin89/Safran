@@ -2006,7 +2006,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .tc-hx-type[data-hx-type=mt] { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 .tc-hx-syn { display: grid; grid-template-columns: max-content 1fr; gap: .15em .6em; margin: .2em 0; }
 .tc-hx-row-sig { white-space: nowrap; }
-.tc-hx-explanation { display: block; margin: .4em 0 .6em; padding: .3em .65em; border-inline-start: 2px solid var(--accent); border-radius: 0 4px 4px 0; background: color-mix(in srgb, var(--accent) 6%, transparent); font: max(12px, .74em)/1.5 system-ui, sans-serif; color: var(--muted); white-space: normal; }
+.tc-hx-explanation { display: block; margin: .4em 0 .6em; padding: .3em .65em; border-inline-start: 2px solid var(--accent); border-radius: 0 4px 4px 0; background: color-mix(in srgb, var(--accent) 6%, transparent); font: .85em/1.5 system-ui, sans-serif; color: var(--muted); white-space: normal; }
 .tc-hx-explanation[data-hx-explanation="editorial"], .tc-hx-explanation[data-hx-explanation="reviewed"] { color: var(--fg); }
 .tc-hx-syn:not(.full) .tc-hx-same-t { display: none; }
 .tc-hx-syn:not(.full) .tc-hx-same::before { content: '…'; color: var(--muted); }
