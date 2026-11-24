@@ -2681,7 +2681,8 @@
     return `<details class="ccCoverage"><summary>${esc(wording(coverage))}${scope ? ' · ' + esc(scope) : ''}</summary>
       <div class="ccCoverageTable"><table><thead><tr><th scope="col">${esc(I18N.t('Werk'))}</th>
       <th scope="col">${esc(I18N.t('Fassung'))}</th><th scope="col">${esc(I18N.t('Lemma-Abdeckung'))}</th>
-      <th scope="col">${esc(I18N.t('Treffer'))}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+      <th scope="col">${esc(I18N.t('Treffer'))}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`
+      + window.ConcordancePreview.statusHtml(coverage, {esc, t: I18N.t, loc: I18N.loc});
   }
   // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
   function markHits(html, h) {

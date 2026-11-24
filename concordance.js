@@ -13,7 +13,8 @@ function syriacReview(book) {
     const catalog = new Map(reviews.map(review => [review.book, review]));
     const supplements = [require('./peshitta-nt-context-review.json'), require('./peshitta-lexical-context-review.json'),
       require('./peshitta-corpus-dictionary-review.json'), require('./peshitta-automatic-context-review.json'),
-      require('./peshitta-neighbor-review.json'), require('./peshitta-main-lemma-review.json')].flatMap(source => source.books);
+      require('./peshitta-neighbor-review.json'), require('./peshitta-main-lemma-review.json'),
+      require('./peshitta-remaining-lemma-review.json'), require('./peshitta-group-anchor-review.json')].flatMap(source => source.books);
     for (const supplement of supplements) {
       const review = catalog.get(supplement.book);
       if (review && supplement.textHash !== review.textHash) throw new Error('Peshitta review edition mismatch');
@@ -49,6 +50,16 @@ function syriacReview(book) {
     if (row.mainLemmaSources) analysis = {
       lemmas, source: 'ETCBC Syriac (automatischer Hauptlemma-Abgleich)',
       reference: [row.mainLemmaSources.strong, ...new Set([...row.mainLemmaSources.form, ...row.mainLemmaSources.translation]
+        .map(({book, ref}) => `${book} ${ref}`))].join(' · '),
+    };
+    if (row.extendedMainLemmaSources) analysis = {
+      lemmas, source: 'ETCBC Syriac (automatischer Hauptlemma-Abgleich, erweitertes Korpus)',
+      reference: [row.extendedMainLemmaSources.strong, ...new Set([...row.extendedMainLemmaSources.form, ...row.extendedMainLemmaSources.translation]
+        .map(({book, ref}) => `${book} ${ref}`))].join(' · '),
+    };
+    if (row.groupAnchorSources) analysis = {
+      lemmas, source: 'ETCBC Syriac (automatischer Wortgruppenabgleich)',
+      reference: [row.groupAnchorSources.strong, ...new Set([...row.groupAnchorSources.form, ...row.groupAnchorSources.translation]
         .map(({book, ref}) => `${book} ${ref}`))].join(' · '),
     };
     if (row.alignedSources) analysis = {
@@ -159,8 +170,12 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
   if (lemma) out.lemmaCoverage = { words: 0, withLemma: 0, editions: [] };
   for (const e of Order.sortTitles(scan, x => x.title)) {
     if (isCancelled()) break;
-    let d;
-    try { d = JSON.parse(await fs.readFile(path.join(dir, e.rel), 'utf8')); } catch { out.errors++; out.scanned++; continue; }
+    let d, sourceSha256;
+    try {
+      const raw = await fs.readFile(path.join(dir, e.rel), 'utf8');
+      d = JSON.parse(raw);
+      if (lemma && e.language === 'Syriac' && e.versionTitle?.startsWith('ETCBC Peshitta')) sourceSha256 = crypto.createHash('sha256').update(raw).digest('hex');
+    } catch { out.errors++; out.scanned++; continue; }
     let validHash = false;
     if (lemma && (d.greekMorphology || d.syriacMorphology)) {
       d.textHash = crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex');
@@ -208,7 +223,9 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
     if (lemma && !isCancelled()) {
       out.lemmaCoverage.words += words;
       out.lemmaCoverage.withLemma += withLemma;
-      out.lemmaCoverage.editions.push({ title: e.title, versionTitle: e.versionTitle || '', words, withLemma, hits: o });
+      const status = sourceSha256 && require('./peshitta-concordance-status').edition(e, sourceSha256, words, withLemma);
+      out.lemmaCoverage.editions.push({ title: e.title, versionTitle: e.versionTitle || '', words, withLemma, hits: o,
+        ...(status ? {peshittaStatus: status} : {}) });
     }
     out.coverage[withLemma ? 'annotated' : 'surface']++;
     if (o) { stats.set(e.title, (stats.get(e.title) || 0) + o); out.dist.push({ t: e.title, v: e.versionTitle || '', k: e.kind, h, o }); }

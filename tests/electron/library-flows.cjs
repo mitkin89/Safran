@@ -11,7 +11,12 @@ async function until(check,label){const end=Date.now()+20000;while(Date.now()<en
 
 module.exports=async function setup({profile,docs,handlers}){
   const dir=path.join(profile,'flow-library'),searchDir=path.join(profile,'search');
-  for(const [rel,doc] of docs){const file=path.join(searchDir,rel);await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file,JSON.stringify(doc));}
+  for(const [rel,doc] of docs){const file=path.join(searchDir,rel);await fs.mkdir(path.dirname(file),{recursive:true});
+    // Keep audited Peshitta edition bytes intact; reader-only fixture metadata is not part of the source file.
+    const raw=doc.entry.language==='Syriac'&&doc.entry.versionTitle.startsWith('ETCBC Peshitta')
+      ?await fs.readFile(path.join(__dirname,'../../bundled',rel)):JSON.stringify(doc);
+    await fs.writeFile(file,raw);
+  }
   const entries=['UI Download A','UI Download B'].map(title=>({title,language:'English',versionTitle:'Testausgabe [de]',categories:['Test'],json_url:'https://example.invalid/sefaria-export/'+encodeURIComponent(title)+'/en/Testausgabe.json'}));
   const groups=OFF.buildGroups({books:entries}),jobs=new SearchJobs(),gates=[];
   let catalog=false,catalogError=true,searchError=false,holdSearch=false,holdDownload=false,downloadGate=null,cancelled=false,badDownload=true;

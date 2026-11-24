@@ -2484,6 +2484,10 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .wcCcTools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .ccCoverage { margin: .65em 0; padding: .55em .7em; border: 1px solid var(--line); border-radius: 6px; }
 .ccCoverage summary { cursor: pointer; }
+.ccDataStatus { margin: .65em 0; padding: .65em .8em; border-inline-start: 3px solid var(--line); background: var(--card); border-radius: 6px; }
+.ccDataStatus p { margin: .3em 0; }
+.ccDataStatus summary { cursor: pointer; }
+.ccDataStatus ul { margin: .5em 0; padding-inline-start: 1.5em; }
 .ccCoverageTable { margin-top: .5em; max-height: 18em; overflow: auto; }
 .ccCoverage table { width: 100%; border-collapse: collapse; text-align: start; }
 .ccCoverage th, .ccCoverage td { padding: .35em .5em; border-bottom: 1px solid var(--line); text-align: start; }

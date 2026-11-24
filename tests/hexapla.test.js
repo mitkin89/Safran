@@ -59,3 +59,9 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   assert.match(g1,/<button type="button" class="tc-hx-la-toggle" aria-expanded="false">Latein<\/button><span class="tc-hx-la" lang="la" hidden> CAP\. I\. Hieron[^<]*Nam et LXX/,'Latin folded');
   for(const m of html.matchAll(/title="([^"]*)"/g))assert(!m[1].includes('<'),'markup inside title');
 });
+
+test('automatic MT overlap indications are possible alignments, not asserted agreements',async()=>{
+ const hx=HX.create(host),d=await hx.load('Genesis'),rows=hx.entries(d,[{ref:'Genesis 3:15',row:'15'}]);
+ rows.push({anchor:{kind:'word',start:10,end:10,ref:'Genesis 3:15'},html:'<article class="tc-lxx-reading" data-lxx-type="deutung"></article>'});hx.agree(rows);
+ const html=rows.map(r=>r.html).join('');assert(html.includes('mögliche MT-Angleichung'));assert(!html.includes('>folgt dem MT<'));assert(html.includes('Eine Übereinstimmung mit dem MT ist damit nicht nachgewiesen.'));
+});

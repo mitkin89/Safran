@@ -83,7 +83,8 @@ function create(host){
           if(previous){if(!previous.rows.includes(row))previous.rows.push(row);return;}
           const anchor=window.TextCrit.locate(mapped,Array.from({length:n.hCount},(_,j)=>n.hStart+j),mt.length,n.codes.includes('--+')?n.hStart:null);
           const columnCode=n.b?n.codes.find(c=>c.startsWith('=')):null;
-          const columnText=columnCode&&n.bText.startsWith(columnCode)?n.bText.slice(columnCode.length).trim():n.bText;
+          const columnBody=columnCode&&n.bText.startsWith(columnCode)?n.bText.slice(columnCode.length).trim():n.bText;
+          const columnText=columnBody.split(/\s+/).filter(token=>!token.startsWith('.')||!n.codes.includes(token)).join(' ');
           const flags=n.codes.filter(c=>c!==columnCode||!columnText).map(badge).join(' ');
           const greek=n.g?'<span class="tc-tov-lemma" lang="grc" tabindex="0" data-tov-key="'+esc(key)+'" data-catss-apparatus="1" data-tc-note="'+i+'" data-h="'+esc(n.h)+'">'+esc(n.g)+'</span>':'';
           const heb=!anchor&&n.h?'<bdi lang="he" dir="rtl">'+esc(n.h)+'</bdi>':'';

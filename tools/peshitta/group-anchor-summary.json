@@ -1,0 +1,797 @@
+{
+  "version": 1,
+  "examined": 32840,
+  "newAssignments": 3084,
+  "remainingUnanchored": 29756,
+  "before": {
+    "words": 308727,
+    "assigned": 234683,
+    "open": 74044
+  },
+  "after": {
+    "words": 308727,
+    "assigned": 237767,
+    "open": 70960
+  },
+  "findings": {
+    "unresolved-or-lexical-syriac-companion": 12339,
+    "no-hebrew-lexical-head": 2652,
+    "multiple-hebrew-lexical-heads": 1261,
+    "insufficient-form-and-translation-support": 3890,
+    "supported-group-main-lemma": 3084,
+    "no-existing-alignment-link": 9149,
+    "unsupported-hebrew-main-pos": 375,
+    "held-out-control-conflict": 26,
+    "alignment-component-too-large": 42,
+    "competing-main-lemmas": 9,
+    "known-source-anchor-conflict": 12,
+    "missing-hebrew-main-lemma": 1
+  },
+  "anchorFindings": {
+    "unresolved-or-lexical-syriac-companion": 12339,
+    "no-hebrew-lexical-head": 2652,
+    "multiple-hebrew-lexical-heads": 1261,
+    "unique-group-anchor": 7021,
+    "no-existing-alignment-link": 9149,
+    "unsupported-hebrew-main-pos": 375,
+    "alignment-component-too-large": 42,
+    "missing-hebrew-main-lemma": 1
+  },
+  "benchmark": {
+    "method": "Grouped-anchor original-annotation holdout: exclude the complete target book from form, translation-pair and companion evidence; never use inferred Safran lemmas. Known original anchor conflicts remain excluded.",
+    "tested": 6414,
+    "agreed": 6404,
+    "disagreements": [
+      {
+        "book": "Judges",
+        "id": "100297",
+        "form": "ܡܦܩ",
+        "strong": "H:3318",
+        "expected": {
+          "form": "ܡܦܩ",
+          "lexeme": "MPQ",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܡܦܩ",
+          "lexeme": "NPQ",
+          "pos": "verb"
+        }
+      },
+      {
+        "book": "Genesis",
+        "id": "7576",
+        "form": "ܠܥܒ̣ܕܗ",
+        "strong": "H:5650",
+        "expected": {
+          "form": "ܥܒܕ",
+          "lexeme": "<BD",
+          "pos": "verb"
+        },
+        "proposed": {
+          "form": "ܥܒܕ",
+          "lexeme": "<BD=",
+          "pos": "subs"
+        }
+      },
+      {
+        "book": "Genesis",
+        "id": "8578",
+        "form": "ܕܙܒܢ",
+        "strong": "H:7069",
+        "expected": {
+          "form": "ܙܒܢ",
+          "lexeme": "ZBN",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܙܒܢ",
+          "lexeme": "ZBN=",
+          "pos": "verb"
+        }
+      },
+      {
+        "book": "Genesis",
+        "id": "11068",
+        "form": "ܕܩܠܝܠ",
+        "strong": "H:4592",
+        "expected": {
+          "form": "ܩܠܝܠ",
+          "lexeme": "QLL",
+          "pos": "verb"
+        },
+        "proposed": {
+          "form": "ܩܠܝܠ",
+          "lexeme": "QLJL",
+          "pos": "adjv"
+        }
+      },
+      {
+        "book": "Numbers",
+        "id": "49987",
+        "form": "ܠܩܘܕܫܐ",
+        "strong": "H:6944",
+        "expected": {
+          "form": "ܩܘܕܫܐ",
+          "lexeme": "QDWC",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܩܘܕܫܐ",
+          "lexeme": "QWDC",
+          "pos": "subs"
+        }
+      },
+      {
+        "book": "Numbers",
+        "id": "52604",
+        "form": "ܠܩܘܕܫܐ",
+        "strong": "H:6944",
+        "expected": {
+          "form": "ܩܘܕܫܐ",
+          "lexeme": "QDWC",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܩܘܕܫܐ",
+          "lexeme": "QWDC",
+          "pos": "subs"
+        }
+      },
+      {
+        "book": "II Kings",
+        "id": "168717",
+        "form": "ܘܠܪ̈ܘܪܒܢܘܗܝ",
+        "strong": "H:8269",
+        "expected": {
+          "form": "ܪܘܪܒܢܘ",
+          "lexeme": "RWRB",
+          "pos": "adjv"
+        },
+        "proposed": {
+          "form": "ܪܘܪܒܢܘ",
+          "lexeme": "RWRBN",
+          "pos": "subs"
+        }
+      },
+      {
+        "book": "Jeremiah",
+        "id": "220255",
+        "form": "ܘܠܩܪܝܬܐ",
+        "strong": "H:5892 b",
+        "expected": {
+          "form": "ܩܪܝܬܐ",
+          "lexeme": "QRJ>",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܩܪܝܬܐ",
+          "lexeme": "QRJ=",
+          "pos": "subs"
+        }
+      },
+      {
+        "book": "Jeremiah",
+        "id": "221966",
+        "form": "ܘܠܩܪܝܬܐ",
+        "strong": "H:5892 b",
+        "expected": {
+          "form": "ܩܪܝܬܐ",
+          "lexeme": "QRJ>",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܩܪܝܬܐ",
+          "lexeme": "QRJ=",
+          "pos": "subs"
+        }
+      },
+      {
+        "book": "Jeremiah",
+        "id": "222844",
+        "form": "ܘܠܩܪܝܬܐ",
+        "strong": "H:5892 b",
+        "expected": {
+          "form": "ܩܪܝܬܐ",
+          "lexeme": "QRJ>",
+          "pos": "subs"
+        },
+        "proposed": {
+          "form": "ܩܪܝܬܐ",
+          "lexeme": "QRJ=",
+          "pos": "subs"
+        }
+      }
+    ]
+  },
+  "priorFiles": [
+    {
+      "file": "peshitta-ruth-lemma-review.json",
+      "sha256": "656b36a226e15a2b457dccbc99be9d4307eca2fc857fe80ee6f165ea6a197857"
+    },
+    {
+      "file": "peshitta-isaiah-lemma-review.json",
+      "sha256": "3eb1f6bb6eb31d5e94a2513df439cf4a4730b68bf0a48f14e8cccb0758cd1520"
+    },
+    {
+      "file": "peshitta-lemma-assignments.json",
+      "sha256": "3479b5bdee1c306c98a8688679e992e2d0944c078dc5144923edc43ac169dd1c"
+    },
+    {
+      "file": "peshitta-nt-context-review.json",
+      "sha256": "172bc69c478e20668827e18e57e58d7997cd6cab329d67178ef4c83efc016b37"
+    },
+    {
+      "file": "peshitta-lexical-context-review.json",
+      "sha256": "82212afdb3b460390635b6959b2cb2f3f567983c640236f4be977351a0c2421c"
+    },
+    {
+      "file": "peshitta-corpus-dictionary-review.json",
+      "sha256": "8bfe49cc5dda1ca183a3e58a42042da738fc688722077613c9168cae8dac45b3"
+    },
+    {
+      "file": "peshitta-automatic-context-review.json",
+      "sha256": "59843685a7cd4dabf8f3b05d15a2c839853dda460592d09daa9f8b7c526b48cf"
+    },
+    {
+      "file": "peshitta-neighbor-review.json",
+      "sha256": "58cb9aba822619647c8a7b90c1db509bc098d386fd9942bb25f9a5cead123291"
+    },
+    {
+      "file": "peshitta-main-lemma-review.json",
+      "sha256": "031024a75af9092a78ed3c53dfdd636f9be4400b4575b42c2e77d637916ab5e8"
+    },
+    {
+      "file": "tools/peshitta/lexical-context-decisions.json",
+      "sha256": "769278012d61ea92f66feb57e4ac5c119f1703b3af6310994b45bda746a9b29e"
+    },
+    {
+      "file": "tools/peshitta/lexical-context-batch-1000.json",
+      "sha256": "29d8874b7011bb0ad5a213a583dca0a182641d340890836e450ff58fea3f7960"
+    },
+    {
+      "file": "peshitta-remaining-lemma-review.json",
+      "sha256": "02a44db69c1af0c0a2f44d49e2005e0fb2cc86d79015d88a2280bdbc4e16a132"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "book": "Genesis",
+      "rel": "own/Genesis/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "4f3c9596619b97eb84c1cc1133eed0783970420fd636400bc617a4eef16424f9",
+      "sha256": "60c31111245ee3a0b608d7cbbeb8a5b5393d1b6113ec7c8cf84148949275bc65"
+    },
+    {
+      "book": "Exodus",
+      "rel": "own/Exodus/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "4f66a7ae68f1716e3ed8d7cdb08bd6ebbd522e4fb3ac12313bc32ec272758f9d",
+      "sha256": "0edcbb0e1efe0fbd065bbc9add77b3a2878818c95d93db1cd7f987326153b506"
+    },
+    {
+      "book": "Leviticus",
+      "rel": "own/Leviticus/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "d93381924b0927ce6b13f50a1487bb724bf6bb023720f50884bedb8d8c4876f0",
+      "sha256": "569b5b00bde43f14939e0f485454b5fed4031fcb7515990fbe3163d7fb57cac8"
+    },
+    {
+      "book": "Numbers",
+      "rel": "own/Numbers/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "5df5d23374b8de64324e788ddcca75800cca1ea385469a9482b742edb578e7d7",
+      "sha256": "e57ba5a3af446618ecac0c2610a04f11408d292b30fc2edc9a1504b0fde3c99b"
+    },
+    {
+      "book": "Deuteronomy",
+      "rel": "own/Deuteronomy/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "5a9faf4d7eaeeb86a7ba0e766020d2e02f04a6ac1616665bca28a70b8858800d",
+      "sha256": "8f21fb3e364b1c652ea38dc2495298343660768ff9732b16676e393c135db67b"
+    },
+    {
+      "book": "Job",
+      "rel": "own/Job/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "b4af54a06bedea462a44e8ab9ba6b3741537faa9f1f0e025fffc808c0c46905c",
+      "sha256": "cdee25bd256eeba49d360cf95b5b34ffe9057b25a4f503ea3d22af5338c787be"
+    },
+    {
+      "book": "Joshua",
+      "rel": "own/Joshua/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f41fa8f9f48dad15fa9675c60a124fd241f948e3253777f7026698bff1a6b4d1",
+      "sha256": "982a9d1145fa8fe4da79ad86f7a19ac224250c5dc057e3ed0aee8ec55530bdf2"
+    },
+    {
+      "book": "Judges",
+      "rel": "own/Judges/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "c27c28dd7679c7be1b7cbdd7d08eac11365f14530e34edb9643d3c2b736c69f2",
+      "sha256": "6a1d932c776b82369f49d441a40daaa524bb3450625e928d58fb860acd1b97cd"
+    },
+    {
+      "book": "I Samuel",
+      "rel": "own/I Samuel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "228d4114c1b74561cffd1cde606f7d13f9e570604291945f4a07184628cc68e1",
+      "sha256": "90d151aae81aaa4aa09ef00aebbcc6dbdb51c698877cfe4c8027c4e72408e833"
+    },
+    {
+      "book": "II Samuel",
+      "rel": "own/II Samuel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "dac71b6fb4c819d28a3173b026cea38835df5ff79f69b5df9025fba939e866fa",
+      "sha256": "5cb2bc3d25872a90dd52a93f84edfe870d4300079255f5ffbb19dbfdf04c7258"
+    },
+    {
+      "book": "Psalms",
+      "rel": "own/Psalms/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "7a4070950b05c252f976b70882d70a19a8f01a27c015a7a9f99b77905856456b",
+      "sha256": "b7ae010bdf483ba6b0748b54e406646cec3ffc8dedf46bd224faa4f383bd6d41"
+    },
+    {
+      "book": "I Kings",
+      "rel": "own/I Kings/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "effdc5720859cd3ba2efee78083d818e23cc45497ae370e6903a7775107e1386",
+      "sha256": "d3f08d0576df4f26c9cb7849945eedeb0a1c70f76ecbe095f0ed2bf0513830a6"
+    },
+    {
+      "book": "II Kings",
+      "rel": "own/II Kings/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "d77260dea3fc1521d0fb44040835f03bb0e861c0d36f405598e14f045b9f5d7f",
+      "sha256": "dc23108a8cdeedbf9401c86d7a7a62495d2ed62fda9f8fb1463b8a482eb65209"
+    },
+    {
+      "book": "Proverbs",
+      "rel": "own/Proverbs/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "e9ba45eb9b0d9984ef52a640299a897c3576695683750fa1aa80cc6f1910ff82",
+      "sha256": "0d05c54be0a0e0ab120bb9e22fb0a8d25f4ee1137393a00fdc7f10f84df8991b"
+    },
+    {
+      "book": "Ecclesiastes",
+      "rel": "own/Ecclesiastes/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "516fd94d9fe0f92a5215bac2a784b2dd88c92a5a371831678fe8190a1dba7f02",
+      "sha256": "80034d75fd6274d93f3b2b4f9aec740946b1bf21079da9508d5ebc351d1885e3"
+    },
+    {
+      "book": "Song of Songs",
+      "rel": "own/Song of Songs/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "eb90ce29692aacd495f29f2057481bf2d96755d554dee1480713222217c36420",
+      "sha256": "ac681f7fc0d99a3069a9f92dfde9566c63b6861d2106042ea85a6166340d299e"
+    },
+    {
+      "book": "Isaiah",
+      "rel": "own/Isaiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "0edf3dc1041da636a21ca83fc8f340b15288fa00296e1fd883db319f97f72733",
+      "sha256": "6f3a3ca3179ed4aceb137e39ecf06b34c79112657294606a8363395a61120787"
+    },
+    {
+      "book": "Jeremiah",
+      "rel": "own/Jeremiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "0253a0f366f2e21262316aa38f5c95a60c4b7a9606e1a9240575cacae6775203",
+      "sha256": "bbaa784168e94171c14d3b0bfe7f3bc4eb3d2c39a21cd3add685faf3dc5bd336"
+    },
+    {
+      "book": "Lamentations",
+      "rel": "own/Lamentations/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f9642d4f1f3ca55de83d0f08e878aea93cb38f8b9d5104cedc21afbff098b731",
+      "sha256": "ac87cc98e2af94c2be372526efa134938c3f7bf5432b9c89bfe78b7796435a53"
+    },
+    {
+      "book": "Ezekiel",
+      "rel": "own/Ezekiel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "1ee10386982baab30e705e5b135de992f4ef16623c3691298e458807e392593d",
+      "sha256": "155b4b5e802ff2e9e5c857e81a65422c1585e6f007c06dc8033984628a79c801"
+    },
+    {
+      "book": "Hosea",
+      "rel": "own/Hosea/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "3da572442d078df4430778079af0310992dc648649c0be1c2200a2ed4f71f626",
+      "sha256": "97a86626704481d2cbca1e6eb331bfa8ac2ca8921dde1edf0e2f6a9b6c680749"
+    },
+    {
+      "book": "Joel",
+      "rel": "own/Joel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "ba11a70f0273081b6a25f99321496271285a12891270988664246ae668bd9983",
+      "sha256": "3b04af80b6812e2feb6e2794e2421f70bb5df23567784678ca5ffa0d9ca0d8f9"
+    },
+    {
+      "book": "Amos",
+      "rel": "own/Amos/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "0df71134de9de7afa0f42116fa9a229d6c1ffd9ac891a4847dff4f75df04a21f",
+      "sha256": "8ce9dfb4200768400fdf55c4fa3a7b5b22631c73acdb6f65ad079a04bcc3d7ba"
+    },
+    {
+      "book": "Obadiah",
+      "rel": "own/Obadiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "904ab49b156d74da57fccc45b9adec1512061a74db4261589b809b47e8ef6f9f",
+      "sha256": "8783a5789fa4e7decd62d32054ef9567918d38588d4002316da0e3cc8148b196"
+    },
+    {
+      "book": "Jonah",
+      "rel": "own/Jonah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "de6c3163851d63c4164c5ea86defc097ad668fc6c7d40d35dc19a9777d74f120",
+      "sha256": "8895192d897ef1157edd3258c061dd83ed2a0e7b15185c634d138f3bc7e00b69"
+    },
+    {
+      "book": "Micah",
+      "rel": "own/Micah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "cdd246ae2d14050e3a8ea7171f5323d05deb2eca2327e78d592490491a47209b",
+      "sha256": "bfed30d80fdb6c151975451ed8f9f2dbd54eab90aa1a095f74cb714c81075ae5"
+    },
+    {
+      "book": "Nahum",
+      "rel": "own/Nahum/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "6c33d77bd2c16eded6109767aa974c3b92c72b93c841c22ace1c7f7f3b22195c",
+      "sha256": "36532c088e7c9dc4ca26557b06a35a0af575275057b05239e1c76f8b4724fe92"
+    },
+    {
+      "book": "Habakkuk",
+      "rel": "own/Habakkuk/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "54cae3cb0b08fa03df27bdbee5d7e7acf06883b9704e6f5396106dbceb908066",
+      "sha256": "5a2b6d010114b804bd373dfd529e554116ae49548cbd4cfaf592c0c9fcdf7eed"
+    },
+    {
+      "book": "Zephaniah",
+      "rel": "own/Zephaniah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "5d520ac0336046fbbdd5b90410b3d86e3f5a1d48966b27804dd9ae08df7e84b7",
+      "sha256": "7fe998682de6f9ac606b05c311a5e598049ce1aa8e14cca07fa5b0716efbf331"
+    },
+    {
+      "book": "Haggai",
+      "rel": "own/Haggai/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "8601e4b2b91a72af95795cac4f9c378959d2305028a0b5dd619932ee283bad82",
+      "sha256": "5a03f0d6c264dc66784ee7798a3a2a8b99547196a6b49341f62e4ad822542152"
+    },
+    {
+      "book": "Zechariah",
+      "rel": "own/Zechariah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "740b5b12d4bb70945f1d7c6c92b51698c8e9857600d546801ae6cc01f397dcce",
+      "sha256": "2cc18281388413853af55b0bd3cfa319f71ec19d8d65901d9f3fa2f1183e3c00"
+    },
+    {
+      "book": "Malachi",
+      "rel": "own/Malachi/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "c0a00c909c8d8cd871c143509cdf3bb7fcf02fbe2a7d876c416a3e36cbce93a1",
+      "sha256": "d42a446fecbd8824d9e9629fea51000d6f5068c8244beb2e04e25f88b091ce95"
+    },
+    {
+      "book": "Daniel",
+      "rel": "own/Daniel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f7b88f37de92d821c20c664332c479d43b39b4db85bfb865bd3e12a4b68eead2",
+      "sha256": "f3f7f13b903d60ae4aabcd25378202d1ed1282941cbf911a99d939b95032f770"
+    },
+    {
+      "book": "Ruth",
+      "rel": "own/Ruth/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "1da360c0c5e609d059735d0fc50f397f1fecd93602d42606adb51e791ee3d0bf",
+      "sha256": "11ace112d878b1765c33d482ef735c3f1a6b5e67fd61d234d24cc6e99b3507ee"
+    },
+    {
+      "book": "Esther",
+      "rel": "own/Esther/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f89cad64010e460baf411cccc9709b0278b2725f035b753a032c4fd3becfa751",
+      "sha256": "0a522f89d966c270150bbd617870fea9c455193589cd850bfa2bfb6478236409"
+    },
+    {
+      "book": "I Chronicles",
+      "rel": "own/I Chronicles/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f2762fc3fbf082ab0bcfea7ca300f97b907060d3c55e62959a6ef39d307477f9",
+      "sha256": "290e4768f0cb29803dfbe90dfddcec3994061c4831751f7c7367d1346e0baffc"
+    },
+    {
+      "book": "II Chronicles",
+      "rel": "own/II Chronicles/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f9f6b814a46801da7288052365a46cb031ab4b0e774a2d7f339653183671fd6e",
+      "sha256": "87109692d6bdf86270083044accfc8c289f0c3405676075095b954cfdbd4337c"
+    },
+    {
+      "book": "Ezra",
+      "rel": "own/Ezra/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f8ff4667e6768213529e0171ce54a071da8daaf876c86a8dd39082735b8e56da",
+      "sha256": "4edb07602f490930074897e00ac2a20057a952f9926bf496a39b296894960c25"
+    },
+    {
+      "book": "Nehemiah",
+      "rel": "own/Nehemiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "4c2a79260e6fab97ad436968caed4bcc5511a2768dfc572ec1d63fd96db51fb5",
+      "sha256": "c0fd88f66ca35f4ffdae50a751febe9f8bbfad934efeaaf2be0b00a80162b2d0"
+    }
+  ],
+  "alignmentAndHebrewFiles": [
+    {
+      "file": "bundled/own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "1f47f49fd727e0813c8d8672c96ca06f75deb2a58f2853cfd25a5249107bca00"
+    },
+    {
+      "file": "peshitta-alignment-data.js",
+      "sha256": "6727b793e67c158942eaa0081a2ef2ef28fee76e34b114dcd971c6782e123f79"
+    },
+    {
+      "file": "bundled/own/Exodus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "b270922365525339f84e8b10490434556f7116bf2f2a1d42dbf67a47efd25c35"
+    },
+    {
+      "file": "bundled/own/Leviticus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "62e26f554f7dba1aac16a0b3b7246bfbf3d17fe179d26f7b9694440c1b0d50de"
+    },
+    {
+      "file": "bundled/own/Numbers/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "9ab02bd4aa4c6969494e85014e98f56ca4ff2cf5d741a34b2911e186866aa1e9"
+    },
+    {
+      "file": "bundled/own/Deuteronomy/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "b1c198ab82b675fd68722ba7db1fe9188d73b9dc224764cc9873075e6f9ed6a9"
+    },
+    {
+      "file": "bundled/own/Job/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e9f5c966d8b5548c7a2c2de5984e75a5909d32ddcd99c6b361eb74cd7d617892"
+    },
+    {
+      "file": "peshitta-alignment/Job.js",
+      "sha256": "f32cd4f4de96fb89b4140b9841e2e4b160ca680ee0dfa6ca0a3ba37f6adab6e7"
+    },
+    {
+      "file": "bundled/own/Joshua/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "01954265baa600b7520f15f13aaadc9448904a4f6f82399bba9c3c79685f165b"
+    },
+    {
+      "file": "peshitta-alignment/Joshua.js",
+      "sha256": "77804ade9c59e379464d3b6b8ff6fd4a7833ae433fdb363a7246315664ab88af"
+    },
+    {
+      "file": "bundled/own/Judges/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "db9695f400b78c24d3f4327952641b97733aa991875c5ae497284e077fb6b9c6"
+    },
+    {
+      "file": "peshitta-alignment/Judges.js",
+      "sha256": "fb1f15c4fd88aeb98f06f9561a5922cc958027ac4e384c570ce29d432097ef57"
+    },
+    {
+      "file": "bundled/own/I Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "7a7542070c81e1cac84eea6720f28bed85082c429360fdb2179618c8c74f4a54"
+    },
+    {
+      "file": "peshitta-alignment/I_Samuel.js",
+      "sha256": "b1458741e8ee6a1ae6d74db0717b714d0bd34d39b1328bcfaa7a3b6d855d5604"
+    },
+    {
+      "file": "bundled/own/II Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "713b82cc845783b1512c15b21fe2d83f032c70b37e3ea3425c6ddc6279e357de"
+    },
+    {
+      "file": "peshitta-alignment/II_Samuel.js",
+      "sha256": "aa3dc2e75f7dc8fb5eb3ef85f5be5111202e686f86f8de63ee9cac3c5c9789be"
+    },
+    {
+      "file": "bundled/own/Psalms/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "841a816b411a084457e6ec1a7243b8e7744cfe202c0784f7367c1f6b568edb0c"
+    },
+    {
+      "file": "peshitta-alignment/Psalms.js",
+      "sha256": "d346763ed037ee6e79d5ed452e61a3185175e6f765b88e2868d0e5235b034783"
+    },
+    {
+      "file": "bundled/own/I Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "67f13503eb41d5fc67941cd41bf5a86b605ca3bc8371e38e558129c6538d8d15"
+    },
+    {
+      "file": "peshitta-alignment/I_Kings.js",
+      "sha256": "b7ebfa23dafd647796cee4f9f6e4f356a868e8946c21e85cd1f990249bdd3232"
+    },
+    {
+      "file": "bundled/own/II Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "0b58661591e225c147c09a490c47dc81bc2cb90df076cc95914d085bad996882"
+    },
+    {
+      "file": "peshitta-alignment/II_Kings.js",
+      "sha256": "2a77c5fac11dbadb4d9127605d4559d1cabcb228e72050ebbe0953923c40814d"
+    },
+    {
+      "file": "bundled/own/Proverbs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "afbd007dc5f8a05ea9a44bf140005edb528f01ffdf30e4853aaf89e0bb08334b"
+    },
+    {
+      "file": "peshitta-alignment/Proverbs.js",
+      "sha256": "8893c726e6d3fb1e2e5661c71d5a7685cac4b8a0c6d199a916621eac8d225d58"
+    },
+    {
+      "file": "bundled/own/Ecclesiastes/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "ced59c2bca61a41b1b9bc8f19967e42f0376cc1d3a372905b300c4b2c0424cc3"
+    },
+    {
+      "file": "peshitta-alignment/Ecclesiastes.js",
+      "sha256": "82bdce460be674a1249dcc7ad9d6b518a8a01421e05cb0a22c09422a3048ecfa"
+    },
+    {
+      "file": "bundled/own/Song of Songs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "3cce866d5300ca235c0e1f8bd8c2fa5471a2eaa9b397ea94d13c25e8064e2d55"
+    },
+    {
+      "file": "peshitta-alignment/Song_of_Songs.js",
+      "sha256": "e92a89043dddba77a135ce02f19f2cb15b7eec8f52e8a6b68c9431a2af64e7a5"
+    },
+    {
+      "file": "bundled/own/Isaiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "7b2e14ab2b04e2fd5dd4bc1a238af827a5b889e93a51b129bc7f968e66cd3421"
+    },
+    {
+      "file": "peshitta-alignment/Isaiah.js",
+      "sha256": "11651af2941dcd214c7552783943c01c7a4fa8e1b1781df3618b20d032150313"
+    },
+    {
+      "file": "bundled/own/Jeremiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "d2a63185291f9c430a6856aa9df34056f73f477e18f3ff7bcf1310c08e650ac4"
+    },
+    {
+      "file": "peshitta-alignment/Jeremiah.js",
+      "sha256": "79ee8adc94891849c01d70cf3f61604bb39fabffa172efc31bd3bd3253cd986c"
+    },
+    {
+      "file": "bundled/own/Lamentations/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "3d054fea92aeda421cc8883786f0bcda609512c5df33b7eb694c0b2e92953093"
+    },
+    {
+      "file": "peshitta-alignment/Lamentations.js",
+      "sha256": "e7a58170fd98532d1bf1107530c46e1e29f79901e283d592cf6f91affbf0ec0b"
+    },
+    {
+      "file": "bundled/own/Ezekiel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "7b74ce296a28d046bc5e29be510d4e9ce5316be4662a57b3182b710f66b48e2a"
+    },
+    {
+      "file": "peshitta-alignment/Ezekiel.js",
+      "sha256": "fc9c609ab02c9571f4b760227a6c3b35640970df7fbaee025a74bc23330a0e62"
+    },
+    {
+      "file": "bundled/own/Hosea/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "0145d15c27cab0c62f03c0576d42ecbcf43a9548a7487f1cf40b7a568f371a70"
+    },
+    {
+      "file": "peshitta-alignment/Hosea.js",
+      "sha256": "953a67a7863d4a8f2a2a51526452cd14f7d71865006bbd5f4c922b78f75e8372"
+    },
+    {
+      "file": "bundled/own/Joel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "cc05772361af0d88ae496c402e62a49f03739abd7df67b99b6b08291e798e19f"
+    },
+    {
+      "file": "peshitta-alignment/Joel.js",
+      "sha256": "494d73a988ba6e3b7501bf2241fa147c2bd882a542eb2f41e9ee4f6b557e294c"
+    },
+    {
+      "file": "bundled/own/Amos/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "a51e193357988c4faa9a484f7832bcb6bbf180f63dc502e5910eadb7fbf22656"
+    },
+    {
+      "file": "peshitta-alignment/Amos.js",
+      "sha256": "3fef61cff41e1ee054d64c8f24b44b8e9b114cbc70d514595233c924ae713307"
+    },
+    {
+      "file": "bundled/own/Obadiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "d81f6725892198c4a64d068a30783e6808a078b773b050c404a6985ede9814d9"
+    },
+    {
+      "file": "peshitta-alignment/Obadiah.js",
+      "sha256": "1b4f49ff624d75a0f7ea3e8ca102400bb9cfc72040a0e2507b00362278258df2"
+    },
+    {
+      "file": "bundled/own/Jonah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "909e73570212a453b059c15ee1250853661b5a27de5c4c4ff5a2bd677097d9e5"
+    },
+    {
+      "file": "peshitta-alignment/Jonah.js",
+      "sha256": "6089e27259e7ffd2a972127295695257fa7b0d8d6b31e29923a97779247b6a68"
+    },
+    {
+      "file": "bundled/own/Micah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "d1c14fd6d8e2613d88bebac028a4a41cdb0fced5d6e88772355c12c2d8bb859b"
+    },
+    {
+      "file": "peshitta-alignment/Micah.js",
+      "sha256": "5823ab576c715daa74690cb1f245b2db624b69e3a2e1df2a04fd939239bd23c7"
+    },
+    {
+      "file": "bundled/own/Nahum/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "6371a199639dfbb24e9bc726a5cf2e1869b7e7d182303f350caa5d2443dcba31"
+    },
+    {
+      "file": "peshitta-alignment/Nahum.js",
+      "sha256": "4c945889c7281c60d77b3e9bcc071666623e692e6aaa33978dcdbf5ee26813c5"
+    },
+    {
+      "file": "bundled/own/Habakkuk/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "081e61ab77e8ed0d0a995b5af3b237cf818b67373cd4523785bab1b0fbd06726"
+    },
+    {
+      "file": "peshitta-alignment/Habakkuk.js",
+      "sha256": "b9931b1e0f76239a3acb7c70b6ac1da503e111edae2e637b9ce32d6117980a97"
+    },
+    {
+      "file": "bundled/own/Zephaniah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "4989cc8bb392efbdc7583ffdc77101e2d6a065b54325cd9995746611c64e4856"
+    },
+    {
+      "file": "peshitta-alignment/Zephaniah.js",
+      "sha256": "fa48ad9d1ea03823230335a30d5cabe2d79de9c6140a1140c035550226c5b01e"
+    },
+    {
+      "file": "bundled/own/Haggai/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "a209975c420661c701d7243c5746176a6d7cdfa2e6ea343591626f77f4c3cd1c"
+    },
+    {
+      "file": "peshitta-alignment/Haggai.js",
+      "sha256": "27ab780a17b71ddcebe0a08c939fd8f7614ba721f082665e6ff38d0fd0abb1d2"
+    },
+    {
+      "file": "bundled/own/Zechariah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e354b277e174900d1499522ff29e06e284bfea3e1e45893b9f2e26fc69944ce6"
+    },
+    {
+      "file": "peshitta-alignment/Zechariah.js",
+      "sha256": "4f7f40434b8205e28fe8ee01ebdac864976aeeba4af359c596a6d0feaa6fdc99"
+    },
+    {
+      "file": "bundled/own/Malachi/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e9a4056fa7e096eab3f685554f9184d6cbe0d8888c203156a0f617f25302bbe0"
+    },
+    {
+      "file": "peshitta-alignment/Malachi.js",
+      "sha256": "a29d93f9e8cd953e8f46b3ca67b63eb9e2bb6863c6af5d029e0df01763950b28"
+    },
+    {
+      "file": "bundled/own/Daniel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "0ec64754aa4ab3d197b2992a33398cddc4615bfb5c19cb6e5b6e575c748dc3fd"
+    },
+    {
+      "file": "peshitta-alignment/Daniel.js",
+      "sha256": "103fbfcfe1b57b75e6e7fc2685f5ccedd0b74d6c218c97344d2aa905e4dbb894"
+    },
+    {
+      "file": "bundled/own/Ruth/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "422bf12fa74fe4ce653d3460b00dcd354d0a11b970a5ac6419eedcb6f61718d0"
+    },
+    {
+      "file": "peshitta-alignment/Ruth.js",
+      "sha256": "84212df32911bd8887e4e7219e329df7ee599ed105044301e36f19655c529593"
+    },
+    {
+      "file": "bundled/own/Esther/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "fa718418321587e18a1c76230abed9f2f618c8448e56ef40bd3339bc83f832a6"
+    },
+    {
+      "file": "peshitta-alignment/Esther.js",
+      "sha256": "cade5b8656dc8414f8d30aed3526c149b65d1d7ef35e4ff9abe49973745e39a2"
+    },
+    {
+      "file": "bundled/own/I Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "1760411a19dc820e19940be23530831ce47a22d3f95095a63cb46cb305194bfc"
+    },
+    {
+      "file": "peshitta-alignment/I_Chronicles.js",
+      "sha256": "29838ca472b2b9e22d91fe643713d33a5609088f72efe7c9eebc01e895c1cded"
+    },
+    {
+      "file": "bundled/own/II Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "cda23541cdd731041e695f5b4804004e04c5fafdc9e0c9ca362889bfa61d54cf"
+    },
+    {
+      "file": "peshitta-alignment/II_Chronicles.js",
+      "sha256": "eb4b3ce1991527f614ee88815e33bd201f0ee2877ab94f44721bae0e6c02f2ad"
+    },
+    {
+      "file": "bundled/own/Ezra/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e102d39b56fb5007e9fb7400ef3fcd2d7501ff00553a484c5462ae02d63a9b40"
+    },
+    {
+      "file": "peshitta-alignment/Ezra.js",
+      "sha256": "b9127352d0a012db00f47f6e3fe90ec1d8a79d15d67ef67835e811c040525eb1"
+    },
+    {
+      "file": "bundled/own/Nehemiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "f1c265351827a6df588d891269860c2fe2ef063de4e4ce88f4fb52487059c517"
+    },
+    {
+      "file": "peshitta-alignment/Nehemiah.js",
+      "sha256": "353832b14c4c9c8dd74ab569e98f0b566a6ea27117fe7828355cfafe544d14ef"
+    }
+  ],
+  "inputSha256": "db22f837ec76e71c2e32e44383e3565271bd340543eb762d5a841b4efc99c392",
+  "extraSnapshotSha256": "c4072842630bd8a0876c486700099f3033cf24dae88c6aae51f3cc9ea94b72b7",
+  "auditSha256": "1682bf2a0900903af3d0649ac0f6b77cdeb790771654f2bb7eebda930b45fd9e",
+  "controlExcludedFamilies": 109,
+  "reviewKind": "Automatic main-lemma evidence audit, not individual scholarly verification. Existing word-group alignments and complete morphology are unchanged.",
+  "license": "CC BY-NC 4.0"
+}

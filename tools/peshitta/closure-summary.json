@@ -1,0 +1,357 @@
+{
+  "version": 1,
+  "statusSha256": "cb564dedbac87460c686c15a59b6ca0e3fff7e87d1e2be4d01738a9210c485fc",
+  "gapsSha256": "4ba33425dfe42b46ec2b8242cc09c8bcc0209720765b9b957594fc6e720ebd7b",
+  "sourceFiles": [
+    {
+      "book": "Genesis",
+      "rel": "own/Genesis/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "4f3c9596619b97eb84c1cc1133eed0783970420fd636400bc617a4eef16424f9",
+      "sha256": "60c31111245ee3a0b608d7cbbeb8a5b5393d1b6113ec7c8cf84148949275bc65"
+    },
+    {
+      "book": "Exodus",
+      "rel": "own/Exodus/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "4f66a7ae68f1716e3ed8d7cdb08bd6ebbd522e4fb3ac12313bc32ec272758f9d",
+      "sha256": "0edcbb0e1efe0fbd065bbc9add77b3a2878818c95d93db1cd7f987326153b506"
+    },
+    {
+      "book": "Leviticus",
+      "rel": "own/Leviticus/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "d93381924b0927ce6b13f50a1487bb724bf6bb023720f50884bedb8d8c4876f0",
+      "sha256": "569b5b00bde43f14939e0f485454b5fed4031fcb7515990fbe3163d7fb57cac8"
+    },
+    {
+      "book": "Numbers",
+      "rel": "own/Numbers/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "5df5d23374b8de64324e788ddcca75800cca1ea385469a9482b742edb578e7d7",
+      "sha256": "e57ba5a3af446618ecac0c2610a04f11408d292b30fc2edc9a1504b0fde3c99b"
+    },
+    {
+      "book": "Deuteronomy",
+      "rel": "own/Deuteronomy/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "5a9faf4d7eaeeb86a7ba0e766020d2e02f04a6ac1616665bca28a70b8858800d",
+      "sha256": "8f21fb3e364b1c652ea38dc2495298343660768ff9732b16676e393c135db67b"
+    },
+    {
+      "book": "Job",
+      "rel": "own/Job/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "b4af54a06bedea462a44e8ab9ba6b3741537faa9f1f0e025fffc808c0c46905c",
+      "sha256": "cdee25bd256eeba49d360cf95b5b34ffe9057b25a4f503ea3d22af5338c787be"
+    },
+    {
+      "book": "Joshua",
+      "rel": "own/Joshua/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f41fa8f9f48dad15fa9675c60a124fd241f948e3253777f7026698bff1a6b4d1",
+      "sha256": "982a9d1145fa8fe4da79ad86f7a19ac224250c5dc057e3ed0aee8ec55530bdf2"
+    },
+    {
+      "book": "Judges",
+      "rel": "own/Judges/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "c27c28dd7679c7be1b7cbdd7d08eac11365f14530e34edb9643d3c2b736c69f2",
+      "sha256": "6a1d932c776b82369f49d441a40daaa524bb3450625e928d58fb860acd1b97cd"
+    },
+    {
+      "book": "I Samuel",
+      "rel": "own/I Samuel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "228d4114c1b74561cffd1cde606f7d13f9e570604291945f4a07184628cc68e1",
+      "sha256": "90d151aae81aaa4aa09ef00aebbcc6dbdb51c698877cfe4c8027c4e72408e833"
+    },
+    {
+      "book": "II Samuel",
+      "rel": "own/II Samuel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "dac71b6fb4c819d28a3173b026cea38835df5ff79f69b5df9025fba939e866fa",
+      "sha256": "5cb2bc3d25872a90dd52a93f84edfe870d4300079255f5ffbb19dbfdf04c7258"
+    },
+    {
+      "book": "Psalms",
+      "rel": "own/Psalms/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "7a4070950b05c252f976b70882d70a19a8f01a27c015a7a9f99b77905856456b",
+      "sha256": "b7ae010bdf483ba6b0748b54e406646cec3ffc8dedf46bd224faa4f383bd6d41"
+    },
+    {
+      "book": "I Kings",
+      "rel": "own/I Kings/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "effdc5720859cd3ba2efee78083d818e23cc45497ae370e6903a7775107e1386",
+      "sha256": "d3f08d0576df4f26c9cb7849945eedeb0a1c70f76ecbe095f0ed2bf0513830a6"
+    },
+    {
+      "book": "II Kings",
+      "rel": "own/II Kings/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "d77260dea3fc1521d0fb44040835f03bb0e861c0d36f405598e14f045b9f5d7f",
+      "sha256": "dc23108a8cdeedbf9401c86d7a7a62495d2ed62fda9f8fb1463b8a482eb65209"
+    },
+    {
+      "book": "Proverbs",
+      "rel": "own/Proverbs/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "e9ba45eb9b0d9984ef52a640299a897c3576695683750fa1aa80cc6f1910ff82",
+      "sha256": "0d05c54be0a0e0ab120bb9e22fb0a8d25f4ee1137393a00fdc7f10f84df8991b"
+    },
+    {
+      "book": "Ecclesiastes",
+      "rel": "own/Ecclesiastes/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "516fd94d9fe0f92a5215bac2a784b2dd88c92a5a371831678fe8190a1dba7f02",
+      "sha256": "80034d75fd6274d93f3b2b4f9aec740946b1bf21079da9508d5ebc351d1885e3"
+    },
+    {
+      "book": "Song of Songs",
+      "rel": "own/Song of Songs/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "eb90ce29692aacd495f29f2057481bf2d96755d554dee1480713222217c36420",
+      "sha256": "ac681f7fc0d99a3069a9f92dfde9566c63b6861d2106042ea85a6166340d299e"
+    },
+    {
+      "book": "Isaiah",
+      "rel": "own/Isaiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "0edf3dc1041da636a21ca83fc8f340b15288fa00296e1fd883db319f97f72733",
+      "sha256": "6f3a3ca3179ed4aceb137e39ecf06b34c79112657294606a8363395a61120787"
+    },
+    {
+      "book": "Jeremiah",
+      "rel": "own/Jeremiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "0253a0f366f2e21262316aa38f5c95a60c4b7a9606e1a9240575cacae6775203",
+      "sha256": "bbaa784168e94171c14d3b0bfe7f3bc4eb3d2c39a21cd3add685faf3dc5bd336"
+    },
+    {
+      "book": "Lamentations",
+      "rel": "own/Lamentations/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f9642d4f1f3ca55de83d0f08e878aea93cb38f8b9d5104cedc21afbff098b731",
+      "sha256": "ac87cc98e2af94c2be372526efa134938c3f7bf5432b9c89bfe78b7796435a53"
+    },
+    {
+      "book": "Ezekiel",
+      "rel": "own/Ezekiel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "1ee10386982baab30e705e5b135de992f4ef16623c3691298e458807e392593d",
+      "sha256": "155b4b5e802ff2e9e5c857e81a65422c1585e6f007c06dc8033984628a79c801"
+    },
+    {
+      "book": "Hosea",
+      "rel": "own/Hosea/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "3da572442d078df4430778079af0310992dc648649c0be1c2200a2ed4f71f626",
+      "sha256": "97a86626704481d2cbca1e6eb331bfa8ac2ca8921dde1edf0e2f6a9b6c680749"
+    },
+    {
+      "book": "Joel",
+      "rel": "own/Joel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "ba11a70f0273081b6a25f99321496271285a12891270988664246ae668bd9983",
+      "sha256": "3b04af80b6812e2feb6e2794e2421f70bb5df23567784678ca5ffa0d9ca0d8f9"
+    },
+    {
+      "book": "Amos",
+      "rel": "own/Amos/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "0df71134de9de7afa0f42116fa9a229d6c1ffd9ac891a4847dff4f75df04a21f",
+      "sha256": "8ce9dfb4200768400fdf55c4fa3a7b5b22631c73acdb6f65ad079a04bcc3d7ba"
+    },
+    {
+      "book": "Obadiah",
+      "rel": "own/Obadiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "904ab49b156d74da57fccc45b9adec1512061a74db4261589b809b47e8ef6f9f",
+      "sha256": "8783a5789fa4e7decd62d32054ef9567918d38588d4002316da0e3cc8148b196"
+    },
+    {
+      "book": "Jonah",
+      "rel": "own/Jonah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "de6c3163851d63c4164c5ea86defc097ad668fc6c7d40d35dc19a9777d74f120",
+      "sha256": "8895192d897ef1157edd3258c061dd83ed2a0e7b15185c634d138f3bc7e00b69"
+    },
+    {
+      "book": "Micah",
+      "rel": "own/Micah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "cdd246ae2d14050e3a8ea7171f5323d05deb2eca2327e78d592490491a47209b",
+      "sha256": "bfed30d80fdb6c151975451ed8f9f2dbd54eab90aa1a095f74cb714c81075ae5"
+    },
+    {
+      "book": "Nahum",
+      "rel": "own/Nahum/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "6c33d77bd2c16eded6109767aa974c3b92c72b93c841c22ace1c7f7f3b22195c",
+      "sha256": "36532c088e7c9dc4ca26557b06a35a0af575275057b05239e1c76f8b4724fe92"
+    },
+    {
+      "book": "Habakkuk",
+      "rel": "own/Habakkuk/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "54cae3cb0b08fa03df27bdbee5d7e7acf06883b9704e6f5396106dbceb908066",
+      "sha256": "5a2b6d010114b804bd373dfd529e554116ae49548cbd4cfaf592c0c9fcdf7eed"
+    },
+    {
+      "book": "Zephaniah",
+      "rel": "own/Zephaniah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "5d520ac0336046fbbdd5b90410b3d86e3f5a1d48966b27804dd9ae08df7e84b7",
+      "sha256": "7fe998682de6f9ac606b05c311a5e598049ce1aa8e14cca07fa5b0716efbf331"
+    },
+    {
+      "book": "Haggai",
+      "rel": "own/Haggai/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "8601e4b2b91a72af95795cac4f9c378959d2305028a0b5dd619932ee283bad82",
+      "sha256": "5a03f0d6c264dc66784ee7798a3a2a8b99547196a6b49341f62e4ad822542152"
+    },
+    {
+      "book": "Zechariah",
+      "rel": "own/Zechariah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "740b5b12d4bb70945f1d7c6c92b51698c8e9857600d546801ae6cc01f397dcce",
+      "sha256": "2cc18281388413853af55b0bd3cfa319f71ec19d8d65901d9f3fa2f1183e3c00"
+    },
+    {
+      "book": "Malachi",
+      "rel": "own/Malachi/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "c0a00c909c8d8cd871c143509cdf3bb7fcf02fbe2a7d876c416a3e36cbce93a1",
+      "sha256": "d42a446fecbd8824d9e9629fea51000d6f5068c8244beb2e04e25f88b091ce95"
+    },
+    {
+      "book": "Daniel",
+      "rel": "own/Daniel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f7b88f37de92d821c20c664332c479d43b39b4db85bfb865bd3e12a4b68eead2",
+      "sha256": "f3f7f13b903d60ae4aabcd25378202d1ed1282941cbf911a99d939b95032f770"
+    },
+    {
+      "book": "Ruth",
+      "rel": "own/Ruth/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "1da360c0c5e609d059735d0fc50f397f1fecd93602d42606adb51e791ee3d0bf",
+      "sha256": "11ace112d878b1765c33d482ef735c3f1a6b5e67fd61d234d24cc6e99b3507ee"
+    },
+    {
+      "book": "Esther",
+      "rel": "own/Esther/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f89cad64010e460baf411cccc9709b0278b2725f035b753a032c4fd3becfa751",
+      "sha256": "0a522f89d966c270150bbd617870fea9c455193589cd850bfa2bfb6478236409"
+    },
+    {
+      "book": "I Chronicles",
+      "rel": "own/I Chronicles/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f2762fc3fbf082ab0bcfea7ca300f97b907060d3c55e62959a6ef39d307477f9",
+      "sha256": "290e4768f0cb29803dfbe90dfddcec3994061c4831751f7c7367d1346e0baffc"
+    },
+    {
+      "book": "II Chronicles",
+      "rel": "own/II Chronicles/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f9f6b814a46801da7288052365a46cb031ab4b0e774a2d7f339653183671fd6e",
+      "sha256": "87109692d6bdf86270083044accfc8c289f0c3405676075095b954cfdbd4337c"
+    },
+    {
+      "book": "Ezra",
+      "rel": "own/Ezra/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "f8ff4667e6768213529e0171ce54a071da8daaf876c86a8dd39082735b8e56da",
+      "sha256": "4edb07602f490930074897e00ac2a20057a952f9926bf496a39b296894960c25"
+    },
+    {
+      "book": "Nehemiah",
+      "rel": "own/Nehemiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "textHash": "4c2a79260e6fab97ad436968caed4bcc5511a2768dfc572ec1d63fd96db51fb5",
+      "sha256": "c0fd88f66ca35f4ffdae50a751febe9f8bbfad934efeaaf2be0b00a80162b2d0"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "tools/peshitta/remaining-summary.json",
+      "sha256": "f4dd20b74db83020311461346e8202f4e99cf0f00c1dc1b785ba6af01703cce0"
+    },
+    {
+      "file": "tools/peshitta/group-anchor-summary.json",
+      "sha256": "b7ed96014ec865d910cb61a0019e95dd804893233aa6ffd8ef0841e974712b75"
+    },
+    {
+      "file": "peshitta-ruth-lemma-review.json",
+      "sha256": "656b36a226e15a2b457dccbc99be9d4307eca2fc857fe80ee6f165ea6a197857"
+    },
+    {
+      "file": "peshitta-isaiah-lemma-review.json",
+      "sha256": "3eb1f6bb6eb31d5e94a2513df439cf4a4730b68bf0a48f14e8cccb0758cd1520"
+    },
+    {
+      "file": "peshitta-lemma-assignments.json",
+      "sha256": "3479b5bdee1c306c98a8688679e992e2d0944c078dc5144923edc43ac169dd1c"
+    },
+    {
+      "file": "peshitta-nt-context-review.json",
+      "sha256": "172bc69c478e20668827e18e57e58d7997cd6cab329d67178ef4c83efc016b37"
+    },
+    {
+      "file": "peshitta-lexical-context-review.json",
+      "sha256": "82212afdb3b460390635b6959b2cb2f3f567983c640236f4be977351a0c2421c"
+    },
+    {
+      "file": "peshitta-corpus-dictionary-review.json",
+      "sha256": "8bfe49cc5dda1ca183a3e58a42042da738fc688722077613c9168cae8dac45b3"
+    },
+    {
+      "file": "peshitta-automatic-context-review.json",
+      "sha256": "59843685a7cd4dabf8f3b05d15a2c839853dda460592d09daa9f8b7c526b48cf"
+    },
+    {
+      "file": "peshitta-neighbor-review.json",
+      "sha256": "58cb9aba822619647c8a7b90c1db509bc098d386fd9942bb25f9a5cead123291"
+    },
+    {
+      "file": "peshitta-main-lemma-review.json",
+      "sha256": "031024a75af9092a78ed3c53dfdd636f9be4400b4575b42c2e77d637916ab5e8"
+    },
+    {
+      "file": "peshitta-remaining-lemma-review.json",
+      "sha256": "02a44db69c1af0c0a2f44d49e2005e0fb2cc86d79015d88a2280bdbc4e16a132"
+    },
+    {
+      "file": "peshitta-group-anchor-review.json",
+      "sha256": "0277fc66f8006a3054470d1f029721d08742311d1c8d70e21ee9f08269d79034"
+    },
+    {
+      "file": "tools/peshitta/context-batch-10000-summary.json",
+      "sha256": "75b5be3941d26866f2acadfc3781e1cb4640676c08c20e250d208a93e1f32284"
+    },
+    {
+      "file": "tools/peshitta/neighbor-batch-20000-summary.json",
+      "sha256": "aba19a850e0ce79cacafe49a1da92d09ad1b134c92258502534e06066ac616b0"
+    },
+    {
+      "file": "tools/peshitta/main-lemma-20000-summary.json",
+      "sha256": "c40b012f8b17c538fc3e66b69122246031f6a775ed80b62fef78e72364e80ef6"
+    }
+  ],
+  "previousAuditSha256": "db22f837ec76e71c2e32e44383e3565271bd340543eb762d5a841b4efc99c392",
+  "groupAuditSha256": "1682bf2a0900903af3d0649ac0f6b77cdeb790771654f2bb7eebda930b45fd9e",
+  "quality": {
+    "lexicalPositions": 308727,
+    "assignedPositions": 237767,
+    "supplementaryPositions": 60423,
+    "documentedGaps": 70960,
+    "overlappingAssignments": 0,
+    "overwrittenSourceAnnotations": 0,
+    "runtimeLemmaMismatches": 0,
+    "unclassifiedGaps": 0
+  },
+  "controls": [
+    {
+      "file": "tools/peshitta/context-batch-10000-summary.json",
+      "method": "Leave one complete annotated book out of both context and form evidence. Benchmark tests the structural rule before the additional lexical and candidate gates.",
+      "tested": 4196,
+      "agreed": 4195,
+      "disagreements": 1
+    },
+    {
+      "file": "tools/peshitta/neighbor-batch-20000-summary.json",
+      "method": "Leave a whole original annotated book out of form and both pair-context indexes. This tests the structural rule before the additional lexical/NT and known-conflict gates.",
+      "tested": 8016,
+      "agreed": 8016,
+      "disagreements": 0
+    },
+    {
+      "file": "tools/peshitta/main-lemma-20000-summary.json",
+      "method": "Leave a complete original annotated book out of form and Hebrew/Syriac main-lemma pair indexes. Also exclude it from known-anchor conflict detection. No inferred assignments are source evidence.",
+      "tested": 83681,
+      "agreed": 83562,
+      "disagreements": 119
+    },
+    {
+      "file": "tools/peshitta/remaining-summary.json",
+      "method": "Leave a complete original annotated book out of form and Hebrew/Syriac main-lemma pair indexes. Also exclude it from known-anchor conflict detection. No inferred assignments are source evidence.",
+      "tested": 85863,
+      "agreed": 85729,
+      "disagreements": 134
+    },
+    {
+      "file": "tools/peshitta/group-anchor-summary.json",
+      "method": "Grouped-anchor original-annotation holdout: exclude the complete target book from form, translation-pair and companion evidence; never use inferred Safran lemmas. Known original anchor conflicts remain excluded.",
+      "tested": 6414,
+      "agreed": 6404,
+      "disagreements": 10
+    }
+  ],
+  "limits": "No independent expert gold standard. Controls overlap and must not be pooled into an accuracy estimate. Main-lemma coverage does not imply complete morphology or cross-language semantic identity."
+}

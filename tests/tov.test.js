@@ -84,3 +84,12 @@ test('CATSS reading-text extracts point to exact original groups and keep their 
    assert(n.codes.length);assert(!n.codes.includes('=+'),'No numerical conjecture is invented from a translation');
  }
 });
+
+test('CATSS dot controls remain source codes and never become partial Hebrew text',()=>{
+ const notes=D.verses['Gen 3:15'].remarks;
+ for(const n of notes){assert.equal(n.b,'=@CPH .$c');assert.equal(n.bText,'=@צפה .$c');assert(n.codes.includes('.$c'));}
+ let checked=0;for(const v of Object.values(D.verses))for(const n of v.remarks){
+  for(const m of n.b.matchAll(/(?<!\S)\.(?:[a-z]+|\$[a-z]+)/g)){assert(n.codes.includes(m[0]),v.ref+' '+m[0]);assert(n.bText.includes(m[0]),v.ref+' '+n.b);checked++;}
+ }
+ assert(checked>0);
+});

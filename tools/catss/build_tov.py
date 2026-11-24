@@ -68,7 +68,7 @@ def labels(h, g):
         b = h[h.index('='):]
         sign = next((k for k in sorted(CODES, key=len, reverse=True) if k.startswith('=') and b.startswith(k)), '=')
         found.append(sign)
-    for m in re.finditer(r'(?<!\S)\.([a-z]+)', h):
+    for m in re.finditer(r'(?<!\S)\.(?:[a-z]+|\$[a-z]+)', h):
         found.append(m[0])
     if '?' in raw: found.append('?')
     return list(dict.fromkeys(found))
@@ -77,9 +77,11 @@ def column_text(column, hebrew):
     # Operator + in =+ is the numerical-difference code, not Hebrew tet.
     prefix = next((c for c in sorted(CODES, key=len, reverse=True)
                    if c.startswith('=') and column.startswith(c)), '')
-    return prefix + re.sub(r'[A-Z)(&$+/]+',
-                           lambda m: hebrew(m[0]) if m[0] != 'G' else m[0],
-                           column[len(prefix):])
+    # Dot-prefixed source controls (including unknown .$c) are not Hebrew.
+    parts = re.split(r'((?<!\S)\.(?:[a-z]+|\$[a-z]+))', column[len(prefix):])
+    return prefix + ''.join(p if re.fullmatch(r'\.(?:[a-z]+|\$[a-z]+)', p) else
+                           re.sub(r'[A-Z)(&$+/]+', lambda m: hebrew(m[0]) if m[0] != 'G' else m[0], p)
+                           for p in parts)
 
 
 def build():

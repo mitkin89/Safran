@@ -20,3 +20,8 @@ test('typed entry with Greek, reconstructed Vorlage and reading-line data',async
   const p=tov.readingEntries([{ref:'Genesis 4:8',row:'8'}],mt).find(x=>x.anchor?.kind==='gap');
   assert(p);assert.equal(p.anchor.start,4);assert.equal(p.lz.op,'add');assert.match(p.lz.rd,/נלכה/);
 });
+
+test('Genesis 3:15 displays the etymological Hebrew reading separately from unknown CATSS controls',async()=>{
+ await tov.load();const entries=tov.entries([{ref:'Genesis 3:15',row:'15'}]);assert.equal(entries.length,2);
+ for(const r of entries){assert.match(r.html,/<bdi dir="rtl" lang="he">צפה<\/bdi>/);assert(!r.html.includes('שc'));assert.match(r.html,/<abbr[^>]*>\.\$c<\/abbr>/);assert.match(r.html,/Quellcode; keine gesicherte Auflösung/);}
+});

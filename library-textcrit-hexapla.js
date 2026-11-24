@@ -114,7 +114,7 @@ function create(host){
   // Type of a translator row against the LXX row (machine; see agree() for the MT check)
   const HXTYPES={gleich:['wie LXX','Gleicher Wortlaut wie die LXX-Zeile'],
     wiedergabe:['andere Wiedergabe','Anderes griechisches Wort für denselben hebräischen Text (Wortwahl des Übersetzers), maschinell eingeordnet'],
-    mt:['folgt dem MT','Weicht dort von der LXX ab, wo die LXX selbst vom MT abweicht (bewertete LXX-Lesart): wohl Angleichung an den hebräischen Text; maschinell eingeordnet'],
+    mt:['mögliche MT-Angleichung','Automatischer Hinweis: andere griechische Wiedergabe an einer eingeordneten LXX-Abweichung. Eine Übereinstimmung mit dem MT ist damit nicht nachgewiesen.'],
     translit:['Transkription','Hebräisches Wort in griechischen Buchstaben'],
     vorlage:['andere Vorlage','Setzt einen anderen hebräischen Konsonantentext voraus (meist ein verwechselbarer Buchstabe); von Claude geprüft'],
     deutung:['andere Deutung','Gleiche oder fast gleiche Konsonanten, anders gelesen oder von einer anderen Wurzel her verstanden; von Claude geprüft'],
@@ -122,7 +122,7 @@ function create(host){
     obelus:['LXX-Plus','÷ Obelus: in der LXX ohne Gegenstück im Hebräischen']};
   const typeTag=(t,vl)=>'<abbr class="ab tc-tov-tag tc-hx-type" data-hx-type="'+t+'" title="'+esc(HXTYPES[t][1])+(vl?.n?' · '+raw(window.I18N?.lang==='en'&&vl.en?vl.en:vl.n):'')+'">'+esc(HXTYPES[t][0])+'</abbr>'+(vl?.he?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(vl.he)+'</bdi></span>':'');
   // Where an assessed LXX reading (not mere translation technique) covers the same MT words, a translator
-  // that differs from the LXX there most likely renders the Hebrew: „folgt dem MT“.
+  // a differing rendering can be a possible MT alignment; wording alone is not proof.
   function agree(records){
     const lxx=records.filter(r=>r.anchor&&/tc-lxx-reading/.test(r.html)&&!/data-lxx-type="(technik|grfehler)"/.test(r.html));
     for(const r of records){

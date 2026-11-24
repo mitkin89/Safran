@@ -129,3 +129,55 @@ node --test tests/peshitta-main-lemma.test.js
 The immutable batch audit is `main-lemma-20000.jsonl.gz`, with target context, current alignment metadata, two original form witnesses and four original translation witnesses per entry. `main-lemma-20000-summary.json` pins all sources, alignment and Hebrew files, exclusions and the audit hash. Of 21,942 qualified candidates, the 20,000 with the strongest repeated source support were selected. The method's whole-book holdout agrees with 83,562 of 83,681 original main-lemma annotations, with all 119 disagreements retained. Known problematic form/Hebrew anchor families from this control do not occur in the selected assignments. This does not guarantee that every new assignment is correct, and the runtime label remains explicitly automatic.
 
 The regression rebuilds all 20,000 decisions from original sources and current alignments, checks every native text position through the concordance backend, and verifies a reduction from 98,301 to 78,301 open positions. The full morphological gap is not closed by a main-lemma assignment.
+
+## Audit of all 78,301 remaining positions using the extended original corpus
+
+`remaining-gaps.jsonl.gz` records **every one of the 78,301 positions still open after the 20,000-lemma batch**, including earlier deferred automatic proposals and 87 protected individual decisions/exclusions. This is an automatic evidence audit, not an individual scholarly reading of all verses. It supports 4,257 further main-lemma assignments in `peshitta-remaining-lemma-review.json`. Coverage rises from 230,426 to 234,683 of 308,727 positions; **74,044 remain open**. Main-lemma coverage does not imply complete morphological analysis.
+
+The expanded form index adds 76,357 original word witnesses from the same pinned ETCBC/syriac TF 0.92 commit, `0b6ded2b369c7d81589a98c92325290e24b20af6`. These include Sirach, Esdras, Syriac apocalypses and other works, plus original OT passages absent from the embedded annotation. `extended-source.json` pins the source files, including `trailer.tf`, by Git blob hash. Full graphical words are reconstructed from source morphemes and trailer boundaries, without crossing source verses or gaps in source slots. Words containing already embedded source slots and the parallel variants EpBarB/OrManB are excluded. `extended-corpus-forms.jsonl.gz` preserves the exact additional original witnesses for offline reproduction. No earlier Safran lemma transfers are reused as source evidence.
+
+The existing thresholds remain: the normalized full word form must support one main lemma at least three times in two other works; the same main lemma and current, reviewed one-to-one Hebrew Strong anchor must occur at least twelve times in four other original annotated OT books. Target-book evidence is excluded from both support counts. Known conflicting original anchors, unsupported compound heads and competing qualified lemmas block transfer. Additional original analyses expand the candidate inventory. No prefix/suffix analysis is inferred. Earlier individual rejections and exclusions remain pending.
+
+The retained outcomes are 32,840 without a current one-to-one Hebrew anchor, 38,349 with insufficient combined form/translation support, 628 with competing main lemmas, 2,140 with known anchor conflicts, 87 protected positions and 4,257 supported assignments. These categories describe this method's evidence limits, not a claim that the other positions are inherently unresolvable.
+
+```sh
+node tools/peshitta/remaining-batch.cjs /path/to/lexical-evidence.jsonl /path/to/pinned-syriac-TF-files /tmp/safran-all-remaining
+node --test tests/peshitta-remaining.test.js tests/peshitta-main-lemma.test.js
+```
+
+The generator reproduces the pre-supplement baseline even after installation of this batch. `remaining-summary.json` pins input, prior decisions, original texts, Hebrew/alignment sources, the expanded source snapshot and all outcomes. The whole-book holdout agrees with 85,729 of 85,863 original annotations; all 134 disagreements remain visible. None of the new assignments belongs to the known conflicting form/Hebrew-anchor families from that control. Agreement with existing annotation does not independently certify the inferred lemmas. Alignment sources include AI reviews. Runtime provenance explicitly labels the expanded-corpus assignments as automatic.
+
+Tests replay all 78,301 decisions using the offline original-source snapshot, verify source identity and no repeated source slots, preserve all individual exclusions, and inspect every audited native position through the concordance backend. They check both the 4,257 new assignments and the continued absence of assigned analyses at the other 74,044 positions. Closing these remaining gaps requires further contextual evidence, alignment work or linguistic review; no entries are marked complete merely to reach 100 percent.
+
+## Recovering lexical heads inside existing reviewed alignment groups
+
+The 32,840 positions previously reported as lacking a one-to-one Hebrew anchor are not all missing alignments. Some already belong to reviewed word groups: a Hebrew prefixed word may correspond to a separate Syriac preposition plus a lexical word, or a Syriac prefixed word may correspond to a Hebrew preposition and noun. `group-anchor-evidence.cjs` identifies a lexical head within the existing group, without changing the original alignment or adding a one-to-one link to the interlinear text or apparatus.
+
+The complete connected component of the Hebrew/Syriac alignment must contain at most four words on either side. All native IDs, spellings, verse references, reviewed Hebrew strings and edition hashes must still match. Hebrew morphology must identify exactly one distinct lexical main lemma after explicitly recognized grammatical words are separated; unrecognized main-word classes, competing lexical heads and empty links remain unresolved. Alternative Hebrew spellings with the same lemma remain recorded separately. Every other Syriac member must have a unanimous grammatical main analysis (preposition, conjunction or pronoun), with at least twelve original occurrences in four other source works. Target-book attestations and all inferred Safran analyses are excluded from these supporting examples. Unknown or lexical Syriac companions block the transfer.
+
+The target main lemma still requires the original exact-form threshold of three occurrences in two other works, plus twelve original one-to-one Hebrew/main-lemma pair examples in four other books. Competing candidates and known source-anchor conflicts are withheld. Only a lexical target head is transferred; no morphology is inferred for attached prefixes or suffixes. This method identifies the main word's concordance lemma, not the grammatical meaning of every member of the group.
+
+`group-anchor-audit.jsonl.gz` records all 32,840 outcomes and group/companion evidence. Of 7,021 positions with a unique recoverable group anchor, 3,084 also satisfy the independent form and translation-pair gates. They are exported in `peshitta-group-anchor-review.json` with a separate automatic provenance label. The other 29,756 audited positions remain unassigned, including 9,149 with no existing alignment link. Total main-lemma coverage becomes **237,767 of 308,727**, leaving **70,960 open**. Existing individual decisions, exclusions, annotations, text files and alignment files remain unchanged.
+
+```sh
+node tools/peshitta/group-anchor-batch.cjs /tmp/safran-group-anchor
+node --test tests/peshitta-group-anchor.test.js tests/peshitta-remaining.test.js tests/peshitta-main-lemma.test.js
+```
+
+The original-annotation control excludes the whole target book from form, translation and grammatical-companion evidence. It agrees with 6,404 of 6,414 comparable original main lemmas; all ten discrepancies remain in `group-anchor-summary.json`. Known conflicting form/Hebrew families from this control and the earlier expanded-corpus control are excluded from publication (109 distinct families). These controls measure agreement with existing annotation, not independent scholarly certification. Existing alignment reviews include AI. The generated results are explicitly automatic, without a claim of individual linguistic verification.
+
+The summary pins original text and alignment files, all preceding decisions, the expanded original-corpus snapshot and the complete audit. Tests reconstruct every group decision and inspect every audited native position through the concordance backend, including all 3,084 new assignments and all withheld positions. Earlier audit outcomes remain frozen; runtime tests account explicitly for this later supplement.
+
+## Final reconciliation and documented-gap baseline
+
+The automatic data-matching phase is closed with documented residual gaps. `closure-audit.cjs` reconciles **all 308,727 lexical positions** against the source-bound runtime concordance. It validates every one of the 60,423 supplementary assignments against its exact edition, native ID, spelling and verse, rejects duplicate supplements and source-annotation overwrites, and compares the stored lemma(s) with the runtime result. The 177,344 original source-annotated positions are reconciled as well. Every remaining lexical position must occur exactly once in the merged pending audits. Earlier outcomes remain immutable; later grouped decisions replace only their own previous unanchored outcomes.
+
+All 70,960 gaps are classified into six user-facing causes, retaining the more detailed method-specific reason and context in `documented-gaps.jsonl.gz`. This classification documents missing evidence and ambiguity, rather than treating gaps as solved. `closure-summary.json` pins every input, the complete gap index and the runtime report, and preserves nonzero disagreements in five original-annotation controls. These controls overlap and must not be pooled into an accuracy estimate. This is exhaustive **technical reconciliation**, not independent expert certification of automatic or AI decisions, nor a claim of complete morphology.
+
+```sh
+node tools/peshitta/closure-audit.cjs /tmp/safran-concordance-closure
+node --test tests/peshitta-closure.test.js
+SAFRAN_SMOKE_PESHITTA_STATUS=1 npm run test:smoke
+```
+
+`peshitta-concordance-status.json` contains the compact runtime report, with per-book gap causes and provenance counts. The backend attaches it only when the actual source-file SHA-256 and live word/lemma counts match the audited edition. Both search and word-card concordance coverage render the scoped notice and expandable provenance/gap causes. Partial previews never present the whole-corpus report as their own coverage. Edited sources, unrecognized editions and changed counts receive no audited status. All original licensing and provenance remain in effect; contextual text in the gap index retains the ETCBC/Peshitta CC BY-NC 4.0 license.

@@ -58,6 +58,8 @@
   "erschlossen:": "Reconstructed:",
   "erschlossen (unvollständig)": "Reconstructed (incomplete)",
   "Etymologische Deutung": "Etymological interpretation",
+  "mögliche MT-Angleichung": "possible alignment with the MT",
+  "Automatischer Hinweis: andere griechische Wiedergabe an einer eingeordneten LXX-Abweichung. Eine Übereinstimmung mit dem MT ist damit nicht nachgewiesen.": "Automatic indication: a different Greek rendering at an assessed LXX divergence. This does not establish agreement with the MT.",
   "Eigenname (erschlossen)": "Proper name (reconstructed)",
   "Vokalisierung": "Vocalization",
   "Zahlenunterschied": "Numerical difference",
