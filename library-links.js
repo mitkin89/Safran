@@ -89,26 +89,19 @@ window.LibraryLinks = (() => {
     if (!rows.length) return;
     host.$('#lkBtn').hidden = false;
     host.btnLbl('#lkBtn', '🔗', 'Verknüpfungen', rows.length);
-    host.$$('#rOut .row[data-l]').forEach(r => {
-      const v = verseOf(r.dataset.l);
-      if (v == null) return;
-      const n = rows.filter(x => v >= x.v1 && v <= x.v2 && x.v1 > 0).length;
-      const lab = r.querySelector('.lab');
-      lab.querySelectorAll('.lk').forEach(x => { if (x.previousSibling && x.previousSibling.tagName === 'BR') x.previousSibling.remove(); x.remove(); }); // wurde der Abschnitt zweimal geladen, nicht doppelt anzeigen
-      if (n) lab.insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗</span>`);
-    });
-    markMishTal(m[1], rows); // mit Sefarias Verknüpfungen „mishnah in talmud“ ergänzt; steht unter dem 🔗
+    markMishTal(m[1], rows); // Quellenhinweise „mishnah in talmud“ am Versrand ergänzen
     if (!host.$('#linkPanel').hidden) renderLinkPanel();
     if (host.cmtOpen) host.renderCmt();
   }
   host.$('#rOut').addEventListener('click', e => {
-    const b = e.target.closest('.lk');
-    if (b) { lkVerse = +b.dataset.v; renderLinkPanel(); }
     const j = e.target.closest('.mtj');
     if (j) host.jumpTo(j.dataset.ref.replace(/-.*$/, ''), host.BG(e));
   });
   host.$('#lkBtn').onclick = () => { lkVerse = null; renderLinkPanel(); };
-  host.$('#lkWhole').onclick = () => { lkVerse = null; renderLinkPanel(); };
+  host.$('#lkWhole').onclick = () => {
+    const rows=host.$$('#rOut .row[data-l]').filter(r=>verseOf(r.dataset.l)!=null),row=rows.find(r=>r.classList.contains('cmtrow'))||rows[0];
+    lkVerse=lkVerse==null?verseOf(row?.dataset.l):null;renderLinkPanel();
+  };
   host.$('#lkClose').onclick = () => { host.$('#linkPanel').hidden = true; };
   // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
   document.addEventListener('mousedown', e => {
@@ -225,7 +218,7 @@ window.LibraryLinks = (() => {
     let list = secLinks.filter(x => lkVerse == null ? true : (x.v1 === 0 || (lkVerse >= x.v1 && lkVerse <= x.v2)));
     if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type + (x.other.startsWith(LEG + ' ') ? ' legenden ginzberg ' + legLabel(x.other).full : '')).toLowerCase().includes(f));
     host.$('#lkTitle').textContent = `${virt ? virt.title : host.view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
-    { const wb = host.$('#lkWhole'); wb.hidden = lkVerse == null; wb.textContent = I18N.t(/[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Wieder das ganze Kapitel bzw. die ganze Seite zeigen'); }
+    { const wb = host.$('#lkWhole'); wb.hidden = !s; wb.textContent = I18N.t(lkVerse==null?'Ausgewählter Vers':/[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = wb.textContent;wb.setAttribute('aria-pressed',String(lkVerse==null)); }
     const byT = new Map(host.groups.map(g => [g.title, g]));
     const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const localSet = localTitles();

@@ -1726,6 +1726,7 @@
     "Lesetext": "Reading text",
     "Vorschau beim Überfahren": "Hover preview",
     "Bibel-Standardausgaben": "Default Bible editions",
+    "Werkzeuge zu Vers {} öffnen": "Open tools for verse {}",
     "Bevorzugte hebräische Bibelausgabe für Lesetext, Stellen und Vorschauen": "Preferred Hebrew Bible edition for reading, passages and previews",
     "Bevorzugte deutsche Bibelübersetzung für Lesetext, Stellen und Vorschauen; fehlt sie im Buch, wird eine vorhandene Ausgabe verwendet": "Preferred German Bible translation for reading, passages and previews; an available edition is used if the book is missing",
     "Zusätzliche Bibelausgabe für Lesetext und Vorschauen, soweit im Buch vorhanden": "Additional Bible edition for reading and previews, where available",

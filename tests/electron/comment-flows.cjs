@@ -25,7 +25,7 @@ module.exports=async function run({docs,win,js,waitFor,book}){
   await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.textContent.includes('Rashi'))",'Kommentar-Testbibliothek');
   await book('Genesis');
   await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .lk')",'Verknüpfte Kommentare');
-  await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
+  await js("document.querySelector('#rOut .row[data-l=\"1\"] .verse-tool').click()");
   await waitFor("!document.querySelector('#cmtPanel').hidden && document.querySelectorAll('#cmtBody .cmt').length===2",'Vorausgewählte klassische Kommentatoren');
   assert.equal(await js("document.querySelector('#cmtTitle').textContent"),'Genesis 1:1','Kurze Stellenüberschrift');
   assert(await js("document.querySelector('#cmtSum').tagName==='BUTTON' && document.querySelector('#cmtSum').closest('.bar') && document.querySelector('#cmtLang').getBoundingClientRect().height>0"),'Sprache und Kommentatorenauswahl direkt in der Leiste');
@@ -62,10 +62,10 @@ module.exports=async function run({docs,win,js,waitFor,book}){
   assert.equal(saved.en.sel.length,2);assert.equal(saved.de.sel.length,0);
   assert(await js("!!document.querySelector('#cmtBody .cvn[data-l=\"2\"]')"),'Ganzes Kapitel enthält beide Verse');
   delayNext=true;
-  await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
+  await js("document.querySelector('#rOut .row[data-l=\"2\"] .verse-tool').click()");
   for(let i=0;i<1000&&!pending;i++)await new Promise(resolve=>setTimeout(resolve,20));
   assert(pending,'Verzögerter Textauftrag für Vers 2');
-  await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
+  await js("document.querySelector('#rOut .row[data-l=\"1\"] .verse-tool').click()");
   await waitFor("document.querySelector('#cmtBody').textContent.includes('Vers 1') && !document.querySelector('#cmtBody').textContent.includes('Vers 2')",'Neuester Vers wird angezeigt');
   pending();await new Promise(resolve=>setTimeout(resolve,100));
   assert.equal(await js("document.querySelector('#cmtBody').textContent.includes('Vers 2')"),false,'Späte Antwort darf den aktuellen Vers nicht überschreiben');

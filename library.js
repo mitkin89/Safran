@@ -759,7 +759,7 @@
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
     const body = shownRows.map(r =>
-      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
+      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
     $('#rOut').innerHTML = vfBar + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
@@ -1405,8 +1405,8 @@
     linksUI.secLinks = linksUI.secLinks.concat(linksUI.parRows(cmtVirt.title, cmtVirt.ch));
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
     row.classList.add('cmtrow');
-    if (what === 'lk') { linksUI.lkVerse = v; linksUI.renderLinkPanel(); }
-    else if (!cmtOpen) toggleCmt(true); else renderCmt();
+    if (what === 'lk') { assignSide('link','right');linksUI.lkVerse = v; linksUI.renderLinkPanel(); }
+    else { cmtWhole=false;assignSide('cmt','right');toggleCmt(true);renderCmt(); }
   }
   $('#rOut').addEventListener('change', e => { if (e.target.id !== 'sresVer' || !view || !view.sres || !view.sres.res) return; view.sres.ver = e.target.value; view.sres.html = null; renderSres(view); });
   $('#rOut').addEventListener('click', e => {
@@ -1421,12 +1421,7 @@
     if (!row) return;
     if (e.target.closest('.slk')) return sresSelect(row, 'lk');
     if (e.target.closest('.scm')) return sresSelect(row, 'cmt');
-    if (e.target.closest('.lab')) { if (cmtOpen) sresSelect(row, 'cmt'); else { $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow')); row.classList.add('cmtrow'); } }
-  });
-  $('#rOut').addEventListener('dblclick', e => { // Doppelklick auf die Versnummer: Kommentare dieses Verses
-    if (!view || !view.sres) return;
-    const row = e.target.closest('.row[data-sp]');
-    if (row && e.target.closest('.lab') && !e.target.closest('.slk')) sresSelect(row, 'cmt');
+    if (e.target.closest('.lab')&&!e.target.closest('.bm,.aud,.mtj')) sresSelect(row, lastVerseTool==='link'?'lk':'cmt');
   });
   // Vorschläge beim Tippen (Springen-Feld und „Neuer Tab“): Buchname eintippen, z. B. „ge“ → Genesis
   let suggEl = null;
@@ -2760,7 +2755,7 @@
         const chm = lab.match(/(\d+[ab]?)$/i), ch = chm ? chm[1] : '';
         const sp = esc(JSON.stringify(sc.path));
         html += `<div class="ssec" data-t="${esc(title)}" data-sp="${sp}">${esc(lab)} <span class="sgo" data-t="${esc(title)}" data-sp="${sp}" title="Dieses Kapitel am ersten Treffer im Lesen öffnen (neuer Tab)">↗</span></div>`
-          + rows.map(r => `<div class="row sh" data-t="${esc(title)}" data-sp="${sp}" data-sl="${esc(r.label)}" data-sec="${esc(lab)}" data-ch="${esc(ch)}" style="--n:${nc}"><div class="lab" title="Im Lesen öffnen">${esc(r.label)}${ch && /^\d+$/.test(r.label) ? '<br><span class="scm" title="Kommentare zu diesem Vers">💬</span> <span class="slk" title="Verknüpfungen zu diesem Vers">🔗</span>' : ''}</div>${ds.map((d, i) => cellHtml(r.cells[i], d, sc.hl.get(r.label + '|' + d.entry.rel))).join('')}</div>`).join('');
+          + rows.map(r => `<div class="row sh" data-t="${esc(title)}" data-sp="${sp}" data-sl="${esc(r.label)}" data-sec="${esc(lab)}" data-ch="${esc(ch)}" style="--n:${nc}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${ds.map((d, i) => cellHtml(r.cells[i], d, sc.hl.get(r.label + '|' + d.entry.rel))).join('')}</div>`).join('');
       }
     }
     return html;
@@ -3060,6 +3055,7 @@
     apSoon();
     textcritUI.select(label);
     masoraUI.refresh();
+    if(!$('#linkPanel').hidden&&linksUI.lkVerse!=null){linksUI.lkVerse=linksUI.verseOf(label);linksUI.renderLinkPanel();}
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');
@@ -3082,7 +3078,7 @@
   }
   const cmtFromBtn = () => { if (!cmtOpen) cmtWhole = true; toggleCmt(); }; // Knopf / Cmd+K: das ganze Kapitel; ein Klick auf eine Versnummer: nur dieser Vers
   $('#cmtBtn').onclick = cmtFromBtn;
-  $('#cmtWhole').onclick = () => { cmtWhole = true; renderCmt(); };
+  $('#cmtWhole').onclick = () => { if(!cmtRow)applyCmtRow();cmtWhole = !cmtWhole; renderCmt(); };
   $('#cmtBody').addEventListener('click', e => { const h = e.target.closest('.cvn[data-l]'); if (!h) return; const r = $$('#rOut .row[data-l]').find(x => rowVerse(x.dataset.l) === +h.dataset.l); if (r) { r.scrollIntoView({ block: 'center', behavior: 'smooth' }); r.classList.add('flash'); setTimeout(() => r.classList.remove('flash'), 1200); } });
   $('#cmtClose').onclick = () => toggleCmt(false);
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
@@ -3149,12 +3145,14 @@
     available:key=>key==='masora'?masoraUI.available():key==='forms'?wordCardsUI.canReopen:key==='dict'?true:!!view?.group&&!({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]&&$({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]).hidden),
     open:{masora:()=>masoraUI.open(),textcrit:()=>textcritUI.open(),forms:()=>wordCardsUI.reopen(),all:()=>apToggle(true,undefined,true),
       cmt:()=>{toggleCmt(true);setStackActive('cmt');},dict:()=>{toggleDict(true);setStackActive('dict');},
-      link:()=>{if($('#linkPanel').hidden)$('#lkBtn').click();},topic:()=>{if($('#topicPanel').hidden)$('#tpBtn').click();},
+      link:()=>linksUI.renderLinkPanel(),topic:()=>{if($('#topicPanel').hidden)$('#tpBtn').click();},
       outline:()=>{if($('#outlinePanel').hidden)$('#olBtn').click();},map:()=>{if($('#mapPanel').hidden)$('#mapBtn').click();}}
   };
   const dockTabs=window.LibraryDockTabs.create({...dockOptions,peerVisible:()=>!!leftDockTabs?.visible,onOther:()=>leftDockTabs.toggle()});
   leftDockTabs=window.LibraryDockTabs.create({...dockOptions,side:'left',activePair:()=>null,paired:()=>false,peerVisible:()=>dockTabs.visible});
-  const syncDocks=key=>{dockTabs.sync(key);leftDockTabs.sync(key);};
+  const verseTools=['cmt','all','textcrit','masora','link'];
+  let lastVerseTool='cmt';try{const saved=localStorage.getItem('lastVerseTool');if(verseTools.includes(saved))lastVerseTool=saved;}catch{}
+  const syncDocks=key=>{dockTabs.sync(key);leftDockTabs.sync(key);if(verseTools.includes(key)&&panelSide(key)==='right'){lastVerseTool=key;try{localStorage.setItem('lastVerseTool',key);}catch{}}};
   dockController={sync:syncDocks};
   const panelVisible={};
   for(const id of ['tcBtn','lkBtn','tpBtn','mapBtn'])new MutationObserver(()=>syncDocks()).observe($('#'+id),{attributes:true,attributeFilter:['hidden','disabled']});
@@ -3257,26 +3255,19 @@
   }, { passive: true });
   $('#cmtPrev').onclick = () => stepCmt(-1);
   $('#cmtNext').onclick = () => stepCmt(1);
-  // Klick auf die Versnummer wählt den Vers für den Kommentar-Bereich
+  // The verse number and its blank margin open the same tool; separate margin actions retain their own behavior.
   $('#rOut').addEventListener('click', e => {
-    const lab = e.target.closest('.lab');
-    if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
-    const row = lab.closest('.row[data-l]');
-    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden && $('#masoraPanel').hidden) dockTabs.activate('cmt'); } // Ein Versklick öffnet neue Kommentare rechts; bereits offene Verswerkzeuge folgen weiter.
-  });
-  // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
-  let lastCmtDbl = null;
-  $('#rOut').addEventListener('dblclick', e => {
-    const lab = e.target.closest('.lab');
-    if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
-    const row = lab.closest('.row[data-l]');
-    if (!row || AP.open) return;
-    const key = (view && view.group ? view.group.key : '') + '|' + (view ? view.key : '') + '|' + row.dataset.l;
-    if (cmtOpen && lastCmtDbl === key) { toggleCmt(false); lastCmtDbl = null; return; }
-    lastCmtDbl = key;
-    cmtWhole = false;
+    if(e.target.closest('.bm,.aud,.mtj,a,input,select,textarea,button:not(.verse-tool)'))return;
+    const label=e.target.closest('.lab'),row=label?.closest('.row[data-l]');
+    if(!row||view?.sres)return;
+    AP.whole=false;cmtWhole=false;
+    let tool=lastVerseTool;
+    if(!dockOptions.available(tool))tool='cmt';
+    if(tool==='link')linksUI.lkVerse=linksUI.verseOf(row.dataset.l);
+    if(tool==='masora')$('#masoraScope').value='verse';
+    if(tool==='textcrit')textcritUI.select(row.dataset.l,true);
     setCmtRow(row.dataset.l);
-    if (!cmtOpen) dockTabs.activate('cmt');
+    assignSide(tool,'right');dockTabs.activate(tool);syncDocks(tool);
   });
   $('#rOut').addEventListener('click', e => {
     if (!view) return;

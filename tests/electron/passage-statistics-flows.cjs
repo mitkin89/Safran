@@ -131,7 +131,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await win.reload();await waitFor("document.querySelector('#rOut .w')",'Neustart');await js("if(document.querySelector('#allPanel').hidden)document.querySelector('#apBtn').click()");
  await waitFor("document.querySelector('#apBody [data-scope=c] [data-compare=tanakh][aria-pressed=true]')",'Tanachvergleich nach Neustart gespeichert');
  // Verse/chapter counts must remain separate, and both scopes support comparison.
- await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
+ await js("document.querySelector('#rOut .row[data-l=\"1\"] .verse-tool').click()");
  await waitFor("document.querySelector('#apBody .apScope[data-scope=v]')",'Versstatistik');
  assert(await js("document.querySelector('#apBody [data-scope=v] .apSum').textContent!==document.querySelector('#apBody [data-scope=c] .apSum').textContent"));
  // Direct comparison is chapter-wide even in verse scope; both chapters are editable.
@@ -192,7 +192,7 @@ module.exports=async({win,js,waitFor,book})=>{
  assert(await js("(()=>{const id=document.querySelector('#apBody [data-scope=c] [data-ap-select=names].apSelected').dataset.value;return [...document.querySelectorAll('#rOut [data-passage-mark=names]')].every(w=>{const d=Morph.decode(w.dataset.m,w.dataset.l);return d.segs[d.main].lemma===id})})()"),'Name ohne fremde Lemmata');
  await js("document.querySelector('#apBody [data-scope=c] .apPane[data-seg=names] .apCardOpen').click()");
  await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte separat erreichbar');
- await js("document.querySelector('#dockTabs [data-panel=all]').click();document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
+ await js("document.querySelector('#dockTabs [data-panel=all]').click();document.querySelector('#rOut .row[data-l=\"1\"] .verse-tool').click()");
  await waitFor("document.querySelector('#apBody .apScopeSw button[data-scope=v].on')",'Bewusster Klick auf Versnummer zeigt Versstatistik');
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#apWhole').hidden&&document.querySelector('#apBody [data-scope=c] .apExplorer')&&!document.querySelector('#apBody .apScope[data-scope=v]')",'Neues Kapitel startet mit ganzer Kapitelstatistik');
