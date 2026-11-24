@@ -203,7 +203,7 @@ window.LibraryWordCards = (() => {
     const bar = document.createElement('div'); bar.className = 'fmTrBar';
     body.prepend(bar); fmTrApply();
   }
-  const fmTrCur = () => { const S = fmTrData; return !S ? 'off' : S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : S.keys[0]; };
+  const fmTrCur = () => { const S = fmTrData; return !S ? 'off' : S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : wcDefaultSource(S.keys); };
   const fmTrLab = (D, g) => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
   // Wiedergaben einer Form (Chip der Tabelle) in einer deutschen Fassung: { n, k, cores: [{ t, c, g, cj, cjn }], groups: [[g, n]], col }
   function fmTrEntryDe(ch, D) {
@@ -551,6 +551,7 @@ window.LibraryWordCards = (() => {
   // Vers-Vorschau in der Wortkarte: Text aus der dort gewählten Fassung (Tabelle: „Übersetzung unter den Formen“, Überblick: Quell-Chip der Übersetzungsstatistik);
   // der Versionstitel wird wie in der Interlinear-Ansicht über IL_VT erkannt. „aus“ oder keine Auswahl: wie überall (null)
   const WC_TR_VT = { O: host.IL_VT.Onkelos, PJ: host.IL_VT['Pseudo-Jonathan'], N: host.IL_VT.Neofiti, LXX: /^Septuaginta/, Q: /^Qumran-Rollen \(ETCBC DSS\)/ };
+  function wcDefaultSource(keys){const title=host.getBibleTranslation?.()||'';return keys.find(k=>(host.IL_VT[k]||WC_TR_VT[k])?.test(title))||keys[0];}
   const RTL = l => l === 'arc' || l === 'he'; // Quellen in hebräischer Schrift (Targumim, Qumran-Rollen)
   function wcHovPick(a) {
     if (fmCur && fmCur.targum && a.closest('.fmRL') && a.dataset.gvt) {
@@ -627,7 +628,7 @@ window.LibraryWordCards = (() => {
     for (const id of ids) { if (id === lemma) continue; const r = await wcTrSources(id); if (r.keys.length) sis.push({ id, ...r }); }
     const box = host.$('#wcTr'); if (token !== wcToken || !box) return;
     let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
-    wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : R.keys[0], open: null, IR: R.IR, f: {}, lemma, family, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12, base: lemma, tok: token };
+    wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : wcDefaultSource(R.keys), open: null, IR: R.IR, f: {}, lemma, family, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12, base: lemma, tok: token };
     if (fmRest && fmRest.token === token) { fmRestTr(fmRest.h); fmRest = null; } // Zurück/Vor: Fassung, Homonym, Filter und aufgeklappte Zeile des Verlaufseintrags
     if(fmTrPick!=='off')fmTrSelect(wcTrState.cur);
     box.hidden = false; wcTrRender();

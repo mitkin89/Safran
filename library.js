@@ -334,7 +334,7 @@
     }
     if (!sel.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) sel.add(v.rel); });
     if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
-    return sel;
+    return /^Tanakh\//.test(g.key||'')?window.BibleVersions.select(g.versions,sel,disp,I18N.lang):sel;
   }
   async function openGroup(g, target = {}, inNewTab = false) {
     if (!g) return;
@@ -972,6 +972,7 @@
   // reader-module:word-cards
   const wordCardsUI = window.LibraryWordCards.create({
     concordanceCoverageHtml,
+    getBibleTranslation: () => disp.pvDe==='*'?'':disp.pvDe||'Zunz',
     syntaxSection: context => wordPopupUI.syntaxSection(context),
     get $() { return $; },
     get $$() { return $$; },
@@ -2665,7 +2666,7 @@
   });
   const searchUI = window.LibrarySearch.create({
     $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, outlineSearch, concordanceCoverageHtml,
-    getGroups: () => groups, getPreferredVersions: () => prefVer, loadRootFamilies:()=>loadPassageStats(),
+    getGroups: () => groups, getPreferredVersions: () => biblePreferredVersions(), loadRootFamilies:()=>loadPassageStats(),
   });
   window.ConcordancePreview.attach($('#sOut'),{
     getHit:(i,peer)=>searchUI.resultAt(i,peer),getHover:()=>linksUI.hovApi,
@@ -2793,8 +2794,26 @@
   const displayUI = window.LibraryDisplay.create({
     $, $$, esc, shortVer, getView: () => view, getGroups: () => groups,
     renderSection, olInlineOn: outlineUI.olInlineOn, olInline: outlineUI.olInline, withAnchor,
+    onBibleVersionsChanged: id => {
+      if(id==='dPvDe')try{localStorage.removeItem('wcTrSrc');localStorage.removeItem('fmTrSrc');}catch{}
+      for(const tab of tabs)if(tab.group&&/^Tanakh\//.test(tab.group.key||''))tab.selected=pickVersions(tab.group);
+      if(view?.group&&/^Tanakh\//.test(view.group.key||''))void loadView();
+    },
   });
   const disp = displayUI.state;
+  let biblePreferenceCache;
+  function biblePreferredVersions(){
+    const key=JSON.stringify([disp.pvHe,disp.pvDe,disp.pvX,prefVer,I18N.lang]);
+    if(biblePreferenceCache?.groups===groups&&biblePreferenceCache.key===key)return biblePreferenceCache.result;
+    const result={...prefVer};
+    const titles={he:new Set(),de:new Set(),en:new Set(),other:new Set()};
+    for(const g of groups.filter(g=>/^Tanakh\//.test(g.key||'')))for(const rel of window.BibleVersions.select(g.versions,[],disp,I18N.lang)){
+      const v=g.versions.find(v=>v.rel===rel);if(v)titles[kindKey(v)].add(v.versionTitle);
+    }
+    for(const k in titles)if(titles[k].size)result[k]=[...titles[k]];
+    biblePreferenceCache={groups,key,result};
+    return result;
+  }
   const stripHe = h => displayUI.stripHe(h);
   function applyDisp(rerender) { return displayUI.apply(rerender); }
   // Klick außerhalb schließt aufgeklappte Menüs (Versionen, ⋯)
@@ -2921,10 +2940,15 @@
 
   researchUI = window.LibraryResearch.create({
     portraitOf,
+    getPreferredEdition: editions => {
+      if(!groups.some(g=>/^Tanakh\//.test(g.key||'')&&g.versions.some(v=>editions.some(e=>e.rel===v.rel))))return null;
+      const rels=window.BibleVersions.select(editions,[],disp,I18N.lang);
+      return editions.find(e=>rels.has(e.rel)&&e.kind==='he')||editions.find(e=>rels.has(e.rel));
+    },
     showTab, getView: () => view, getRow: () => cmtRow,
     getReaderDisplay: () => {
       const v=view;if(!v?.loaded?.length)return null;
-      const primary=v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||''))||v.loaded[0],ordered=[primary,...v.loaded.filter(d=>d!==primary)],unsupported=[];
+      const primary=v.loaded.find(d=>d.entry.kind==='he'&&d.entry.versionTitle===disp.pvHe)||v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||''))||v.loaded[0],ordered=[primary,...v.loaded.filter(d=>d!==primary)],unsupported=[];
       const interlinearRels=interlinearUI.selectedSources.map(name=>{const title=window.INTERLIN_SOURCES?.[name]?.[v.group.title]?.translation.versionTitle,entry=v.group.versions.find(e=>title?e.versionTitle===title:name==='BuberRosenzweig'&&/Martin Buber.*Franz Rosenzweig/.test(e.versionTitle||''));if(!entry)unsupported.push(name);return entry?.rel;}).filter(Boolean);
       const clamp=n=>Math.max(8,Math.min(36,Math.round(n*2)/2)),sizes={};
       for(const d of ordered){const cell=[...document.querySelectorAll('#rOut .cell[data-rel]')].find(c=>c.dataset.rel===d.entry.rel),text=cell?.querySelector('.txt');sizes[d.entry.rel]=clamp((parseFloat(getComputedStyle(text||cell||$('#rOut')).fontSize)||18)*.75);}

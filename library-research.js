@@ -13,7 +13,7 @@ window.LibraryResearch = (() => {
     const history=window.ResearchHistory.create();let historyKey='';
     const lastSheetKey='researchLastSheet', lastEditionKey='researchLastEdition';
     function rememberSheet(){if(kind==='sheets'&&draft)try{localStorage.setItem(lastSheetKey,JSON.stringify({id:draft.id,projectId:draft.projectId}));}catch{}}
-    function editionPreference(editions){let last;try{last=JSON.parse(localStorage.getItem(lastEditionKey));}catch{}return window.ResearchEditions.preferred(editions,last);}
+    function editionPreference(editions){let last;try{last=JSON.parse(localStorage.getItem(lastEditionKey));}catch{}return host.getPreferredEdition?.(editions)||window.ResearchEditions.preferred(editions,last);}
     let state = null, projectId = '', kind = 'sheets', draft = null, legacy = false, dirty = false, filter = '', message = '', pending = false;
     const draftKey = 'researchDraft:' + (window.frameElement ? 'pane' : 'main');
     const allNotes = () => [...state.notes, ...state.legacyNotes];
