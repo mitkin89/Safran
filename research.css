@@ -286,3 +286,13 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 #researchRoot .rw-outline-item[aria-current] { color:var(--accent); border-color:color-mix(in srgb,var(--accent) 45%,transparent); }
 #researchRoot [data-nav-block] { scroll-margin-top:95px; }
 @media(max-width:720px){#researchRoot .rw-outline-list{max-height:160px}#researchRoot aside.rw-sidebar:has(.rw-outline){max-height:370px}#researchRoot .rw-sidebar:has(.rw-outline) #rwList{max-height:90px}}
+
+.rw-reader-interlinear .rw-wordgroup>span:last-child { color:#6cbf96; }
+.rw-interlinear-sources { display:block; font-size:10px; }
+.rw-reader-heading { color:var(--accent); font-size:1.1em; }
+
+.rw-dialog label.rw-capture-display-choice { flex-direction:row; align-items:center; gap:8px; }
+.rw-dialog .rw-capture-display-choice input { width:auto; }
+
+#researchRoot .rw-history { display:flex; gap:4px; }
+#researchRoot .rw-history button { font-size:21px; padding:3px 10px; min-width:34px; }
