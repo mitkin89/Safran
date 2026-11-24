@@ -36,7 +36,7 @@ function create(host){
     return cache.get(book);
   }
   function syriac(words,ref,indices){
-    const word=(w,i)=>'<button type="button" class="tc-ps-word" data-tc-ps-word="'+raw(ref)+'" data-tc-ps-at="'+indices[i]+'" title="'+esc('Peschitta-Wortkarte öffnen')+'">'+raw(w)+'</button>';
+    const word=(w,i)=>'<button type="button" class="tc-ps-word" data-tc-ps-word="'+raw(ref)+'" data-tc-ps-at="'+indices[i]+'" title="'+esc('Peschitta-Wortinfo öffnen')+'">'+raw(w)+'</button>';
     const span=(xs,offset=0)=>'<span class="tc-ps-sy" lang="syr" dir="rtl">'+xs.map((w,i)=>word(w,offset+i)).join(' ')+'</span>';
     if(words.length<=LONG)return span(words);
     return '<details class="tc-ps-long"><summary>'+span(words.slice(0,LONG))+' … <small>('+words.length+' '+esc('Wörter')+')</small></summary>'+span(words)+'</details>';
@@ -153,16 +153,14 @@ function create(host){
     const expected=Object.entries(doc.syriacMorphology.words).filter(([,w])=>w[2]===chapter&&w[3]===verse).sort((a,b)=>Number(a[0])-Number(b[0]));
     if(!tokens.length||tokens.length!==expected.length||tokens.some((t,i)=>t[1]!==expected[i][0]||t[2]!==expected[i][1][0]))return null;
     const part=record.parts.find(p=>['subs','verb','adjv','nmpr','advb'].includes(p.sp));
-    return {query:part?.form||record.form,part,source:{book:m[1],ref:native,mtRef:m[2],id:String(id),form:record.form}};
+    return {query:part?.form||record.form,part,record,source:{book:m[1],ref:native,mtRef:m[2],id:String(id),form:record.form}};
   }
   async function openWord(anchor,current=()=>true){
     const token=++openToken,active=()=>token===openToken&&anchor.isConnected!==false&&current();
     const at=Number(anchor.dataset.tcPsAt),source=await wordSource(anchor.dataset.tcPsWord,at);
     if(!active())return false;
     if(!source)throw Error('Die Peschitta-Stelle konnte nicht eindeutig zugeordnet werden.');
-    const id=source.part?await host.matchSyriacAnalysis(source.query,source.part):null;
-    if(!active())return false;
-    await host.openSyriacCard(source.query,{...(id?{id}:{}),apparatusSource:source.source});return true;
+    host.openSyriacPopup(anchor,source);return true;
   }
   return {available,load,entries,agree,credit,preview,wordSource,openWord};
 

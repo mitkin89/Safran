@@ -9,15 +9,15 @@ function fixture(options={}){
   if(options.read)return options.read(book,source);
   if(!docs.has(book)){const d=JSON.parse(fs.readFileSync(path.join(root,'bundled',source.rel),'utf8'));d.textHash=crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex');docs.set(book,d);}
   return docs.get(book);
- },matchSyriacAnalysis:options.match|| (async()=>null),openSyriacCard:async(...args)=>opened.push(args)};
+ },openSyriacPopup:async(...args)=>opened.push(args)};
  const ps=window.LibraryPeshittaTC.create(host);return {ps,opened,docs};
 }
 test('Ezekiel apparatus plus opens the exact source occurrence without loading a Peshitta reading column',async()=>{
  const f=fixture(),d=await f.ps.load('Ezekiel'),rows=f.ps.entries(d,[{ref:'Ezekiel 1:1',row:'1'}]);
  const row=rows.find(r=>r.html.includes('data-tc-ps-at="9"'));assert(row);assert.match(row.html,/class="tc-ps-word"/);
  const result=await f.ps.openWord({dataset:{tcPsWord:'Ezekiel 1:1',tcPsAt:'9'},isConnected:true});assert(result);
- assert.equal(f.opened.length,1);assert.equal(f.opened[0][1].apparatusSource.id,'242118');assert.equal(f.opened[0][1].apparatusSource.form,'ܗܘܝܬ');assert.equal(f.opened[0][1].apparatusSource.ref,'1:1');
- assert(!('id' in f.opened[0][1]),'ambiguous dictionary entries remain unselected');
+ assert.equal(f.opened.length,1);assert.equal(f.opened[0][1].source.id,'242118');assert.equal(f.opened[0][1].source.form,'ܗܘܝܬ');assert.equal(f.opened[0][1].source.ref,'1:1');
+ assert.equal(f.opened[0][1].record.id,'242118');assert(f.opened[0][1].record.parts.length,'verified source morphology is supplied to the popup');
 });
 test('Repeated surface forms retain separate token IDs and shifted references use native Peshitta numbering',async()=>{
  const f=fixture();for(const book of ['Genesis','Daniel']){

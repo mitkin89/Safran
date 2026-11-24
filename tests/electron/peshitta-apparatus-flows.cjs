@@ -9,6 +9,12 @@ module.exports=async({js,waitFor,book})=>{
  const word="document.querySelector('#tcBody .tc-ps-word[data-tc-ps-word=\"Ezekiel 1:1\"][data-tc-ps-at=\"9\"]')";
  await waitFor(word,'Syriac plus word is clickable');
  assert.equal(await js(word+'.textContent'),'ܗܘܝܬ');await js(word+'.click()');
+ await waitFor("document.querySelector('#wpop.syriac-word .sy-morph')",'Peshitta morphology popup appears inside apparatus');
+ assert(await js("!document.querySelector('#textcritPanel').hidden"));
+ assert(await js("document.querySelector('#formsPanel').hidden"),'Word card stays closed until requested');
+ assert.equal(await js("document.querySelector('#wpop .wword').textContent"),'ܗܘܝܬ');
+ assert(await js("document.querySelector('#wpop .sy-gloss').textContent.length>0"));
+ await js("document.querySelector('#wpop .sy-card').click()");
  await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#wcBody .sc-apparatus-source')",'Peshitta word card opened directly from apparatus');
  const source=await js("document.querySelector('#wcBody .sc-apparatus-source').textContent");assert(source.includes('Ezekiel 1:1'));assert(source.includes('ܗܘܝܬ'));
  assert(await js("document.querySelector('#wcBody').textContent.includes('SEDRA')"));

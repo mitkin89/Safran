@@ -5,7 +5,7 @@ window.LibraryWordPopup = (() => {
     openDict, lemIdsFor, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo, getHover, jumpSyntax }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { gTok++; if (wpop) { getHover?.()?.hideWithin(wpop); wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; clearSyntaxMarks(); try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { gTok++; if (wpop) { getHover?.()?.hideWithin(wpop); wpop.remove(); wpop = null; } $$('.tc-ps-word.sel, #rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; clearSyntaxMarks(); try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -41,7 +41,7 @@ window.LibraryWordPopup = (() => {
   // ---------- Septuaginta: Bestimmung jedes griechischen Wortes (lxx-morph; Index lxx-morph.js, Auswertung gmorph.js) ----------
   let gmP = null, gSel = null, gTok = 0; // gSel: angeklicktes Wort { cell, i }
   // A popup belongs to its displayed passage, including when navigation does not scroll.
-  if(typeof MutationObserver==='function')new MutationObserver(()=>{if(gSel&&!gSel.cell.isConnected)closeWpop();}).observe($('#rOut'),{childList:true});
+  if(typeof MutationObserver==='function'){const observer=new MutationObserver(()=>{if(gSel&&!gSel.cell.isConnected)closeWpop();});for(const node of [$('#rOut'),$('#tcBody')])if(node)observer.observe(node,{childList:true,subtree:true});}
   const loadGM = () => gmP || (gmP = lazyScript('lxx-morph.js', () => window.LXX_MORPH).catch(e => { gmP = null; throw e; }));
   // Kapitel und Vers einer griechischen Zelle (nur Texte mit Kapitel:Vers)
   function greekCtx(cell) {
@@ -92,7 +92,7 @@ window.LibraryWordPopup = (() => {
     const grp=group.map((_,i)=>start+i);
     return {i:start,words,grp,range:()=>w};
   }
-  function showSyriacWord(w){
+  function showSyriacWord(w,apparatus=null){
     const was=w.classList.contains('sel');closeWpop();if(was)return;
     const cell=w.closest('.cell'),doc=reader.view?.loaded?.find(d=>d.entry.rel===(w.dataset.syRel||cell?.dataset.rel)),row=w.closest('.row');let path=reader.view?.sections?.[reader.view.idx]?.path;
     if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
@@ -100,7 +100,7 @@ window.LibraryWordPopup = (() => {
     const sourceDoc=doc||(w.dataset.syRel&&reader.cache?.get(w.dataset.syRel));
     let label=row?.dataset.sl||row?.dataset.l;
     if(w.dataset.syRef&&/^[1-9]\d*:[1-9]\d*$/.test(w.dataset.syRef)){const [chapter,verse]=w.dataset.syRef.split(':').map(Number);path=[chapter-1];label=String(verse);}
-    const r=window.SyriacMorph.at(sourceDoc,w.dataset.si,w.textContent,path,label),t=s=>I18N.t(s);
+    const r=apparatus?apparatus.record:window.SyriacMorph.at(sourceDoc,w.dataset.si,w.textContent,path,label),t=s=>I18N.t(s);
     const translit=`<div class="sy-translit"><small>${esc(t('Hebräische Umschrift (Konsonanten)'))}</small><bdi lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(w.textContent))}</bdi></div>`;
     const parts=r?.parts||[];
     const rows=parts.length?parts.map(p=>{const d=window.SyriacMorph.describe(p,t);return `<div class="wseg main"><bdi class="sy-part" lang="syr" dir="rtl">${esc(p.form)}</bdi><strong class="sy-gloss">${esc(p.gloss)}</strong><div class="sy-morph">${esc([d.pos,d.info].filter(Boolean).join(' · '))}</div></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
@@ -110,10 +110,18 @@ window.LibraryWordPopup = (() => {
     // Prefer the content word over an attached conjunction, preposition or pronoun.
     const main=parts.find(p=>['subs','verb','adjv','nmpr','advb'].includes(p.sp));
     const query=main?.form||w.textContent;
-    const details=`<details class="sy-details" open><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
-    const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button><button type="button" class="wforms sy-card">${esc(t('Wortkarte'))}</button>`;
-    w.classList.add('sel');gSel={cell,i:w.dataset.si};
-    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{const dict=ev.target.closest('.wdict');if(dict){const pop=wpop,token=gTok;Promise.resolve(matchSyriacAnalysis(query,main)).then(id=>{if(wpop===pop&&token===gTok&&w.isConnected)openDict(query,null,id);});return true;}if(!ev.target.closest('.sy-card'))return false;closeWpop();openSForms(query);return true;}});
+    const details=`<details class="sy-details"${apparatus?'':' open'}><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
+    const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button><button type="button" class="wforms sy-card">${esc(t('Wortkarte'))}</button><button type="button" class="wforms sy-table">${esc(t('Alle Formen (Tabelle)'))}</button>`;
+    w.classList.add('sel');gSel={cell:apparatus?w:cell,i:r?.id||w.dataset.si};
+    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{
+      const dict=ev.target.closest('.wdict'),card=ev.target.closest('.sy-card,.sy-table');if(!dict&&!card)return false;
+      const pop=wpop,token=gTok;
+      Promise.resolve(matchSyriacAnalysis(query,main)).then(id=>{
+        if(wpop!==pop||token!==gTok||!w.isConnected)return;
+        if(dict){openDict(query,null,id);return;}
+        closeWpop();openSForms(query,{...(id?{id}:{}),...(apparatus?{apparatusSource:apparatus.source}:{})},card.classList.contains('sy-table')?'forms':'card');
+      });return true;
+    }});
     wpop.classList.add('syriac-word');
     const pop=wpop;place();
     pop.addEventListener('toggle',()=>{if(wpop===pop)place();},true);
@@ -585,7 +593,7 @@ window.LibraryWordPopup = (() => {
     if(shown){e.preventDefault();e.stopImmediatePropagation();}
   },true);
 
-    return { syntaxSection, openPreferred, openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
+    return { syntaxSection, openPreferred, openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSyriacApparatus(w,source) { return showSyriacWord(w,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }
   return { create };
 })();
