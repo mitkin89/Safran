@@ -130,8 +130,29 @@ BibleText references covering that verse. Citation references in the notes never
 supply page coverage. It then shows source note labels matching a whole Hebrew
 word or phrase exactly once in the page's verse-referenced BibleText readings.
 Matching ignores pointing and word separators, preserves consonants, and rejects
-labels containing editorial prose or Latin disambiguators. Readings carrying a
+labels containing editorial prose or alternative lemmas. Trailing BIMA hand
+identifiers such as `(M1)`, occurrence numbers such as `(2)`, and bibliographical
+suffixes with recognized reference vocabulary (Ginsburg, Weil, OH/OP, Okhla,
+Ognibeni) and an explicit numbered entry are omitted for matching and navigation.
+ASCII hyphens and Hebrew maqaf separate words. The original source label remains
+unchanged. Occurrence numbers never select a match: repeated spellings remain
+ambiguous. Unknown prose, Hebrew qualifiers in reference suffixes and other
+parenthetical text are not stripped. Readings carrying a
 verse range or multiple references do not supply a precise word location.
+
+`node tools/masora/audit-locations.js` audits every transcribed Masorah context,
+counting unique, ambiguous and unmatched word references and newly supported
+labels compared with hand-suffix-only matching. Unmatched notes remain available
+on their source pages; this audit does not reconstruct missing Bible text or
+promote citations into manuscript anchors.
+
+Audit of the bundled snapshot after label normalization: 26,969 transcribed notes,
+18,310 with a unique spelling match, 2,664 with multiple candidate occurrences,
+and 5,995 without a match. Compared with hand-suffix-only matching, this adds
+3,036 unique and 448 ambiguous references. Of the unmatched notes, 1,539 lack
+verse-referenced source Bible text, 2,373 have unsupported labels, and 2,083 have
+no exact spelling match. These are browsing diagnostics, not verified coverage
+of the manuscript's Masora.
 
 These are **automatically derived word references**, not publisher-confirmed
 note-to-word anchors. A unique spelling match is useful for browsing but cannot

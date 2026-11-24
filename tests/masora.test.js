@@ -89,6 +89,35 @@ test('word references match whole phrases and preserve ambiguity on the real Psa
   assert.deepEqual(D.locations(p,{uuid:'made-up',label:'שרי'}),[],'no substring matching');
   assert.deepEqual(D.locations(p,{uuid:'editorial',label:'אשרי I'}),[],'do not reinterpret editorial labels');
 });
+test('BIMA hand suffixes do not prevent real Job word anchors or change source labels',()=>{
+  const ms=index.manuscripts.find(m=>m.label==='Vat.Urb.ebr.1');
+  const page=datasets[ms.id].pages.find(p=>p.label==='746r');
+  const entry=page.contexts.find(c=>c.label==='השמימה (M1)');assert(entry);
+  const original=JSON.stringify(entry);
+  const matches=D.locations(page,entry);
+  assert.deepEqual(matches.map(m=>[m.label,m.phrase]),[['Job 2:12','השמימה']]);
+  assert.equal(D.forVerse([{page,entry}],{book:'Job',chapter:2,verse:12}).primary.length,1);
+  assert.equal(JSON.stringify(entry),original,'retain the original source metadata');
+  const repeated={contexts:[{type:'BibleText',readings:[{text:'השמימה השמימה',references:[{label:'Job 2:12'}]}]}]};
+  assert.equal(D.locations(repeated,entry).length,2);
+  assert.equal(D.forVerse([{page:repeated,entry}],{book:'Job',chapter:2,verse:12}).primary.length,0);
+  for(const [i,label] of ['השמימה (אחר)','השמימה (M1) unknown','גדל (כי גדל) (M1)','השמימה Gins.1, unknown #72 (M1)'].entries())
+    assert.deepEqual(D.locations(page,{uuid:'unsafe-'+i,label}),[],'retain safeguards for editorial or alternative labels');
+});
+test('bibliographic suffixes and word separators allow matching without guessing an occurrence',()=>{
+  for(const label of ['תבא Gins.1, beth #122 (M1)','תבא Ginsburg I, Beth, #122, 13','תבא_Ginsburg I, p.13 § 122; Weil § 15','תבא OH2 #16C; Ginsburg I Beth #122, p.13'])assert.equal(D.matchingLabel(label),'תבא');
+  assert.equal(D.matchingLabel('על-ציון'),'על ציון');
+  assert.equal(D.matchingLabel('על־ציון'),'על ציון');
+  for(const label of ['גדל (כי גדל) (M1)','תבא / תבוא','תבא Ginsburg I #122 ר','תבא Ginsburg I #122 partial','תבא continued from fol. 3v; Gins.1 #122'])assert.equal(D.matchingLabel(label),'');
+  const page={contexts:[{type:'BibleText',readings:[{uuid:'r1',text:'תבא על־ציון תבא',references:[{label:'Job 2:2'}]}]}]};
+  const entry={uuid:'numbered',label:'תבא (2)'};
+  assert.equal(D.locations(page,entry).length,2,'a source occurrence number must not silently choose the second match');
+  assert.equal(D.forVerse([{page,entry}],{book:'Job',chapter:2,verse:2}).primary.length,0);
+  assert.deepEqual(D.locations(page,{uuid:'phrase',label:'על-ציון Ginsburg I Aleph #123'}).map(l=>l.phrase),['על ציון']);
+  const ms=index.manuscripts.find(m=>m.label==='Vat.Urb.ebr.1'),real=datasets[ms.id].pages.find(p=>p.label==='745v');
+  const note=real.contexts.find(c=>c.label==='תבא Gins.1, beth #122 (M1)');assert(note);
+  assert.deepEqual(D.locations(real,note).map(l=>l.label),['Job 2:2']);
+});
 test('citation-only notes and repeated occurrences cannot manufacture a unique word anchor',()=>{
   const note={uuid:'m',label:'דבר',type:'mp',readings:[{text:'דבר',references:[{label:'Ps 1:1'}]}]};
   const p={bibleRefs:['Ps 1:1'],contexts:[note]};assert.deepEqual(D.locations(p,note),[]);

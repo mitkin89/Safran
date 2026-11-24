@@ -14,10 +14,24 @@
     return page.bibleRefs.some(label=>{const r=bibleRef(label);return r&&r.book===ctx.book&&ctx.chapter>=r.chapter&&ctx.chapter<=r.endChapter&&(ctx.chapter!==r.chapter||ctx.verse>=r.verse)&&(ctx.chapter!==r.endChapter||ctx.verse<=r.endVerse);});
   }
   const locationCache=new WeakMap();
+  // Only recognized bibliographical vocabulary may follow a lemma. Do not remove
+  // arbitrary Latin prose, Hebrew qualifiers or alternative readings.
+  const referenceWords=new Set(('Gins Ginsburg Weil OH OP Okhla Okhlah Ognibeni Halle Paris H P I II III p vol Ms and et Aleph Alef Bet Beth Gimel Dalet Daleth He Hei Het Chet Vav Waw Zayin Zajin Zain Tet Yod Kaf Kaph Khaf Caph Caf Lamed Lamaed Mem Nun Samekh Sameh Samech Ayin Ain Pe Peh Qof Kuf Kof Resh Reish Shin Sin Tav Taw Tzade Tsade Tzadi').toLowerCase().split(' '));
+  function matchingLabel(value){
+    let label=String(value||'').trim().replace(/\s+\(M[1-9]\d*\)$/, '').trim();
+    const bibliographic=/^([\u0590-\u05ff\s-]+?)[\s,_]+((?:Ginsburg\b|Gins\b\.?|Weil\b|OH\d*\b|OP\b|Okhlah?\b|Ognibeni\b).*)$/i.exec(label);
+    if(bibliographic){
+      const suffix=bibliographic[2],words=suffix.match(/[A-Za-z]+/g)||[];
+      if(/[#§]\s*\d/.test(suffix)&&/^[A-Za-z\d\s.,;:#§/()[\]–-]+$/.test(suffix)&&words.every(w=>referenceWords.has(w.toLowerCase())||/^[a-z]$/i.test(w)))label=bibliographic[1].trim();
+    }
+    // Occurrence numbers do not select an occurrence: all spelling matches remain candidates.
+    label=label.replace(/\s+\([1-9]\d*\)$/, '').trim();
+    return /^[\u0590-\u05ff\s-]+$/.test(label)?label.replace(/[-\u05be]/g,' ').replace(/\s+/g,' ').trim():'';
+  }
   function locations(page,entry){
     if(!locationCache.has(page))locationCache.set(page,new Map());
     const cache=locationCache.get(page);if(cache.has(entry.uuid))return cache.get(entry.uuid);
-    const label=String(entry.label||'').trim(),needle=wordTokens(label),found=[];
+    const label=matchingLabel(entry.label),needle=wordTokens(label),found=[];
     // A source label containing editorial prose or alternative lemmas has no safe phrase match.
     if(needle.length&&/^[\u0590-\u05ff\s]+$/.test(label)){
       for(const c of page.contexts.filter(c=>c.type==='BibleText'))for(const r of c.readings){
@@ -150,6 +164,6 @@
     }
     return [...groups.values()].sort((a,b)=>(a.location?.chapter??Infinity)-(b.location?.chapter??Infinity)||(a.location?.verse??Infinity)-(b.location?.verse??Infinity)||(a.location?.wordIndex??Infinity)-(b.location?.wordIndex??Infinity));
   }
-  const api={pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups};
+  const api={pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups,matchingLabel};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraData=api;
 })(typeof window!=='undefined'?window:globalThis);
