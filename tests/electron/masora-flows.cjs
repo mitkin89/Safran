@@ -27,13 +27,11 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('.masora-primary .masora-entry') && !document.querySelector('.masora-choices')",'Versansicht enthält nur eindeutige Wortbezüge');
  assert(await js("document.querySelector('#masoraScope').value==='verse' && /automatisch|automatically/i.test(document.querySelector('.masora-scope-note').textContent)"));
  assert(await js("document.querySelector('.masora-primary .masora-translation')"));
- await js("document.querySelector('.masora-primary .masora-translation').open=true");
  assert(await js("document.querySelector('.masora-primary .masora-translation .masora-de[lang=de]').textContent.trim().length>0"));
  await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
  fs.writeFileSync('/tmp/safran-masora-working-translation.png',(await win.webContents.capturePage()).toPNG());
  assert(await js("document.querySelector('.masora-word-nav button') && document.querySelector('.masora-explanation') && document.querySelector('.masora-transcription').tagName==='DIV' && !document.querySelector('.masora-related')"));
- await js("document.querySelector('.masora-primary .masora-explanation').open=true");
- assert(await js("document.querySelector('.masora-explanation').textContent.includes('Lesehilfe')"));
+ assert(await js("(()=>{const e=document.querySelector('.masora-primary .masora-translation');return e.tagName==='SECTION'&&!e.querySelector('summary')&&e.querySelector('.masora-de').getBoundingClientRect().height>0&&e.closest('.masora-entry').querySelectorAll('.masora-explanation').length===1&&!e.closest('.masora-entry').querySelector('.masora-page-source').open;})()"));
  // The unique phrase marks both reader words; the ambiguous single word offers both source verses.
  await js("[...document.querySelectorAll('.masora-primary .masora-word')].find(b=>b.textContent.includes('אשרי האיש')).click()");
  await waitFor("document.querySelectorAll('#rOut .tc-mt-selected').length===2",'Wortgruppe im Lesetext markiert');
@@ -74,13 +72,14 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#rSection').value='27';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#rOut .row[data-l=\"15\"]')",'Genesis 28,15');
  await js("document.querySelector('#rOut .row[data-l=\"15\"] .verse-tool').click();document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
- await waitFor("[...document.querySelectorAll('.masora-primary .masora-entry')].some(e=>e.textContent.includes('5 Vorkommen')&&e.textContent.includes('Joshua 23:14'))",'Deutsche Lesehilfe und Belege für die Fünferliste');
- assert(await js("!document.querySelector('.masora-related') && !document.querySelector('details.masora-transcription') && [...document.querySelectorAll('.masora-primary .masora-entry')].filter(e=>e.querySelectorAll('.masora-reading').length===1).every(e=>e.getBoundingClientRect().height<100 && e.querySelector('.masora-transcription').getBoundingClientRect().height>0)"));
+ await waitFor("[...document.querySelectorAll('.masora-primary .masora-entry')].some(e=>e.dataset.masoraContext==='70503a61-4a9c-493b-b3c7-0c9014dbad1e'&&e.textContent.includes('Joshua 23:14'))",'Deutsche Übersetzung und Belege für die Fünferliste');
+ assert(await js("!document.querySelector('.masora-related') && !document.querySelector('details.masora-transcription') && [...document.querySelectorAll('.masora-primary .masora-entry')].filter(e=>e.querySelectorAll('.masora-reading').length===1).every(e=>e.querySelector('.masora-explanation').getBoundingClientRect().height>0 && e.querySelector('.masora-transcription').getBoundingClientRect().height>0)"));
+
  await js("document.querySelector('.masora-primary').scrollIntoView({block:'start'});new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
  fs.writeFileSync('/tmp/safran-masora-flat.png',(await win.webContents.capturePage()).toPNG());
- await js("{const e=[...document.querySelectorAll('.masora-primary .masora-entry')].find(e=>e.textContent.includes('5 Vorkommen')&&e.textContent.includes('Joshua 23:14'));e.querySelector('.masora-explanation').open=true;e.scrollIntoView({block:'start'});}");
+ await js("{const e=[...document.querySelectorAll('.masora-primary .masora-entry')].find(e=>e.dataset.masoraContext==='70503a61-4a9c-493b-b3c7-0c9014dbad1e'&&e.textContent.includes('Joshua 23:14'));e.scrollIntoView({block:'start'});}");
  await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
- assert(await js("[...document.querySelectorAll('.masora-primary .masora-explanation')].some(e=>e.open&&e.textContent.includes('5 Vorkommen'))"));
+ assert(await js("[...document.querySelectorAll('.masora-primary .masora-explanation')].some(e=>e.getBoundingClientRect().height>0&&e.textContent.includes('5-mal'))"));
  fs.writeFileSync('/tmp/safran-masora-explanation.png',(await win.webContents.capturePage()).toPNG());
  // Hidden page notes cannot produce a false continuation button in verse mode.
  await book('Genesis');await waitFor("document.querySelector('#rSection option[value=\"0\"]')",'Genesis 1 verfügbar');
@@ -102,7 +101,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("{const ids=new Set(window.MASORA_TRANSLATION_INDEX.batches.at(-1).ids);let found;for(const [id,ms]of Object.entries(window.MASORA_DATA)){for(const page of ms.pages){for(const entry of page.contexts){if(!ids.has(entry.uuid))continue;const reading=entry.readings.find(r=>window.MasoraData.text(r).length>60);if(reading){found={id,entry,reading};break;}}if(found)break;}if(found)break;}if(!found)throw Error('No final translation source');window.masoraLastExpected=found.entry.uuid;document.querySelector('#masoraMs').value=found.id;document.querySelector('#masoraQuery').value=window.MasoraData.text(found.reading);document.querySelector('#masoraScope').value='all';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation')",'Arbeitsübersetzung im letzten Bestandsabschnitt geladen');
  assert(await js("window.MASORA_TRANSLATION_INDEX.count===26969 && Object.keys(window.MASORA_TRANSLATION_PARTS[10].notes).length>0"));
- await js("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const e=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation'),p=document.querySelector('#masoraPanel');p.scrollTop+=e.getBoundingClientRect().top-p.querySelector('.masora-head').getBoundingClientRect().bottom-8;requestAnimationFrame(resolve);})))");
+ await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const e=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation'),p=document.querySelector('#masoraPanel');p.scrollTop+=e.getBoundingClientRect().top-p.querySelector('.masora-head').getBoundingClientRect().bottom-8;requestAnimationFrame(resolve);})))");
  fs.writeFileSync('/tmp/safran-masora-complete-translations.png',(await win.webContents.capturePage()).toPNG());
  // A newly reviewed translation is rendered from its actual source-bound runtime batch.
  const translationIndex=require('../../masora-translations/index');
@@ -114,7 +113,7 @@ module.exports=async({win,js,waitFor,book})=>{
  assert(revised,'at least one actual reviewed translation');
  await js(`{const expected=${JSON.stringify(revised)};window.masoraReviewExpected=expected;let id;for(const [key,ms] of Object.entries(window.MASORA_DATA)){if(ms.pages.some(p=>p.contexts.some(e=>e.uuid===expected.uuid))){id=key;break;}}if(!id)throw Error('Missing reviewed source');document.querySelector('#masoraMs').value=id;document.querySelector('#masoraQuery').value=expected.source;document.querySelector('#masoraScope').value='all';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}));}`);
  await waitFor("(()=>{const entry=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraReviewExpected.uuid+'\"]');return entry?.querySelector('.masora-translation')&&entry.textContent.includes(window.masoraReviewExpected.de);})()",'Neu geprüfte deutsche Übersetzung erscheint an ihrer Quelle');
- await js("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraReviewExpected.uuid+'\"] .masora-translation').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+ await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
  fs.writeFileSync('/tmp/safran-masora-reviewed-translation.png',(await win.webContents.capturePage()).toPNG());
  await js("document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
  // Parenthetical context and a source suffix must not hide the real Job 2:13 head.

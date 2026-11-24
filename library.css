@@ -2684,7 +2684,10 @@ html.split #masoraPanel { right: var(--p2w); }
 .masora-actions > details > summary { cursor:pointer; font-size:inherit; }
 .masora-actions > details[open] { flex-basis:100%; color:var(--fg); }
 .masora-actions p { margin-block:4px; }
-.masora-actions .masora-explanation > p:first-of-type { color:var(--muted); }
+.masora-interpretation { min-width:0; }
+.masora-explanation { display:block; margin:.4em 0 .3em; padding:.3em .65em; border-inline-start:2px solid var(--accent); border-radius:0 4px 4px 0; background:color-mix(in srgb,var(--accent) 6%,transparent); font:.85em/1.5 system-ui,sans-serif; color:var(--fg); white-space:normal; overflow-wrap:anywhere; }
+.masora-interpretation-label { font-size:.8em; line-height:1.4; color:var(--muted); }
+.masora-explanation p { margin:.25em 0; }
 .masora-note { white-space:pre-wrap; }
 
 /* A second independent study area; tool controllers keep their own content. */

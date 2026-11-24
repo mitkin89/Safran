@@ -76,12 +76,12 @@ window.LibraryMasora = (() => {
     function entryHtml(hit){
       const {page,entry,readings}=hit,info=D.explain(entry),kind=kinds[entry.type]||entry.type;
       const source='<details class="masora-page-source"><summary title="'+safe(hit.manuscript.label+' · '+(page.folio||page.label))+'">'+safe(t('Quelle'))+'</summary><p>'+safe(hit.manuscript.label)+' · '+safe(page.folio||page.label)+'</p><p class="muted">'+safe(D.referenceSummary(page.bibleRefs))+'</p><a class="masora-external" href="'+safe(page.url)+'">'+safe(t('Handschriftenseite in BIMA öffnen (online)'))+' ↗</a></details>';
-      const explanation='<details class="masora-explanation"><summary>'+safe(t('Erklärung'))+'</summary><p class="muted">'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'</p><p>'+safe(t(info.meaning))+'</p>'+'</details>';
+      const explanation=T.html(translationFor(entry),safe,t)||'<div class="masora-explanation" role="note" title="'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'"><div class="masora-interpretation-label">'+safe(t('Lesehilfe'))+'</div><p>'+safe(t(info.meaning))+'</p></div>';
       return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'" data-masora-type="'+safe(entry.type)+'"><div class="masora-entry-line"><span class="masora-kind" title="'+safe(t(kind))+'">'+safe(({mp:'Mp',mm:'Mm',mf:'Mf'})[entry.type]||t(kind))+'</span><div class="masora-transcription">'+readings.map(({source:r,text,notes})=>
         '<span class="masora-reading">'+(text?'<bdi class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</bdi>':'')+
         (r.references?.length?' <span class="masora-refs">'+r.references.map(ref=>referenceButton(ref,hit)).join(' · ')+'</span>':'')+
         (notes?' <span class="masora-note" dir="auto">'+safe(plain(notes))+'</span>':'')+'</span>').join('<span class="masora-separator" aria-hidden="true"> · </span>')+
-        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-actions">'+T.html(translationFor(entry),safe,t)+explanation+source+'</div></article>';
+        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-interpretation">'+explanation+'</div><div class="masora-actions">'+source+'</div></article>';
     }
     async function render(){
       const ctx=context();if(!ctx){close();return;}if(panel.hidden)return;

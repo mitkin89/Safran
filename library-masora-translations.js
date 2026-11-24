@@ -17,10 +17,10 @@
  function html(record,safe,t=x=>x){
   if(!record)return '';
   const partial=record.readings.some(r=>r.status==='partial'),label=t('Übersetzung')+' · '+t(partial?'teilweise offen':'Arbeitsfassung');
-  return '<details class="masora-translation"><summary title="'+safe(t('Deutsche Arbeitsübersetzung, nicht fachlich abschließend geprüft.'))+'">'+safe(label)+'</summary>'+(partial?'<p class="muted">'+safe(t('[ … ] = nicht sicher übersetzt.'))+'</p>':'')+record.readings.map(r=>{
+  return '<section class="masora-translation masora-explanation" role="note" aria-label="'+safe(t('Übersetzung'))+'"><div class="masora-interpretation-label" title="'+safe(t('Deutsche Arbeitsübersetzung, nicht fachlich abschließend geprüft.'))+'">'+safe(label)+(partial?' · '+safe(t('[ … ] = nicht sicher übersetzt.')):'')+'</div>'+record.readings.map(r=>{
    const source=r.attribution||[r.edition,r.reference||r.ref||(r.sourceReferences||[]).join(' · ')].filter(Boolean).join(' · ');
    return '<p class="masora-de" lang="de" dir="ltr" data-status="'+safe(r.status)+'">'+safe(r.de)+(source?'<small class="muted">'+safe(source)+'</small>':'')+'</p>';
-  }).join('')+'</details>';
+  }).join('')+'</section>';
  }
  const api={index,match,html};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraTranslations=api;
 })(typeof window!=='undefined'?window:globalThis);

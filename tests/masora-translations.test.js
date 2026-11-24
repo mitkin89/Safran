@@ -20,10 +20,10 @@ test('translation overlays reject changed source text, source labels and source 
  const changed=structuredClone(entry);changed.readings[0].text+=' changed';assert.equal(T.match(changed,record,D),null);
  const cited=structuredClone(entry);cited.readings[0].references.push({label:'Gen 1:1'});assert.equal(T.match(cited,record,D),null);
 });
-test('German translation disclosure escapes source-derived content and identifies partial drafts',()=>{
+test('German translations stay visible, escape source-derived content and identify partial drafts',()=>{
  const safe=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
  const html=T.html({readings:[{de:'<img src=x> [Unklar: א]',status:'partial',sourceReferences:[],edition:'<script>'}]},safe);
- assert(html.includes('teilweise offen'));assert(html.includes('lang="de"'));assert(!html.includes('<img'));assert(!html.includes('<script>'));assert.equal(T.html(null,safe),'');
+ assert(html.startsWith('<section '));assert(html.includes('role="note"'));assert(!/<details|<summary/.test(html));assert(html.includes('teilweise offen'));assert(html.includes('lang="de"'));assert(!html.includes('<img'));assert(!html.includes('<script>'));assert.equal(T.html(null,safe),'');
 });
 test('source formulas are actual translations and arbitrary Hebrew words are not treated as counts',()=>{
  const P=require('../tools/masora/translations/part-0');assert.equal(P.formula('לׄ').de,'Einmalig.');assert.equal(P.formula('בׄ').de,'Zweimal.');assert.equal(P.formula('לׄ חסׄ').status,'draft');assert.equal(P.formula('נח'),null);assert.equal(P.formula('שם'),null);assert.equal(P.formula('נח מל'),null);assert.equal(P.formula('לׄי'),null);assert.equal(P.formula('קׄר'),null);assert.equal(P.translateReading({uuid:'gap',text:'ומי ##',references:[]}).status,'partial');assert.equal(P.formula('מלא').de,'Voll geschrieben.');assert.equal(P.formula('בׄ דסׄ').status,'partial');
