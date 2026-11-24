@@ -27,6 +27,11 @@ module.exports=async({js,waitFor,win})=>{
   const pair=await js(`({actual:JSON.parse(localStorage.getItem('syntaxPatterns')).items.find(e=>e.name==='QA ${id}').query,expected:window.SyntaxPatterns.snapshot(window.SyntaxExamples.get('${id}').query)})`);
   assert.deepEqual(pair.actual,pair.expected,'Gesamter Suchaufbau übernommen: '+id);
  }
+ await load('god-speaks-or-sees');
+ await js("document.querySelector('#sxAdvancedBook').value='Genesis';document.querySelector('#sxAdvancedGo').click()");
+ await waitFor("document.querySelector('#sxAdvancedGo').textContent==='Suchen' && document.querySelector('#sOut .sres')",'Erstes Beispiel über echte App-IPC');
+ assert(await js("document.querySelector('#sOut').textContent.includes('Kapitel 1 · 3')"));
+ assert(await js("!document.querySelector('#sInfo').textContent.includes('0 von 0 Dateien')"));
  await load('spirit-genitive');await shot('advanced-examples');
  await js("document.querySelector('#sxAdvancedBook').value='Genesis';document.querySelector('#sxAdvancedGo').click()");
  await waitFor("document.querySelector('#sxAdvancedGo').textContent==='Suchen' && document.querySelector('#sOut .sres')",'Vorausgefüllte erweiterte Suche');
