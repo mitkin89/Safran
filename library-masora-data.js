@@ -18,9 +18,9 @@
   const citationWords=new Set(('Gins Ginsburg OH OP Okhla Okhlah OkhlaH Halle Paris Ognibeni Weil Aleph Alef Ayin Yod Mem Shin Nun Resh Bet Beth Chet Qof Lamed Lamaed He Samekh Tet Pe Caph Kaf Khaf Dalet Gimel Zayin Tav Daleth Tzade Zajin Sin Tsade Waw Vav Kaph Taw Samech Tsadi Peh Ajin Qoph Yud Het Heh Quf Zain Tzadi Gimael Gimmel Dalaeth Jod reish kuf resh sameh het hei ain zain tzadi kof pei quf tsade chet caf cf Part of p pp vol bis Supp Supplement Suppl Sup M I II III IV and et al Margin Marginal List Ms tiqqunim Tiqqunim nosafot Nusafot Halufim Hilufim f r l v').toLowerCase().split(' '));
   function labelTarget(value){
     let label=String(value||'').replace(/\ufeff/g,'').trim().replace(/\s+\(M\d+\)(?:\+{1,2})?$/u,'').replace(/\s+Repeated(?:,)?(?=\s|$)/u,'');
-    const citation=/[ _,]+((?:Part of )?(?:Gins(?:burg|\.)?|OH\d*|OP|Okhla\w*|Weil|Ognibeni)\b.*)$/iu.exec(label);
+    const citation=/[ _,]+((?:(?:Part of|cf\.) )?(?:Gins(?:burg|\.)?|OH\d*|OP|Okhla\w*|Weil|Ognibeni)\b.*)$/iu.exec(label);
     if(citation){
-      const tail=citation[1].normalize('NFD').replace(/\p{M}/gu,''),words=tail.match(/[A-Za-z]+/g)||[];
+      const tail=citation[1].normalize('NFD').replace(/\p{M}/gu,''),words=tail.replace(/\d+[a-z]{1,2}\b/gi,'0').match(/[A-Za-z]+/g)||[];
       if(!/[#§]\s*\d|\bp\.\s*\d/.test(tail)||!/^[A-Za-z0-9\s.,;:#§/()[\]\u0026–—_+\-]+$/.test(tail)||!words.every(w=>citationWords.has(w.toLowerCase())||/^[A-Z]{1,2}$/.test(w)))return null;
       label=label.slice(0,citation.index).trim();
     }
@@ -52,7 +52,11 @@
   function locations(page,entry){
     const source=sourceLocations(page,entry);if(source.length)return source;
     const link=wordLinks?.notes?.[entry.uuid];
-    return link&&link.page===page.id&&link.label===entry.label&&link.coverage===page.bibleRefs.join('|')&&link.sourceSnapshot===sourceSnapshot(page)?link.locations:source;
+    return link&&link.page===page.id&&link.label===entry.label&&link.coverage===page.bibleRefs.join('|')&&link.sourceSnapshot===sourceSnapshot(page)?link.locations.filter(loc=>!loc.method.startsWith('westminster-cited')||citationLocations(page,entry).some(c=>c.label===loc.label&&c.phrase===loc.phrase&&c.wordIndex===loc.wordIndex)):source;
+  }
+  function citationLocations(page,entry){
+    const link=wordLinks?.citations?.[entry.uuid];if(!link||link.page!==page.id||link.label!==entry.label)return [];
+    return link.locations.filter(loc=>entry.readings.some(r=>r.uuid===loc.sourceReading&&text(r)===loc.sourceQuote&&r.references?.some(ref=>ref.label===loc.sourceReference))&&(!loc.qualifierReading||entry.readings.some(r=>r.uuid===loc.qualifierReading&&text(r)===loc.qualifierText)));
   }
   function sourceLocations(page,entry){
     if(!locationCache.has(page))locationCache.set(page,new Map());
@@ -190,6 +194,6 @@
     }
     return [...groups.values()].sort((a,b)=>(a.location?.chapter??Infinity)-(b.location?.chapter??Infinity)||(a.location?.verse??Infinity)-(b.location?.verse??Infinity)||(a.location?.wordIndex??Infinity)-(b.location?.wordIndex??Infinity));
   }
-  const api={matchingLabel,labelTarget,targetMatches,sourceLocations,sourceSnapshot,setWordLinks,matchTokens,pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups};
+  const api={matchingLabel,labelTarget,targetMatches,citationLocations,sourceLocations,sourceSnapshot,setWordLinks,matchTokens,pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraData=api;
 })(typeof window!=='undefined'?window:globalThis);

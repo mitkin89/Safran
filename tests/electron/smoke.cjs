@@ -16,7 +16,7 @@ if(process.env.SAFRAN_SMOKE_PSALMNOTES==='1')add('Psalms','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Genesis','other',/^Septuaginta \(CATSS\)/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_TCSEARCH==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Genesis','other',/^ETCBC Peshitta/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Ruth','other',/^ETCBC Peshitta/);
-if(process.env.SAFRAN_SMOKE_MASORA==='1'){add('Psalms','he',/^Westminster/);add('Job','he',/^Westminster/);}
+if(process.env.SAFRAN_SMOKE_MASORA==='1'){add('Psalms','he',/^Westminster/);add('Job','he',/^Westminster/);add('II Samuel','he',/^Westminster/);}
 if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1')add('Ezekiel','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_PSAPP==='1'){add('Ezekiel','he',/^Westminster/);add('Ezekiel','other',/^ETCBC Peshitta/);}
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));

@@ -176,5 +176,41 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('.masora-primary .masora-word').click()");
  await waitFor("document.querySelectorAll('#rOut .row[data-l=\"7\"] .tc-mt-selected').length===2",'Nummeriertes Label markiert passende Vorkommen ohne erfundene Ordinaldeutung');
  fs.writeFileSync('/tmp/safran-masora-numbered-label.png',(await win.webContents.capturePage()).toPNG());
+ // The user's ארוץ note supplies checked cross-book citations and a source-quoted spelling variant.
+ await js("document.querySelector('#rSection').value='17';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"30\"]')",'Psalm 18,30');
+ await js("document.querySelector('#rOut .row[data-l=\"30\"] .lab').click();document.querySelector('#masoraQuery').value='ארוץ';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelector('.masora-primary [data-masora-context=\"55bb1141-2922-40c7-b2dd-6bb46028e39b\"] .masora-refs .masora-word span[aria-label]')",'Cited ארוץ spellings checked against MT');
+ await js("document.querySelector('.masora-primary .masora-word').click()");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"30\"] .tc-mt-selected')",'Defektive Schreibung ארץ in Psalm 18,30 markiert');
+ assert.deepEqual(await js("[...document.querySelectorAll('#rOut .tc-mt-selected')].flatMap(w=>window.MasoraData.wordTokens(w.textContent))"),['ארץ']);
+ await js("document.querySelector('#masoraScope').value='citations';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
+ for(const [reference,verse]of [['18:23',23],['22:30',30],['119:32',32]]){
+  await waitFor(`(()=>{const e=document.querySelector('[data-masora-context=\"55bb1141-2922-40c7-b2dd-6bb46028e39b\"]');return e&&[...e.querySelectorAll('.masora-refs .masora-word')].some(b=>b.textContent.includes('${reference}')&&b.querySelector('span[aria-label]'));})()`,'Geprüfter Vergleichsbeleg '+reference);
+  await js(`[...document.querySelector('[data-masora-context=\"55bb1141-2922-40c7-b2dd-6bb46028e39b\"]').querySelectorAll('.masora-refs .masora-word')].find(b=>b.textContent.includes('${reference}')).click()`);
+  await waitFor(`document.querySelector('#rOut .row[data-l=\"${verse}\"] .tc-mt-selected')`,'Zitierte Schreibung ארוץ markiert '+reference);
+  assert.deepEqual(await js("[...document.querySelectorAll('#rOut .tc-mt-selected')].flatMap(w=>window.MasoraData.wordTokens(w.textContent))"),['ארוץ']);
+ }
+ fs.writeFileSync('/tmp/safran-masora-aruts-citations.png',(await win.webContents.capturePage()).toPNG());
+ // Other source-listed forms and cf. references are checked through the same path.
+ for(const [chapter,verse,query,uuid,word]of [[26,12,'רגלי לרגלי','9824b4e7-35e3-422b-81da-fe5f5c51b426','רגלי'],[61,6,'נתת ונתת','82ea22c6-c590-47cb-82e3-786da23c69ac','נתת'],[51,18,'ואתנה cf.','fc3db0c8-641f-4a62-8976-012f3eb64419','ואתנה']]){
+  await js(`document.querySelector('#rSection').value='${chapter-1}';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);
+  await waitFor(`window.MasoraData.wordTokens(document.querySelector('#rOut .row[data-l=\"${verse}\"]')?.textContent||'').includes('${word}')`,'MT-Vers für gelistete Form '+query);
+  await js(`document.querySelector('#rOut .row[data-l=\"${verse}\"] .lab').click();document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraQuery').value=${JSON.stringify(query)};document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))`);
+  await waitFor(`document.querySelector('.masora-primary [data-masora-context=\"${uuid}\"]')`,'Weitere Notiz zugeordnet '+query);
+  await js(`document.querySelector('.masora-primary [data-masora-context=\"${uuid}\"]').closest('.masora-word-group').querySelector('.masora-word').click()`);
+  await waitFor(`document.querySelector('#rOut .row[data-l=\"${verse}\"] .tc-mt-selected')`,'Weitere Form markiert '+query);
+  assert.deepEqual(await js("[...document.querySelectorAll('#rOut .tc-mt-selected')].flatMap(w=>window.MasoraData.wordTokens(w.textContent))"),[word]);
+ }
+ // A reference naming two alternative spellings exposes both checked mark actions.
+ await book('Exodus');await waitFor("document.querySelector('#rSection option[value=\"2\"]')",'Exodus 3 verfügbar');
+ await js("document.querySelector('#rSection').value='2';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("window.MasoraData.wordTokens(document.querySelector('#rOut .row[data-l=\"22\"]')?.textContent||'').includes('ומגרת')",'Exodus 3,22');
+ await js("document.querySelector('#masoraMs').value='';document.querySelector('#masoraQuery').value='משכנתה or ומגרת';document.querySelector('#masoraScope').value='citations';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelectorAll('[data-masora-context=\"6c3f8c2f-3532-4d60-b363-abec5fec1a3c\"] .masora-refs .masora-word bdi').length===2",'Beide zitierten Alternativen anklickbar');
+ for(const word of ['משכנתה','ומגרת']){
+  await js(`[...document.querySelectorAll('[data-masora-context=\"6c3f8c2f-3532-4d60-b363-abec5fec1a3c\"] .masora-refs .masora-word')].find(b=>window.MasoraData.wordTokens(b.querySelector('bdi')?.textContent).join(' ')==='${word}').click()`);
+  await waitFor(`(()=>{const s=[...document.querySelectorAll('#rOut .tc-mt-selected')].flatMap(w=>window.MasoraData.wordTokens(w.textContent));return s.length===1&&s[0]==='${word}';})()`,'Alternative im MT markiert '+word);
+ }
  console.log('Electron: Masorah verse scope, unique/ambiguous word navigation, reader highlights, filters, fonts and pinning passed offline.');
 };

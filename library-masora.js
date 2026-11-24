@@ -54,7 +54,7 @@ window.LibraryMasora = (() => {
     }
     function wordButton(location,label){
       const id=targets.push(location)-1;
-      return '<button type="button" class="masora-word" data-masora-target="'+id+'" title="'+safe(t('Wort im Lesetext markieren'))+'">'+label+'</button>';
+      return '<button type="button" class="masora-word" data-masora-target="'+id+'" title="'+safe(t('Wort im Lesetext markieren')+(location.method?.startsWith('westminster-cited')?' · '+t('Am MT geprüfter Vergleichsbeleg'):''))+'">'+label+'</button>';
     }
     function entryLabel(hit){
       const label='<bdi lang="he" dir="rtl">'+safe(hit.entry.label)+'</bdi>',all=D.locations(hit.page,hit.entry),ctx=context();
@@ -65,8 +65,12 @@ window.LibraryMasora = (() => {
       const verses=[...new Map(matches.map(m=>[m.label,m])).values()];
       return '<details class="masora-choices"><summary>'+label+'</summary><p class="muted">'+safe(t('Das Wort kommt auf dieser Seite mehrfach vor. Welche Stelle möchtest du anzeigen?'))+'</p>'+verses.map(m=>wordButton(m,safe(t(m.book)+' '+m.chapter+':'+m.verse))).join(' ')+'</details>';
     }
-    function referenceButton(ref){
-      const loc=D.bibleRef(ref.label);
+    function referenceButton(ref,hit){
+      const loc=D.bibleRef(ref.label),checked=D.citationLocations(hit.page,hit.entry).filter(m=>loc&&m.book===loc.book&&m.chapter===loc.chapter&&m.verse===loc.verse);
+      if(checked.length){
+        const forms=[...new Map(checked.map(m=>[m.phrase,m])).values()];
+        return forms.map(m=>wordButton(m,safe(t(m.book)+' '+m.chapter+':'+m.verse)+(forms.length>1?' · <bdi dir="rtl">'+safe(m.phrase)+'</bdi>':'')+' <span aria-label="'+safe(t('Am MT geprüfter Vergleichsbeleg'))+'">✓</span>')).join(' / ');
+      }
       return loc?wordButton({...loc,phrase:''},safe(t(loc.book)+' '+loc.chapter+':'+loc.verse+(loc.endVerse!==loc.verse?'–'+loc.endVerse:''))):safe(ref.label);
     }
     function entryHtml(hit){
@@ -75,7 +79,7 @@ window.LibraryMasora = (() => {
       const explanation='<details class="masora-explanation"><summary>'+safe(t('Erklärung'))+'</summary><p class="muted">'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'</p><p>'+safe(t(info.meaning))+'</p>'+'</details>';
       return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'" data-masora-type="'+safe(entry.type)+'"><div class="masora-entry-line"><span class="masora-kind" title="'+safe(t(kind))+'">'+safe(({mp:'Mp',mm:'Mm',mf:'Mf'})[entry.type]||t(kind))+'</span><div class="masora-transcription">'+readings.map(({source:r,text,notes})=>
         '<span class="masora-reading">'+(text?'<bdi class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</bdi>':'')+
-        (r.references?.length?' <span class="masora-refs">'+r.references.map(referenceButton).join(' · ')+'</span>':'')+
+        (r.references?.length?' <span class="masora-refs">'+r.references.map(ref=>referenceButton(ref,hit)).join(' · ')+'</span>':'')+
         (notes?' <span class="masora-note" dir="auto">'+safe(plain(notes))+'</span>':'')+'</span>').join('<span class="masora-separator" aria-hidden="true"> · </span>')+
         (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-actions">'+T.html(translationFor(entry),safe,t)+explanation+source+'</div></article>';
     }

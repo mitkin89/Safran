@@ -2,6 +2,10 @@
 
 ### Unreleased
 
+- Audit every one of 66,678 Masorah reference occurrences, recording matched words and explicit failure categories. Recognize cf. bibliography, lettered source entries and cited lists/alternatives; provide separate checked actions when multiple forms occur in one verse. Add 369 local links over the preceding cited-word pass, reaching 22,079 locally linked notes with 4,890 still unresolved.
+
+- Check cited Masorah word evidence against Westminster and mark verified reference links. Resolve ארוץ at II Samuel 18:23/22:30 and Psalm 119:32, and its explicitly quoted defective spelling ארץ in Psalm 18:30. Guard spelling variants with cited multiword context and full/defective source markers; retain comparisons separately from manuscript anchors. Add checked evidence for 9,340 notes and 16 additional local links.
+
 - Evaluate explicit Masorah label references such as וזרעו 37,26 and ייי אדנינו (8:10), verify the spelling at the stated verse, retain numbered identifiers without inventing ordinal meanings, and accept Latin diacritics in bibliography suffixes. Recheck all 26,969 entries: 84 additional links, 21,694 linked entries and 5,275 still without a recognized word reference.
 
 - Show Masorah notes at every exact matching verse, including shared headings in Psalms 3:1 and 4:1. Mark the current verse directly and retain all verse choices in chapter view. Include 2,731 entries with multiple word references, bringing linked entries to 21,610 and leaving 5,359 without a recognized word reference.

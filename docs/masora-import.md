@@ -304,14 +304,14 @@ search domain. Pointing and word separators are ignored; manuscript `יי`/`יי
 divine-name abbreviations, also with common prefixes, match `יהוה`. No general
 spelling correction, stemming or fuzzy matching is used.
 
-Current results: 18,510 unique source-BibleText matches, 437 additional unique
-MT matches, 2,696 multiple source matches, 51 multiple MT matches, 3,094 labels
-without an MT match and 2,181 labels outside the recognized syntax. Thus 18,947
-contexts have one exact occurrence, 2,747 have multiple exact occurrences, and
-5,275 have no recognized word reference. All 21,694 linked contexts are displayed
+Current results: 18,737 unique source-BibleText matches, 474 additional unique
+MT matches, 2,738 multiple source matches, 130 multiple MT matches, 3,115 labels
+without an MT match and 1,775 labels outside the recognized syntax. Thus 19,211
+contexts have one exact occurrence, 2,868 have multiple exact occurrences, and
+4,890 have no recognized word reference. All 22,079 linked contexts are displayed
 at each matched verse. Multiple matches do not establish which occurrence an
 editor intended; they provide all applicable navigation targets. The MT check
-confirms 17,771 of the unique source matches; 739 source matches are not confirmed
+confirms 17,987 of the unique source matches; 750 source matches are not confirmed
 in Westminster and retain their explicitly source-based status. This may reflect
 spelling or transcription differences; it is not an automatic correction of
 those manuscripts. A unique browsing link is not a verified scholarly anchor.
@@ -324,3 +324,56 @@ its hashes; native Electron tests cover Job 2:13, the long bibliography label fo
 `עדיך` in Job 4:5, the divine-name fallback in Psalm 2:2, shared headings
 in Psalms 3:1/4:1, explicit references in Psalms 8:10/37:26 and numbered
 labels in Psalm 12:7. Numbered labels remain separate displayed word groups.
+
+## MT-checked cited word evidence
+
+The word-link builder additionally checks explicitly cited single verses against
+Westminster. `citations` in `masora-word-links.js` contains separately typed,
+source-bound evidence links for 10,042 notes. These comparisons never become
+manuscript-page coverage or a cross-book manuscript anchor. In the UI a check mark
+and the tooltip **Am MT geprüfter Vergleichsbeleg** identify verified references;
+clicking them marks the actual matched spelling. Unverified references still open
+the cited verse without asserting a word match.
+
+An exact comparison uses the parsed Hebrew head/context. A different plene or
+defective spelling is accepted only for a single-word head when (1) the note
+explicitly records a full/defective marker, (2) the same cited reading quotes at
+least two consecutive MT words including the target, and (3) the head and target
+differ only by waw/yod. The actual MT spelling is retained for highlighting.
+This is not a general fuzzy search. Each link binds the original reading UUID,
+complete quote and literal reference; spelling-variant links also bind the
+qualifying reading and its text. Altered quotes or qualifiers invalidate the link.
+A checked comparison can supply a local browsing link only within the unchanged
+BibleText coverage and any explicit label reference.
+
+For `ארוץ Ginsburg II Resh #285, p. 574`, the checked comparisons are II Samuel
+18:23, II Samuel 22:30 and Psalms 119:32 (`ארוץ`), plus Psalms 18:30 (`ארץ`).
+The last spelling is supported by the cited `כי בך ארץ` quote and the note's
+`חס` marker. This also supplies the local Psalm 18:30 word link. Across the whole
+snapshot, 2,435 notes without a local word reference nevertheless have checked
+cited-word evidence. These counts are separate from local coverage.
+
+## Per-reference completeness report
+
+`tools/masora/citation-audit.json` records every one of the 66,678 reference
+occurrences in transcribed Masorah contexts, with source context/reading UUIDs,
+original reference label, result and matched word positions. Rebuilding word
+links also rebuilds this report. Counts: 35,510 references with checked word
+evidence, 12,529 with no matching word under the current rules, 18,607 whose
+source labels remain unsupported, 31 without an available corresponding MT verse,
+and one reference outside the supported single-verse format. A failed match does
+not establish that no scholarly correspondence exists.
+
+Known bibliography prefixes such as `cf.` and letter suffixes in entry numbers
+are recognized explicitly. Repeated headings such as `נתת ונתת` and `רגלי לרגלי`
+are treated as listed forms for cited-word comparisons rather than demanded as
+adjacent MT words. The same applies to explicit slash/backslash/`or` alternatives
+when every alternative has a valid Hebrew head and recognized bibliography.
+Each form must independently match the cited MT verse. These comparison forms
+never silently replace an unsupported manuscript lemma. Where several forms are
+confirmed in one cited verse, the UI offers a separate checked mark action for
+each form. Uncertain readings, unknown editorial prose and missing words retain
+their unresolved status.
+
+Regression examples include `רגלי` in Psalm 26:12, `נתת` in Psalm 61:6,
+`ואתנה` in Psalm 51:18 and both `משכנתה` and `ומגרת` in Exodus 3:22.

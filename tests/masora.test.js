@@ -237,3 +237,44 @@ test('numbered labels stay separate in the displayed word groups',()=>{
  const groups=D.wordGroups(D.forVerse(hits,{book:'Psalms',chapter:12,verse:7}).primary);
  assert.equal(groups.length,2);assert.deepEqual(groups.map(g=>g.label),['אמרות (1)','אמרות (2)']);
 });
+test('ארוץ resolves at the three cited plene spellings and the explicitly quoted defective spelling',()=>{
+ const m=index.manuscripts.find(m=>m.label==='B32inf.'),p=datasets[m.id].pages.find(p=>p.id==='03aeec02-07b2-4261-8c49-5a410dab970c'),entry=p.contexts.find(e=>e.uuid==='55bb1141-2922-40c7-b2dd-6bb46028e39b'),before=JSON.stringify(entry);
+ const cited=D.citationLocations(p,entry);
+ assert.deepEqual(cited.map(m=>[m.label,m.phrase]),[['II Samuel 18:23','ארוץ'],['II Samuel 22:30','ארוץ'],['Psalms 18:30','ארץ'],['Psalms 119:32','ארוץ']]);
+ assert.equal(cited.find(m=>m.label==='Psalms 18:30').method,'westminster-cited-quote-spelling');
+ assert.deepEqual(D.locations(p,entry).map(m=>[m.label,m.phrase]),[['Psalms 18:30','ארץ']],'only the page-covered citation can supply a local word reference');
+ assert.equal(D.forVerse([{page:p,entry}],{book:'II Samuel',chapter:18,verse:23}).primary.length,0,'cross-book comparisons are not manuscript anchors');
+ assert.equal(JSON.stringify(entry),before);
+ const altered=structuredClone(entry);altered.readings.find(r=>r.uuid===cited[0].sourceReading).text='Anderer Text';
+ assert(!D.citationLocations(p,altered).some(m=>m.label==='II Samuel 18:23'),'source quote changes invalidate checked citations');
+ const noQualifier=structuredClone(entry),variant=cited.find(m=>m.method==='westminster-cited-quote-spelling');
+ noQualifier.readings.find(r=>r.uuid===variant.qualifierReading).text='keine Schreibungsangabe';
+ assert(!D.citationLocations(p,noQualifier).some(m=>m.method==='westminster-cited-quote-spelling'));assert.equal(D.locations(p,noQualifier).length,0);
+});
+test('checked citation links retain explicit source reference and quote guards',()=>{
+ const links=require('../masora-word-links'),audit=require('../tools/masora/word-links-audit.json');
+ assert.equal(Object.keys(links.citations).length,audit.citedNotes);
+ for(const note of Object.values(links.citations))for(const loc of note.locations){
+  const ref=D.bibleRef(loc.sourceReference);assert(ref);assert.equal(loc.book,ref.book);assert.equal(loc.chapter,ref.chapter);assert.equal(loc.verse,ref.verse);assert.equal(typeof loc.sourceQuote,'string');assert(loc.sourceReading);
+  if(loc.method==='westminster-cited-quote-spelling')assert(loc.sourceQuote&&loc.qualifierReading&&loc.qualifierText);
+ }
+});
+test('every cited source reference has an explicit reproducible audit result',()=>{
+ const {citationAudit}=require('../tools/masora/build-word-links').build(),saved=require('../tools/masora/citation-audit.json');
+ const digest=x=>crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');assert.equal(digest(citationAudit),digest(saved));
+ let refs=0;for(const ms of index.manuscripts)for(const p of datasets[ms.id].pages)for(const e of p.contexts)if(['mp','mm','mf'].includes(e.type)&&e.readings.some(r=>D.text(r)))refs+=e.readings.reduce((n,r)=>n+(r.references||[]).length,0);
+ assert.equal(citationAudit.references.length,refs);assert.equal(refs,66678);
+ assert.equal(Object.entries(citationAudit.counts).filter(([key])=>key!=='references').reduce((sum,[,n])=>sum+n,0),refs);
+ for(const r of citationAudit.references){assert.equal(r.targets.length>0,r.status==='matched');assert(r.entry&&r.reading&&typeof r.reference==='string');}
+});
+test('listed spellings and cf. bibliography produce checked word evidence without fabricating adjacent phrases',()=>{
+ const rows=require('../tools/masora/word-links-audit.json').rows;
+ for(const [uuid,verse,word]of [['9824b4e7-35e3-422b-81da-fe5f5c51b426','Psalms 26:12','רגלי'],['82ea22c6-c590-47cb-82e3-786da23c69ac','Psalms 61:6','נתת'],['fc3db0c8-641f-4a62-8976-012f3eb64419','Psalms 51:18','ואתנה']]){
+  const row=rows.find(r=>r.uuid===uuid);assert(row.mt.includes(verse));assert(row.citations.some(c=>c.label===verse&&c.phrase===word));
+ }
+ const alternative=rows.find(r=>r.uuid==='6c3f8c2f-3532-4d60-b363-abec5fec1a3c');
+ assert.deepEqual(alternative.citations.map(c=>[c.label,D.wordTokens(c.phrase).join(' ')]),[['Exodus 3:22','משכנתה'],['Exodus 3:22','ומגרת']]);
+ assert.equal(alternative.reason,'unparsedLabel','comparisons do not imply a resolved manuscript lemma');
+ for(const label of ['כאלהים cf. Ginsburg I, Aleph, #666, 76','לדור ודר Ginsburg I Dalet #143b, p. 229'])assert(D.labelTarget(label));
+ assert.equal(D.labelTarget('כאלהים cf. Ginsburg I #666 unknown'),null);
+});
