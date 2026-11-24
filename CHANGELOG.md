@@ -1,6 +1,8 @@
 # Changelog
 
 ### Unreleased
+- Add a searchable source outline to the Research editor sidebar, with compact locations, editions and layout areas, one entry per commentary group, keyboard focus on jump targets, and current-section highlighting while scrolling.
+- Classify Research commentary languages using the library’s effective edition language rather than raw Sefaria storage metadata. Show German Bamberger commentary under Deutsch instead of English; use the same language for filtering, edition choices and newly captured citations, and localize chooser language labels.
 - Filter chapter commentaries before applying result limits, so Rashi and later verses remain discoverable beyond the initial 200 items. Preserve selections across asynchronous commentator/language searches, expose all available languages, and allow up to 2,000 filtered results while keeping batch insertion capped at 200. Remove repeated aggregate locator lists from commentary group headers and compact schema-node citations.
 - Default new Research Hebrew sources to Westminster when available; remember explicit alternative edition choices, including main-text switches, without rewriting saved source snapshots.
 - Select up to eight Research translation editions with checkboxes, compare them in additional columns or separate checked interlinear views, and retain every edition, native reference, missing-row marker and font setting in saved sheets, project packages and exports. Connect locally validated Buber/Rosenzweig alignments to Research badges/previews. Open translation/interlinear settings directly from source cards in the arrangement view.

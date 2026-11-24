@@ -1,7 +1,7 @@
 'use strict';
 // Local research records. Source snapshots never change the library editions.
 const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto');
-const R=require('./reader'),Layout=require('./research-layout');
+const R=require('./reader'),Layout=require('./research-layout'),Editions=require('./research-editions');
 const MAX_BYTES=32*1024*1024,MAX_RECORDS=10000;
 const clone=x=>structuredClone(x),uid=()=>crypto.randomUUID(),now=()=>new Date().toISOString();
 function text(v,max=2000000){if(v==null)return '';if(typeof v!=='string'||v.length>max)throw Error('Text fehlt oder ist zu lang.');return v;}
@@ -111,7 +111,7 @@ function metadata(d,entry,locator){
  const vt=d.versionTitle||entry.versionTitle||'';
  // Use explicit attribution only. A missing translator is left editable, never guessed from a portrait.
  const translator=d.translator||d.versionTranslator||'',editor=d.editor||'';
- return citation({work:d.title||entry.title,edition:vt,translator:typeof translator==='string'?translator:'',editor:typeof editor==='string'?editor:'',publisher:typeof d.publisher==='string'?d.publisher:'',year:typeof d.year==='string'||Number.isFinite(d.year)?String(d.year):'',locator,url:d.versionSource||'',language:d.language||entry.language});
+ return citation({work:d.title||entry.title,edition:vt,translator:typeof translator==='string'?translator:'',editor:typeof editor==='string'?editor:'',publisher:typeof d.publisher==='string'?d.publisher:'',year:typeof d.year==='string'||Number.isFinite(d.year)?String(d.year):'',locator,url:d.versionSource||'',language:Editions.language({...entry,language:d.language||entry.language})});
 }
 function rangeLabels(input,available){
  if(!input||Array.isArray(input)&&!input.length)return available;

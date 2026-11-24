@@ -1,6 +1,6 @@
 'use strict';
 // Reference resolution uses native reader sections/rows, never another edition's numbering.
-const R=require('./reader'),Refs=require('./refs');
+const R=require('./reader'),Refs=require('./refs'),Editions=require('./research-editions');
 const norm=s=>String(s||'').normalize('NFC').toLocaleLowerCase().replace(/[.\s]+/g,' ').trim();
 function parse(query,entries){
  if(typeof query!=='string'||query.length>500)throw Error('Bitte eine kurze Stellenangabe eingeben.');
@@ -70,8 +70,8 @@ function plans(doc,ref){
 }
 function editions(entries,title){
  const sources=require('./interlin-sources');
- return entries.filter(e=>e.title===title).map(e=>({rel:e.rel,title:e.title,versionTitle:e.versionTitle||'',language:e.language||'',kind:e.kind||'',own:e.own===true,
+ return entries.filter(e=>e.title===title).map(e=>({rel:e.rel,title:e.title,versionTitle:e.versionTitle||'',language:Editions.language(e),kind:e.kind||'',own:e.own===true,
  morphology:!!(e.greekMorphology||e.syriacMorphology)||/Westminster.*OSHB|ETCBC-CACCHT|ETCBC DSS|Safran-Morphologie|^Targum .*ETCBC|^ETCBC Peshitta|^Septuaginta|^Open Greek Corpus/.test(e.versionTitle||''),
  interlinear:Object.values(sources).some(books=>books[title]&&[books[title].he.versionTitle,books[title].translation.versionTitle].includes(e.versionTitle))})).sort((a,b)=>a.versionTitle.localeCompare(b.versionTitle));
 }
-module.exports={parse,plans,editions,suggest};
+module.exports={parse,plans,editions,suggest,language:Editions.language};

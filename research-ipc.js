@@ -83,7 +83,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   for(const ref of refs){const book=LK.splitRef(ref).book,candidates=entries.filter(e=>e.title===book||book.startsWith(e.title+', '));
    const exact=candidates.filter(e=>e.title===book),picked=exact.length?exact:candidates.filter(e=>e.title.length===Math.max(...candidates.map(e=>e.title.length)));
    if(!picked.length){unavailable++;continue;}
-   for(const e of picked)available.push({ref,e});
+   for(const entry of picked)available.push({ref,e:{...entry,language:Sources.language(entry)}});
   }
   for(const {ref,e}of available){if(language&&e.language!==language||query&&![ref,e.title,e.versionTitle].join(' ').toLowerCase().includes(query))continue;if(items.length>=resultLimit){limited=true;break;}try{const block=await commentaryCapture({ref,rel:e.rel},cache);items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,block});}catch(err){items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,error:err.message});}}
   return {items,limited,limit:resultLimit,unavailable,languages:[...new Set(available.map(x=>x.e.language).filter(Boolean))].sort(),warnings:where.warnings};
