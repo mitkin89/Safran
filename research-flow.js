@@ -134,6 +134,7 @@
 .print-split>.region>.block:last-child .comment-fragment:last-child{margin-bottom:0}
 .classic-continuation .region>.block:first-child>:first-child,.classic-continuation .region>.block:first-child .comment-fragment:first-child{margin-top:0}
 .classic-continuation{margin-top:0}.classic-continuation .region{vertical-align:top}.classic-continuation .block:first-child{margin-top:0}
+.region:is(.left,.right) blockquote,.region:is(.left,.right)>.block>p:not(.citation):not(.status):not(.verse-reference){text-align:justify;text-align-last:start}
 .classic-upper.flowing .region blockquote,.classic-upper.flowing .region p{orphans:3;widows:3}`;
  const scriptSource='(function(){const units='+units.toString()+';const restorePrint='+restorePrint.toString()+';const preparePrint='+preparePrint.toString()+';const apply='+apply.toString()+';const watch='+watch.toString()+';watch(document);})();';
  const api={apply,watch,preparePrint,restorePrint,css,scriptSource};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ResearchFlow=api;
