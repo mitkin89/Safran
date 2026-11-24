@@ -6,4 +6,7 @@ function layout(value={}){
 }
 function group(blocks){const out=Object.fromEntries(regions.map(k=>[k,[]]));for(const b of blocks)out[regions.includes(b.region)?b.region:'main'].push(b);return out;}
 function columns(blocks){const n=Math.max(1,Math.ceil(blocks.length/3));return [blocks.slice(0,n),blocks.slice(n,n*2),blocks.slice(n*2)];}
-module.exports={layout,group,columns,regions};
+function pairSizes(value={}){
+ const out={};for(const key of ['sourceSize','translationSize']){const n=value[key];if(n==null)continue;if(typeof n!=='number'||!Number.isFinite(n)||n<8||n>36)throw Error('Schriftgrößen müssen zwischen 8 und 36 pt liegen.');out[key]=n;}return out;
+}
+module.exports={layout,group,columns,regions,pairSizes};

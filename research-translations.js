@@ -17,7 +17,8 @@ async function aligned(book,sourceDoc,targetDoc,rows){
  const start=raw.indexOf(marker);if(start<0)throw Error('Interlinear-Daten fehlen.');const data=JSON.parse(raw.slice(start+marker.length).trim().replace(/;$/,''))[match[0]],he=match[1][book].he.versionTitle===sourceDoc.versionTitle?sourceDoc:targetDoc;
  return rows.map(row=>{const [ch,v]=row.key.split(':').map(Number),html=he.text[ch-1]?.[v-1],segs=data?.[row.key];if(typeof html!=='string'||!segs)throw Error('Für '+row.key+' fehlt die Wortzuordnung.');const tokens=[...html.matchAll(/<span class="w"[^>]*>([\s\S]*?)<\/span>/g)];const words=tokens.map((m,i)=>(i===0?S.plain(html.slice(0,m.index)):'')+S.plain(m[1])+S.plain(html.slice(m.index+m[0].length,tokens[i+1]?.index??html.length)));if(!words.length)throw Error('Westminster-Wörter fehlen.');return {...row,groups:groups(words,segs)};});
 }
-async function prepare({source,rel,mode},rich){
+async function prepare({source,rel,mode,sourceSize,translationSize},rich){
+ const sizes=require('./research-layout').pairSizes({sourceSize,translationSize});
  if(!['parallel','interlinear'].includes(mode))throw Error('Ungültige Übersetzungsanzeige.');
  if(source.type!=='source'||!source.reference?.rel||source.reference.rel===rel)throw Error('Bitte eine andere Ausgabe auswählen.');
  if(source.text!==source.originalText)throw Error('Der Auszug wurde bearbeitet. Bitte den Originaltext wiederherstellen, bevor du eine Übersetzung zuordnest.');
@@ -37,13 +38,27 @@ async function prepare({source,rel,mode},rich){
   }
  }else{
   if(JSON.stringify(a.doc.sectionNames)!==JSON.stringify(b.doc.sectionNames))throw Error('Die Abschnittsstrukturen der Ausgaben unterscheiden sich.');
-  const target=S.capture(b.doc,b.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels},b.doc.textHash),native=R.flattenNode(R.getByPath(b.doc.text,target.reference.sectionPath));plans.push({sectionPath:target.reference.sectionPath,labels:target.reference.labels});
-  for(const r of originalRows)rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.plain(r.html),translation:S.plain(native.find(n=>n.label===r.label).html)});
+  const section=R.sectionsOf(b.doc.text,b.doc.sectionNames).find(s=>JSON.stringify(s.path)===JSON.stringify(source.reference.sectionPath));
+  if(!section)throw Error('Abschnitt fehlt in dieser Ausgabe.');
+  const native=R.flattenNode(R.getByPath(b.doc.text,section.path)),byLabel=new Map(native.map(r=>[r.label,r])),present=originalRows.filter(r=>byLabel.has(r.label)).map(r=>r.label);
+  if(!present.length)throw Error('Für die gewählten Zeilen ist in dieser Ausgabe keine Übersetzung vorhanden.');
+  plans.push({sectionPath:section.path,labels:present});
+  for(const r of originalRows){const translated=byLabel.get(r.label);rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.plain(r.html),translation:translated?S.plain(translated.html):'',...(!translated?{missing:true}:{})});}
  }
- const companion=S.capture(b.doc,b.entry,plans[0],b.doc.textHash);companion.text=companion.originalText=rows.map(r=>r.targetLabel+'  '+r.translation).join('\n');companion.reference.quote=companion.text;
+ const companion=S.capture(b.doc,b.entry,plans[0],b.doc.textHash);companion.text=companion.originalText=rows.filter(r=>!r.missing).map(r=>r.targetLabel+'  '+r.translation).join('\n');companion.reference.quote=companion.text;
  // Keep every mapped native location, including chapter shifts, in the paired snapshot.
  const references=plans.map(req=>S.capture(b.doc,b.entry,req,b.doc.textHash).reference);
  companion.citation.locator=[...new Set(references.map(r=>r.citation.locator))].join('; ');companion.reference.citation=companion.citation;
- return {mode,companion,rows:mode==='interlinear'?await aligned(book,a.doc,b.doc,rows):rows,references};
+ return {...sizes,mode,companion,rows:mode==='interlinear'?await aligned(book,a.doc,b.doc,rows):rows,references};
 }
-module.exports={prepare,groups,aligned};
+async function editionPreview({source,rel},rich){
+ if(source?.type!=='source'||!source.reference?.rel)throw Error('Quellenverknüpfung fehlt.');
+ const a=await rich(source.reference.rel),fresh=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels},a.doc.textHash);
+ if(rel===source.reference.rel)return [fresh];
+ const pair=await prepare({source:fresh,rel,mode:'parallel'},rich);
+ if(pair.rows.some(r=>r.missing))throw Error('Die gewählte Haupttext-Ausgabe enthält nicht alle gewählten Zeilen. Bitte eine andere Ausgabe wählen.');
+ const b=await rich(rel),plans=new Map();
+ for(const r of pair.references){const k=JSON.stringify(r.sectionPath);if(!plans.has(k))plans.set(k,{sectionPath:r.sectionPath,labels:new Set()});r.labels.forEach(l=>plans.get(k).labels.add(l));}
+ return [...plans.values()].map(p=>S.capture(b.doc,b.entry,{sectionPath:p.sectionPath,labels:[...p.labels]},b.doc.textHash));
+}
+module.exports={prepare,groups,aligned,editionPreview};

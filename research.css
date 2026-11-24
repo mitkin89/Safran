@@ -227,3 +227,22 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 @media(max-width:620px){#researchRoot .rw-arrangement.classic{grid-template-columns:1fr}#researchRoot .rw-placement{justify-content:flex-start}#researchRoot .rw-block-actions{flex-wrap:wrap;margin-inline-start:0}.rw-parallel td{padding:0 5px}.rw-interlinear{font-size:20px}}
 #researchRoot .rw-source-footer > button:not(.rw-quiet) { padding:6px 10px; min-height:32px; font-size:12px; color:var(--fg); border:1px solid var(--rw-border); border-radius:6px; }
 #researchRoot .rw-arrangement { scroll-margin-top:120px; }
+.rw-missing { color:var(--muted,#666); font-style:italic; font-size:.85em; }
+.rw-pair-fonts { display:flex; flex-wrap:wrap; gap:16px; }
+.rw-pair-fonts label { flex:1; min-width:140px; }
+.rw-edition-dialog { width:min(900px,94vw); }
+.rw-edition-choices { max-height:38vh; overflow:auto; margin:12px 0; }
+.rw-edition-choices section>h3 { font-size:13px; text-transform:uppercase; letter-spacing:.07em; border:1px solid var(--line); border-inline-start:5px solid var(--accent); border-radius:6px; padding:10px 12px; margin:12px 0 6px; }
+.rw-edition-dialog label.rw-edition-choice { display:flex; flex-direction:row; align-items:center; gap:12px; padding:12px; margin:4px 0; border-radius:8px; cursor:pointer; color:var(--fg); }
+.rw-edition-choice:has(input:checked) { background:color-mix(in srgb,var(--accent) 12%,transparent); }
+.rw-edition-dialog .rw-edition-choice input[type=radio] { width:18px; height:18px; flex-shrink:0; margin:0; accent-color:var(--accent); }
+.rw-edition-choice .vpic,.rw-edition-icon { width:38px; height:38px; flex-shrink:0; border-radius:50%; object-fit:cover; }
+.rw-edition-icon { display:grid; place-items:center; border:1px solid var(--line); color:var(--muted); font-size:21px; }
+.rw-edition-choice b { display:block; font-size:14px; font-weight:500; overflow-wrap:anywhere; }
+.rw-edition-choice small { display:flex; flex-wrap:wrap; gap:7px; margin-top:6px; }
+.rw-edition-choice .vmorph,.rw-edition-choice .vil { border:1px solid currentColor; border-radius:20px; padding:1px 7px; font-size:11px; }
+.rw-edition-choice .vmorph { color:var(--green,#61b69d); }
+.rw-edition-choice .vil { color:var(--accent); }
+.rw-edition-dialog .rw-toolbar { position:sticky; bottom:0; background:var(--panel,var(--bg)); padding:10px 0; }
+#rwMainEditionPreview { max-height:220px; }
+.rw-edition-dialog [hidden] { display:none!important; }

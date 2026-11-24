@@ -74,7 +74,7 @@ CSV ist eine tabellarische Ausgabe; das verlustfreie Austauschformat einschließ
 
 ## Kommentare, eigene Erläuterungen und Anordnung
 
-Auf jeder Quellenkarte stehen **Kommentare hinzufügen**, **Erläuterung hinzufügen** und **Übersetzung / Interlinear** direkt bereit.
+Auf jeder Quellenkarte stehen **Kommentare hinzufügen**, **Erläuterung hinzufügen**, **Ausgabe wechseln** und **Übersetzung / Interlinear** direkt bereit.
 
 - **Kommentare hinzufügen:** Die gespeicherten Verse werden mit den vorhandenen Kommentarverknüpfungen abgeglichen. Die Auswahl zeigt die lokal verfügbaren Ausgaben samt Sprache und Textvorschau; nach Kommentator/Ausgabe und Sprache filtern, die gewünschten Einträge ankreuzen und übernehmen. Bis zu 200 Angebote, höchstens 50 pro Übernahme. Fehlende lokale Werke, nicht eindeutig zuordenbare Teilverse und Begrenzungen werden angezeigt. Querverweise werden nicht als Kommentare übernommen. Im klassischen Layout landen Kommentare zunächst rechts, sonst direkt hinter der Quelle.
 - **Erläuterung hinzufügen:** Eigene Gedanken als verknüpfte Notiz schreiben. Sie erscheint direkt hinter der Quelle, bleibt unter **Notizen** wiederverwendbar und lässt sich mit **Notiz bearbeiten** aktualisieren. Der Quellenauszug bleibt erhalten. Die Quellenverknüpfung wird in Projektpaket und JSON-LD übernommen.
@@ -82,10 +82,13 @@ Auf jeder Quellenkarte stehen **Kommentare hinzufügen**, **Erläuterung hinzuf�
 
 ## Übersetzung neben dem Original oder interlinear
 
-Unter **Übersetzung / Interlinear** eine andere lokale Ausgabe desselben Werkes und die Anzeige wählen:
+**Ausgabe wechseln** öffnet die nach Sprachen gruppierte Liste der lokalen Ausgaben des Haupttextes, mit Porträts und Hinweisen auf Morphologie bzw. vorhandene Interlinear-Daten. Die Wortzuordnung wird bei Verwendung zusätzlich am Textstand geprüft. Eine Ausgabe auswählen, den tatsächlich zu übernehmenden Text prüfen und **Diese Ausgabe übernehmen** wählen. Der Wechsel erneuert Text, Quellenangabe, native Fundstelle und Hash. Bearbeitungen am Auszug und eine vorhandene Übersetzungsanzeige werden ausdrücklich ersetzt; verknüpfte Notizen behalten ihre bisherigen Quellenangaben. Fehlende Zeilen blockieren den Haupttextwechsel; es wird keine unvollständige Hauptausgabe stillschweigend übernommen. Bei abweichender Zählung können mehrere native Abschnitte als mehrere Karten entstehen.
 
-- **Nebeneinander:** versweise zwei Spalten mit den jeweiligen Ausgaben und deren nativer Fundstelle. Bekannte unterschiedliche Bibelzählungen werden umgerechnet; fehlende Gegenstücke und uneindeutige Teilverse führen zu einer Meldung. Bei anderen Werken müssen Abschnittsstruktur und Zeilenbezeichnungen übereinstimmen.
+Unter **Übersetzung / Interlinear** eine andere lokale Ausgabe desselben Werkes aus derselben gruppierten Darstellung und die Anzeige wählen:
+
+- **Nebeneinander:** versweise zwei Spalten mit den jeweiligen Ausgaben und deren nativer Fundstelle. Bekannte unterschiedliche Bibelzählungen werden umgerechnet; fehlende Gegenstücke und uneindeutige Teilverse führen zu einer Meldung. Bei anderen Werken müssen die Abschnittsstrukturen übereinstimmen. Einzelne fehlende Übersetzungszeilen (etwa der Hadran-Vermerk in Bava Batra 17a:7) werden ausdrücklich mit **[Keine Übersetzung für diese Zeile]** angezeigt; alle Originalzeilen und späteren Zeilennummern bleiben erhalten. Die Quellenkopie der Übersetzung enthält nur tatsächlich vorhandenen Text, keine erfundenen Ergänzungen. Ist keine der gewählten Zeilen übersetzt, wird dies im geöffneten Auswahldialog gemeldet.
 - **Interlinear:** vorhandene deutsche Wortzuordnungen zum Westminster-Text. Beide Ausgabe-Titel und SHA256-Textstände müssen mit den mitgelieferten Zuordnungsquellen übereinstimmen, jeder gewählte Vers muss eine Zuordnung haben. Wortgruppen einschließlich Ketiv/Qere bleiben zusammen; Zusätze ohne Gegenstück erscheinen mit **+**. Es wird keine neue Wortzuordnung geschätzt. Bei fehlender Zuordnung kann ausdrücklich **Nebeneinander** gewählt werden.
+- **Dieser Text (pt)** und **Gewählte Ausgabe (pt):** die beiden Schriftgrößen unabhängig zwischen 8 und 36 pt einstellen, etwa Hebräisch 20 pt und Deutsch 10 pt. Die Werte gelten für diese Quellenkarte und bleiben beim Speichern, in Vorschau/PDF/Word/HTML und im Projektpaket erhalten.
 - **Nur dieser Text:** die zusätzliche Anzeige entfernen.
 
 Bearbeitete Auszüge und Quellenkopien, die sich inzwischen vom Original unterscheiden, werden nicht automatisch neu zugeordnet. Für die Übersetzungsansicht gegebenenfalls die Quelle regulär neu übernehmen. Die Ansichten und beide Quellenangaben bleiben in Vorschau, PDF, HTML, Word und im Projektpaket erhalten; Word setzt Interlinear in kleinen Wortgruppentabellen. CSV enthält zusätzlich Anzeigeart, Übersetzungsedition, Fundstelle und Text. Das Projektpaket bewahrt alle abweichenden nativen Stellen und Wortgruppen verlustfrei, auch ohne die ursprüngliche Bibliothek.

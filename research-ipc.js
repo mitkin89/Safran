@@ -29,7 +29,9 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
  });
  ipcMain.handle('research:sections',async(_e,rel)=>{const {doc,entry}=await rich(rel);return {sections:R.sectionsOf(doc.text,doc.sectionNames).map(s=>({path:s.path,label:s.label})),citation:S.metadata(doc,entry,'')};});
  ipcMain.handle('research:capture',(_e,request)=>captured(request));
- ipcMain.handle('research:translationEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel),entries=Object.values((await getLibrary()).index.entries);return entries.filter(e=>e.title===entry.title&&e.rel!==entry.rel).map(e=>({rel:e.rel,versionTitle:e.versionTitle,language:e.language}));});
+ ipcMain.handle('research:workEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel);return Sources.editions(Object.values((await getLibrary()).index.entries),entry.title);});
+ ipcMain.handle('research:sourceEditionPreview',(_e,request)=>require('./research-translations').editionPreview(request,rich));
+ ipcMain.handle('research:translationEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel);return Sources.editions(Object.values((await getLibrary()).index.entries),entry.title).filter(e=>e.rel!==entry.rel);});
  ipcMain.handle('research:translationPreview',(_e,request)=>require('./research-translations').prepare(request,rich));
  ipcMain.handle('research:suggestWorks',async(_e,query)=>Sources.suggest(query,Object.values((await getLibrary()).index.entries)));
  ipcMain.handle('research:sourceEditions',async(_e,query)=>{

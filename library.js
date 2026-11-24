@@ -2918,6 +2918,7 @@
   // end-reader-module:notes
 
   researchUI = window.LibraryResearch.create({
+    portraitOf,
     showTab, getView: () => view, getRow: () => cmtRow,
     getSearch: () => searchUI.researchSnapshot(),
     notesChanged: () => notesUI.loadNotes(),

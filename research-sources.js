@@ -68,5 +68,10 @@ function plans(doc,ref){
  if(out.length>50||out.reduce((n,x)=>n+x.labels.length,0)>500)throw Error('Bitte höchstens 500 Zeilen auf einmal hinzufügen.');
  return out;
 }
-function editions(entries,title){return entries.filter(e=>e.title===title).map(e=>({rel:e.rel,title:e.title,versionTitle:e.versionTitle||'',language:e.language||'',kind:e.kind||''})).sort((a,b)=>a.versionTitle.localeCompare(b.versionTitle));}
+function editions(entries,title){
+ const sources=require('./interlin-sources');
+ return entries.filter(e=>e.title===title).map(e=>({rel:e.rel,title:e.title,versionTitle:e.versionTitle||'',language:e.language||'',kind:e.kind||'',own:e.own===true,
+ morphology:!!(e.greekMorphology||e.syriacMorphology)||/Westminster.*OSHB|ETCBC-CACCHT|ETCBC DSS|Safran-Morphologie|^Targum .*ETCBC|^ETCBC Peshitta|^Septuaginta|^Open Greek Corpus/.test(e.versionTitle||''),
+ interlinear:Object.values(sources).some(books=>books[title]&&[books[title].he.versionTitle,books[title].translation.versionTitle].includes(e.versionTitle))})).sort((a,b)=>a.versionTitle.localeCompare(b.versionTitle));
+}
 module.exports={parse,plans,editions,suggest};
