@@ -1,15 +1,20 @@
-// Exact-source morphology for Josephus, Philo and Aristeas. Source layers stay distinct.
+// Exact-source Greek morphology. Reading editions and analysis sources stay distinct.
 (function(global){
 'use strict';
 const node=typeof module==='object'&&module.exports,GM=node?require('./gmorph'):global.GMorph;
 const norm=s=>String(s).normalize('NFC').toLowerCase().replace(/ς/g,'σ').replace(/[᾿’'ʼ]/g,'').replace(/[^\p{L}\p{M}]/gu,'');
 function entries(D,locus){
  const encoded=D?.P?.[locus];if(typeof encoded!=='string')return null;
- return encoded?encoded.split('.').map(x=>{const id=parseInt(x,36),e=D.E?.[id];if(!Array.isArray(e))return null;return {form:D.F?.[e[0]],lemma:D.L?.[e[1]]||null,tag:D.T?.[e[2]]||null};}):[];
+ return encoded?encoded.split('.').map(x=>{const id=parseInt(x,36),e=D.E?.[id];if(!Array.isArray(e))return null;return {form:D.F?.[e[0]],lemma:D.L?.[e[1]]||null,tag:D.T?.[e[2]]||null,...(e[3]?{source:e[3]}:{})};}):[];
 }
-function at(doc,path,label,displayWords,manual){
- const D=doc?.greekMorphology;
+function at(doc,path,label,displayWords,manual,automatic){
+ let D=doc?.greekMorphology;
  if(D?.version!==1||!doc.textHash||D.textHash!==doc.textHash||!Array.isArray(path))return null;
+ if(D.annotationRef){
+  const data=automatic?.[D.annotationRef];
+  if(data?.version!==1||data.work!==D.work||data.textHash!==doc.textHash)return null;
+  D={...data,locator:D.locator};
+ }
  // Reader sections stop at the first array level (a whole book). Flattened
  // row labels therefore contain the remaining chapter/paragraph coordinates.
  const parts=String(label).split(':'),tail=parts.slice(0,-1);
@@ -19,7 +24,7 @@ function at(doc,path,label,displayWords,manual){
  if(!loci.length)return null;
  for(const locus of loci){
   const base=entries(D,locus);if(!base||base.some(r=>!r||typeof r.form!=='string'))return null;
-  const part=base.map(r=>({...r,analysis:'auto',source:D.source==='glaux'?'glaux':'oga',locus}));
+  const part=base.map(r=>({...r,analysis:'auto',source:['glaux','stanza','oga'].includes(r.source)?r.source:D.source==='glaux'?'glaux':D.source==='stanza'?'stanza':'oga',locus}));
   if(manual?.work===D.work){
    const ms=entries(manual,locus);
    if(ms&&ms.every(r=>r&&typeof r.form==='string')&&ms.map(r=>norm(r.form)).join('')===base.map(r=>norm(r.form)).join('')){

@@ -1,0 +1,27 @@
+{
+  "ocpCommit": "954a1f057c2426ad2f049b135600712812516242",
+  "ocp": {
+    "T12P": {
+      "url": "https://raw.githubusercontent.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/954a1f057c2426ad2f049b135600712812516242/static/docs/T12P.xml",
+      "sha256": "060e0aa65bb6d68aae7f5d6c3ccf192f41257f7ec9ea224ebcb3516632973245"
+    },
+    "PsPhoc": {
+      "url": "https://raw.githubusercontent.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/954a1f057c2426ad2f049b135600712812516242/static/docs/PsPhoc.xml",
+      "sha256": "5e2d348ff4f4e8937c6a1002d2a15c46e7d41a9af1ec909aaee2550e7981a858"
+    },
+    "3Bar": {
+      "url": "https://raw.githubusercontent.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/954a1f057c2426ad2f049b135600712812516242/static/docs/3Bar.xml",
+      "sha256": "69eee10f35ceb897abe7f77d3daf785ebb4656e07d6a469a5e8d065c833e372e"
+    },
+    "1En": {
+      "url": "https://raw.githubusercontent.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/954a1f057c2426ad2f049b135600712812516242/static/docs/1En.xml",
+      "sha256": "98d0d13dc00a00d6ad49d399428d94786a0f6c1a7005a3aa179042a819a5f811"
+    }
+  },
+  "oga": {
+    "url": "https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports/resolve/main/oga-v1/works/tlg1463.tlg001.1st1K-grc1.jsonl.gz",
+    "sha256Uncompressed": "92ff9f69b8a5bd24a742d2b427799f989e488d88e4b002e313b0d0bea91b52c1",
+    "license": "CC BY-SA 4.0",
+    "work": "tlg1463.tlg001.1st1K-grc1"
+  }
+}

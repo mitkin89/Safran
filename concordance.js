@@ -3,6 +3,11 @@
 const fs = require('node:fs/promises'), path = require('node:path'), crypto = require('node:crypto');
 const R = require('./reader'), Order = require('./order'), Morph = require('./morph');
 const GM = require('./gmorph'), GC = require('./greek-corpus'), SY = require('./syriac-morph');
+let greekAutomatic;
+function greekAuto() {
+  if(greekAutomatic===undefined){const w={};try{new Function('window',require('node:fs').readFileSync(path.join(__dirname,'greek-pseudepigrapha-auto.js'),'utf8'))(w);greekAutomatic=w.GREEK_PSEUDEPIGRAPHA_AUTO||null;}catch{greekAutomatic=null;}}
+  return greekAutomatic;
+}
 let syriacReviewCatalog;
 const syriacReviews = new Map();
 function syriacReview(book) {
@@ -120,8 +125,12 @@ function analyses(e, d, html, p, ts, validHash, locate) {
   if (d.greekMorphology && validHash) {
     const loc = locate(p);
     if (loc) {
-      const a = GC.at(d, loc.path, loc.label, ts.map(t => t.text), null);
-      if (a) return a.records.map(r => ({ lemmas: r.lemma ? [r.lemma] : [], source: r.source === 'gorman' ? 'GLAUx / Gorman' : r.source === 'glaux' ? 'GLAUx' : 'OGA' }));
+      // Concordance spans exclude elision marks; the Greek source index includes
+      // them. Validate the same word positions, then use the original forms.
+      const ws=GM.words(html);
+      if(ws.length!==ts.length||ws.some((w,i)=>normalize(w.replace(/[᾿’'ʼ]/g,''))!==ts[i].key))return null;
+      const a = GC.at(d, loc.path, loc.label, ws, null,d.greekMorphology.annotationRef?greekAuto():null);
+      if (a) return a.records.map(r => ({ lemmas: r.lemma ? [r.lemma] : [], source: r.source === 'gorman' ? 'GLAUx / Gorman' : r.source === 'glaux' ? 'GLAUx' : r.source === 'stanza' ? 'Stanza (automatic)' : 'OGA' }));
     }
   }
   if (d.syriacMorphology && validHash && p.length === 2) {

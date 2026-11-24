@@ -1,0 +1,19 @@
+{
+  "stanza": "1.11.0",
+  "torch": "2.15.0",
+  "seed": 0,
+  "device": "cpu",
+  "resources": "1.11.0",
+  "processors": {
+    "pos": "perseus_nocharlm",
+    "lemma": "proiel_nocharlm"
+  },
+  "pretokenized": true,
+  "paragraphs": 1752,
+  "sha256Uncompressed": "7922b2bb21ad13099521d5a6ea08ae4c0aaeb1be49389b5568aa972cab60a24a",
+  "models": {
+    "grc/pos/perseus_nocharlm.pt": "3ede3a6c272fa9219066a6089846e6ac77fcc2ecfd729348a674cc544a5092d1",
+    "grc/lemma/proiel_nocharlm.pt": "ec1ca79f92f1bca57248643823ef07028417c38a0343ed3da0b776685f7b1293",
+    "grc/pretrain/conll17.pt": "3bd32434b47d7c060036da42070f9cf2709e1e9dd315d045027bc69806317807"
+  }
+}

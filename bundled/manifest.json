@@ -10510,6 +10510,149 @@
    ],
    "kind": "other",
    "hash": "49e232936a20a597f69f308f74f5b14748a69181"
+  },
+  {
+   "rel": "own/Pseudepigrapha-T12P-Wikisource/other/OCP Greek.json",
+   "title": "The Testaments of the Twelve Patriarchs",
+   "heTitle": "צוואות השבטים",
+   "language": "Greek",
+   "versionTitle": "OCP / Wikisource (Charles base text) (vorläufig; automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "a023c0aebf510449c70a85eab92eae8596e331b3"
+  },
+  {
+   "rel": "own/Pseudepigrapha-PsPhoc-Bergk/other/OCP Greek.json",
+   "title": "Pseudo-Phokylides",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Bergk 1882 (Poetae Lyrici Graeci) (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "cbf347fe9793d1f5d7a05e10c2cdaf1469f20806"
+  },
+  {
+   "rel": "own/Pseudepigrapha-3Bar-Picard/other/OCP Greek.json",
+   "title": "3 Baruch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Picard (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "222a070ada9330698662b9c532f2629b6edcda82"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-7QEnoch/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / 7QpapEn gr (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "86be20ab4889a89606276fcab86a82dc270b08c5"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-POxy2069/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Oxyrhynchus Papyrus 2069 (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "67b0768dec3f8a3b6db053ddaf670bb78a62b404"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-CB185/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Chester Beatty 185 (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "306d2ca30efea1d158846d9a7504a37974511fd5"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-V1809/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Città del Vaticano, Bibl. Apost. Vatic., vatic. gr. 1809, f. 216v (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "4a1350b225ced907ce7ca44036a21dbd203970c3"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-Gizeh/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Cairo Papyrus 10759 | Codex Panopolitanus | Codex Gizeh | Akhmim fragements (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "f36ca386facf1979d3205dc79ae13a092c9bcbbd"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-Gizeh2/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / duplicate section of Cairo Papyrus 10759 | Codex Panopolitanus | Codex Gizeh | Akhmim fragments  (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "c64dc33d69be6b343d2bf7abd5930e828cd1d22b"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-Syncellus/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / apud Georgius Syncellus, Chronographia (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "dff976b9135960b7067033652c4c952537e7c966"
+  },
+  {
+   "rel": "own/Pseudepigrapha-1En-Jude/other/OCP Greek.json",
+   "title": "Das Buch Henoch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "OCP / Jude 14-15 (automatische Morphologie)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "88965de64ee269bf1ee6e45972cfdea2fc3c2c91"
   }
  ]
 }

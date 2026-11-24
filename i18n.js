@@ -541,6 +541,9 @@
     "GLAUx / Gorman · manuell annotiert": "GLAUx / Gorman · manually annotated",
     "OGA · automatisch annotiert": "OGA · automatically annotated",
     "GLAUx · automatisch annotiert": "GLAUx · automatically annotated",
+    "Stanza · automatisch erzeugt, nicht redaktionell geprüft": "Stanza · automatically generated, not editorially reviewed",
+    "OCP / Wikisource: noch nicht am Charles-Druck kollationiert.": "OCP / Wikisource: not yet collated against the Charles print edition.",
+    "Weitere Lesarten der Quelle": "Other readings in the source",
     "Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.": "No securely aligned morphology is available for this word.",
 
     "Vergleichen": "Compare",

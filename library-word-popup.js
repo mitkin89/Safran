@@ -119,20 +119,23 @@ window.LibraryWordPopup = (() => {
     pop.addEventListener('toggle',()=>{if(wpop===pop)place();},true);
   }
 
-  let greekManualP=null;
+  let greekManualP=null,greekAutoP=null;
   async function showCorpusWord(cell,at,doc){
-    const token=++gTok;let manual=null;
+    const token=++gTok;let manual=null,automatic=null;
     if(doc.greekMorphology.work==='tlg0526.tlg004')try{manual=await(greekManualP||(greekManualP=lazyScript('greek-corpus-manual.js',()=>window.GREEK_CORPUS_MANUAL).catch(e=>{greekManualP=null;throw e;})));}catch{}
+    if(doc.greekMorphology.annotationRef)try{automatic=await(greekAutoP||(greekAutoP=lazyScript('greek-pseudepigrapha-auto.js',()=>window.GREEK_PSEUDEPIGRAPHA_AUTO).catch(e=>{greekAutoP=null;throw e;})));}catch{}
     if(token!==gTok||!cell.isConnected)return;
     const row=cell.closest('.row');let path=reader.view?.sections?.[reader.view.idx]?.path;
     if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
     else{const heading=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(heading)try{path=JSON.parse(heading.dataset.sk);}catch{}}
-    const data=window.GreekCorpus.at(doc,path,row?.dataset.sl||row?.dataset.l,at.words.map(w=>w.t),manual),r=data?.records[at.i],t=s=>I18N.t(s);
+    const data=window.GreekCorpus.at(doc,path,row?.dataset.sl||row?.dataset.l,at.words.map(w=>w.t),manual,automatic),r=data?.records[at.i],t=s=>I18N.t(s);
     let meaning='';
     if(r?.lemma)try{meaning=window.GreekCorpus.gloss(await loadGM(),r.lemma);}catch{}
     if(token!==gTok||!cell.isConnected)return;
     const described=r?.tag?window.GreekCorpus.describe(r.tag,t):null;
-    const rows=r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span>${meaning?`<div class="corpus-meaning"><strong class="corpus-gloss" lang="en">${esc(meaning)}</strong><small class="corpus-gloss-source">${esc(t('Kurzbedeutung (Englisch) · STEPBible'))}</small></div>`:'<br>'}<span class="corpus-morph">${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</span></div><p class="muted">${esc(r.source==='gorman'?t('GLAUx / Gorman · manuell annotiert'):r.source==='glaux'?t('GLAUx · automatisch annotiert'):t('OGA · automatisch annotiert'))}<br>${esc(data.work)} · ${esc(r.locus||data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const provenance=r?.source==='gorman'?'GLAUx / Gorman · manuell annotiert':r?.source==='glaux'?'GLAUx · automatisch annotiert':r?.source==='stanza'?'Stanza · automatisch erzeugt, nicht redaktionell geprüft':'OGA · automatisch annotiert';
+    const alternatives=(data?.loci||[]).flatMap(locus=>(doc.greekMorphology.sourceAlternatives?.[locus]||[]).map(v=>({locus,...v})));
+    const rows=(r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span>${meaning?`<div class="corpus-meaning"><strong class="corpus-gloss" lang="en">${esc(meaning)}</strong><small class="corpus-gloss-source">${esc(t('Kurzbedeutung (Englisch) · STEPBible'))}</small></div>`:'<br>'}<span class="corpus-morph">${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</span></div><p class="muted">${esc(t(provenance))}<br>${esc(data.work)} · ${esc(r.locus||data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`)+(doc.greekMorphology.provisional?`<p class="muted corpus-provisional">${esc(t('OCP / Wikisource: noch nicht am Charles-Druck kollationiert.'))}</p>`:'')+(alternatives.length?`<details class="corpus-variants"><summary>${esc(t('Weitere Lesarten der Quelle'))}</summary>${alternatives.map(v=>`<p>${esc(v.locus)} · ${esc(v.unit)}: <span lang="grc">${esc(v.text)}</span></p>`).join('')}</details>`:'');
     const query=r?.lemma?.replace(/[0-9]+$/,'');
     const ref=data&&doc.greekMorphology.references?.[r?.locus||data.locus];
     const buttons=(query?`<button type="button" class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`:'')+(ref?`<button type="button" class="corpus-ref" data-ref="${esc(ref)}">${data.work==='tlg0526.tlg003'?esc(t('Übersetzung öffnen')):'Whiston:'} ${esc(ref)}</button>`:'');
