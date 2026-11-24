@@ -3,6 +3,7 @@
 ### Unreleased
 
 - Fix Research verse-aligned source sheets leaving the centre empty below each verse. Restore commentary flow in preview, HTML and PDF while keeping each comment with its verse; let a longer comment use the full width after the opposite comment ends. Verify real bilingual Deuteronomy exports and oversized comments without losing text or moving later verses ahead.
+- Masora: weitere deutsche Arbeitsübersetzungen innerhalb einer festgehaltenen Auswahl von 5.000 offenen Notizen. Quellengebundene Nachprüfung von Erkennungszitaten und Rubriken; getrennte Auswertung vollständig erschlossener, verbesserter und unveränderter Notizen. Quellabweichungen und unklare Zeichen bleiben sichtbar offen.
 
 - Add an optional left study area beside the existing right sidebar. Keep different tools open independently, with separate tab history, pins, close actions and saved widths/floating geometry; switch between preserved areas in narrow windows.
 - Masora: Arbeitsübersetzungen auf alle 26.969 transkribierten Notizen erweitert; offene Stellen des ersten Pakets erneut bearbeitet und belegte Wortverbindungs-/Versanfangsformeln präzisiert. Offene und unübersetzte Teile bleiben ausdrücklich gekennzeichnet.
