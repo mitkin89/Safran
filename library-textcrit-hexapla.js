@@ -4,10 +4,10 @@
 window.LibraryHexaplaTC=(()=>{
 'use strict';
 const BOOKS=/*BOOKS*/["Amos", "Daniel", "Deuteronomy", "Ecclesiastes", "Esther", "Exodus", "Ezekiel", "Ezra", "Genesis", "Habakkuk", "Haggai", "Hosea", "I Chronicles", "I Kings", "I Samuel", "II Chronicles", "II Kings", "II Samuel", "Isaiah", "Jeremiah", "Job", "Joel", "Jonah", "Joshua", "Judges", "Lamentations", "Leviticus", "Malachi", "Micah", "Nahum", "Nehemiah", "Numbers", "Obadiah", "Proverbs", "Psalms", "Ruth", "Song of Songs", "Zechariah", "Zephaniah"]/*END*/;
-const HEXSIG=[[/^[’'‘]?Α\.|^Ἀ\./,'α′'],[/^Σ\./,'σ′'],[/^Θ\./,'θ′'],[/^Οἱ [Γγ]/,'οἱ γ′'],[/^Οἱ λ/,'οἱ λ′'],[/^Ὁ Σύρος/,'ὁ Σύρος'],[/^Ὁ Ἑβραῖος/,'ὁ Ἑβραῖος'],[/Σαμαρειτικ/,'τὸ Σαμ.'],[/^Ε΄/,'ε′'],[/^Ϛ΄/,'ϛ′'],[/^Ζ΄/,'ζ′'],[/^Ἄλλ|^Alia|^Aliter/,'ἄλλος']];
-const SIGLA=/(Ο΄\.|Οἱ [Γγ]΄\.?|Οἱ λοιποί|Οἱ λ΄\.?|Ὁ Σύρος|Ὁ Ἑβραῖος|Ὁ Σαμαρειτικός|Τὸ Σαμαρειτικόν|Ἄλλος|Ἄλλως|[’'‘]?Α\.|Ἀ\.|Σ\.|Θ\.|Alia exempl\.|Aliter:|Ε΄\.|Ϛ΄\.|Ζ΄\.)/g;
+const HEXSIG=[[/^[’'‘]?Α\.|^Ἀ\./,'α′'],[/^Σ\./,'σ′'],[/^Θ\./,'θ′'],[/^(?:[Κκ]αὶ\s+)?[Οο]ἱ [Γγ]/,'οἱ γ′'],[/^Οἱ λ/,'οἱ λ′'],[/^Ὁ Σύρος/,'ὁ Σύρος'],[/^Ὁ Ἑβραῖος/,'ὁ Ἑβραῖος'],[/Σαμαρειτικ/,'τὸ Σαμ.'],[/^Ε΄/,'ε′'],[/^Ϛ΄/,'ϛ′'],[/^Ζ΄/,'ζ′'],[/^Ἄλλ|^Alia|^Aliter/,'ἄλλος']];
+const SIGLA=/(Ο΄\.|(?:[Κκ]αὶ\s+)?[Οο]ἱ [Γγ]΄\.?|Οἱ λοιποί|Οἱ λ΄\.?|Ὁ Σύρος|Ὁ Ἑβραῖος|Ὁ Σαμαρειτικός|Τὸ Σαμαρειτικόν|Ἄλλος|Ἄλλως|[’'‘]?Α\.|Ἀ\.|Σ\.|Θ\.|Alia exempl\.|Aliter:|Ε΄\.|Ϛ΄\.|Ζ΄\.)/g;
 // What each siglum stands for (hover).
-const SIGTITLE=[[/^Ο΄/,'Ο΄ = die Septuaginta (LXX, „die Siebzig“)'],[/^Οἱ [Γγ]/,'Οἱ Γ΄ = „die Drei“: Aquila, Symmachus und Theodotion'],[/^Οἱ λ/,'Οἱ λοιποί = „die Übrigen“: die anderen griechischen Übersetzer (meist Aquila, Symmachus, Theodotion)'],[/^[’'‘]?Α\.|^Ἀ\./,'Ἀ. = Aquila (griechische Übersetzung, 2. Jh. n. Chr., sehr wörtlich)'],[/^Σ\./,'Σ. = Symmachus (griechische Übersetzung, um 200 n. Chr., freier und idiomatisch)'],[/^Θ\./,'Θ. = Theodotion (griechische Revision der LXX nach dem Hebräischen)'],[/^Ε΄/,'Ε΄ = Quinta, die fünfte griechische Übersetzung der Hexapla (anonym)'],[/^Ϛ΄/,'Ϛ΄ = Sexta, die sechste griechische Übersetzung der Hexapla (anonym)'],[/^Ζ΄/,'Ζ΄ = Septima, eine siebte griechische Übersetzung (anonym)'],[/^Ὁ Σύρος/,'Ὁ Σύρος = „der Syrer“: von griechischen Kirchenvätern zitierte syrische Wiedergabe'],[/^Ὁ Ἑβραῖος/,'Ὁ Ἑβραῖος = „der Hebräer“: anonymer, von Kirchenvätern zitierter Gewährsmann'],[/Σαμαρειτικ/,'Τὸ Σαμαρειτικόν = griechische Übersetzung des samaritanischen Pentateuch'],[/^Ἄλλος/,'Ἄλλος = „ein anderer“: nicht namentlich bekannter Übersetzer'],[/^Ἄλλως|^Aliter/,'„anders“: abweichende Wiedergabe'],[/^Alia/,'Alia exemplaria = andere Handschriften']];
+const SIGTITLE=[[/^Ο΄/,'Ο΄ = die Septuaginta (LXX, „die Siebzig“)'],[/^(?:[Κκ]αὶ\s+)?[Οο]ἱ [Γγ]/,'Οἱ Γ΄ = „die Drei“: Aquila, Symmachus und Theodotion'],[/^Οἱ λ/,'Οἱ λοιποί = „die Übrigen“: die anderen griechischen Übersetzer (meist Aquila, Symmachus, Theodotion)'],[/^[’'‘]?Α\.|^Ἀ\./,'Ἀ. = Aquila (griechische Übersetzung, 2. Jh. n. Chr., sehr wörtlich)'],[/^Σ\./,'Σ. = Symmachus (griechische Übersetzung, um 200 n. Chr., freier und idiomatisch)'],[/^Θ\./,'Θ. = Theodotion (griechische Revision der LXX nach dem Hebräischen)'],[/^Ε΄/,'Ε΄ = Quinta, die fünfte griechische Übersetzung der Hexapla (anonym)'],[/^Ϛ΄/,'Ϛ΄ = Sexta, die sechste griechische Übersetzung der Hexapla (anonym)'],[/^Ζ΄/,'Ζ΄ = Septima, eine siebte griechische Übersetzung (anonym)'],[/^Ὁ Σύρος/,'Ὁ Σύρος = „der Syrer“: von griechischen Kirchenvätern zitierte syrische Wiedergabe'],[/^Ὁ Ἑβραῖος/,'Ὁ Ἑβραῖος = „der Hebräer“: anonymer, von Kirchenvätern zitierter Gewährsmann'],[/Σαμαρειτικ/,'Τὸ Σαμαρειτικόν = griechische Übersetzung des samaritanischen Pentateuch'],[/^Ἄλλος/,'Ἄλλος = „ein anderer“: nicht namentlich bekannter Übersetzer'],[/^Ἄλλως|^Aliter/,'„anders“: abweichende Wiedergabe'],[/^Alia/,'Alia exemplaria = andere Handschriften']];
 function create(host){
   const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);
   const raw=s=>host.esc(String(s));
@@ -71,9 +71,9 @@ function create(host){
     const bound=window.HEXAPLA_EXPLANATIONS,review=bound?.records?.[key];
     const editorial=review?.unitText===u.t?review:null,en=window.I18N?.lang==='en';
     const render=(text,kind,title)=>'<small class="tc-hx-explanation" lang="'+(en?'en':'de')+'" data-hx-explanation="'+kind+'" title="'+esc(title)+'">'+text+'</small>';
-    if(editorial)return render(esc('Erläuterung:')+' '+raw(en?editorial.en:editorial.n),'editorial','Redaktionelle KI-Erläuterung von Codex, 2026; Grundlage: Fields griechischer Wortlaut und Fußnoten.');
-    if(vl?.n)return render(esc('Erläuterung:')+' '+raw(en&&vl.en?vl.en:vl.n),'reviewed','Redaktionelle Einordnung von Claude, 2026; keine Aussage Fields.');
-    if(r.lxxReference)return render(esc('Verweis: dieselbe Wiedergabe wie in der LXX-Zeile.'),'reference','Übersetzung von Fields Verweis „ὡς οἱ Ο΄“.');
+    if(editorial)return render(raw(en?editorial.en:editorial.n),'editorial','Redaktionelle KI-Erläuterung von Codex, 2026; Grundlage: Fields griechischer Wortlaut und Fußnoten.');
+    if(vl?.n)return render(raw(en&&vl.en?vl.en:vl.n),'reviewed','Redaktionelle Einordnung von Claude, 2026; keine Aussage Fields.');
+    if(r.lxxReference)return ''; // The adjacent ‘wie LXX’ label already translates this reference.
     if(!r.type||r.type==='gleich')return '';
     if(r.type==='asterisk'||r.type==='obelus')return render(esc(HXTYPES[r.type][1]),'sign','Erläuterung des hexaplarischen Zeichens.');
     return ''; // Word differences are already visible in the synopsis.
@@ -118,7 +118,7 @@ function create(host){
         const translit=differ.length&&differ.filter(w=>(lookup(w.replace(/[^\p{L}\p{M}’]/gu,''))||[])[0]?.[1]==='Y').length*2>=differ.length;
         r.lxxReference=/^ὡς\s+(?:οἱ\s+)?Ο΄\.?(?:\^\d+)?\s*$/u.test(r.text.trim());
         r.type=r.lxxReference?'gleich':!words.length?'':!differ.length?'gleich':translit?'translit':'wiedergabe';
-        body=parts.map(p=>p.same?'<span class="tc-hx-same"><span class="tc-hx-same-t">'+markup(data,u,p.w.join(' '))+'</span></span>':markup(data,u,p.w.join(' '))).join(' ');
+        body=r.lxxReference?markup(data,u,r.text.trim()):parts.map(p=>p.same?'<span class="tc-hx-same"><span class="tc-hx-same-t">'+markup(data,u,p.w.join(' '))+'</span></span>':markup(data,u,p.w.join(' '))).join(' ');
       }
       if(!i)r.type=/※/.test(r.text)?'asterisk':/÷/.test(r.text)?'obelus':'';
       // reviewed: other Vorlage / other reading of the same consonants (hexapla-vorlage.js)

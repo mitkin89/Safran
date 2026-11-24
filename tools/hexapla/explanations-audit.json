@@ -2,12 +2,12 @@
   "scope": "Field/Hexapla rendering; editorial notes, source references and signs are counted separately",
   "books": 39,
   "units": 26963,
-  "synopsisUnits": 20731,
+  "synopsisUnits": 20734,
   "explanations": {
-    "editorial": 52,
+    "editorial": 57,
     "reviewed": 60,
-    "reference": 33,
-    "sign": 1921
+    "reference": 0,
+    "sign": 1922
   },
   "reviewedRecords": 59,
   "unrenderedEditorialKeys": [],

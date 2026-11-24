@@ -154,7 +154,8 @@ Die Offline-App lädt `hexapla-explanations.js`. Diese Erläuterungen und die be
 59 Bewertungen aus `hexapla-vorlage.js` werden direkt unter der betreffenden Zeile
 gezeigt. Erläuterungen erklären Bedeutung, Grammatik oder Quellenhinweise. Ein
 bloßes Wiederholen abweichender griechischer Wörter wird nicht als Zusatztext
-angezeigt. „ὡς οἱ Ο΄“ innerhalb einer Übersetzerzeile ist ein Verweis auf die LXX,
+angezeigt. Die redaktionellen Hinweise sind kurze Übersetzungsgegenüberstellungen
+ohne Wiederholung des griechischen Wortlauts; Verweise werden knapp angegeben. „ὡς οἱ Ο΄“ innerhalb einer Übersetzerzeile ist ein Verweis auf die LXX,
 kein Beginn einer neuen LXX-Zeile. Die zugehörige Fußnote bleibt beim Verweis.
 Der ursprüngliche Field-Text wird nicht geändert. Die Herkunft der Erläuterungen ist
 über den Titel und im Quellenhinweis ausgewiesen.
