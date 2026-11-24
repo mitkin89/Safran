@@ -123,7 +123,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   if(format==='pdf'){
    const tmp=path.join(tempDir(),'safran-sheet-'+crypto.randomUUID()+'.html');await fs.writeFile(tmp,html,'utf8');
    const win=new BrowserWindow({show:false,webPreferences:{sandbox:true,javascript:true}});
-   try{win.webContents.setWindowOpenHandler(()=>({action:'deny'}));await win.loadFile(tmp);await win.webContents.executeJavaScript("document.fonts.ready.then(()=>{const apply="+require('./research-flow').apply.toString()+";apply(document,true);})");content=await win.webContents.printToPDF({pageSize:'A4',landscape:sheet.layout?.orientation==='landscape',preferCSSPageSize:true,printBackground:true});}finally{win.destroy();await fs.rm(tmp,{force:true});}
+   try{win.webContents.setWindowOpenHandler(()=>({action:'deny'}));await win.loadFile(tmp);await win.webContents.executeJavaScript("document.fonts.ready.then(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))");content=await win.webContents.printToPDF({pageSize:'A4',landscape:sheet.layout?.orientation==='landscape',preferCSSPageSize:true,printBackground:true});}finally{win.destroy();await fs.rm(tmp,{force:true});}
   }else if(format==='html')content=html;
   await fs.writeFile(chosen.filePath,content);return {path:chosen.filePath};
  }

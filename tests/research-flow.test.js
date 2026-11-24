@@ -6,7 +6,7 @@ test('standalone classic HTML permits only the fixed flow script by its exact CS
  const h=E.html(sheet),hash=crypto.createHash('sha256').update(Flow.scriptSource).digest('base64');
  assert(h.includes('script-src &apos;sha256-'+hash+'&apos;'));assert(h.includes('<script>'+Flow.scriptSource+'</script>'));
  assert(h.includes('&lt;script&gt;window.userScriptRan=true&lt;/script&gt;'));assert(!h.includes('<script>window.userScriptRan'));
- assert(h.includes("default-src 'none'"));assert(h.includes('data-page-height="277"'));
+ assert(h.includes("default-src 'none'"));assert(h.includes('@media print{body{width:190mm;'),'print layout is measured at its actual paper width');
 });
 test('sandboxed preview remains script-free and linear sheets retain their original layout',()=>{
  const preview=E.html(sheet,[],{interactive:false});assert(!preview.includes('<script>'));assert(!preview.includes('script-src'));assert(preview.includes(Flow.css));

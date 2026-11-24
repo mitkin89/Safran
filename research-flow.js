@@ -1,8 +1,49 @@
 (function(root){
  'use strict';
- // Keep original table markup as a no-script fallback. Only text line widths change;
- // source blocks, citations, footnotes and their reading order are never split or copied.
+ // The screen uses floats; print uses normal-flow tables and verbatim range fragments.
+ // Restore the original nodes after printing so preview and stored sources stay intact.
+ function restorePrint(doc){
+  const table=doc.querySelector('.classic-upper'),state=table?._researchPrintState;if(!state)return;
+  for(const {cell,nodes}of state.sides)cell.replaceChildren(...nodes);
+  state.continuation?.remove();state.wrapper.replaceWith(...state.wrapper.childNodes);delete table._researchPrintState;
+ }
+ function preparePrint(doc){
+  const table=doc.querySelector('.classic-upper');if(!table)return false;
+  if(table._researchPrintState)return true;
+  const cells=[...table.querySelectorAll(':scope > tbody > tr > .region')],main=cells.find(c=>c.classList.contains('main')),sides=cells.filter(c=>c!==main&&c.textContent.trim());
+  if(!main?.textContent.trim()||!sides.length)return false;
+  // Measure at the real print width with normal, fragmentable table cells.
+  table.classList.remove('flowing');
+  const wrapper=doc.createElement('div');wrapper.className='classic-print-main';wrapper.style.display='flow-root';wrapper.append(...main.childNodes);main.append(wrapper);
+  const bottom=wrapper.getBoundingClientRect().bottom;
+  const state={wrapper,sides:sides.map(cell=>({cell,nodes:[...cell.childNodes]})),continuation:null};
+  const continuation=doc.createElement('table');continuation.className='classic-continuation';continuation.setAttribute('role','presentation');
+  const row=continuation.createTBody().insertRow();let hasTail=false;
+  function split(cell){
+   const walker=doc.createTreeWalker(cell,4),probe=doc.createRange();let node,cut=null;
+   while((node=walker.nextNode())){
+    if(!node.length)continue;probe.selectNodeContents(node);
+    const rects=[...probe.getClientRects()].filter(r=>r.height>0);if(!rects.length){cut={node,offset:node.length};continue;}
+    if(rects.every(r=>r.bottom<=bottom+.5)){cut={node,offset:node.length};continue;}
+    if(rects.every(r=>r.top>=bottom-.5))break;
+    let low=0,high=node.length;
+    while(low<high){const mid=Math.ceil((low+high)/2);probe.setStart(node,0);probe.setEnd(node,mid);const rs=[...probe.getClientRects()];if(rs.every(r=>r.bottom<=bottom+.5))low=mid;else high=mid-1;}
+    if(low>0){const space=node.data.slice(0,low).search(/\s+\S*$/u);if(space>=0)low=space+1;cut={node,offset:low};}break;
+   }
+   const head=doc.createRange(),tail=doc.createRange();head.selectNodeContents(cell);tail.selectNodeContents(cell);
+   if(cut){head.setEnd(cut.node,cut.offset);tail.setStart(cut.node,cut.offset);}else head.collapse(true);
+   return {head:head.cloneContents(),tail:tail.cloneContents()};
+  }
+  for(const side of sides){
+   const parts=split(side),cell=row.insertCell();cell.className=side.className;cell.style.width=100/sides.length+'%';
+   if(parts.tail.textContent.trim())hasTail=true;
+   cell.append(parts.tail);side.replaceChildren(parts.head);
+  }
+  if(hasTail){table.after(continuation);state.continuation=continuation;}
+  table._researchPrintState=state;return true;
+ }
  function apply(doc,printing=false){
+  if(printing)return preparePrint(doc);restorePrint(doc);
   const table=doc.querySelector('.classic-upper');if(!table)return false;
   const cells=[...table.querySelectorAll(':scope > tbody > tr > .region')],main=cells.find(c=>c.classList.contains('main')),sides=cells.filter(c=>c!==main&&c.textContent.trim());
   if(!main?.textContent.trim()||!sides.length){table.classList.remove('flowing');return false;}
@@ -15,11 +56,6 @@
   // offsetHeight uses layout pixels even when the preview is zoomed to its iframe.
   const height=Math.ceil(main.offsetHeight)+12;
   table.style.setProperty('--flow-main-height',height+'px');
-  // An absolutely positioned centre cannot fragment safely across printed pages.
-  // Retain the normal, page-breaking table for an overlong main text.
-  const pageHeight=parseFloat(table.dataset.pageHeight||'0');
-  const pagePixels=pageHeight*96/25.4,used=pagePixels?Math.max(0,table.offsetTop)%pagePixels:0;
-  if(printing&&pageHeight&&height>pagePixels-used){table.classList.remove('flowing');return false;}
   return true;
  }
  function watch(doc){
@@ -43,7 +79,8 @@
 .classic-upper.flowing>tbody>tr>.left::before,.classic-upper.flowing>tbody>tr>.right::before{content:"";width:calc(var(--flow-main-width) + 3mm);height:var(--flow-main-height)}
 .classic-upper.flowing>tbody>tr>.left::before{float:right}
 .classic-upper.flowing>tbody>tr>.right::before{float:left}
+.classic-continuation{margin-top:0}.classic-continuation .region{vertical-align:top}.classic-continuation .block:first-child{margin-top:0}
 .classic-upper.flowing .region blockquote,.classic-upper.flowing .region p{orphans:3;widows:3}`;
- const scriptSource='(function(){const apply='+apply.toString()+';const watch='+watch.toString()+';watch(document);})();';
- const api={apply,watch,css,scriptSource};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ResearchFlow=api;
+ const scriptSource='(function(){const restorePrint='+restorePrint.toString()+';const preparePrint='+preparePrint.toString()+';const apply='+apply.toString()+';const watch='+watch.toString()+';watch(document);})();';
+ const api={apply,watch,preparePrint,restorePrint,css,scriptSource};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ResearchFlow=api;
 })(typeof window==='undefined'?globalThis:window);

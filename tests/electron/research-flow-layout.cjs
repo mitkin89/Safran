@@ -25,7 +25,23 @@ module.exports=async function(){
   await load(sheet,false);assert.equal(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')"),false);await evaluate(Flow.scriptSource);verify(await evaluate(geometry));
   await load({...sheet,blocks:sheet.blocks.filter(b=>b.region==='main')});assert.equal(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')"),false);
   await load({...sheet,blocks:sheet.blocks.filter(b=>b.region!=='main')});assert.equal(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')"),false);
-  await load({...sheet,blocks:[...sheet.blocks.filter(b=>b.region!=='main'),note('long','main',main.repeat(14))]});assert.equal(await evaluate('('+Flow.apply.toString()+')(document,true)'),false,'overlong main text retains pageable print layout');
-  assert.deepEqual(errors,[]);console.log('Electron: classic comments widen into the free centre on both sides, with no overlap or text loss; resizing and print fallback passed.');
+  async function printCase(name,mainText){
+   await load({...sheet,blocks:[note('l','left',left),note('m','main',mainText),note('r','right',right),note('b','bottom','FUSSENDE')]});
+   await evaluate(`window.addEventListener('beforeprint',()=>{const t=document.querySelector('.classic-upper'),c=document.querySelector('.classic-continuation');window.printProof={flow:t.classList.contains('flowing'),continued:!!c,main:t.querySelector('.main').textContent,left:t.querySelector('.left').textContent+(c?.querySelector('.left')?.textContent||''),right:t.querySelector('.right').textContent+(c?.querySelector('.right')?.textContent||''),tails:[...(c?.querySelectorAll('.region')||[])].map(e=>e.textContent),restored:!!t._researchPrintState};},{once:true});`);
+   const pdf=await w.webContents.printToPDF({landscape:true,pageSize:'A4',preferCSSPageSize:true,printBackground:true});
+   await fs.writeFile('/tmp/safran-research-flow-'+name+'.pdf',pdf);
+   const proof=await evaluate('window.printProof');assert.equal(proof.flow,false,'main text prints in a fragmentable normal-flow table');assert(proof.continued,'side texts continue below even for multi-page main text');
+   assert.equal(proof.main,mainText);assert.equal(proof.left,left);assert.equal(proof.right,right);assert(proof.restored);assert(proof.tails.every(t=>t.length>0));
+   await pause(50);assert(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')&&!document.querySelector('.classic-continuation')"),'afterprint restores the exact preview');
+  }
+  await printCase('short',main+' MAIN-END');await printCase('long',main.repeat(8)+' MAIN-END');
+  // Reproduce the reported bilingual main text: several pages of aligned verse rows.
+  const rows=Array.from({length:10},(_,i)=>({label:String(i+1),targetLabel:'1:'+String(i+1),original:main.slice(0,main.length/4)+' ORIG'+String(i+1),translation:('Übersetzung Vers '+String(i+1)+' mit ausführlichem deutschen Text. ').repeat(1)}));
+  const pair={id:'pair',type:'source',region:'main',text:'Haupttext',originalText:'Haupttext',citation:{work:'Genesis',locator:'1:1–10',edition:'Hebräisch'},presentation:{mode:'parallel',rows,companion:{citation:{work:'Genesis',edition:'Deutsch',language:'German'}}}};
+  await load({...sheet,blocks:[note('l','left',left),pair,note('r','right',right),note('b','bottom','FUSSENDE')]});
+  await evaluate("window.addEventListener('beforeprint',()=>{window.parallelPrintProof={rows:document.querySelectorAll('.classic-print-main .rw-parallel tr').length,continued:!!document.querySelector('.classic-continuation'),last:document.querySelector('.classic-print-main').textContent.includes('ORIG10')};},{once:true});");
+  await fs.writeFile('/tmp/safran-research-flow-parallel.pdf',await w.webContents.printToPDF({landscape:true,pageSize:'A4',preferCSSPageSize:true,printBackground:true}));
+  const parallel=await evaluate('window.parallelPrintProof');assert.equal(parallel.rows,10);assert(parallel.continued&&parallel.last);
+  assert.deepEqual(errors,[]);console.log('Electron: classic comments widen into the free centre on both sides, with no overlap or text loss; resizing and short/multi-page PDF continuation passed.');
  }finally{w.destroy();}
 };
