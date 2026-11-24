@@ -62,6 +62,7 @@
     "Ordne Inhalte über ihr Kartenmenü den vier Bereichen zu.": "Assign content to the four regions using each card’s menu.",
     "Die Vorschau zeigt die Anordnung mit den aktuellen, auch ungespeicherten Inhalten.": "The preview shows the arrangement of the current content, including unsaved changes.",
     "Gib eine Stelle ein, suche nach einem Text oder schreibe einen eigenen Gedanken auf.": "Enter a reference, search for a text or write your own thoughts.",
+    "S΄ = Sigle der Field-Transkription": "S΄ = siglum in the Field transcription",
     "Bearbeiten": "Edit",
     "Abschnittsaktionen": "Section actions",
     "Weitere Aktionen": "More actions",

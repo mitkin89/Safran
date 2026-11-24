@@ -167,3 +167,71 @@ Bescheinigung einer vollständigen inhaltlichen Prüfung aller Hexapla-Lesarten.
 Der Audit zählt außerdem die vorhandenen Erläuterungstexte der klassifizierten LXX-
 und Peschitta-Lesarten. Ein vorhandener Text wird dabei nicht als inhaltlich geprüft
 gewertet; gemessen wird nur, ob eine Erläuterung hinterlegt ist.
+
+### Fehlende inhaltliche Erläuterungen finden
+
+```sh
+node tools/hexapla/audit_explanations.cjs --write --gaps-csv /tmp/hexapla-luecken.csv
+```
+
+Der Audit verwendet dieselben Übersetzerzeilen und denselben Quelltextabgleich wie
+die Anzeige. Als offen gelten Zeilen mit „andere Wiedergabe“, „Transkription“,
+„andere Vorlage“, „andere Deutung“ oder möglicher MT-Angleichung, wenn daneben kein
+Erläuterungstext steht. Gleiche Wiedergaben und reine Quellenverweise werden nicht
+als Erklärungslücke gezählt. Einheiten ohne automatisch aufgebaute Synopsis werden
+separat ausgewiesen; ihr Inhalt wird nicht als erledigt gewertet. Die CSV nennt
+Buch, MT-Stelle, Einheit, Sigle, griechische Lesart und die Field-Fundstelle.
+Die Zählung prüft Textabdeckung, keine philologische Richtigkeit. Vorhandene
+LXX-/Peschitta-Erläuterungen werden ebenfalls nur auf Textvorhandensein geprüft.
+
+### Fortlaufende Bearbeitung aller Erklärungslücken
+
+`explanations-progress.json` hält den offenen Gesamtauftrag und die bisher vollständig
+bearbeiteten Bereiche fest. Der Ausgangsbestand dieses Auftrags umfasst 28.008
+abweichend markierte Übersetzerzeilen ohne zusätzliche Kurzerläuterung. Ein bearbeiteter
+Bereich bezieht sich auf diese Zeilen, nicht auf ungegliederte Quellenkommentare.
+Die übrigen Zeilen dürfen weder durch allgemeine Platzhaltertexte noch durch eine
+bloße Wiederholung des griechischen Wortlauts als erledigt verbucht werden.
+
+Mehrere Lesarten desselben Übersetzers innerhalb einer Einheit können unter
+`variants` getrennte Notizen erhalten. Jede Variante wird zusätzlich zum vollständigen
+`unitText` an ihren exakt angezeigten `reading`-Text gebunden (optional auch `forWord`).
+So bekommen eine Verbform und eine Präposition unter derselben Sigle unterschiedliche
+Erläuterungen. Ein nicht passender Selektor zeigt keine vermeintlich passende Notiz an.
+
+Wenn eine Erläuterung ausdrücklich eine Field-Fußnote auswertet, kann `noteSources`
+deren Wortlaut mitbinden. Geänderte Fußnoten unterdrücken dann die betreffende
+Erläuterung, bis sie erneut abgeglichen und gebaut wurde.
+
+Der Pentateuch-Durchgang vom 24. November 2026 enthält 4.386 neue kurze
+zweisprachige Hinweise. Für alle fünf Bücher bleiben im Audit keine erkannten
+abweichenden Übersetzerzeilen ohne Erläuterung offen. Unvollständige oder verderbte
+Lesarten erhalten einen konkreten Hinweis auf die Grenze des überlieferten Auszugs.
+Ungegliederte Quellenkommentare sind weiterhin außerhalb dieser Abdeckungszahl.
+
+Bei der Prüfung wurden außerdem falsch getrennte Quellenverweise („ebenso wie die
+LXX“) und anfängliche Asteriskos-Einschübe korrigiert: Eine innerhalb der Zeichen
+genannte Übersetzersigle beansprucht nicht mehr fälschlich die folgende LXX-Zeile.
+Die ursprüngliche Transkription bleibt unverändert und über „Volltext“ zugänglich.
+
+Auch die Nevi’im bis Maleachi sind vollständig im selben Sinn bearbeitet: Alle
+abweichend markierten, automatisch gegliederten Übersetzerzeilen erhalten einen
+kurzen deutschen und englischen Hinweis. Reine Quellenverweise sowie erkennbare
+Zuschreibungsfragmente werden als solche behandelt. Die abschließende Prüfung
+bezieht gespeicherte Lesartselektoren ein, damit vorhandene Hinweise nach einer
+verbesserten Quellenaufteilung weiterhin bei der richtigen Lesart erscheinen.
+
+Der anschließende Durchgang der Schriften schließt den gesamten Tanach ab. Der
+Abschlussaudit aller 39 Bücher weist keine erkannten abweichenden Übersetzerzeilen
+ohne sichtbare Erläuterung und keine ungenutzten Kurzerläuterungen aus. Kurze
+inhaltliche oder grammatische Vergleiche liegen auf Deutsch und Englisch vor;
+abgebrochene Quellenstellen sind entsprechend gekennzeichnet. Die Texte wurden
+auch auf falsche Negationen, Personenwechsel und bloß etymologische statt
+kontextbezogener Bedeutungen gegengeprüft. Die Hinweise bleiben redaktionelle
+KI-Erläuterungen und keine durch diesen Abdeckungszähler bescheinigte Fachbegutachtung.
+
+Einzeln geprüfte Einheiten mit mehreren ausdrücklich eingeleiteten LXX-Lemmata
+verwenden jeweils die lokale Vergleichsbasis. Gemeinsame Zuschreibungen bleiben
+zusammen; reine Verweise werden nicht als eigene abweichende Lesarten ausgegeben.
+Die Regressionstests prüfen die vollständigen drei Buchgruppen in beiden Sprachen
+und erhalten die ursprünglichen Quellenwörter samt Fußnoten.

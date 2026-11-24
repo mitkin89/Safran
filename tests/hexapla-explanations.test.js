@@ -17,7 +17,7 @@ test('Every editorial record is source-bound, visible, translated and escaped',a
  const {hx,window}=fixture(),spec=JSON.parse(fs.readFileSync(path.join(root,'tools/hexapla/explanations.json')));
  for(const [key,n] of Object.entries(spec.records)){
   const [,book,ref,index]=/^(.*) (\d+:\d+)#(\d+) /.exec(key),d=await hx.load(book);
-  assert.equal(d.verses[ref][+index].t,n.unitText,key);assert(html(hx,d,ref).includes(escape(n.n)),key);
+  assert.equal(d.verses[ref][+index].t,n.unitText,key);for(const note of n.variants||[n])assert(html(hx,d,ref).includes(escape(note.n)),key);
  }
  const d=await hx.load('Exodus'),key='Exodus 17:12#0 Ἀ.',record=window.HEXAPLA_EXPLANATIONS.records[key];
  const original=record.n;record.n='<img src=x onerror=alert(1)>';
@@ -52,7 +52,7 @@ test('Symmachus as the LXX is one reference row, not an empty new LXX witness',a
 });
 test('Editorial explanations stay brief and translate rather than repeating Greek',()=>{
  const spec=JSON.parse(fs.readFileSync(path.join(root,'tools/hexapla/explanations.json')));
- for(const [key,n] of Object.entries(spec.records))for(const language of ['n','en']){
+ for(const [key,record] of Object.entries(spec.records))for(const n of record.variants||[record])for(const language of ['n','en']){
   assert(!/\p{Script=Greek}/u.test(n[language]),key+' '+language+' repeats Greek');
   assert(n[language].split(/\s+/).length<=28,key+' '+language+' is too long');
  }
@@ -64,4 +64,77 @@ test('Lowercase Three is its own row and a same-as-LXX reference is not folded a
  assert.match(out,/class="tc-hx-row-sig"><b class="tc-hx-sig"[^>]*>Καὶ οἱ Γ΄\.<\/b>/);
  assert(out.includes('„Des Herrn“ statt des Ortsnamens „Midian“'));
  assert(!out.includes('tc-hx-same-t">ὡς'),'References must stay readable in the short synopsis');
+});
+test('Psalm 1:1 explains every differing translator row and preserves S as a source siglum',async()=>{
+ const {hx}=fixture(),d=await hx.load('Psalms'),entries=hx.entries(d,[{ref:'Psalms 1:1',row:'1'}]);
+ const rows=entries.flatMap(e=>e.hexaplaRows),different=rows.filter(r=>['wiedergabe','translit','vorlage','deutung'].includes(r.type));
+ assert.equal(different.length,8);assert(different.every(r=>r.hasExplanation));
+ assert(rows.some(r=>r.siglum==='Ε΄. S΄.'));assert(!rows.some(r=>/^S΄\./.test(r.reading)));
+ assert(entries.every(e=>Number.isInteger(e.hexaplaSource.unit)&&e.hexaplaSource.page));
+ const out=entries.map(e=>e.html).join('');assert(out.includes('„Versammlung“ statt „Ratschlag“'));assert(out.includes('„Fremde“ statt „Gottlose“'));assert(out.includes('„Spötter“ statt „Verderber“'));
+ const open=hx.entries(d,[{ref:'Psalms 1:2',row:'2'}]).flatMap(e=>e.hexaplaRows);
+ assert(open.filter(r=>['wiedergabe','translit','vorlage','deutung','mt'].includes(r.type)).every(r=>r.hasExplanation),'The following verse is covered as well');
+});
+test('Genesis 1–3 covers every identified difference and keeps repeated witness subreadings separate',async()=>{
+ const {hx,window}=fixture(),d=await hx.load('Genesis');
+ for(const ref of Object.keys(d.verses).filter(r=>+r.split(':')[0]<=3))for(const entry of hx.entries(d,[{ref:'Genesis '+ref,row:ref}])){
+  for(const row of entry.hexaplaRows)if(['wiedergabe','translit','vorlage','deutung','mt'].includes(row.type))assert(row.hasExplanation,row.key+' '+row.reading);
+ }
+ const out=html(hx,d,'1:14');
+ assert.equal(out.split('Andere Befehlsform mit demselben Sinn').length-1,1);
+ assert.equal(out.split('Andere Präposition mit derselben Bedeutung').length-1,2);
+ const spec=window.HEXAPLA_EXPLANATIONS.records['Genesis 1:14#0 ’Α.'];
+ spec.variants[0].reading+=' unexpected';const changed=html(hx,d,'1:14');
+ assert(!changed.includes('Andere Befehlsform mit demselben Sinn'),'A mismatched subreading must not inherit a note');
+ assert(changed.includes('Andere Präposition mit derselben Bedeutung'),'Other source-bound subreadings still work');
+});
+test('An explanation relying on a Field footnote is withheld if that footnote changes',async()=>{
+ const {hx,window}=fixture(),d=await hx.load('Genesis'),key='Genesis 2:15#0 Σ.',n=window.HEXAPLA_EXPLANATIONS.records[key];
+ assert(n.noteSources&&Object.keys(n.noteSources).length);assert(html(hx,d,'2:15').includes(escape(n.n)));
+ d.notes[Object.keys(n.noteSources)[0]].la+=' changed';
+ assert(!html(hx,d,'2:15').includes(escape(n.n)));
+});
+test('Every identified Pentateuch difference has a visible source-bound note in both languages',async()=>{
+ const books=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy'];
+ for(const lang of ['de','en']){
+  const {hx}=fixture(lang);let checked=0;
+  for(const book of books){
+   const d=await hx.load(book);let bookRows=0;
+   for(const ref of Object.keys(d.verses))for(const entry of hx.entries(d,[{ref:book+' '+ref,row:ref}])){
+    for(const row of entry.hexaplaRows)if(['wiedergabe','translit','vorlage','deutung','mt'].includes(row.type)){
+     assert(row.hasExplanation,lang+' '+row.key+' '+row.reading);checked++;bookRows++;
+    }
+   }
+   assert(bookRows>400,book+' must exercise its actual corpus');
+  }
+  assert(checked>4300,'Full Pentateuch, not only a sample');
+ }
+});
+test('Every identified Neviim difference has a visible source-bound note through Malachi',async()=>{
+ const books=['Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi'];
+ for(const lang of ['de','en']){
+  const {hx}=fixture(lang);let checked=0;
+  for(const book of books){
+   const d=await hx.load(book);
+   for(const ref of Object.keys(d.verses))for(const entry of hx.entries(d,[{ref:book+' '+ref,row:ref}]))for(const row of entry.hexaplaRows){
+    if(['wiedergabe','translit','vorlage','deutung','mt'].includes(row.type)){checked++;assert(row.hasExplanation,lang+' '+row.key+' '+row.reading);}
+   }
+  }
+  assert(checked>14000,'The complete comparison corpus remains present');
+ }
+});
+
+test('Every identified Ketuvim difference has a visible source-bound note in both languages',async()=>{
+ const books=['Psalms','Proverbs','Job','Song of Songs','Ruth','Lamentations','Ecclesiastes','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles'];
+ for(const lang of ['de','en']){
+  const {hx}=fixture(lang);let checked=0;
+  for(const book of books){
+   const d=await hx.load(book);let bookRows=0;
+   for(const ref of Object.keys(d.verses))for(const entry of hx.entries(d,[{ref:book+' '+ref,row:ref}]))for(const row of entry.hexaplaRows){
+    if(['wiedergabe','translit','vorlage','deutung','mt'].includes(row.type)){checked++;bookRows++;assert(row.hasExplanation,lang+' '+row.key+' '+row.reading);}
+   }
+   assert(bookRows>0,book+' must exercise its actual comparison corpus');
+  }
+  assert(checked>8500,'The complete Ketuvim comparison corpus remains present');
+ }
 });
