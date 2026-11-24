@@ -139,6 +139,7 @@ contextBridge.exposeInMainWorld('research', {
   capture: request => ipcRenderer.invoke('research:capture', request),
   captureReaderView: request => ipcRenderer.invoke('research:captureReaderView', request),
   workEditions: reference => ipcRenderer.invoke('research:workEditions', reference),
+  sourceRangePreview: request => ipcRenderer.invoke('research:sourceRangePreview', request),
   sourceEditionPreview: request => ipcRenderer.invoke('research:sourceEditionPreview', request),
   translationEditions: reference => ipcRenderer.invoke('research:translationEditions', reference),
   translationPreview: request => ipcRenderer.invoke('research:translationPreview', request),

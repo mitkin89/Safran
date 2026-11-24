@@ -55,6 +55,7 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
   plans.push({sectionPath:section.path,labels:present});
   for(const r of originalRows){const translated=byLabel.get(r.label);rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.plain(r.html),translation:translated?S.plain(translated.html):'',...(!translated?{missing:true}:{})});}
  }
+ const mergedPlans=new Map();for(const plan of plans){const key=JSON.stringify(plan.sectionPath);if(!mergedPlans.has(key))mergedPlans.set(key,{sectionPath:plan.sectionPath,labels:[]});for(const label of plan.labels)if(!mergedPlans.get(key).labels.includes(label))mergedPlans.get(key).labels.push(label);}plans.splice(0,plans.length,...mergedPlans.values());
  const companion=S.capture(b.doc,b.entry,plans[0],b.doc.textHash);companion.text=companion.originalText=rows.filter(r=>!r.missing).map(r=>r.targetLabel+'  '+r.translation).join('\n');companion.reference.quote=companion.text;
  // Keep every mapped native location, including chapter shifts, in the paired snapshot.
  const references=plans.map(req=>S.capture(b.doc,b.entry,req,b.doc.textHash).reference);
@@ -72,6 +73,19 @@ async function readerView(request,rich,privateRead=async()=>null){
  if(source.presentation&&Array.isArray(request.headings))source.presentation.readerHeadings=request.headings.filter(h=>source.reference.labels.includes(h.before)).map(h=>({before:h.before,text:h.text}));
  return S.block(source);
 }
+async function rangePreview({source,sectionPath,labels},rich,privateRead=async()=>null){
+ if(source?.type!=='source'||!source.reference?.rel)throw Error('Quellenverknüpfung fehlt.');
+ const cache=new Map(),read=rel=>{if(!cache.has(rel))cache.set(rel,rich(rel));return cache.get(rel);},a=await read(source.reference.rel),fresh=S.capture(a.doc,a.entry,{sectionPath,labels},a.doc.textHash);
+ if(source.sourceHash!==fresh.sourceHash)throw Error('Die Quelldatei wurde inzwischen geändert. Bitte zuerst die Ausgabe neu übernehmen.');
+ fresh.id=source.id;fresh.region=source.region||'main';fresh.title=source.title;fresh.citation={...source.citation,locator:fresh.citation.locator,language:fresh.citation.language};fresh.reference.citation=fresh.citation;
+ if(source.presentation){
+  const old=source.presentation,make=async pair=>{const next=await prepare({source:fresh,rel:pair.companion.reference.rel,mode:pair.mode,sourceSize:pair.sourceSize,translationSize:pair.translationSize},read,privateRead);if(next.companion.sourceHash!==pair.companion.sourceHash)throw Error('Eine zugehörige Ausgabe wurde inzwischen geändert. Bitte die Übersetzungsanzeige zuerst neu auswählen.');next.companion.id=pair.companion.id;next.companion.citation={...pair.companion.citation,locator:next.companion.citation.locator,language:next.companion.citation.language};next.companion.reference.citation=next.companion.citation;next.references.forEach(ref=>ref.citation={...pair.companion.citation,locator:ref.citation.locator,language:next.companion.citation.language});return next;},primary=await make(old),additional=[];
+  for(const pair of old.additional||[])additional.push(await make(pair));
+  const originalInterlinear=[];for(const pair of old.originalInterlinear||[])originalInterlinear.push(await make(pair));
+  fresh.presentation={...primary,...(additional.length?{additional}:{}),...(originalInterlinear.length?{originalInterlinear}:{}),...(old.readerHeadings?.length&&JSON.stringify(sectionPath)===JSON.stringify(source.reference.sectionPath)?{readerHeadings:old.readerHeadings.filter(h=>fresh.reference.labels.includes(h.before))}:{})};
+ }
+ return S.block(fresh);
+}
 async function editionPreview({source,rel},rich){
  if(source?.type!=='source'||!source.reference?.rel)throw Error('Quellenverknüpfung fehlt.');
  const a=await rich(source.reference.rel),fresh=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels},a.doc.textHash);
@@ -82,4 +96,4 @@ async function editionPreview({source,rel},rich){
  for(const r of pair.references){const k=JSON.stringify(r.sectionPath);if(!plans.has(k))plans.set(k,{sectionPath:r.sectionPath,labels:new Set()});r.labels.forEach(l=>plans.get(k).labels.add(l));}
  return [...plans.values()].map(p=>S.capture(b.doc,b.entry,{sectionPath:p.sectionPath,labels:[...p.labels]},b.doc.textHash));
 }
-module.exports={prepare,groups,aligned,editionPreview,readerView};
+module.exports={prepare,groups,aligned,editionPreview,readerView,rangePreview};

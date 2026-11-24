@@ -31,6 +31,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
  ipcMain.handle('research:capture',(_e,request)=>captured(request));
  ipcMain.handle('research:captureReaderView',(_e,request)=>require('./research-translations').readerView(request,rich,privateInterlinearRead));
  ipcMain.handle('research:workEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel);return Sources.editions(Object.values((await getLibrary()).index.entries),entry.title);});
+ ipcMain.handle('research:sourceRangePreview',(_e,request)=>require('./research-translations').rangePreview(request,rich,privateInterlinearRead));
  ipcMain.handle('research:sourceEditionPreview',(_e,request)=>require('./research-translations').editionPreview(request,rich));
  ipcMain.handle('research:translationEditions',async(_e,reference)=>{
   const {entry}=await rich(reference.rel),editions=Sources.editions(Object.values((await getLibrary()).index.entries),entry.title).filter(e=>e.rel!==entry.rel);

@@ -10,6 +10,7 @@ window.LibraryResearch = (() => {
     const root = document.getElementById('researchRoot');
     const editingBlocks = new Set(), expandedBlocks = new Set();
     let messageError = false, editRevision = 0, sourceRequestId = 0, pagePreview = false, arrangeMode = false, previewRequest = 0, pageObserver = null, outlineObserver = null, activeOutline = '';
+    const history=window.ResearchHistory.create();let historyKey='';
     const lastSheetKey='researchLastSheet', lastEditionKey='researchLastEdition';
     function rememberSheet(){if(kind==='sheets'&&draft)try{localStorage.setItem(lastSheetKey,JSON.stringify({id:draft.id,projectId:draft.projectId}));}catch{}}
     function editionPreference(editions){let last;try{last=JSON.parse(localStorage.getItem(lastEditionKey));}catch{}return window.ResearchEditions.preferred(editions,last);}
@@ -19,7 +20,16 @@ window.LibraryResearch = (() => {
     const currentProject = () => state?.projects.find(p => p.id === projectId);
     const rows = () => kind === 'notes' ? allNotes().filter(n => n.projectId === projectId || !n.projectId) : state[kind].filter(x => x.projectId === projectId);
     function persist() { try { if (dirty && draft) localStorage.setItem(draftKey, JSON.stringify({projectId,kind,draft,legacy})); else localStorage.removeItem(draftKey); return true; } catch { message = 'Entwurf konnte nicht zwischengespeichert werden. Bitte speichern.'; status(message); return false; } }
-    function changed() {
+    function ensureHistory(){const key=draft?kind+':'+draft.id:'';if(key!==historyKey){historyKey=key;history.reset(draft);}return history;}
+    function historyButtons(){root.querySelectorAll('[data-a="undo"]').forEach(b=>b.disabled=!history.canUndo);root.querySelectorAll('[data-a="redo"]').forEach(b=>b.disabled=!history.canRedo);}
+    function restoreHistory(direction){
+      if(!draft)return;const active=document.activeElement,f=active?.dataset.f,index=active?.closest('[data-block]')?.dataset.block,blockId=index===undefined?null:draft[kind==='sheets'?'blocks':'items']?.[+index]?.id,selection=f&&typeof active.selectionStart==='number'?[active.selectionStart,active.selectionEnd]:null,scroll=document.scrollingElement?.scrollTop;
+      const restored=history[direction]();if(!restored)return;for(const key of ['version','ts','createdAt','updatedAt'])if(key in draft)restored[key]=draft[key];draft=restored;changed('',false);render();if(scroll!==undefined)document.scrollingElement.scrollTop=scroll;
+      const blocks=draft[kind==='sheets'?'blocks':'items']||[],at=blockId?blocks.findIndex(b=>b.id===blockId):-1,scope=blockId?root.querySelector(`[data-block="${at}"]`):root.querySelector('.rw-editorfields'),target=f?scope?.querySelector(`[data-f="${CSS.escape(f)}"]`):root.querySelector(`[data-a="${direction}"]`);
+      if(target){let p=target.parentElement;while(p&&p!==root){if(p.tagName==='DETAILS')p.open=true;p=p.parentElement;}target.focus({preventScroll:true});if(selection&&typeof target.setSelectionRange==='function')target.setSelectionRange(...selection);}
+    }
+    function changed(key='',record=true) {
+      if(record)ensureHistory().record(draft,key);historyButtons();
       editRevision++;
       dirty = true;
       root.querySelectorAll('[data-a="save"]').forEach(b => b.disabled = false);
@@ -65,7 +75,7 @@ window.LibraryResearch = (() => {
     async function open() {
       try {
         await refresh();
-        if(draft&&!dirty){const rec=(legacy?state.legacyNotes:state[kind]).find(x=>x.id===draft.id);draft=rec?copy(rec):null;if(draft&&kind==='notes')draft.refs=copy(noteRefs(draft));}
+        if(draft&&!dirty){const previousVersion=draft.version,rec=(legacy?state.legacyNotes:state[kind]).find(x=>x.id===draft.id);draft=rec?copy(rec):null;if(draft?.version!==previousVersion)historyKey='';if(draft&&kind==='notes')draft.refs=copy(noteRefs(draft));}
         if (!draft) { try { const saved = JSON.parse(localStorage.getItem(draftKey)); if (saved?.draft && state.projects.some(p => p.id === saved.projectId)) { ({projectId,kind,draft,legacy} = saved); dirty = true; message = 'Ungespeicherten Entwurf wiederhergestellt.'; } } catch {} }
         render();
       } catch (e) { root.innerHTML = `<p role="alert">${esc(e.message)}</p>`; }
@@ -76,7 +86,7 @@ window.LibraryResearch = (() => {
       return `<details class="rw-menu ${cls}" data-menu="${name}"><summary${label === '⋯' ? ` aria-label="${name.startsWith('block-') ? 'Abschnittsaktionen' : 'Weitere Aktionen'}"` : ''}>${esc(label)}</summary><div class="rw-menu-body">${body}</div></details>`;
     }
     function pickRecord(rec, type = kind) {
-      kind = type; draft = rec ? copy(rec) : null;
+      kind = type; draft = rec ? copy(rec) : null;historyKey='';
       if (draft && kind === 'notes') draft.refs = copy(noteRefs(draft));
       legacy = kind === 'notes' && !!draft && state.legacyNotes.some(x => x.id === draft.id);
       dirty = false; editingBlocks.clear(); expandedBlocks.clear(); persist(); rememberSheet();
@@ -88,6 +98,7 @@ window.LibraryResearch = (() => {
     }
     function render() {
       if (!state) return;
+      ensureHistory().accept(draft);
       pageObserver?.disconnect();pageObserver=null;outlineObserver?.disconnect();outlineObserver=null;
       root.classList.toggle('rw-page-preview',(pagePreview||arrangeMode)&&kind==='sheets');
       const p = currentProject(), matches = rows().filter(x => JSON.stringify(x).toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
@@ -144,7 +155,7 @@ window.LibraryResearch = (() => {
       if(arrangeMode&&kind==='sheets')body=arrangement(blocks);
       if(pagePreview&&kind==='sheets')body='<div class="rw-page-hint">Die Vorschau zeigt die Anordnung mit den aktuellen, auch ungespeicherten Inhalten.</div><iframe id="rwPagePreview" title="Seitenvorschau" sandbox="allow-same-origin"></iframe>';
       const exports = kind === 'sheets' ? menu('Exportieren', ['pdf', 'docx', 'html'].map((f, i) => `<button data-sheet-export="${f}">${['PDF', 'Word (.docx)', 'HTML'][i]} exportieren …</button>`).join(''), 'sheet-export') : '';
-      return `<div class="rw-editorbar"><span id="rwSaveState" class="rw-save-state ${dirty ? 'is-dirty' : ''}">${dirty ? 'Ungespeichert' : 'Gespeichert'}</span><span class="spacer"></span>${layouts}${kind==='sheets'?`<button data-a="arrange" aria-pressed="${arrangeMode}">${arrangeMode?'Zurück zum Text':'Anordnen'}</button>`:''}${kind==='sheets'?`<button data-a="pagePreview" aria-pressed="${pagePreview}">${pagePreview?'Bearbeiten':'Vorschau'}</button>`:''}${exports}<button data-a="save" class="primary" ${!dirty ? 'disabled' : ''} title="Speichern (⌘/Strg+S)">Speichern</button>${menu('⋯', '<button data-a="reload">Neu laden / Entwurf verwerfen</button><div class="rw-menu-divider"></div><button class="rw-danger" data-a="delete">Entfernen</button>', 'entry', 'rw-entry-menu')}</div><div class="rw-editorfields">${body}</div>`;
+      return `<div class="rw-editorbar"><span id="rwSaveState" class="rw-save-state ${dirty ? 'is-dirty' : ''}">${dirty ? 'Ungespeichert' : 'Gespeichert'}</span><span class="spacer"></span><div class="rw-history" role="group" aria-label="Überarbeitungen"><button data-a="undo" aria-label="Rückgängig" title="Rückgängig (⌘/Strg+Z)" ${history.canUndo?'':'disabled'}>↶</button><button data-a="redo" aria-label="Wiederholen" title="Wiederholen (⌘/Strg+Umschalt+Z)" ${history.canRedo?'':'disabled'}>↷</button></div>${layouts}${kind==='sheets'?`<button data-a="arrange" aria-pressed="${arrangeMode}">${arrangeMode?'Zurück zum Text':'Anordnen'}</button>`:''}${kind==='sheets'?`<button data-a="pagePreview" aria-pressed="${pagePreview}">${pagePreview?'Bearbeiten':'Vorschau'}</button>`:''}${exports}<button data-a="save" class="primary" ${!dirty ? 'disabled' : ''} title="Speichern (⌘/Strg+S)">Speichern</button>${menu('⋯', '<button data-a="reload">Neu laden / Entwurf verwerfen</button><div class="rw-menu-divider"></div><button class="rw-danger" data-a="delete">Entfernen</button>', 'entry', 'rw-entry-menu')}</div><div class="rw-editorfields">${body}</div>`;
     }
     function blockEditor(b, i) {
       const n = b.type === 'note' ? allNotes().find(n => n.id === b.noteId) || b.noteSnapshot : null;
@@ -159,18 +170,18 @@ window.LibraryResearch = (() => {
 
       const content = editing && !n ? `<div class="rw-block-fields">${b.type !== 'heading' ? field('Überschrift (optional)', 'title', b.title) : ''}${field(b.type === 'source' ? 'Quellenauszug' : b.type === 'heading' ? 'Überschrift' : 'Text', 'text', b.text, true)}${b.type === 'source' ? '<p class="rw-field-hint">Änderungen am Wortlaut werden im Export als bearbeiteter Auszug gekennzeichnet.</p>' : ''}</div>` : `<div class="rw-block-preview ${long && !expanded ? 'is-collapsed' : ''} ${b.type === 'source' ? 'rw-quote' : ''}"><p class="rw-pre nt" dir="auto">${esc(text) || '<span class="rw-placeholder">Noch kein Text.</span>'}</p></div>${long && !editing ? `<button class="rw-expand" data-expand="1" aria-expanded="${expanded}">${expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}</button>` : ''}`;
       return `<article class="rw-block ${b.type}" data-block="${i}" data-nav-block="${esc(b.id)}"><div class="rw-block-head"><button class="rw-drag" draggable="true" data-drag-id="${esc(b.id)}" title="Zum Anordnen ziehen" aria-label="Abschnitt ziehen">⠿</button><span class="rw-block-number">${i + 1}</span><h3 class="${title || b.type === 'source' ? 'nt' : ''}">${esc(blockTitle)}</h3><div class="rw-block-actions">${!n ? `<button data-block-edit="1" aria-expanded="${editing}">${editing ? 'Fertig' : 'Bearbeiten'}</button>` : '<button data-note-edit>Notiz bearbeiten</button>'}${move}${menu('Mehr', controls, 'block-' + i)}</div></div>${placement}${b.type === 'source' && b.citation?.edition ? `<div class="rw-edition nt" title="${esc(b.citation.edition)}">${esc(C.heading(b.citation))}</div>` : ''}${b.presentation&&!editing?presentationHtml(b):content}${b.type === 'source' && b.text !== b.originalText ? '<span class="rw-edited">Bearbeiteter Auszug</span>' : ''}${n ? '<small class="rw-field-hint">Verknüpfte Notiz · aktueller Stand</small>' : ''}
-      ${b.type === 'source' ? `<div class="rw-source-footer">${b.reference ? '<button data-related-comments>Kommentare hinzufügen</button><button data-explain>Erläuterung hinzufügen</button><button data-source-edition>Ausgabe wechseln</button><button data-translation>Übersetzung / Interlinear</button>' : ''}${b.reference ? '<button class="rw-quiet" data-source-open="1">Im Lesetext öffnen ↗</button>' : ''}<details class="rw-citation"><summary>Quellenangabe</summary><div><p class="rw-field-hint">Ergänze hier fehlende Angaben zur verwendeten Ausgabe.</p>${[['work','Werk'],['edition','Edition'],['translator','Übersetzer'],['editor','Herausgeber'],['publisher','Verlag / Ort'],['year','Jahr'],['locator','Fundstelle'],['url','Quellen-URL']].map(([k,t]) => field(t, 'cite.' + k, b.citation?.[k])).join('')}<details class="rw-provenance"><summary>Übernahmeinformationen</summary><small class="nt">${esc(b.capturedAt)}<br>SHA256: ${esc(b.sourceHash)}</small></details></div></details></div>` : ''}
+      ${b.type === 'source' ? `<div class="rw-source-footer">${b.reference ? '<button data-related-comments>Kommentare hinzufügen</button><button data-explain>Erläuterung hinzufügen</button><button data-source-range>Stelle / Verse ändern</button><button data-source-edition>Ausgabe wechseln</button><button data-translation>Übersetzung / Interlinear</button>' : ''}${b.reference ? '<button class="rw-quiet" data-source-open="1">Im Lesetext öffnen ↗</button>' : ''}<details class="rw-citation"><summary>Quellenangabe</summary><div><p class="rw-field-hint">Ergänze hier fehlende Angaben zur verwendeten Ausgabe.</p>${[['work','Werk'],['edition','Edition'],['translator','Übersetzer'],['editor','Herausgeber'],['publisher','Verlag / Ort'],['year','Jahr'],['locator','Fundstelle'],['url','Quellen-URL']].map(([k,t]) => field(t, 'cite.' + k, b.citation?.[k])).join('')}<details class="rw-provenance"><summary>Übernahmeinformationen</summary><small class="nt">${esc(b.capturedAt)}<br>SHA256: ${esc(b.sourceHash)}</small></details></div></details></div>` : ''}
       ${b.search ? `<details class="rw-search-info"><summary>Aus Suchtreffern übernommen</summary><p class="nt">${esc(b.search.query)}</p><p class="rw-field-hint">Gespeicherter Ausschnitt der Trefferliste · ${esc(b.search.capturedAt)}</p></details>` : ''}</article>`;
     }
     function commentBundle(items,blocks){
       const first=items[0],start=blocks.indexOf(first),last=start+items.length-1,c=first.citation||{},ids=items.map(b=>b.id);
       const region=kind==='sheets'&&draft.layout?.template==='classic'?`<label class="rw-placement">Bereich im Layout<select data-bundle-region>${[['main','Haupttext'],['left','Linker Rand'],['right','Rechter Rand'],['bottom','Unten']].map(([k,t])=>`<option value="${k}" ${(first.region||'main')===k?'selected':''}>${t}</option>`).join('')}</select></label>`:'';
-      return `<section class="rw-block rw-comment-bundle" data-bundle="${start}" data-nav-block="${esc(first.id)}" data-arrange-id="${esc(first.id)}" data-bundle-last-id="${esc(items.at(-1).id)}"><div class="rw-block-head"><button class="rw-drag" draggable="true" data-drag-id="${esc(first.id)}" data-drag-ids="${esc(JSON.stringify(ids))}" aria-label="Kommentargruppe ziehen">⠿</button><h3 class="nt">${esc(c.work)} ${esc(C.section(c))}</h3><div class="rw-reorder"><button data-bundle-move="-1" ${!start?'disabled':''} aria-label="Nach oben">↑</button><button data-bundle-move="1" ${last===blocks.length-1?'disabled':''} aria-label="Nach unten">↓</button></div></div>${region}<p class="rw-edition nt" title="${esc(C.full(c))}">${esc(C.edition(c))} · ${items.length} Abschnitte</p><div class="rw-bundle-text">${items.map(b=>`<div class="rw-comment-fragment"><small class="nt">${esc(C.locator(b.citation?.locator))}</small><p class="rw-pre nt" dir="auto">${esc(b.text)}</p>${b.text!==b.originalText?'<small>Bearbeiteter Auszug</small>':''}</div>`).join('')}</div><details class="rw-bundle-details"><summary>Einzelne Abschnitte bearbeiten</summary>${items.map(b=>blockEditor(b,blocks.indexOf(b))).join('')}</details></section>`;
+      return `<section class="rw-block rw-comment-bundle" data-bundle="${start}" data-nav-block="${esc(first.id)}" data-arrange-id="${esc(first.id)}" data-bundle-last-id="${esc(items.at(-1).id)}"><div class="rw-block-head"><button class="rw-drag" draggable="true" data-drag-id="${esc(first.id)}" data-drag-ids="${esc(JSON.stringify(ids))}" aria-label="Kommentargruppe ziehen">⠿</button><h3 class="nt">${esc(c.work)} ${esc(C.section(c))}</h3><div class="rw-reorder"><button data-bundle-move="-1" ${!start?'disabled':''} aria-label="Nach oben">↑</button><button data-bundle-move="1" ${last===blocks.length-1?'disabled':''} aria-label="Nach unten">↓</button></div></div>${region}<p class="rw-edition nt" title="${esc(C.full(c))}">${esc(C.edition(c))} · ${items.length} Abschnitte</p><div class="rw-bundle-text">${items.map(b=>`<div class="rw-comment-fragment"><small class="nt">${esc(C.locator(b.citation?.locator))}</small><p class="rw-pre nt" dir="auto">${esc(b.text)}</p>${b.text!==b.originalText?'<small>Bearbeiteter Auszug</small>':''}</div>`).join('')}</div><details class="rw-bundle-details"><summary>Einzelne Abschnitte bearbeiten</summary>${items.map(b=>blockEditor(b,blocks.indexOf(b))).join('')}</details><div class="rw-toolbar"><button class="rw-danger" data-remove-ids="${esc(JSON.stringify(ids))}">Kommentargruppe entfernen</button></div></section>`;
     }
     function presentationHtml(b){return window.ResearchPresentation.html(b,esc);}
     function arrangement(blocks){
       const classic=draft.layout?.template==='classic',regions=classic?[['left','Linker Rand'],['main','Haupttext'],['right','Rechter Rand'],['bottom','Unten']]:[['main','Reihenfolge']];
-      return '<p class="rw-field-hint">Ziehe am Griff ⠿. Leere Bereiche nehmen ebenfalls Texte auf. Alternativ stehen im Editor Pfeile und Bereichsauswahl bereit.</p>'+(!classic?'<button data-a="classicArrange">Mit Randspalten anordnen</button>':'')+'<div class="rw-arrangement '+(classic?'classic':'')+'">'+regions.map(([r,t])=>`<section class="rw-drop-region ${r}" data-drop-region="${r}"><h3>${t}</h3>${G.runs(blocks.filter(b=>!classic||(b.region||'main')===r)).map(g=>{const b=g.blocks[0];return `<article class="rw-arrange-card" data-nav-block="${esc(b.id)}" data-arrange-id="${esc(b.id)}" data-bundle-last-id="${esc(g.blocks.at(-1).id)}"><button draggable="true" class="rw-drag" data-drag-id="${esc(b.id)}" data-drag-ids="${esc(JSON.stringify(g.blocks.map(b=>b.id)))}" aria-label="Abschnitt ziehen">⠿</button><b class="nt">${esc(b.title||b.citation?.work||'Text')}${g.blocks.length>1?' · '+g.blocks.length+' Abschnitte':''}</b><p class="nt" dir="auto">${esc((b.type==='note'?(allNotes().find(n=>n.id===b.noteId)?.note||b.text):b.text).slice(0,180))}</p>${g.blocks.length===1&&b.type==='source'&&b.reference?`<button data-arrange-translation="${esc(b.id)}">Übersetzung / Interlinear</button>`:''}</article>`;}).join('')}<p class="rw-drop-hint">Hier ablegen</p></section>`).join('')+'</div>';
+      return '<p class="rw-field-hint">Ziehe am Griff ⠿. Leere Bereiche nehmen ebenfalls Texte auf. Alternativ stehen im Editor Pfeile und Bereichsauswahl bereit.</p>'+(!classic?'<button data-a="classicArrange">Mit Randspalten anordnen</button>':'')+'<div class="rw-arrangement '+(classic?'classic':'')+'">'+regions.map(([r,t])=>`<section class="rw-drop-region ${r}" data-drop-region="${r}"><h3>${t}</h3>${G.runs(blocks.filter(b=>!classic||(b.region||'main')===r)).map(g=>{const b=g.blocks[0];return `<article class="rw-arrange-card" data-nav-block="${esc(b.id)}" data-arrange-id="${esc(b.id)}" data-bundle-last-id="${esc(g.blocks.at(-1).id)}"><button draggable="true" class="rw-drag" data-drag-id="${esc(b.id)}" data-drag-ids="${esc(JSON.stringify(g.blocks.map(b=>b.id)))}" aria-label="Abschnitt ziehen">⠿</button><b class="nt">${esc(b.title||b.citation?.work||'Text')}${g.blocks.length>1?' · '+g.blocks.length+' Abschnitte':''}</b><p class="nt" dir="auto">${esc((b.type==='note'?(allNotes().find(n=>n.id===b.noteId)?.note||b.text):b.text).slice(0,180))}</p><button class="rw-danger" data-remove-ids="${esc(JSON.stringify(g.blocks.map(x=>x.id)))}">${g.blocks.length>1?'Gruppe entfernen':'Entfernen'}</button>${g.blocks.length===1&&b.type==='source'&&b.reference?`<button data-arrange-translation="${esc(b.id)}">Übersetzung / Interlinear</button>`:''}</article>`;}).join('')}<p class="rw-drop-hint">Hier ablegen</p></section>`).join('')+'</div>';
     }
     let dragging=null;
     function bindDragging(){
@@ -188,6 +199,19 @@ window.LibraryResearch = (() => {
       const labels={he:'Hebräisch',en:'Englisch',de:'Deutsch',other:'Andere'};
       const kind=e=>['he','en','de'].includes(e.kind)?e.kind:({he:'he',Hebrew:'he',en:'en',English:'en',de:'de',German:'de'})[e.language]||'other';
       return '<div class="rw-edition-choices">'+['he','en','de','other'].map(k=>{const entries=editions.filter(e=>kind(e)===k);if(!entries.length)return '';return `<section><h3>${labels[k]}</h3>${entries.map(e=>{const p=host.portraitOf?.(e.versionTitle);return `<label class="rw-edition-choice"><input type="${multiple?'checkbox':'radio'}" name="${name}" value="${esc(e.rel)}" ${(multiple?selected.includes(e.rel):e.rel===selected)?'checked':''}>${p?`<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" loading="lazy">`:'<span class="rw-edition-icon" aria-hidden="true">▤</span>'}<span><b class="nt" dir="auto">${esc(e.versionTitle==='merged'?I18N.t('Standardtext')+' (merged)':e.versionTitle)}</b><small>${e.own?'<span class="badge own">eigen</span>':''}${e.morphology?'<span class="vmorph">✓ Morphologie</span>':''}${e.interlinear?'<span class="vil" title="Zuordnungsdaten vorhanden; Textstand wird bei Verwendung geprüft">↔ Interlinear</span>':''}</small></span></label>`;}).join('')}</section>`;}).join('')+'</div>';
+    }
+    async function sourceRangePicker(source){
+      const sheetId=draft.id,savedKind=kind,data=await A.sections(source.reference.rel),d=document.createElement('dialog');d.className='rw-dialog rw-range-dialog';
+      d.innerHTML=`<form><h2>Stelle / Verse ändern</h2><p class="nt">${esc(C.heading(source.citation))}</p><label>Abschnitt<select id="rwRangeSection">${data.sections.map(s=>`<option value="${esc(JSON.stringify(s.path))}" ${JSON.stringify(s.path)===JSON.stringify(source.reference.sectionPath)?'selected':''}>${esc(s.label)}</option>`).join('')}</select></label><label>Verse / Zeilen<input id="rwRangeLabels" value="${esc(C.ranges(source.reference.labels))}" placeholder="z. B. 1–10 oder 2,5,10"></label><p class="rw-field-hint">Leer übernimmt den ganzen Abschnitt. Bereiche und einzelne Verse können kombiniert werden, etwa 2,5–7,10. Übersetzungen und Interlinear bleiben zugeordnet. Eigene Änderungen am Quellentext werden ersetzt.</p><button type="button" id="rwRangeFind">Vorschau anzeigen</button><p class="rw-error" role="alert"></p><div id="rwRangePreview" class="rw-source-preview"></div><div class="rw-toolbar"><button type="submit" class="primary" disabled>Übernehmen</button><button type="button" data-range-cancel>Abbrechen</button></div></form>`;
+      document.body.append(d);
+      await new Promise(resolve=>{let closed=false,generation=0,loaded=null;const section=d.querySelector('#rwRangeSection'),labels=d.querySelector('#rwRangeLabels'),preview=d.querySelector('#rwRangePreview'),error=d.querySelector('.rw-error'),submit=d.querySelector('[type=submit]'),find=d.querySelector('#rwRangeFind');
+        const finish=()=>{if(closed)return;closed=true;generation++;d.close();d.remove();resolve();};
+        function invalidate(){generation++;loaded=null;submit.disabled=true;error.textContent='';preview.innerHTML='';}
+        async function load(){invalidate();const g=generation;find.disabled=true;try{const result=await A.sourceRangePreview({source:copy(source),sectionPath:JSON.parse(section.value),labels:labels.value});if(closed||g!==generation)return;loaded=result;preview.innerHTML=`<h3 class="nt">${esc(C.location(result.citation))}</h3>`+(result.presentation?presentationHtml(result):`<p class="rw-pre nt" dir="auto">${esc(result.text)}</p>`);submit.disabled=false;}catch(err){if(!closed&&g===generation)error.textContent=String(err.message||err).replace(/^Error invoking remote method '[^']*': (Error: )?/,'');}finally{if(!closed&&g===generation)find.disabled=false;}}
+        labels.oninput=()=>{invalidate();find.disabled=false;};section.onchange=()=>{labels.value='';void load();};find.onclick=()=>void load();d.onclose=finish;d.querySelector('[data-range-cancel]').onclick=finish;
+        d.querySelector('form').onsubmit=e=>{e.preventDefault();if(!loaded||submit.disabled)return;try{if(draft?.id!==sheetId||kind!==savedKind)throw Error('Das Quellenblatt wurde gewechselt. Bitte erneut auswählen.');const blocks=draft[kind==='sheets'?'blocks':'items'],at=blocks.findIndex(b=>b.id===source.id);if(at<0||blocks[at].sourceHash!==source.sourceHash||blocks[at].text!==source.text)throw Error('Die Quellenkarte wurde inzwischen geändert. Bitte erneut öffnen.');blocks.splice(at,1,copy(loaded));changed();render();finish();}catch(err){error.textContent=String(err.message||err);}};
+        d.showModal();void load();
+      });
     }
     async function sourceEditionPicker(source){
       const sheetId=draft.id,savedKind=kind,editions=await A.workEditions(copy(source.reference)),d=document.createElement('dialog');d.className='rw-dialog rw-edition-dialog';
@@ -267,7 +291,7 @@ window.LibraryResearch = (() => {
     function updatePagePreview(frame){const request=++previewRequest;void A.sheetPreview(copy(draft)).then(html=>{if(frame.isConnected&&request===previewRequest)frame.srcdoc=html;}).catch(e=>{if(frame.isConnected&&request===previewRequest)status(e.message,true);});}
     function bindEditor() {
       bindSliders(root);
-      root.querySelectorAll('#rwEditor > .rw-editorfields > label [data-f], #rwEditor .rw-document-meta [data-f]').forEach(el => el.oninput = () => { draft[el.dataset.f] = ['tags','topics'].includes(el.dataset.f) ? split(el.value) : el.value; changed(); });
+      root.querySelectorAll('#rwEditor > .rw-editorfields > label [data-f], #rwEditor .rw-document-meta [data-f]').forEach(el => el.oninput = () => { draft[el.dataset.f] = ['tags','topics'].includes(el.dataset.f) ? split(el.value) : el.value; changed('field:'+el.dataset.f); });
       root.querySelectorAll('[data-layout]').forEach(el=>el.onchange=()=>{
         const numeric=['range','number'].includes(el.type),key=el.dataset.layout,value=el.type==='checkbox'?el.checked:numeric?Number(el.value):el.value;
         if(numeric&&(!Number.isFinite(value)||value<Number(el.min)||value>Number(el.max))){el.reportValidity();return;}
@@ -280,6 +304,7 @@ window.LibraryResearch = (() => {
         el.querySelectorAll('[data-bundle-move]').forEach(b=>b.onclick=()=>{const start=blocks.indexOf(g.blocks[0]),end=start+g.blocks.length,step=+b.dataset.bundleMove,neighbor=G.runs(blocks).find(r=>r.blocks.includes(blocks[step<0?start-1:end])),before=step<0?neighbor?.blocks[0]?.id:blocks[end+(neighbor?.blocks.length||0)]?.id||null;if(step<0&&!start||step>0&&end===blocks.length)return;if(window.ResearchArrange.moveMany(blocks,g.blocks.map(b=>b.id),g.blocks[0].region||'main',before)){changed();render();}});
       });
       root.querySelectorAll('[data-arrange-translation]').forEach(el=>el.onclick=()=>run(async()=>{const b=draft[kind==='sheets'?'blocks':'items'].find(b=>b.id===el.dataset.arrangeTranslation);if(b)await translationPicker(b);}));
+      root.querySelectorAll('[data-remove-ids]').forEach(el=>el.onclick=()=>{const ids=new Set(JSON.parse(el.dataset.removeIds)),blocks=draft[kind==='sheets'?'blocks':'items'];blocks.splice(0,blocks.length,...blocks.filter(b=>!ids.has(b.id)));ids.forEach(id=>{editingBlocks.delete(id);expandedBlocks.delete(id);});changed();render();});
       bindDragging();
       root.querySelectorAll('[data-a="classicArrange"]').forEach(e=>e.onclick=()=>{draft.layout={...draft.layout,template:"classic",orientation:"landscape"};changed();render();});
       const frame=root.querySelector('#rwPagePreview');
@@ -287,8 +312,9 @@ window.LibraryResearch = (() => {
       const np = root.querySelector('#rwNoteProject'); if (np) np.onchange = () => { draft.projectId = np.value; changed(); };
       root.querySelectorAll('[data-block]').forEach(article => {
         const i = +article.dataset.block, blocks = draft[kind === 'sheets' ? 'blocks' : 'items'], b = blocks[i];
-        article.querySelectorAll('[data-f]').forEach(el => el.oninput = () => { if (el.dataset.f.startsWith('cite.')) { b.citation ||= {}; b.citation[el.dataset.f.slice(5)] = el.value; } else {b[el.dataset.f] = el.value;if(el.dataset.f==='text')b.presentation=null;} changed(); });
+        article.querySelectorAll('[data-f]').forEach(el => el.oninput = () => { if (el.dataset.f.startsWith('cite.')) { b.citation ||= {}; b.citation[el.dataset.f.slice(5)] = el.value; } else {b[el.dataset.f] = el.value;if(el.dataset.f==='text')b.presentation=null;} changed(b.id+':'+el.dataset.f); });
         const comments=article.querySelector('[data-related-comments]');if(comments)comments.onclick=()=>run(()=>relatedComments(b));
+        const range=article.querySelector('[data-source-range]');if(range)range.onclick=()=>run(()=>sourceRangePicker(b));
         const edition=article.querySelector('[data-source-edition]');if(edition)edition.onclick=()=>run(()=>sourceEditionPicker(b));
         const translation=article.querySelector('[data-translation]');if(translation)translation.onclick=()=>run(()=>translationPicker(b));
         const explain=article.querySelector('[data-explain]');if(explain)explain.onclick=()=>run(()=>editExplanation(b));
@@ -324,6 +350,7 @@ window.LibraryResearch = (() => {
     }
     function projectSources(){return [...state.sheets.filter(s=>s.projectId===projectId).flatMap(s=>s.blocks),...state.collections.filter(c=>c.projectId===projectId).flatMap(c=>c.items)].filter(b=>b.reference);}
     async function action(a) {
+      if(a==='undo'||a==='redo'){restoreHistory(a);return;}
       if(a==='arrange'){arrangeMode=!arrangeMode;pagePreview=false;render();if(arrangeMode)root.querySelector('.rw-arrangement')?.scrollIntoView({block:'start'});return;}
       if(a==='pagePreview'){pagePreview=!pagePreview;arrangeMode=false;render();return;}
       if(a==='projectNew'||a==='projectEdit') {
@@ -336,6 +363,7 @@ window.LibraryResearch = (() => {
       if(a==='import'){if(!leave())return;const r=await A.import();if(r.cancelled)return;state=r.state;projectId=state.projects.at(-1)?.id||projectId;draft=null;dirty=false;persist();message='Projekt als neue Kopie importiert.';render();return;}
       if(a==='new'){if(!leave())return;editingBlocks.clear();expandedBlocks.clear();draft={id:uid(),projectId,title:kind==='sheets'?'Neues Quellenblatt':kind==='collections'?'Neue Sammlung':'Neue Notiz',description:'',tags:[],topics:[],refs:[],note:'',blocks:[],items:[],version:0};legacy=false;dirty=true;persist();render();return;}
       if(a==='save'){
+        history.breakGroup();
         const outgoing = copy(draft), savedKind = kind, wasLegacy = legacy, revision = editRevision;
         if(wasLegacy){ state = await A.legacyNote(outgoing,outgoing.ts||0); await host.notesChanged(); }
         else state = await A.put(savedKind,outgoing,outgoing.version||0);
@@ -361,7 +389,7 @@ window.LibraryResearch = (() => {
         }
         return;
       }
-      if(a==='reload'){if(!leave())return;const id=draft?.id;await refresh();draft=copy((legacy?state.legacyNotes:state[kind]).find(x=>x.id===id)||null);dirty=false;persist();messageError=false;message='Aktueller Stand geladen.';render();return;}
+      if(a==='reload'){if(!leave())return;historyKey='';const id=draft?.id;await refresh();draft=copy((legacy?state.legacyNotes:state[kind]).find(x=>x.id===id)||null);dirty=false;persist();messageError=false;message='Aktueller Stand geladen.';render();return;}
       if(a==='delete'){
         if(legacy)throw Error('Vorhandene Bibliotheksnotizen bitte im Reiter „Notizen“ entfernen.');
         if(!window.confirm('Diesen Eintrag entfernen? Verknüpfte Notizen im Quellenblatt behalten ihre beim Einfügen übernommene Kopie.'))return;
@@ -514,7 +542,7 @@ window.LibraryResearch = (() => {
       else{
         if(!leave())return;
         const existing=state.sheets.find(s=>s.id===chosen.target&&s.projectId===projectId);kind='sheets';legacy=false;
-        draft=existing?copy(existing):{id:uid(),projectId,title:chosen.title,description:'',tags:[],version:0,blocks:[]};draft.blocks.push(...chosen.items);changed();
+        draft=existing?copy(existing):{id:uid(),projectId,title:chosen.title,description:'',tags:[],version:0,blocks:[]};ensureHistory();draft.blocks.push(...chosen.items);changed();
       }
       rememberSheet();host.showTab('research');render();
     }
@@ -522,6 +550,10 @@ window.LibraryResearch = (() => {
     document.addEventListener('click', e => { if (!e.target.closest('.rw-menu')) closeMenus(); });
     document.addEventListener('keydown', e => {
       if (document.documentElement.dataset.tab !== 'research' || document.querySelector('dialog[open]')) return;
+      if((e.metaKey||e.ctrlKey)&&!e.altKey&&draft&&['z','y'].includes(e.key.toLowerCase())){
+        const input=e.target.closest('input,textarea,[contenteditable=true]');if(input&&!input.matches('[data-f],[data-layout],[data-region]'))return;
+        e.preventDefault();void run(()=>action(e.key.toLowerCase()==='y'||e.shiftKey?'redo':'undo'));return;
+      }
       if ((e.metaKey || e.ctrlKey) && !e.altKey && e.key.toLowerCase() === 's' && draft) {
         e.preventDefault(); if (dirty) void run(() => action('save'));
       } else if (e.key === 'Escape') {

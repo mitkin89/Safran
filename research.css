@@ -293,3 +293,6 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 
 .rw-dialog label.rw-capture-display-choice { flex-direction:row; align-items:center; gap:8px; }
 .rw-dialog .rw-capture-display-choice input { width:auto; }
+
+#researchRoot .rw-history { display:flex; gap:4px; }
+#researchRoot .rw-history button { font-size:21px; padding:3px 10px; min-width:34px; }
