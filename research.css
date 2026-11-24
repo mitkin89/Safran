@@ -263,3 +263,12 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 @media(max-width:720px){.rw-pair-tuning{grid-template-columns:1fr}.rw-pair-live{position:static}.rw-pair-sample{max-height:240px}.rw-pair-dialog .rw-edition-choices{max-height:22vh}}
 .rw-pair-context { color:#555; font-size:11px; overflow-wrap:anywhere; margin:4px 0; }
 .rw-pair-dialog { box-sizing:border-box; max-width:96vw; }
+.rw-comment-set { border:1px solid var(--line); border-radius:8px; padding:12px; margin:10px 0; }
+.rw-comment-set>details { margin-top:8px; }
+.rw-comment-set-head { margin:0!important; }
+.rw-comment-bundle>.rw-bundle-text { max-height:400px; overflow:auto; }
+.rw-comment-fragment { margin:12px 0; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.rw-comment-fragment>small { color:var(--muted); }
+#researchRoot .rw-comment-fragment p { margin:5px 0; }
+.rw-bundle-details { margin-top:14px; }
+.rw-bundle-details>.rw-block { margin:12px 0; }

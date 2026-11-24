@@ -17,6 +17,6 @@ test('empty margin columns expand the main text on either side in HTML and Word 
   const blocks=['main',...sides,'bottom'].map(region=>({id:region,type:'text',region,text:region})),l={template:'classic',mainWidth:44};
   assert.deepEqual(L.upper(blocks,l).map(c=>[c.region,c.width]),expected);assert.deepEqual(blocks.map(b=>b.region),['main',...sides,'bottom']);
   const html=E.html({title:'Seite',layout:l,blocks}),upper=html.split('<table class="classic-upper"')[1].split('</table>')[0];assert.equal((upper.match(/class="region /g)||[]).length,expected.length);assert.match(upper,new RegExp('width:'+expected.find(c=>c[0]==='main')[1]+'%'));assert.match(html,/classic-bottom/);
-  const word=xml(E.docx({title:'Seite',layout:l,blocks})),grid=word.match(/<w:tblGrid>(.*?)<\/w:tblGrid>/s)[1],widths=[...grid.matchAll(/w:w="(\d+)"/g)].map(m=>+m[1]);assert.equal(widths.length,expected.length);assert.equal(widths.reduce((a,b)=>a+b,0),11906-2268);widths.forEach((w,i)=>assert(Math.abs(w/(11906-2268)*100-expected[i][1])<.02));assert.match(word,/bottom/);
+  const word=xml(E.docx({title:'Seite',layout:l,blocks})),grid=word.match(/<w:tblGrid>(.*?)<\/w:tblGrid>/s)[1],widths=[...grid.matchAll(/w:w="(\d+)"/g)].map(m=>+m[1]);assert.equal(widths.length,expected.length);assert.equal(widths.reduce((a,b)=>a+b,0),11906-2*Math.round(10*1440/25.4));widths.forEach((w,i)=>assert(Math.abs(w/(11906-2*Math.round(10*1440/25.4))*100-expected[i][1])<.02));assert.match(word,/bottom/);
  }
 });
