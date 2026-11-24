@@ -1,4 +1,4 @@
-// Exact-source morphology for Josephus and Philo. OGA and Gorman remain separate datasets.
+// Exact-source morphology for Josephus, Philo and Aristeas. Source layers stay distinct.
 (function(global){
 'use strict';
 const node=typeof module==='object'&&module.exports,GM=node?require('./gmorph'):global.GMorph;
@@ -19,7 +19,7 @@ function at(doc,path,label,displayWords,manual){
  if(!loci.length)return null;
  for(const locus of loci){
   const base=entries(D,locus);if(!base||base.some(r=>!r||typeof r.form!=='string'))return null;
-  const part=base.map(r=>({...r,analysis:'auto',source:'oga',locus}));
+  const part=base.map(r=>({...r,analysis:'auto',source:D.source==='glaux'?'glaux':'oga',locus}));
   if(manual?.work===D.work){
    const ms=entries(manual,locus);
    if(ms&&ms.every(r=>r&&typeof r.form==='string')&&ms.map(r=>norm(r.form)).join('')===base.map(r=>norm(r.form)).join('')){

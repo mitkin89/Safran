@@ -1,0 +1,18 @@
+{
+  "ocp": {
+    "url": "https://raw.githubusercontent.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/10978a3c548211bb47304f6a2ae0f2e0645be842/static/docs/LetAris.xml",
+    "sha256": "d47611cdcca83e7091731f973b6d7984c39f8bca0a834e55ef3655352f331e57",
+    "edition": "H. St. J. Thackeray, Appendix: The Letter of Aristeas, in H. B. Swete, An Introduction to the Old Testament in Greek, Cambridge 1914, pp. 551–606",
+    "credit": "Online Critical Pseudepigrapha, Ian W. Scott and Ken M. Penner, editors; David M. Miller, edition editor; initial electronic Greek text Craig A. Evans",
+    "license": "CC BY 4.0 (OCP text repository); printed edition public domain",
+    "licenseUrl": "https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/blob/master/LICENSE.CC-BY-4.0"
+  },
+  "glaux": {
+    "url": "https://raw.githubusercontent.com/alekkeersmaekers/glaux/be838c1ac152a0a8380ffbb0844504d7d253c1d6/xml/1183-001.xml",
+    "sha256": "6da93585dcf155da223526a8e02c00d9fa400c2ed9785489d1eb46289995192b",
+    "credit": "GLAUx, Alek Keersmaekers and contributors; Keersmaekers 2021, doi:10.18653/v1/2021.lchange-1.6",
+    "license": "CC BY-SA 4.0 (GLAUx); source text from Greek Wikisource CC BY-SA 3.0, metadata row 1183-001",
+    "licenseUrl": "https://github.com/alekkeersmaekers/glaux#license",
+    "analysis": "Automatic, not manually reviewed; only lemma and morphological tag are imported, no syntax"
+  }
+}

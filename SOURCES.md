@@ -4,6 +4,8 @@
 
 ## Sefaria source and licenses
 
+The Greek **Letter of Aristeas** is bundled from H. St. J. Thackeray (1914) via [Online Critical Pseudepigrapha](https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/blob/master/static/docs/LetAris.xml), **CC BY 4.0** (printed edition public domain). Editors: Ian W. Scott and Ken M. Penner; edition editor David M. Miller, initial electronic Greek text Craig A. Evans. Matched automatic lemma/morphology: [GLAUx](https://github.com/alekkeersmaekers/glaux), Alek Keersmaekers and contributors, **CC BY-SA 4.0**; its Wikisource source text is listed as **CC BY-SA 3.0**. Safran preserves the OCP wording and all 322 section numbers, normalizes Unicode and compacts only safely matched analyses. No syntax or inferred gap filling. Exact source revisions, attribution, coverage and discrepancies: [tools/aristeas/README.md](tools/aristeas/README.md).
+
 All texts, the catalog and the link data come from the public **Sefaria export** ([Sefaria/Sefaria-Export](https://github.com/Sefaria/Sefaria-Export), files hosted in Google Cloud Storage). Sefaria itself is an open-source project: <https://github.com/Sefaria/Sefaria-Project> · <https://www.sefaria.org>.
 
 The texts are **not** covered by this project's license. Each text version has its own license (mostly Creative Commons, some public domain, some restricted); it is listed in the version information on Sefaria and in the exported files. If you reuse or redistribute texts, please follow those licenses and credit Sefaria and the original sources. Texts you import yourself stay on your computer.

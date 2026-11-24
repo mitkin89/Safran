@@ -4,6 +4,8 @@
 
 ## Sefaria-Quelle und Lizenzen
 
+Der griechische **Aristeasbrief** wird nach H. St. J. Thackeray (1914) über [Online Critical Pseudepigrapha](https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha/blob/master/static/docs/LetAris.xml) mitgeliefert, **CC BY 4.0** (Druck gemeinfrei). Herausgeber Ian W. Scott und Ken M. Penner; Aristeas-Ausgabe David M. Miller, ursprünglicher elektronischer Text Craig A. Evans. Zugeordnete automatische Lemmata/Morphologie: [GLAUx](https://github.com/alekkeersmaekers/glaux), Alek Keersmaekers und Mitwirkende, **CC BY-SA 4.0**; dessen Wikisource-Ausgangstext ist mit **CC BY-SA 3.0** verzeichnet. Safran erhält den OCP-Wortlaut und alle 322 Abschnittsnummern, normalisiert Unicode und kodiert nur sicher zugeordnete Analysen kompakt. Keine Syntax und keine erschlossenen Lückenfüllungen. Quellstände, Zuschreibungen, Abdeckung und Abweichungen: [tools/aristeas/README.md](tools/aristeas/README.md).
+
 Alle Texte, der Katalog und die Verknüpfungsdaten stammen aus dem öffentlichen **Sefaria-Export** ([Sefaria/Sefaria-Export](https://github.com/Sefaria/Sefaria-Export), Dateien in Google Cloud Storage). Sefaria selbst ist ein Open-Source-Projekt: <https://github.com/Sefaria/Sefaria-Project> · <https://www.sefaria.org>.
 
 Die Texte fallen **nicht** unter die Lizenz dieses Projekts. Jede Textversion hat ihre eigene Lizenz (meist Creative Commons, manche gemeinfrei, manche eingeschränkt); sie steht in den Versionsinformationen bei Sefaria und in den exportierten Dateien. Wer Texte weiterverwendet oder weitergibt, beachte bitte diese Lizenzen und nenne Sefaria und die Originalquellen. Selbst importierte Texte bleiben auf deinem Rechner.

@@ -498,6 +498,7 @@
     "Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.": "Morphology: ETCBC Syriac Corpus; short glosses in English.",
     "GLAUx / Gorman · manuell annotiert": "GLAUx / Gorman · manually annotated",
     "OGA · automatisch annotiert": "OGA · automatically annotated",
+    "GLAUx · automatisch annotiert": "GLAUx · automatically annotated",
     "Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.": "No securely aligned morphology is available for this word.",
 
     "Vergleichen": "Compare",

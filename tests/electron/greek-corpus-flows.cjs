@@ -22,19 +22,25 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));
   docs.set(entry.rel,{...doc,entry:{...entry,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
  }
+ const aristeas=manifest.items.find(e=>e.title==='Letter of Aristeas'&&e.language==='Greek');
+ for(const entry of manifest.items.filter(e=>e.title==='Letter of Aristeas')){
+  const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));
+  docs.set(entry.rel,{...doc,entry:{...entry,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
+ }
  await js("localStorage.setItem('stackMode','split');localStorage.setItem('stackDictH','42')");
  const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
  await waitFor("document.querySelector('#rOut .cell')",'Wiederhergestellter Leser');
  await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.includes('Philo:'))",'Griechische Bibliothek');
  assert(await js(`[${['The Antiquities of the Jews','The War of the Jews','Against Apion','The Life of Flavius Josephus'].map(t=>JSON.stringify(t)).join(',')}].every(t=>[...document.querySelectorAll('#tree .lib-item')].filter(n=>n.dataset.key.endsWith('¦'+t)).length===1)`));
  assert(await js("![...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.includes('¦Josephus:'))"));
- async function clickFirst(rel){
+ async function clickFirst(rel,label){
+  const selector=label?`#rOut .row[data-l="${label}"] .cell[data-gt]`:'#rOut .cell[data-gt]';
   await waitFor(`[...document.querySelectorAll('#verList input[data-rel]')].some(c=>c.dataset.rel===${JSON.stringify(rel)})`,'Griechische Fassung im gemeinsamen Werk');
   await js(`{const c=[...document.querySelectorAll('#verList input[data-rel]')].find(c=>c.dataset.rel===${JSON.stringify(rel)});if(!c.checked){c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}}`);
   await waitFor(`[...document.querySelectorAll('#rOut .cell[data-gt]')].some(c=>c.dataset.rel===${JSON.stringify(rel)})`,'Gewählte griechische Ausgabe');
   await waitFor("document.querySelector('#rOut .cell[data-gt]')",'Griechischer Text');
   // Scroll the actual character into view: a long parallel-text cell can exceed the viewport.
-  await js(`(()=>{const c=document.querySelector('#rOut .cell[data-gt]'),walk=document.createTreeWalker(c.querySelector('.txt')||c,NodeFilter.SHOW_TEXT);let n;while(n=walk.nextNode()){if(n.parentElement.closest('small,sup,.note'))continue;const m=/[Ͱ-Ͽἀ-῿]/.exec(n.textContent);if(m){const r=document.createRange();r.setStart(n,m.index);r.setEnd(n,m.index+1);const marker=document.createElement('span');marker.id='greekClickTarget';r.surroundContents(marker);marker.scrollIntoView({block:'center',inline:'center'});return;}}throw Error('Greek word missing');})()`);
+  await js(`(()=>{const c=document.querySelector(${JSON.stringify(selector)}),walk=document.createTreeWalker(c.querySelector('.txt')||c,NodeFilter.SHOW_TEXT);let n;while(n=walk.nextNode()){if(n.parentElement.closest('small,sup,.note'))continue;const m=/[Ͱ-Ͽἀ-῿]/.exec(n.textContent);if(m){const r=document.createRange();r.setStart(n,m.index);r.setEnd(n,m.index+1);const marker=document.createElement('span');marker.id='greekClickTarget';r.surroundContents(marker);marker.scrollIntoView({block:'center',inline:'center'});return;}}throw Error('Greek word missing');})()`);
   await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
   const point=await js(`(()=>{const marker=document.querySelector('#greekClickTarget'),b=marker.getBoundingClientRect(),point={x:Math.round(b.left+b.width/2),y:Math.round(b.top+b.height/2)},parent=marker.parentNode;if(!document.elementFromPoint(point.x,point.y)?.closest('.cell[data-gt]'))throw Error('Greek word is not visible');marker.replaceWith(document.createTextNode(marker.textContent));parent.normalize();return point;})()`);
   win.webContents.sendInputEvent({type:'mouseDown',...point,button:'left',clickCount:1});
@@ -99,6 +105,22 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#wpop')?.textContent.includes('No securely aligned morphology')",'Geänderter Wortlaut erhält keine fremde Bestimmung');
  assert(await js("!document.querySelector('#wpop .wdict')"));
  console.log('Electron: Englische Herkunftsanzeige und Schutz vor verändertem Wortlaut bestanden.');
+ await js("document.querySelector('#wpop .wx').click()");
+ await book('Letter of Aristeas');await clickFirst(aristeas.rel);
+ await waitFor("document.querySelector('#wpop [data-source=glaux]')",'Aristeas GLAUx-Morphologie');
+ assert.equal(await js("document.querySelector('#wpop .wlem').textContent"),'ἀξιόλογος');
+ assert(await js("document.querySelector('#wpop').textContent.includes('GLAUx · automatically annotated')"));
+ assert(await js("document.querySelector('#wpop [data-analysis=auto]')!==null"));
+ assert(await js("CSS.highlights.has('gsel')"));
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ assert(await js("(()=>{const p=document.querySelector('#wpop'),r=p.getBoundingClientRect();return r.width>0&&r.height>0&&r.top>=0&&r.bottom<=innerHeight;})()"));
+ await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-aristeas-popup.png',i.toPNG()));
+ await js("document.querySelector('#wpop .wdict').click()");
+ await waitFor("document.querySelector('#dictQ').value==='ἀξιόλογος'",'Aristeas-Lemma im Wörterbuch');
+ await clickFirst(aristeas.rel,'43');
+ await waitFor("document.querySelector('#wpop')?.textContent.includes('No securely aligned morphology')",'Aristeas 43 ohne erfundene Analyse');
+ assert(await js("!document.querySelector('#wpop .wlem')&&!document.querySelector('#wpop .wdict')"));
+ console.log('Electron: Aristeas mit GLAUx-Herkunft, Wortmarkierung, Wörterbuch und ungelöstem Abschnitt 43 bestanden.');
  await js("document.querySelector('#wpop .wx').click()");
  await book('Genesis');
 };
