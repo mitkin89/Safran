@@ -3,6 +3,8 @@
 ### Unreleased
 
 - Add an optional left study area beside the existing right sidebar. Keep different tools open independently, with separate tab history, pins, close actions and saved widths/floating geometry; switch between preserved areas in narrow windows.
+- Masora: separate deutsche Arbeitsübersetzungen für die ersten 10.000 transkribierten Notizen, mit Quellenprüfung, Editionsnachweis und sichtbar markierten offenen beziehungsweise unübersetzten Teilen. Originale bleiben unverändert.
+
 - Masora: Apparat-Bedienelemente für Suche, Einstellungen, Kapitel, Versnavigation und Folgen; Nachladen zählt nur sichtbare Notizen. Erweiterte deutsche Lesehilfen für Einmaligkeit, Zahlen und Schreibformeln mit ausdrücklich offenen Restdeutungen und Bestandsaudit.
 
 - Masora: flacher Apparat mit einmaligem Bezugswort, direkt sichtbarem Originaltext samt Belegstellen und kleinen Aktionen für Erklärung/Quelle; unsichere Seitennotizen nur in der Kapitelansicht.

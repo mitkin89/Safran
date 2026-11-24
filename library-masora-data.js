@@ -97,7 +97,7 @@
     if(!s||s==='ל'||!/^[א-ת]+$/.test(s))return null;
     const values={א:1,ב:2,ג:3,ד:4,ה:5,ו:6,ז:7,ח:8,ט:9,י:10,כ:20,ל:30,מ:40,נ:50,ס:60,ע:70,פ:80,צ:90,ק:100,ר:200,ש:300,ת:400};
     // Standard descending numeral groups; admit the traditional 15/16 spellings.
-    if(!/^[תשרק]*(?:[צפעסנמלכ]?[י]?[אבגדהוזחט]?|ט[וז])$/.test(s))return null;
+    if(!/^ת{0,2}[שרק]?(?:[צפעסנמלכ][אבגדהוזחט]?|י[אבגדהוזחט]?|ט[וז]|[אבגדהוזחט])?$/.test(s))return null;
     const n=[...s].reduce((sum,c)=>sum+values[c],0);return n>0&&n<1000?n:null;
   }
   function explain(entry){

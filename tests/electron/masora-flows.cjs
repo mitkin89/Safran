@@ -26,6 +26,11 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('.masora-primary .masora-entry') && !document.querySelector('.masora-choices')",'Versansicht enthält nur eindeutige Wortbezüge');
  assert(await js("document.querySelector('#masoraScope').value==='verse' && /automatisch|automatically/i.test(document.querySelector('.masora-scope-note').textContent)"));
+ assert(await js("document.querySelector('.masora-primary .masora-translation')"));
+ await js("document.querySelector('.masora-primary .masora-translation').open=true");
+ assert(await js("document.querySelector('.masora-primary .masora-translation .masora-de[lang=de]').textContent.trim().length>0"));
+ await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+ fs.writeFileSync('/tmp/safran-masora-working-translation.png',(await win.webContents.capturePage()).toPNG());
  assert(await js("document.querySelector('.masora-word-nav button') && document.querySelector('.masora-explanation') && document.querySelector('.masora-transcription').tagName==='DIV' && !document.querySelector('.masora-related')"));
  await js("document.querySelector('.masora-primary .masora-explanation').open=true");
  assert(await js("document.querySelector('.masora-explanation').textContent.includes('Lesehilfe')"));

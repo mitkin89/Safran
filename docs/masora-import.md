@@ -195,3 +195,44 @@ Continuation is calculated from the notes actually displayed in the chosen scope
 not all notes found on the source pages. For example Genesis 1:2 has 16 uniquely
 anchored notes among 283 page notes; it therefore has no false continuation button.
 The chapter view can still load real additional page notes in batches of 100.
+
+## German working-translation batch 1
+
+The translation overlay covers the first 10,000 transcribed `mp`/`mm`/`mf` contexts
+in the stable manuscript/page/context order of `masora-index.js`. Empty contexts are
+skipped; all source readings within a selected context are retained in order,
+including empty or damaged readings. The published source files are unchanged.
+This is a working-translation project, **not 10,000 fully verified translations**.
+Every reading is labelled `draft` or `partial`; uncertain/untranslated material is
+visible in brackets and the disclosure says **teilweise offen** when any reading is
+partial. A wholly unparsed source reading remains explicitly untranslated and is
+counted as partial, never presented as a successful translation.
+
+The reproducible translators under `tools/masora/translations/` combine directly
+translated recurring Masorah formulas, inspected exact-text German drafts, and
+reference-anchored biblical quotation extraction. Quotation extraction uses existing
+public-domain German interlinear mappings (preferentially Philippson, with other
+editions attributed per reading). It requires exact Hebrew source-word matching,
+full coverage of those words and no intersecting German segment extending outside
+the matched source span. Ambiguity, source lacunae and noncanonical spelling variants
+are not silently repaired. Where fragments can be translated independently, remaining
+source words are explicitly retained as uncertain. Literal Hebrew wordforms may
+remain in quotation marks when the note discusses their spelling rather than their
+meaning. No translation creates a new source-word anchor or changes verse assignment.
+
+Run `node tools/masora/build-translations.js` to regenerate the four runtime scripts
+and the manifest from the source sequence. The translator `build(rows)` functions
+are deterministic and use no network/API. Intermediate `part-*.json` files are optional
+local staging outputs and are not shipped. `--from-staged-json` can assemble those
+outputs during editorial work. Runtime scripts are lazy-loaded only for needed
+notes, and the app verifies the exact label, type, reading UUIDs, source transcriptions
+and reference labels before displaying an overlay. A changed original is therefore
+shown without its obsolete translation. Failure to load translations does not hide
+the original notes.
+
+The first generated batch contains 10,000 contexts and 29,808 source readings.
+6,479 contexts have draft translations for all readings; 3,521 contain at least one
+partial or wholly unresolved reading. There are 17,924 draft readings and 11,884
+partial readings. These totals are recorded in the generated manifest and checked
+against every record by `tests/masora-translations.test.js`; they must not be
+reported as 10,000 completed translations.

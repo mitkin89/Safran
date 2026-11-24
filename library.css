@@ -2737,3 +2737,7 @@ body .pinp[data-study-side=left]:not(.panel-sized):not(.docked) { left:0!importa
 .masora-word-index { margin-block:5px; font-size:.85em; }
 .masora-word-index > summary { cursor:pointer; color:var(--muted); }
 .masora-word-index .masora-word-nav { max-height:12em; overflow:auto; }
+
+.masora-de { white-space:pre-wrap; }
+.masora-de > small { display:block; font-size:.82em; }
+.masora-translation .masora-de[data-status="partial"] { border-inline-start:2px solid var(--muted); padding-inline-start:6px; }
