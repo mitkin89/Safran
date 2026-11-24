@@ -5,6 +5,27 @@ const R=require('./reader'),PA=require('./peshitta-alignment');
 const digest=d=>crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex');
 const heWords=html=>[...String(html||'').matchAll(/<span class="w"[^>]*>(.*?)<\/span>/g)].map(m=>m[1].replace(/<[^>]+>/g,''));
 const cons=s=>String(s).replace(/[^א-ת]/g,'');
+// Keep only source-span matches present in every complete ordered alignment.
+// Empty CATSS anchors are unaligned Greek words, not evidence against other groups.
+function greekGroups(h,g,c,v){
+ const C=require('./concordance'),html=g.text[c]?.[v];if(typeof html!=='string')return [];
+ const hw=heWords(h.text[c]?.[v]).map(cons),out=[];let offset=0;
+ for(const m of html.matchAll(/<span class="wg\b[^"]*"([^>]*)>([\s\S]*?)<\/span>/g)){
+  const text=C.textOf(m[2]),count=C.tokens(text).length,want=cons(m[1].match(/data-h="([^"]*)"/)?.[1]||'');
+  out.push({text,ix:[],positions:Array.from({length:count},(_,i)=>offset+i+1),want});offset+=count;
+ }
+ if(offset!==C.tokens(C.textOf(html)).length)return [];
+ const anchored=out.filter(x=>x.want),candidates=anchored.map(group=>{
+  const matches=[];for(let start=0;start<hw.length;start++){let joined='';for(let end=start;end<hw.length;end++){joined+=hw[end];if(joined===group.want){matches.push({start,end:end+1});break;}if(!group.want.startsWith(joined))break;}}return matches;
+ });
+ if(!anchored.length||candidates.some(xs=>!xs.length))return [];
+ const forward=[],backward=[];
+ for(let i=0;i<candidates.length;i++)forward[i]=candidates[i].filter(x=>!i||forward[i-1].some(p=>p.end<=x.start));
+ if(!forward.at(-1).length)return [];
+ for(let i=candidates.length-1;i>=0;i--)backward[i]=candidates[i].filter(x=>i===candidates.length-1||backward[i+1].some(n=>x.end<=n.start));
+ anchored.forEach((group,i)=>{const valid=forward[i].filter(x=>backward[i].includes(x));if(valid.length===1)group.ix=Array.from({length:valid[0].end-valid[0].start},(_,k)=>valid[0].start+k+1);});
+ return out.map(({want,...group})=>group);
+}
 async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=__dirname,canonicalDir=path.join(__dirname,'bundled')}){
  const C=require('./concordance'),byBook=new Map(),cache=new Map(),loaded=new Map();
  for(const e of entries){const group=byBook.get(e.title)||[];group.push(e);byBook.set(e.title,group);}
@@ -18,20 +39,6 @@ async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=_
   const data=s&&h&&PA.has(title)?await ps(title):null,sy=data&&PA.prepare(data,h,s)?data:null;
   const gr=h&&g&&await canonical(h)&&await canonical(g)?g:null;
   const out={h,g:gr,s:sy?s:null,sy};prepared.set(title,out);return out;
- }
- function greekGroups(h,g,c,v){
-  const html=g.text[c]?.[v];if(typeof html!=='string')return [];
-  const hw=heWords(h.text[c]?.[v]),out=[];let cursor=0,offset=0;
-  const supplied=[...html.matchAll(/data-h="([^"]*)"/g)].map(m=>cons(m[1])).join('');
-  if(supplied!==hw.map(cons).join(''))return [];
-  for(const m of html.matchAll(/<span class="wg\b[^"]*"([^>]*)>([\s\S]*?)<\/span>/g)){
-   const text=C.textOf(m[2]),count=C.tokens(text).length,want=cons(m[1].match(/data-h="([^"]*)"/)?.[1]||'');let ix=[];
-   if(want){outer:for(let i=cursor;i<Math.min(hw.length,cursor+8);i++){let joined='';for(let j=i;j<Math.min(hw.length,i+5);j++){joined+=cons(hw[j]);if(joined===want){ix=Array.from({length:j-i+1},(_,k)=>i+k+1);cursor=j+1;break outer;}if(!want.startsWith(joined))break;}}}
-   out.push({text,ix,positions:Array.from({length:count},(_,i)=>offset+i+1)});offset+=count;
-  }
-  // Text outside the supplied groups must not shift occurrence numbers.
-  if(offset!==C.tokens(C.textOf(html)).length)return [];
-  return out;
  }
  function peer(d,c,v,words,source,mtRef,positions){
   const p=[c,v],loc=R.makeLocator(d.text,d.sectionNames)(p);if(!loc)return null;
@@ -69,4 +76,4 @@ async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=_
  }
  return results;
 }
-module.exports={attach};
+module.exports={attach,greekGroups};
