@@ -119,6 +119,8 @@ Und alles Weitere:
 </tr>
 </table>
 
+**Recherche und Quellenblätter:** Im Reiter **Recherche** bündelst du Quellenblätter, wiederverwendbare Sammlungen und Notizen nach Projekten. **＋ Quellenblatt** im Lesefenster oder Kommentarbereich übernimmt die gewählte Edition; **Treffer sammeln** sichert Suchergebnisse. Ordne Quellenauszüge, eigene Texte und verknüpfte Notizen, ergänze bibliografische Angaben und exportiere Quellenblätter als PDF, DOCX oder HTML. Projekte lassen sich als JSON-Paket teilen; Forschungsdaten als CSV und Annotationen als JSON-LD ausgeben. [Anleitung, Formate und Grenzen](docs/RESEARCH.md).
+
 **Bücher zweisprachig drucken:** Öffne das Buch und wähle die hebräische und deutsche Fassung als Spalten. Unter **⋯ → Exportieren …** kannst du den aktuellen Abschnitt, einen Abschnitts-/Kapitelbereich oder **Ganzes Buch** als PDF oder Word exportieren. Die Fassungen stehen versweise nebeneinander; Fußnoten, eigene Notizen und Verknüpfungen sind optional. Die PDF lässt sich anschließend normal drucken.
 
 Die Textschriftgrößen übernimmt der Export aus **Anzeige**: Grundschrift sowie die getrennten Größen für Hebräisch, Deutsch und die anderen Sprachen. Stelle sie vor dem Export so ein, wie du sie drucken möchtest.
