@@ -14,6 +14,9 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Peschitta-Wortkarte öffnen": "Open Peshitta word card",
+    "Die Peschitta-Stelle konnte nicht eindeutig zugeordnet werden.": "The Peshitta occurrence could not be matched unambiguously.",
+    "Die Peschitta-Wortkarte konnte nicht geöffnet werden. Bitte die Quellenzuordnung prüfen.": "The Peshitta word card could not be opened. Please check the source alignment.",
     "Lesebasis": "Reading basis",
     "Verse im Lesetext": "Verses in the reading text",
     "Quellzählung": "Source numbering",

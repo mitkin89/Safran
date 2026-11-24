@@ -2591,3 +2591,7 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
  #tab-search #sRight:has(#sxExamples:not([hidden])) { position:static; max-height:none; overflow:visible; order:-1; }
 }
 html.split #sRight:has(#sxExamples:not([hidden])) { position:static; max-height:none; overflow:visible; order:-1; }
+.tc-ps-sy .tc-ps-word { appearance: none; font: inherit; line-height: inherit; color: inherit; background: transparent; border: 0; border-radius: 3px; box-shadow: none; padding: 0 1px; margin: 0; cursor: pointer; text-decoration: underline dotted; text-underline-offset: .2em; }
+.tc-ps-sy .tc-ps-word:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.tc-ps-sy .tc-ps-word:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tc-ps-card-error { display: inline-block; margin: 0 8px; color: var(--muted); font-size: .85em; }

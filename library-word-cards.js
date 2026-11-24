@@ -130,7 +130,7 @@ window.LibraryWordCards = (() => {
       fmCur={syriac:true,greek:false,lemma:key,lem:[query],model,id,query};
       fmShowTab();
       host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}"${id?` data-sedra-id="${id}"`:''}>${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
-      host.$('#wcBody').innerHTML=out.card+`<section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`;host.$('#fmBody').innerHTML=out.forms;
+      host.$('#wcBody').innerHTML=(info.apparatusSource?`<p class="sc-apparatus-source muted"><bdi lang="syr" dir="rtl">${host.esc(info.apparatusSource.form)}</bdi> · ${host.esc(I18N.t('Peschitta-Zählung'))}: ${host.esc(info.apparatusSource.book)} ${host.esc(info.apparatusSource.ref)}${info.apparatusSource.ref!==info.apparatusSource.mtRef?' · '+host.esc(I18N.t('MT-Zählung'))+': '+host.esc(info.apparatusSource.mtRef):''}</p>`:'')+out.card+`<section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`;host.$('#fmBody').innerHTML=out.forms;
       host.$('#wcBody').insertAdjacentHTML('beforeend',`<section class="wcSec" id="wcSyriacMentions"><h4>${host.esc(I18N.t('Syrische Belege in anderen Wörterbüchern'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`);
       wcSyriacMentions(token);
       wcDicts(token);

@@ -1018,6 +1018,12 @@
     openWord: w => wordPopupUI.openSamaritanWord(w),
     openQumran: w => wordPopupUI.openQumranWord(w),
     openGreek: (w, source) => wordPopupUI.openGreekApparatus(w, source),
+    readPeshitta:async(book,source)=>{
+      const entry=entries.find(e=>e.rel===source.rel)||entries.find(e=>e.title===book&&e.language==='Syriac'&&e.versionTitle===source.versionTitle);
+      return entry?(cache.get(entry.rel)||await O.read(entry.rel)):null;
+    },
+    matchSyriacAnalysis:(...args)=>wordCardsUI.matchSyriacAnalysis(...args),
+    openSyriacCard:(...args)=>wordCardsUI.openSForms(...args),
     openGreekCard: (lemma, info, mode) => mode === 'all' ? wordCardsUI.gSearchAll(lemma) : wordCardsUI.openGForms(lemma, info, mode),
     markMt: (ref, start, end, expected) => {
       const match = /^(.*) (\d+):(\d+)$/.exec(ref);
