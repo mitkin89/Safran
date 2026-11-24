@@ -69,7 +69,7 @@ window.LibraryCommentary = (() => {
       const v = whole ? 0 : rowVerse(reader.row), page = whole && /[ab]$/i.test(secChapOf(s));
       $('#cmtTitle').textContent = whole ? `${reader.view.group.title} ${s.label.replace(/^\D+/, '')} · ${I18N.t(page ? 'Seite' : 'Kapitel')}`
         : s && v != null ? `${virt ? virt.title : reader.view.group.title} ${s.label.replace(/^\D+/, '')}:${reader.row}` : 'Kommentare';
-      { const wb = $('#cmtWhole'); wb.hidden = whole || virt || !s || secChapOf(s) == null; wb.textContent = I18N.t(s && /[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Kommentare zum ganzen Kapitel bzw. zur ganzen Seite'); }
+      { const wb = $('#cmtWhole'); wb.hidden = !!virt || !s || secChapOf(s) == null; wb.textContent = I18N.t(whole?'Ausgewählter Vers':s && /[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = wb.textContent;wb.setAttribute('aria-pressed',String(whole)); }
       if (!s) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Öffne ein Buch.</p>'; return; }
       if (!reader.linksReady) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Dafür werden die Verknüpfungen gebraucht: Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“.</p>'; return; }
       if (v == null) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Klicke links bei einer Zeile auf die Versnummer.</p>'; return; }

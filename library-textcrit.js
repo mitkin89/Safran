@@ -342,7 +342,7 @@ function create(host){
     if(!follow||e.target.closest?.('aside, #tcHover, dialog'))return;
     clearTimeout(followTimer);followTimer=setTimeout(followNow,200);
   },{passive:true,capture:true});
-  return {open:()=>toggle(true),refresh:render,select:label=>{if(label!=null)selected=String(label);render();},close:()=>toggle(false)};
+  return {open:()=>toggle(true),refresh:render,select:(label,verseOnly=false)=>{if(label!=null)selected=String(label);if(verseOnly){whole=false;lastContentKey=null;}render();},close:()=>toggle(false)};
 
 }
 return {create};

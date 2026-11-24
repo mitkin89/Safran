@@ -46,6 +46,7 @@ const handlers={
  'app:calendar':()=>({today:'2026-11-17',items:[]}), 'app:checkUpdate':()=>({current:'2.5.0'}),
  'app:setLang':()=>true,'app:setTheme':()=>true,'app:startupLog':()=>true,
 };
+if(process.env.SAFRAN_SMOKE_VERSE_TOOLS==='1'){handlers['links:status']=()=>({ready:true,complete:true,done:[],total:2});handlers['links:section']=()=>[{v1:1,v2:1,cat:'tanakh',type:'quotation',other:'Exodus 1:1'},{v1:2,v2:2,cat:'tanakh',type:'quotation',other:'Exodus 1:2'}];}
 const readerExtras=require('./reader-extras.cjs')({profile,handlers});
 for(const [channel,fn]of Object.entries(handlers))ipcMain.handle(channel,fn);
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -84,6 +85,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  if(process.env.SAFRAN_SMOKE_QUMRAN_ALL==='1'){await require('./qumran-all-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_DICT==='1'){await waitFor('window.OSHB_LEMMAS','Lemmaindex für den isolierten Wörterbuchtest');await dictionaryFlows({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_WORD_DBL==='1'){await require('./word-double-click-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_VERSE_TOOLS==='1'){await require('./verse-tools-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){await require('./bible-defaults-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_VERSIONS==='1'){
   await require('./version-menu-flows.cjs')({docs,win,js,waitFor,book});

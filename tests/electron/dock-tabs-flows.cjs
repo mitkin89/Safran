@@ -33,7 +33,7 @@ module.exports=async({win,js,waitFor,book})=>{
  const size=await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)");
  await js("document.querySelector('#masoraFsPlus').click()");
  assert.equal(await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)"),size+1);
- await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .verse-tool').click()");
  await waitFor("!document.querySelector('#masoraPanel').hidden && document.querySelector('#masoraPlace').textContent.includes('Genesis 1:2')",'Masora folgt dem ausgewählten Vers');
  await js("document.querySelector('#nextSec').click()");
  await waitFor("document.querySelector('#masoraPlace').textContent.includes('Genesis 2')",'Masora folgt dem Kapitel');
