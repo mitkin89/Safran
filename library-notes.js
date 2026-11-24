@@ -4,7 +4,8 @@ window.LibraryNotes = (() => {
   function create(host) {
   // ---------- Lesezeichen und Notizen ----------
   const NT = window.notes;
-  let notesAll = [];
+  let notesAll = [], workspace = null;
+  const quickDraftKey="notesQuickDraft";
   const noteTags = n => (Array.isArray(n.tags) ? n.tags : []);
   const kindOf = n => n.kind || 'row'; // 'row' = Lesezeichen an einer Zeile, 'free' = freie Notiz ('hl' = frühere Farbmarkierungen: bleiben in der Datei, werden aber nicht mehr angezeigt)
   const newId = p => p + '|' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
@@ -23,7 +24,7 @@ window.LibraryNotes = (() => {
         let d = host.cache.get(v.rel); if (!d) { d = await host.O.read(v.rel); d.__b = v.bytes || 2e6; host.cache.set(v.rel, d); }
         const row = host.R.flattenNode(host.R.getByPath(d.text, JSON.parse(n.sk))).find(r => r.label === n.row);
         const he = row ? plain(row.html).slice(0, 200) : '';
-        if (/[\u0590-\u05FF]/.test(he)) { await NT.save({ ...n, he, keepTs: true }); changed = true; }
+        if (/[\u0590-\u05FF]/.test(he)) { await NT.save({ ...n, he, keepTs: true, expectedTs:n.ts||0 }); changed = true; }
       } catch { /* egal */ }
     }
     if (changed) { notesAll = await NT.list(); renderNotes(); }
@@ -101,7 +102,7 @@ window.LibraryNotes = (() => {
     if (/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) return;
     e.preventDefault(); bar.querySelector('button').click();
   });
-  async function loadNotes() { notesAll = await NT.list(); renderNotes(); markNotes(); backfillHe(); }
+  async function loadNotes() { try { notesAll = await NT.list(); if(workspace)await workspace.refresh();else renderNotes();markNotes();backfillHe(); }catch(e){workspace?.renderList();const el=host.$('#nwStatus')||host.$('#nCount');el.textContent='Notizen konnten nicht geladen werden: '+String(e.message||e);el.setAttribute('role','alert');} }
   function markNotes() {
     { const bl = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id)); host.$$('#passOut .pstar').forEach(b => { const on = bl.has(b.dataset.id); b.textContent = on ? '★' : '☆'; b.classList.toggle('on', on); }); }
     if (!host.view || !host.view.group) return;
@@ -131,8 +132,9 @@ window.LibraryNotes = (() => {
   // Notiz-Fenster für alle drei Arten
   let editing = null, editingOld = null;
   function openNoteDlg(it, o = {}) {
-    editing = it;
+    editing = structuredClone(it);
     editingOld = notesAll.some(x => x.id === it.id) ? JSON.parse(JSON.stringify(it)) : null; // für „Rückgängig“ beim Überschreiben
+    try{const saved=JSON.parse(localStorage.getItem(quickDraftKey)||'null');if(saved?.record?.id===it.id){editing=saved.record;editingOld=saved.base;it=editing;}}catch{}
     const k = kindOf(it);
     host.$('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${k === 'block' ? (it.vs || I18N.t('ganzes Kapitel')) : it.row}`;
     host.$('#ndExcerpt').textContent = k === 'free' ? '' : [it.he, it.excerpt].filter(Boolean).join('\n');
@@ -186,13 +188,13 @@ window.LibraryNotes = (() => {
       if (!editing.note && !editing.title) { host.$('#noteDlg').close(); return; }
     }
     const old = editingOld;
-    const r = await ntDo(() => NT.save(editing)); if (!r) return; notesAll = r; host.$('#noteDlg').close(); refreshNotes();
+    const r = await ntDo(() => NT.save({...editing,expectedTs:editingOld?.ts||0})); if (!r) return; notesAll = r;try{localStorage.removeItem(quickDraftKey);}catch{}host.$('#noteDlg').close();refreshNotes();if(workspace)await workspace.refresh();
     if (old && old.note && old.note !== editing.note) showUndo(old, 'Notiz geändert');
   };
   host.$('#ndDel').onclick = async () => { const id = editing.id; host.$('#noteDlg').close(); await removeNote(id); };
   host.$('#ndClose').onclick = () => host.$('#noteDlg').close();
-  // Enter bestätigt die Notiz (Umschalt+Enter = neue Zeile)
-  host.$('#ndText').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); host.$('#ndSave').click(); } });
+  // Enter bleibt ein Zeilenumbruch; Cmd/Strg+S speichert.
+  host.$('#ndText').addEventListener('keydown', e => { if ((e.metaKey||e.ctrlKey) && e.key.toLowerCase() === 's' && !e.isComposing) { e.preventDefault(); host.$('#ndSave').click(); } });
   host.$('#ndTitleIn').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); host.$('#ndText').focus(); } });
   { const th = host.$('#uiTheme'); th.value = window.Theme.get(); th.onchange = () => { window.Theme.set(th.value); try { host.O.setTheme && host.O.setTheme(th.value); } catch { /* egal */ } }; try { host.O.setTheme && host.O.setTheme(th.value); } catch { /* egal */ } }
   host.$('#nNew').onclick = () => openNoteDlg({ id: newId('free'), kind: 'free', title: '', note: '', order: topOrder() }, {});
@@ -224,25 +226,26 @@ window.LibraryNotes = (() => {
   try { nExp = JSON.parse(localStorage.getItem('nExp') || '{}') || {}; } catch { nExp = {}; }
   const lsArr = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a.filter(x => typeof x === 'string' || (/^search/.test(k) && x && typeof x === 'object' && typeof x.q === 'string')) : []; } catch { return []; } }; // gespeicherte Suchen dürfen auch { q, l, m } sein
   async function exportNotes(fmt) {
-    let list = notesAll.slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
+    let list = (workspace?workspace.all():notesAll).slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
     const day = new Date().toISOString().slice(0, 10);
     if (fmt !== 'json') {
-      if (nExp.filtered) list = filteredNotes().list;
-      if (nExp.noNote) list = list.filter(n => kindOf(n) !== 'free').map(n => ({ ...n, note: '' }));
+      if (nExp.filtered) list = workspace?workspace.filtered():filteredNotes().list;
+      if (nExp.noNote) list = list.filter(n => workspace?window.NotesWorkspaceData.kind(n)!=='free':kindOf(n)!=='free').map(n => ({ ...n, note: '' }));
       if (nExp.heOnly) list = list.map(n => ({ ...n, excerpt: n.he ? '' : n.excerpt }));
       list = list.filter(n => kindOf(n) !== 'hl');
     }
     if (fmt === 'json') {
-      await window.api.saveFile(`Safran-Notizen-${day}.json`, JSON.stringify({ app: 'Safran', kind: 'notes', version: 1, exported: new Date().toISOString(), items: list, dictFavs: lsArr('dictFavs'), dictRecent: lsArr('dictRecent'), searchFavs: lsArr('searchFavs'), searchRecent: lsArr('searchRecent') }, null, 1));
+      await window.api.saveFile(`Safran-Notizen-${day}.json`, JSON.stringify({ app: 'Safran', kind: 'notes', version: workspace?2:1, exported: new Date().toISOString(), items: workspace?hostLegacyBackup():list, ...(workspace?{research:workspace.backup()}:{}), dictFavs: lsArr('dictFavs'), dictRecent: lsArr('dictRecent'), searchFavs: lsArr('searchFavs'), searchRecent: lsArr('searchRecent') }, null, 1));
       return;
     }
     const day2 = new Date().toLocaleDateString(I18N.loc);
-    const whereOf = n => { const k = kindOf(n); return k === 'free' ? '' : [n.title, n.secLabel, k === 'block' ? (n.vs || 'ganzes Kapitel') : n.row].filter(Boolean).join(' · '); };
+    const whereOf = n => { if(n.refs?.length)return n.refs.map(r=>[r.label,r.citation?.edition].filter(Boolean).join(' — ')).join('; ');const k = kindOf(n); return k === 'free' ? '' : [n.title, n.secLabel, k === 'block' ? (n.vs || 'ganzes Kapitel') : n.row].filter(Boolean).join(' · '); };
     if (fmt === 'md') {
       const md = ['# Safran – Notizen und Favoriten', '', `Exportiert am ${day}`, ''];
       for (const n of list) {
         const where = whereOf(n), url = host.noteUrl(n);
-        md.push('## ' + (where ? (url ? `[${where}](${url})` : where) : 'Notiz'), '');
+        md.push('## ' + (where ? (url ? `[${where}](${url})` : where) : (n.noteTitle||n.title||'Notiz')), '');
+        for(const ref of n.refs||[])if(ref.quote&&ref.quote!==n.excerpt)md.push('> '+String(ref.quote).replace(/\n/g,'\n> '),'');
         if (n.he) md.push('> ' + String(n.he).replace(/\n+/g, ' '), '');
         if (n.excerpt) md.push('> ' + String(n.excerpt).replace(/\n+/g, ' '), '');
         if (n.note) md.push(String(n.note), '');
@@ -255,7 +258,7 @@ window.LibraryNotes = (() => {
     // Word / PDF
     const body = list.map(n => {
       const where = whereOf(n), url = host.noteUrl(n);
-      return `<div class="n"><h2>${url ? `<a href="${host.esc(url)}">${host.esc(where)}</a>` : host.esc(where || 'Notiz')}</h2>${n.he ? `<p class="he" dir="rtl">${host.esc(n.he)}</p>` : ''}${n.excerpt ? `<p class="ex">${host.esc(n.excerpt)}</p>` : ''}${n.note ? `<p class="nt">${host.esc(n.note).replace(/\n/g, '<br>')}</p>` : ''}${noteTags(n).length ? `<p class="ex">Tags: ${host.esc(noteTags(n).join(', '))}</p>` : ''}</div>`;
+      return `<div class="n"><h2>${url ? `<a href="${host.esc(url)}">${host.esc(where)}</a>` : host.esc(where || n.noteTitle || n.title || 'Notiz')}</h2>${n.he ? `<p class="he" dir="rtl">${host.esc(n.he)}</p>` : ''}${n.excerpt ? `<p class="ex">${host.esc(n.excerpt)}</p>` : ''}${(n.refs||[]).filter(r=>r.quote&&r.quote!==n.excerpt).map(r=>`<p class="ex" dir="auto">${host.esc(r.quote).replace(/\n/g,'<br>')}</p>`).join('')}${n.note ? `<p class="nt">${host.esc(n.note).replace(/\n/g, '<br>')}</p>` : ''}${noteTags(n).length ? `<p class="ex">Tags: ${host.esc(noteTags(n).join(', '))}</p>` : ''}</div>`;
     }).join('');
     const css = `body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.45;color:#000}h1{font-size:16pt}h2{font-size:12pt;margin:14pt 0 3pt}h2 a{color:#1a4f9c;text-decoration:none}.he{font-family:"SBL Hebrew","Times New Roman",serif;font-size:14pt;line-height:1.7;margin:2pt 0}.ex{color:#333;margin:2pt 0}.nt{background:#fff6d6;padding:3pt 6pt;margin:3pt 0}.n{page-break-inside:avoid}`;
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>Safran – Notizen</title><style>${css}</style></head><body><h1>Safran – Notizen und Favoriten</h1><p style="font-size:9pt;color:#666">${host.esc(I18N.t('Exportiert am {}', day2))}</p>${body}</body></html>`;
@@ -267,19 +270,20 @@ window.LibraryNotes = (() => {
     let j; try { j = JSON.parse(f.text); } catch { j = null; }
     const items = j && Array.isArray(j.items) ? j.items.filter(x => x && typeof x.id === 'string') : null;
     const extra = j && typeof j === 'object' ? ['dictFavs', 'dictRecent', 'searchFavs', 'searchRecent'].filter(k => Array.isArray(j[k]) && j[k].length) : [];
-    if ((!items || !items.length) && !extra.length) return alert(I18N.t('Diese Datei ist keine Notizsicherung.'));
+    if ((!items || !items.length) && !extra.length && !j?.research?.notes?.length) return alert(I18N.t('Diese Datei ist keine Notizsicherung.'));
     // Vorschau: was würde neu, aktualisiert oder bliebe gleich?
     { const have = new Map(notesAll.map(n => [n.id, n])); let nn = 0, nu = 0, ns = 0; const names = [];
       for (const it of items || []) { const c = have.get(it.id); if (!c) { nn++; if (names.length < 6) names.push([it.title, it.secLabel, it.vs || it.row].filter(Boolean).join(' · ') || I18N.t('Eigene Notiz')); } else if ((it.ts || 0) > (c.ts || 0)) nu++; else ns++; }
       const warn = j && j.app && j.app !== 'Safran' ? I18N.t('Achtung: Die Datei stammt nicht aus Safran.') + '\n\n' : '';
       const msg = warn + I18N.t('Aus der Sicherung: {#} neu, {#} aktualisiert, {#} unverändert.', nn, nu, ns) + (names.length ? '\n\n' + I18N.t('Neu zum Beispiel:') + '\n• ' + names.join('\n• ') : '') + '\n\n' + I18N.t('Zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.');
-      if (!confirm(msg)) return; }
+      if (!confirm(msg+(j.research?.notes?.length?'\nProjektnotizen: '+j.research.notes.length:''))) return; }
     // gespeicherte Wörter und Suchen: Einträge der Sicherung kommen dazu (ohne Doppelte), die vorhandenen bleiben vorn
     { const qOf = x => (typeof x === 'string' ? x : x && typeof x === 'object' && typeof x.q === 'string' ? x.q : ''); // Suchen können auch { q, l, m } sein (mit Sprache und Treffer-Art)
       for (const k of extra) { try { const have = lsArr(k), hq = new Set(have.map(qOf)), obj = /^search/.test(k), add = j[k].filter(x => qOf(x) && (typeof x === 'string' || obj) && !hq.has(qOf(x))).map(x => (typeof x === 'string' ? x : { q: x.q, l: String(x.l || ''), m: String(x.m || '') })); localStorage.setItem(k, JSON.stringify([...have, ...add].slice(0, 200))); } catch { /* egal */ } } }
+    if(j.research)await window.research.importNotes(j.research);
     const r = items && items.length ? await ntDo(() => NT.merge(items)) : { items: notesAll, stat: { added: 0, updated: 0, same: 0 } };
     if (!r) return;
-    notesAll = r.items; refreshNotes(); if (typeof host.renderSaved === 'function') try { host.renderSaved(); } catch { /* egal */ } if (typeof host.renderSearchSaved === 'function') try { host.renderSearchSaved(); } catch { /* egal */ }
+    notesAll = r.items;refreshNotes();if(workspace)await workspace.refresh();if (typeof host.renderSaved === 'function') try { host.renderSaved(); } catch { /* egal */ } if (typeof host.renderSearchSaved === 'function') try { host.renderSearchSaved(); } catch { /* egal */ }
     alert(I18N.t('Eingelesen: {#} neu, {#} aktualisiert, {#} unverändert.', r.stat.added, r.stat.updated, r.stat.same));
   }
   host.$('#nFsPlus').onclick = () => { nfs = Math.min(28, nfs + 1); applyNfs(); };
@@ -326,9 +330,10 @@ window.LibraryNotes = (() => {
     }).join('\n');
   }
   function renderNotes() {
+    if(workspace){workspace.renderList();return;}
     const { f, shown, list } = filteredNotes();
     const book = nSort === 'book';
-    { const nb = new Set(list.filter(n => kindOf(n) !== 'free').map(n => n.title)).size;
+    { const nb = new Set(list.filter(n => workspace?window.NotesWorkspaceData.kind(n)!=='free':kindOf(n)!=='free').map(n => n.title)).size;
       host.$('#nCount').textContent = book && nb ? I18N.t('{#} von {#} · {#} Bücher', list.length, shown.length, nb) : I18N.t('{#} von {#}', list.length, shown.length); }
     // Tags: Auswahlleiste und Vorschläge im Dialog
     { const cnt = new Map(); shown.forEach(n => noteTags(n).forEach(t => cnt.set(t, (cnt.get(t) || 0) + 1)));
@@ -418,7 +423,14 @@ window.LibraryNotes = (() => {
   });
   window.addEventListener('focus', () => { loadNotes().catch(() => {}); }); // Änderungen aus dem anderen Fenster übernehmen
 
+  const hostLegacyBackup=()=>structuredClone(notesAll);
+  workspace=window.LibraryNotesWorkspace.create({getLegacy:()=>notesAll,reload:loadNotes,getResearch:host.getResearch});
+  function quickDraft(){if(!editing)return null;return {record:{...structuredClone(editing),note:host.$('#ndText').value,tags:[...new Set(host.$('#ndTags').value.split(/[,;]/).map(s=>s.trim()).filter(Boolean))],...(kindOf(editing)==='free'?{title:host.$('#ndTitleIn').value}:{}),_store:'legacy'},base:editingOld?{...structuredClone(editingOld),_store:'legacy'}:null};}
+  for(const id of ['ndText','ndTitleIn','ndTags'])host.$('#'+id).addEventListener('input',()=>{try{localStorage.setItem(quickDraftKey,JSON.stringify(quickDraft()));}catch{}});
+  host.$('#ndLarge').onclick=()=>{const saved=quickDraft();host.$('#noteDlg').close();host.showTab('notes');workspace.edit(saved.record,saved.base);};
+  async function openWorkspace(){await loadNotes();try{const saved=JSON.parse(localStorage.getItem(quickDraftKey)||'null');if(saved?.record&&!document.querySelector('#noteDlg[open]')&&!(workspace.draft?._store==='legacy'&&workspace.draft.id===saved.record.id))workspace.edit(saved.record,saved.base);}catch{}}
     return {
+      openWorkspace,
       get kindOf() { return kindOf; },
       get loadNotes() { return loadNotes; },
       get markNotes() { return markNotes; },

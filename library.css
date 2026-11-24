@@ -2745,3 +2745,43 @@ body .pinp[data-study-side=left]:not(.panel-sized):not(.docked) { left:0!importa
 .masora-de { white-space:pre-wrap; }
 .masora-de > small { display:block; font-size:.82em; }
 .masora-translation .masora-de[data-status="partial"] { border-inline-start:2px solid var(--muted); padding-inline-start:6px; }
+
+/* Shared notebook: compact navigation, full editor, preserved source excerpts. */
+#tab-notes .bar { flex-wrap:wrap; }
+#tab-notes .nw-filters { display:flex; flex-wrap:wrap; gap:12px; align-items:end; margin:12px 0 20px; }
+#tab-notes .nw-filters label { display:flex; flex-direction:column; gap:5px; font-size:12px; color:var(--muted); min-width:150px; }
+#tab-notes .nw-filters select { max-width:260px; }
+#nOut .nw-layout { display:grid; grid-template-columns:minmax(235px,300px) minmax(0,1fr); gap:24px; align-items:start; }
+#nOut .nw-sidebar { display:block; position:sticky; top:70px; width:auto; height:auto; max-height:calc(100vh - 100px); overflow:auto; background:transparent; padding:0 12px 0 0; border:0; border-inline-end:1px solid var(--line); }
+#nOut .nw-list-row { display:flex; align-items:start; gap:4px; margin:0 0 6px; }
+#nOut .nw-item { display:block; flex:1; min-width:0; text-align:start; white-space:normal; padding:12px; border:1px solid transparent; border-radius:8px; background:transparent; color:inherit; overflow-wrap:anywhere; }
+#nOut .nw-item.active { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); }
+#nOut .nw-item b,#nOut .nw-item small,#nOut .nw-item span { display:block; }
+#nOut .nw-item b { font-size:14px; margin-bottom:5px; }
+#nOut .nw-item small { color:var(--muted); font-size:11px; margin:4px 0; }
+#nOut .nw-item span { font-size:12px; line-height:1.5; }
+#nOut .nw-order { display:flex; flex-direction:column; }
+#nOut .nw-order button { padding:2px 5px; min-height:24px; background:transparent; border:0; }
+#nOut #nwEditor { min-width:0; padding-bottom:30px; }
+#nOut .nw-editorbar { position:sticky; top:60px; z-index:3; background:var(--bg); display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:10px 0 12px; border-bottom:1px solid var(--line); margin-bottom:14px; }
+#nOut #nwSaveState { color:var(--muted); font-size:12px; margin-inline-end:auto; }
+#nOut #nwEditor label,.nw-dialog label { display:flex; flex-direction:column; gap:6px; margin:12px 0; color:var(--muted); font-size:12px; }
+#nOut #nwEditor input,#nOut #nwEditor select,#nOut #nwEditor textarea,.nw-dialog input,.nw-dialog textarea { width:100%; box-sizing:border-box; color:var(--fg); font:inherit; padding:10px; }
+#nOut #nwTitle { font-size:24px; font-weight:650; }
+#nOut #nwText { resize:vertical; min-height:360px; font-size:var(--nfs,15px); line-height:1.8; unicode-bidi:plaintext; }
+#nOut .nw-hint { font-size:12px; color:var(--muted); }
+#nOut .nw-meta { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+#nOut .nw-ref { border:1px solid var(--line); border-radius:8px; margin:10px 0; padding:12px; }
+#nOut .nw-ref>div { display:flex; justify-content:space-between; gap:8px; }
+#nOut .nw-ref button { text-align:start; white-space:normal; overflow-wrap:anywhere; }
+#nOut .nw-edition { color:var(--muted); font-size:12px; overflow-wrap:anywhere; }
+#nOut .nw-ref blockquote { white-space:pre-wrap; unicode-bidi:plaintext; font-family:Georgia,'SBL Hebrew',serif; line-height:1.8; margin:12px 0; padding:0; max-height:300px; overflow:auto; }
+#nOut .nw-ref-actions,#nOut .nw-used { display:flex; flex-wrap:wrap; gap:8px; }
+#nOut .nw-used h3 { flex-basis:100%; }
+#nwStatus { font-size:13px; }
+#nwStatus.is-error { color:var(--danger,#df776d); }
+#nwUndo { position:fixed; bottom:20px; inset-inline-end:20px; padding:14px; background:var(--bg); border:1px solid var(--accent); border-radius:8px; z-index:30; }
+.nw-dialog { max-width:700px; width:90vw; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:10px; }
+#noteDlg { max-width:780px; }
+#noteDlg #ndText { min-height:30vh; line-height:1.7; }
+@media(max-width:850px){#nOut .nw-layout{grid-template-columns:minmax(0,1fr)}#nOut .nw-sidebar{position:static;max-height:270px;border:1px solid var(--line);border-radius:8px;padding:8px}#nOut .nw-meta{grid-template-columns:minmax(0,1fr)}#nOut .nw-editorbar{top:55px}#tab-notes .nw-filters label{flex:1;min-width:130px}#tab-notes .nw-filters select{max-width:100%;width:100%}}

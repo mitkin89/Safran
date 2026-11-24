@@ -282,7 +282,7 @@
     <section id="tab-notes" hidden>
       <div class="bar">
         <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
-        <select id="nKind" title="Art der Notiz"><option value="all">Alle Arten</option><option value="row">Zeilen</option><option value="block">Versblöcke</option><option value="free">Freie Notizen</option></select>
+        <select id="nKind" title="Art der Notiz"><option value="all">Alle Arten</option><option value="bookmark">Lesezeichen</option><option value="linked">Notizen mit Fundstelle</option><option value="free">Freie Notizen</option></select>
         <label class="nonly"><input type="checkbox" id="nOnly"> nur mit Notiz</label>
         <select id="nSort" title="Reihenfolge der Notizen"><option value="manual">Reihenfolge: manuell</option><option value="new">Neueste zuerst</option><option value="book">Nach Buch</option></select>
         <button id="nNew" title="Eine Notiz ohne Textstelle anlegen">＋ Neue Notiz</button>
@@ -290,7 +290,7 @@
         <span id="nCount" class="muted"></span>
         <button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button>
       </div>
-      <div id="nTags" hidden></div>
+      <div class="nw-filters"><label>Projekt<select id="nProject"><option value="">Alle Projekte</option></select></label><label>Werk<select id="nWork"><option value="">Alle Werke</option></select></label><label>Kapitel / Abschnitt<select id="nChapter"><option value="">Alle Abschnitte</option></select></label><label>Schlagwort / Thema<select id="nTagFilter"><option value="">Alle Schlagwörter</option></select></label><button id="nReset">Filter zurücksetzen</button></div><div id="nTags" hidden></div>
       <div id="nOut"></div>
     </section>
 
@@ -517,9 +517,9 @@
     <h2 id="ndTitle">Notiz</h2>
     <p id="ndExcerpt" class="muted"></p>
     <input id="ndTitleIn" placeholder="Titel (optional)" hidden>
-    <textarea id="ndText" rows="6" placeholder="Eigene Notiz (leer lassen = nur Lesezeichen)"></textarea>
+    <textarea id="ndText" rows="12" placeholder="Eigene Notiz (leer lassen = nur Lesezeichen)"></textarea>
     <input id="ndTags" list="ndTagList" placeholder="Tags, mit Komma getrennt (z. B. Klasse 5, Predigt)" autocomplete="off"><datalist id="ndTagList"></datalist>
-    <div class="bar"><button id="ndSave" class="primary">Speichern</button><button id="ndDel">Lesezeichen entfernen</button><button id="ndClose">Abbrechen</button></div>
+    <div class="bar"><button id="ndSave" class="primary">Speichern</button><button id="ndLarge">Groß bearbeiten</button><button id="ndDel">Lesezeichen entfernen</button><button id="ndClose">Abbrechen</button></div>
   </dialog>
 
   <div id="dispPanel" hidden>
@@ -686,6 +686,8 @@
   </template>
   <script src="library-outline.js"></script>
   <script src="library-map.js"></script>
+  <script src="notes-workspace-data.js"></script>
+  <script src="library-notes-workspace.js"></script>
   <script src="library-notes.js"></script>
   <script src="research-history.js"></script>
   <script src="research-editions.js"></script>

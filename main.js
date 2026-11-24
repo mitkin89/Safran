@@ -780,10 +780,11 @@ function writeNotes(fn) {
   notesChain = p;
   return p;
 }
-ipcMain.handle('notes:list', async () => { try { return await readNotes(); } catch { return []; } });
+ipcMain.handle('notes:list', () => readNotes());
 ipcMain.handle('notes:save', (_e, item) => writeNotes(items => {
   const i = items.findIndex(x => x.id === item.id);
-  const { keepTs, ...rest } = item;
+  const { keepTs, expectedTs, ...rest } = item;
+  if(expectedTs!==undefined&&((i<0&&expectedTs!==0)||(i>=0&&(items[i].ts||0)!==expectedTs)))throw Error('Diese Notiz wurde inzwischen geändert. Dein Entwurf bleibt erhalten.');
   const rec = { ...rest, ts: keepTs && item.ts ? item.ts : Date.now() };
   if (i >= 0) items[i] = rec; else items.push(rec);
   return items;

@@ -64,6 +64,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  const expectedTitles=new Set([...docs.values()].map(doc=>doc.entry.title)).size;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1'){await require('./notes-workspace-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_RESEARCH==='1'){await researchFlows({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1'){await require('./field-sigla-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1'){

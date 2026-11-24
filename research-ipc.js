@@ -5,7 +5,7 @@ const Sources=require('./research-sources'),{SearchJobs,ownerOf,runSearchWorker}
 function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,BrowserWindow,winOf,tempDir,commentaryLinks=async()=>[],privateInterlinearRead=async()=>null,broadcast=()=>{}}){
  let current;const sourceJobs=new SearchJobs();
  async function store(){const lib=await getLibrary();if(!current||current.dir!==lib.dir)current={dir:lib.dir,store:new S.ResearchStore(lib.dir)};return current.store;}
- async function state(){const data=await(await store()).read();try{return {...data,legacyNotes:(await readLegacyNotes()).map(n=>({...n,refs:S.legacyRefs(n)}))};}catch(e){return {...data,legacyNotes:[],legacyError:e.message};}}
+ async function state(){const data=await(await store()).read();try{return {...data,legacyNotes:(await readLegacyNotes()).map(n=>({...n,title:n.noteTitle||n.title,refs:S.legacyRefs(n)}))};}catch(e){return {...data,legacyNotes:[],legacyError:e.message};}}
  async function rich(rel){const lib=await getLibrary(),entry=lib.index.entries[rel];if(!entry)throw Error('Diese Edition ist nicht in der Bibliothek.');const doc=await lib.read(rel);const raw=JSON.parse(await fs.readFile(path.join(lib.dir,rel),'utf8'));return {doc:{...doc,translator:raw.translator||raw.versionTranslator,editor:raw.editor,publisher:raw.publisher,year:raw.year},entry};}
  async function captured(request,cache){
   let pair=cache?.get(request.rel);if(!pair){pair=await rich(request.rel);cache?.set(request.rel,pair);}
@@ -14,6 +14,12 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   return S.capture(doc,entry,req,doc.textHash);
  }
  ipcMain.handle('research:state',state);
+ ipcMain.handle('research:importNotes',async(_e,input)=>{
+  if(!input||!Array.isArray(input.projects)||!Array.isArray(input.notes)||input.projects.length>10000||input.notes.length>10000)throw Error('Ungültige Notizsicherung.');
+  const projects=input.projects.map(p=>S.entity('projects',p)),notes=input.notes.map(n=>S.entity('notes',n));
+  await(await store()).transact(data=>{for(const p of projects)if(!data.projects.some(x=>x.id===p.id))data.projects.push(p);for(const n of notes){const at=data.notes.findIndex(x=>x.id===n.id),old=data.notes[at];if(!data.projects.some(p=>p.id===n.projectId))throw Error('Projektverknüpfung fehlt.');if(!old||n.ts>old.ts){n.version=(old?.version||0)+1;if(old)data.notes[at]=n;else data.notes.push(n);}}return data;});
+  broadcast();return state();
+ });
  ipcMain.handle('research:sheetPreview',async(_e,sheet)=>{const data=await state();return E.html(S.entity('sheets',sheet),[...data.notes,...data.legacyNotes],{interactive:false});});
  ipcMain.handle('research:put',async(_e,kind,record,version)=>{
   if(!['projects','sheets','collections','notes'].includes(kind))throw Error('Unbekannter Datentyp.');
@@ -24,7 +30,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   const notes=await readLegacyNotes(),old=notes.find(n=>n.id===input.id);if(!old)throw Error('Notiz nicht gefunden.');
   if((old.ts||0)!==expectedTs)throw Error('Notiz inzwischen geändert. Bitte neu laden.');
   const projects=(await(await store()).read()).projects;if(input.projectId&&!projects.some(p=>p.id===input.projectId))throw Error('Projekt fehlt.');
-  const patch={title:String(input.title||old.title||''),note:String(input.note||''),tags:S.note({...input,projectId:input.projectId||'unassigned'}).tags,topics:S.note({...input,projectId:input.projectId||'unassigned'}).topics,refs:(input.refs||[]).map(S.reference),projectId:input.projectId||''};
+  const patch={...(old.key?{title:old.title,noteTitle:String(input.title||old.noteTitle||old.title||'')}:{title:String(input.title||old.title||'')}),note:String(input.note||''),tags:S.note({...input,projectId:input.projectId||'unassigned'}).tags,topics:S.note({...input,projectId:input.projectId||'unassigned'}).topics,refs:(input.refs||[]).map(S.reference),projectId:input.projectId||''};
   await saveLegacyNote(old.id,patch,expectedTs);broadcast();return state();
  });
  ipcMain.handle('research:sections',async(_e,rel)=>{const {doc,entry}=await rich(rel);return {sections:R.sectionsOf(doc.text,doc.sectionNames).map(s=>({path:s.path,label:s.label})),citation:S.metadata(doc,entry,'')};});

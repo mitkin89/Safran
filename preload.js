@@ -131,6 +131,7 @@ contextBridge.exposeInMainWorld('api', {
 
 contextBridge.exposeInMainWorld('research', {
   state: () => ipcRenderer.invoke('research:state'),
+  importNotes: records => ipcRenderer.invoke('research:importNotes',records),
   sheetPreview: sheet => ipcRenderer.invoke('research:sheetPreview', sheet),
   put: (kind, record, version) => ipcRenderer.invoke('research:put', kind, record, version),
   remove: (kind, id, version) => ipcRenderer.invoke('research:remove', kind, id, version),

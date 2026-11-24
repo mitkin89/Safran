@@ -38,7 +38,7 @@
   const keyOf = e => e.categories.join('/') + '¦' + e.title;
 
   // ---------- Reiter ----------
-  let researchUI = null;
+  let researchUI = null, notesUI = null;
   let onTabChange = null; // wird weiter unten für den Reiter „Wörterbuch“ gesetzt
   const tabScroll = {}; // Scrollposition von Notizen/Suche, damit man nach einem Sprung ins Lesen an derselben Stelle zurückkommt
   // Wörterbuch-Reiter: Fläche beginnt direkt unter der Kopfzeile (Höhe hängt vom Fenster ab), in der Seitenleiste bleibt es beim festen Wert
@@ -63,6 +63,7 @@
     if (prevTab && prevTab !== t && (prevTab === 'read' || t === 'read') && panelOpen) { panelOpen = false; applyPanel(); } // beim Verlassen und Zurückkehren ist die Bücherliste zu
     if (onTabChange) onTabChange(t, prevTab);
     if (t === 'research') researchUI?.open();
+    if (t === 'notes') void notesUI?.openWorkspace();
     if (prevTab !== t && typeof window.__refind === 'function') window.__refind(); // offene Suchleiste: im neuen Reiter neu suchen
     if ((t === 'notes' || t === 'search') && prevTab !== t && tabScroll[t]) { const y = tabScroll[t]; requestAnimationFrame(() => window.scrollTo(0, y)); setTimeout(() => window.scrollTo(0, y), 150); }
   }
@@ -2913,7 +2914,8 @@
   }
 
   // reader-module:notes
-  const notesUI = window.LibraryNotes.create({
+  notesUI = window.LibraryNotes.create({
+    getResearch: () => researchUI,
     get $() { return $; },
     get $$() { return $$; },
     get apSoon() { return apSoon; },
