@@ -21,6 +21,22 @@ window.TextCritTraditions = (() => {
     const exact = witness === 'LXX' ? index.get(JSON.stringify([...key, reading.g || ''])) || [] : [];
     return base.concat(exact);
   }
+  // These annotations concern a specific Field unit/footnote, not every witness in its synopsis.
+  function sourceTags(book, ref, position, unit) {
+    return index.get(JSON.stringify(['HexSource', book, ref, position, unit.t])) || [];
+  }
+  function sourceBooks() {
+    return [...new Set((window.TEXTCRIT_TRADITIONS || [])
+      .filter(([key]) => key[0] === 'HexSource').map(([key]) => key[1]))];
+  }
+  function sourceEntries(data) {
+    const out = [];
+    for (const [ref, units] of Object.entries(data?.verses || {})) units.forEach((unit, position) => {
+      const list = sourceTags(data.book, ref, position, unit);
+      if (list.length) out.push({ ref, unit, tags: list });
+    });
+    return out;
+  }
   const translate = s => window.I18N?.textCrit?.(s) ?? s;
   function badge(list, escape) {
     return list.map(tag => {
@@ -36,5 +52,5 @@ window.TextCritTraditions = (() => {
     if (!list.some(tag => tag.category === 'targum' && tag.check === 'source-checked')) return original;
     return original.replace(/,?\s*\b(?:ungeprüft|unchecked|unverified|not checked)\b(?=\s*\))/gi, '');
   }
-  return { categories, tags, badge, note };
+  return { categories, tags, sourceTags, sourceBooks, sourceEntries, badge, note };
 })();

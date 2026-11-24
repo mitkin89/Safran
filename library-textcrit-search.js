@@ -4,7 +4,7 @@
 window.LibraryTextCritSearch=(()=>{
 'use strict';
 const ORDER=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Song of Songs','Ruth','Lamentations','Ecclesiastes','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles'];
-const TYPES={lesart:'andere Lesart',deutung:'andere Deutung',zusatz:'Zusatz',auslassung:'Auslassung',harmonisierung:'Angleichung',technik:'Übersetzungstechnik',doublette:'Doppelübersetzung',umstellung:'Umstellung',zahl:'Zahl',name:'Name',syrfehler:'innersyrischer Fehler',grfehler:'innergriechischer Fehler',vorlage:'andere Vorlage'};
+const TYPES={lesart:'andere Lesart',deutung:'andere Deutung',zusatz:'Zusatz',auslassung:'Auslassung',harmonisierung:'Angleichung',technik:'Übersetzungstechnik',doublette:'Doppelübersetzung',umstellung:'Umstellung',zahl:'Zahl',name:'Name',syrfehler:'innersyrischer Fehler',grfehler:'innergriechischer Fehler',vorlage:'andere Vorlage',quellenhinweis:'Quellenvergleich (Field)'};
 // substantive differences from the MT: everything except translation technique and inner-versional errors
 const traditions=window.TextCritTraditions;
 const NOT_SUBST=new Set(['technik','syrfehler','grfehler']);
@@ -33,6 +33,14 @@ function create(host){
       const hx=await host.load('hexapla-vorlage.js',()=>window.HEXAPLA_VORLAGE).catch(()=>null);
       for(const [k,r] of Object.entries(hx||{})){const m=/^(.*) (\d+):(\d+)#\d+ (.*)$/.exec(k);if(!m)continue;
         out.push({tags:traditions.tags('Hex','',k,r),w:'Hex',book:m[1],ch:+m[2],v:+m[3],type:r.t,note:r.n||'',en:r.en||'',vorlage:r.he||'',g:'',he:[],sure:true,sig:m[4]});}
+      // Only reviewed Field comparisons: a footnote's scope is not a reading of every cited version.
+      await Promise.all(traditions.sourceBooks().map(async book=>{
+        const data=await host.load('hexapla-data/'+book.replace(/ /g,'_')+'.js',()=>window.HEXAPLA_DATA?.[book]);
+        for(const {ref,unit,tags} of traditions.sourceEntries(data)){
+          const [ch,v]=ref.split(':').map(Number);
+          out.push({tags,w:'Hex',book,ch,v,type:'quellenhinweis',note:tags.map(t=>t.de).join(' '),en:tags.map(t=>t.en).join(' '),g:'',he:[],sure:false,sourceComparison:true,sig:'Field',sourceText:unit.t});
+        }
+      }));
       // LXX and Peshitta at the same MT words (or both without MT words, i.e. both pluses in the verse)
       const by=new Map();for(const r of out){if(r.w==='Hex'||NOT_SUBST.has(r.type))continue;const k=r.book+' '+r.ch+':'+r.v;(by.get(k)||by.set(k,[]).get(k)).push(r);}
       for(const rs of by.values()){const l=rs.filter(r=>r.w==='LXX'),s=rs.filter(r=>r.w==='Syr');
@@ -65,7 +73,7 @@ function create(host){
   }
   function matches(r,q){
     if(!q.length)return true;
-    const hay=fold([r.note,r.en,r.vorlage,r.g,r.parallel||'',r.sig||''].join(' '));
+    const hay=fold([r.note,r.en,r.vorlage,r.g,r.parallel||'',r.sig||'',r.sourceText||'',...r.tags.flatMap(tag=>[tag.source,tag.de,tag.en])].join(' '));
     return q.every(w=>hay.includes(w));
   }
   async function run(){
@@ -83,7 +91,7 @@ function create(host){
       '<span class="tcs-ref">'+raw(r.book+' '+r.ch+':'+r.v)+'</span> <span class="tc-witness-label" data-witness="'+r.w+'">'+raw(r.w==='Hex'&&r.sig?'Hex '+r.sig:r.w)+'</span> '+
       '<abbr class="ab tc-tov-tag">'+esc(TYPES[r.type]||r.type)+'</abbr>'+(r.both?' <span class="tcs-both" title="'+raw(t('LXX und Peschitta weichen an denselben MT-Wörtern ab (nicht nur Übersetzungstechnik)'))+'">LXX+Syr</span>':'')+
       (r.vorlage?' <bdi lang="he" dir="rtl">≈ '+raw(r.vorlage)+'</bdi>':'')+(r.g?' <span lang="grc">'+raw(r.g)+'</span>':'')+
-      traditions.badge(r.tags,raw)+'<span class="tcs-note">'+mark(traditions.note(en&&r.en?r.en:r.note,r.tags))+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span></button>';
+      traditions.badge(r.tags,raw)+'<span class="tcs-note">'+mark(traditions.note(en&&r.en?r.en:r.note,r.tags))+(r.sure||r.sourceComparison?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span></button>';
     out.innerHTML='<p class="tcs-count muted">'+raw(window.I18N?.t?window.I18N.t('{} Lesarten in {} Versen',hits.length,verses):hits.length+' Lesarten in '+verses+' Versen')+'</p>'+
       hits.slice(0,shown).map(row).join('')+(hits.length>shown?'<button type="button" class="tcs-more">'+esc('Weitere anzeigen')+'</button>':'');
   }

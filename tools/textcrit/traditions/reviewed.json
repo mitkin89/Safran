@@ -1,0 +1,1069 @@
+{
+  "date": "2026-11-24",
+  "author": "Codex",
+  "method": "Concrete textual parallels; source comparison does not establish historical dependence.",
+  "decisions": [
+    {
+      "key": [
+        "Syr",
+        "Exodus",
+        "2:9",
+        "deutung",
+        [
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        0
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Sotah 12b:22",
+        "url": "https://www.sefaria.org/Sotah_12b.22",
+        "evidence": [
+          "Sotah 12b#22"
+        ],
+        "de": "Gemeinsam ist die Zerlegung von היליכי. Sotah deutet ausdrücklich „siehe, das Deine“ auf die Mutter des Kindes; die Peschitta sagt „siehe, für dich“. Keine wortgleiche Wiedergabe.",
+        "en": "Both split היליכי. Sotah explicitly reads “behold, your own” of the child’s mother; the Peshitta has “behold, for you”. The wording is not identical."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Genesis",
+        "38:5",
+        "deutung",
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        0
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Rashi on Genesis 38:5:1",
+        "url": "https://www.sefaria.org/Rashi_on_Genesis_38:5.1",
+        "evidence": [
+          "Rashi on Genesis 38:5#1"
+        ],
+        "de": "Raschi verbindet den Ortsnamen Kesib mit dem Ende des Gebärens und verweist auf Bereschit Rabba. Die Peschitta setzt statt des Ortsnamens ein Verb für „aufhören“. Parallele Deutung, kein Beweis einer Abhängigkeit.",
+        "en": "Rashi connects Chezib with the end of childbearing and refers to Genesis Rabbah. The Peshitta substitutes a verb meaning “cease” for the place name. This is an interpretive parallel, not proof of dependence."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Leviticus",
+        "23:40",
+        "technik",
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          8
+        ],
+        0
+      ],
+      "tag": {
+        "category": "halacha",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Sukkah 35a:1",
+        "url": "https://www.sefaria.org/Sukkah_35a.1",
+        "evidence": [
+          "Sukkah 35a#1"
+        ],
+        "de": "Die Festfrucht wird als Etrog bestimmt. Sukkah 35a identifiziert „Frucht eines schönen Baumes“ ausdrücklich mit dem Etrog.",
+        "en": "The festival fruit is identified as the etrog. Sukkah 35a explicitly identifies “fruit of a beautiful tree” with the etrog."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Leviticus",
+        "23:40",
+        "technik",
+        [
+          10,
+          11,
+          12
+        ],
+        [
+          11
+        ],
+        0
+      ],
+      "tag": {
+        "category": "halacha",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Sukkah 32b:14",
+        "url": "https://www.sefaria.org/Sukkah_32b.14",
+        "evidence": [
+          "Sukkah 32b#14"
+        ],
+        "de": "Die „Zweige eines dichtbelaubten Baumes“ werden wie in Sukkah 32b als Myrte bestimmt.",
+        "en": "The “bough of a leafy tree” is identified as myrtle, as in Sukkah 32b."
+      }
+    },
+    {
+      "key": [
+        "LXX",
+        "Exod",
+        "12:40",
+        "zusatz",
+        [],
+        [],
+        5
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Megillah 9a:16",
+        "url": "https://www.sefaria.org/Megillah_9a.16",
+        "evidence": [
+          "Megillah 9a#16"
+        ],
+        "de": "Wie die Übersetzererzählung in Megillah 9a schließt die LXX beim Aufenthalt auch Länder außerhalb Ägyptens ein. Die LXX nennt Kanaan; die rabbinische Erzählung sagt „andere Länder“. Die Zeitangaben und der Wortlaut sind nicht identisch.",
+        "en": "Like the translators’ story in Megillah 9a, the LXX includes lands outside Egypt in the sojourn. The LXX names Canaan; the rabbinic account says “other lands”. The chronological figures and wording are not identical."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Exodus",
+        "21:2",
+        "technik",
+        [
+          4
+        ],
+        [
+          4
+        ],
+        0
+      ],
+      "tag": {
+        "category": "halacha",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Rashi on Exodus 21:2:1",
+        "url": "https://www.sefaria.org/Rashi_on_Exodus_21:2.1",
+        "evidence": [
+          "Rashi on Exodus 21:2#1"
+        ],
+        "de": "Die Peschitta bestimmt den Knecht ausdrücklich als jüdisch. Raschi deutet עבד עברי als einen Knecht, der selbst Hebräer ist, und verwirft „Knecht eines Hebräers“. Gemeinsam ist die rechtliche Bestimmung der Person; keine direkte Abhängigkeit behauptet.",
+        "en": "The Peshitta explicitly identifies the servant as Jewish. Rashi interprets עבד עברי as a servant who is himself Hebrew and rejects “a Hebrew’s servant”. The legal identification is shared; no direct dependence is claimed."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Numbers",
+        "4:20",
+        "deutung",
+        [
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        0
+      ],
+      "tag": {
+        "category": "halacha",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Rashi on Numbers 4:20:1",
+        "url": "https://www.sefaria.org/Rashi_on_Numbers_4:20.1",
+        "evidence": [
+          "Rashi on Numbers 4:20#1"
+        ],
+        "de": "Die verbotene Schau gilt dem Einhüllen der heiligen Geräte. Raschi erklärt das „Verschlingen“ ausdrücklich als ihr Bedecken; die Peschitta nennt den Vorgang des Zudeckens.",
+        "en": "The prohibited sight concerns the wrapping of the sacred vessels. Rashi explicitly explains their “swallowing” as covering them; the Peshitta names the act of covering."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Deuteronomy",
+        "32:24",
+        "technik",
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ],
+        0
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Pesachim 111b:8",
+        "url": "https://www.sefaria.org/Pesachim_111b.8",
+        "evidence": [
+          "Pesachim 111b#8"
+        ],
+        "de": "Die Peschitta versteht קטב מרירי als böse Geister. Pesachim 111b behandelt Qetev Meriri als dämonisches Wesen. Gemeinsam ist die Dämonendeutung; Anzahl und Erzählkontext unterscheiden sich.",
+        "en": "The Peshitta understands קטב מרירי as evil spirits. Pesachim 111b treats Qetev Meriri as a demonic being. The demonic interpretation is shared; number and narrative setting differ."
+      }
+    },
+    {
+      "key": [
+        "HexSource",
+        "Exodus",
+        "2:21",
+        0,
+        "Ο΄. κατῳκίσθη δὲ Μωυσῆς. Σ. ὥρκισε δὲ Μωυσῆν ὥστε οἰκεῖν. Θ. καὶ ἤρξατο Μωυσῆς κατοικεῖν.^24"
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Mekhilta DeRabbi Yishmael, Tractate Amalek 3:18",
+        "url": "https://www.sefaria.org/Mekhilta_DeRabbi_Yishmael,_Tractate_Amalek_3:18",
+        "evidence": [
+          "Mekhilta DeRabbi Yishmael, Tractate Amalek 3:18#1"
+        ],
+        "de": "Field, Fußnote 24 zu Symmachus: Die Deutung als Schwur hat eine Parallele in der Mekhilta: Jitro verpflichtet Mose durch einen Eid. Fields Lesung Μωυσῆν ist eine textkritische Herstellung am beschädigten Zeugnis, keine gesicherte vollständige Überlieferung.",
+        "en": "Field, note 24 on Symmachus: the oath interpretation has a parallel in the Mekhilta, where Jethro binds Moses by an oath. Field’s Μωυσῆν is a textual restoration of a damaged witness, not a securely preserved complete reading.",
+        "noteId": "0195.0.24"
+      }
+    },
+    {
+      "key": [
+        "HexSource",
+        "Exodus",
+        "35:22",
+        1,
+        "Ο΄. ÷ καὶ ἐμπλόκια ↙,^31 καὶ περιδέξια (Ἄλλος· περιδέρραια^32)."
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Shabbat 64a:20; Shabbat 64a:21",
+        "url": "https://www.sefaria.org/Shabbat_64a.20",
+        "evidence": [
+          "Shabbat 64a#20",
+          "Shabbat 64a#21"
+        ],
+        "de": "Field, Fußnote 31: Der rabbinische Vergleich betrifft die dort zitierten griechisch-venezianischen Wörter für כומז. Shabbat 64a erklärt das Schmuckstück und fügt ein Wortspiel hinzu. Das Merkmal gilt diesem Fußnotenvergleich, nicht der LXX-Zeile.",
+        "en": "Field, note 31: the rabbinic comparison concerns the Graeco-Venetus terms for כומז cited there. Shabbat 64a explains the ornament and adds a wordplay. This tag applies to that footnote comparison, not to the LXX line.",
+        "noteId": "0260.0.31"
+      }
+    },
+    {
+      "key": [
+        "HexSource",
+        "I Samuel",
+        "13:1",
+        0,
+        "Ο΄. Vacat. Alia exempl. ※ υἱὸς ἐνιαυτοῦ Σαοὺλ ἐν τῷ βασιλεύειν αὐτόν.^1 Alia: υἱὸς τριάκοντα ἐτῶν Σαοὺλ ἐν τῷ βασιλεύειν αὐτόν.^2 Σ. υἱὸς ὡς ἐνιαύσιος Σαοὺλ ἐν τῷ βασιλεύειν αὐτόν.^3"
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Yoma 22b:17; Targum Jonathan on I Samuel 13:1",
+        "url": "https://www.sefaria.org/Yoma_22b.17",
+        "evidence": [
+          "Yoma 22b#17",
+          "Targum Jonathan on I Samuel 13:1#1"
+        ],
+        "de": "Field, Fußnote 3 zu Symmachus/Theodoret: „wie ein Einjähriger“ wird als Sauls anfängliche Unschuld erklärt. Yoma 22b und Targum Jonathan belegen die jüdische Parallele. Kein Nachweis einer direkten Übernahme.",
+        "en": "Field, note 3 on Symmachus/Theodoret: “like a one-year-old” is explained as Saul’s initial innocence. Yoma 22b and Targum Jonathan attest the Jewish parallel. Direct borrowing is not established.",
+        "noteId": "0618.1.3"
+      }
+    },
+    {
+      "key": [
+        "HexSource",
+        "Psalms",
+        "48:15",
+        0,
+        "Ο΄. αὐτὸς ποιμανεῖ ἡμᾶς εἰς τοὺς αἰῶνας (עָלָמוֹת). Ἀ. αὐτὸς ὁδηγήσει ἡμᾶς, _et super mortem renovabit._ Aliter: Ἀ. … ἀθανασία.^37 Σ. … εἰς τὸ διηνεκές.^38"
+      ],
+      "tag": {
+        "category": "aggada",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Jerusalem Talmud Megillah 2:4:5; Vayikra Rabbah 11:9",
+        "url": "https://www.sefaria.org/Jerusalem_Talmud_Megillah_2:4.5",
+        "evidence": [
+          "Jerusalem Talmud Megillah 2:4#5",
+          "Vayikra Rabbah 11:9#1"
+        ],
+        "de": "Field, Fußnote 37: Die Aquila zugeschriebene Deutung ἀθανασία wird auch im Jerusalemer Talmud Megillah 2:4 und in Wajikra Rabba 11:9 als „Welt ohne Tod“ bezeugt. Das bestätigt die rabbinische Parallele; Fields Frage nach dem ursprünglichen griechischen Wortlaut bleibt offen.",
+        "en": "Field, note 37: the interpretation attributed to Aquila, ἀθανασία, is also attested in Jerusalem Talmud Megillah 2:4 and Leviticus Rabbah 11:9 as “a world without death”. This confirms the rabbinic parallel; Field’s question about the original Greek wording remains open.",
+        "noteId": "0185.0.37"
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Genesis",
+        "4:13",
+        "deutung",
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Genesis 4:13",
+        "url": "https://www.sefaria.org/Onkelos_Genesis_4:13",
+        "evidence": [
+          "Onkelos Genesis 4:13#1"
+        ],
+        "de": "Schuld wird als zu groß zum Vergeben verstanden, nicht als zu schwere Strafe zum Tragen.",
+        "en": "Guilt is understood as too great to forgive, rather than punishment too heavy to bear."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Genesis",
+        "21:6",
+        "technik",
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          4,
+          11
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Genesis 21:6",
+        "url": "https://www.sefaria.org/Onkelos_Genesis_21:6",
+        "evidence": [
+          "Onkelos Genesis 21:6#1"
+        ],
+        "de": "Onkelos gibt das Lachen wie die Peschitta als Freude wieder. „Groß“ ist kein gemeinsamer Zusatz.",
+        "en": "Like the Peshitta, Onkelos renders laughter as joy. “Great” is not a shared addition."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Genesis",
+        "30:8",
+        "technik",
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Genesis 30:8",
+        "url": "https://www.sefaria.org/Onkelos_Genesis_30:8",
+        "evidence": [
+          "Onkelos Genesis 30:8#1"
+        ],
+        "de": "Onkelos deutet Rachels Ringen ebenfalls als Gebet; die Einbettung der Schwester unterscheidet sich.",
+        "en": "Onkelos likewise interprets Rachel’s struggle as prayer; the role of her sister in the wording differs."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Genesis",
+        "41:43",
+        "deutung",
+        [
+          9
+        ],
+        [
+          7,
+          8
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Genesis 41:43",
+        "url": "https://www.sefaria.org/Onkelos_Genesis_41:43",
+        "evidence": [
+          "Onkelos Genesis 41:43#1"
+        ],
+        "de": "Gemeinsam ist die Zerlegung von אברך mit אב „Vater“ und einem Herrschertitel. Onkelos sagt „Vater für den König“, die Peschitta „Vater und Herrscher“. Nicht gleichgesetzt mit dem anderen Midrasch „Vater an Weisheit, jung an Jahren“.",
+        "en": "Both split אברך into אב “father” and a ruler’s title. Onkelos has “father to the king”, the Peshitta “father and ruler”. This is distinct from the other midrash, “a father in wisdom, tender in years”."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Exodus",
+        "30:35",
+        "deutung",
+        [
+          7
+        ],
+        [
+          6
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Exodus 30:35",
+        "url": "https://www.sefaria.org/Onkelos_Exodus_30:35",
+        "evidence": [
+          "Onkelos Exodus 30:35#1"
+        ],
+        "de": "ממלח wird in beiden Fassungen als „gemischt“ wiedergegeben.",
+        "en": "Both versions render ממלח as “mixed”."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Exodus",
+        "38:8",
+        "technik",
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Exodus 38:8",
+        "url": "https://www.sefaria.org/Onkelos_Exodus_38:8",
+        "evidence": [
+          "Onkelos Exodus 38:8#1"
+        ],
+        "de": "Gemeinsam sind die zum Beten kommenden Frauen. Onkelos behält die Spiegel bei; das vollständige Verständnis von מראות ist daher nicht identisch.",
+        "en": "Both mention women coming to pray. Onkelos retains the mirrors, so the complete interpretation of מראות is not identical."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Numbers",
+        "4:20",
+        "deutung",
+        [
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Numbers 4:20",
+        "url": "https://www.sefaria.org/Onkelos_Numbers_4:20",
+        "evidence": [
+          "Onkelos Numbers 4:20#1"
+        ],
+        "de": "Onkelos sagt ausdrücklich „wenn sie die heiligen Geräte bedecken“, entsprechend dem Zudecken in der Peschitta.",
+        "en": "Onkelos explicitly says “when they cover the sacred vessels”, corresponding to the act of covering in the Peshitta."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Numbers",
+        "21:18",
+        "deutung",
+        [
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Numbers 21:18",
+        "url": "https://www.sefaria.org/Onkelos_Numbers_21:18",
+        "evidence": [
+          "Onkelos Numbers 21:18#1"
+        ],
+        "de": "Mattana wird als Gabe verstanden: Aus der Wüste wurde der Brunnen ihnen gegeben.",
+        "en": "Mattana is understood as a gift: from the wilderness the well was given to them."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Deuteronomy",
+        "26:8",
+        "deutung",
+        [
+          8
+        ],
+        [
+          9
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Deuteronomy 26:8",
+        "url": "https://www.sefaria.org/Onkelos_Deuteronomy_26:8",
+        "evidence": [
+          "Onkelos Deuteronomy 26:8#1"
+        ],
+        "de": "מורא wird als große Erscheinung/Sichtbarkeit statt als Schrecken verstanden.",
+        "en": "מורא is understood as a great appearance or manifestation rather than terror."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Deuteronomy",
+        "32:24",
+        "deutung",
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          8
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Deuteronomy 32:24",
+        "url": "https://www.sefaria.org/Onkelos_Deuteronomy_32:24",
+        "evidence": [
+          "Onkelos Deuteronomy 32:24#1"
+        ],
+        "de": "רשף wird wie bei Onkelos als Vögel wiedergegeben.",
+        "en": "רשף is rendered as birds, as in Onkelos."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Deuteronomy",
+        "32:24",
+        "technik",
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Onkelos Deuteronomy 32:24",
+        "url": "https://www.sefaria.org/Onkelos_Deuteronomy_32:24",
+        "evidence": [
+          "Onkelos Deuteronomy 32:24#1"
+        ],
+        "de": "Onkelos nennt ausdrücklich „böse Geister“. Die Satzrichtung und Anordnung unterscheiden sich von der Peschitta.",
+        "en": "Onkelos explicitly names “evil spirits”. The direction and arrangement of the sentence differ from the Peshitta."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Psalms",
+        "2:12",
+        "deutung",
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Aramaic Targum to Psalms 2:12",
+        "url": "https://www.sefaria.org/Aramaic_Targum_to_Psalms_2:12",
+        "evidence": [
+          "Targum Psalms 2:12#1"
+        ],
+        "de": "Der Psalmentargum versteht die Wendung als Annahme von Belehrung; die Peschitta als Ergreifen der Zucht. Gemeinsam ist die Ermahnung, nicht ein „Küssen des Sohnes“.",
+        "en": "The Psalms Targum understands the phrase as accepting instruction; the Peshitta as taking hold of discipline. The admonitory interpretation is shared."
+      }
+    },
+    {
+      "key": [
+        "Syr",
+        "Psalms",
+        "68:19",
+        "technik",
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          7,
+          8
+        ],
+        0
+      ],
+      "tag": {
+        "category": "targum",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Aramaic Targum to Psalms 68:19",
+        "url": "https://www.sefaria.org/Aramaic_Targum_to_Psalms_68:19",
+        "evidence": [
+          "Targum Psalms 68:19#1"
+        ],
+        "de": "Gemeinsam ist „Gaben geben“ statt „Gaben empfangen“. Die zusätzliche Mose-/Tora-Deutung des Targums wird der Peschitta nicht zugeschrieben.",
+        "en": "Both have “give gifts” rather than “receive gifts”. The Targum’s additional Moses/Torah interpretation is not attributed to the Peshitta."
+      }
+    },
+    {
+      "key": [
+        "LXX",
+        "Exod",
+        "21:22",
+        "technik",
+        [
+          10,
+          11
+        ],
+        [],
+        0
+      ],
+      "tag": {
+        "category": "halacha",
+        "author": "Codex",
+        "check": "source-checked",
+        "relation": "parallel",
+        "source": "Philo, De specialibus legibus III 108–109",
+        "url": "https://ccel.org/ccel/philo/works/works.iii.xxx.html",
+        "evidence": [
+          "Philo Special Laws 3.108-109"
+        ],
+        "de": "Philo unterscheidet wie die LXX zwischen ungeformtem und geformtem Fötus. Dies ist hellenistisch-jüdische Rechtsauslegung, keine Kennzeichnung als rabbinischer Konsens.",
+        "en": "Like the LXX, Philo distinguishes an unformed from a formed fetus. This is Hellenistic Jewish legal interpretation, not a claim of rabbinic consensus."
+      }
+    }
+  ],
+  "sources": {
+    "Sotah 12b#22": {
+      "ref": "Sotah 12b:22",
+      "url": "https://www.sefaria.org/Sotah_12b.22",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "https://korenpub.co.il/collections/the-noe-edition-koren-talmud-bavli-1",
+      "license": "CC-BY-NC",
+      "responseSha256": "1b9312bc7cebe8dde912e4eae333dd58feba810cc4d4b0595eb3460887f76c9d",
+      "excerpt": "״וַתֹּאמֶר לָהּ בַּת פַּרְעֹה הֵילִיכִי אֶת הַיֶּלֶד הַזֶּה״. אָמַר רַבִּי חָמָא בְּרַבִּי חֲנִינָא: מִתְנַבְּאָה וְאֵינָהּ יוֹדַעַת מָה מִתְנַבְּאָה, ״הֵילִיכִי״ — הָא שֶׁלִּיכִי. ״וַאֲנִי אֶתֵּן אֶת שְׂכָרֵךְ״. אָמַר רַבִּי חָמָא בְּרַבִּי חֲנִינָא: לֹא דַּיָּין לַצַּדִּיקִים שֶׁמַּחְזִירִין לָהֶן אֲבֵידָתָן, אֶלָּא שֶׁנּוֹתְנִין לָהֶן שְׂכָרָן.",
+      "retrieved": "2026-11-24"
+    },
+    "Rashi on Genesis 38:5#1": {
+      "ref": "Rashi on Genesis 38:5:1",
+      "url": "https://www.sefaria.org/Rashi_on_Genesis_38:5.1",
+      "version": "Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH001969084",
+      "license": "Public Domain",
+      "responseSha256": "293ec16c226d08f51e304f0d4cde8bf0856a9b10a77a0321d6a70abcbf25676b",
+      "excerpt": "והיה בכזיב. שֵׁם הַמָּקוֹם. וְאוֹמֵר אֲנִי עַל שֵׁם שֶׁפָּסְקָה מִלֶּדֶת נִקְרָא כְזִיב, לְשׁוֹן הָיוֹ תִהְיֶה לִי כְּמוֹ אַכְזָב (ירמיהו ט\"ו), אֲשֶׁר לֹא יְכַזְּבוּ מֵימָיו (ישעיהו נ\"ח), וְאִם לֹא כֵן מַה בָּא לְהוֹדִיעֵנוּ? וּבִבְ\"רַ רָאִיתִי, וַתִּקְרָא שְׁמוֹ שֵׁלָה וגוֹמֵר פְּסַקַת:",
+      "retrieved": "2026-11-24"
+    },
+    "Sukkah 35a#1": {
+      "ref": "Sukkah 35a:1",
+      "url": "https://www.sefaria.org/Sukkah_35a.1",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "https://korenpub.co.il/collections/the-noe-edition-koren-talmud-bavli-1",
+      "license": "CC-BY-NC",
+      "responseSha256": "55c2283340e6f99c50ae355adeda6584e8d5597fbb9a5fa4820d6a8e5607afef",
+      "excerpt": "גְּמָ׳ תָּנוּ רַבָּנַן: ״פְּרִי עֵץ הָדָר״, עֵץ שֶׁטַּעַם עֵצוֹ וּפִרְיוֹ שָׁוֶה — הֱוֵי אוֹמֵר זֶה אֶתְרוֹג.",
+      "retrieved": "2026-11-24"
+    },
+    "Sukkah 32b#14": {
+      "ref": "Sukkah 32b:14",
+      "url": "https://www.sefaria.org/Sukkah_32b.14",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "https://korenpub.co.il/collections/the-noe-edition-koren-talmud-bavli-1",
+      "license": "CC-BY-NC",
+      "responseSha256": "a7e45ca1423b03a778a9a3814bef4411677a885af35aaee9f1bb52e99d26ff86",
+      "excerpt": "גְּמָ׳ תָּנוּ רַבָּנַן: ״עֲנַף עֵץ עָבוֹת״ — שֶׁעֲנָפָיו חוֹפִין אֶת עֵצוֹ. וְאֵי זֶה הוּא? הֱוֵי אוֹמֵר זֶה הֲדַס. וְאֵימָא זֵיתָא! בָּעֵינַן ״עָבוֹת״, וְלֵיכָּא.",
+      "retrieved": "2026-11-24"
+    },
+    "Megillah 9a#16": {
+      "ref": "Megillah 9a:16",
+      "url": "https://www.sefaria.org/Megillah_9a.16",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "http://sefaria.org",
+      "license": "CC-BY-NC",
+      "responseSha256": "6e173bf4589d4413770dcd19f52594abe8a9570d179b1582b0c3217184e2b793",
+      "excerpt": "״וּמוֹשַׁב בְּנֵי יִשְׂרָאֵל אֲשֶׁר יָשְׁבוּ בְּמִצְרָיִם וּבִשְׁאָר אֲרָצוֹת אַרְבַּע מֵאוֹת שָׁנָה״. ״וַיִּשְׁלַח אֶת זַאֲטוּטֵי בְּנֵי יִשְׂרָאֵל״. ״וְאֶל זַאֲטוּטֵי בְּנֵי יִשְׂרָאֵל לֹא שָׁלַח יָדוֹ״.",
+      "retrieved": "2026-11-24"
+    },
+    "Rashi on Exodus 21:2#1": {
+      "ref": "Rashi on Exodus 21:2:1",
+      "url": "https://www.sefaria.org/Rashi_on_Exodus_21:2.1",
+      "version": "Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann, 1929-1934",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH001969084",
+      "license": "Public Domain",
+      "responseSha256": "5cf68fac7d471cace0b75e2b1b0c131a5f1abc62aadf5b3a3de59882100d8c84",
+      "excerpt": "כי תקנה עבד עברי. עֶבֶד שֶׁהוּא עִבְרִי; אוֹ אֵינוֹ אֶלָּא עַבְדּוֹ שֶׁל עִבְרִי – עֶבֶד כְּנַעֲנִי שֶׁלְּקַחְתּוֹ מִיִּשְׂרָאֵל – וְעָלָיו הוּא אוֹמֵר שֵׁשׁ שָׁנִים יַעֲבֹד? וּמָה אֲנִי מְקַיֵּם וְהִתְנַחַלְתֶּם אֹתָם (ויקרא כ\"ה), בְּלָקוּחַ מִן הַגּוֹי, אֲבָל בְּלָקוּחַ מִיִּשְׂרָאֵל יֵצֵא בְּשֵׁשׁ? תַּ\"לֹ כִּי יִמָּכֵר לְךָ אָחִיךָ הָעִבְרִי (דברים ט\"ו), לֹא אָמַרְתִּי אֶלָּא בְאָחִיךָ:",
+      "retrieved": "2026-11-24"
+    },
+    "Rashi on Numbers 4:20#1": {
+      "ref": "Rashi on Numbers 4:20:1",
+      "url": "https://www.sefaria.org/Rashi_on_Numbers_4:20.1",
+      "version": "Pentateuch with Rashi's commentary by M. Rosenbaum and A.M. Silbermann -- corrected vocalization",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH001969084",
+      "license": "Public Domain",
+      "responseSha256": "3a0fde80b2808ccb1f063092d41b36fe46b9686c07f5ee53d0b5708b367da2fa",
+      "excerpt": "ולא יבאו לראות כבלע את הקדש. לְתוֹךְ נַרְתֵּק שֶׁלּוֹ, כְּמוֹ שֶׁפֵּרַשְׁתִּי לְמַעְלָה בְּפָרָשָׁה זוֹ, וּפָרְשׂוּ עָלָיו בֶּגֶד פְּלוֹנִי וְכִסּוּ אוֹתוֹ בְּמִכְסֶה פְּלוֹנִי, וּבִלּוּעַ שֶׁלּוֹ הוּא כִסּוּיוֹ:",
+      "retrieved": "2026-11-24"
+    },
+    "Pesachim 111b#8": {
+      "ref": "Pesachim 111b:8",
+      "url": "https://www.sefaria.org/Pesachim_111b.8",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "http://sefaria.org",
+      "license": "CC-BY-NC",
+      "responseSha256": "1d513e11465df76ead8bd724ce5da325b1a519504ec30cc5b3e809bfb6610e3a",
+      "excerpt": "קֶטֶב מְרִירִי — תְּרֵי קִטְבֵי הָווּ. חַד מִקַּמֵּי טִיהֲרָא, וְחַד מִבָּתַר טִיהֲרָא. דְּמִקַּמֵּי טִיהֲרָא — ״קֶטֶב מְרִירִי״ שְׁמוֹ, וּמִיחֲזֵי בֵּי כַדָּא דְּכַמְכָּא וְהָדַר בֵּיהּ בַּחְשָׁא. דְּבָתַר טִיהֲרָא — ״קֶטֶב יָשׁוּד צׇהֳרָיִם״ שְׁמוֹ, וּמִיחֲזֵי בֵּי קַרְנָא דְּעִיזָּא, וְהָדַר בֵּיהּ כְּנָפְיָא.",
+      "retrieved": "2026-11-24"
+    },
+    "Mekhilta DeRabbi Yishmael, Tractate Amalek 3:18#1": {
+      "ref": "Mekhilta DeRabbi Yishmael, Tractate Amalek 3:18",
+      "url": "https://www.sefaria.org/Mekhilta_DeRabbi_Yishmael,_Tractate_Amalek_3:18",
+      "version": "Beeri Edition, Koren, Jerusalem, 2019",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH005271179/NLI",
+      "license": "CC-BY-NC",
+      "responseSha256": "358135521a039e7644403479713e1547600ce24136559bc149618e263e708569",
+      "excerpt": "רַבִּי אֶלְעָזָר הַמּוֹדָעִי אוֹמֵר: \"בְּאֶרֶץ נָכְרִיָּה\", נֵכַר יָהּ. אָמַר מֹשֶׁה: הוֹאִיל וְכָל הָעוֹלָם כֻּלּוֹ עוֹבֵד עֲבוֹדָה זָרָה, לְמִי אֲנִי אֶעֱבֹד? לְמִי שֶׁאָמַר וְהָיָה הָעוֹלָם. שֶׁבְּשָׁעָה שֶׁאָמַר מֹשֶׁה לְיִתְרוֹ: תְּנָה לִי אֶת צִפֹּרָה בִתָּךְ לְאִשָּׁה! אָמַר לוֹ יִתְרוֹ: קַבֵּל עָלֶיךָ דָּבָר אֶחָד שֶׁאֲנִי אוֹמֵר לָךְ, וַאֲנִי נוֹתְנָהּ לָךְ לְאִשָּׁה! אָמַר לוֹ: מַהוּ? אָמַר לוֹ: בֵּן שֶׁיִּהְיֶה לָךְ תְּחִלָּה, יִהְיֶה לָעֲבוֹדָה זָרָה, וּמִכָּן וְאֵילָךְ לְשֵׁם שָׁמַיִם. וְקִבֵּל עָלָיו. אָמַר לוֹ: הִשָּׁבַע לִי! וְנִשְׁבַּע לוֹ, שֶׁנֶּאֱמַר (שמות ב,כא) \"וַיּוֹאֶל מֹשֶׁה\", אֵין אָלָה אֶלָּא לְשׁוֹן שְׁבוּעָה, שֶׁנֶּאֱמַר: (שמואל א יד,כד) \"וַיֹּאֶל שָׁאוּל אֶת הָעָם לֵאמֹר: אָרוּר הָאִישׁ אֲשֶׁר יֹאכַל לֶחֶם עַד הָעֶרֶב, וְנִקַּמְתִּי מֵאֹיְבַי, וְלֹא טָעַם כָּל הָעָם לָחֶם.\" וְכֵן (מלכים ב ה,כג) \"וַיֹּאמֶר נַעֲמָן: הוֹאֵל קַח כִּכָּרָיִם!\" לְפִיכָךְ הִקְדִּים הַמַּלְאָךְ לַהֲרֹג אֶת מֹשֶׁה. מִיָּד, (שמות ד,כה) \"וַתִּקַּח צִפֹּרָה צֹר, וַתִּכְרֹת אֶת עָרְלַת בְּנָהּ, וַתַּגַּע לְרַגְלָיו, וַתֹּאמֶר: כִּי חֲתַן דָּמִים אַתָּה לִי. וַיִּרֶף מִמֶּנּוּ, אָז אָמְרָה: חֲתַן דָּמִים לַמּוּלֹת.\"*לַמּוּלֹת: על דבר המילה.",
+      "retrieved": "2026-11-24"
+    },
+    "Shabbat 64a#20": {
+      "ref": "Shabbat 64a:20",
+      "url": "https://www.sefaria.org/Shabbat_64a.20",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "https://www.sefaria.org",
+      "license": "CC-BY-NC",
+      "responseSha256": "20de97d2b4a21bff753e2b0a7d27d090a82ae6dd4dbe73d042cbf7b6e48984ae",
+      "excerpt": "״וַנַּקְרֵב אֶת קׇרְבַּן ה׳ אִישׁ אֲשֶׁר מָצָא כְלִי זָהָב אֶצְעָדָה וְצָמִיד טַבַּעַת עָגִיל וְכוּמָז״. אָמַר רַבִּי אֶלְעָזָר: ״עָגִיל״ — זֶה דְּפוּס שֶׁל דַּדִּין. ״כּוּמָז״ — זֶה דְּפוּס שֶׁל בֵּית הָרֶחֶם.",
+      "retrieved": "2026-11-24"
+    },
+    "Shabbat 64a#21": {
+      "ref": "Shabbat 64a:21",
+      "url": "https://www.sefaria.org/Shabbat_64a.21",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "https://www.sefaria.org",
+      "license": "CC-BY-NC",
+      "responseSha256": "20de97d2b4a21bff753e2b0a7d27d090a82ae6dd4dbe73d042cbf7b6e48984ae",
+      "excerpt": "אָמַר רַב יוֹסֵף: אִי הָכִי, הַיְינוּ דִּמְתַרְגְּמִינַן ״מָחוֹךְ״ — דָּבָר הַמֵּבִיא לִידֵי גִּיחוּךְ. אֲמַר לֵיהּ רַבָּה: מִגּוּפֵיהּ דִּקְרָא שְׁמַע מִינַּהּ, ״כּוּמָז״ — כָּאן מְקוֹם זִימָּה.",
+      "retrieved": "2026-11-24"
+    },
+    "Yoma 22b#17": {
+      "ref": "Yoma 22b:17",
+      "url": "https://www.sefaria.org/Yoma_22b.17",
+      "version": "William Davidson Edition - Vocalized Aramaic",
+      "versionSource": "https://korenpub.co.il/collections/the-noe-edition-koren-talmud-bavli-1",
+      "license": "CC-BY-NC",
+      "responseSha256": "6315a801764a73300e8e19ee0509a0e452054fa95e47a8d52677a03787296817",
+      "excerpt": "״בֶּן שָׁנָה שָׁאוּל בְּמׇלְכוֹ״, אָמַר רַב הוּנָא: כְּבֶן שָׁנָה, שֶׁלֹּא טָעַם טַעַם חֵטְא.",
+      "retrieved": "2026-11-24"
+    },
+    "Targum Jonathan on I Samuel 13:1#1": {
+      "ref": "Targum Jonathan on I Samuel 13:1",
+      "url": "https://www.sefaria.org/Targum_Jonathan_on_I_Samuel_13:1",
+      "version": "Mikraot Gedolot",
+      "versionSource": "https://www.sefaria.org",
+      "license": "Public Domain",
+      "responseSha256": "b4b33f383d95c3cedf3eb2242304c6a72d7e4c1ff92fad456f606e90fa55d8be",
+      "excerpt": "כְּבַר שְׁנָא דְלֵית בֵּיהּ חוֹבִין כֵּן שָׁאוּל כַּד מְלַךְ וְתַרְתֵּין שְׁנִין מְלַךְ עַל יִשְׂרָאֵל:",
+      "retrieved": "2026-11-24"
+    },
+    "Jerusalem Talmud Megillah 2:4#5": {
+      "ref": "Jerusalem Talmud Megillah 2:4:5",
+      "url": "https://www.sefaria.org/Jerusalem_Talmud_Megillah_2:4.5",
+      "version": "The Jerusalem Talmud, edition by Heinrich W. Guggenheimer. Berlin, De Gruyter, 1999-2015",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH001901012/NLI",
+      "license": "CC-BY",
+      "responseSha256": "742807f30681fdbb014cb2a2b25e55e6b28e52a41910f01679677193ada25ab8",
+      "excerpt": "רִבִּי בֶּרֶכְיָה רִבִּי חֶלְבּוֹ עוּלָּא בִירִיָיה רִבִּי לָעְזָר בְשֵׁם רִבִּי חֲנִינָה. עָתִיד הַקָּדוֹשׁ בָּרוּךְ הוּא לְהֵיעָשׂוֹת רֹאשׁ חוֹלָה לַצַּדִּיקִים לְעָתִיד לָבוֹא. מַה טַעַם. שִׁיתוּ לִיבְּכֶם לְחֵילָה. לְחוֹלָה כְתִיב. וְהַצַּדִּיקִים מַרְאִין אוֹתוֹ בְּאֶצְבַּע וְאוֹמְרִים. כִּי זֶה אֱלֹהִים אֱלֹהֵינוּ עוֹלָם וָעֶד הוּא יְנַהֲגֵנוּ עַלמוּת. עַלמוּת בַּעֲלִימוּת. [בִּזְרִיזוּת]. עַלמוּת. כְּאִילֵּין עֲלָמוֹת. תִּירְגֵּם עֲקִילַס. אַתַא נַסִיָיא. עוֹלָם שֶׁאֵין בוֹ מָוֶת. וְהַצַּדִּיקִים מַרְאִין אוֹתוֹ בְּאֶצְבַּע וְאוֹמְרִים. כִּי זֶה אֱלֹהִים אֱלֹהֵינוּ עוֹלָם וָעֶד הוּא יְנַהֲגֵנוּ עַלמוּת. הוּא יְנַהֲגֵנוּ בָּעוֹלָם הַזֶּה. הוּא יְנַהֲגֵנוּ לְעָתִיד לָבוֹא.",
+      "retrieved": "2026-11-24"
+    },
+    "Vayikra Rabbah 11:9#1": {
+      "ref": "Vayikra Rabbah 11:9",
+      "url": "https://www.sefaria.org/Vayikra_Rabbah_11:9",
+      "version": "Midrash Rabbah -- TE",
+      "versionSource": "http://www.toratemetfreeware.com/online/f_01635.html",
+      "license": "CC-BY-NC",
+      "responseSha256": "bd7d55de333ee9a6f2c0376d5e044950292ab74fbc416b9dc4ee1e69de93bb00",
+      "excerpt": "רַבִּי בֶּרֶכְיָה וְרַבִּי חֶלְבּוֹ וְעוּלָא בִּירָאָה וְרַבִּי אֶלְעָזָר בְּשֵׁם רַבִּי חֲנִינָא, עָתִיד הַקָּדוֹשׁ בָּרוּךְ הוּא לִהְיוֹת רֹאשׁ חוֹלָה לַצַּדִּיקִים לֶעָתִיד לָבוֹא, הֲדָא הוּא דִכְתִיב (תהלים מח, יד): שִׁיתוּ לִבְּכֶם לְחֵילָה, לְחוֹלָה כְּתִיב, וְהֵן עוֹלִין עָלָיו בְּעַלְמוּת, וּמַרְאִין עָלָיו כְּאִלּוּ בְּאֶצְבַּע, וְאוֹמֵר (תהלים מח, טו): כִּי זֶה אֱלֹהִים אֱלֹהֵינוּ עוֹלָם וָעֶד וגו', בְּעַלְמוּת, בִּזְרִיזוּת. עַלְמוּת כְּאִלֵּין עוּלֵמְתָּא, כְּדִכְתִיב (תהלים סח, כו): בְּתוֹךְ עֲלָמוֹת תּוֹפֵפוֹת, תִּרְגֵּם עֲקִילַס, אַתְנִיסָאָה, עוֹלָם שֶׁאֵין בּוֹ מוּת, עַלְמוּת, בִּשְׁנֵי עוֹלָמוֹת, יְנַהֲגֵנוּ בָּעוֹלָם הַזֶּה וִינַהֲגֵנוּ בָּעוֹלָם הַבָּא.",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Genesis 4:13#1": {
+      "ref": "Onkelos Genesis 4:13",
+      "url": "https://www.sefaria.org/Onkelos_Genesis_4:13",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "3667edf8b60a10399d39a643aecbf9cf7dd78f20e5c6f748d4a15afccfb37415",
+      "excerpt": "וַאֲמַר קַיִן קֳדָם יְיָ סַגִּי חוֹבִי מִלְּמִשְׁבָּק:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Genesis 21:6#1": {
+      "ref": "Onkelos Genesis 21:6",
+      "url": "https://www.sefaria.org/Onkelos_Genesis_21:6",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "a5fd74b5078e7c01e1706e6f105bf6c0a99263fb62c6e8c7fac614ad23a09a1b",
+      "excerpt": "וַאֲמֶרֶת שָׂרָה חֶדְוָא עֲבַד לִי יְיָ כָּל דִּשְׁמַע יֶחֱדֵּי לִי:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Genesis 30:8#1": {
+      "ref": "Onkelos Genesis 30:8",
+      "url": "https://www.sefaria.org/Onkelos_Genesis_30:8",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "f1460fbbc12d3b803bebd2396ef023e364027ee335fb94736240b83e5962771a",
+      "excerpt": "וַאֲמֶרֶת רָחֵל קַבִּיל יְיָ בָּעוּתִי בְּאִתְחַנָּנוּתִי בִּצְלוֹתִי חֲמֵידַת דִּיהֵי לִי וְלַד כַּאֲחָתִי אַף אִתְיְהִיב לִי וּקְרַת שְׁמֵיהּ נַפְתָּלִי:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Genesis 41:43#1": {
+      "ref": "Onkelos Genesis 41:43",
+      "url": "https://www.sefaria.org/Onkelos_Genesis_41:43",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "546b711ec4feca13a170994201f1e47f4850d0e2dddad20ed1d0c64f926a6931",
+      "excerpt": "וְאַרְכֵּיב יָתֵיהּ בִּרְתִכָּא תִנְיֵתָא דִּי לֵיהּ וְאַכְרִיזוּ קֳדָמוֹהִי דֵּין אַבָּא לְמַלְכָּא וּמַנִּי יָתֵיהּ עַל כָּל אַרְעָא דְמִצְרָיִם:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Exodus 30:35#1": {
+      "ref": "Onkelos Exodus 30:35",
+      "url": "https://www.sefaria.org/Onkelos_Exodus_30:35",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "9fa3249dbb05a993661bf9146451f806f4bccfa48f106e2d585a3a143ca20476",
+      "excerpt": "וְתַעְבֵּד יָתַהּ קְטֹרֶת בּוּסְמִין בּוֹסֶם עוֹבַד בּוּסְמָנוּ מְעָרַב דְּכֵי קוּדְשָׁא:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Exodus 38:8#1": {
+      "ref": "Onkelos Exodus 38:8",
+      "url": "https://www.sefaria.org/Onkelos_Exodus_38:8",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "ca1780a16292a0169a13814d63c8c5be8f9c34aff51449fd785790e3313cbb93",
+      "excerpt": "וַעֲבַד יָת כִּיוֹרָא נְחָשָׁא וְיָת בְּסִיסֵיהּ נְחָשָׁא בְּמֶחְזְיַן נְשַׁיָּא דְּאָתְיָן לְצַלָּאָה בִּתְרַע מַשְׁכַּן זִמְנָא:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Numbers 4:20#1": {
+      "ref": "Onkelos Numbers 4:20",
+      "url": "https://www.sefaria.org/Onkelos_Numbers_4:20",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "89030cedebab283c93684372f4be29020e56dbe2f2a4f5f261cf28e5578a523d",
+      "excerpt": "וְלָא יֵעֲלוּן לְמֶחֱזֵי כַּד מְכַסָּן יָת מָנֵי קוּדְשָׁא וְלָא יְמוּתוּן:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Numbers 21:18#1": {
+      "ref": "Onkelos Numbers 21:18",
+      "url": "https://www.sefaria.org/Onkelos_Numbers_21:18",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "5cd3c3269f5905d73dee79fbfba6fbe82fda408a79159d7728de89333c1f88b5",
+      "excerpt": "בֵּירָא דְּחָפְרוּהָ רַבְרְבַיָּא כְּרוּהָ רֵישֵׁי עַמָּא סַפְרַיָּא בְּחוּטְרֵיהוֹן וּמִמַּדְבְּרָא אִתְיְהִיבַת לְהוֹן:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Deuteronomy 26:8#1": {
+      "ref": "Onkelos Deuteronomy 26:8",
+      "url": "https://www.sefaria.org/Onkelos_Deuteronomy_26:8",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "99172c7b03baa9c8b9b0c3749a6644dc59b7539c2ea591d769fb57bda559f4ac",
+      "excerpt": "וְאַפְּקָנָא יְיָ מִמִּצְרַיִם בִּידָא תַקִּיפָא וּבִדְרָעָא מְרָמְמָא וּבְחֶזְוָנָא רַבָּא וּבְאָתִין וּבְמוֹפְתִין:",
+      "retrieved": "2026-11-24"
+    },
+    "Onkelos Deuteronomy 32:24#1": {
+      "ref": "Onkelos Deuteronomy 32:24",
+      "url": "https://www.sefaria.org/Onkelos_Deuteronomy_32:24",
+      "version": "Sifsei Chachomim Chumash, Metsudah Publications, 2009",
+      "versionSource": "https://www.nli.org.il/he/books/NNL_ALEPH002691623",
+      "license": "CC-BY-NC",
+      "responseSha256": "c6ce03545c84e9bafe072d6fe6889caa11d037f7befdea584b3947c8c81fe3af",
+      "excerpt": "נִפִיחֵי כָפָן וַאֲכוּלֵי עוּף וּכְתִישֵׁי רוּחִין בִּישָׁן וְשֵׁן חֵיוַת בָּרָא אֱגָרֵי בְּהוֹן עִם חֲמַת תַּנִּינַיָּא דְּזָחֲלִין בְּעַפְרָא:",
+      "retrieved": "2026-11-24"
+    },
+    "Targum Psalms 2:12#1": {
+      "ref": "Aramaic Targum to Psalms 2:12",
+      "url": "https://www.sefaria.org/Aramaic_Targum_to_Psalms_2:12",
+      "version": "Mikraot Gedolot",
+      "versionSource": "https://www.sefaria.org",
+      "license": "Public Domain",
+      "responseSha256": "de0cb981d6fba72379ef804aa77bc16e762a95f5217ee053772c285054978c92",
+      "excerpt": "קַבִּילוּ אוּלְפָנָא דִלְמָא יִרְגֵיז וּתְהוֹבְדוּן אוּרְחָא מְטוּל דְיֵיחוֹר כִּזְעֵר רוּגְזֵיהּ טוּבֵיהּ לְכָל דְסָבְרִין בְּמֵימְרֵיהּ: ",
+      "retrieved": "2026-11-24"
+    },
+    "Targum Psalms 68:19#1": {
+      "ref": "Aramaic Targum to Psalms 68:19",
+      "url": "https://www.sefaria.org/Aramaic_Targum_to_Psalms_68:19",
+      "version": "Mikraot Gedolot",
+      "versionSource": "https://www.sefaria.org",
+      "license": "Public Domain",
+      "responseSha256": "3a30f4f5602847b0b7c3536811cfb3005fcf8c9cf9e21296ad13c1cb21b91ee4",
+      "excerpt": "סְלֵקְתָּא לִרְקִיעַ (מֹשֶׁה נְבִיָא) שְׁבִיתָא שִׁבְיְתָא (אַלֵפְתָּא פִּתְגָמֵי אוֹרַיְתָא) יְהַבְתָּא לְהוֹן מַתְּנָן לִבְנֵי נָשָׁא וּבְרַם סַרְבָּנַיָא דִי מִתְגַיְירִין וְתָיְבִין בִּתְתוּבָא שְׁרָת עֲלֵיהוֹן שְׁכִינַת יְקָרָא דַייָ אֱלֹהִים:",
+      "retrieved": "2026-11-24"
+    },
+    "Philo Special Laws 3.108-109": {
+      "ref": "Philo, De specialibus legibus III 108–109",
+      "url": "https://ccel.org/ccel/philo/works/works.iii.xxx.html",
+      "localFile": "bundled/own/GreekCorpus-tlg0018.tlg024/other/Open Greek Corpus - OGA.json",
+      "localSha256": "f25078b94217de630c45a6f29e5b0fd6834219d779c11b98bb7ddf073540f8af",
+      "textPaths": [
+        [
+          2,
+          107
+        ],
+        [
+          2,
+          108
+        ]
+      ],
+      "excerpt": "ἐὰν μὲν ἄπλαστον καὶ ἀδιατύπωτον",
+      "retrieved": "2026-11-24",
+      "version": "Open Greek Corpus - OGA (1st1K-grc1)"
+    }
+  },
+  "withdrawn": [
+    {
+      "key": [
+        "Syr",
+        "Exodus",
+        "16:29",
+        "technik",
+        [
+          22
+        ],
+        [
+          22,
+          23,
+          24
+        ],
+        0
+      ],
+      "category": "halacha",
+      "reason": "The prior tag cited only the editorial note. No concrete Jewish source was established for restricting departure to the house door; retain the witness reading without this tradition classification."
+    }
+  ]
+}

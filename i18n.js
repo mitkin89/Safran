@@ -1569,6 +1569,7 @@
     "Alle Lesarten": "All readings",
     "Alle Gruppen": "All groups",
     "Zeigt Lesarten mit redaktionell zugeordneten Auslegungstraditionen.": "Shows readings whose interpretive traditions have been assigned by the editors.",
+    "Quellenvergleich (Field)": "Source comparison (Field)",
     "Am Quelltext geprüft": "Checked against the source text",
     "Lesarten durchsuchen": "Search readings",
     "In Erläuterungen suchen, z. B. Targum, Midrasch, Etrog": "Search the notes, e.g. Targum, Midrash, etrog",

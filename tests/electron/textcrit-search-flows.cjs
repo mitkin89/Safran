@@ -33,6 +33,17 @@ module.exports=async({js,waitFor,book})=>{
  await waitFor("document.querySelector('.tcs-hit[data-tcs-book=Exodus][data-tcs-ch=\"2\"][data-tcs-v=\"9\"] [data-tradition=aggada]')",'Aggada-Merkmal zu Exodus 2:9');
  assert(await js("document.querySelector('.tcs-hit[data-tcs-book=Genesis][data-tcs-ch=\"38\"][data-tcs-v=\"5\"] [data-tradition=aggada]')"));
  assert(await js("[...document.querySelectorAll('.tcs-hit')].every(row=>row.querySelector('[data-tradition=aggada]'))"));
+ // Field footnote comparisons remain discoverable through their primary source and their own type.
+ await js("{const q=document.querySelector('#tcsQ');q.value='Mekhilta';q.dispatchEvent(new Event('input',{bubbles:true}));}");
+ await waitFor("document.querySelectorAll('.tcs-hit').length===1 && document.querySelector('.tcs-hit[data-tcs-book=Exodus][data-tcs-ch=\"2\"][data-tcs-v=\"21\"]')",'Mekhilta-Quelle durchsuchbar');
+ assert(await js("document.querySelectorAll('.tcs-hit').length===1"));
+ await js("{document.querySelector('#tcsQ').value='';document.querySelector('#tcsType').value='quellenhinweis';document.querySelector('#tcsType').dispatchEvent(new Event('change',{bubbles:true}));}");
+ await waitFor("document.querySelectorAll('.tcs-hit').length===4",'vier geprüfte Field-Fußnotenvergleiche');
+ assert(await js("[...document.querySelectorAll('.tcs-hit')].every(e=>!e.querySelector('.tcs-both'))"));
+ await js("document.querySelector('.tcs-hit[data-tcs-book=Exodus][data-tcs-ch=\"2\"][data-tcs-v=\"21\"]').click()");
+ await waitFor("document.querySelector('#tcSearch').hidden && document.querySelector('#tcBody .tc-hx-traditions [data-tradition=aggada]')",'Field-Beleg im Versapparat');
+ assert(await js("/(Fußnote|note) 24/.test(document.querySelector('#tcBody .tc-hx-traditions').textContent)"));
+ await js("document.querySelector('#tcSearchBtn').click();document.querySelector('#tcsType').value=''");
  await js("document.querySelector('#tcsTradition').value=''");
  // filter: LXX and Syr together against the MT, Genesis only: Gen 2:2 („am sechsten Tag“)
  await js("{const q=document.querySelector('#tcsQ');q.value='';document.querySelector('#tcsBook').value='Genesis';document.querySelector('#tcsBoth').checked=true;document.querySelector('#tcsBoth').dispatchEvent(new Event('change',{bubbles:true}));}");
