@@ -112,11 +112,15 @@ window.LibraryNotes = (() => {
     const vfs = host.$('#vfStar');
     if (vfs && host.view.vf) { const on = blk.has(host.noteId(host.view.group, s.k, 'blk:' + host.fmtVerses([...host.view.vf.set]))); vfs.textContent = on ? '★' : '☆'; vfs.classList.toggle('on', on); }
     readerNoteIndex=window.NoteAnchors.index(workspace?workspace.all():notesAll,host.groups);
+    // A chapter/range remains linked at every verse, but its note is shown once.
+    const displayed=new Set();
     host.$$('#rOut .row[data-l]').forEach(r => {
       const matched=readerNoteIndex.get(window.NoteAnchors.signature(host.view.group.key,s.k,r.dataset.l))||[],nn=matched[0],on=matched.length>0;
+      const first=matched.filter(note=>!displayed.has(window.NoteAnchors.owner(note)));
+      first.forEach(note=>displayed.add(window.NoteAnchors.owner(note)));
       r.querySelectorAll(':scope > .rnote').forEach(n=>n.remove());
-      for(const note of matched){if(!note.note)continue;const st=document.createElement('div');st.className='rnote';st.textContent=note.note;st.dataset.id=note.id;st.dataset.owner=window.NoteAnchors.owner(note);st.title=window.NotesWorkspaceData.title(note)+' · '+I18N.t('Klicken: Notiz bearbeiten');r.appendChild(st);}
-      r.classList.toggle('noted', on);
+      for(const note of first){if(!note.note)continue;const st=document.createElement('div');st.className='rnote';st.textContent=note.note;st.dataset.id=note.id;st.dataset.owner=window.NoteAnchors.owner(note);st.title=window.NotesWorkspaceData.title(note)+' · '+I18N.t('Klicken: Notiz bearbeiten');r.appendChild(st);}
+      r.classList.toggle('noted', first.length>0);
       const lab = r.querySelector('.lab');
       if (!lab.querySelector('.bm')) lab.insertAdjacentHTML('afterbegin', '<span class="bm" title="Lesezeichen / Notiz">☆</span>');
       const b = lab.querySelector('.bm');

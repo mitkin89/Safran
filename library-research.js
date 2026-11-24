@@ -159,7 +159,7 @@ window.LibraryResearch = (() => {
     }
     function blockEditor(b, i, spatial=false) {
       const n = b.type === 'note' ? allNotes().find(n => n.id === b.noteId) || b.noteSnapshot : null;
-      const text = n?.note ?? b.text, title = n?.title || b.title;
+      const text = n?.note ?? b.text, title = n ? window.NotesWorkspaceData.title(n) : b.title;
       const editing = editingBlocks.has(b.id), expanded = expandedBlocks.has(b.id), long = !(spatial&&draft.layout?.template==='classic') && (text.length > 750 || text.split('\n').length > 8);
       const type = {source: 'Quelle', text: 'Eigener Text', heading: 'Überschrift', note: 'Notiz'}[b.type];
       const blockTitle = b.type === 'source' ? (title&&title!==b.citation?.work?[title,C.locator(b.citation?.locator)].filter(Boolean).join(' · '):C.location(b.citation)) : title || type;
@@ -356,6 +356,21 @@ window.LibraryResearch = (() => {
       if(!items.length)throw Error('Noch keine passenden Einträge vorhanden.');
       const d=await modal(title,`<label>Eintrag<select id="rwChoice">${items.map((x,i)=>`<option class="nt" value="${i}">${esc(label(x))}</option>`).join('')}</select></label>`);if(!d)return null;const item=items[+d.querySelector('select').value];closeModal(d);return item;
     }
+    async function chooseNote(){
+      await refresh();
+      const D=window.NotesWorkspaceData,items=allNotes().filter(n=>(n.projectId===projectId||!n.projectId)&&n.kind!=='hl');
+      let selected=-1;
+      const d=await modal('Notiz verknüpfen','<label>Notizen durchsuchen<input id="rwNoteSearch" type="search" placeholder="Titel, Fundstelle oder Notiztext …"></label><p class="muted">Notizen dieses Projekts und Notizen ohne Projekt. Die ausgewählte Notiz wird mit dem Quellenblatt verknüpft.</p><p id="rwNoteCount" role="status"></p><div id="rwNoteChoices" class="rw-note-choices" role="radiogroup" aria-label="Notiz auswählen"></div>','Verknüpfen',dlg=>{
+        const search=dlg.querySelector('#rwNoteSearch'),list=dlg.querySelector('#rwNoteChoices'),submit=dlg.querySelector('[type=submit]');
+        function render(){
+          const found=D.filter(items,{query:search.value},state.projects);if(!found.includes(items[selected]))selected=found.length?items.indexOf(found[0]):-1;
+          dlg.querySelector('#rwNoteCount').textContent=found.length+' '+(found.length===1?'Notiz':'Notizen');submit.disabled=selected<0;
+          list.innerHTML=found.map(n=>{const i=items.indexOf(n),refs=D.refs(n).map(D.referenceLabel).join(' · '),project=state.projects.find(p=>p.id===n.projectId)?.title||'Ohne Projekt';return '<label class="rw-note-choice"><input type="radio" name="rwLinkedNote" value="'+i+'" '+(i===selected?'checked':'')+'><span><b>'+esc(D.title(n))+'</b>'+(refs?'<small>'+esc(refs)+'</small>':'')+'<span class="rw-note-snippet">'+esc(D.excerpt(n).slice(0,240)||'Lesezeichen ohne eigenen Notiztext')+'</span><small>'+esc(project)+'</small></span></label>';}).join('')||'<p class="muted">Keine passenden Notizen. Ändere die Suche oder lege im Reiter Notizen eine Notiz an.</p>';
+        }
+        search.oninput=render;list.onchange=e=>{if(e.target.matches('[name=rwLinkedNote]'))selected=+e.target.value;};render();
+      });
+      if(!d)return null;const note=items[selected];closeModal(d);return note||null;
+    }
     function projectSources(){return [...state.sheets.filter(s=>s.projectId===projectId).flatMap(s=>s.blocks),...state.collections.filter(c=>c.projectId===projectId).flatMap(c=>c.items)].filter(b=>b.reference);}
     async function action(a) {
       if(a==='undo'||a==='redo'){restoreHistory(a);return;}
@@ -407,8 +422,8 @@ window.LibraryResearch = (() => {
       if(a==='addText'||a==='addHeading'){const b=blank(a==='addText'?'text':'heading');blocks.push(b);editingBlocks.add(b.id);changed();render();root.querySelector(`[data-block="${blocks.length-1}"] textarea`)?.focus();}
       if(a==='addSource')await sourcePicker();
       if(a==='addNote'){
-        const n=await choose('Notiz verknüpfen',allNotes().filter(n=>n.projectId===projectId||!n.projectId));if(!n)return;
-        blocks.push({...blank('note'),noteId:n.id,noteSnapshot:{...copy(n),refs:noteRefs(n),projectId},title:n.title||'Notiz',text:n.note||''});changed();render();
+        const n=await chooseNote();if(!n)return;
+        blocks.push({...blank('note'),noteId:n.id,noteSnapshot:{...copy(n),refs:noteRefs(n),projectId},title:window.NotesWorkspaceData.title(n),text:n.note||''});changed();render();
       }
       if(a==='fromCollection'){
         const c=await choose('Sammlung wählen',state.collections.filter(c=>c.projectId===projectId));if(!c)return;

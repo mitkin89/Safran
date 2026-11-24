@@ -2951,7 +2951,7 @@ body .pinp[data-study-side=left]:not(.panel-sized):not(.docked) { left:0!importa
 #nOut .nw-ref>header { background:transparent; padding:0; border:0; }
 #nOut .nw-source-title { font-size:12px; }
 #nOut .nw-edition { margin:4px 0; font-size:10px; }
-#nOut .nw-source-excerpt>summary { font-size:10px; color:var(--muted); cursor:pointer; padding:3px 0; }
+#nOut .nw-source-label { font-size:10px; color:var(--muted); margin:3px 0; }
 #nOut .nw-source-excerpt blockquote { font-size:calc(var(--nfs,15px) * .9); line-height:1.8; }
 #nOut .nw-source-excerpt:has(.nw-full-quote[open])>blockquote:first-of-type { display:none; }
 #nOut .nw-ref-actions { margin:6px 0 0; gap:10px; max-width:none; }
@@ -3009,3 +3009,13 @@ body .pinp[data-study-side=left]:not(.panel-sized):not(.docked) { left:0!importa
 @media(max-width:740px){#nOut .nw-layout,#nOut[data-books-hidden=true] .nw-layout { display:flex; }}
 /* Keep the full notes workspace clear while preserving the reader's pinned panels. */
 html[data-tab=notes] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,#cmtResize,#tpResize) { display:none!important; }
+.rw-note-choices { max-height:50vh; overflow:auto; border:1px solid var(--line); border-radius:8px; }
+.rw-note-choices .rw-note-choice { display:flex; align-items:flex-start; gap:10px; padding:12px; margin:0; border-bottom:1px solid var(--line); cursor:pointer; }
+.rw-note-choice:last-child { border-bottom:0; }
+.rw-note-choice:has(input:checked) { background:color-mix(in srgb,var(--accent) 12%,transparent); }
+.rw-note-choice input { flex:none; margin-top:4px; width:auto; }
+.rw-note-choice>span { min-width:0; display:grid; gap:5px; overflow-wrap:anywhere; }
+.rw-note-choice small { color:var(--muted); font-size:12px; }
+.rw-note-snippet { font-size:13px; line-height:1.5; white-space:pre-line; }
+
+#nOut .nw-source-excerpt blockquote.nw-hebrew { font-family:"SBL Hebrew",Georgia,serif; font-size:calc(var(--nfs,15px) * 1.5); line-height:2; }
