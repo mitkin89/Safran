@@ -1,6 +1,10 @@
 # Changelog
 
 ### Unreleased
+
+- Masora: flacher Apparat mit einmaligem Bezugswort, direkt sichtbarem Originaltext samt Belegstellen und kleinen Aktionen für Erklärung/Quelle; unsichere Seitennotizen nur in der Kapitelansicht.
+
+- Masora: Wortübersicht mit kompakten Notizen, aufklappbaren deutschen Lesehilfen ohne Zeichenauflösung, direkten Belegstellen und Zentrierung des Zielverses.
 - Fix missing LXX concordance peers in verses with unanchored CATSS groups, including Genesis 28:11 Strong 4763. Resolve only unambiguous source-word spans across complete ordered anchor assignments, retain Greek occurrence positions and canonical-source checks, and leave empty or ambiguous anchors unlinked.
 - Add visible Research undo/redo arrows and keyboard shortcuts for current-document text, layout, source changes and group removal, retaining history across saves without restoring stale record versions. Add native passage/verse changes with preview, including sparse selections such as 2,5,10, while rebuilding and preserving matching translations and interlinear snapshots. Expose direct removal of individual cards and complete commentary groups in arrangement and group footers.
 - Add an opt-in “Use the reader display” source-sheet capture: preserve visible editions, checked Westminster interlinear mappings alongside full translation columns, font sizes and selected section headings. Preview before insertion, keep snapshots and citations in project data, and retain the combined view in HTML/PDF/DOCX exports.

@@ -96,3 +96,19 @@ test('citation-only notes and repeated occurrences cannot manufacture a unique w
   assert.equal(D.locations(repeated,note).length,2);
   assert.equal(D.forVerse([{page:repeated,entry:note}],{book:'Psalms',chapter:1,verse:1}).primary.length,0);
 });
+
+test('Masorah explanations only infer explicit counts and preserve uncertain notes',()=>{
+  const note={readings:[{text:'והנה אנכי הׄ וסימניהון'}, {text:'אנכי הולך היום',references:[{label:'Josh 23:14'}]},{text:'ודין',references:[{label:'Gen 28:15'}]}]};
+  const before=JSON.stringify(note),e=D.explain(note);assert.equal(e.count,5);assert.equal(e.list,true);assert.equal(e.refs.length,2);assert.match(e.meaning,/5 Vorkommen/);assert.equal(JSON.stringify(note),before);
+  assert.equal(D.explain({readings:[{text:'הׄ'}]}).count,5);
+  assert.equal(D.explain({readings:[{text:'המלך'}]}).count,null);
+  assert.equal(D.explain({readings:[{text:'ה מל'}]}).count,null);
+  assert.match(D.explain({readings:[{text:'בלתי מובן'}]}).meaning,/keine gesicherte/);
+  assert.equal(D.explain({readings:[{text:'מלא'}]}).features.length,1);
+  assert.equal(D.explain({readings:[{text:'במלאכת'}]}).features.length,0);
+});
+test('Masorah word groups collect manuscript witnesses and follow source verse order',()=>{
+  const make=(id,label,text)=>{const entry={uuid:id,label},page={id,contexts:[{type:'BibleText',readings:[{text,references:[{label:'Gen 28:15'}]}]}]};return {page,entry};};
+  const a=make('a','אנכי','והנה אנכי עמך'),b=make('b','והנה','והנה אנכי עמך'),c=make('c','אנכי','והנה אנכי עמך');
+  const groups=D.wordGroups([a,b,c]);assert.deepEqual(groups.map(g=>g.label),['והנה','אנכי']);assert.equal(groups[1].hits.length,2);
+});

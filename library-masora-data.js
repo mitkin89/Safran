@@ -91,6 +91,27 @@
     }
     return hits;
   }
-  const api={pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens};
+  // Conservative reading aid, separate from the unchanged source transcription.
+  // A count is recognized only as a complete numeral note or an explicit list heading.
+  function explain(entry){
+    const lines=(entry.readings||[]).map(text),first=lines[0]||'',clean=fold(first).replace(/[׳״'"·]/g,'').trim();
+    const list=/וסימנ(?:יהון|הון|ין|ים)/.test(clean),number=list?clean.match(/(?:^|\s)([אבגדהוזחט])\s+וסימנ/):clean.match(/^([אבגדהוזחט])$/);
+    const count=number?'אבגדהוזחט'.indexOf(number[1])+1:null;
+    const refs=[...new Set((entry.readings||[]).flatMap(r=>(r.references||[]).map(x=>x.label)))];
+    const meaning=count?'Die Notiz nennt '+count+' Vorkommen der bezeichneten Form oder Wortgruppe'+(list?' und führt dazu Erkennungszitate auf.':'.'):list?'Die Notiz führt Erkennungszitate zu den aufgezählten Vorkommen auf.':'Für diese Notiz liegt noch keine gesicherte deutsche Einzelerklärung vor.';
+    const features=[];
+    if(/(?:^|\s)מלא(?:\s|$)/.test(clean))features.push('Die Notiz bezeichnet eine volle Schreibung mit Vokalbuchstaben.');
+    if(/(?:^|\s)חסר(?:\s|$)/.test(clean))features.push('Die Notiz bezeichnet eine defektive Schreibung ohne den betreffenden Vokalbuchstaben.');
+    if(/(?:^|\s)(?:קרי|כתיב)(?:\s|$)/.test(clean))features.push('Die Notiz betrifft die geschriebene beziehungsweise die überlieferte gelesene Form (Ketiv/Qere).');
+    return {meaning,count,list,refs,features};
+  }
+  function wordGroups(hits){
+    const groups=new Map();
+    for(const hit of hits){const loc=locations(hit.page,hit.entry),key=loc.length===1?loc[0].label+'|'+wordTokens(hit.entry.label).join(' '):hit.page.id+'|'+hit.entry.uuid;
+      if(!groups.has(key))groups.set(key,{label:hit.entry.label,location:loc.length===1?loc[0]:null,hits:[]});groups.get(key).hits.push(hit);
+    }
+    return [...groups.values()].sort((a,b)=>(a.location?.chapter??Infinity)-(b.location?.chapter??Infinity)||(a.location?.verse??Infinity)-(b.location?.verse??Infinity)||(a.location?.wordIndex??Infinity)-(b.location?.wordIndex??Infinity));
+  }
+  const api={pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraData=api;
 })(typeof window!=='undefined'?window:globalThis);
