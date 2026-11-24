@@ -43,6 +43,7 @@ window.LibrarySearch = (() => {
       $('#sInfo').textContent = mode === 'text' ? I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).') : '';
       sSetBusy();
       if (mode === 'syntax') loadBhsaStatus();
+      updateExamples();
     }
     const modeTabs = [...$$('#sModes [role="tab"]')];
     for (const tab of modeTabs) tab.onclick = () => setSearchMode(tab.dataset.mode);
@@ -284,6 +285,7 @@ window.LibrarySearch = (() => {
       const word=button.dataset.syntaxKind==='word';
       $('#gForm').hidden=!word;$('#sxClausePanel').hidden=word;
       for(const b of $$('#sxKinds button')){const active=b===button;b.classList.toggle('primary',active);b.setAttribute('aria-pressed',String(active));}
+      updateExamples();
     });
     $('#gForm').addEventListener('submit',event=>{
       event.preventDefault();if(sBusy())return O.cancelSearch();
@@ -292,29 +294,19 @@ window.LibrarySearch = (() => {
       runSearch(null,{word:true});
     });
     const syntaxBuilder=window.LibrarySyntaxBuilder.create({root:$('#sxBuilder'),esc,t:key=>I18N.t(key),loadRoots:loadRootFamilies});
-    $('#sxPatternExample').onclick=()=>syntaxBuilder.set({op:'all',children:[{op:'term',role:'verb'},
-      {op:'related',relation:'child',child:{op:'all',children:[{op:'term',role:'relation',value:'Attr'},{op:'term',role:'verb',gram:{stem:'h'}}]}}]});
+    $('#sxPatternExample').onclick=()=>examplesUI.load('attributive-hifil');
     $('#sxAdvanced').onchange=()=>{
       $('#sxSimple').hidden=$('#sxAdvanced').checked;
       $('#sxBuilderPanel').hidden=!$('#sxAdvanced').checked;
       $('#sxError').hidden=true;
+      updateExamples();
     };
     const syntaxParams = () => $('#sxAdvanced').checked ? {pattern:syntaxBuilder.query()} : ({
       verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim(),
       object: $('#sxObject').value.trim(), referents: $('#sxReferents').checked,
       ...(!$('#sxBhsa').hidden ? { domain: $('#sxDomain').value, relation: $('#sxResumption').checked ? 'Resu' : '' } : {}),
     });
-    window.LibrarySyntaxPatterns.create({
-      root:$('#sxSavedPatterns'),esc,t:(...args)=>I18N.t(...args),storage:localStorage,files:window.api,
-      capture:()=>{
-        if(!$('#gForm').hidden)return {type:'word',book:$('#gBook').value,query:$('#gQuery').value,gram:gramParams()||{}};
-        if($('#sxAdvanced').checked){
-          if(!syntaxBuilder.valid())throw Error(syntaxBuilder.error()||'Ungültiges Suchmuster.');
-          return {type:'advanced',book:$('#sxAdvancedBook').value,pattern:syntaxBuilder.query()};
-        }
-        return {type:'clause',book:$('#sxBook').value,syntax:syntaxParams(),gram:gramParams('sx')||{}};
-      },
-      apply:async record=>{
+    async function applySyntaxRecord(record){
         const selector=record.type==='word'?'#gBook':record.type==='advanced'?'#sxAdvancedBook':'#sxBook';
         if(record.book&&![...$(selector).options].some(o=>o.value===record.book))throw Error('Das Buch dieses Suchmusters ist nicht lokal vorhanden.');
         if(record.type==='advanced'){
@@ -335,8 +327,22 @@ window.LibrarySearch = (() => {
         const s=record.syntax;$('#sxVerb').value=s.verb;$('#sxSubject').value=s.subject;$('#sxObject').value=s.object;
         $('#sxReferents').checked=s.referents;$('#sxDomain').value=s.domain;$('#sxResumption').checked=s.relation==='Resu';setGram(record.gram,'sx');
         $('#sxFilters').dispatchEvent(new Event('change',{bubbles:true}));
+    }
+    window.LibrarySyntaxPatterns.create({
+      root:$('#sxSavedPatterns'),esc,t:(...args)=>I18N.t(...args),storage:localStorage,files:window.api,
+      capture:()=>{
+        if(!$('#gForm').hidden)return {type:'word',book:$('#gBook').value,query:$('#gQuery').value,gram:gramParams()||{}};
+        if($('#sxAdvanced').checked){
+          if(!syntaxBuilder.valid())throw Error(syntaxBuilder.error()||'Ungültiges Suchmuster.');
+          return {type:'advanced',book:$('#sxAdvancedBook').value,pattern:syntaxBuilder.query()};
+        }
+        return {type:'clause',book:$('#sxBook').value,syntax:syntaxParams(),gram:gramParams('sx')||{}};
       },
+      apply:applySyntaxRecord,
     });
+    const examplesUI=window.LibrarySyntaxExamples.create({root:$('#sxExamples'),apply:async record=>{await applySyntaxRecord(record);$('#sxSavedPatterns [data-act=new]').click();},esc,t:(...args)=>I18N.t(...args)});
+    function updateExamples(){examplesUI.show(searchMode==='syntax'&&$('#gForm').hidden?($('#sxAdvanced').checked?'advanced':'clause'):null);}
+    updateExamples();
     function runSyntaxSearch() {
       if (sBusy()) return O.cancelSearch();
       const syntax = syntaxParams();
@@ -367,13 +373,7 @@ window.LibrarySearch = (() => {
         input.type === 'checkbox' ? input.checked : input.value).length;
       $('#sxFilterCount').textContent = active ? ' ' + I18N.t('({#} aktiv)', active) : '';
     });
-    $('#sxExample').onclick = () => {
-      $('#sxObject').value = '';
-      $('#sxSubject').value = 'אלהים, יהוה';
-      $('#sxVerb').value = 'אמר';
-      $('#sxError').hidden = true;
-      $('#sxVerb').focus();
-    };
+    $('#sxExample').onclick = () => examplesUI.load('god-speaks');
     async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
       const wordMode=syntax?.word===true;

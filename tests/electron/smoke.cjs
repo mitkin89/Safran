@@ -16,6 +16,7 @@ if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Genesis','other',/^Septuagint
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_TCSEARCH==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Genesis','other',/^ETCBC Peshitta/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Ruth','other',/^ETCBC Peshitta/);
 if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1')add('Ezekiel','he',/^Westminster/);
+if(process.env.SAFRAN_SMOKE_PSAPP==='1'){add('Ezekiel','he',/^Westminster/);add('Ezekiel','other',/^ETCBC Peshitta/);}
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -62,6 +63,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  if(process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1'){
   await require('./peshitta-status-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_EXAMPLES==='1'){await require('./syntax-examples-flows.cjs')({js,waitFor,win});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_PSAPP==='1'){await require('./peshitta-apparatus-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_SEARCH==='1'){await js("document.querySelector('#splitBtn').click()");await waitFor("document.querySelector('#pane2')?.contentDocument?.querySelector('#sGo')",'Suchmaske im zweiten Fenster');await libraryFlows({js,waitFor});await require('./syntax-flows.cjs')({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_OUTLINES==='1'){
   await require('./outline-search-flows.cjs')({js,waitFor,book});

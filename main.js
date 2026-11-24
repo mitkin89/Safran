@@ -593,6 +593,9 @@ ipcMain.handle('off:search', async (e, o = {}) => {
     if (o.outline && typeof o.outline === 'object') {
       return await runSearchWorker({ outline: o.outline, dirs: outlineDirs() }, job, () => {});
     }
+    const pattern = o.syntax != null && Object.hasOwn(o.syntax, 'pattern')
+      ? require('./syntax-pattern').clean(o.syntax.pattern) : undefined;
+    if (pattern === null) return { ...emptyResult(), error: 'Ungültiges Suchmuster.' };
     const lib = await getLibrary();
     if (job.cancelled) return emptyResult();
     const str = x => String(x == null ? '' : x);
@@ -600,7 +603,7 @@ ipcMain.handle('off:search', async (e, o = {}) => {
     const params = {
       concordance: !!o.concordance, concordancePreview: !!o.concordancePreview, concordanceLemma: /^\d{1,4}[a-z]?$/.test(str(o.concordanceLemma)) ? str(o.concordanceLemma) : '', concordanceRoot: /^\d{1,4}[a-z]?$/.test(str(o.concordanceRoot)) ? str(o.concordanceRoot) : '', crossLanguage: !!o.crossLanguage, query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
       distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
-      syntax: o.syntax == null ? null : { verb: str(o.syntax.verb).slice(0, 128), subject: str(o.syntax.subject).slice(0, 256),
+      syntax: o.syntax == null ? null : pattern ? { pattern } : { verb: str(o.syntax.verb).slice(0, 128), subject: str(o.syntax.subject).slice(0, 256),
         object: str(o.syntax.object).slice(0, 256), referents: o.syntax.referents === true, ...bhsa },
       limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
     };

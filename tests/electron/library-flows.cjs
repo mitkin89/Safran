@@ -47,8 +47,14 @@ module.exports=async function setup({profile,docs,handlers}){
     return lib.downloadEntries([entries[0]],{force:new Set([OFF.relPathOf(entries[0])]),onProgress:p=>e.senderFrame.send('off:progress',p)});
   });
   ipcMain.on('off:cancel',()=>{cancelled=true;downloadGate?.resolve();});
+  const productionSearch=require('../production-search-handler.cjs')({
+    searchJobs:jobs,
+    getLibrary:async()=>({dir:searchDir,entriesFor:({kinds,categories,titles})=>[...docs.values()].map(d=>d.entry)
+      .filter(e=>kinds.includes(e.kind)&&require('../../search-categories').matches(e,categories,new Set(titles)))}),
+  });
   replace('off:search',async (e,params)=>{
     searchRequests.push(params);
+    if(process.env.SAFRAN_SMOKE_EXAMPLES==='1')return productionSearch(e,params);
     const job=jobs.begin(ownerOf(e),params.requestId);
     try{
       if(params.outline) return await runSearchWorker({
