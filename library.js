@@ -1350,7 +1350,7 @@
     const S = V.sres, res0 = S.res;
     S.running = true;
     let res = res0, verSel = '';
-    if (!S.he) {
+    if (!S.he && !S.params.semantic) {
       const cnt = new Map();
       res0.results.forEach(r => { if (r.kind === 'he') return; const k = (r.versionTitle || '') + '\u0000' + r.kind; cnt.set(k, (cnt.get(k) || 0) + 1); });
       const keys = [...cnt.entries()].sort((a, b) => b[1] - a[1]);
@@ -1366,7 +1366,7 @@
     if (body == null) return;
     const books = res.stats.length, hits = res.results.length;
     const chips = res.stats.map(x => `<button class="chip" data-jb="${esc(x.title)}" title="${esc(I18N.t('Zu diesem Buch springen'))}">${esc(x.title)} (${x.n})</button>`).join(' ');
-    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>${newTabHtml()}`}</div>`;
+    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.semantic ? ' · ' + esc(I18N.t('Bedeutungsfeld')) : S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>${newTabHtml()}`}</div>`;
     if (view === V) { $('#rOut').innerHTML = S.html; mountNewTab(); ['he', 'en', 'de'].forEach(k => $('#rOut').style.setProperty('--' + k + 'f', disp[k])); }
   }
   // Klicks im Suchtab: Vers wählen (Kommentare, Verknüpfungen), Kapitel öffnen, weitere laden
@@ -2689,8 +2689,10 @@
     const norm = x => R.normalize(x).replace(/[^\p{L}]/gu, '');
     const ws = [...h.words];
     if (/<span class="w"/.test(html)) {
+      let position=0;
       return html.replace(/<span class="w"( data-l="[^"]*" data-m="[^"]*")>(.*?)<\/span>/g, (m, at, inner) => {
-        const f = norm(inner);
+        const f = norm(inner); position++;
+        if(h.positions)return h.positions.has(position)?`<span class="w hl"${at}>${inner}</span>`:m;
         return ws.some(x => f === norm(x) || (h.sub && f.includes(norm(x)))) ? `<span class="w hl"${at}>${inner}</span>` : m;
       });
     }
@@ -2700,7 +2702,7 @@
   // Fundstellen als Lesetext-HTML: nach Buch und Kapitel geordnet, je Zeile die gewählten Versionen nebeneinander
   async function buildReadHtml(res, stillWanted, heAlso) {
     const books = new Map();
-    for (const r of res) {
+    for (const r of res.flatMap(r => r.semantic ? [r, ...(r.parallels || [])] : [r])) {
       if (!r.loc) continue;
       const b = books.get(r.title) || books.set(r.title, { rel: r.rel, secs: new Map(), rels: new Set() }).get(r.title);
       b.rels.add(r.rel);
@@ -2711,6 +2713,7 @@
         const hk = r.loc.label + '|' + r.rel;
         const h = sc.hl.get(hk) || sc.hl.set(hk, { words: new Set(), sub: false }).get(hk);
         r.words.forEach(w => h.words.add(w)); h.sub = h.sub || !!r.sub;
+        if(r.semantic && r.positions){h.positions ||= new Set();r.positions.forEach(i=>h.positions.add(i));}
       }
     }
     let html = '';

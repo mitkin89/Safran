@@ -1,6 +1,9 @@
 # Changelog
 
 ### Unreleased
+- **Semantic fields:** new offline search tab with ten explicit Hebrew/Greek lemma sets, visible membership and per-result evidence. Supports custom local fields, source/book selection, exact OSHB homonyms, aligned German renderings with source-fingerprint checks, counts/export and highlighted results-as-reader. This is a potential-passage search, not contextual sense disambiguation; see `docs/semantic-search.md`.
+
+### Unreleased
 
 - Link displayed MT, CATSS Septuagint and Peshitta occurrences bidirectionally through source-checked word alignments, with original numbering and alignment provenance. Keep aligned correspondences separate from occurrence counts.
 - Add a cross-work concordance over local texts: original-word contexts, occurrence counts by work, source navigation, CSV export and word-card entry point. Match word forms or recorded lemmas where compatible annotations are available; keep unannotated text and separate editions explicit.
