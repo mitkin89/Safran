@@ -1,7 +1,5 @@
 <p align="center"><img src="logo.png" alt="Safran-Logo" width="120"></p>
 
-Unter **Suche → Bedeutungsfelder** kannst du mögliche Belege zu zehn Bedeutungsfeldern über hebräische und griechische Lemmata finden und eigene Felder speichern. Zugeordnete deutsche Wiedergaben erscheinen bei passenden Textfassungen. [Bedienung und Grenzen](docs/semantic-search.md).
-
 <h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
 <p align="center"><b>Deine jüdische Bibliothek, offline – mit dem ganzen Tanach Wort für Wort auf Deutsch.</b><br>Tanach, Talmud, Midrasch und Kommentare auf Hebräisch, Englisch und Deutsch, mit eingebautem Wörterbuchregal.</p>

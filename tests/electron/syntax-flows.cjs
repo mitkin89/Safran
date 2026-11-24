@@ -8,8 +8,6 @@ module.exports = async function syntaxFlows({ js, waitFor }) {
   await js(`document.querySelector('#sq').value = 'Textsuche bleibt erhalten';
     document.querySelector('#gStem').value = 'N';
     document.querySelector('#sTextTab').dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));`);
-  assert.equal(await js("document.activeElement.id"), 'sSemanticTab');
-  await js("document.querySelector('#sSemanticTab').dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))");
   assert.equal(await js("document.activeElement.id"), 'sSyntaxTab');
   assert.equal(await js("document.querySelector('#sText').hidden"), true);
   assert.equal(await js("document.querySelector('#sxFilters').open"), false);

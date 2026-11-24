@@ -1,10 +1,7 @@
 # Changelog
 
 ### Unreleased
-- **Contextual meaning pilot:** distinguish fear, reverence, ambiguous and other usages for 25 Hebrew Genesis occurrences, with explicit reasons and unassigned status elsewhere. Add per-occurrence local corrections/reset, persistent local storage, source-verse fingerprints, sense filters and CSV evidence. Starter assignments are AI-assisted editorial work, not independently specialist-reviewed. Include OSHB 3373 in the fear field.
-- **Semantic fields:** new offline search tab with ten explicit Hebrew/Greek lemma sets, visible membership and per-result evidence. Supports custom local fields, source/book selection, exact OSHB homonyms, aligned German renderings with source-fingerprint checks, counts/export and highlighted results-as-reader. This is a potential-passage search, not contextual sense disambiguation; see `docs/semantic-search.md`.
-
-### Unreleased
+- Remove the experimental semantic-fields search, starter sets and contextual-meaning pilot. Retain text/lemma search, cross-work concordance and grammar/syntax search. Retired field-search session tabs reopen as empty tabs, rather than running unrelated text queries.
 
 - **Letter of Aristeas in Greek:** add all 322 sections from Thackeray (1914) via OCP alongside Kautzsch, with source-checked automatic GLAUx morphology for 12,785 of 12,931 reader words (98.87%). Word popups name GLAUx and open dictionary lemmas. Preserve source wording and numbering; 146 words remain unresolved, including all of §43, which is absent from GLAUx. Pinned sources, licenses and all discrepancies are documented in `tools/aristeas/`; no German text changes.
 - Link displayed MT, CATSS Septuagint and Peshitta occurrences bidirectionally through source-checked word alignments, with original numbering and alignment provenance. Keep aligned correspondences separate from occurrence counts.

@@ -174,7 +174,6 @@ const cleanGram = g => { const o = {}; if (g && typeof g === 'object') for (cons
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 async function searchFiles({ dir, entries, params, cacheDir = null, onProgress = () => {}, isCancelled = () => false }) {
-  if (params.semantic != null) return require('./semantic-search').search({ dir, entries, params, onProgress, isCancelled });
   if (params.concordance) return require('./concordance').search({ dir, entries, params, onProgress, isCancelled });
   const { extra = [], fuzzy = false, distance = -1, ordered = false, prefix = false, exact = false, limit = 1000, perFile = 25, wlc = false, lemma = false, countAll = false, partial = false } = params;
   let query = String(params.query == null ? '' : params.query);

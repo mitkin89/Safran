@@ -113,7 +113,6 @@
       <div class="sleft">
       <div id="sModes" role="tablist" aria-label="Suchmodus">
         <button id="sTextTab" data-mode="text" type="button" role="tab" aria-controls="sText" aria-selected="true">Textsuche</button>
-        <button id="sSemanticTab" data-mode="semantic" type="button" role="tab" aria-controls="sSemantic" aria-selected="false" tabindex="-1">Bedeutungsfelder</button>
         <button id="sSyntaxTab" data-mode="syntax" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Grammatik &amp; Syntax</button>
         <button id="sOutlineTab" data-mode="outline" type="button" role="tab" aria-controls="sOutline" aria-selected="false" tabindex="-1">Gliederung &amp; Mizwot</button>
       </div>
@@ -181,25 +180,6 @@
         <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="sRecentClear" type="button" title="Liste leeren">✕</button></div><div id="sRecentL" class="dchips"></div></div>
         <div class="dsv"><div class="dsvh"><b>Favoriten</b></div><div id="sFavL" class="dchips"></div></div>
       </div>
-      </div>
-      <div id="sSemantic" role="tabpanel" aria-labelledby="sSemanticTab" hidden>
-        <form id="smForm">
-          <div class="bar"><label>Bedeutungsfeld suchen <input id="smQuery" placeholder="z. B. Angst, Gnade, Familie" autocomplete="off"></label><button id="smGo" type="submit" class="primary">Suchen</button></div>
-          <p class="muted">Findet mögliche Belege über Lemmata, unabhängig von der Wortform. Mehrdeutige Wörter können im Kontext eine andere Bedeutung haben. Keine vollständige Erfassung eines Themas.</p>
-          <label for="smField">Bedeutungsfeld auswählen</label><select id="smField" size="7" aria-describedby="smMembers"></select>
-          <div id="smMembers" aria-live="polite"></div>
-          <div id="smSenseControls"><label>Bedeutung im Kontext <select id="smSense"><option value="all">Alle Bedeutungen und unzugeordnete Belege</option><option value="fear">Angst / Bedrohung</option><option value="reverence">Ehrfurcht / Gottesfurcht</option><option value="uncertain">Nicht eindeutig</option><option value="other">Anderer Gebrauch</option><option value="unreviewed">Noch nicht zugeordnet</option></select></label><p class="muted">Startzuordnungen: hebräische Belege in Genesis. KI-gestützt redaktionell bearbeitet, nicht unabhängig fachlich geprüft. Andere Belege bleiben unzugeordnet; lokale Korrekturen sind möglich.</p></div>
-          <div class="bar"><label>Quellen <select id="smLanguage"><option value="both">Hebräisch und Griechisch</option><option value="he">Tanach (Westminster)</option><option value="gr">Septuaginta</option></select></label><label>Buch <select id="smBook"></select></label></div>
-          <p class="muted">Deutsche Entsprechungen erscheinen bei passenden öffentlichen Wortzuordnungen und unveränderten Textfassungen. Sie zählen nicht als zusätzliche Belege.</p>
-        </form>
-        <button id="smCopy" type="button">Auswahl als eigenes Feld bearbeiten</button> <button id="smDelete" type="button" hidden>Eigenes Feld entfernen</button>
-        <details id="smEdit"><summary>Eigenes Bedeutungsfeld anlegen</summary>
-          <p class="muted">Eigene Felder werden nur auf diesem Gerät gespeichert. Kennungen und griechische Grundformen durch Kommas trennen.</p>
-          <label>Titel <input id="smTitle" maxlength="80"></label>
-          <label>Hebräische Strong-Kennungen <input id="smHebrew" placeholder="3372, 3374, 6342, 6343"></label>
-          <label>Griechische Lemmata <input id="smGreek" placeholder="φοβέω, φόβος"></label>
-          <button id="smSave" type="button">Bedeutungsfeld speichern</button><p id="smError" role="alert" hidden></p>
-        </details>
       </div>
       <div id="sSyntax" role="tabpanel" aria-labelledby="sSyntaxTab" hidden>
         <div id="sxSavedPatterns"></div>
@@ -707,9 +687,6 @@
   <script src="library-syntax-patterns.js"></script>
   <script src="search-categories.js"></script>
   <script src="syntax-explanation.js"></script>
-  <script src="semantic-fields.js"></script>
-  <script src="semantic-context.js"></script>
-  <script src="library-semantic.js"></script>
   <script src="syntax-tree.js"></script>
   <script src="syntax-coverage.js"></script>
   <script src="library-search.js"></script>

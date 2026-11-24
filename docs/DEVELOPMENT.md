@@ -28,6 +28,7 @@ GitHub Actions (`.github/workflows/build.yml`) builds macOS, Windows and Linux.
 ```bash
 npm test
 npm run test:smoke  # actual Electron renderer, temporary profile, no network
+SAFRAN_SMOKE_SEARCH=1 npm run test:smoke  # focused search/download/syntax flows
 ```
 
 New isolated regressions live in `tests/*.test.js` and are discovered by Node’s test runner. The older numbered corpus tests remain in the existing test chain. The Electron smoke test loads the production HTML, renderer scripts and preload against public fixture texts; it covers Tanakh/Bavli cards, modal visibility, forms/navigation, a retained modified translation and the second reading pane. On Linux run it under `xvfb-run --auto-servernum`. The Linux CI job explicitly installs the Electron binary, then sets its `node_modules/electron/dist/chrome-sandbox` helper to root ownership and mode 4755 before launching Electron; the workflow verifies those permissions and keeps sandboxing enabled. Normal pushes and pull requests run `.github/workflows/check.yml`; release builds use the same committed lockfile without falling back to an unpinned install.
@@ -93,7 +94,3 @@ Texts in `bundled/` are imported automatically on start. Export your own texts v
 `Dictionaries.list()` reads small metadata from `dict/_catalog.txt` instead of loading article collections and building search indexes. File size, modification time and change time invalidate individual catalog entries; additions, removals, order and shipping flags are checked on every inventory. The catalog is derived data and can be deleted safely. Missing, damaged or unwritable catalogs fall back to reading dictionary JSON without retaining articles or building search indexes. Existing dictionary files need no migration. Actual lookup still builds the requested dictionary's search index lazily; unrestricted searches and the citation index can still load all dictionaries.
 
 Local measurement on 17 November 2026, using the same ten successfully imported bundled dictionaries in a temporary library, with explicit garbage collection: the previous inventory took 2,154 ms and retained about 589 MiB of additional JavaScript heap. Building the new catalog once took 1,587 ms with no article collections retained; a fresh `Dictionaries` instance with the saved catalog took 3 ms. These measure the inventory operation, not total application startup or peak process memory. `tests/dictionary-metadata.test.js` checks lazy loading, reuse across restarts, selective lookup, changed files, removal/order and recovery from a corrupt catalog.
-
-## Semantic fields
-
-The offline lemma-set search and editable starter catalogue are described in [semantic-search.md](semantic-search.md). Run `SAFRAN_SMOKE_SEMANTIC=1 npm run test:smoke` for the isolated production-renderer flow.

@@ -20,7 +20,6 @@ window.LibrarySearch = (() => {
       $('#sxGo').textContent = g.textContent;
       $('#sxGo').classList.toggle('primary', !sBusy());
       $('#sxAdvancedGo').textContent=g.textContent;
-      semanticUI.setBusy(sBusy());
     };
     function setSearchMode(mode) {
       if (searchMode === mode) return;
@@ -44,9 +43,7 @@ window.LibrarySearch = (() => {
       $('#sInfo').textContent = mode === 'text' ? I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).') : '';
       sSetBusy();
       if (mode === 'syntax') loadBhsaStatus();
-      if (mode === 'semantic') semanticUI.books();
     }
-    const semanticUI = window.LibrarySemantic.create({$,esc,lsGet,lsSet,getGroups,run:()=>sBusy()?O.cancelSearch():runSearch()});
     const modeTabs = [...$$('#sModes [role="tab"]')];
     for (const tab of modeTabs) tab.onclick = () => setSearchMode(tab.dataset.mode);
     $('#sModes').addEventListener('keydown', event => {
@@ -379,13 +376,12 @@ window.LibrarySearch = (() => {
     };
     async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
-      const semantic = searchMode === 'semantic' ? semanticUI.request() : null;
       const wordMode=syntax?.word===true;
-      const q = semantic ? semanticUI.title() : wordMode ? $('#gQuery').value.trim() : syntax ? '' : $('#sq').value.trim();
-      const cc = !semantic && !syntax && isConcordance(), gram = !syntax || cc || syntax?.pattern ? null : gramParams(wordMode ? '' : 'sx');
+      const q = wordMode ? $('#gQuery').value.trim() : syntax ? '' : $('#sq').value.trim();
+      const cc = !syntax && isConcordance(), gram = !syntax || cc || syntax?.pattern ? null : gramParams(wordMode ? '' : 'sx');
       if (cc && (!/^[\p{L}\p{M}\p{N}]+$/u.test(q))) { $('#sInfo').textContent = I18N.t('Bitte ein einzelnes Wort ohne Platzhalter eingeben.'); return; }
-      if (!q && !gram && !syntax) { if(semantic)$('#sInfo').textContent=I18N.t('Bitte ein gültiges Bedeutungsfeld auswählen.'); return; }
-      const kinds = semantic ? semanticUI.kinds() : gram || syntax ? ['he'] : cc && $('#sConcordanceCross').checked && /[\u05d0-\u05ea\u0710-\u072f\u0370-\u03ff\u1f00-\u1fff]/u.test(q) ? ['he','other'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
+      if (!q && !gram && !syntax) return;
+      const kinds = gram || syntax ? ['he'] : cc && $('#sConcordanceCross').checked && /[\u05d0-\u05ea\u0710-\u072f\u0370-\u03ff\u1f00-\u1fff]/u.test(q) ? ['he','other'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
       const id = ++searchId;
       searchPending = true;
       sSetBusy();
@@ -395,11 +391,11 @@ window.LibrarySearch = (() => {
       $('#sLemmaCoverage').innerHTML = '';
       $('#sSyntaxCoverage').innerHTML = '';
       const book = syntax ? $(wordMode?'#gBook':syntax.pattern?'#sxAdvancedBook':'#sxBook').value : '';
-      const titles = semantic ? (semanticUI.book()?[semanticUI.book()]:[]) : syntax ? (book ? [book] : wordMode ? [...$('#gBook').options].map(o=>o.value).filter(Boolean) : []) : [...sTitles];
+      const titles = syntax ? (book ? [book] : wordMode ? [...$('#gBook').options].map(o=>o.value).filter(Boolean) : []) : [...sTitles];
       const sp = {
-        query: q, kinds, gram, semantic, syntax:wordMode?null:syntax,
+        query: q, kinds, gram, syntax:wordMode?null:syntax,
         ...(wordMode?{lemma:true,wlc:true}:{}),
-        categories: onlyTitle || syntax || semantic ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : titles,
+        categories: onlyTitle || syntax ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : titles,
         ...(!syntax ? { distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked,
           ...sMatchParams(), wlc: $('#sWlc').checked } : {}),
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
@@ -430,8 +426,6 @@ window.LibrarySearch = (() => {
           : '')
         + (res.crossLanguage ? ' · ' + I18N.t('Entsprechungen aus Wortzuordnungen; getrennt von den Vorkommenszahlen.') : '')
         + (res.errors ? ' · ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
-      if(res.semanticCoverage){const c=res.semanticCoverage;$('#sLemmaCoverage').textContent=I18N.t('{} Wortbelege erfasst: {} Startzuordnungen, {} lokale Zuordnungen, {} noch nicht zugeordnet. Zählung vor Bedeutungsfilter.',c.total,c.editorial,c.local,c.unreviewed);}
-      if (res.semantic) $('#sInfo').textContent += ' ' + I18N.t('Mögliche Belege nach Lemmazugehörigkeit; deutsche Entsprechungen zählen nicht zusätzlich.') + (res.errors ? ' ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
       if (res.concordance) $('#sLemmaCoverage').innerHTML = concordanceCoverageHtml(res);
       sSumState = { res, onlyTitle, n: 40 };
       renderSum();
@@ -443,15 +437,9 @@ window.LibrarySearch = (() => {
     }
     // Treffer pro Vers zusammenfassen: derselbe Vers in mehreren Fassungen erscheint einmal; die übrigen Fassungen klappen darunter auf
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
-    $('#sOut').addEventListener('click',event=>{
-      const button=event.target.closest('[data-sm-save],[data-sm-reset]');if(!button)return;
-      event.preventDefault();event.stopPropagation();const editor=button.closest('.smSenseEditor');
-      if(semanticUI.correct(sResults[+editor.dataset.smI],+editor.dataset.smMatch,editor,button.hasAttribute('data-sm-reset')))runSearch(sSumState?.onlyTitle||undefined);
-    });
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
       if (r.concordance) return `<div class="sres ccRow" tabindex="0" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wortfamilie' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" tabindex="0" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
-      const semantic = semanticUI.evidence(r,i,shortVer);
       const roles = (r.syntax || []).map(pair => {
         const parts = [[I18N.t('Verb'), pair.verb ? [{ text: pair.verb }] : []], [I18N.t('Subjekt'), pair.subjects],
           [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
@@ -465,7 +453,7 @@ window.LibrarySearch = (() => {
         }
         return `<div class="muted">${labels.join(' · ')}</div>`;
       }).join('');
-      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}${semantic}${window.SyntaxExplanation.render(r.explanation,{esc,t:(...args)=>I18N.t(...args)})}${window.SyntaxTree.render(r.sentenceTree,{esc,t:(...args)=>I18N.t(...args)})}</div>`;
+      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}${window.SyntaxExplanation.render(r.explanation,{esc,t:(...args)=>I18N.t(...args)})}${window.SyntaxTree.render(r.sentenceTree,{esc,t:(...args)=>I18N.t(...args)})}</div>`;
     };
     const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
     function searchGroups() {
@@ -502,12 +490,6 @@ window.LibrarySearch = (() => {
     function showSearchResults() { renderSearchList(); }
     $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore', lastSearch?.wordMode?{word:true}:lastSearch?.syntax); });
     $('#sExport').onclick = async () => {
-      const sem = !!sResults[0]?.semantic;
-      if (sem) {
-        const rows=[['Titel','Version','Stelle','Text','Bedeutungsfeld','Lemmata','Kontextzuordnung','Deutsche Entsprechungen'],...sResults.map(r=>[r.title,r.versionTitle,r.where,plainSnip(r),r.semantic.title,r.semantic.matches.map(m=>m.lemma+' ('+m.id+')').join(' | '),r.semantic.matches.filter(m=>m.context).map(m=>m.position+': '+I18N.t(window.SemanticContext.labels[m.context.sense])+' ['+m.context.basis+'] '+(m.context.note||'')).join(' | '),(r.parallels||[]).map(p=>p.versionTitle+': '+plainSnip(p)).join(' | ')])];
-        const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');
-        const result=await window.api.saveFile('Bedeutungsfelder.csv','\ufeff'+csv);if(result?.error)alert(result.error);return;
-      }
       const cc = !!sResults[0]?.concordance;
       const csv = [cc ? 'Titel;Version;Sprache;Stelle;Kontext;Wortform;Trefferart;Quelle;Wortposition;Zugeordnete Entsprechungen' : 'Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r), ...(cc ? [r.snippet.hit, r.basis, [r.analysisSource, r.analysisReference].filter(Boolean).join(' · '), r.position, (r.parallels || []).map(p => [p.snippet.hit, p.title, p.where, p.analysisSource].join(' | ')).join(' / ')] : [])].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
       const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));

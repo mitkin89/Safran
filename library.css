@@ -2563,14 +2563,6 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 
 .sxClauseText { font-family: var(--he-font); font-size: 1.3em; line-height: 1.65; margin: 4px 0 8px; }
 
-/* Explicit semantic fields and aligned translation evidence. */
-#smField { display:block; width:100%; max-width:42rem; margin:8px 0; }
-#smMembers { padding:8px 12px; border:1px solid var(--line); border-radius:8px; margin-bottom:12px; }
-#smMembers p { margin:6px 0; line-height:1.7; }
-#smEdit { margin:12px 0; } #smEdit label { display:block; margin:8px 0; }
-#smEdit input { width:min(100%,38rem); display:block; }
-.smReason { margin-top:8px; font-size:.9em; color:var(--muted); }
-.smTranslation { margin-top:8px; padding:8px 12px; border-inline-start:3px solid var(--accent); }
 .sxSourceTree, .sxCoverage { margin: 12px 0; padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
 .sxTreeScroll { overflow: auto; max-height: 560px; }
 .sxSentenceTree, .sxSentenceTree ul { list-style: none; margin: 5px 0; padding-inline-start: 22px; }
@@ -2582,9 +2574,3 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .sxCoverage table { border-collapse: collapse; }
 .sxCoverage th, .sxCoverage td { border: 1px solid var(--line); padding: 5px 9px; text-align: start; }
 .sxSourceTree .pvhl { background: color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px var(--accent); font-weight: 700; }
-
-.smContext { margin-top:8px; padding:8px 12px; border-inline-start:3px solid var(--line); font-size:.92em; }
-.smContext p { margin:6px 0; }
-.smSenseEditor label { display:block; margin:8px 0; }
-.smSenseEditor textarea { display:block; width:100%; max-width:42rem; }
-#smSenseControls { margin:10px 0; }

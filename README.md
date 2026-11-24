@@ -1,7 +1,5 @@
 <p align="center"><img src="logo.png" alt="Safran logo" width="120"></p>
 
-Use **Search → Semantic fields** to find potential passages through ten explicit Hebrew/Greek lemma sets and save custom local sets. Aligned German renderings appear for matching editions. [Usage and limits](docs/semantic-search.md).
-
 <h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
 <p align="center"><b>Your Jewish library, offline – with the whole Tanakh word by word in German.</b><br>Tanakh, Talmud, Midrash and commentaries in Hebrew, English and German, with a dictionary shelf built in.</p>
