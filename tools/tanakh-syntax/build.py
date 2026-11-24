@@ -176,6 +176,61 @@ def build(book, code, chapters, book_number, source_dir):
             grouped[key].update(mapping[n])
         return [[key, sorted(indices)] for key, indices in grouped.items()]
 
+    # Additional source constituents are anchored to each predicate, without
+    # changing the established subject/object record format.
+    constituents = defaultdict(list)
+
+    def content_heads(node):
+        if node.tag == 'w':
+            if node.get('class') in HEAD_CLASSES | {'adv'}:
+                yield node
+            return
+        if node.get('class') in {'cl', 'relp'}:
+            return
+        children = list(node)
+        if node.get('rule') in {'NPofNP', 'NpAdjp', 'NpRelp'}:
+            children = children[:1]
+        for child in children:
+            if child.get('class') != 'pp':
+                yield from content_heads(child)
+
+    def local_nodes(node):
+        for child in node:
+            if child.get('class') != 'cl':
+                yield child
+                yield from local_nodes(child)
+
+    def extra_groups(nodes, owners=None):
+        groups, complete = [], True
+        for node in nodes:
+            refs = locations(tuple(role_words(node)))
+            heads = []
+            source_heads = list(content_heads(node))
+            for word in source_heads:
+                loc = locations([word_ref(word)])
+                lemma = letters(word.get('lemma', ''))
+                if not loc or len(loc) != 1 or len(loc[0][1]) != 1 or not lemma:
+                    complete = False
+                    continue
+                heads.append([loc[0][0], loc[0][1][0], lemma])
+            if not refs or not source_heads or not heads:
+                complete = False
+            governors = []
+            governor_complete = True
+            if owners is not None:
+                owner_heads = list(content_heads(owners[node]))
+                for word in owner_heads:
+                    loc = locations([word_ref(word)])
+                    if not loc or len(loc) != 1 or len(loc[0][1]) != 1:
+                        governor_complete = False
+                    else:
+                        governors.append([loc[0][0], loc[0][1][0], letters(word.get('lemma', ''))])
+                if not owner_heads:
+                    governor_complete = False
+            if refs:
+                groups.append(dict(refs=refs, heads=heads, **(dict(governors=governors, governorComplete=governor_complete) if owners is not None else {}), prepositions=sorted({letters(w.get('lemma', '')) for w in node if w.tag == 'w' and w.get('class') == 'prep'})))
+        return dict(complete=complete, groups=groups)
+
     grouped_pairs = defaultdict(list)
     grouped_roles = defaultdict(list)
     for clause in clauses:
@@ -200,12 +255,20 @@ def build(book, code, chapters, book_number, source_dir):
             for key, indices in locations(sorted(set(role_words(child)))):
                 grouped_roles[key].append([role, indices, explicit, refs])
 
+        owners = {n[1]: n[0] for n in local_nodes(clause) if n.get('rule') in {'NPofNP', 'NpAdjp'} and len(n) == 2}
+        extras = {
+            'secondObject': extra_groups([n for n in clause if n.get('role') == 'o2']),
+            'adverbial': extra_groups([n for n in clause if n.get('role') == 'adv']),
+            'prepositional': extra_groups([n for n in clause if n.get('role') == 'pp']),
+            'attribute': extra_groups(list(owners), owners),
+        }
         for word in predicates:
             verb = locations([word_ref(word)])
             lemma = letters(word.get('lemma', ''))
             if not lemma or not verb or len(verb[0][1]) != 1:
                 continue
             key, (position,) = verb[0]
+            constituents[key].append([position, extras])
             linked = antecedents(subject_heads, 'participantref', by_id) if subject_nodes else antecedents([word], 'subjref', by_id)
             refs = locations(sorted({word_ref(w) for w in linked}))
             resolved_heads = head_lemmas(linked) if refs else ()
@@ -223,7 +286,7 @@ def build(book, code, chapters, book_number, source_dir):
         return {key: list({json.dumps(row, ensure_ascii=False): row for row in rows[key]}.values())
                 for key in sorted(rows, key=lambda ref: tuple(map(int, ref.split(':'))))}
 
-    payload = dict(version=2, source=SOURCE, text=signatures, pairs=unique(grouped_pairs), roles=unique(grouped_roles))
+    payload = dict(version=2, source=SOURCE, text=signatures, pairs=unique(grouped_pairs), roles=unique(grouped_roles), constituents=unique(constituents))
     destination = ROOT / 'bundled' / 'syntax' / f'{book}.json'
     # One line per verse makes index changes easier to review.
     content = '{\n' + ',\n'.join(

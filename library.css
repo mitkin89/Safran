@@ -2521,6 +2521,25 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 #sxBuilder input { width: 12em; max-width: 100%; }
 #sxBuilder select { max-width: 100%; }
 #sxBuilderPanel > p { max-width: 70em; }
+.sxBuilderViews { margin-bottom: 12px; }
+.sxBuilderViews [aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+[data-graph-status]:empty { display: none; }
+.sxGraphViewport { overflow: auto; max-height: 520px; min-height: 190px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.sxGraphCanvas { display: block; min-width: 0; max-width: none; }
+.sxGraphEdge { fill: none; stroke: var(--muted); stroke-width: 2; }
+.sxGraphNode { cursor: pointer; }
+.sxGraphNode rect { fill: var(--card, var(--bg)); stroke: var(--line); stroke-width: 2; }
+.sxGraphNode.group rect { stroke: var(--accent); }
+.sxGraphNode.related rect { stroke-dasharray: 6 3; }
+.sxGraphNode.selected rect, .sxGraphNode:focus rect { stroke: var(--accent); stroke-width: 4; }
+.sxGraphNode:focus { outline: none; }
+.sxGraphNode:hover rect { stroke: var(--accent); }
+.sxGraphNode text { fill: var(--fg, currentColor); font-family: inherit; pointer-events: none; }
+.sxGraphNode .sxGraphTitle { font-size: 15px; font-weight: 700; }
+.sxGraphNode .sxGraphValue { font-size: 15px; }
+.sxGraphNode .sxGraphMeta { font-size: 12px; fill: var(--muted); }
+.sxGraphInspector { margin-top: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; }
+.sxGraphInspector h4 { margin: 0 0 10px; }
 
 #lkHover .concordancePreview { font-size: 1.25em; line-height: 1.65; }
 #lkHover .concordancePreview[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.6em; }

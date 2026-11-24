@@ -5,7 +5,7 @@ function data(){if(!roots){roots=require('./passage-stats-data').roots;keys=new 
 function has(key){data();return keys.has(key);}
 function valid(pattern){
  if(pattern.op==='term')return pattern.mode!=='root'||has(pattern.family);
- if(pattern.op==='related')return valid(pattern.child);
+ if(pattern.child)return valid(pattern.child);
  return pattern.children.every(valid);
 }
 function matches(key,word){

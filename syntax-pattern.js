@@ -2,7 +2,8 @@
 (function(){
 'use strict';
 const Types=typeof module!=='undefined'&&module.exports?require('./syntax-types'):window.SyntaxTypes;
-const roles=['kind','clauseType','verb','subject','object','referent','domain','relation'];
+const wordRoles=['verb','subject','object','referent','secondObject','prepositional','adverbial','attribute'];
+const roles=['secondObject','prepositional','adverbial','attribute','kind','clauseType','verb','subject','object','referent','domain','relation'];
 const relations=['Attr','Coor','Subj','Objc','Cmpl','Adju','Resu','NA'];
 function clean(input){
  let count=0;
@@ -12,9 +13,28 @@ function clean(input){
    if(!Array.isArray(n.children)||!n.children.length||n.children.length>12||(n.op==='not'&&n.children.length!==1))throw Error('group');
    return {op:n.op,children:n.children.map(c=>walk(c,depth+1))};
   }
+  if(n.op==='dependent'){
+   const child=walk(n.child,depth+1);
+   const scoped=x=>x.op==='term'?x.role==='attribute':['all','any','not'].includes(x.op)&&x.children.every(scoped);
+   if(!scoped(child))throw Error('attribute scope');
+   return {op:'dependent',child};
+  }
+  if(n.op==='same'){
+   if(!wordRoles.includes(n.role))throw Error('binding role');
+   const child=walk(n.child,depth+1);
+   const scoped=x=>x.op==='term'?x.role===n.role:x.op==='dependent'||['all','any','not'].includes(x.op)&&x.children.every(scoped);
+   if(!scoped(child))throw Error('binding scope');
+   return {op:'same',role:n.role,child};
+  }
   if(n.op==='related'){
-   if(!['child','parent','later'].includes(n.relation))throw Error('relation');
-   return {op:'related',relation:n.relation,child:walk(n.child,depth+1)};
+   if(!['child','parent','later','ancestor','descendant'].includes(n.relation))throw Error('relation');
+   const path={};
+   if(['ancestor','descendant'].includes(n.relation)){
+    const minDepth=n.minDepth??1,maxDepth=n.maxDepth??5;
+    if(!Number.isInteger(minDepth)||!Number.isInteger(maxDepth)||minDepth<1||maxDepth<minDepth||maxDepth>12)throw Error('path depth');
+    Object.assign(path,{minDepth,maxDepth});
+   }
+   return {op:'related',relation:n.relation,...path,child:walk(n.child,depth+1)};
   }
   if(n.op!=='term'||!roles.includes(n.role))throw Error('term');
   if(['domain','relation','kind','clauseType'].includes(n.role)){
@@ -30,25 +50,28 @@ function clean(input){
   for(const [k,allowed]of Object.entries(values)){
    const v=n.gram?.[k];if(v){if(typeof v!=='string'||!allowed.includes(v))throw Error('grammar');gram[k]=v;}
   }
+  let preposition;
+  if(n.preposition){if(n.role!=='prepositional'||typeof n.preposition!=='string'||!['ב','כ','ל','מ','אל','על','את','עם','מן','עד','בין','אחר','תחת','לפני'].includes(n.preposition))throw Error('preposition');preposition=n.preposition;}
   let position;
   if(n.position){
    const p=n.position;
-   if(!['verb','subject','object'].includes(n.role)||!['verb','subject','object'].includes(p.relative)||n.role===p.relative||!['before','after','either'].includes(p.order))throw Error('position');
+   if(!wordRoles.filter(r=>r!=='referent').includes(n.role)||!wordRoles.filter(r=>r!=='referent').includes(p.relative)||n.role===p.relative||!['before','after','either'].includes(p.order))throw Error('position');
    const maxGap=p.maxGap??null;
    if(maxGap!==null&&(!Number.isInteger(maxGap)||maxGap<0||maxGap>200))throw Error('gap');
    position={relative:p.relative,order:p.order,maxGap};
   }
-  return {op:'term',role:n.role,lemmas:mode==='root'?[]:words.map(w=>w.replace(/[^א-ת]/g,'')),gram,...(mode==='root'?{mode,family:n.family}:{}),...(position?{position}:{})};
+  return {op:'term',role:n.role,lemmas:mode==='root'?[]:words.map(w=>w.replace(/[^א-ת]/g,'')),gram,...(preposition?{preposition}:{}),...(mode==='root'?{mode,family:n.family}:{}),...(position?{position}:{})};
  }
- try{return walk(input,0);}catch{return null;}
+ function scopes(n,bound=false){if(n.op==='dependent')return bound&&scopes(n.child,false);if(n.op==='same')return scopes(n.child,true);return n.children?n.children.every(c=>scopes(c,bound)):n.child?scopes(n.child,false):true;}
+ try{const out=walk(input,0);return scopes(out)?out:null;}catch{return null;}
 }
 // Three-valued logic: missing annotation stays unknown under NOT as well.
 function evaluate(n,context,term,related){
  if(n.op==='term')return {value:term(n,context),contexts:[context]};
- if(n.op==='related'){
-  const xs=related(context,n.relation);if(xs===null)return {value:null,contexts:[]};
+ if(['related','same','dependent'].includes(n.op)){
+  const xs=related(context,n.op==='same'?'same':n.op==='dependent'?'dependent':n.relation,n);if(xs===null)return {value:null,contexts:[]};
   const rs=xs.map(c=>evaluate(n.child,c,term,related)),ok=rs.filter(r=>r.value===true);
-  return {value:ok.length?true:rs.some(r=>r.value===null)?null:false,contexts:ok.flatMap(r=>r.contexts)};
+  return {value:ok.length?true:xs.unknown||rs.some(r=>r.value===null)?null:false,contexts:ok.flatMap(r=>r.contexts)};
  }
  const rs=n.children.map(c=>evaluate(c,context,term,related));
  if(n.op==='not')return {value:rs[0].value===null?null:!rs[0].value,contexts:[context]};
@@ -56,5 +79,5 @@ function evaluate(n,context,term,related){
  const ok=rs.filter(r=>r.value===true);
  return {value:ok.length?true:rs.some(r=>r.value===null)?null:false,contexts:ok.flatMap(r=>r.contexts)};
 }
-const api={clean,evaluate,relations};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.SyntaxPattern=api;
+const api={clean,evaluate,relations,wordRoles};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.SyntaxPattern=api;
 })();
