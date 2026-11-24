@@ -3,6 +3,7 @@ window.LibraryTextCrit=(()=>{
 'use strict';
 function create(host){
   const {$}=host,esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s), panel=$('#textcritPanel'), body=$('#tcBody');
+  const fieldLegend=$('#tcFieldSigla');if(fieldLegend)fieldLegend.innerHTML=window.TextCritSigla.legend(host.esc,window.I18N?.textCrit||(x=>x));
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
   const mishnah=window.LibraryMishnahTextCrit.create(host);

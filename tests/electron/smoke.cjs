@@ -15,6 +15,7 @@ add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesi
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Genesis','other',/^Septuaginta \(CATSS\)/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_TCSEARCH==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Genesis','other',/^ETCBC Peshitta/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Ruth','other',/^ETCBC Peshitta/);
+if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1')add('Ezekiel','he',/^Westminster/);
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -57,6 +58,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  const expectedTitles=new Set([...docs.values()].map(doc=>doc.entry.title)).size;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1'){await require('./field-sigla-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1'){
   await require('./peshitta-status-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }

@@ -2579,3 +2579,10 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .sxCoverage th, .sxCoverage td { border: 1px solid var(--line); padding: 5px 9px; text-align: start; }
 .sxSourceTree .pvhl { background: color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px var(--accent); font-weight: 700; }
 .sxCoverage li bdi { overflow-wrap: anywhere; white-space: normal; }
+
+.tc-field-legend { display: block; flex-basis: 100%; margin-top: .6em; max-width: 44em; }
+.tc-field-legend summary { cursor: pointer; }
+.tc-field-legend dl { margin: .6em 0; }
+.tc-field-legend dl > div { display: grid; grid-template-columns: 5em 1fr; gap: .6em; padding: .18em 0; }
+.tc-field-legend dt { font-weight: 700; }
+.tc-field-legend dd { margin: 0; }

@@ -7,6 +7,7 @@
 // Witnesses that are silent are never counted as agreeing with the MT.
 (function(){
 'use strict';
+const SIG=typeof module!=='undefined'&&module.exports?require('./textcrit-sigla'):window.TextCritSigla;
 const ORDER=['MA','SMR','DSS','LXX','Hex','Syr','Ken'];
 const OPS=['var','add','om','note','interp','orth','cite'];
 const cons=s=>String(s||'').normalize('NFKD').replace(/[^א-ת ]/g,'').replace(/[ךםןףץ]/g,c=>'כמנפצ'['ךםןףץ'.indexOf(c)]).replace(/\s+/g,' ').trim();
@@ -43,7 +44,11 @@ function build(entries,mtWords=null){
 function render(entries,mtWords,locus,esc,t=s=>s){
   const subs=build(entries,mtWords);if(!subs.length)return '';
   const he=s=>'<bdi lang="he" dir="rtl">'+esc(s)+'</bdi>';
-  const wit=x=>'<span class="tc-lz-w'+(x.ret?' tc-lz-ret':'')+'"'+(x.title||x.ret?' title="'+esc(x.ret?t('erschlossene Vorlage')+(x.title?' · '+x.title:''):x.title)+'"':'')+'>'+esc(x.w)+(x.n>1||(x.f==='Ken'&&x.n)?'<sup>'+x.n+'</sup>':'')+'</span>';
+  const wit=x=>{
+    const sig=SIG?.info(x.f,x.w)||{label:x.w,title:''};
+    const title=[sig.title?t(sig.title):'',x.ret?t('erschlossene Vorlage'):'',x.title].filter(Boolean).join(' · ');
+    return '<span class="tc-lz-w'+(x.ret?' tc-lz-ret':'')+'"'+(title?' title="'+esc(title)+'"':'')+'>'+esc(sig.label)+(x.n>1||(x.f==='Ken'&&x.n)?'<sup>'+x.n+'</sup>':'')+'</span>';
+  };
   const label={om:'om.',note:'≠',interp:t('vgl.'),orth:t('orth.'),cite:''};
   const ttl={om:t('fehlt in'),note:t('weicht ab, ohne erschließbaren hebräischen Wortlaut'),interp:t('gleiche Konsonanten, andere Deutung oder Wiedergabe'),orth:t('nur Schreibweise'),add:t('Zusatz')};
   const lines=subs.map(s=>{

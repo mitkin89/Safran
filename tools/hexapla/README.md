@@ -131,3 +131,7 @@ Die Übersetzerzeilen (Ἀ., Σ., Θ., Οἱ λοιποί, Ε΄, Ϛ΄) bekommen 
 
 Schlüssel: „Buch Kap:Vers#Einheit Siglen“ (Einheit = Index in `hexapla-data/<Buch>.js`). Wer `build.py` neu laufen
 lässt und dabei Einheiten verschiebt, muss `vorlage_candidates.py` neu laufen lassen und die Urteile übertragen.
+
+## Einheitliche Siglenanzeige
+
+`textcrit-sigla.js` verwendet Fields griechische Zeugensiglen für die Anzeige: Ο΄, Ἀ., Σ., Θ., Οἱ Γ΄, Οἱ λοιποί sowie Ε΄/Ϛ΄/Ζ΄. Die internen Zeugen-IDs und Zuordnungen bleiben unverändert. Die Lesartenzeile und CATSS-Zeugenbeschriftungen verwenden dieselbe Anzeige; die Editionsquelle heißt ausdrücklich „Field“. Unter **Textzeugen → Siglen und Zeichen nach Field** stehen die Auflösungen. Asterisk ※, Obelus ÷ und Metobelus ↙ werden ausschließlich an den im transkribierten Field-Text belegten Positionen ausgezeichnet. Eine moderne Zusatz-/Auslassungsfeststellung erzeugt kein nachträgliches hexaplarisches Zeichen. Fields zitierter Ὁ Σύρος wird weiterhin vom eigenständig eingebundenen Peschitta-Zeugen Syr unterschieden.
