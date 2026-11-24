@@ -397,6 +397,17 @@
     <div id="cmtBody"></div>
   </aside>
 
+  <aside id="masoraPanel" hidden aria-label="Masora">
+    <div class="masora-head lhead"><b>Masora <span id="masoraPlace" class="muted" aria-live="polite"></span></b><button id="masoraFsMinus" type="button" title="Text kleiner">A−</button><button id="masoraFsPlus" type="button" title="Text größer">A+</button><button id="masoraClose" type="button" title="Schließen">✕</button></div>
+    <div id="masoraTools" class="bar">
+      <input id="masoraQuery" type="search" placeholder="Masora durchsuchen …" aria-label="Masora durchsuchen">
+      <select id="masoraScope" aria-label="Suchbereich"><option value="chapter">Aktuelles Kapitel</option><option value="citations">Stellenzitate zum Kapitel</option><option value="book">Ganzes Buch</option><option value="all">Gesamter Bestand</option></select>
+      <select id="masoraMs" aria-label="Handschrift"><option value="">Alle Handschriften</option></select>
+      <select id="masoraType" aria-label="Art der Notiz"><option value="masora">Masora</option><option value="mp">Masora parva</option><option value="mm">Masora magna</option><option value="mf">Masora finalis</option><option value="">Alle Notizarten</option><option value="gl">Glosse</option><option value="cm">Kommentar</option><option value="sn">Schreibernotiz</option><option value="uncategorized">Ohne Zuordnung</option></select>
+    </div>
+    <div id="masoraBody" aria-live="polite"></div>
+  </aside>
+
   <aside id="textcritPanel" hidden aria-label="Apparatus">
     <div class="tc-head">
       <div class="lhead"><b>Apparatus <span id="tcPlace" aria-live="polite"></span></b><button id="tcSearchBtn" type="button" title="Lesarten durchsuchen" aria-pressed="false">🔍</button><details id="tcSettings"><summary title="Verszählung" aria-label="Apparatus-Einstellungen">⚙</summary><div class="tc-settings-body">
@@ -699,6 +710,8 @@
   <script src="library-passage-marks.js"></script>
   <script src="library-panel-resize.js"></script>
   <script src="library-dock-tabs.js"></script>
+  <script src="library-masora-data.js"></script>
+  <script src="library-masora.js"></script>
   <script src="library.js"></script>
 </body>
 </html>

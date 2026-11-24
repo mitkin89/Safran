@@ -13,8 +13,8 @@ function fitLabels(bar,selector,fits=()=>bar.scrollWidth<=bar.clientWidth+1){
  for(const b of candidates){if(fits())break;b.classList.add('icon-only');}
 }
 function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=>true,paired=()=>false}){
- const labels={cmt:'Kommentare',forms:'Wortkarte',all:'Überblick',outline:'Gliederung',dict:'Wörterbuch',topic:'Themen',link:'Verknüpfungen',textcrit:'Apparatus',map:'Karte'};
- const icons={forms:'א',cmt:'💬',textcrit:'≠',all:'✦',outline:'≡',link:'🔗',topic:'🏷',map:'🗺',dict:'📖'};
+ const labels={cmt:'Kommentare',forms:'Wortkarte',all:'Überblick',outline:'Gliederung',dict:'Wörterbuch',topic:'Themen',link:'Verknüpfungen',textcrit:'Apparatus',masora:'Masora',map:'Karte'};
+ const icons={forms:'א',cmt:'💬',textcrit:'≠',masora:'מ',all:'✦',outline:'≡',link:'🔗',topic:'🏷',map:'🗺',dict:'📖'};
  const order=Object.keys(labels),history=[],scrolls=new Map();let preferred=null,switching=false,frame=0;
  let docked=true;try{docked=localStorage.getItem('studyPinned')!=='0';}catch{}
  const bar=document.createElement('nav');bar.id='dockTabs';bar.setAttribute('role','tablist');bar.setAttribute('aria-label',I18N.t('Studienwerkzeuge'));bar.hidden=true;document.body.appendChild(bar);

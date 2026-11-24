@@ -763,6 +763,7 @@
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
     applyCmtRowSoon();
     textcritUI.refresh();
+    masoraUI.refresh();
     const hit = $('#rOut .row.hit') || (quiet && rowLabel != null ? [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === rowLabel) : null);
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
@@ -2981,6 +2982,7 @@
     if (cmtOpen && !cmtWhole) renderCmt(); // ganzes Kapitel: die Markierung wechselt, der Inhalt bleibt
     apSoon();
     textcritUI.select(label);
+    masoraUI.refresh();
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');
@@ -3009,8 +3011,14 @@
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
   // Nicht angepinnte Fenster schweben wie bisher über dem Text.
-  const PINS = { textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
-  const pins = { textcrit: true, forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
+  const masoraUI = window.LibraryMasora.create({
+    $, esc, getView: () => view, getRow: () => cmtRow,
+    isBible: title => linksUI.TANAKH_BOOKS.has(title),
+    load: (...args) => wordCardsUI.lazyScript(...args),
+    openExternal: url => window.api.openExternal(url),
+  });
+  const PINS = { masora: ['#masoraPanel', '#masoraClose'], textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
+  const pins = { masora: true, textcrit: true, forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
   const pinPair = (a,b) => ['cmt','dict'].includes(a)&&['cmt','dict'].includes(b);
   let pinBusy = false;
@@ -3019,8 +3027,8 @@
     $,panels:PINS,pins,automatic:()=>pinBusy,afterOpen:key=>pinSync(undefined,key),
     activePair: visible => visible.includes('cmt')&&visible.includes('dict')?stackActive:null,
     paired:(a,b)=>pinPair(a,b),
-    available:key=>key==='forms'?wordCardsUI.canReopen:key==='dict'?true:!!view?.group&&!({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]&&$({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]).hidden),
-    open:{textcrit:()=>textcritUI.open(),forms:()=>wordCardsUI.reopen(),all:()=>apToggle(true,undefined,true),
+    available:key=>key==='masora'?masoraUI.available():key==='forms'?wordCardsUI.canReopen:key==='dict'?true:!!view?.group&&!({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]&&$({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]).hidden),
+    open:{masora:()=>masoraUI.open(),textcrit:()=>textcritUI.open(),forms:()=>wordCardsUI.reopen(),all:()=>apToggle(true,undefined,true),
       cmt:()=>{toggleCmt(true);setStackActive('cmt');},dict:()=>{toggleDict(true);setStackActive('dict');},
       link:()=>{if($('#linkPanel').hidden)$('#lkBtn').click();},topic:()=>{if($('#topicPanel').hidden)$('#tpBtn').click();},
       outline:()=>{if($('#outlinePanel').hidden)$('#olBtn').click();},map:()=>{if($('#mapPanel').hidden)$('#mapBtn').click();}}
@@ -3135,7 +3143,7 @@
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
+    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden && $('#masoraPanel').hidden) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -3669,7 +3677,7 @@
   }
 
   // Esc schließt die zuletzt geöffnete Seitenleiste (Wörterbuch, Kommentare, Verknüpfungen), jedes weitere Esc die davor
-  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }], ['#textcritPanel', () => textcritUI.close()]];
+  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }], ['#textcritPanel', () => textcritUI.close()], ['#masoraPanel', () => masoraUI.close()]];
     const since = new Map();
     panels.forEach(([sel]) => { const el = $(sel); new MutationObserver(() => { if (!el.hidden) since.set(sel, Date.now()); }).observe(el, { attributes: true, attributeFilter: ['hidden'] }); });
     document.addEventListener('keydown', e => {

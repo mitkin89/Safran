@@ -2602,3 +2602,31 @@ html.split #sRight:has(#sxExamples:not([hidden])) { position:static; max-height:
 .tc-ps-sy .tc-ps-word:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 .tc-ps-sy .tc-ps-word:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tc-ps-card-error { display: inline-block; margin: 0 8px; color: var(--muted); font-size: .85em; }
+
+/* Masorah has an independent pane in the shared study dock. */
+#masoraPanel { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 92vw; box-sizing: border-box; z-index: 30; padding: 12px 14px; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.3); overflow: auto; }
+#masoraPanel[hidden] { display: none; }
+#masoraPanel.docked { box-shadow: none; z-index: 20; }
+#masoraPanel .masora-head { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; position: sticky; top: -12px; background: var(--bg); padding-block: 6px; z-index: 1; }
+#masoraPanel .masora-head b { flex: 1; min-width: 130px; }
+#masoraPlace { display: block; font-size: .85em; font-weight: normal; margin-top: .3em; }
+#masoraBody { line-height: 1.55; overflow-wrap: anywhere; }
+#masoraBody h3 { font-size: 1.05em; margin-block: .5em; }
+#masoraBody section { padding-block: .8em; border-top: 1px solid var(--line); }
+.masora-external { display: inline-block; color: var(--accent); }
+html.split #masoraPanel { right: var(--p2w); }
+
+#masoraTools { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 8px 12px; }
+#masoraTools input { flex: 1 1 100%; min-width: 0; }
+#masoraTools select { max-width: 100%; flex: 1 1 130px; min-width: 0; }
+.masora-page { margin-top: 1.4em; border-top: 2px solid var(--line); padding-top: .6em; }
+#masoraBody .masora-page h3 { font-size: .95em; overflow-wrap: anywhere; }
+.masora-entry { border-bottom: 1px solid var(--line); padding-block: .6em; }
+.masora-entry h4 { margin: .2em 0; font-size: 1em; }
+.masora-entry h4 bdi { font-family: var(--he-font); font-size: 1.35em; }
+.masora-kind { color: var(--muted); font-size: .8em; font-weight: normal; margin-inline-end: .5em; }
+.masora-he { font-family: var(--he-font); font-size: 1.55em; line-height: 1.65; white-space: pre-wrap; margin-block: .5em; }
+.masora-note { white-space: pre-wrap; }
+.masora-refs, .masora-scope-note, .masora-credit { font-size: .82em; }
+.masora-credit { margin-top: 1.4em; padding-top: .6em; border-top: 1px solid var(--line); color: var(--muted); }
+.masora-count { font-weight: 600; }

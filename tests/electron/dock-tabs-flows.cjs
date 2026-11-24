@@ -17,7 +17,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#textcritPanel').hidden",'Kommentar über Tab aktiv');
  await ensure('#allPanel','#apBtn');await ensure('#outlinePanel','#olBtn');await ensure('#linkPanel','#lkBtn');await ensure('#topicPanel','#tpBtn');await ensure('#mapPanel','#mapBtn');
  for(const k of ['cmt','textcrit','all','outline','link','topic','map'])assert(await js(`!!document.querySelector('#dockTabs [data-panel=${k}]')`),'Tab für '+k);
- for(const k of ['cmt','dict','all','outline','link','topic','textcrit','map']){
+ for(const k of ['cmt','dict','all','outline','link','topic','textcrit','masora','map']){
   if(await js(`document.querySelector('#dockTabs [data-panel=${k}]').disabled`))continue;
   await js(`document.querySelector('#dockTabs [data-panel=${k}]').click()`);
   await waitFor(`!document.getElementById(document.querySelector('#dockTabs [data-panel=${k}]').getAttribute('aria-controls')).hidden`,'Angepinntes Werkzeug '+k);
@@ -25,6 +25,22 @@ module.exports=async({win,js,waitFor,book})=>{
   assert(await js(`!document.getElementById(document.querySelector('#dockTabs [data-panel=${k}]').getAttribute('aria-controls')).hidden`),'Esc lässt angepinntes Werkzeug geöffnet: '+k);
  }
 
+ // Masorah is a real independent pane, with a clear offline status and working font controls.
+ await js("document.querySelector('#dockTabs [data-panel=masora]').click()");
+ await waitFor("!document.querySelector('#masoraPanel').hidden && document.querySelector('#masoraPlace').textContent.includes('Genesis 1')",'Masora-Kontext');
+ await waitFor("document.querySelector('#masoraBody .masora-credit')",'Offline-Masora-Bestand');
+ assert(await js("document.querySelector('#masoraBody .masora-credit').textContent.includes('CC BY-SA 4.0')"));
+ const size=await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)");
+ await js("document.querySelector('#masoraFsPlus').click()");
+ assert.equal(await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)"),size+1);
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
+ await waitFor("!document.querySelector('#masoraPanel').hidden && document.querySelector('#masoraPlace').textContent.includes('Genesis 1') && !document.querySelector('#masoraPlace').textContent.includes(':')",'Masora bleibt korrekt auf Kapitelebene bei Versauswahl');
+ await js("document.querySelector('#nextSec').click()");
+ await waitFor("document.querySelector('#masoraPlace').textContent.includes('Genesis 2')",'Masora folgt dem Kapitel');
+ assert.equal(await js("parseFloat(getComputedStyle(document.querySelector('#masoraBody')).fontSize)"),size+1);
+ if(process.env.SAFRAN_MASORA_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_MASORA_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+ await js("document.querySelector('#prevSec').click()");
+ await waitFor("document.querySelector('#masoraPlace').textContent.includes('Genesis 1')",'Rückkehr zum ersten Kapitel');
  await js("document.querySelector('#dockTabs [data-panel=outline]').click()");
  await waitFor("!document.querySelector('#outlinePanel').hidden&&document.querySelector('#mapPanel').hidden",'Gliederung per Tab');
  const outline=await js("document.querySelector('#olBody').textContent");

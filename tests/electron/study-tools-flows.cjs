@@ -3,10 +3,10 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
 module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#studyBtn').click()");
  await waitFor("!document.querySelector('#dockTabs').hidden",'Studienwerkzeuge');
- assert.equal(await js("document.querySelectorAll('#dockTabs [data-panel]').length"),9);
+ assert.equal(await js("document.querySelectorAll('#dockTabs [data-panel]').length"),10);
  assert.equal(await js("document.querySelectorAll('#dockTabs .dock-pin').length"),1);
  assert(await js("[...document.querySelectorAll('.pinp .pinB')].every(b=>getComputedStyle(b).display==='none')"),'Einzelne Werkzeuge haben keinen eigenen sichtbaren Pin');
- assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','forms','all','outline','dict','topic','link','textcrit','map']);
+ assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','forms','all','outline','dict','topic','link','textcrit','masora','map']);
  assert(await js("getComputedStyle(document.querySelector('#cmtBtn')).display==='none'"));
  await waitFor("Math.abs(document.querySelector('#dockTabs').getBoundingClientRect().top-document.querySelector('header').getBoundingClientRect().bottom)<2",'Werkzeugleiste unter Buch-Tabs');
  await waitFor("document.querySelector('#dockTabs .icon-only')",'Beschriftungen weichen nur bei Platzmangel');
@@ -34,7 +34,7 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#dockTabs .dock-pin').click()");
  await js("document.querySelector('#rOut .w').click()");await waitFor("document.querySelector('#wpop .wcard')",'Wortkarte verfügbar');
  await js("document.querySelector('#wpop .wcard').click()");await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#fmHead').textContent.length>0",'Wortkarte geöffnet');
- await waitFor("document.querySelector('#fmHead .fmCnt')",'Wortkartenkopf geladen');
+ await waitFor("document.querySelector('#fmHead .fmCnt') && document.querySelector('#fmHead .wcScope')",'Wortkartenkopf samt Wortfamilienauswahl geladen');
  const card=await js("document.querySelector('#fmHead').textContent");
  await waitFor("document.querySelector('#wcBody .wcSec')",'Wortkarteninhalt');
  win.setSize(1250,520);
@@ -69,9 +69,9 @@ module.exports=async({win,js,waitFor})=>{
  await waitFor(follows+"&&document.querySelector('#dockTabs').getBoundingClientRect().top>=document.querySelector('header').getBoundingClientRect().bottom-1",'Gespeicherte Position lässt Platz für die gemeinsame Leiste');
  await js("document.querySelector('.panel-resize-handle[data-panel=outlinePanel][data-edge=w]').dispatchEvent(new KeyboardEvent('keydown',{key:'Home',bubbles:true}))");
  await js("document.querySelector('#dockTabs .dock-pin').click()");await waitFor("document.querySelector('#outlinePanel').classList.contains('docked')",'Seitenleiste wieder angepinnt');
- win.setSize(1800,1000);await js("window.setPanelW(1100)");
- await waitFor("getComputedStyle(document.querySelector('#dockTabs [data-panel=dict] .dock-tab-label')).display!=='none'",'Breite Werkzeugleiste mit Beschriftungen');
- assert(await js("[...document.querySelectorAll('#dockTabs .dock-tab-label')].filter(e=>e.getClientRects().length).length===10"),'Alle Werkzeugnamen bei genügend Platz');
+ win.setSize(1800,1000);await js("window.setPanelW(1250)");
+ await waitFor("[...document.querySelectorAll('#dockTabs .dock-tab-label')].filter(e=>e.getClientRects().length).length===11",'Breite Werkzeugleiste mit allen Beschriftungen');
+ assert(await js("[...document.querySelectorAll('#dockTabs .dock-tab-label')].filter(e=>e.getClientRects().length).length===11"),'Alle Werkzeugnamen bei genügend Platz');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-study-tools-wide.png',i.toPNG()));
  await js("document.querySelector('#dockTabs [data-panel=dict]').click()");
  await waitFor("getComputedStyle(document.querySelector('#dictPanel')).visibility==='visible'",'Kompakter Wörterbuchkopf');

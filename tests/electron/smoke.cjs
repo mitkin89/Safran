@@ -15,6 +15,7 @@ add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesi
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Genesis','other',/^Septuaginta \(CATSS\)/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_TCSEARCH==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Genesis','other',/^ETCBC Peshitta/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1')add('Ruth','other',/^ETCBC Peshitta/);
+if(process.env.SAFRAN_SMOKE_MASORA==='1')add('Psalms','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1')add('Ezekiel','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_PSAPP==='1'){add('Ezekiel','he',/^Westminster/);add('Ezekiel','other',/^ETCBC Peshitta/);}
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
@@ -78,6 +79,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  if(process.env.SAFRAN_SMOKE_WORD_DBL==='1'){await require('./word-double-click-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_VERSIONS==='1'){
   await require('./version-menu-flows.cjs')({docs,win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
+ if(process.env.SAFRAN_SMOKE_MASORA==='1'){
+  await require('./masora-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_DOCK==='1'){
