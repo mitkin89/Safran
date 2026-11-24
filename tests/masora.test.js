@@ -103,7 +103,7 @@ test('Masorah explanations only infer explicit counts and preserve uncertain not
   assert.equal(D.explain({readings:[{text:'הׄ'}]}).count,5);
   assert.equal(D.explain({readings:[{text:'המלך'}]}).count,null);
   assert.equal(D.explain({readings:[{text:'ה מל'}]}).count,null);
-  assert.match(D.explain({readings:[{text:'בלתי מובן'}]}).meaning,/keine gesicherte/);
+  assert.match(D.explain({readings:[{text:'בלתי מובן'}]}).meaning,/nicht zuverlässig/);
   assert.equal(D.explain({readings:[{text:'מלא'}]}).features.length,1);
   assert.equal(D.explain({readings:[{text:'במלאכת'}]}).features.length,0);
 });
@@ -111,4 +111,21 @@ test('Masorah word groups collect manuscript witnesses and follow source verse o
   const make=(id,label,text)=>{const entry={uuid:id,label},page={id,contexts:[{type:'BibleText',readings:[{text,references:[{label:'Gen 28:15'}]}]}]};return {page,entry};};
   const a=make('a','אנכי','והנה אנכי עמך'),b=make('b','והנה','והנה אנכי עמך'),c=make('c','אנכי','והנה אנכי עמך');
   const groups=D.wordGroups([a,b,c]);assert.deepEqual(groups.map(g=>g.label),['והנה','אנכי']);assert.equal(groups[1].hits.length,2);
+});
+
+test('German Masorah aids distinguish uniqueness, qualified numbers and ordinary Hebrew words',()=>{
+  const explain=text=>D.explain({label:'דבר',readings:[{text}]});
+  for(const text of ['לׄ','ל']){assert.equal(explain(text).count,1);assert.match(explain(text).meaning,/einmalig/);}
+  for(const [text,n]of [['בׄ דסׄ',2],['י״ב',12],['ט״ו',15],['ט״ז',16],['קלׄדׄ',134]])assert.equal(explain(text).count,n,text);
+  assert.equal(explain('בׄ דסׄ').partial,true);assert.match(explain('בׄ דסׄ').meaning,/Einschränkung/);
+  for(const text of ['מלא','מל','חסר','שם','קׄ','דבר'])assert.equal(explain(text).count,null,text+' is not safely a numeral');
+  assert.match(explain('לׄ וחסׄ').meaning,/defektive/);
+  assert.match(explain('בׄ בפתח').meaning,/Patach/);
+  assert.match(explain('לׄ רפי').meaning,/ohne Dagesch/);
+  assert.equal(D.explain({label:'מרחפת',readings:[{text:'מרחפת לׄ כותׄ'}]}).count,1);
+});
+test('the Munich Genesis note gives its explicit count while its unknown condition stays unresolved',()=>{
+  const ms=index.manuscripts.find(m=>m.label==='Munich.Cod.hebr.2');
+  const e=datasets[ms.id].pages.flatMap(p=>p.contexts).find(e=>e.uuid==='f2c81271-75c8-452b-a617-24a4ff0f32ea');
+  const result=D.explain(e);assert.equal(result.count,2);assert.equal(result.partial,true);assert.deepEqual(result.refs,['Jer 32:27']);assert.match(result.meaning,/Vergleichsbelege/);
 });

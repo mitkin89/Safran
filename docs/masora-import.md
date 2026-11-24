@@ -162,10 +162,36 @@ and highlights only an explicitly matching source phrase in the displayed Westmi
 reading.
 
 The German “Erklärung” is a labelled, rule-based reading aid, not a supplied critical
-commentary. It recognizes a complete single-letter numeral note (1–9), or a numeral
-immediately before an explicit list-introduction formula. It describes source-provided
-citations and recognizes only the spelled-out terms מלא, חסר, קרי and כתיב as hints
-about spelling or reading. It does not expand abbreviations or invent explanations
-of accents, vocalization, counting scope or unresolved notes. Unrecognized notes
-explicitly report that no secure individual German explanation is available. The
-original source corpus and its hashes remain unchanged.
+commentary. It handles uniqueness formulas, separately marked Hebrew numeral tokens
+(including longer standard numeral groups), explicit list headings, and common
+spelling/reading formulas. It distinguishes count information from unresolved
+qualifiers: a note such as `בׄ דסׄ` yields the explicit count two while leaving the
+condition unresolved. A lone `ק` is not assumed to mean 100, and common lexical
+formulas such as מלא are not parsed as numbers. Number-like unmarked multi-letter
+words are not guessed as counts. An exact source lemma prefix may be removed from
+the heading for interpreting the following formula; the displayed text is unchanged.
+
+There is no separate abbreviation glossary. Unknown clauses remain explicitly
+untranslated. No rule output claims to be a verified individual scholarly translation.
+`node tools/masora/audit-explanations.js` scans every transcribed source note and
+reports recognition and unresolved-content coverage. The original corpus and hashes
+remain unchanged. Standard formula interpretation is informed by the
+[Deutsche Bibelgesellschaft introduction](https://www.die-bibel.de/masora) and
+[Daniel Mynatt’s introduction to the Leningrad Masorah](https://www.ancientjewreview.com/read/2020/9/11/introduction-to-the-masorah-the-masorah-of-the-leningrad-codex-in-the-biblia-hebraica-stuttgartensia-bhs-edition).
+These references describe general conventions, not critical translations of the BIMA
+manuscript notes.
+
+## Shared apparatus controls and continuation
+
+The Masorah header provides search, settings (scope, manuscript and note type),
+chapter/verse switching, previous/next displayed verse, scroll following, and font
+size controls. Following is opt-in and stored independently from the apparatus. It
+uses the reader's existing upper-quarter reading-position heuristic; in chapter mode
+it also marks and follows the corresponding word groups. Scrolling inside tool panes
+or dialogs does not move the reading selection. Escape closes an open settings menu
+before dismissing the tool.
+
+Continuation is calculated from the notes actually displayed in the chosen scope,
+not all notes found on the source pages. For example Genesis 1:2 has 16 uniquely
+anchored notes among 283 page notes; it therefore has no false continuation button.
+The chapter view can still load real additional page notes in batches of 100.

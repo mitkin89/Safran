@@ -4,6 +4,23 @@ module.exports=async({win,js,waitFor,book})=>{
  await book('Psalms');await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]')",'Psalm 1');
  await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click();if(document.querySelector('#dockTabs').hidden)document.querySelector('#studyBtn').click();document.querySelector('#dockTabs [data-panel=masora]').click()");
  await waitFor("!document.querySelector('#masoraPanel').hidden&&document.querySelector('.masora-entry')",'Masora offline geladen');
+ // Shared apparatus controls are functional, including scroll following and verse stepping.
+ assert(await js("document.querySelector('#masoraPrev').disabled && !document.querySelector('#masoraNext').disabled"));
+ await js("document.querySelector('#masoraSearchBtn').click()");assert(await js("!document.querySelector('#masoraSearch').hidden && document.activeElement.id==='masoraQuery'"));
+ await js("document.querySelector('#masoraSearchBtn').click();document.querySelector('#masoraWitnesses').click()");assert(await js("document.querySelector('#masoraSettings').open && document.activeElement.id==='masoraMs'"));
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");assert(await js("!document.querySelector('#masoraSettings').open && !document.querySelector('#masoraPanel').hidden"));
+ await js("document.querySelector('#masoraWhole').click()");await waitFor("document.querySelector('#masoraScope').value==='chapter' && document.querySelector('#masoraWhole').textContent==='Ausgewählter Vers'",'Kapitelumschaltung');
+ await js("document.querySelector('#masoraWhole').click();document.querySelector('#masoraNext').click()");await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:2')",'Nächster Masora-Vers');
+ await js("document.querySelector('#masoraPrev').click()");await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:1')",'Voriger Masora-Vers');
+ await js("new Promise(resolve=>setTimeout(resolve,400))");
+ await js("document.querySelector('#masoraFollow').click();{document.querySelector('#rOut').style.paddingBottom='100vh';const r=document.querySelector('#rOut .row[data-l=\"3\"]'),s=document.querySelector('#stick').getBoundingClientRect().bottom;window.scrollBy(0,r.getBoundingClientRect().top+r.offsetHeight/2-s-(innerHeight-s)*.25);}");
+ await js("new Promise(resolve=>setTimeout(resolve,500))");
+ const followState=await js("(()=>{const top=document.querySelector('#stick').getBoundingClientRect().bottom,y=top+(innerHeight-top)*.25;let pick;for(const r of document.querySelectorAll('#rOut .row[data-l]')){if(r.getBoundingClientRect().bottom<top+4)continue;pick=r;if(r.getBoundingClientRect().bottom>=y)break;}window.masoraExpectedRow=pick?.dataset.l;return {expected:window.masoraExpectedRow,shown:document.querySelector('#masoraPlace').textContent,tab:document.documentElement.dataset.tab,scroll:scrollY};})()");
+ assert.notEqual(followState.expected,'1');
+ await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:'+window.masoraExpectedRow) && document.querySelector('#masoraFollow').getAttribute('aria-pressed')==='true'",'Masora folgt dem sichtbaren Lesetext');
+ await js("document.querySelector('#masoraFollow').click();document.querySelector('#rOut .row[data-l=\"4\"]').scrollIntoView({block:'center'});new Promise(resolve=>setTimeout(resolve,350))");
+ assert(await js("document.querySelector('#masoraPlace').textContent.endsWith('1:'+window.masoraExpectedRow)"));
+ await js("document.querySelector('#rOut').style.paddingBottom='';document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
  await js("{document.querySelector('#masoraMs').value=window.MASORA_INDEX.manuscripts.find(m=>m.label==='B32inf.').id;document.querySelector('#masoraQuery').value='אשרי';document.querySelector('#masoraType').value='mp';document.querySelector('#masoraScope').value='chapter';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}));}");
  await waitFor("document.querySelector('.masora-count')&&[...document.querySelectorAll('.masora-entry')].every(e=>e.closest('.masora-word-group').querySelector('.masora-entry-head').textContent.includes('אשרי'))&&[...document.querySelectorAll('.masora-he')].some(e=>e.textContent==='דׄ בִׄטִע֙')",'Echte Masora-parva-Notiz von B32inf.');
  await js("document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
@@ -60,6 +77,17 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
  assert(await js("[...document.querySelectorAll('.masora-primary .masora-explanation')].some(e=>e.open&&e.textContent.includes('5 Vorkommen'))"));
  fs.writeFileSync('/tmp/safran-masora-explanation.png',(await win.webContents.capturePage()).toPNG());
+ // Hidden page notes cannot produce a false continuation button in verse mode.
+ await book('Genesis');await waitFor("document.querySelector('#rSection option[value=\"0\"]')",'Genesis 1 verfügbar');
+ await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]')",'Genesis 1,2');
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
+ await waitFor("document.querySelector('#masoraPlace').textContent.endsWith('1:2') && document.querySelectorAll('.masora-primary .masora-entry').length===16 && !document.querySelector('#masoraMore')",'Kein leeres Nachladen für ausgeblendete Seitennotizen');
+ await js("document.querySelector('#masoraWhole').click()");
+ await waitFor("document.querySelectorAll('.masora-primary .masora-entry').length===100 && document.querySelector('#masoraMore')",'Kapitel mit echten weiteren Notizen');
+ await js("document.querySelector('#masoraMore').click()");
+ await waitFor("document.querySelectorAll('.masora-primary .masora-entry').length===200",'Weitere anzeigen lädt tatsächlich weitere sichtbare Notizen');
+ fs.writeFileSync('/tmp/safran-masora-controls.png',(await win.webContents.capturePage()).toPNG());
  // Empty coverage remains honest and still offers the manuscript collection search.
  await book('Genesis');await js("document.querySelector('#dockTabs [data-panel=masora]').click();document.querySelector('#masoraMs').value='';document.querySelector('#masoraScope').value='chapter';document.querySelector('#masoraQuery').value='no-such-masora-entry-8492';document.querySelector('#masoraQuery').dispatchEvent(new Event('input',{bubbles:true}))");
  await waitFor("document.querySelector('.masora-empty')&&!document.querySelector('.masora-entry')",'Leere Suche ohne erfundene Notiz');

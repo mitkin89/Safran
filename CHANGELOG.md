@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- Masora: Apparat-Bedienelemente für Suche, Einstellungen, Kapitel, Versnavigation und Folgen; Nachladen zählt nur sichtbare Notizen. Erweiterte deutsche Lesehilfen für Einmaligkeit, Zahlen und Schreibformeln mit ausdrücklich offenen Restdeutungen und Bestandsaudit.
+
 - Masora: flacher Apparat mit einmaligem Bezugswort, direkt sichtbarem Originaltext samt Belegstellen und kleinen Aktionen für Erklärung/Quelle; unsichere Seitennotizen nur in der Kapitelansicht.
 
 - Masora: Wortübersicht mit kompakten Notizen, aufklappbaren deutschen Lesehilfen ohne Zeichenauflösung, direkten Belegstellen und Zentrierung des Zielverses.

@@ -2678,3 +2678,26 @@ html.split #masoraPanel { right: var(--p2w); }
 .masora-actions p { margin-block:4px; }
 .masora-actions .masora-explanation > p:first-of-type { color:var(--muted); }
 .masora-note { white-space:pre-wrap; }
+
+/* Masorah uses the same two-row control layout as the text-critical apparatus. */
+#masoraPanel { padding-top:0; }
+#masoraPanel .masora-head { display:block; top:0; background:inherit; border-bottom:1px solid var(--line); padding:7px 0 5px; }
+#masoraPanel .masora-head .lhead { display:flex; align-items:center; gap:5px; margin-bottom:5px; }
+#masoraPanel .masora-head b { min-width:0; font-size:13px; }
+#masoraPlace { font-size:12px; margin-top:2px; }
+#masoraPanel .lhead > button { padding:3px 6px; }
+.masora-nav { display:flex; align-items:center; flex-wrap:wrap; gap:4px; }
+.masora-nav > button, #masoraSettings > summary { font-size:12px; padding:3px 6px; min-height:28px; white-space:nowrap; }
+#masoraSettings > summary { list-style:none; cursor:pointer; border:1px solid var(--line); border-radius:6px; box-sizing:border-box; }
+#masoraSettings > summary::-webkit-details-marker { display:none; }
+#masoraTools.masora-settings-body { display:block; position:absolute; right:0; top:100%; z-index:5; width:min(320px,100%); box-sizing:border-box; padding:12px; margin:0; background:var(--card); border:1px solid var(--line); border-radius:6px; box-shadow:0 5px 18px #0004; }
+.masora-settings-body label { display:grid; gap:4px; margin-bottom:8px; font-size:12px; }
+.masora-settings-body label:last-child { margin-bottom:0; }
+#masoraTools select { width:100%; font-size:12px; padding:5px; }
+#masoraSearch { margin-top:5px; }
+#masoraSearch input { width:100%; font-size:13px; padding:5px; box-sizing:border-box; }
+#masoraBody .masora-word-group.current { background:color-mix(in srgb,var(--accent) 7%,transparent); }
+
+.masora-word-index { margin-block:5px; font-size:.85em; }
+.masora-word-index > summary { cursor:pointer; color:var(--muted); }
+.masora-word-index .masora-word-nav { max-height:12em; overflow:auto; }

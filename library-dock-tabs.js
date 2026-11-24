@@ -75,7 +75,7 @@ function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=
  // Handle pane dismissal before the individual controllers' Escape handlers.
  window.addEventListener('keydown',e=>{
   if(e.key!=='Escape'||e.defaultPrevented||e.isComposing||!visible().length||document.documentElement.dataset.tab==='dict')return;
-  if(document.querySelector('dialog[open],#wpop,#tcHover,#kenWitness,#tcSettings[open]'))return;
+  if(document.querySelector('dialog[open],#wpop,#tcHover,#kenWitness,#tcSettings[open],#masoraSettings[open]'))return;
   if(['#findBar','#dispPanel','#dictSug','#fmFind','#suggest','#ctxMenu','#dictSelP'].some(s=>{const el=$(s);return el&&!el.hidden&&el.getClientRects().length;}))return;
   e.preventDefault();e.stopImmediatePropagation();
   // Consume Escape for pinned tools so individual panel handlers cannot close them.

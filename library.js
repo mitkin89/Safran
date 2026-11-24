@@ -3051,6 +3051,9 @@
   let masoraWordRequest=0;
   const masoraUI = window.LibraryMasora.create({
     $, esc, getView: () => view, getRow: () => cmtRow || readingRow($$('#rOut .row[data-l]').filter(r=>/^\d+$/.test(r.dataset.l)))?.dataset.l,
+    getRows: () => $$('#rOut .row[data-l]').filter(r=>/^\d+$/.test(r.dataset.l)),
+    getVisibleRow: () => readingRow($$('#rOut .row[data-l]').filter(r=>/^\d+$/.test(r.dataset.l))),
+    selectRow: label => setCmtRow(String(label)),
     isBible: title => linksUI.TANAKH_BOOKS.has(title),
     load: (...args) => wordCardsUI.lazyScript(...args),
     openExternal: url => window.api.openExternal(url),
