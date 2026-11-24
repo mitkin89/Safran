@@ -4,9 +4,9 @@
 
 ## Quellen direkt hinzufügen
 
-Im geöffneten Quellenblatt **＋ Quelle hinzufügen** wählen:
+Im geöffneten Quellenblatt **＋ Quelle** wählen:
 
-1. **Stellenangabe:** etwa `Hiob 7,1–3`, `Gen.1,1`, `Rashi on Genesis 1:1:2` oder `Berakhot 2a:1–3` eingeben und die Vorschau anzeigen. Die Suche verwendet die lokale Bibliothek und die native Zählung jeder Ausgabe. Fehlende Zeilen werden gemeldet; es wird keine andere Ausgabe als Ersatz eingesetzt.
+1. **Stellenangabe:** Bereits beim Tippen erscheinen lokale Werkvorschläge mit deutscher und hebräischer Namenssuche. Mit ↑/↓ und Enter oder per Klick auswählen, dann Kapitel/Blatt ergänzen. Eine bereits eingegebene Stellenangabe bleibt erhalten; Escape schließt zuerst die Vorschläge. Etwa `Hiob 7,1–3`, `Gen.1,1`, `Rashi on Genesis 1:1:2` oder `Berakhot 2a:1–3` eingeben und die Vorschau anzeigen. Die Suche verwendet die lokale Bibliothek und die native Zählung jeder Ausgabe. Fehlende Zeilen werden gemeldet; es wird keine andere Ausgabe als Ersatz eingesetzt.
 2. **Edition:** die zuletzt hinzugefügte Ausgabe wird vorgeschlagen, auch bei einem weiteren Buch derselben Edition. Die vollständige Editionsangabe und der tatsächliche Text stehen in der Vorschau. **Hinzufügen** übernimmt genau diese Quellenkopie.
 3. **Textsuche:** nach einem Wort oder Textausschnitt suchen; optional nach Sprache oder auf Kommentare einschränken. Einen Treffer anklicken, die Vorschau prüfen und hinzufügen. Die Suche läuft unabhängig vom normalen Suchreiter, zeigt höchstens 40 Treffer und 5 je Edition und kann durch Schließen des Fensters abgebrochen werden. Nach 30 Sekunden wird eine noch laufende Suche beendet, ohne Vollständigkeit zu behaupten.
 
@@ -19,7 +19,7 @@ Im Lesefenster Verse mit der Maus markieren, rechtsklicken und **Zum Quellenblat
 1. Im Lesefenster einen Text öffnen. **＋ Quellenblatt** zeigt eine ausdrückliche Editions- und Abschnittsauswahl. Die aktuell gewählten Zeilen werden vorgeschlagen. Leere Zeilenauswahl übernimmt den ganzen Abschnitt; `1–3, 7` übernimmt die entsprechenden vorhandenen Zeilen. Fehlende Zeilen werden als Fehler gemeldet.
 2. Das Zielblatt wählen oder ein neues Blatt erstellen. Ein geöffnetes Blatt im aktuellen Projekt erhält den Baustein direkt. **Speichern** schreibt den Entwurf dauerhaft.
 3. Im Kommentarbereich übernimmt **＋ Quellenblatt** den zugehörigen Kommentar aus genau der dort angezeigten Edition. Verschachtelte oder kapitelübergreifende Bereiche, die nicht eindeutig aufgelöst werden können, müssen im Lesefenster ausdrücklich ausgewählt werden.
-4. Über **＋ Hinzufügen** eigene Texte, Überschriften und verknüpfte Notizen hinzufügen. Gespeicherte Inhalte erscheinen als lesbare Karten; **Bearbeiten** öffnet die Textfelder, **Fertig** kehrt zur Vorschau zurück. Im **⋯**-Menü der Karte stehen Verschieben und Entfernen. Einträge aus einer Sammlung können wieder in ein Blatt eingefügt werden.
+4. In der sichtbaren Leiste **Hinzufügen** Quellen, eigene Texte, Überschriften und verknüpfte Notizen ergänzen. Gespeicherte Inhalte erscheinen als lesbare Karten; **Bearbeiten** öffnet die Textfelder, **Fertig** kehrt zur Vorschau zurück. Die Pfeile auf jeder Karte ändern die Reihenfolge; unter **Mehr** steht Entfernen. Einträge aus einer Sammlung können wieder in ein Blatt eingefügt werden.
 
 Links stehen die Einträge des Projekts, rechts das aktuelle Arbeitsblatt. **Beschreibung und Schlagwörter** sowie **Quellenangabe** sind zunächst eingeklappt. Lange Auszüge lassen sich mit **Mehr anzeigen** vollständig lesen. **Speichern** bleibt in der Dokumentleiste erreichbar; alternativ **⌘/Strg+S** verwenden. Die Lesetabs werden in der Rechercheansicht ausgeblendet und erscheinen beim Wechsel zurück zu **Lesen** wieder.
 
@@ -72,6 +72,24 @@ Die JSON-Datei weitergeben und über **Projekt verwalten → Projektpaket import
 
 CSV ist eine tabellarische Ausgabe; das verlustfreie Austauschformat einschließlich aller Referenzen, Themen und Versionsinformationen ist das Projektpaket. JSON-LD dient dem Annotationsaustausch. `safran:locator`, `safran:edition`, `safran:project` und `safran:topics` ergänzen das Web-Annotation-Vokabular. Wenn eine Quellen-URL fehlt, dient eine `urn:safran:source:`-Kennung als Ziel. Die URL bezeichnet ggf. die ganze Ausgabe, die konkrete Stelle steht zusätzlich in der Fundstellenangabe.
 
+## Kommentare, eigene Erläuterungen und Anordnung
+
+Auf jeder Quellenkarte stehen **Kommentare hinzufügen**, **Erläuterung hinzufügen** und **Übersetzung / Interlinear** direkt bereit.
+
+- **Kommentare hinzufügen:** Die gespeicherten Verse werden mit den vorhandenen Kommentarverknüpfungen abgeglichen. Die Auswahl zeigt die lokal verfügbaren Ausgaben samt Sprache und Textvorschau; nach Kommentator/Ausgabe und Sprache filtern, die gewünschten Einträge ankreuzen und übernehmen. Bis zu 200 Angebote, höchstens 50 pro Übernahme. Fehlende lokale Werke, nicht eindeutig zuordenbare Teilverse und Begrenzungen werden angezeigt. Querverweise werden nicht als Kommentare übernommen. Im klassischen Layout landen Kommentare zunächst rechts, sonst direkt hinter der Quelle.
+- **Erläuterung hinzufügen:** Eigene Gedanken als verknüpfte Notiz schreiben. Sie erscheint direkt hinter der Quelle, bleibt unter **Notizen** wiederverwendbar und lässt sich mit **Notiz bearbeiten** aktualisieren. Der Quellenauszug bleibt erhalten. Die Quellenverknüpfung wird in Projektpaket und JSON-LD übernommen.
+- **Anordnen:** Texte am Griff ⠿ ziehen. Die Reihenfolge lässt sich oberhalb/unterhalb anderer Karten ändern; im klassischen Layout stehen beschriftete Ablagebereiche für Haupttext, linken/rechten Rand und unten bereit. Ein leeres Feld nimmt Texte ebenfalls auf. Eine lineare Anordnung bleibt linear, bis **Mit Randspalten anordnen** ausdrücklich gewählt wird. Pfeile und sichtbare Bereichsauswahl auf den Karten bieten eine Alternative zum Ziehen.
+
+## Übersetzung neben dem Original oder interlinear
+
+Unter **Übersetzung / Interlinear** eine andere lokale Ausgabe desselben Werkes und die Anzeige wählen:
+
+- **Nebeneinander:** versweise zwei Spalten mit den jeweiligen Ausgaben und deren nativer Fundstelle. Bekannte unterschiedliche Bibelzählungen werden umgerechnet; fehlende Gegenstücke und uneindeutige Teilverse führen zu einer Meldung. Bei anderen Werken müssen Abschnittsstruktur und Zeilenbezeichnungen übereinstimmen.
+- **Interlinear:** vorhandene deutsche Wortzuordnungen zum Westminster-Text. Beide Ausgabe-Titel und SHA256-Textstände müssen mit den mitgelieferten Zuordnungsquellen übereinstimmen, jeder gewählte Vers muss eine Zuordnung haben. Wortgruppen einschließlich Ketiv/Qere bleiben zusammen; Zusätze ohne Gegenstück erscheinen mit **+**. Es wird keine neue Wortzuordnung geschätzt. Bei fehlender Zuordnung kann ausdrücklich **Nebeneinander** gewählt werden.
+- **Nur dieser Text:** die zusätzliche Anzeige entfernen.
+
+Bearbeitete Auszüge und Quellenkopien, die sich inzwischen vom Original unterscheiden, werden nicht automatisch neu zugeordnet. Für die Übersetzungsansicht gegebenenfalls die Quelle regulär neu übernehmen. Die Ansichten und beide Quellenangaben bleiben in Vorschau, PDF, HTML, Word und im Projektpaket erhalten; Word setzt Interlinear in kleinen Wortgruppentabellen. CSV enthält zusätzlich Anzeigeart, Übersetzungsedition, Fundstelle und Text. Das Projektpaket bewahrt alle abweichenden nativen Stellen und Wortgruppen verlustfrei, auch ohne die ursprüngliche Bibliothek.
+
 ## Speicherung und Schutz vor Überschreiben
 
 `research.json` liegt im aktiven Bibliotheksordner. Schreibvorgänge sind serialisiert und verwenden atomaren Dateiersatz; fünf Sicherungen bleiben erhalten. Eine beschädigte Hauptdatei wird aus einer lesbaren Sicherung geladen und beim nächsten Schreiben separat aufbewahrt. Gibt es keine lesbare Sicherung, wird nicht mit einer leeren Datei weitergeschrieben.
@@ -83,5 +101,5 @@ Grenzen: maximal 32 MiB pro Recherchedatei/Projektimport, 10.000 Einträge je Da
 ## Validierung dieses Entwicklungsstands
 
 - `node --test tests/research*.test.js`: Quellen-/Kommentarauswahl, Editionsangaben, Suchtreffer mit Fußnoten, bestehende Notizanker, mehrere Referenzen, Speicherkonflikte, Sicherungswiederherstellung, Projektaustausch und Exportsicherheit/OOXML-Struktur.
-- `SAFRAN_SMOKE_RESEARCH=1 electron tests/electron/smoke.cjs`: echte Produktionsoberfläche und Preload, isolierte Testbibliothek; Projekt, Zunz-Quellenübernahme, eigener Text, Notiz mit zwei Fundstellen, Suchtreffersammlung und Wiederverwendung, echte PDF-Erzeugung, DOCX/HTML/CSV/JSON-LD, Projektimport, Entwurfswiederherstellung und Konfliktmeldung. Zusätzliche Oberflächenprüfungen decken die eingeklappte Vorschau, Menüs, Bearbeitung, Tastaturspeicherung und schmale Fenster ab.
+- `SAFRAN_SMOKE_RESEARCH=1 electron tests/electron/smoke.cjs`: echte Produktionsoberfläche und Preload, isolierte Testbibliothek; Projekt, Zunz-Quellenübernahme, eigener Text, Notiz mit zwei Fundstellen, Suchtreffersammlung und Wiederverwendung, echte PDF-Erzeugung, DOCX/HTML/CSV/JSON-LD, Projektimport, Entwurfswiederherstellung und Konfliktmeldung. Zusätzliche Oberflächenprüfungen decken Werkvorschläge mit Tastatur/Maus, Kommentarauswahl, eigene Erläuterungen mit Quellenanker, parallele und echte Westminster/Zunz-Interlinearanzeige, synthetische HTML5-Ziehereignisse zwischen Bereichen, die eingeklappte Vorschau, Menüs, Bearbeitung, Tastaturspeicherung und schmale Fenster ab. Die reinen Funktionstests prüfen zusätzlich unveränderte Quellenstände und abweichende Psalmzählungen.
 - Allgemeine Regressionen: `npm test`. Der gezielte Electron-Lauf ergänzt diese Tests; er ist kein vollständiger Durchlauf sämtlicher vorhandener Electron-Abläufe.

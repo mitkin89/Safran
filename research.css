@@ -39,9 +39,9 @@ html[data-tab=research] main { padding: 12px 22px 30px; }
 #researchRoot .rw-document-meta { margin: 7px 0 24px; font-size: 12px; color: var(--muted); }
 #researchRoot .rw-document-meta > summary { font-size: 12px; width: fit-content; }
 #researchRoot .rw-document-meta[open] { padding: 12px 16px; border: 1px solid var(--rw-border); border-radius: 7px; background: var(--rw-soft); }
-#researchRoot label:not(.rw-title):not(.rw-search), .rw-dialog label { display: flex; flex-direction: column; gap: 5px; margin: 12px 0; font-size: 12px; color: var(--muted); }
+#researchRoot label:not(.rw-title):not(.rw-search):not(.rw-placement), .rw-dialog label { display: flex; flex-direction: column; gap: 5px; margin: 12px 0; font-size: 12px; color: var(--muted); }
 #researchRoot .rw-projectbar > label[for] { display: block; margin: 0; }
-#researchRoot input:not(#rwProject):not(.rw-title input), #researchRoot textarea, #researchRoot select:not(#rwProject), .rw-dialog input, .rw-dialog textarea, .rw-dialog select { box-sizing: border-box; width: 100%; font: inherit; font-size: 14px; color: var(--fg, inherit); padding: 8px 10px; }
+#researchRoot input:not(#rwProject):not(.rw-title input), #researchRoot textarea, #researchRoot select:not(#rwProject):not([data-region]), .rw-dialog input, .rw-dialog textarea, .rw-dialog select { box-sizing: border-box; width: 100%; font: inherit; font-size: 14px; color: var(--fg, inherit); padding: 8px 10px; }
 #researchRoot textarea { resize: vertical; min-height: 90px; line-height: 1.65; unicode-bidi: plaintext; }
 #researchRoot .rw-block { padding: 19px 22px; margin: 0 0 14px; border: 1px solid var(--rw-border); border-radius: 9px; background: var(--card, var(--bg)); }
 #researchRoot .rw-block-head { display: flex; gap: 9px; align-items: center; margin-bottom: 10px; }
@@ -181,3 +181,49 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 @media(max-width:620px){#rwPagePreview{min-height:520px}#rwSourceFilters{gap:8px;flex-wrap:wrap}}
 #researchRoot [data-menu=layout] label:has(input[type=checkbox]) { flex-direction:row; align-items:center; }
 #researchRoot input[type=checkbox][data-layout] { width:auto; padding:0; }
+/* Visible editing actions, local suggestions and spatial arrangement. */
+.rw-dialog [hidden] { display:none!important; }
+#rwWorkSuggestions { display:grid; max-height:260px; overflow:auto; margin-top:5px; border:1px solid var(--line); border-radius:8px; }
+#rwWorkSuggestions button { display:flex; justify-content:space-between; gap:12px; text-align:start; border:0; border-radius:0; background:transparent; }
+#rwWorkSuggestions button[aria-selected=true],#rwWorkSuggestions button:hover { background:color-mix(in srgb,var(--accent) 20%,transparent); }
+#rwWorkSuggestions small { color:var(--muted); }
+#researchRoot .rw-composebar { display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin:15px 0; }
+#researchRoot .rw-composebar>span { color:var(--muted); font-size:12px; }
+#researchRoot .rw-composebar button { padding:7px 10px; }
+#researchRoot .rw-reorder { display:flex; gap:3px; }
+#researchRoot .rw-placement { display:flex; flex-direction:row; align-items:center; gap:10px; font-size:12px; color:var(--muted); justify-content:flex-end; margin:8px 0; }
+#researchRoot .rw-placement select { width:auto; padding:5px 8px; }
+#researchRoot .rw-drag { cursor:grab; font-size:22px; background:transparent; padding:3px 7px; touch-action:none; }
+#researchRoot .rw-drag:active { cursor:grabbing; }
+#researchRoot .rw-source-footer { flex-wrap:wrap; gap:9px; }
+.rw-comments-dialog { width:min(850px,94vw); }
+.rw-comment-filters { display:flex; flex-wrap:wrap; gap:12px; }
+.rw-comment-filters label { flex:1; }
+.rw-comment-list { max-height:50vh; overflow:auto; }
+.rw-comment-list article { border:1px solid var(--line); border-radius:8px; margin:8px 0; padding:12px; }
+.rw-dialog .rw-comment-choice { display:flex; flex-direction:row; gap:12px; align-items:center; }
+.rw-comment-choice input { width:auto; }
+.rw-comment-choice small { display:block; color:var(--muted); }
+.rw-comment-list details p { white-space:pre-wrap; }
+#researchRoot .rw-arrangement { display:grid; gap:14px; margin-top:18px; }
+#researchRoot .rw-arrangement.classic { grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr); }
+#researchRoot .rw-drop-region { min-height:150px; border:2px dashed var(--line); border-radius:10px; padding:12px; min-width:0; }
+#researchRoot .rw-drop-region.bottom { grid-column:1/-1; }
+#researchRoot .rw-arrange-card { padding:12px; margin:10px 0; background:var(--surface,var(--bg)); border:1px solid var(--line); border-radius:8px; overflow-wrap:anywhere; }
+#researchRoot .rw-arrange-card p { font-size:13px; }
+#researchRoot .rw-drop-hint { color:var(--muted); font-size:12px; text-align:center; }
+#researchRoot .rw-drop-before { border-top:4px solid var(--accent); }
+#researchRoot .rw-drop-after { border-bottom:4px solid var(--accent); }
+#researchRoot .rw-drop-active { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 12%,transparent); }
+.rw-parallel { width:100%; table-layout:fixed; border-collapse:collapse; }
+.rw-parallel td { width:50%; vertical-align:top; padding:0 10px; overflow-wrap:anywhere; }
+.rw-parallel p { white-space:pre-wrap; unicode-bidi:plaintext; }
+.rw-pair-editions { display:flex; gap:12px; font-size:11px; color:var(--muted); }
+.rw-pair-editions span { flex:1; overflow-wrap:anywhere; }
+.rw-interlinear { display:flex; flex-wrap:wrap; gap:12px; align-items:start; margin:16px 0; font-size:23px; }
+.rw-wordgroup { display:inline-flex; flex-direction:column; text-align:center; gap:5px; }
+.rw-wordgroup>span:last-child { font-size:14px; }
+.rw-verse { font-size:12px; color:var(--muted); }
+@media(max-width:620px){#researchRoot .rw-arrangement.classic{grid-template-columns:1fr}#researchRoot .rw-placement{justify-content:flex-start}#researchRoot .rw-block-actions{flex-wrap:wrap;margin-inline-start:0}.rw-parallel td{padding:0 5px}.rw-interlinear{font-size:20px}}
+#researchRoot .rw-source-footer > button:not(.rw-quiet) { padding:6px 10px; min-height:32px; font-size:12px; color:var(--fg); border:1px solid var(--rw-border); border-radius:6px; }
+#researchRoot .rw-arrangement { scroll-margin-top:120px; }

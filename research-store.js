@@ -15,12 +15,19 @@ function legacyRefs(n){
  let sectionPath=[];try{const p=JSON.parse(n.sk);if(Array.isArray(p))sectionPath=p;}catch{}
  return [reference({label:[n.title,n.secLabel,n.row].filter(Boolean).join(' · '),key:n.key||'',sectionPath,labels:n.row?[String(n.row)]:[],quote:n.excerpt||''})];
 }
-function block(b){
+function block(b){return cleanBlock(b,false);}
+function cleanBlock(b,paired=false){
  if(!b||!['source','text','heading','note'].includes(b.type))throw Error('Unbekannter Quellenblatt-Baustein.');
  return {id:id(b.id||uid()),type:b.type,region:Layout.regions.includes(b.region)?b.region:'main',title:text(b.title,20000),text:text(b.text),originalText:text(b.originalText??b.text),
   citation:citation(b.citation),reference:b.reference?reference(b.reference):null,sourceHash:text(b.sourceHash,128),capturedAt:text(b.capturedAt,100),
+  presentation:!paired&&b.presentation?presentation(b.presentation):null,
   noteId:b.noteId?id(b.noteId):'',noteSnapshot:b.noteSnapshot?note(b.noteSnapshot):null,
   search:b.search?{query:text(b.search.query,20000),capturedAt:text(b.search.capturedAt,100),complete:b.search.complete===true}:null};
+}
+function presentation(p){
+ if(!['parallel','interlinear'].includes(p.mode)||!Array.isArray(p.rows)||!p.rows.length||p.rows.length>200||!Array.isArray(p.references)||p.references.length>400)throw Error('Ungültige Übersetzungsanzeige.');
+ const companion=cleanBlock(p.companion,true);if(companion.type!=='source')throw Error('Übersetzungsquelle fehlt.');
+ return {mode:p.mode,companion,references:p.references.map(reference),rows:p.rows.map(r=>{if(p.mode==='interlinear'&&(!Array.isArray(r.groups)||r.groups.length>1000))throw Error('Ungültige Wortgruppen.');return {label:text(r.label,1000),targetLabel:text(r.targetLabel,1000),key:text(r.key,1000),original:text(r.original),translation:text(r.translation),...(p.mode==='interlinear'?{groups:r.groups.map(g=>({original:text(g.original),translation:text(g.translation)}))}:{})};})};
 }
 function note(n){if(Array.isArray(n.refs)&&n.refs.length>100)throw Error('Höchstens 100 Fundstellen pro Notiz.');return {id:id(n.id||uid()),projectId:id(n.projectId),title:text(n.title,20000),note:text(n.note),tags:tags(n.tags),topics:tags(n.topics),refs:(Array.isArray(n.refs)?n.refs:[]).slice(0,100).map(reference),version:Number.isInteger(n.version)?n.version:0,ts:Number.isFinite(n.ts)?n.ts:Date.now(),kind:'free'};}
 function entity(kind,x){
@@ -140,5 +147,5 @@ function bundleProject(s,projectId,legacy=[]){
  return {format:'safran-research',version:1,exportedAt:now(),projects:[clone(project)],sheets:clone(sheets),collections:clone(collections),notes};
 }
 function annotations(notes){return {'@context':['http://www.w3.org/ns/anno.jsonld',{safran:'https://github.com/mitkin89/Safran/ns/'}],type:'AnnotationPage',items:notes.map(n=>({id:/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(n.id)?'urn:uuid:'+n.id:'urn:safran:annotation:'+encodeURIComponent(n.id),type:'Annotation',modified:new Date(n.ts||0).toISOString(),body:[{type:'TextualBody',value:n.note||'',format:'text/plain',purpose:'commenting'},...(n.tags||[]).map(value=>({type:'TextualBody',value,purpose:'tagging'}))],target:(n.refs||[]).map(r=>{const url=r.citation?.url;return {type:'SpecificResource',source:/^https?:\/\/\S+$/.test(url||'')?url:'urn:safran:source:'+encodeURIComponent(r.rel||r.label),...(r.quote?{selector:{type:'TextQuoteSelector',exact:r.quote}}:{}),'safran:locator':r.label,'safran:edition':r.citation?.edition||''};}),'safran:project':n.projectId||'','safran:topics':n.topics||[]}))};}
-function csv(items){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';return '\uFEFF'+[['type','id','title','text','work','edition','translator','locator','source_url','captured_at','tags','topics'],...items.map(x=>[x.type||'note',x.id,x.title,x.note??x.text,x.citation?.work||'',x.citation?.edition||'',x.citation?.translator||'',x.citation?.locator||'',x.citation?.url||'',x.capturedAt||'',(x.tags||[]).join('; '),(x.topics||[]).join('; ')])].map(row=>row.map(q).join(',')).join('\r\n')+'\r\n';}
+function csv(items){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';return '\uFEFF'+[['type','id','title','text','work','edition','translator','locator','source_url','captured_at','tags','topics','translation_mode','translation_edition','translation_locator','translation_text'],...items.map(x=>[x.type||'note',x.id,x.title,x.note??x.text,x.citation?.work||'',x.citation?.edition||'',x.citation?.translator||'',x.citation?.locator||'',x.citation?.url||'',x.capturedAt||'',(x.tags||[]).join('; '),(x.topics||[]).join('; '),x.presentation?.mode||'',x.presentation?.companion.citation.edition||'',x.presentation?.companion.citation.locator||'',x.presentation?.companion.text||''])].map(row=>row.map(q).join(',')).join('\r\n')+'\r\n';}
 module.exports={ResearchStore,empty,validate,entity,block,note,reference,citation,cite,capture,metadata,rangeLabels,plain,legacyRefs,resolveBlocks,bundleProject,annotations,csv,MAX_BYTES};

@@ -10,6 +10,23 @@ function parse(query,entries){
  if(titles.length!==1)throw Error(titles.length?'Die Buchangabe ist nicht eindeutig. Bitte den vollständigen Titel eingeben.':'Dieses Werk ist nicht in deiner lokalen Bibliothek.');
  return {title:titles[0],chapter:m[2].toLowerCase(),selection:(m[3]||'').replace(/\s+/g,'')};
 }
+const fold=s=>String(s||'').normalize('NFKD').replace(/\p{M}/gu,'').toLowerCase().replace(/ß/g,'ss').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+function suggest(query,entries){
+ if(typeof query!=='string'||query.length>500)throw Error('Bitte einen kurzen Werknamen eingeben.');
+ const raw=query.trim(),full=fold(raw);if(!full)return [];
+ const m=raw.match(/^(.*?\p{L}[.\s]*)\s*(\d+[ab]?(?:\s*[:,].*)?)$/iu),book=m?m[1].trim():raw,suffix=m?m[2]:'',q=fold(book);
+ const works=new Map();
+ for(const e of entries){if(!e.title)continue;let w=works.get(e.title);if(!w)works.set(e.title,w={title:e.title,heTitles:new Set(),editions:new Set()});if(e.heTitle)w.heTitles.add(e.heTitle);w.editions.add(e.rel||e.versionTitle||e.language||'');}
+ const matches=[];
+ for(const w of works.values()){
+  const names=[w.title,...w.heTitles].map(fold),canonical=Refs.canonBook(book),german=Refs.deNames(w.title),alias=canonical===w.title||Refs.deHit(w.title,book);
+  let score=names.some(n=>n===full||n===q)?0:names.some(n=>n.startsWith(full)||n.startsWith(q))?1:alias?2:names.some(n=>q.split(' ').every(t=>n.split(' ').some(word=>word.startsWith(t))))?3:names.some(n=>n.includes(q))?4:99;
+  if(score===99)continue;
+  const exactFull=names.includes(full),tail=exactFull?'':suffix;
+  matches.push({title:w.title,heTitle:[...w.heTitles][0]||'',german,editions:w.editions.size,completion:w.title+(tail?' '+tail:' '),score});
+ }
+ return matches.sort((a,b)=>a.score-b.score||a.title.length-b.title.length||a.title.localeCompare(b.title)).slice(0,12).map(({score,...w})=>w);
+}
 function selectAddresses(selection,addresses){
  if(!selection)return new Set(addresses.map(x=>x.address));
  const chosen=new Set();
@@ -52,4 +69,4 @@ function plans(doc,ref){
  return out;
 }
 function editions(entries,title){return entries.filter(e=>e.title===title).map(e=>({rel:e.rel,title:e.title,versionTitle:e.versionTitle||'',language:e.language||'',kind:e.kind||''})).sort((a,b)=>a.versionTitle.localeCompare(b.versionTitle));}
-module.exports={parse,plans,editions};
+module.exports={parse,plans,editions,suggest};

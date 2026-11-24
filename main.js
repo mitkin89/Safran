@@ -815,6 +815,11 @@ ipcMain.handle('notes:delete', (_e, id) => writeNotes(items => items.filter(x =>
 
 require('./research-ipc').register({
   ipcMain, getLibrary, readLegacyNotes: readNotes,
+  commentaryLinks: async (book, chap) => {
+    let rows = await (await getLinks()).forSection(book, chap);
+    rows = await fillCommentaryGaps(book, chap, rows);
+    return rows.concat(await ownCommentaryLinks(book, chap));
+  },
   saveLegacyNote: (id, patch, expectedTs) => writeNotes(items => {
     const i = items.findIndex(n => n.id === id);
     if (i < 0 || (items[i].ts || 0) !== expectedTs) throw Error('Notiz inzwischen geändert. Bitte neu laden.');

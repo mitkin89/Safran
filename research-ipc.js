@@ -2,7 +2,7 @@
 const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto');
 const S=require('./research-store'),E=require('./research-export'),R=require('./reader'),LK=require('./links');
 const Sources=require('./research-sources'),{SearchJobs,ownerOf,runSearchWorker}=require('./search-jobs');
-function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,BrowserWindow,winOf,tempDir,broadcast=()=>{}}){
+function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,BrowserWindow,winOf,tempDir,commentaryLinks=async()=>[],broadcast=()=>{}}){
  let current;const sourceJobs=new SearchJobs();
  async function store(){const lib=await getLibrary();if(!current||current.dir!==lib.dir)current={dir:lib.dir,store:new S.ResearchStore(lib.dir)};return current.store;}
  async function state(){const data=await(await store()).read();try{return {...data,legacyNotes:(await readLegacyNotes()).map(n=>({...n,refs:S.legacyRefs(n)}))};}catch(e){return {...data,legacyNotes:[],legacyError:e.message};}}
@@ -29,6 +29,9 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
  });
  ipcMain.handle('research:sections',async(_e,rel)=>{const {doc,entry}=await rich(rel);return {sections:R.sectionsOf(doc.text,doc.sectionNames).map(s=>({path:s.path,label:s.label})),citation:S.metadata(doc,entry,'')};});
  ipcMain.handle('research:capture',(_e,request)=>captured(request));
+ ipcMain.handle('research:translationEditions',async(_e,reference)=>{const {entry}=await rich(reference.rel),entries=Object.values((await getLibrary()).index.entries);return entries.filter(e=>e.title===entry.title&&e.rel!==entry.rel).map(e=>({rel:e.rel,versionTitle:e.versionTitle,language:e.language}));});
+ ipcMain.handle('research:translationPreview',(_e,request)=>require('./research-translations').prepare(request,rich));
+ ipcMain.handle('research:suggestWorks',async(_e,query)=>Sources.suggest(query,Object.values((await getLibrary()).index.entries)));
  ipcMain.handle('research:sourceEditions',async(_e,query)=>{
   const lib=await getLibrary(),entries=Object.values(lib.index.entries),ref=Sources.parse(query,entries);
   return {reference:ref,editions:Sources.editions(entries,ref.title)};
@@ -50,18 +53,32 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   }finally{clearTimeout(timer);sourceJobs.finish(job);}
  });
 
- ipcMain.handle('research:captureCommentary',async(_e,request)=>{
-  const {doc,entry}=await rich(request.rel),ref=String(request.ref||''),parts=LK.splitRef(ref);
-  if(parts.book!==doc.title&&parts.book!==entry.title)throw Error('Kommentar und Edition passen nicht zusammen.');
+ async function commentaryCapture(request,cache){
+  let pair=cache?.get(request.rel);if(!pair){pair=await rich(request.rel);cache?.set(request.rel,pair);}const {doc,entry}=pair,ref=String(request.ref||''),parts=LK.splitRef(ref);
+  let sourceDoc=doc,node='';if(parts.book!==doc.title&&parts.book!==entry.title){const prefix=entry.title+', ';node=parts.book.startsWith(prefix)?parts.book.slice(prefix.length):'';if(!node||!doc.text||!Object.hasOwn(doc.text,node))throw Error('Kommentar und Edition passen nicht zusammen.');sourceDoc={...doc,text:doc.text[node]};}
   if(parts.tail.includes('-')&&(parts.tail.split('-')[0].split(':').length!==2||parts.tail.split('-')[1].includes(':')))throw Error('Diesen Kommentarbereich bitte im Lesefenster mit ausdrücklicher Zeilenauswahl übernehmen.');
-  const items=LK.resolveText(doc,parts.tail);if(!items)throw Error('Kommentarstelle fehlt in dieser Edition.');
-  const c=S.metadata(doc,entry,parts.tail),body=items.map(S.plain).join('\n');
+  const items=LK.resolveText(sourceDoc,parts.tail);if(!items)throw Error('Kommentarstelle fehlt in dieser Edition.');
+  const c=S.metadata(doc,entry,[node,parts.tail].filter(Boolean).join(' · ')),body=items.map(S.plain).join('\n');
   const p=LK.parseTail(parts.tail),talmud=doc.sectionNames?.[0]==='Daf',chap=/[ab]$/.test(p.chap)?(parseInt(p.chap)-1)*2+(p.chap.endsWith('b')?1:0):(parseInt(p.chap)-1)*(talmud?2:1);
-  const prefix=doc.text&&!Array.isArray(doc.text)&&typeof doc.text==='object'?['']:[];
+  const prefix=[...(node?[node]:[]),...(sourceDoc.text&&!Array.isArray(sourceDoc.text)&&typeof sourceDoc.text==='object'?['']:[])];
   const wanted=[...prefix,chap,...parts.tail.split('-')[0].split(':').slice(1).map(n=>Number(n)-1)];
   const loc=R.makeLocator(doc.text,doc.sectionNames)(wanted);
-  return S.block({type:'source',title:doc.title,text:body,originalText:body,citation:c,reference:{label:ref,rel:entry.rel,sectionPath:loc?.path||prefix,labels:loc?.label?[loc.label]:[],citation:c,quote:body},sourceHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex'),capturedAt:new Date().toISOString()});
+  return S.block({type:'source',title:doc.title,text:body,originalText:body,citation:c,reference:{label:ref,rel:entry.rel,sectionPath:loc?.path||prefix,labels:loc?.label?[loc.label]:[],citation:c,quote:body},sourceHash:doc.textHash||crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex'),capturedAt:new Date().toISOString()});
+ }
+ ipcMain.handle('research:captureCommentary',(_e,request)=>commentaryCapture(request));
+ ipcMain.handle('research:relatedComments',async(_e,reference)=>{
+  const {doc,entry}=await rich(reference.rel),C=require('./research-comments'),where=C.targets(doc,entry,reference),refs=new Set();
+  for(const section of where.sections){const links=await commentaryLinks(where.book,section.chapter);for(const l of links)if(C.overlaps(l,section.verses))refs.add(l.other);}
+  const lib=await getLibrary(),entries=Object.values(lib.index.entries),items=[],cache=new Map();let limited=false,unavailable=0;
+  for(const ref of refs){const book=LK.splitRef(ref).book,candidates=entries.filter(e=>e.title===book||book.startsWith(e.title+', '));
+   const exact=candidates.filter(e=>e.title===book),picked=exact.length?exact:candidates.filter(e=>e.title.length===Math.max(...candidates.map(e=>e.title.length)));
+   if(!picked.length){unavailable++;continue;}
+   for(const e of picked){if(items.length>=200){limited=true;break;}try{const block=await commentaryCapture({ref,rel:e.rel},cache);items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,block});}catch(err){items.push({ref,title:e.title,rel:e.rel,edition:e.versionTitle,language:e.language,error:err.message});}}
+   if(limited)break;
+  }
+  return {items,limited,unavailable,warnings:where.warnings};
  });
+
 
  ipcMain.handle('research:captureHits',async(_e,request)=>{
   if(!Array.isArray(request.hits)||request.hits.length>200)throw Error('Höchstens 200 gespeicherte Suchtreffer pro Übernahme.');
