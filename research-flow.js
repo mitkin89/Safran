@@ -9,7 +9,7 @@
   for(const unit of units(doc)){
    const state=unit._researchPrintState;if(!state)continue;
    for(const {cell,nodes}of state.sides)cell.replaceChildren(...nodes);
-   state.continuation?.remove();state.wrapper.replaceWith(...state.wrapper.childNodes);delete unit._researchPrintState;
+   state.continuation?.remove();unit.classList.remove('print-split');state.wrapper.replaceWith(...state.wrapper.childNodes);delete unit._researchPrintState;
   }
  }
  function preparePrint(doc){
@@ -46,6 +46,7 @@
     cell.append(parts.tail);side.replaceChildren(parts.head);
    }
    if(hasTail){
+    unit.classList.add('print-split');
     if(verse){const tr=doc.createElement('tr');tr.className='verse-continuation-row';tr.dataset.verse=unit.dataset.verse||'';const td=tr.insertCell();td.colSpan=cells.length;td.append(continuation);unit.after(tr);state.continuation=tr;}
     else{unit.after(continuation);state.continuation=continuation;}
    }
@@ -126,6 +127,9 @@
 .classic-upper.flowing-verses>tbody>.verse-row:not(.flowing){display:table;width:100%;table-layout:fixed}
 .verse-row.flowing>.flow-empty{display:none!important}.verse-row.flowing{break-inside:auto}
 .verse-continuation-row>td{padding:0}.verse-continuation-row{break-inside:auto}
+.verse-aligned .verse-row.print-split>.region{padding-bottom:0}
+.verse-continuation-row .classic-continuation .region{padding-top:0}
+.verse-continuation-row .classic-continuation tr:not(:last-child)>.region{padding-bottom:0}
 .classic-continuation{margin-top:0}.classic-continuation .region{vertical-align:top}.classic-continuation .block:first-child{margin-top:0}
 .classic-upper.flowing .region blockquote,.classic-upper.flowing .region p{orphans:3;widows:3}`;
  const scriptSource='(function(){const units='+units.toString()+';const restorePrint='+restorePrint.toString()+';const preparePrint='+preparePrint.toString()+';const apply='+apply.toString()+';const watch='+watch.toString()+';watch(document);})();';
