@@ -3223,7 +3223,7 @@
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden && $('#masoraPanel').hidden) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
+    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden && $('#masoraPanel').hidden) dockTabs.activate('cmt'); } // Ein Versklick öffnet neue Kommentare rechts; bereits offene Verswerkzeuge folgen weiter.
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -3237,7 +3237,7 @@
     lastCmtDbl = key;
     cmtWhole = false;
     setCmtRow(row.dataset.l);
-    if (!cmtOpen) toggleCmt(true);
+    if (!cmtOpen) dockTabs.activate('cmt');
   });
   $('#rOut').addEventListener('click', e => {
     if (!view) return;

@@ -15,7 +15,7 @@
   }
   // Bibliographic suffixes are metadata, not part of the Hebrew head. Unknown prose stays unresolved.
   const matchTokens=s=>wordTokens(s).map(w=>w.replace(/^([ובכלמשה]{0,2})(?:יי|ייי)$/u,'$1יהוה'));
-  const citationWords=new Set(('Gins Ginsburg OH OP Okhla Okhlah OkhlaH Halle Paris Ognibeni Weil Aleph Alef Ayin Yod Mem Shin Nun Resh Bet Beth Chet Qof Lamed Lamaed He Samekh Tet Pe Caph Kaf Dalet Gimel Zayin Tav Daleth Tzade Zajin Sin Tsade Waw Vav Kaph Taw Samech Tsadi Peh Ajin Qoph Yud Het Heh Quf Zain Tzadi Gimael Gimmel Dalaeth Jod reish kuf resh sameh het hei ain zain tzadi kof pei quf tsade chet caf cf Part of p pp vol bis Supp Supplement Suppl Sup M I II III IV and et al Margin Marginal List Ms tiqqunim Tiqqunim nosafot Nusafot Halufim Hilufim f r l v').toLowerCase().split(' '));
+  const citationWords=new Set(('Gins Ginsburg OH OP Okhla Okhlah OkhlaH Halle Paris Ognibeni Weil Aleph Alef Ayin Yod Mem Shin Nun Resh Bet Beth Chet Qof Lamed Lamaed He Samekh Tet Pe Caph Kaf Khaf Dalet Gimel Zayin Tav Daleth Tzade Zajin Sin Tsade Waw Vav Kaph Taw Samech Tsadi Peh Ajin Qoph Yud Het Heh Quf Zain Tzadi Gimael Gimmel Dalaeth Jod reish kuf resh sameh het hei ain zain tzadi kof pei quf tsade chet caf cf Part of p pp vol bis Supp Supplement Suppl Sup M I II III IV and et al Margin Marginal List Ms tiqqunim Tiqqunim nosafot Nusafot Halufim Hilufim f r l v').toLowerCase().split(' '));
   function labelTarget(value){
     let label=String(value||'').replace(/\ufeff/g,'').trim().replace(/\s+\(M\d+\)(?:\+{1,2})?$/u,'').replace(/\s+Repeated(?:,)?(?=\s|$)/u,'');
     const citation=/[ _,]+((?:Part of )?(?:Gins(?:burg|\.)?|OH\d*|OP|Okhla\w*|Weil|Ognibeni)\b.*)$/iu.exec(label);
@@ -44,6 +44,7 @@
     for(let i=0;i<=needle.length-head.length;i++)if(head.length&&head.every((w,j)=>needle[i+j]===w))offsets.push(i);
     return offsets.length===1?{phrase,head,needle,offset:offsets[0],...(reference?{reference}:{}),...(numberTag!==null?{numberTag}:{})}:null;
   }
+  const matchingLabel=value=>{const target=labelTarget(value);return target?wordTokens(target.phrase).join(' '):'';};
   const targetMatches=(target,ref)=>!target.reference||((!target.reference.book||target.reference.book===ref.book)&&target.reference.chapter===ref.chapter&&target.reference.verse===ref.verse);
   const sourceSnapshot=page=>JSON.stringify(page.contexts.filter(c=>c.type==='BibleText').flatMap(c=>c.readings.map(r=>[r.uuid,text(r),r.references])));
   const locationCache=new WeakMap();let wordLinks=null;
@@ -189,6 +190,6 @@
     }
     return [...groups.values()].sort((a,b)=>(a.location?.chapter??Infinity)-(b.location?.chapter??Infinity)||(a.location?.verse??Infinity)-(b.location?.verse??Infinity)||(a.location?.wordIndex??Infinity)-(b.location?.wordIndex??Infinity));
   }
-  const api={labelTarget,targetMatches,sourceLocations,sourceSnapshot,setWordLinks,matchTokens,pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups};
+  const api={matchingLabel,labelTarget,targetMatches,sourceLocations,sourceSnapshot,setWordLinks,matchTokens,pageIds,manuscripts,text,prose,referenceSummary,query,bibleRef,covers,locations,forVerse,wordTokens,explain,wordGroups};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MasoraData=api;
 })(typeof window!=='undefined'?window:globalThis);

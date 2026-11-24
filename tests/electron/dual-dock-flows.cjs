@@ -33,5 +33,15 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-dual-dock-narrow.png',(await win.webContents.capturePage()).toPNG());
  win.setSize(1700,1000);await js("document.querySelector('#dictClose').click()");await waitFor("document.querySelector('#dictPanel').hidden&&!document.querySelector('#textcritPanel').hidden",'Schließen links erhält rechts');
  await js("document.querySelector('#dockTabs .dock-open-left').click();document.querySelector('#tcClose').click()");await waitFor("document.querySelector('#textcritPanel').hidden&&!document.querySelector('#dictPanel').hidden&&!document.querySelector('#leftDockTabs').hidden",'Schließen rechts erhält links');
- console.log('Electron: independent left/right study tools, tab state, pins, Escape, widths and narrow-window switching passed.');
+ // A reader verse click opens comments on the right, even if last used on the left.
+ await js("document.querySelector('#leftDockTabs [data-panel=cmt]').click()");
+ await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#cmtPanel').dataset.studySide==='left'",'Kommentare zunächst links');
+ await js("document.querySelector('#leftDockTabs .dock-close-left').click()");
+ await waitFor("document.querySelector('#leftDockTabs').hidden&&document.querySelector('#dockTabs').hidden",'Beide Werkzeugbereiche geschlossen');
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .lab').click()");
+ await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#cmtPanel').dataset.studySide==='right'&&!document.querySelector('#dockTabs').hidden&&document.querySelector('#leftDockTabs').hidden",'Versklick öffnet rechts statt auf der gespeicherten linken Seite');
+ assert(await js("document.querySelector('#rOut .row[data-l=\"2\"]').classList.contains('cmtrow')"));
+ await js("document.querySelector('#cmtClose').click();document.querySelector('#rOut .row[data-l=\"3\"] .lab').dispatchEvent(new MouseEvent('dblclick',{bubbles:true}))");
+ await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#cmtPanel').dataset.studySide==='right'&&document.querySelector('#rOut .row[data-l=\"3\"]').classList.contains('cmtrow')",'Auch Doppelklick öffnet Kommentare rechts');
+ console.log('Electron: independent left/right study tools, verse-click routing, tab state, pins, Escape, widths and narrow-window switching passed.');
 };

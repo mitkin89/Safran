@@ -139,6 +139,20 @@ for example, `גדל (כי גדל) (M1)` resolves to Job 2:13 and highlights `ג
 Multiple context occurrences remain ambiguous. Readings carrying a
 verse range or multiple references do not supply a precise word location.
 
+`node tools/masora/audit-locations.js` audits every transcribed Masorah context,
+counting unique, ambiguous and unmatched word references and newly supported
+labels compared with hand-suffix-only matching. Unmatched notes remain available
+on their source pages; this audit does not reconstruct missing Bible text or
+promote citations into manuscript anchors.
+
+Earlier source-only audit before the complete MT/label extension below: 26,969 transcribed notes,
+18,310 with a unique spelling match, 2,664 with multiple candidate occurrences,
+and 5,995 without a match. Compared with hand-suffix-only matching, this adds
+3,036 unique and 448 ambiguous references. Of the unmatched notes, 1,539 lack
+verse-referenced source Bible text, 2,373 have unsupported labels, and 2,083 have
+no exact spelling match. These are browsing diagnostics, not verified coverage
+of the manuscript's Masora.
+
 These are **automatically derived word references**, not publisher-confirmed
 note-to-word anchors. A unique spelling match is useful for browsing but cannot
 establish which occurrence an editor intended. The UI states the automatic basis.

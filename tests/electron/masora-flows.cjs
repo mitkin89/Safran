@@ -104,6 +104,19 @@ module.exports=async({win,js,waitFor,book})=>{
  assert(await js("window.MASORA_TRANSLATION_INDEX.count===26969 && Object.keys(window.MASORA_TRANSLATION_PARTS[10].notes).length>0"));
  await js("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const e=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation'),p=document.querySelector('#masoraPanel');p.scrollTop+=e.getBoundingClientRect().top-p.querySelector('.masora-head').getBoundingClientRect().bottom-8;requestAnimationFrame(resolve);})))");
  fs.writeFileSync('/tmp/safran-masora-complete-translations.png',(await win.webContents.capturePage()).toPNG());
+ // A newly reviewed translation is rendered from its actual source-bound runtime batch.
+ const translationIndex=require('../../masora-translations/index');
+ let revised;
+ for(const batch of translationIndex.batches){for(const record of Object.values(require('../../'+batch.file).notes)){
+  const reading=record.readings.find(r=>/review/.test(r.method||'')&&r.source.length>35);
+  if(reading){revised={uuid:record.uuid,source:reading.source,de:reading.de};break;}
+ }if(revised)break;}
+ assert(revised,'at least one actual reviewed translation');
+ await js(`{const expected=${JSON.stringify(revised)};window.masoraReviewExpected=expected;let id;for(const [key,ms] of Object.entries(window.MASORA_DATA)){if(ms.pages.some(p=>p.contexts.some(e=>e.uuid===expected.uuid))){id=key;break;}}if(!id)throw Error('Missing reviewed source');document.querySelector('#masoraMs').value=id;document.querySelector('#masoraQuery').value=expected.source;document.querySelector('#masoraScope').value='all';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}));}`);
+ await waitFor("(()=>{const entry=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraReviewExpected.uuid+'\"]');return entry?.querySelector('.masora-translation')&&entry.textContent.includes(window.masoraReviewExpected.de);})()",'Neu geprüfte deutsche Übersetzung erscheint an ihrer Quelle');
+ await js("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraReviewExpected.uuid+'\"] .masora-translation').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+ fs.writeFileSync('/tmp/safran-masora-reviewed-translation.png',(await win.webContents.capturePage()).toPNG());
+ await js("document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
  // Parenthetical context and a source suffix must not hide the real Job 2:13 head.
  await book('Job');await waitFor("document.querySelector('#rSection option[value=\"1\"]')",'Hiob 2 verfügbar');
  await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
