@@ -15,3 +15,8 @@ test('bookmark titles show the locator once while custom titles and source snaps
  assert.equal(D.title(n),'Genesis 1,2');assert.equal(D.title({...n,noteTitle:'Mein Titel'}),'Mein Titel');assert.equal(D.excerpt(n),'Die Erde war …');assert.equal(n.title,'Genesis');
  assert.equal(D.referenceLabel({label:'Berakhot · Blatt 2a · 4'}),'Berakhot 2a:4');
 });
+
+test('last notebook preference ignores archived or deleted notebooks and keeps an explicit empty choice',()=>{
+ const data=new Map(),storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)},projects=[{id:'active'},{id:'old',archived:true}];
+ D.rememberNotebook(storage,'active');assert.equal(D.lastNotebook(storage,projects),'active');assert.equal(D.lastNotebook(storage,[]),'');D.rememberNotebook(storage,'old');assert.equal(D.lastNotebook(storage,projects),'');D.rememberNotebook(storage,'');assert.equal(D.lastNotebook(storage,projects),'');
+});

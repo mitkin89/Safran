@@ -103,7 +103,32 @@ window.LibraryNotes = (() => {
     e.preventDefault(); bar.querySelector('button').click();
   });
   async function loadNotes() { try { notesAll = await NT.list(); if(workspace)await workspace.refresh();else renderNotes();markNotes();backfillHe(); }catch(e){workspace?.renderList();const el=host.$('#nwStatus')||host.$('#nCount');el.textContent='Notizen konnten nicht geladen werden: '+String(e.message||e);el.setAttribute('role','alert');} }
+  const noteHover=document.createElement('div');noteHover.id='readerNotePreview';noteHover.hidden=true;noteHover.setAttribute('role','tooltip');document.body.append(noteHover);
+  let hoverTimer,hoverAnchor;
+  function hideNotePreview(){clearTimeout(hoverTimer);hoverAnchor?.removeAttribute('aria-describedby');hoverAnchor=null;noteHover.hidden=true;}
+  function startNotePreview(anchor){
+    if(anchor===hoverAnchor)return;hideNotePreview();hoverAnchor=anchor;
+    hoverTimer=setTimeout(()=>{
+      const row=anchor.closest('.row[data-l]'),section=host.view?.sections[host.view.idx];if(!anchor.isConnected||!row||!section)return hideNotePreview();
+      const notes=readerNoteIndex.get(window.NoteAnchors.signature(host.view.group.key,section.k,row.dataset.l))||[];if(!notes.length)return hideNotePreview();
+      noteHover.replaceChildren();
+      for(const note of notes.slice(0,3)){
+        const item=document.createElement('section'),title=document.createElement('b'),book=document.createElement('small'),text=document.createElement('p');
+        title.textContent=window.NotesWorkspaceData.title(note);book.textContent=workspace?.projectTitle(note.projectId)||'Ohne Notizbuch';text.textContent=window.NotesWorkspaceData.excerpt(note).slice(0,900)||'Lesezeichen ohne eigenen Notiztext';text.dir='auto';item.append(title,book,text);noteHover.append(item);
+      }
+      const hint=document.createElement('small');hint.textContent=(notes.length>3?notes.length+' Notizen · ':'')+'Klicken zum Öffnen';noteHover.append(hint);noteHover.hidden=false;anchor.setAttribute('aria-describedby',noteHover.id);
+      const r=anchor.getBoundingClientRect(),w=noteHover.offsetWidth,h=noteHover.offsetHeight;noteHover.style.left=Math.max(8,Math.min(innerWidth-w-8,r.right+8))+'px';noteHover.style.top=Math.max(8,Math.min(innerHeight-h-8,r.bottom+h+8<innerHeight?r.bottom+8:r.top-h-8))+'px';
+    },220);
+  }
+  host.$('#rOut').addEventListener('mouseover',e=>{const star=e.target.closest('.bm.on');if(star)startNotePreview(star);else hideNotePreview();});
+  host.$('#rOut').addEventListener('mouseout',e=>{if(hoverAnchor&&!hoverAnchor.contains(e.relatedTarget))hideNotePreview();});
+  host.$('#rOut').addEventListener('focusin',e=>{if(e.target.matches('.bm.on'))requestAnimationFrame(()=>{if(document.activeElement===e.target)startNotePreview(e.target);});});
+  host.$('#rOut').addEventListener('focusout',hideNotePreview);
+  host.$('#rOut').addEventListener('keydown',e=>{if(e.target.matches('.bm')&&['Enter',' '].includes(e.key)){e.preventDefault();e.target.click();}});
+  document.addEventListener('pointerdown',hideNotePreview,true);window.addEventListener('keydown',hideNotePreview,true);document.addEventListener('scroll',hideNotePreview,true);window.addEventListener('resize',hideNotePreview);
+  new MutationObserver(hideNotePreview).observe(document.documentElement,{attributes:true,attributeFilter:['data-tab']});
   function markNotes() {
+    hideNotePreview();
     { const bl = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id)); host.$$('#passOut .pstar').forEach(b => { const on = bl.has(b.dataset.id); b.textContent = on ? '★' : '☆'; b.classList.toggle('on', on); }); }
     if (!host.view || !host.view.group) return;
     const s = host.view.sections[host.view.idx];
@@ -124,7 +149,7 @@ window.LibraryNotes = (() => {
       const lab = r.querySelector('.lab');
       if (!lab.querySelector('.bm')) lab.insertAdjacentHTML('afterbegin', '<span class="bm" title="Lesezeichen / Notiz">☆</span>');
       const b = lab.querySelector('.bm');
-      b.title = matched.length>1?matched.length+' Notizen zu dieser Stelle':nn?.note||I18N.t('Lesezeichen / Notiz');
+      b.removeAttribute('title');b.tabIndex=0;b.setAttribute('role','button');b.setAttribute('aria-label',matched.length?matched.length+' '+(matched.length===1?'Notiz':'Notizen')+' zu dieser Stelle öffnen':I18N.t('Lesezeichen / Notiz'));
       b.dataset.noteCount=String(matched.length);
       b.classList.toggle('on', on);
       b.textContent = on ? '★' : '☆';
@@ -137,26 +162,26 @@ window.LibraryNotes = (() => {
   function quickProjectOptions(selected='') {
     const select=host.$('#ndProject');
     const list=quickProjects.filter(p=>!p.archived||p.id===selected);
-    select.innerHTML='<option value="">Ohne Projekt</option>'+list.map(p=>'<option value="'+host.esc(p.id)+'">'+host.esc(p.title+(p.archived?' (archiviert)':''))+'</option>').join('');
-    if(selected&&!list.some(p=>p.id===selected)){const option=document.createElement('option');option.value=selected;option.textContent='Bisher zugeordnetes Projekt';select.append(option);}
+    select.innerHTML='<option value="">Ohne Notizbuch</option>'+list.map(p=>'<option value="'+host.esc(p.id)+'">'+host.esc(p.title+(p.archived?' (archiviert)':''))+'</option>').join('');
+    if(selected&&!list.some(p=>p.id===selected)){const option=document.createElement('option');option.value=selected;option.textContent='Bisher zugeordnetes Notizbuch';select.append(option);}
     select.value=selected;
   }
-  async function loadQuickProjects(owner,selected) {
+  async function loadQuickProjects(owner,selected,useLast=false) {
     const request=++projectRequest,select=host.$('#ndProject');quickProjectOptions(selected);select.disabled=true;
-    host.$('#ndProjectStatus').textContent='Projekte werden geladen …';
-    try{const state=await window.research.state();if(request!==projectRequest||editing?.id!==owner)return;quickProjects=state.projects;quickProjectOptions(selected);host.$('#ndProjectStatus').textContent=quickProjects.length?'':'Du kannst hier direkt ein neues Projekt anlegen.';}
-    catch{if(request===projectRequest&&editing?.id===owner)host.$('#ndProjectStatus').textContent='Projekte konnten nicht geladen werden. Die bisherige Zuordnung bleibt erhalten.';}
+    host.$('#ndProjectStatus').textContent='Notizbücher werden geladen …';
+    try{const state=await window.research.state();if(request!==projectRequest||editing?.id!==owner)return;quickProjects=state.projects;if(useLast)selected=window.NotesWorkspaceData.lastNotebook(localStorage,quickProjects);quickProjectOptions(selected);host.$('#ndProjectStatus').textContent=quickProjects.length?'':'Du kannst hier direkt ein neues Notizbuch anlegen.';}
+    catch{if(request===projectRequest&&editing?.id===owner)host.$('#ndProjectStatus').textContent='Notizbücher konnten nicht geladen werden. Die bisherige Zuordnung bleibt erhalten.';}
     finally{if(request===projectRequest&&editing?.id===owner)select.disabled=false;}
   }
   function persistQuickDraft(){try{const value=quickDraft();if(value)localStorage.setItem(quickDraftKey,JSON.stringify(value));}catch{}}
-  host.$('#ndProject').onchange=()=>{host.$('#ndProjectStatus').textContent='';persistQuickDraft();};
+  host.$('#ndProject').onchange=()=>{host.$('#ndProjectStatus').textContent='';window.NotesWorkspaceData.rememberNotebook(localStorage,host.$('#ndProject').value);persistQuickDraft();};
   host.$('#ndNewProject').onclick=()=>{host.$('#ndProjectStatus').textContent='';host.$('#ndProjectCreate').hidden=false;host.$('#ndProjectName').value='';host.$('#ndProjectName').focus();};
   host.$('#ndProjectCreateCancel').onclick=()=>{host.$('#ndProjectStatus').textContent='';host.$('#ndProjectCreate').hidden=true;host.$('#ndProject').focus();};
   host.$('#ndProjectName').onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();host.$('#ndProjectCreateSave').click();}};
   host.$('#ndProjectCreateSave').onclick=async()=>{
-    const title=host.$('#ndProjectName').value.trim(),owner=editing?.id;if(!title){host.$('#ndProjectStatus').textContent='Bitte einen Projektnamen eingeben.';host.$('#ndProjectName').focus();return;}
+    const title=host.$('#ndProjectName').value.trim(),owner=editing?.id;if(!title){host.$('#ndProjectStatus').textContent='Bitte einen Notizbuchnamen eingeben.';host.$('#ndProjectName').focus();return;}
     const request=++projectRequest,id=crypto.randomUUID();host.$('#ndProjectCreateSave').disabled=true;host.$('#ndSave').disabled=true;host.$('#ndProject').disabled=true;
-    try{const state=await window.research.put('projects',{id,title},0);if(request!==projectRequest||editing?.id!==owner)return;quickProjects=state.projects;quickProjectOptions(id);host.$('#ndProjectCreate').hidden=true;host.$('#ndProjectStatus').textContent='Projekt angelegt. Die Notiz wird beim Speichern zugeordnet.';persistQuickDraft();}
+    try{const state=await window.research.put('projects',{id,title},0);if(request!==projectRequest||editing?.id!==owner)return;quickProjects=state.projects;quickProjectOptions(id);window.NotesWorkspaceData.rememberNotebook(localStorage,id);host.$('#ndProjectCreate').hidden=true;host.$('#ndProjectStatus').textContent='Notizbuch angelegt. Die Notiz wird beim Speichern zugeordnet.';persistQuickDraft();}
     catch(e){if(request===projectRequest&&editing?.id===owner)host.$('#ndProjectStatus').textContent=String(e.message||e);}
     finally{if(request===projectRequest&&editing?.id===owner){host.$('#ndProjectCreateSave').disabled=false;host.$('#ndSave').disabled=false;host.$('#ndProject').disabled=false;}}
   };
@@ -172,7 +197,7 @@ window.LibraryNotes = (() => {
     host.$('#ndText').value = it.note || '';
     host.$('#ndTags').value = noteTags(it).join(', ');
     host.$('#ndProjectCreate').hidden=true;host.$('#ndProjectCreateSave').disabled=false;host.$('#ndSave').disabled=false;
-    void loadQuickProjects(it.id,it.projectId||'');
+    void loadQuickProjects(it.id,it.projectId||'',!editingOld&&!Object.hasOwn(it,'projectId'));
     host.$('#ndText').placeholder = I18N.t(k === 'row' ? 'Eigene Notiz (leer lassen = nur Lesezeichen)' : 'Notiz');
     host.$('#ndDel').hidden = !o.canDelete;
     host.$('#ndDel').textContent = it.refs?.length>1?'Notiz mit allen Verknüpfungen löschen':I18N.t(k === 'free' ? 'Notiz entfernen' : 'Lesezeichen entfernen');
@@ -241,7 +266,7 @@ window.LibraryNotes = (() => {
       if (!editing.note && !editing.title) { host.$('#noteDlg').close(); return; }
     }
     const old = editingOld;
-    const r = await ntDo(() => NT.save({...editing,expectedTs:editingOld?.ts||0})); if (!r) return; notesAll = r;try{localStorage.removeItem(quickDraftKey);}catch{}host.$('#noteDlg').close();refreshNotes();if(workspace)await workspace.refresh();
+    const r = await ntDo(() => NT.save({...editing,expectedTs:editingOld?.ts||0})); if (!r) return; window.NotesWorkspaceData.rememberNotebook(localStorage,editing.projectId);notesAll = r;try{localStorage.removeItem(quickDraftKey);}catch{}host.$('#noteDlg').close();refreshNotes();if(workspace)await workspace.refresh();
     if (old && old.note && old.note !== editing.note) showUndo(old, 'Notiz geändert');
   };
   host.$('#ndDel').onclick = async () => { const id = editing.id; host.$('#noteDlg').close(); await removeNote(id); };

@@ -26,5 +26,7 @@
    return terms.every(t=>hay.includes(t))&&(!options.kind||options.kind==='all'||kind(n)===options.kind)&&(!options.only||!!n.note?.trim())&&(!options.project||(options.project==='none'?!project:project===options.project))&&(!options.tag||(n.tags||[]).includes(options.tag)||(n.topics||[]).includes(options.tag))&&(!options.work&&!options.chapter||ls.some(l=>(!options.work||l.work===options.work)&&(!options.chapter||l.chapter===options.chapter)));
   });
  }
- const api={normalize,refs,owner,records,title,kind,locations,filter,referenceLabel,excerpt};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.NotesWorkspaceData=api;
+ function lastNotebook(storage,projects){try{const id=storage.getItem('notesLastNotebook')||'';return projects.some(p=>p.id===id&&!p.archived)?id:'';}catch{return '';}}
+ function rememberNotebook(storage,id){try{storage.setItem('notesLastNotebook',id||'');}catch{}}
+ const api={normalize,refs,owner,records,title,kind,locations,filter,referenceLabel,excerpt,lastNotebook,rememberNotebook};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.NotesWorkspaceData=api;
 })(typeof window==='undefined'?globalThis:window);

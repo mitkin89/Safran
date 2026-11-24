@@ -3019,3 +3019,10 @@ html[data-tab=notes] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,#cm
 .rw-note-snippet { font-size:13px; line-height:1.5; white-space:pre-line; }
 
 #nOut .nw-source-excerpt blockquote.nw-hebrew { font-family:"SBL Hebrew",Georgia,serif; font-size:calc(var(--nfs,15px) * 1.5); line-height:2; }
+#readerNotePreview { position:fixed; z-index:401; box-sizing:border-box; width:360px; max-width:calc(100vw - 16px); max-height:60vh; overflow:hidden; padding:14px; border:1px solid var(--line); border-radius:9px; background:var(--card,var(--bg)); color:var(--fg); box-shadow:0 8px 30px #0005; pointer-events:none; font-size:13px; line-height:1.6; }
+#readerNotePreview[hidden] { display:none; }
+#readerNotePreview section+section { margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
+#readerNotePreview b,#readerNotePreview small { display:block; }
+#readerNotePreview small { font-size:11px; color:var(--muted); }
+#readerNotePreview p { margin:6px 0; white-space:pre-wrap; overflow-wrap:anywhere; display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; }
+#rOut .bm:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
