@@ -14,13 +14,14 @@ function create(host){
   const cache=new Map();
   const file=book=>'hexapla-data/'+String(book).replace(/ /g,'_')+'.js';
   function available(book){return BOOKS.includes(book);}
-  let morph=null,vorlage=null;
+  let morph=null,vorlage=null,explanations=null;
   function load(book){
     if(!available(book))return Promise.resolve(null);
     // Greek morphology of the readings (hexapla-morph.js): optional, the apparatus works without it
     morph=morph||host.load('hexapla-morph.js',()=>window.HEXAPLA_MORPH).catch(()=>{morph=null;return null;});
     vorlage=vorlage||host.load('hexapla-vorlage.js',()=>window.HEXAPLA_VORLAGE).catch(()=>{vorlage=null;return null;});
-    if(!cache.has(book))cache.set(book,Promise.all([host.load(file(book),()=>window.HEXAPLA_DATA?.[book]),morph,vorlage]).then(([d])=>d).catch(e=>{cache.delete(book);throw e;}));
+    explanations=explanations||host.load('hexapla-explanations.js',()=>window.HEXAPLA_EXPLANATIONS).catch(()=>{explanations=null;return null;});
+    if(!cache.has(book))cache.set(book,Promise.all([host.load(file(book),()=>window.HEXAPLA_DATA?.[book]),morph,vorlage,explanations]).then(([d])=>d).catch(e=>{cache.delete(book);throw e;}));
     return cache.get(book);
   }
   // Greek word -> tooltip with lemma, analysis (German via GMorph.describe) and short gloss
@@ -66,6 +67,26 @@ function create(host){
   // Synopsis: one row per translator under the LXX; words the same as in the LXX row are folded to „…“
   // (shown again with „Volltext“). Only for plain readings that start with Ο΄ and have at least two rows.
   const norm=t=>t.normalize('NFD').replace(/[^\p{L}]/gu,'').toLowerCase();
+  const plain=t=>t.replace(/\^\d+/g,'').replace(/_/g,'').replace(/\s+/g,' ').trim();
+  function explanation(u,key,r,base,vl){
+    const bound=window.HEXAPLA_EXPLANATIONS,review=bound?.records?.[key];
+    const editorial=review?.unitText===u.t?review:null,en=window.I18N?.lang==='en';
+    const render=(text,kind,title)=>'<small class="tc-hx-explanation" lang="'+(en?'en':'de')+'" data-hx-explanation="'+kind+'" title="'+esc(title)+'">'+text+'</small>';
+    if(editorial)return render(esc('Erläuterung:')+' '+raw(en?editorial.en:editorial.n),'editorial','Redaktionelle KI-Erläuterung von Codex, 2026; Grundlage: Fields griechischer Wortlaut und Fußnoten.');
+    if(vl?.n)return render(esc('Erläuterung:')+' '+raw(en&&vl.en?vl.en:vl.n),'reviewed','Redaktionelle Einordnung von Claude, 2026; keine Aussage Fields.');
+    if(!r.type||r.type==='gleich')return '';
+    if(r.type==='asterisk'||r.type==='obelus')return render(esc(HXTYPES[r.type][1]),'comparison','Erläuterung des hexaplarischen Zeichens.');
+    // Only describe the visible Greek difference. Neither a dictionary gloss
+    // nor an unmatched word proves a different Hebrew source or its meaning.
+    const greek=s=>plain(s).match(/[\p{Script=Greek}\p{M}]+[’᾿]?/gu)||[];
+    const a=greek(r.for||base),b=greek(r.text);
+    const excess=(xs,ys)=>{const counts=new Map();ys.forEach(w=>counts.set(norm(w),(counts.get(norm(w))||0)+1));return xs.filter(w=>{const n=counts.get(norm(w))||0;if(n){counts.set(norm(w),n-1);return false;}return true;});};
+    const left=excess(a,b),right=excess(b,a);
+    if(!left.length&&!right.length)return render(esc('Gleicher Wortbestand, andere Reihenfolge oder Schreibung im angezeigten griechischen Ausschnitt.'),'comparison','Automatischer Vergleich des griechischen Wortlauts; keine Entscheidung über Bedeutung, Zuschreibung oder hebräische Vorlage.');
+    const clip=s=>s.length>180?s.slice(0,177)+'…':s;
+    const quote=xs=>xs.length?'„'+raw(clip(xs.join(' ')))+'“':esc('keine entsprechenden Wörter im angezeigten Ausschnitt');
+    return render(esc('Abweichende Wörter:')+' '+esc('LXX')+' '+quote(left)+'; '+esc('hier')+' '+quote(right)+'.','comparison','Automatischer Vergleich des griechischen Wortlauts; keine Entscheidung über Bedeutung, Zuschreibung oder hebräische Vorlage.');
+  }
   function synopsis(data,u,key){
     // italic Latin (_…_) stays one token: its spaces become no-break spaces
     // Field puts single words of other translators into the LXX text in brackets: Ο΄. κατέναντι (Ἀ. ἐξ ἀνατολῆς)
@@ -106,15 +127,16 @@ function create(host){
       const vlKey=i&&key?key+' '+r.head.replace(/\s+/g,' ').trim():null;
       const vl=vlKey?window.HEXAPLA_VORLAGE?.[vlKey]:null;
       const forV=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
-      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forV+body+' '+typeTag(vl.t,vl)+(window.TextCritTraditions?.badge(window.TextCritTraditions.tags('Hex','',vlKey,vl),raw)||'')+'</span>';
+      const note=explanation(u,vlKey,r,rows[0].tok.join(' '),vl);
+      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forV+body+' '+typeTag(vl.t,vl)+(window.TextCritTraditions?.badge(window.TextCritTraditions.tags('Hex','',vlKey,vl),raw)||'')+note+'</span>';
       const forW=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
-      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forW+body+(r.type?' '+typeTag(r.type):'')+'</span>';
+      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forW+body+(r.type?' '+typeTag(r.type):'')+note+'</span>';
     };
     return '<div class="tc-hx-syn">'+rows.map(row).join('')+'</div><button type="button" class="tc-hx-syn-toggle" aria-pressed="false">'+esc('Volltext')+'</button>';
   }
   // Type of a translator row against the LXX row (machine; see agree() for the MT check)
   const HXTYPES={gleich:['wie LXX','Gleicher Wortlaut wie die LXX-Zeile'],
-    wiedergabe:['andere Wiedergabe','Anderes griechisches Wort für denselben hebräischen Text (Wortwahl des Übersetzers), maschinell eingeordnet'],
+    wiedergabe:['andere Wiedergabe','Abweichender griechischer Wortlaut gegenüber der LXX-Zeile; automatisch erkannt. Ob Wortwahl, andere Deutung oder andere Vorlage vorliegt, ist damit nicht entschieden.'],
     mt:['mögliche MT-Angleichung','Automatischer Hinweis: andere griechische Wiedergabe an einer eingeordneten LXX-Abweichung. Eine Übereinstimmung mit dem MT ist damit nicht nachgewiesen.'],
     translit:['Transkription','Hebräisches Wort in griechischen Buchstaben'],
     vorlage:['andere Vorlage','Setzt einen anderen hebräischen Konsonantentext voraus (meist ein verwechselbarer Buchstabe); von Claude geprüft'],
@@ -156,7 +178,7 @@ function create(host){
     }
     return [...out.values()];
   }
-  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US); Bedeutungen außerhalb der LXX aus LSJ (Perseus Digital Library, CC BY-SA).')+'</p>';
+  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US); Bedeutungen außerhalb der LXX aus LSJ (Perseus Digital Library, CC BY-SA).')+' '+esc('Kurzerläuterungen: Codex/Claude, 2026, redaktionell; nicht Teil von Fields Originaltext. Abweichende Wörter werden automatisch verglichen, ohne damit eine andere hebräische Vorlage zu behaupten.')+'</p>';
   function preview(anchor){
     let an=[];try{an=JSON.parse(anchor.dataset.hxAn||'[]');}catch{}
     const G=window.GMorph,t=window.I18N?.t?(x=>window.I18N.t(x)):(x=>x),form=anchor.textContent;

@@ -135,3 +135,34 @@ lässt und dabei Einheiten verschiebt, muss `vorlage_candidates.py` neu laufen l
 ## Einheitliche Siglenanzeige
 
 `textcrit-sigla.js` verwendet Fields griechische Zeugensiglen für die Anzeige: Ο΄, Ἀ., Σ., Θ., Οἱ Γ΄, Οἱ λοιποί sowie Ε΄/Ϛ΄/Ζ΄. Die internen Zeugen-IDs und Zuordnungen bleiben unverändert. Die Lesartenzeile und CATSS-Zeugenbeschriftungen verwenden dieselbe Anzeige; die Editionsquelle heißt ausdrücklich „Field“. Unter **Textzeugen → Siglen und Zeichen nach Field** stehen die Auflösungen. Asterisk ※, Obelus ÷ und Metobelus ↙ werden ausschließlich an den im transkribierten Field-Text belegten Positionen ausgezeichnet. Eine moderne Zusatz-/Auslassungsfeststellung erzeugt kein nachträgliches hexaplarisches Zeichen. Fields zitierter Ὁ Σύρος wird weiterhin vom eigenständig eingebundenen Peschitta-Zeugen Syr unterschieden.
+## Sichtbare Kurzerläuterungen im Apparat
+
+`explanations.json` enthält redaktionelle, deutsch/englische Erläuterungen zu konkreten
+Übersetzerzeilen (Codex, 2026). Jede Erläuterung speichert den vollständigen Wortlaut
+`unitText` aus Field, auf den sie sich bezieht. Beim Datenbau und beim Anzeigen muss
+dieser Wortlaut exakt übereinstimmen. Bei veränderten Einheiten muss die Erläuterung
+inhaltlich erneut geprüft werden; sie darf nicht automatisch auf einen neuen Index
+übertragen werden. Fußnoten und ihre Zweifel an Zuschreibungen bleiben maßgeblich.
+
+```sh
+python3 tools/hexapla/build_explanations.py
+python3 tools/hexapla/build_explanations.py --check
+node tools/hexapla/audit_explanations.cjs --write
+```
+
+Die Offline-App lädt `hexapla-explanations.js`. Diese Erläuterungen und die bestehenden
+59 Bewertungen aus `hexapla-vorlage.js` werden direkt unter der betreffenden Zeile
+gezeigt. Alle anderen abweichenden Zeilen erhalten einen rein formalen Vergleich der
+abweichenden griechischen Wörter bzw. ihrer Reihenfolge. Dieser Vergleich ist keine
+philologische Prüfung und kein Beleg für eine andere hebräische Vorlage. Akzente,
+Großschreibung und Fußnotenziffern dienen nicht als zusätzliche griechische Wörter.
+Der ursprüngliche Field-Text wird nicht geändert. Die Herkunft der Erläuterungen ist
+über den Titel und im Quellenhinweis ausgewiesen.
+
+`explanations-audit.json` dokumentiert die durchlaufenen 39 Bücher und zählt getrennt
+inhaltliche Erläuterungen und automatische Vergleiche. Es ist ausdrücklich keine
+Bescheinigung einer vollständigen inhaltlichen Prüfung aller Hexapla-Lesarten.
+
+Der Audit zählt außerdem die vorhandenen Erläuterungstexte der klassifizierten LXX-
+und Peschitta-Lesarten. Ein vorhandener Text wird dabei nicht als inhaltlich geprüft
+gewertet; gemessen wird nur, ob eine Erläuterung hinterlegt ist.

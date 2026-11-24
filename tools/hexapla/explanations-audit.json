@@ -1,0 +1,23 @@
+{
+  "scope": "Field/Hexapla rendering; automatic comparisons are not philological reviews",
+  "books": 39,
+  "units": 26963,
+  "synopsisUnits": 20733,
+  "explanations": {
+    "editorial": 48,
+    "reviewed": 60,
+    "comparison": 29930
+  },
+  "reviewedRecords": 59,
+  "unrenderedEditorialKeys": [],
+  "otherWitnessNotes": {
+    "lxx-readings": {
+      "readings": 13414,
+      "missingNotes": 0
+    },
+    "peshitta-readings": {
+      "readings": 11132,
+      "missingNotes": 0
+    }
+  }
+}

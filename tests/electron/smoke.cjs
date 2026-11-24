@@ -66,6 +66,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./peshitta-status-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_EXAMPLES==='1'){await require('./syntax-examples-flows.cjs')({js,waitFor,win});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_HXEXPL==='1'){await require('./hexapla-explanations-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_PSAPP==='1'){await require('./peshitta-apparatus-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_SEARCH==='1'){await js("document.querySelector('#splitBtn').click()");await waitFor("document.querySelector('#pane2')?.contentDocument?.querySelector('#sGo')",'Suchmaske im zweiten Fenster');await libraryFlows({js,waitFor});await require('./syntax-flows.cjs')({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_OUTLINES==='1'){
