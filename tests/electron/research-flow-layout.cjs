@@ -21,13 +21,21 @@ module.exports=async function(){
   // Font changes recalculate the exclusion height, not an estimated line count.
   const old=await evaluate("document.querySelector('.classic-upper').style.getPropertyValue('--flow-main-height')");await evaluate("document.querySelector('.region.main').style.fontSize='25pt'");await pause(100);assert.notEqual(await evaluate("document.querySelector('.classic-upper').style.getPropertyValue('--flow-main-height')"),old);verify(await evaluate(geometry));
   for(const side of ['left','right']){await load({...sheet,blocks:sheet.blocks.filter(b=>b.region!==side)});verify(await evaluate(geometry),1);}
+  // A longer comment fills the opposite half too once the shorter one ends.
+  for(const long of ['left','right']){
+   await load({...sheet,blocks:[note('l','left',long==='left'?left:right.slice(0,900)),note('m','main',main),note('r','right',long==='right'?right:left.slice(0,900))]});
+   const shape=await evaluate(`(()=>{const t=document.querySelector('.classic-upper'),long=t.querySelector('.${long}'),short=t.querySelector('.${long==='left'?'right':'left'}'),m=t.querySelector('.main').getBoundingClientRect(),s=short.getBoundingClientRect(),r=document.createRange();r.selectNodeContents(long.querySelector('p'));return {width:t.getBoundingClientRect().width,before:[...r.getClientRects()].filter(x=>x.top<m.bottom-12).map(x=>({left:x.left,right:x.right})),main:{left:m.left,right:m.right},after:[...r.getClientRects()].filter(x=>x.top>s.bottom+20).map(x=>x.width),text:[...t.querySelectorAll('.region')].map(c=>c.textContent).join('')};})()`);
+   assert(shape.after.some(width=>width>shape.width*.85),'long '+long+' comment uses the full width');
+   for(const rect of shape.before)assert(long==='left'?rect.right<=shape.main.left+1:rect.left>=shape.main.right-1,'asymmetric comments never overlap the main text');
+   assert.equal(shape.text,(long==='left'?left:right.slice(0,900))+main+(long==='right'?right:left.slice(0,900)));
+  }
   // Sandboxed preview does not run embedded scripts; trusted host supplies the same layout.
   await load(sheet,false);assert.equal(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')"),false);await evaluate(Flow.scriptSource);verify(await evaluate(geometry));
   await load({...sheet,blocks:sheet.blocks.filter(b=>b.region==='main')});assert.equal(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')"),false);
   await load({...sheet,blocks:sheet.blocks.filter(b=>b.region!=='main')});assert.equal(await evaluate("document.querySelector('.classic-upper').classList.contains('flowing')"),false);
   async function printCase(name,mainText){
    await load({...sheet,blocks:[note('l','left',left),note('m','main',mainText),note('r','right',right),note('b','bottom','FUSSENDE')]});
-   await evaluate(`window.addEventListener('beforeprint',()=>{const t=document.querySelector('.classic-upper'),c=document.querySelector('.classic-continuation');window.printProof={flow:t.classList.contains('flowing'),continued:!!c,main:t.querySelector('.main').textContent,left:t.querySelector('.left').textContent+(c?.querySelector('.left')?.textContent||''),right:t.querySelector('.right').textContent+(c?.querySelector('.right')?.textContent||''),tails:[...(c?.querySelectorAll('.region')||[])].map(e=>e.textContent),restored:!!t._researchPrintState};},{once:true});`);
+   await evaluate(`window.addEventListener('beforeprint',()=>{const t=document.querySelector('.classic-upper'),c=document.querySelector('.classic-continuation');window.printProof={flow:t.classList.contains('flowing'),continued:!!c,main:t.querySelector('.main').textContent,left:t.querySelector('.left').textContent+[...(c?.querySelectorAll('.left')||[])].map(e=>e.textContent).join(''),right:t.querySelector('.right').textContent+[...(c?.querySelectorAll('.right')||[])].map(e=>e.textContent).join(''),tails:[...(c?.querySelectorAll('.region')||[])].map(e=>e.textContent),restored:!!t._researchPrintState};},{once:true});`);
    const pdf=await w.webContents.printToPDF({landscape:true,pageSize:'A4',preferCSSPageSize:true,printBackground:true});
    await fs.writeFile('/tmp/safran-research-flow-'+name+'.pdf',pdf);
    const proof=await evaluate('window.printProof');assert.equal(proof.flow,false,'main text prints in a fragmentable normal-flow table');assert(proof.continued,'side texts continue below even for multi-page main text');

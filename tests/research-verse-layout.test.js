@@ -31,8 +31,11 @@ test('all translation and interlinear columns are sliced together and retain rea
  b.presentation={...pair,readerHeadings:[{before:'4',text:'Abschnitt vier'}],additional:[{...pair,companion:{citation:{work:'Deuteronomy',edition:'English',language:'English'}},rows:rows.map(r=>({...r,translation:'English'+r.label}))}],originalInterlinear:[{...pair,mode:'interlinear'}]};
  const parts=A.aligned([b,comment(4)]),four=parts[3].main[0].presentation;
  assert.equal(four.additional[0].rows.length,1);assert.equal(four.additional[0].rows[0].translation,'English4');assert.equal(four.originalInterlinear[0].rows.length,1);assert.equal(four.originalInterlinear[0].rows[0].groups[0].translation,'Wort3');assert.equal(four.readerHeadings[0].text,'Abschnitt vier');assert.equal(parts[4].main[0].presentation.readerHeadings.length,0);
- const html=E.html({title:'Blatt',layout:{template:'classic'},blocks:[b,comment(4)]});assert.equal((html.match(/English4/g)||[]).length,1);assert.equal((html.match(/Wort3/g)||[]).length,1);assert(!html.includes('<script>'));assert.equal(b.presentation.additional[0].rows.length,10);
+ const html=E.html({title:'Blatt',layout:{template:'classic'},blocks:[b,comment(4)]});assert.equal((html.match(/English4/g)||[]).length,1);assert.equal((html.match(/Wort3/g)||[]).length,1);assert(html.includes('<script>'),'aligned rows use the same trusted text-flow script');assert.equal(b.presentation.additional[0].rows.length,10);
 });
-test('the free-flow layout never rearranges already aligned verse rows',()=>{
- const Flow=require('../research-flow'),table={classList:{contains:x=>x==='verse-aligned'}};const doc={querySelector:()=>table,defaultView:{}};assert.equal(Flow.apply(doc),false);assert.equal(Flow.preparePrint(doc),false);assert.equal(typeof Flow.watch(doc),'function');
+test('verse alignment and automatic text flow are enabled together without changing source snapshots',()=>{
+ const b=main(),c=comment(4),before=JSON.stringify([b,c]);
+ const html=E.html({title:'Blatt',layout:{template:'classic'},blocks:[b,c]});
+ assert(html.includes('verse-aligned'));assert(html.includes('flowing-verses'));assert(html.includes('verse-continuation-row'));assert(html.includes('<script>'));assert.equal(JSON.stringify([b,c]),before);
+ const preview=E.html({title:'Blatt',layout:{template:'classic'},blocks:[b,c]},[],{interactive:false});assert(!preview.includes('<script>'));assert(preview.includes('verse-aligned'));
 });
