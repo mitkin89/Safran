@@ -8,7 +8,7 @@ function render(data,{esc,t}){
  const node=n=>{
   if(n.kind==='omitted')return '<li class="muted">…</li>';
   const label=[...new Set([roles[n.role]?t(roles[n.role]):n.role||'',n.kind!=='word'?t(kinds[n.kind]||n.kind):'',n.rule||''].filter(Boolean))].join(' · ');
-  const word=n.kind==='word'?`<bdi lang="he" class="${n.matched?'pvhl ':''}${!n.aligned?'sxTreeUnmapped':''}">${esc(n.form)}</bdi> <small>${esc(n.ref)}${!n.aligned?' · '+esc(t('nicht am Lesetext verankert')):''}</small>`:'';
+  const word=n.kind==='word'?`<bdi lang="he" class="${n.matched?'pvhl ':''}${!n.aligned?'sxTreeUnmapped':''}">${esc(n.form)}</bdi> <small>${esc(n.ref)}${n.sourceRef&&n.sourceRef!==n.ref?' · '+esc(t('Quellzählung'))+' '+esc(n.sourceRef):''}${!n.aligned?' · '+esc(t('nicht am Lesetext verankert')):''}</small>`:'';
   return '<li><span class="sxTreeNode">'+(label?'<small>'+esc(label)+'</small> ':'')+word+'</span>'+(n.children?.length?'<ul>'+n.children.map(node).join('')+'</ul>':'')+'</li>';
  };
  return '<details class="sxSourceTree"><summary>'+esc(t('Satzbaum der Quelle'))+'</summary><p class="muted">'+esc(t('MACULA-Satzstruktur; markiert sind die am Lesetext verankerten Trefferwörter. Quellsegmente können ein Lesewort aufteilen.'))+'</p><div class="sxTreeScroll">'+data.trees.map(tree=>'<h4>'+esc(tree.id)+'</h4><ul class="sxSentenceTree">'+tree.children.map(node).join('')+'</ul>').join('')+'</div>'+(data.omitted||data.omittedTrees?'<p class="muted">'+esc(t('Satzbaumanzeige gekürzt.'))+'</p>':'')+'<small>MACULA Hebrew · '+esc(data.source)+'</small></details>';

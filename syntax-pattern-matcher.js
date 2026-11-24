@@ -83,10 +83,16 @@ function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents
   if(refs.length&&!lemmas.length)complete=false;
   return {complete,items};
  }
- function positionMatch(source,target,p){
-  if(source.ref!==target.ref||source.at===target.at)return false;
-  return (p.order==='either'||(p.order==='before'?source.at<target.at:source.at>target.at))&&
-   (p.maxGap===null||Math.abs(source.at-target.at)-1<=p.maxGap);
+ function gap(source,target,c){
+  if(source.ref!==target.ref||source.at===target.at)return null;
+  const excluded=new Set((index.alignment?.variants||[]).filter(([r,,kind])=>r===source.ref&&kind===(c?.pair||c?.nominal?'ketiv':'qere')).map(([,at])=>at));
+  if(excluded.has(source.at)||excluded.has(target.at))return null;
+  let result=0;for(let i=Math.min(source.at,target.at)+1;i<Math.max(source.at,target.at);i++)if(!excluded.has(i))result++;
+  return result;
+ }
+ function positionMatch(source,target,p,c){
+  const distance=gap(source,target,c);if(distance===null)return null;
+  return (p.order==='either'||(p.order==='before'?source.at<target.at:source.at>target.at))&&(p.maxGap===null||distance<=p.maxGap);
  }
  function identity(head){
   const xs=(index.identities?.[head.ref]||[]).filter(x=>x[0]===head.at&&x[1]===head.lemma);
@@ -106,8 +112,8 @@ function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents
   if(grammar!==true)return grammar;
   if(!n.position)return true;
   const other=heads(c,n.position.relative);
-  if(other.items.some(target=>positionMatch(head,target,n.position)))return true;
-  return !other.complete||other.items.some(target=>target.ref!==head.ref)?null:false;
+  if(other.items.some(target=>positionMatch(head,target,n.position,c)===true))return true;
+  return !other.complete||other.items.some(target=>positionMatch(head,target,n.position,c)===null)?null:false;
  }
  function term(n,c){
   if(n.role==='kind')return c.row[7]==null?null:c.row[7]===n.value;
@@ -192,7 +198,7 @@ function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents
    out.words=xs.slice(0,8).map(head=>{
     const result={text:head.word.form,ref:head.ref,indices:[head.at],lemma:head.lemma,morph:(head.grammarWord||head.word).morph,lemmaId:(head.grammarWord||head.word).lemma,part:'head',...(head.semantic?{semantic:head.semantic}:{})};
     if(n.sameAs){const bound=c.vars?.[n.sameAs];result.reference={name:n.sameAs,identity:n.identity,ref:bound?.ref,text:bound?.word.form};}
-    if(n.position){const target=heads(c,n.position.relative).items.find(x=>positionMatch(head,x,n.position));if(target)result.position={gap:Math.abs(head.at-target.at)-1,text:target.word.form,ref:target.ref,indices:[target.at]};}
+    if(n.position){const target=heads(c,n.position.relative).items.find(x=>positionMatch(head,x,n.position,c)===true);if(target)result.position={gap:gap(head,target,c),text:target.word.form,ref:target.ref,indices:[target.at]};}
     return result;
    });
    if(!out.words.length&&value===true&&c.pair&&['subject','object','referent'].includes(n.role)){

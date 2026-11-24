@@ -49,8 +49,9 @@ function render(explanation,{esc,t}){
   if(p.children?.length)body+='<ul>'+p.children.map(child=>tree(child,p.op==='related')).join('')+'</ul>';
   return `<li class="sxProof ${positive?'ok':'muted'}"><div><b>${positive?'✓':p.value===false?'−':'?'}</b> ${esc(label)} <small>· ${esc(status)} · ${esc(t('Klausel {}',p.ref))}</small></div>${body}</li>`;
  }
+ const readings=explanation.readings?'<p class="muted">'+esc(t('Lesebasis'))+': '+esc([explanation.readings.macula?'MACULA: Qere':'',explanation.readings.bhsa?'BHSA: Ketiv':''].filter(Boolean).join(' · '))+'</p>':'';
  const content=explanation.simple?'<ul>'+explanation.conditions.map(c=>tree({op:'term',value:true,rule:c.rule,words:c.words,actual:c.actual,ref:c.ref})).join('')+'</ul>':'<ul>'+explanation.proofs.map(p=>tree(p,true)).join('')+'</ul>';
- return `<details class="sxExplain"><summary>${esc(t('Warum dieser Treffer?'))}</summary>${content}${explanation.omitted?'<p>'+esc(t('{} weitere Treffer im Vers',explanation.omitted))+'</p>':''}<p class="muted">${esc(t('Die Erklärung bezieht sich auf die ausgewerteten Annotationen. Fehlende Daten werden nicht als erfüllter Ausschluss gewertet.'))}</p></details>`;
+ return `<details class="sxExplain"><summary>${esc(t('Warum dieser Treffer?'))}</summary>${readings}${content}${explanation.omitted?'<p>'+esc(t('{} weitere Treffer im Vers',explanation.omitted))+'</p>':''}<p class="muted">${esc(t('Die Erklärung bezieht sich auf die ausgewerteten Annotationen. Fehlende Daten werden nicht als erfüllter Ausschluss gewertet.'))}</p></details>`;
 }
 const api={render};if(node)module.exports=api;else window.SyntaxExplanation=api;
 })();

@@ -205,7 +205,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? TanakhSyntax.supports(e) : gramOn ? TanakhSyntax.supports(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
-  const syntaxCoverage=syntax?{books:[],unreadable:[],advanced:!!syntax.pattern}:null;
+  const syntaxCoverage=syntax?{books:[],unreadable:[],advanced:!!syntax.pattern,readings:{macula:'qere',bhsa:usesBhsa?'ketiv':null},alignmentIssues:(bhsaIndex?.alignment?.rejected||[]).filter(r=>list.some(e=>e.title===r.book))}:null;
   const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
   const stats = new Map(); // Titel -> Gesamtzahl der Treffer (auch über die Anzeigegrenze hinaus)
   let scanned = 0, truncated = false, capped = false, lastProg = 0;
@@ -255,6 +255,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
           const mm = { idx, toks: [...n.matchAll(/[\p{L}\p{N}]+/gu)].map(m => ({ w: m[0], s: m.index, e: m.index + m[0].length })) };
           const r = { rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? (loc.label ? `${loc.sectionLabel} · ${loc.label}` : loc.sectionLabel) : '' };
           r.snippet = { before: '', hit: '', after: '' }; r.parts = S.snippetParts(n, mm);
+          if(match)r.alignment={macula:TanakhSyntax.load(e.title).alignment?.basis||null,bhsa:usesBhsa?bhsaIndex.alignment?.basis||null:null,variants:TanakhSyntax.load(e.title).alignment?.variants.filter(([ref])=>ref===p.slice(0,2).map(i=>i+1).join(':'))||[]};
           if(match)r.sentenceTree=require('./syntax-source-tree').get(e.title,p.slice(0,2).map(i=>i+1).join(':'),d.text,syntaxWords,match.positions);
           if (match) {r.syntax = match.evidence;if(match.explanation)r.explanation=match.explanation;
             else if(syntax){
@@ -267,6 +268,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
               if(syntax.bhsa.relation)conditions.push({rule:{role:'relation',value:syntax.bhsa.relation},words:[],actual:syntax.bhsa.relation,ref});
               r.explanation={simple:true,conditions};
             }}
+          if(r.explanation&&r.alignment?.variants.length)r.explanation.readings=r.alignment;
           r.words = [...new Set(idx.map(i => mm.toks[i] && n.slice(mm.toks[i].s, mm.toks[i].e)).filter(Boolean))]; r.sub = false;
           results.push(r); shown++;
           if (results.length >= limit) truncated = true;

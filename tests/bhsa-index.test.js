@@ -49,7 +49,9 @@ test('word context and merged matching reject ambiguous or changed positions', (
 test('bundled BHSA works without an installed index', async () => {
   const index = await BHSA.readBundled();
   assert.equal(Object.keys(index.books).length, 39);
-  assert.equal(index.aligned, 22077);
+  assert.equal(index.aligned, 23203);
+  assert.equal(index.targetAligned, 23196);
+  assert.equal(index.alignment.rejected.length,10);
   assert.equal(index.total, 23213);
   assert.equal(BHSA.wordContext(index, 'Genesis', '1:3', 2).domain, 'Q');
   const { results } = await searchFiles({ dir: bundled, entries: [entry], params: { syntax: { domain: 'Q' } } });
