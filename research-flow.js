@@ -8,7 +8,7 @@
   state.continuation?.remove();state.wrapper.replaceWith(...state.wrapper.childNodes);delete table._researchPrintState;
  }
  function preparePrint(doc){
-  const table=doc.querySelector('.classic-upper');if(!table)return false;
+  const table=doc.querySelector('.classic-upper');if(!table||table.classList.contains('verse-aligned'))return false;
   if(table._researchPrintState)return true;
   const cells=[...table.querySelectorAll(':scope > tbody > tr > .region')],main=cells.find(c=>c.classList.contains('main')),sides=cells.filter(c=>c!==main&&c.textContent.trim());
   if(!main?.textContent.trim()||!sides.length)return false;
@@ -44,7 +44,7 @@
  }
  function apply(doc,printing=false){
   if(printing)return preparePrint(doc);restorePrint(doc);
-  const table=doc.querySelector('.classic-upper');if(!table)return false;
+  const table=doc.querySelector('.classic-upper');if(!table||table.classList.contains('verse-aligned'))return false;
   const cells=[...table.querySelectorAll(':scope > tbody > tr > .region')],main=cells.find(c=>c.classList.contains('main')),sides=cells.filter(c=>c!==main&&c.textContent.trim());
   if(!main?.textContent.trim()||!sides.length){table.classList.remove('flowing');return false;}
   const width=parseFloat(main.style.width),left=cells.find(c=>c.classList.contains('left'));
@@ -59,7 +59,7 @@
   return true;
  }
  function watch(doc){
-  const win=doc.defaultView,table=doc.querySelector('.classic-upper');if(!win||!table)return ()=>{};
+  const win=doc.defaultView,table=doc.querySelector('.classic-upper');if(!win||!table||table.classList.contains('verse-aligned'))return ()=>{};
   let frame=0,stopped=false;
   const update=()=>{frame=0;if(!stopped)apply(doc,win.matchMedia('print').matches);};
   const schedule=()=>{if(!frame&&!stopped)frame=win.requestAnimationFrame(update);};
