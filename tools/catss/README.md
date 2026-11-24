@@ -23,3 +23,13 @@ Die gemeinsame Anzeige ordnet Hinweise nach **MT-Wortpositionen**, nicht nach Ze
 `TextCrit.alignPositions` berücksichtigt alle optimalen Wortfolgen-Ausrichtungen und übernimmt nur eindeutig übereinstimmende Positionen bei ausreichenden exakten Wortankern. Gleich geschriebene Wörter werden nicht über einen bloßen Wortlaut-Schlüssel zusammengelegt. Nicht eindeutige Gruppen, Umstellungen ohne sichere Position und Gruppen über mehrere MT-Verse bleiben unter „Nicht sicher zugeordnet“ mit Originalbeleg sichtbar. Zusätze benötigen eine sichere Grenze zwischen MT-Wörtern. Überlappende Wortbereiche werden als gemeinsame Phrase dargestellt. Diese Positionshilfe ist keine neue textkritische Lesartenentscheidung.
 
 Punktcodes in Spalte b (etwa `.$c` in Genesis 3:15) bleiben als Quellcodes erhalten und werden nicht als hebräische Transliteration umgewandelt. Die Oberfläche zeigt sie getrennt vom hebräischen Deutungstext. Unbekannte Codes erhalten weiterhin keine erfundene Auflösung. Automatisch aus einer überlappenden LXX-Abweichung abgeleitete Hexapla-Hinweise heißen **mögliche MT-Angleichung**; ein anderes griechisches Wort allein belegt keine Übereinstimmung mit dem MT.
+
+## Zusammengefasste Anzeige
+
+CATSS-Zeugenbeschriftungen heißen im Apparat „Tov“, um sie von Fields Ο΄-Zeilen
+zu unterscheiden. Wenn eine klassifizierte Lesart dieselben Wortgruppen bereits
+zusammenhängend erklärt, stehen die Originalgruppen unter „Tov/CATSS-Details“.
+Dafür müssen Edition, Vers, MT-Anker und eine eindeutige griechische Position im
+CATSS-Quellvers übereinstimmen. Zweifelhafte oder nicht abgedeckte Gruppen bleiben
+als eigene Einträge sichtbar. Originalwortlaut, Quellcodes, Rückübersetzungen,
+Fußnotenbezüge und Kontextvorschau werden beim Einklappen nicht verändert.
