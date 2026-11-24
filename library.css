@@ -2651,3 +2651,20 @@ html.split #masoraPanel { right: var(--p2w); }
 #masoraBody .masora-page { margin-top: .6em; padding-block: .4em; border-top: 1px solid var(--line); }
 .masora-page-source > summary { cursor: pointer; font-size: .85em; color: var(--muted); }
 .masora-page-source[open] > summary { margin-bottom: .5em; }
+
+/* Word-first Masorah overview; transcription and manuscript provenance stay intact. */
+.masora-word-nav { display:flex; flex-wrap:wrap; gap:.4em; margin-block:.6em; }
+.masora-word-nav button { font:inherit; padding:.25em .55em; }
+.masora-word-nav bdi, .masora-word-group h3 bdi { font-family:var(--he-font); }
+.masora-word-group { scroll-margin-top:85px; }
+.masora-word-group h3 small { font-family:var(--ui-font, sans-serif); font-size:.75em; font-weight:normal; }
+.masora-entry { border:1px solid var(--line); border-radius:8px; padding:.6em .75em; margin-block:.5em; }
+.masora-transcription > summary, .masora-explanation > summary { cursor:pointer; }
+.masora-transcription, .masora-explanation { margin-block:.4em; }
+.masora-preview { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--muted); max-width:100%; font-family:var(--he-font); font-size:1.1em; }
+.masora-transcription[open] .masora-preview { display:none; }
+.masora-reading { display:flex; align-items:baseline; flex-wrap:wrap; column-gap:.75em; border-top:1px solid var(--line); padding-block:.2em; }
+.masora-reading .masora-he { font-size:1.2em; line-height:1.5; margin-block:.2em; flex:1 1 160px; }
+.masora-reading .masora-note { flex-basis:100%; margin-block:.25em; }
+.masora-explanation p { margin-block:.45em; font-size:.9em; }
+.masora-entry > .masora-page-source { padding-top:.35em; }

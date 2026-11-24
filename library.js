@@ -3065,11 +3065,12 @@
       // Match the actual Hebrew reading, never a translation or an imported word index.
       const cell=row&&[...row.querySelectorAll('.cell[data-rel]')].find(c=>/Westminster/.test(c.dataset.rel));
       const words=cell?[...cell.querySelectorAll('.w[data-l]')]:[],tokens=words.flatMap(word=>D.wordTokens(word.textContent).map(text=>({text,word}))),needle=D.wordTokens(location.phrase),selected=new Set();
-      if(!needle.length)return false;
+      if(row){await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));if(request!==masoraWordRequest)return false;row.scrollIntoView({block:'center',behavior:'smooth'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1200);}
+      if(!needle.length)return !!row;
       for(let i=0;i<=tokens.length-needle.length;i++)if(needle.every((w,j)=>tokens[i+j].text===w))for(let j=0;j<needle.length;j++)selected.add(tokens[i+j].word);
-      if(!selected.size){if(row)panelScrollTo(row,'center');return false;}
+      if(!selected.size)return false;
       for(const word of selected)word.classList.add('tc-mt-selected');
-      panelScrollTo([...selected][0],'center');return true;
+      return true;
     },
   });
   const PINS = { masora: ['#masoraPanel', '#masoraClose'], textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };

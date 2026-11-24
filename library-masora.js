@@ -50,13 +50,20 @@ window.LibraryMasora = (() => {
       const verses=[...new Map(matches.map(m=>[m.label,m])).values()];
       return '<details class="masora-choices"><summary>'+label+'</summary><p class="muted">'+safe(t('Das Wort kommt auf dieser Seite mehrfach vor. Welche Stelle möchtest du anzeigen?'))+'</p>'+verses.map(m=>wordButton(m,safe(t(m.book)+' '+m.chapter+':'+m.verse))).join(' ')+'</details>';
     }
+    function referenceButton(ref){
+      const loc=D.bibleRef(ref.label);
+      return loc?wordButton({...loc,phrase:''},safe(t(loc.book)+' '+loc.chapter+':'+loc.verse+(loc.endVerse!==loc.verse?'–'+loc.endVerse:''))):safe(ref.label);
+    }
     function entryHtml(hit){
-      const {page,entry,readings}=hit;
-      return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'"><div class="masora-entry-head"><span class="masora-kind">'+safe(t(kinds[entry.type]||entry.type))+'</span> '+entryLabel(hit)+'</div>'+readings.map(({source:r,text,notes})=>
-        '<div class="masora-reading">'+(text?'<p class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'"'+(/[\u0590-\u05ff]/.test(text)?' lang="he"':'')+'>'+safe(plain(text))+'</p>':'')+
-        (notes?'<p class="masora-note" dir="auto">'+safe(plain(notes))+'</p>':'')+
-        (r.references?.length?'<p class="muted masora-refs">'+safe(t('Bibelstellen in der Notiz'))+': '+r.references.map(x=>safe(x.label)).join(' · ')+'</p>':'')+'</div>').join('')+
-        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</article>';
+      const {page,entry,readings}=hit,info=D.explain(entry),refs=info.refs.length;
+      const source='<details class="masora-page-source"><summary>'+safe(t('Handschrift'))+': '+safe(hit.manuscript.label)+' · '+safe(page.folio||page.label)+'</summary><p class="muted">'+safe(D.referenceSummary(page.bibleRefs))+'</p><a class="masora-external" href="'+safe(page.url)+'">'+safe(t('Handschriftenseite in BIMA öffnen (online)'))+' ↗</a></details>';
+      const explanation='<details class="masora-explanation"><summary>'+safe(t('Erklärung'))+'</summary><p class="muted">'+safe(t('Automatisch erschlossene Lesehilfe; keine wissenschaftlich geprüfte Einzelerklärung.'))+'</p><p>'+safe(t(info.meaning))+'</p>'+(refs?'<p class="masora-refs">'+safe(t('Belegstellen'))+': '+info.refs.map(label=>referenceButton({label})).join(' · ')+'</p>':'')+(info.features.length?info.features.map(f=>'<p>'+safe(t(f))+'</p>').join(''):'<p class="muted">'+safe(t('Eine konkrete Besonderheit der Schreibung, Vokalisierung oder Akzentuierung ist hier nicht sicher bestimmt.'))+'</p>')+'</details>';
+      return '<article class="masora-entry" data-masora-context="'+safe(entry.uuid)+'"><div class="masora-entry-head"><span class="masora-kind">'+safe(t(kinds[entry.type]||entry.type))+'</span> '+entryLabel(hit)+'</div>'+explanation+
+        '<details class="masora-transcription"><summary>'+safe(t('Original und Belegstellen'))+(refs?' · '+refs:'')+'<bdi class="masora-preview" dir="auto">'+safe(plain(readings[0]?.text||''))+'</bdi></summary>'+readings.map(({source:r,text,notes})=>
+        '<div class="masora-reading">'+(text?'<p class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</p>':'')+
+        (r.references?.length?'<span class="masora-refs">'+r.references.map(referenceButton).join(' · ')+'</span>':'')+
+        (notes?'<p class="masora-note" dir="auto">'+safe(plain(notes))+'</p>':'')+'</div>').join('')+
+        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</details>'+source+'</article>';
     }
     async function render(){
       const ctx=context();if(!ctx){close();return;}if(panel.hidden)return;
@@ -80,17 +87,15 @@ window.LibraryMasora = (() => {
         const explanation=verseMode?'Automatisch ermittelter Wortbezug. Klicke auf das Wort, um es im Lesetext zu markieren.':options.scope==='citations'?'Die Notizen zitieren Bibelstellen aus diesem Kapitel. Das Zitat bestimmt nicht die Verankerung am Handschriftenwort.':'Die Auswahl folgt dem Bibeltext der Handschriftenseite. Die Masora-Notizen können auch benachbarte Verse betreffen.';
         const intro='<p class="masora-count">'+safe(count)+'</p><p class="muted masora-scope-note">'+safe(t(explanation))+'</p>';
         function renderHits(list){
-          let lastPage=null;
-          return list.map(hit=>{
-            let head='';if(hit.page.id!==lastPage){lastPage=hit.page.id;head='<section class="masora-page"><details class="masora-page-source"><summary>'+safe(hit.manuscript.label)+' · '+safe(hit.page.folio||hit.page.label)+'</summary><details class="muted masora-refs"><summary>'+safe(t('Bibeltext auf dieser Seite'))+': '+safe(D.referenceSummary(hit.page.bibleRefs)||t('Kein Bibeltextbezug angegeben'))+'</summary><p>'+safe(hit.page.bibleRefs.join(' · '))+'</p></details><a class="masora-external" href="'+safe(hit.page.url)+'">'+safe(t('Handschriftenseite in BIMA öffnen (online)'))+' ↗</a></details></section>';}
-            return head+entryHtml(hit);
-          }).join('');
+          return D.wordGroups(list).map((group,i)=>'<section class="masora-word-group" data-word-group="'+i+'"><h3><bdi dir="rtl" lang="he">'+safe(group.label)+'</bdi> <small class="muted">'+group.hits.length+' '+safe(t('Notizen'))+'</small></h3>'+group.hits.map(entryHtml).join('')+'</section>').join('');
         }
+        const groups=D.wordGroups(split.primary.slice(0,limit));
+        const navigation=groups.length?'<nav class="masora-word-nav" aria-label="'+safe(t('Bezugswörter'))+'">'+groups.map((g,i)=>'<button type="button" data-masora-group="'+i+'"><bdi dir="rtl" lang="he">'+safe(g.label)+'</bdi> <small>'+g.hits.length+'</small></button>').join('')+'</nav>':'';
         const rows='<div class="masora-primary">'+renderHits(split.primary.slice(0,limit))+'</div>' +(verseMode&&!split.primary.length?'<p class="masora-no-word">'+safe(t('Für diesen Vers wurde kein eindeutiger Wortbezug ermittelt. Weitere Notizen findest du unten bei der Handschriftenseite.'))+'</p>':'')+
           (split.related.length?'<details class="masora-related"'+(keepRelated?' open':'')+'><summary>'+safe(t('Weitere Notizen der Handschriftenseite ({})',split.related.length))+'</summary><p class="muted">'+safe(t('Diese Notizen sind dem ausgewählten Vers nicht eindeutig zugeordnet.'))+'</p>'+renderHits(split.related.slice(0,limit))+'</details>':'');
         const empty=hits.length?'':'<p class="masora-empty">'+safe(t('Keine passenden Notizen im importierten Bestand.'))+'</p>'+
           (['chapter','verse'].includes(options.scope)?'<button type="button" id="masoraBrowse">'+safe(t('Gesamten Bestand durchsuchen'))+'</button>':'');
-        body.innerHTML='<p id="masoraWordStatus" role="status"></p>'+intro+rows+empty+(hits.length>limit?'<button type="button" id="masoraMore">'+safe(t('Weitere anzeigen'))+'</button>':'')+
+        body.innerHTML='<p id="masoraWordStatus" role="status"></p>'+intro+navigation+rows+empty+(hits.length>limit?'<button type="button" id="masoraMore">'+safe(t('Weitere anzeigen'))+'</button>':'')+
           '<footer class="masora-credit"><p>'+safe(t('Offline-Bestand: {} Handschriften · {} Seiten · {} Masora-Einträge',index.counts.manuscripts,index.counts.pages,index.counts.transcribedMasoraContexts))+'</p>'+
           (!index.complete?'<p>'+safe(t('Teilimport: Weitere veröffentlichte Seiten werden noch geladen.'))+'</p>':'')+
           '<p>Corpus Masoreticum / BIMA · <a href="'+safe(index.source.licenseUrl)+'" class="masora-external">'+safe(index.source.license)+'</a> · '+safe(t('Import'))+' '+safe(index.source.retrieved)+'</p></footer>';
@@ -109,6 +114,8 @@ window.LibraryMasora = (() => {
     $('#masoraQuery').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(filter,180);});
     for(const id of ['#masoraScope','#masoraMs','#masoraType'])$(id).addEventListener('change',filter);
     body.addEventListener('click',async e=>{
+      const group=e.target.closest('[data-masora-group]');
+      if(group){body.querySelector('.masora-primary [data-word-group="'+group.dataset.masoraGroup+'"]')?.scrollIntoView({block:'start',behavior:'smooth'});return;}
       const target=e.target.closest('[data-masora-target]');
       if(target){
         const location=targets[Number(target.dataset.masoraTarget)];if(!location)return;

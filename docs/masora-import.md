@@ -148,3 +148,22 @@ matching occurrences in a user-selected verse are highlighted if the spelling
 repeats. If the displayed reading lacks that spelling, Safran reports this rather
 than highlighting another word. The page-wide notes and full collection search
 remain available. Manuscript/type filters are under **Weitere Filter**.
+
+## Word overview and German reading aids
+
+The panel groups notes with a unique source-word anchor across manuscript witnesses,
+ordered by verse and source word position. Word buttons navigate the overview;
+original readings and manuscript provenance remain available in separate disclosures.
+References next to each reading and in the explanation can open the cited verse.
+These citations are not promoted to word anchors. Navigation centers the reader row
+and highlights only an explicitly matching source phrase in the displayed Westminster
+reading.
+
+The German “Erklärung” is a labelled, rule-based reading aid, not a supplied critical
+commentary. It recognizes a complete single-letter numeral note (1–9), or a numeral
+immediately before an explicit list-introduction formula. It describes source-provided
+citations and recognizes only the spelled-out terms מלא, חסר, קרי and כתיב as hints
+about spelling or reading. It does not expand abbreviations or invent explanations
+of accents, vocalization, counting scope or unresolved notes. Unrecognized notes
+explicitly report that no secure individual German explanation is available. The
+original source corpus and its hashes remain unchanged.
