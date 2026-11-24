@@ -91,19 +91,55 @@
     }
     return hits;
   }
-  // Conservative reading aid, separate from the unchanged source transcription.
-  // A count is recognized only as a complete numeral note or an explicit list heading.
+  // A source-based reading aid, kept separate from the unchanged transcription.
+  function numeral(value){
+    const s=fold(value).replace(/[׳״'"·]/g,'');
+    if(!s||s==='ל'||!/^[א-ת]+$/.test(s))return null;
+    const values={א:1,ב:2,ג:3,ד:4,ה:5,ו:6,ז:7,ח:8,ט:9,י:10,כ:20,ל:30,מ:40,נ:50,ס:60,ע:70,פ:80,צ:90,ק:100,ר:200,ש:300,ת:400};
+    // Standard descending numeral groups; admit the traditional 15/16 spellings.
+    if(!/^[תשרק]*(?:[צפעסנמלכ]?[י]?[אבגדהוזחט]?|ט[וז])$/.test(s))return null;
+    const n=[...s].reduce((sum,c)=>sum+values[c],0);return n>0&&n<1000?n:null;
+  }
   function explain(entry){
-    const lines=(entry.readings||[]).map(text),first=lines[0]||'',clean=fold(first).replace(/[׳״'"·]/g,'').trim();
-    const list=/וסימנ(?:יהון|הון|ין|ים)/.test(clean),number=list?clean.match(/(?:^|\s)([אבגדהוזחט])\s+וסימנ/):clean.match(/^([אבגדהוזחט])$/);
-    const count=number?'אבגדהוזחט'.indexOf(number[1])+1:null;
-    const refs=[...new Set((entry.readings||[]).flatMap(r=>(r.references||[]).map(x=>x.label)))];
-    const meaning=count?'Die Notiz nennt '+count+' Vorkommen der bezeichneten Form oder Wortgruppe'+(list?' und führt dazu Erkennungszitate auf.':'.'):list?'Die Notiz führt Erkennungszitate zu den aufgezählten Vorkommen auf.':'Für diese Notiz liegt noch keine gesicherte deutsche Einzelerklärung vor.';
-    const features=[];
-    if(/(?:^|\s)מלא(?:\s|$)/.test(clean))features.push('Die Notiz bezeichnet eine volle Schreibung mit Vokalbuchstaben.');
-    if(/(?:^|\s)חסר(?:\s|$)/.test(clean))features.push('Die Notiz bezeichnet eine defektive Schreibung ohne den betreffenden Vokalbuchstaben.');
-    if(/(?:^|\s)(?:קרי|כתיב)(?:\s|$)/.test(clean))features.push('Die Notiz betrifft die geschriebene beziehungsweise die überlieferte gelesene Form (Ketiv/Qere).');
-    return {meaning,count,list,refs,features};
+    const readings=entry.readings||[],lines=readings.map(text),first=lines[0]||'',label=String(entry.label||'').trim();
+    let tokens=first.trim().split(/\s+/).filter(Boolean);
+    const labelTokens=label.split(/\s+/).filter(Boolean);
+    if(labelTokens.length&&labelTokens.every((w,i)=>fold(w)===fold(tokens[i]||'')))tokens=tokens.slice(labelTokens.length);
+    const head=tokens.join(' '),clean=fold(head).replace(/[׳״'"·]/g,'').trim(),parts=clean.split(/\s+/).filter(Boolean);
+    const list=/וסימנ(?:יהון|הון|ין|ים)|(?:^|\s)סימן(?:\s|$)/.test(clean);
+    const explicit=/[\u05c4\u05c5\u0307׳'״"]/.test(tokens[0]||'');
+    const standalone=parts.length===1,unique=parts[0]==='ל'||parts[0]==='לית';
+    const lexical=new Set(['ק','מלא','מל','חסר','חס','רפה','רפי','רפ','קרי','כתיב','סימן','שם','כת','כות']);
+    const numeric=!lexical.has(parts[0])&&((standalone&&parts[0]?.length===1)||explicit||list);
+    const listNumber=list?clean.match(/(?:^|\s)([א-ת]{1,3})\s+וסימנ/):null;
+    const count=unique?1:listNumber?numeral(listNumber[1]):numeric?numeral(tokens[0]||''):null;
+    const refs=[...new Set(readings.flatMap(r=>(r.references||[]).map(x=>x.label)))];
+    const features=[],recognized=new Set();
+    function feature(pattern,description){if(pattern.test(clean)){features.push(description);for(let i=1;i<parts.length;i++)if(pattern.test(parts[i]))recognized.add(i);}}
+    const isFormula=count!==null||list||parts.length<=4;
+    if(isFormula){
+      feature(/(?:^|\s)(?:ו?חסר|ו?חס)(?:\s|$)/,'Die Notiz kennzeichnet eine defektive Form, gewöhnlich eine Schreibung mit weniger Vokalbuchstaben. Welche Stelle betroffen ist, muss am Beleg geprüft werden.');
+      feature(/(?:^|\s)(?:ו?מלא|ו?מל)(?:\s|$)/,'Die Notiz kennzeichnet die Form als voll geschrieben, gewöhnlich mit Vokalbuchstaben.');
+      feature(/(?:^|\s)(?:קרי|כתיב)(?:\s|$)/,'Die Notiz unterscheidet die geschriebene und die überlieferte gelesene Form (Ketiv/Qere).');
+      feature(/(?:^|\s)(?:רפה|רפי|רפ)(?:\s|$)/,'Die Notiz kennzeichnet die Aussprache ohne Dagesch (Rafe).');
+      feature(/(?:^|\s)(?:דגש|דגוש)(?:\s|$)/,'Die Notiz kennzeichnet eine Form mit Dagesch.');
+      feature(/(?:^|\s)(?:כת|וכת) כן(?:\s|$)/,'Die Notiz hebt die hier überlieferte Schreibung ausdrücklich hervor.');
+      const vowels={פתח:'Patach',קמץ:'Qamets',סגול:'Segol',חירק:'Chireq',צירי:'Tsere',חולם:'Cholem',שורק:'Schureq',קבוץ:'Qibbuts',שוא:'Schewa'};
+      for(const [he,de]of Object.entries(vowels))feature(new RegExp('(?:^|\\s)ב?'+he+'(?:\\s|$)'),'Die Notiz betrifft die Vokalisierung mit '+de+'.');
+    }
+    const qualifier=count!==null&&!list&&parts.length>1;
+    const messages=[];
+    if(unique)messages.push('Die Notiz bezeichnet die Form oder Wortverbindung als einmalig'+(qualifier?' unter den zusätzlich genannten Bedingungen.':'.'));
+    else if(count!==null)messages.push('Die Notiz zählt '+count+' Vorkommen'+(qualifier?' unter den zusätzlich genannten Bedingungen.':' der bezeichneten Form oder Wortgruppe.'));
+    if(list)messages.push('Die folgenden Zitate sind Erkennungsstellen der aufgezählten Vorkommen.');
+    if(features.length)messages.push(...features);
+    const unresolved=qualifier&&parts.slice(1).some((w,i)=>!recognized.has(i+1));
+    if(unresolved)messages.push('Die zusätzliche Einschränkung der Zählung ist noch nicht vollständig bestimmt.');
+    if(refs.length)messages.push('Die verlinkten Bibelstellen sind Vergleichsbelege der Notiz; sie bezeichnen nicht automatisch ihren Ort in der Handschrift.');
+    if(!messages.length)messages.push(label?'Die Notiz gehört zum Bezugswort „'+label+'“.':'Die Notiz ist ohne eindeutig bezeichnetes Bezugswort überliefert.');
+    const partial=unresolved||(count===null&&!list&&!features.length);
+    if(count===null&&!list&&!features.length)messages.push('Die einzelnen Aussagen dieser Notiz sind noch nicht zuverlässig ins Deutsche übertragen. Der Originaltext bleibt für die Prüfung sichtbar.');
+    return {meaning:messages.join(' '),count,list,refs,features,partial};
   }
   function wordGroups(hits){
     const groups=new Map();
