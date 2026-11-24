@@ -14,6 +14,7 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Quellen & Hinweise": "Sources & notes",
     "Quelle hinzufügen": "Add source",
     "＋ Quelle hinzufügen": "＋ Add source",
     "Weitere Inhalte": "More content",
