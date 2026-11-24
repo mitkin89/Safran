@@ -205,6 +205,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const list = SefOrder.sortTitles(entries.filter(e => (syntaxOn ? TanakhSyntax.supports(e) : gramOn ? TanakhSyntax.supports(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
+  const syntaxCoverage=syntax?{books:[],unreadable:[],advanced:!!syntax.pattern}:null;
   const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
   const stats = new Map(); // Titel -> Gesamtzahl der Treffer (auch über die Anzeigegrenze hinaus)
   let scanned = 0, truncated = false, capped = false, lastProg = 0;
@@ -221,10 +222,11 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
         const syntaxMatcher = !syntax ? null : syntax.pattern
           ? require('./syntax-pattern-matcher').create(TanakhSyntax.load(e.title), bhsa, d.text, syntax.pattern, syntaxWords,
             (word,gram)=>{
-              const g=word&&gramOf(word.morph,word.lemma);if(!g)return null;
+              const suffix=word?.sourceSegment&&/^[HA]Sp[123][mfbc][spd]$/.test(word.morph);
+              const g=word&&gramOf(suffix?word.morph.replace(/^([HA])S/,'$1P'):word.morph,word.lemma);if(!g)return null;if(suffix)g.suffix=true;
               if(Object.keys(gram).some(k=>k==='pos'?g.pos==='X':g[k]===undefined||g[k]==='x'))return null;
               return gramTest(gram,g);
-            },westminsterLemma,bhsaIndex.clauseParents,require('./syntax-roots').matches,require('./syntax-roots').describe)
+            },westminsterLemma,bhsaIndex.clauseParents,require('./syntax-roots').matches,require('./syntax-roots').describe,{book:e.title})
           : usesBhsa && !syntax.subjects.size && !syntax.objects.size
           ? BHSA.clauseMatcher(bhsa, { ...syntax.bhsa, verb: syntax.verb }, syntaxWords, word => {
             if (!G && !syntax.verb) return true;
@@ -234,8 +236,10 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
           })
           : TanakhSyntax.createMatcher(TanakhSyntax.load(e.title), syntax, d.text, syntaxWords, predicateMatches,
             usesBhsa ? BHSA.clauseFilter(bhsa, syntax.bhsa) : null);
+        const basicCoverage={versesVisited:0,textMismatch:0,noAlignedClause:0};
         R.walkStrings(d.text, [], (str, p) => {
           if (truncated || (syntaxMatcher && isCancelled())) return;
+          if(syntax&&!syntax.pattern){basicCoverage.versesVisited++;const ref=p.slice(0,2).map(i=>i+1).join(':'),source=TanakhSyntax.load(e.title),signature=syntaxWords(str).map(w=>w.normalized).join(' '),onlyBhsa=usesBhsa&&!syntax.subjects.size&&!syntax.objects.size;if((onlyBhsa?bhsa?.[ref]?.[0]:source.text[ref])!==signature||usesBhsa&&bhsa?.[ref]?.[0]!==signature)basicCoverage.textMismatch++;else if(onlyBhsa?!bhsa?.[ref]?.[1]?.length:!source.pairs[ref]?.length)basicCoverage.noAlignedClause++;}
           const match = syntaxMatcher && syntaxMatcher(p, str);
           if (syntaxMatcher && !match) return;
           const wg = match ? {
@@ -251,6 +255,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
           const mm = { idx, toks: [...n.matchAll(/[\p{L}\p{N}]+/gu)].map(m => ({ w: m[0], s: m.index, e: m.index + m[0].length })) };
           const r = { rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? (loc.label ? `${loc.sectionLabel} · ${loc.label}` : loc.sectionLabel) : '' };
           r.snippet = { before: '', hit: '', after: '' }; r.parts = S.snippetParts(n, mm);
+          if(match)r.sentenceTree=require('./syntax-source-tree').get(e.title,p.slice(0,2).map(i=>i+1).join(':'),d.text,syntaxWords,match.positions);
           if (match) {r.syntax = match.evidence;if(match.explanation)r.explanation=match.explanation;
             else if(syntax){
               const conditions=[],forms=role=>match.evidence.flatMap(e=>(e[role]||[]).map(w=>({...w,part:'constituent'})));
@@ -266,8 +271,10 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
           results.push(r); shown++;
           if (results.length >= limit) truncated = true;
         });
+        if(syntaxCoverage)syntaxCoverage.books.push({book:e.title,...TanakhSyntax.load(e.title).coverage,...(syntaxMatcher.coverage||basicCoverage)});
         if (hits) stats.set(e.title, (stats.get(e.title) || 0) + hits);
       }
+      if(!d&&syntaxCoverage)syntaxCoverage.unreadable.push(e.title);
       scanned++; const now0 = Date.now();
       if (now0 - lastProg > 150 || scanned === list.length) { lastProg = now0; onProgress({ scanned, total: list.length, found: results.length }); }
       if (truncated) break;
@@ -325,6 +332,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   }
   return {
     results, scanned, total: list.length, truncated, capped, cancelled: isCancelled(),
+    ...(syntaxCoverage?{syntaxCoverage:{...syntaxCoverage,incomplete:truncated||isCancelled()||syntaxCoverage.unreadable.length>0}}:{}),
     dist: [...dist.values()],
     stats: SefOrder.sortTitles([...stats.entries()].map(([title, n]) => ({ title, n })), x => x.title),
   };

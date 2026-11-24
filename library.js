@@ -1366,7 +1366,7 @@
     if (body == null) return;
     const books = res.stats.length, hits = res.results.length;
     const chips = res.stats.map(x => `<button class="chip" data-jb="${esc(x.title)}" title="${esc(I18N.t('Zu diesem Buch springen'))}">${esc(x.title)} (${x.n})</button>`).join(' ');
-    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>${newTabHtml()}`}</div>`;
+    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${res.syntaxCoverage?window.SyntaxCoverage.render(res.syntaxCoverage,{esc,t:(...args)=>I18N.t(...args)}):''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>${newTabHtml()}`}</div>`;
     if (view === V) { $('#rOut').innerHTML = S.html; mountNewTab(); ['he', 'en', 'de'].forEach(k => $('#rOut').style.setProperty('--' + k + 'f', disp[k])); }
   }
   // Klicks im Suchtab: Vers wählen (Kommentare, Verknüpfungen), Kapitel öffnen, weitere laden
@@ -2769,7 +2769,7 @@
   });
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
-    if (!el || e.target.closest('.sxExplain')) return;
+    if (!el || e.target.closest('.sxExplain, .sxSourceTree')) return;
     const r = searchUI.resultAt(+el.dataset.i, el.dataset.cp);
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;

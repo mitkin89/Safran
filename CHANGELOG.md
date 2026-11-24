@@ -1,7 +1,9 @@
 # Changelog
 
 ### Unreleased
+- Remove the experimental semantic-fields search, starter sets and contextual-meaning pilot. Retain text/lemma search, cross-work concordance and grammar/syntax search. Retired field-search session tabs reopen as empty tabs, rather than running unrelated text queries.
 
+- **Letter of Aristeas in Greek:** add all 322 sections from Thackeray (1914) via OCP alongside Kautzsch, with source-checked automatic GLAUx morphology for 12,785 of 12,931 reader words (98.87%). Word popups name GLAUx and open dictionary lemmas. Preserve source wording and numbering; 146 words remain unresolved, including all of §43, which is absent from GLAUx. Pinned sources, licenses and all discrepancies are documented in `tools/aristeas/`; no German text changes.
 - Link displayed MT, CATSS Septuagint and Peshitta occurrences bidirectionally through source-checked word alignments, with original numbering and alignment provenance. Keep aligned correspondences separate from occurrence counts.
 - Add a cross-work concordance over local texts: original-word contexts, occurrence counts by work, source navigation, CSV export and word-card entry point. Match word forms or recorded lemmas where compatible annotations are available; keep unannotated text and separate editions explicit.
 

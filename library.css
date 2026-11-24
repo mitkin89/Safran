@@ -2525,6 +2525,25 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 #sxBuilder input { width: 12em; max-width: 100%; }
 #sxBuilder select { max-width: 100%; }
 #sxBuilderPanel > p { max-width: 70em; }
+.sxBuilderViews { margin-bottom: 12px; }
+.sxBuilderViews [aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+[data-graph-status]:empty { display: none; }
+.sxGraphViewport { overflow: auto; max-height: 520px; min-height: 190px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.sxGraphCanvas { display: block; min-width: 0; max-width: none; }
+.sxGraphEdge { fill: none; stroke: var(--muted); stroke-width: 2; }
+.sxGraphNode { cursor: pointer; }
+.sxGraphNode rect { fill: var(--card, var(--bg)); stroke: var(--line); stroke-width: 2; }
+.sxGraphNode.group rect { stroke: var(--accent); }
+.sxGraphNode.related rect { stroke-dasharray: 6 3; }
+.sxGraphNode.selected rect, .sxGraphNode:focus rect { stroke: var(--accent); stroke-width: 4; }
+.sxGraphNode:focus { outline: none; }
+.sxGraphNode:hover rect { stroke: var(--accent); }
+.sxGraphNode text { fill: var(--fg, currentColor); font-family: inherit; pointer-events: none; }
+.sxGraphNode .sxGraphTitle { font-size: 15px; font-weight: 700; }
+.sxGraphNode .sxGraphValue { font-size: 15px; }
+.sxGraphNode .sxGraphMeta { font-size: 12px; fill: var(--muted); }
+.sxGraphInspector { margin-top: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; }
+.sxGraphInspector h4 { margin: 0 0 10px; }
 
 #lkHover .concordancePreview { font-size: 1.25em; line-height: 1.65; }
 #lkHover .concordancePreview[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.6em; }
@@ -2547,3 +2566,15 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .sxExplain .pvhl { background: color-mix(in srgb, var(--accent) 28%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent); }
 
 .sxClauseText { font-family: var(--he-font); font-size: 1.3em; line-height: 1.65; margin: 4px 0 8px; }
+
+.sxSourceTree, .sxCoverage { margin: 12px 0; padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
+.sxTreeScroll { overflow: auto; max-height: 560px; }
+.sxSentenceTree, .sxSentenceTree ul { list-style: none; margin: 5px 0; padding-inline-start: 22px; }
+.sxSentenceTree ul { border-inline-start: 1px solid var(--line); }
+.sxSentenceTree li { margin: 6px 0; }
+.sxTreeNode { display: inline-block; border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+.sxTreeNode bdi { font: 1.25em var(--he-font, serif); }
+.sxTreeUnmapped { text-decoration: underline dotted; color: var(--muted); }
+.sxCoverage table { border-collapse: collapse; }
+.sxCoverage th, .sxCoverage td { border: 1px solid var(--line); padding: 5px 9px; text-align: start; }
+.sxSourceTree .pvhl { background: color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px var(--accent); font-weight: 700; }

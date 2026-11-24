@@ -125,6 +125,8 @@ window.LibraryNavigation = (() => {
     try { ses = JSON.parse(localStorage.getItem(document.documentElement.classList.contains('pane2') ? 'session2' : 'session') || 'null'); } catch { ses = null; }
     if (!ses || !Array.isArray(ses.tabs) || !ses.tabs.length) { sesRestored = true; return; }
     for (const t of ses.tabs) {
+      // Retired field-search tabs must not be replayed as plain-text searches.
+      if (t.sres?.params?.semantic != null) { host.tabs.push({ group: null }); continue; }
       if (t.sres && typeof t.sres.q === 'string' && t.sres.params && typeof t.sres.params === 'object') { host.tabs.push({ group: null, sres: { q: t.sres.q.slice(0, 200), he: !!t.sres.he, limit: Math.min(3000, t.sres.limit | 0 || 300), html: null, params: t.sres.params } }); continue; }
       if (t.empty) { host.tabs.push({ group: null }); continue; }
       const g = host.groupsByKey.get(t.key);

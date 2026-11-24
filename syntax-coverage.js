@@ -1,0 +1,10 @@
+(function(){
+'use strict';
+function render(data,{esc,t}){
+ if(!data)return '';
+ const sum=key=>data.books.reduce((n,b)=>n+(b[key]||0),0);
+ const rows=data.books.map(b=>'<tr><th>'+esc(b.book)+'</th>'+['sourceVerses','alignedVerses','versesVisited','textMismatch','noAlignedClause','contexts','unknownContexts'].map(k=>'<td>'+esc(b[k]??'—')+'</td>').join('')+'</tr>').join('');
+ return '<details class="sxCoverage"><summary>'+esc(t('Datenabdeckung dieser Suche'))+' · '+(data.advanced?esc(sum('unknownContexts'))+' '+esc(t('nicht auswertbare Kontexte')):esc(sum('versesVisited'))+' '+esc(t('Geprüfte Verse')))+'</summary><p>'+esc(t('Kein Treffer beweist keine Abwesenheit. Nicht auswertbare Annotationen erfüllen auch NICHT-Bedingungen nicht.'))+'</p>'+(data.incomplete?'<p>'+esc(t('Suche abgebrochen oder begrenzt; die Abdeckung gilt nur für den geprüften Teil.'))+'</p>':'')+'<div class="sxTreeScroll"><table><thead><tr>'+['Buch','MACULA-Quellverse','MACULA: abgeglichene Quellverse','Geprüfte Verse','Text nicht zugeordnet','Ohne Suchkontext','Geprüfte Kontexte','Nicht auswertbar'].map(x=>'<th>'+esc(t(x))+'</th>').join('')+'</tr></thead><tbody>'+rows+'</tbody></table></div><p class="muted">'+esc(t('Kontexte sind Prädikat-/Klauselzuordnungen, keine zusätzlichen Verse. Nicht auswertbar bezieht sich auf die gesamte Abfrage; eine bereits falsche UND-Bedingung kann fehlende andere Daten überdecken.'))+'</p>'+(data.unreadable?.length?'<p>'+esc(t('Nicht lesbare Bücher'))+': '+esc(data.unreadable.join(', '))+'</p>':'')+'<p class="muted">'+esc(t('Abgeglichene MACULA-Quellverse sind noch keine vollständig auswertbaren Suchkontexte; zusätzlich werden BHSA und die abgefragten Merkmale geprüft.'))+'</p>'+'<p class="muted">'+esc(t('Semantische Rollen stammen aus einzeln dokumentierten Safran-Zuordnungen. Außerhalb dieser Zuordnungen ist ihre Auswertung unbekannt.'))+'</p></details>';
+}
+const api={render};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.SyntaxCoverage=api;
+})();

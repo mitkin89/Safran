@@ -389,6 +389,7 @@ window.LibrarySearch = (() => {
       $('#sInfo').textContent = 'Suche läuft …';
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
       $('#sLemmaCoverage').innerHTML = '';
+      $('#sSyntaxCoverage').innerHTML = '';
       const book = syntax ? $(wordMode?'#gBook':syntax.pattern?'#sxAdvancedBook':'#sxBook').value : '';
       const titles = syntax ? (book ? [book] : wordMode ? [...$('#gBook').options].map(o=>o.value).filter(Boolean) : []) : [...sTitles];
       const sp = {
@@ -414,6 +415,7 @@ window.LibrarySearch = (() => {
       if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
       sResults = res.results;
       $('#sOut').classList.toggle('concordance', !!res.concordance);
+      $('#sSyntaxCoverage').innerHTML=window.SyntaxCoverage.render(res.syntaxCoverage,{esc,t:(...args)=>I18N.t(...args)});
       const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
       $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
       if (res.concordance) $('#sInfo').textContent = I18N.t('{} Vorkommen · {} · {} Belege angezeigt · {} von {} Dateien durchsucht', totalHits, I18N.t(res.stats.length === 1 ? '{} Werk' : '{} Werke', res.stats.length), sResults.length, res.scanned, res.total)
@@ -451,7 +453,7 @@ window.LibrarySearch = (() => {
         }
         return `<div class="muted">${labels.join(' · ')}</div>`;
       }).join('');
-      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}${window.SyntaxExplanation.render(r.explanation,{esc,t:(...args)=>I18N.t(...args)})}</div>`;
+      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}${window.SyntaxExplanation.render(r.explanation,{esc,t:(...args)=>I18N.t(...args)})}${window.SyntaxTree.render(r.sentenceTree,{esc,t:(...args)=>I18N.t(...args)})}</div>`;
     };
     const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
     function searchGroups() {

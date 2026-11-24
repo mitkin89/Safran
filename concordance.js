@@ -121,7 +121,7 @@ function analyses(e, d, html, p, ts, validHash, locate) {
     const loc = locate(p);
     if (loc) {
       const a = GC.at(d, loc.path, loc.label, ts.map(t => t.text), null);
-      if (a) return a.records.map(r => ({ lemmas: r.lemma ? [r.lemma] : [], source: r.source === 'gorman' ? 'GLAUx / Gorman' : 'OGA' }));
+      if (a) return a.records.map(r => ({ lemmas: r.lemma ? [r.lemma] : [], source: r.source === 'gorman' ? 'GLAUx / Gorman' : r.source === 'glaux' ? 'GLAUx' : 'OGA' }));
     }
   }
   if (d.syriacMorphology && validHash && p.length === 2) {

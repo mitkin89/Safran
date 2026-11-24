@@ -60,6 +60,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  if(process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1'){
   await require('./peshitta-status-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_SEARCH==='1'){await js("document.querySelector('#splitBtn').click()");await waitFor("document.querySelector('#pane2')?.contentDocument?.querySelector('#sGo')",'Suchmaske im zweiten Fenster');await libraryFlows({js,waitFor});await require('./syntax-flows.cjs')({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_OUTLINES==='1'){
   await require('./outline-search-flows.cjs')({js,waitFor,book});
   await readerExtras({win,js,waitFor,book});

@@ -28,6 +28,7 @@ GitHub Actions (`.github/workflows/build.yml`) builds macOS, Windows and Linux.
 ```bash
 npm test
 npm run test:smoke  # actual Electron renderer, temporary profile, no network
+SAFRAN_SMOKE_SEARCH=1 npm run test:smoke  # focused search/download/syntax flows
 ```
 
 New isolated regressions live in `tests/*.test.js` and are discovered by Node’s test runner. The older numbered corpus tests remain in the existing test chain. The Electron smoke test loads the production HTML, renderer scripts and preload against public fixture texts; it covers Tanakh/Bavli cards, modal visibility, forms/navigation, a retained modified translation and the second reading pane. On Linux run it under `xvfb-run --auto-servernum`. The Linux CI job explicitly installs the Electron binary, then sets its `node_modules/electron/dist/chrome-sandbox` helper to root ownership and mode 4755 before launching Electron; the workflow verifies those permissions and keeps sandboxing enabled. Normal pushes and pull requests run `.github/workflows/check.yml`; release builds use the same committed lockfile without falling back to an unpinned install.
