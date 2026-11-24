@@ -12,4 +12,14 @@ module.exports=async({js,waitFor,book})=>{
  assert(await js("!!document.querySelector('#tcBody .tc-hx-w[data-hx-an]')&&!!document.querySelector('#tcBody .tc-hx-fn')"),'Greek word popups and original footnotes remain available');
  await js("document.querySelector('#tcBody .tc-hx-syn-toggle').click()");
  assert(await js("document.querySelector('#tcBody .tc-hx-syn').classList.contains('full')&&document.querySelectorAll('#tcBody [data-hx-explanation=editorial]').length===2"));
+ await js("document.querySelector('#rSection').value='17';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .row[data-l=\"2\"] .txt')",'Exodus 18:2');
+ await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
+ await waitFor("document.querySelector('#tcBody [data-hx-explanation=reference]')",'Symmachus reference remains one row');
+ assert.equal(await js("document.querySelectorAll('#tcBody .tc-hx-row-sig').length"),4);
+ assert(await js("!document.querySelector('#tcBody').textContent.includes('Abweichende Wörter:')"),'No redundant automatic comparisons');
+ await js("document.querySelector('#rOut .row[data-l=\"5\"] .txt').click()");
+ await waitFor("document.querySelector('#tcBody [data-hx-explanation=editorial]')?.textContent.includes('er kam')",'Exodus 18:5 explains the actual change in meaning');
+ assert(await js("document.querySelector('#tcBody').textContent.includes('Schwiegervater')"));
+
 };

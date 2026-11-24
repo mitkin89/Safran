@@ -1,0 +1,20 @@
+'use strict';
+const assert=require('node:assert/strict');
+module.exports=async({js,waitFor,book})=>{
+ await book('Genesis');await waitFor("!document.querySelector('#tcBtn').hidden",'Apparatus available');
+ if(await js("document.querySelector('#textcritPanel').hidden"))await js("document.querySelector('#tcBtn').click()");
+ assert(await js("!document.querySelector('#tcLang')"),'Removed nonfunctional selector');
+ await js("document.querySelector('#tcSearchBtn').click()");
+ await waitFor("document.querySelector('#tcsType option[value=aleppo]')&&document.querySelector('.tcs-count')",'Aleppo search loaded');
+ assert(await js("document.querySelector('[data-w=LXX]').parentElement.textContent.includes('Tov')"));
+ await js("for(const w of document.querySelectorAll('#tcSearch [data-w]'))w.checked=w.dataset.w==='MA';document.querySelector('#tcsBook').value='Genesis';document.querySelector('#tcsType').value='ma_v';document.querySelector('#tcsType').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#tcMa').checked=false");
+ await waitFor("document.querySelector('.tcs-hit[data-tcs-w=MA][data-tcs-ch=\"1\"][data-tcs-v=\"18\"]')&&[...document.querySelectorAll('.tcs-hit')].every(n=>n.dataset.tcsType==='ma_v')",'Vocalization difference found');
+ assert(await js("[...document.querySelectorAll('.tcs-hit')].every(n=>n.dataset.tcsType==='ma_v'&&n.textContent.includes('MA:')&&n.textContent.includes('ML:'))"));
+ assert(await js("document.querySelector('.tcs-note').textContent.includes('Aleppo-Kodex verloren')"),'Lost-codex provenance visible');
+ await js("document.querySelector('.tcs-hit[data-tcs-v=\"18\"]').click()");
+ await waitFor("document.querySelector('#tcSearch').hidden&&document.querySelector('#tcBody .tc-ma-entry[data-ma-kind=v]')",'MAM witness enabled at result verse');
+ await js("document.querySelector('#tcSearchBtn').click();document.querySelector('#tcsType').value='ma_a';document.querySelector('#tcsType').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#tcMaAcc').checked=false");
+ await waitFor("document.querySelector('.tcs-hit[data-tcs-type=ma_a][data-tcs-ch=\"1\"][data-tcs-v=\"11\"]')",'Accent difference found');
+ await js("document.querySelector('.tcs-hit[data-tcs-v=\"11\"]').click()");
+ await waitFor("document.querySelector('#tcMaAcc').checked&&document.querySelector('#tcBody .tc-ma-entry[data-ma-kind=a]')",'Accent result not hidden by apparatus filter');
+};

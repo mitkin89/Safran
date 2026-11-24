@@ -25,9 +25,9 @@ test('Every editorial record is source-bound, visible, translated and escaped',a
  record.n=original;d.verses['17:12'][0].t+=' ';assert(!html(hx,d,'17:12').includes(escape(original)),'changed source cannot inherit an editorial explanation');
  const en=fixture('en'),job=await en.hx.load('Job');assert(html(en.hx,job,'1:4').includes('each on his own day'));assert(!html(en.hx,job,'1:4').includes('Verteilung auf die einzelnen'));
 });
-test('Reviewed Vorlage notes are visible and automatic comparisons make no Vorlage claim',async()=>{
+test('Reviewed Vorlage notes are visible without redundant automatic word comparisons',async()=>{
  const {hx}=fixture(),h=await hx.load('Hosea');assert.match(html(hx,h,'11:7'),/data-hx-explanation="reviewed"[^>]*>Erläuterung:.*Joch/);
- const g=await hx.load('Genesis'),auto=html(hx,g,'1:9');assert.match(auto,/data-hx-explanation="comparison"/);assert.match(auto,/Abweichende Wörter:.*συναχθήτω.*συστήτω/);assert(!auto.includes('Anderes griechisches Wort für denselben hebräischen Text'));
+ const g=await hx.load('Genesis'),auto=html(hx,g,'1:9');assert(!auto.includes('data-hx-explanation="comparison"'));assert(!auto.includes('Abweichende Wörter:'));assert(!auto.includes('Anderes griechisches Wort für denselben hebräischen Text'));
  assert(auto.includes('Ob Wortwahl, andere Deutung oder andere Vorlage vorliegt, ist damit nicht entschieden.'));
 });
 test('Further explanations distinguish wording, wordplay and unresolved causes across books',async()=>{
@@ -42,4 +42,11 @@ test('Further explanations distinguish wording, wordplay and unresolved causes a
   assert(out.includes(expected),book+' '+ref);
   assert(out.includes('Redaktionelle KI-Erläuterung von Codex'),book+' provenance');
  }
+});
+test('Symmachus as the LXX is one reference row, not an empty new LXX witness',async()=>{
+ const {hx}=fixture(),d=await hx.load('Exodus'),out=html(hx,d,'18:2');
+ assert.equal((out.match(/class="tc-hx-row-sig"/g)||[]).length,4);
+ assert.match(out,/tc-hx-row-sig">[^]*?Σ\.[^]*?ὡς[^]*?Ο΄[^]*?data-hx-fn="5"[^]*?data-hx-type="gleich"/);
+ assert(out.includes('Verweis: dieselbe Wiedergabe wie in der LXX-Zeile.'));
+ assert(!out.includes('hier „ὡς οἱ“'));
 });

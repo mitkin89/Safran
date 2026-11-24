@@ -125,6 +125,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./textcrit-summary-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_TOVDETAIL==='1'){await require('./tov-details-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_MASEARCH==='1'){await require('./aleppo-search-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_TCSEARCH==='1'){
   await js("localStorage.setItem('uiLang','en')");await win.reload();await waitFor("document.documentElement.lang==='en'&&document.querySelector('#tree .lib-item')",'Englische Oberfläche');
   await require('./textcrit-search-flows.cjs')({js,waitFor,book});

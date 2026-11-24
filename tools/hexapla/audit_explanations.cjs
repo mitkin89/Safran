@@ -6,7 +6,7 @@ const escape=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt
 vm.runInNewContext(fs.readFileSync(path.join(root,'library-textcrit-hexapla.js'),'utf8'),box);
 const hx=window.LibraryHexaplaTC.create({esc:s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]),load:async(src,get)=>{if(!get())vm.runInNewContext(fs.readFileSync(path.join(root,src),'utf8'),box);return get();}});
 (async()=>{
- const report={scope:'Field/Hexapla rendering; automatic comparisons are not philological reviews',books:0,units:0,synopsisUnits:0,explanations:{editorial:0,reviewed:0,comparison:0},reviewedRecords:0,unrenderedEditorialKeys:[]},editorial=new Set();
+ const report={scope:'Field/Hexapla rendering; editorial notes, source references and signs are counted separately',books:0,units:0,synopsisUnits:0,explanations:{editorial:0,reviewed:0,reference:0,sign:0},reviewedRecords:0,unrenderedEditorialKeys:[]},editorial=new Set();
  for(const book of window.LibraryHexaplaTC.BOOKS){
   const d=await hx.load(book);report.books++;
   for(const [ref,units] of Object.entries(d.verses)){
@@ -14,7 +14,7 @@ const hx=window.LibraryHexaplaTC.create({esc:s=>String(s).replace(/[&<>"]/g,c=>(
    const rendered=hx.entries(d,[{ref:book+' '+ref,row:ref}]);
    for(const row of rendered){
     if(row.html.includes('class="tc-hx-syn"'))report.synopsisUnits++;
-    for(const m of row.html.matchAll(/data-hx-explanation="(editorial|reviewed|comparison)"/g))report.explanations[m[1]]++;
+    for(const m of row.html.matchAll(/data-hx-explanation="(editorial|reviewed|reference|sign)"/g))report.explanations[m[1]]++;
    }
    for(const [key,n] of Object.entries(window.HEXAPLA_EXPLANATIONS.records))if(key.startsWith(book+' '+ref+'#')&&rendered.some(row=>row.html.includes(escape(n.n))))editorial.add(key);
   }

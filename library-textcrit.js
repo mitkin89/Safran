@@ -7,7 +7,7 @@ function create(host){
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
   const mishnah=window.LibraryMishnahTextCrit.create(host);
-  const search=window.LibraryTextCritSearch.create({...host,onToggle:()=>applyFont(),closed:()=>{lastContentKey=null;render();},goVerse:async(book,ch,v)=>{search.toggle(false);await host.goVerse(book,ch,v);selected=String(v);render();}});
+  const search=window.LibraryTextCritSearch.create({...host,onToggle:()=>applyFont(),closed:()=>{lastContentKey=null;render();},goVerse:async(book,ch,v,hit)=>{if(hit?.w==='MA'){$('#tcMa').checked=true;if(hit.type==='ma_a')$('#tcMaAcc').checked=true;}search.toggle(false);await host.goVerse(book,ch,v);selected=String(v);render();}});
   const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host),ps=window.LibraryPeshittaTC.create(host),hx=window.LibraryHexaplaTC.create(host),ma=window.LibraryAleppoTC.create(host);
   let key='',selected=null,clickedTal=null,generation=0,pending=null,previewData=null,hover=null,hoverAnchor=null,showTimer=null,hideTimer=null;
   let whole=false,follow=false,fontSize=14,searchFontSize=14,lastContentKey=null,followTimer=null;
@@ -159,8 +159,7 @@ function create(host){
     const token=++generation,c=context();$('#tcBtn').hidden=!c;
     if(panel.hidden)return;
     $('#tcWhole').hidden=!c||whole;
-    $('#tcLang').hidden=!!c?.isMishnah;$('#tcMishnahView').hidden=!c?.isMishnah;
-    $('#tcLang').title=c?.isMishnah?'Quellenhinweise der Mischna-Transkriptionen':'Sprache: Tal mit englischen Originalanmerkungen; CATSS mit Quellcodes und deutschen Erläuterungen';
+    $('#tcMishnahView').hidden=!c?.isMishnah;
     $('#tcSettings').hidden=!!c?.isMishnah;$('#tcBibleWitnesses').hidden=!!c?.isMishnah;$('#tcMishnahWitnesses').hidden=!c?.isMishnah;
     $('#tcPlace').textContent=c?(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(c.isMishnah?'Digital-Mishnah-Zählung':c.numbering==='tal'?'Tal–Florentin-Zählung':'MT-Zählung'):'Keine Stelle ausgewählt';
     syncWitness();
@@ -170,7 +169,7 @@ function create(host){
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcTovTech').checked,$('#tcHex').checked,$('#tcMa').checked,$('#tcMaAcc').checked,$('#tcCompact').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcTovTech').checked,$('#tcHex').checked,$('#tcMa').checked,$('#tcMaAcc').checked,$('#tcCompact').checked].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
     if(!c){body.innerHTML='<p class="muted">Der Apparatus-Apparat steht für den Tanach zur Verfügung.</p>';return;}
@@ -243,7 +242,7 @@ function create(host){
         const compact=$('#tcCompact').checked,loci=window.TextCrit.groupLoci(entries).map(g=>{
           g.entries=g.entries.map((e,i)=>[e,i]).sort((a,b)=>rank(a[0])-rank(b[0])||a[1]-b[1]).map(x=>x[0]);
           const lemma=g.kind==='word'?'<bdi lang="he" dir="rtl">'+esc(sourceWords.slice(g.start,g.end+1).join(' '))+'</bdi>':g.kind==='gap'?(g.start<0?'Zusatz vor dem ersten MT-Wort':'Zusatz nach <bdi lang="he" dir="rtl">'+esc(sourceWords[g.start])+'</bdi>'):'Nicht sicher zugeordnet';
-          return '<section class="tc-locus'+(g.span?' tc-locus-span':'')+'" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.span?'<small class="tc-span-label">'+esc('Abschnitt')+'</small>':'')+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4><div class="tc-locus-readings">'+(g.kind!=='unresolved'?window.TextCritSummary.render(g.entries,sourceWords,g,esc,window.I18N?.textCrit||(x=>x)):'')+(compact?'<details class="tc-locus-detail"><summary>'+esc('Einzelbelege')+' ('+g.entries.length+')</summary>'+g.entries.map(e=>e.html).join('')+'</details>':g.entries.map(e=>e.html).join(''))+'</div></section>';
+          return '<section class="tc-locus'+(g.span?' tc-locus-span':'')+'" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.span?'<small class="tc-span-label">'+esc('Abschnitt')+'</small>':'')+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4><div class="tc-locus-readings">'+(g.kind!=='unresolved'?window.TextCritSummary.render(g.entries,sourceWords,g,esc,window.I18N?.textCrit||(x=>x)):'')+(compact?'<details class="tc-locus-detail"><summary>'+esc('Einzelbelege')+' ('+g.entries.length+')</summary>'+tov.renderEntries(g.entries)+'</details>':tov.renderEntries(g.entries))+'</div></section>';
         }).join('');
         if(!readerRows.length)readerRows.push(...tovQueries.filter(q=>q.ref===ref).map(q=>q.row));
         return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><div class="tc-verse-summary">'+(sourceOnly?'<span>'+esc(ref)+' · Kennicott · MT-Bezug offen</span>':'<button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button>')+(entries.length?' <span class="tc-count">· '+entries.length+' Hinweise</span>':'')+(coverage.has(ref)?' · '+coverage.get(ref):'')+'</div>'+loci+'</section>';
@@ -278,7 +277,7 @@ function create(host){
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
   try{const view=localStorage.getItem('tcMishnahView');if(['interlinear','apparatus','tosefta'].includes(view))$('#tcMishnahView').value=view;}catch{}
-  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcTovTech','#tcHex','#tcMa','#tcMaAcc','#tcCompact','#tcLang'].forEach(s=>$(s).onchange=()=>{
+  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcTovTech','#tcHex','#tcMa','#tcMaAcc','#tcCompact'].forEach(s=>$(s).onchange=()=>{
     try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcCompact',$('#tcCompact').checked?'1':'0');localStorage.setItem('tcTovTech',$('#tcTovTech').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcMa',$('#tcMa').checked?'1':'0');localStorage.setItem('tcMaAcc',$('#tcMaAcc').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });

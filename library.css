@@ -2604,3 +2604,6 @@ html.split #sRight:has(#sxExamples:not([hidden])) { position:static; max-height:
 .tc-ps-sy .tc-ps-word:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 .tc-ps-sy .tc-ps-word:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tc-ps-card-error { display: inline-block; margin: 0 8px; color: var(--muted); font-size: .85em; }
+
+.tc-tov-source-details { margin: .3em 0 .6em; padding-left: .5em; border-left: 1px solid var(--line); }
+.tc-tov-source-details > summary { cursor: pointer; color: var(--muted); font-size: .85em; }

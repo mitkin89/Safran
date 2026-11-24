@@ -1,12 +1,13 @@
 {
-  "scope": "Field/Hexapla rendering; automatic comparisons are not philological reviews",
+  "scope": "Field/Hexapla rendering; editorial notes, source references and signs are counted separately",
   "books": 39,
   "units": 26963,
-  "synopsisUnits": 20733,
+  "synopsisUnits": 20731,
   "explanations": {
-    "editorial": 48,
+    "editorial": 52,
     "reviewed": 60,
-    "comparison": 29930
+    "reference": 33,
+    "sign": 1921
   },
   "reviewedRecords": 59,
   "unrenderedEditorialKeys": [],

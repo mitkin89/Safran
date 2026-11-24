@@ -67,25 +67,17 @@ function create(host){
   // Synopsis: one row per translator under the LXX; words the same as in the LXX row are folded to „…“
   // (shown again with „Volltext“). Only for plain readings that start with Ο΄ and have at least two rows.
   const norm=t=>t.normalize('NFD').replace(/[^\p{L}]/gu,'').toLowerCase();
-  const plain=t=>t.replace(/\^\d+/g,'').replace(/_/g,'').replace(/\s+/g,' ').trim();
-  function explanation(u,key,r,base,vl){
+  function explanation(u,key,r,vl){
     const bound=window.HEXAPLA_EXPLANATIONS,review=bound?.records?.[key];
     const editorial=review?.unitText===u.t?review:null,en=window.I18N?.lang==='en';
     const render=(text,kind,title)=>'<small class="tc-hx-explanation" lang="'+(en?'en':'de')+'" data-hx-explanation="'+kind+'" title="'+esc(title)+'">'+text+'</small>';
     if(editorial)return render(esc('Erläuterung:')+' '+raw(en?editorial.en:editorial.n),'editorial','Redaktionelle KI-Erläuterung von Codex, 2026; Grundlage: Fields griechischer Wortlaut und Fußnoten.');
     if(vl?.n)return render(esc('Erläuterung:')+' '+raw(en&&vl.en?vl.en:vl.n),'reviewed','Redaktionelle Einordnung von Claude, 2026; keine Aussage Fields.');
+    if(r.lxxReference)return render(esc('Verweis: dieselbe Wiedergabe wie in der LXX-Zeile.'),'reference','Übersetzung von Fields Verweis „ὡς οἱ Ο΄“.');
     if(!r.type||r.type==='gleich')return '';
-    if(r.type==='asterisk'||r.type==='obelus')return render(esc(HXTYPES[r.type][1]),'comparison','Erläuterung des hexaplarischen Zeichens.');
-    // Only describe the visible Greek difference. Neither a dictionary gloss
-    // nor an unmatched word proves a different Hebrew source or its meaning.
-    const greek=s=>plain(s).match(/[\p{Script=Greek}\p{M}]+[’᾿]?/gu)||[];
-    const a=greek(r.for||base),b=greek(r.text);
-    const excess=(xs,ys)=>{const counts=new Map();ys.forEach(w=>counts.set(norm(w),(counts.get(norm(w))||0)+1));return xs.filter(w=>{const n=counts.get(norm(w))||0;if(n){counts.set(norm(w),n-1);return false;}return true;});};
-    const left=excess(a,b),right=excess(b,a);
-    if(!left.length&&!right.length)return render(esc('Gleicher Wortbestand, andere Reihenfolge oder Schreibung im angezeigten griechischen Ausschnitt.'),'comparison','Automatischer Vergleich des griechischen Wortlauts; keine Entscheidung über Bedeutung, Zuschreibung oder hebräische Vorlage.');
-    const clip=s=>s.length>180?s.slice(0,177)+'…':s;
-    const quote=xs=>xs.length?'„'+raw(clip(xs.join(' ')))+'“':esc('keine entsprechenden Wörter im angezeigten Ausschnitt');
-    return render(esc('Abweichende Wörter:')+' '+esc('LXX')+' '+quote(left)+'; '+esc('hier')+' '+quote(right)+'.','comparison','Automatischer Vergleich des griechischen Wortlauts; keine Entscheidung über Bedeutung, Zuschreibung oder hebräische Vorlage.');
+    if(r.type==='asterisk'||r.type==='obelus')return render(esc(HXTYPES[r.type][1]),'sign','Erläuterung des hexaplarischen Zeichens.');
+    return ''; // Word differences are already visible in the synopsis.
+
   }
   function synopsis(data,u,key){
     // italic Latin (_…_) stays one token: its spaces become no-break spaces
@@ -94,7 +86,12 @@ function create(host){
     const inner=[],lead=new RegExp('^(?:'+SIGLA.source+'[ \u00a0]*)+');
     const t=u.t.replace(/_[^_]+_/g,x=>x.replace(/ /g,'\u00a0')).replace(/\(([^()]*)\)/g,(m,c,at,all)=>{const s=c.trimStart();const prev=(all.slice(0,at).match(/([\p{L}\p{M}’]+)[^\p{L}\p{M}]*$/u)||[])[1]||'';if(!lead.test(s))return m;const re2=new RegExp(SIGLA.source,'g'),cut=[];let x;while((x=re2.exec(s)))cut.push([x.index,x.index+x[0].length]);const rs=[];for(const [a,b] of cut){const l=rs.at(-1);if(l&&!s.slice(l.e,a).trim()){l.head+=' '+s.slice(a,b);l.e=b;continue;}if(l)l.text=s.slice(l.e,a);rs.push({head:s.slice(a,b),e:b});}rs.at(-1).text=s.slice(rs.at(-1).e);if(rs.some(r=>!r.text.trim()))return m;inner.push(...rs.map(r=>({head:r.head,text:r.text,for:prev})));return '';}).replace(/ {2,}/g,' ').replace(/ ([.,·;])/g,'$1');
     const re=new RegExp(SIGLA.source,'g'),marks=[];let m;
-    while((m=re.exec(t)))marks.push([m.index,m.index+m[0].length]);
+    while((m=re.exec(t))){
+      // “Σ. ὡς οἱ Ο΄.” means “Symmachus as the LXX”, not a new
+      // Septuagint row. Keep its footnote with the referring witness.
+      if(/^Ο΄/.test(m[0])&&/ὡς\s+(?:οἱ\s+)?$/u.test(t.slice(0,m.index)))continue;
+      marks.push([m.index,m.index+m[0].length]);
+    }
     if(!marks.length||t.slice(0,marks[0][0]).trim())return null;
     const rows=[];
     for(let i=0;i<marks.length;i++){
@@ -119,7 +116,8 @@ function create(host){
         const parts=[];r.tok.forEach((w,k)=>{const p=parts.at(-1);if(p&&p.same===same[k])p.w.push(w);else parts.push({same:same[k],w:[w]});});
         const words=r.tok.filter(w=>norm(w)),differ=r.tok.filter((w,k)=>norm(w)&&!same[k]);
         const translit=differ.length&&differ.filter(w=>(lookup(w.replace(/[^\p{L}\p{M}’]/gu,''))||[])[0]?.[1]==='Y').length*2>=differ.length;
-        r.type=!words.length?'':!differ.length?'gleich':translit?'translit':'wiedergabe';
+        r.lxxReference=/^ὡς\s+(?:οἱ\s+)?Ο΄\.?(?:\^\d+)?\s*$/u.test(r.text.trim());
+        r.type=r.lxxReference?'gleich':!words.length?'':!differ.length?'gleich':translit?'translit':'wiedergabe';
         body=parts.map(p=>p.same?'<span class="tc-hx-same"><span class="tc-hx-same-t">'+markup(data,u,p.w.join(' '))+'</span></span>':markup(data,u,p.w.join(' '))).join(' ');
       }
       if(!i)r.type=/※/.test(r.text)?'asterisk':/÷/.test(r.text)?'obelus':'';
@@ -127,7 +125,7 @@ function create(host){
       const vlKey=i&&key?key+' '+r.head.replace(/\s+/g,' ').trim():null;
       const vl=vlKey?window.HEXAPLA_VORLAGE?.[vlKey]:null;
       const forV=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
-      const note=explanation(u,vlKey,r,rows[0].tok.join(' '),vl);
+      const note=explanation(u,vlKey,r,vl);
       if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forV+body+' '+typeTag(vl.t,vl)+(window.TextCritTraditions?.badge(window.TextCritTraditions.tags('Hex','',vlKey,vl),raw)||'')+note+'</span>';
       const forW=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
       return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forW+body+(r.type?' '+typeTag(r.type):'')+note+'</span>';
@@ -178,7 +176,7 @@ function create(host){
     }
     return [...out.values()];
   }
-  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US); Bedeutungen außerhalb der LXX aus LSJ (Perseus Digital Library, CC BY-SA).')+' '+esc('Kurzerläuterungen: Codex/Claude, 2026, redaktionell; nicht Teil von Fields Originaltext. Abweichende Wörter werden automatisch verglichen, ohne damit eine andere hebräische Vorlage zu behaupten.')+'</p>';
+  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US); Bedeutungen außerhalb der LXX aus LSJ (Perseus Digital Library, CC BY-SA).')+' '+esc('Kurzerläuterungen: Codex/Claude, 2026, redaktionell; nicht Teil von Fields Originaltext. Erläuterungen erklären Bedeutung, Grammatik oder Quellenhinweise; reine Wortwiederholungen werden nicht ergänzt.')+'</p>';
   function preview(anchor){
     let an=[];try{an=JSON.parse(anchor.dataset.hxAn||'[]');}catch{}
     const G=window.GMorph,t=window.I18N?.t?(x=>window.I18N.t(x)):(x=>x),form=anchor.textContent;
