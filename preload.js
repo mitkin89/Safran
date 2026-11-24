@@ -137,6 +137,7 @@ contextBridge.exposeInMainWorld('research', {
   legacyNote: (record, ts) => ipcRenderer.invoke('research:legacyNote', record, ts),
   sections: rel => ipcRenderer.invoke('research:sections', rel),
   capture: request => ipcRenderer.invoke('research:capture', request),
+  captureReaderView: request => ipcRenderer.invoke('research:captureReaderView', request),
   workEditions: reference => ipcRenderer.invoke('research:workEditions', reference),
   sourceEditionPreview: request => ipcRenderer.invoke('research:sourceEditionPreview', request),
   translationEditions: reference => ipcRenderer.invoke('research:translationEditions', reference),

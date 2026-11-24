@@ -61,6 +61,17 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
  companion.citation.locator=[...new Set(references.map(r=>r.citation.locator))].join('; ');companion.reference.citation=companion.citation;
  return {...sizes,mode,companion,rows:mode==='interlinear'?await aligned(book,a.doc,b.doc,rows,privateRead):rows,references};
 }
+async function readerView(request,rich,privateRead=async()=>null){
+ const {rel,visibleRels,interlinearRels=[],sizes={},glossSize=12}=request;
+ if(!Array.isArray(visibleRels)||!visibleRels.length||visibleRels.length>9||visibleRels[0]!==rel||new Set(visibleRels).size!==visibleRels.length||!Array.isArray(interlinearRels)||interlinearRels.length>8||new Set(interlinearRels).size!==interlinearRels.length)throw Error('Ungültige Auswahl aus dem Lesefenster.');
+ const {doc,entry}=await rich(rel),source=S.capture(doc,entry,{sectionPath:request.sectionPath,labels:request.labels},doc.textHash),pairSize=target=>({sourceSize:sizes[rel],translationSize:sizes[target]});
+ const parallel=[];for(const target of visibleRels.slice(1))parallel.push(await prepare({source,rel:target,mode:'parallel',...pairSize(target)},rich,privateRead));
+ const interlinear=[];for(const target of interlinearRels)interlinear.push(await prepare({source,rel:target,mode:'interlinear',sourceSize:sizes[rel],translationSize:glossSize},rich,privateRead));
+ if(parallel.length)source.presentation={...parallel[0],...(parallel.length>1?{additional:parallel.slice(1)}:{}),...(interlinear.length?{originalInterlinear:interlinear}:{})};
+ else if(interlinear.length)source.presentation={...interlinear[0],...(interlinear.length>1?{additional:interlinear.slice(1)}:{})};
+ if(source.presentation&&Array.isArray(request.headings))source.presentation.readerHeadings=request.headings.filter(h=>source.reference.labels.includes(h.before)).map(h=>({before:h.before,text:h.text}));
+ return S.block(source);
+}
 async function editionPreview({source,rel},rich){
  if(source?.type!=='source'||!source.reference?.rel)throw Error('Quellenverknüpfung fehlt.');
  const a=await rich(source.reference.rel),fresh=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels},a.doc.textHash);
@@ -71,4 +82,4 @@ async function editionPreview({source,rel},rich){
  for(const r of pair.references){const k=JSON.stringify(r.sectionPath);if(!plans.has(k))plans.set(k,{sectionPath:r.sectionPath,labels:new Set()});r.labels.forEach(l=>plans.get(k).labels.add(l));}
  return [...plans.values()].map(p=>S.capture(b.doc,b.entry,{sectionPath:p.sectionPath,labels:[...p.labels]},b.doc.textHash));
 }
-module.exports={prepare,groups,aligned,editionPreview};
+module.exports={prepare,groups,aligned,editionPreview,readerView};

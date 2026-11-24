@@ -393,7 +393,7 @@ window.LibraryInterlinear = (() => {
       renderer.labels = picks.filter(n => n === 'Aleppo' && al.data || n === 'Peshitta' && ps.data || checks.checked.has(n) || n === 'Samaritan' && smr.data || n === 'LXX' && lx || n === 'Qumran' && QIL || tgd[n]).map(n => IL_LABEL[n] || n);
       return renderer;
     }
-    return { refresh: ilRefresh, tagCell: ilTagCell, exportRenderer, get availableSources(){return ilAvail;} };
+    return { refresh: ilRefresh, tagCell: ilTagCell, exportRenderer, get selectedSources(){return ilPick.filter(n=>ilAvail.includes(n));}, get availableSources(){return ilAvail;} };
   }
   return { create };
 })();

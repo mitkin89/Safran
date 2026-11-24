@@ -54,6 +54,8 @@
     "Bis zu 8 Ausgaben auswählen: Nebeneinander erscheinen sie als zusätzliche Spalten. Interlinear wird je Ausgabe untereinander angezeigt.": "Select up to 8 editions: side by side adds a column for each edition. Interlinear shows each edition separately below.",
     "Bitte 1 bis 8 Übersetzungen auswählen.": "Select 1 to 8 translations.",
     "Es werden höchstens {} Treffer angezeigt. Filtere nach Kommentator oder Sprache, um weitere Kommentare zu finden.": "Up to {} results are shown. Filter by commentator or language to find more commentaries.",
+    "Darstellung aus dem Lesefenster übernehmen": "Use the reader display",
+    "Sichtbare Ausgaben, Interlinear, Schriftgrößen und Abschnittsüberschriften übernehmen.": "Include visible editions, interlinear display, font sizes and section headings.",
     "Quellen im Blatt": "Sources in this sheet",
     "Quelle im Blatt finden": "Find a source in this sheet",
     "Noch keine Quellen.": "No sources yet.",

@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- Add an opt-in “Use the reader display” source-sheet capture: preserve visible editions, checked Westminster interlinear mappings alongside full translation columns, font sizes and selected section headings. Preview before insertion, keep snapshots and citations in project data, and retain the combined view in HTML/PDF/DOCX exports.
 - Add a searchable source outline to the Research editor sidebar, with compact locations, editions and layout areas, one entry per commentary group, keyboard focus on jump targets, and current-section highlighting while scrolling.
 - Classify Research commentary languages using the library’s effective edition language rather than raw Sefaria storage metadata. Show German Bamberger commentary under Deutsch instead of English; use the same language for filtering, edition choices and newly captured citations, and localize chooser language labels.
 - Filter chapter commentaries before applying result limits, so Rashi and later verses remain discoverable beyond the initial 200 items. Preserve selections across asynchronous commentator/language searches, expose all available languages, and allow up to 2,000 filtered results while keeping batch insertion capped at 200. Remove repeated aggregate locator lists from commentary group headers and compact schema-node citations.
