@@ -9,7 +9,9 @@
  }
  const owner=n=>(n._store||'legacy')+':'+n.id;
  function records(legacy,state){return [...(legacy||[]).filter(n=>n.kind!=='hl').map(n=>({...n,_store:'legacy',refs:refs(n)})),...(state?.notes||[]).map(n=>({...n,_store:'research',refs:refs(n)}))];}
- const title=n=>n.noteTitle||n.title||'Eigene Notiz';
+ function referenceLabel(r={}){return String(r.label||r.citation?.locator||'Fundstelle').replace(/ · (?:Kapitel|Chapter) (\d+) · ([\d, –—-]+)$/,' $1,$2').replace(/ · (?:Blatt|Daf) (\d+[ab]) · (.+)$/,' $1:$2');}
+ const title=n=>n.noteTitle||(n.key&&refs(n).length?referenceLabel(refs(n)[0]):n.title)||'Eigene Notiz';
+ const excerpt=n=>String(n.note||refs(n).find(r=>r.quote)?.quote||n.he||n.excerpt||'').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/\*\*?|^\s*[-•>]\s+/gm,'').trim();
  const kind=n=>!String(n.note||'').trim()&&(n.key||refs(n).length)?'bookmark':refs(n).length?'linked':'free';
  function locations(n){return refs(n).map(r=>{
   const work=r.citation?.work||(/^(.+?)\s+(?:\d|Kapitel|Chapter)/.exec(r.label||'')?.[1])||(n.key?n.title:'')||'';
@@ -24,5 +26,5 @@
    return terms.every(t=>hay.includes(t))&&(!options.kind||options.kind==='all'||kind(n)===options.kind)&&(!options.only||!!n.note?.trim())&&(!options.project||(options.project==='none'?!project:project===options.project))&&(!options.tag||(n.tags||[]).includes(options.tag)||(n.topics||[]).includes(options.tag))&&(!options.work&&!options.chapter||ls.some(l=>(!options.work||l.work===options.work)&&(!options.chapter||l.chapter===options.chapter)));
   });
  }
- const api={normalize,refs,owner,records,title,kind,locations,filter};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.NotesWorkspaceData=api;
+ const api={normalize,refs,owner,records,title,kind,locations,filter,referenceLabel,excerpt};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.NotesWorkspaceData=api;
 })(typeof window==='undefined'?globalThis:window);

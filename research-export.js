@@ -1,7 +1,7 @@
 'use strict';
 // Self-contained HTML and real Office Open XML, not HTML renamed to .docx.
 const Presentation=require('./research-presentation'),Cite=require('./research-citations'),Groups=require('./research-comment-groups');
-const VerseLayout=require('./research-verse-layout');
+const VerseLayout=require('./research-verse-layout'),NotesFormatting=require('./notes-formatting');
 const Flow=require('./research-flow'),crypto=require('node:crypto');
 const zlib=require('node:zlib'),{cite,resolveBlocks}=require('./research-store'),L=require('./research-layout');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
@@ -22,7 +22,7 @@ function html(sheet,notes=[],options={}){
   if(b.bundle){const xs=b.bundle,c={...xs[0].citation,locator:xs.map(x=>x.citation.locator).join('; ')};return '<section class="block comment-bundle"><h2>'+esc(c.work)+'</h2><p class="citation">'+esc(Cite.edition(c))+'</p>'+xs.map(x=>'<div class="comment-fragment"><small>'+esc(Cite.locator(x.citation.locator))+'</small><blockquote dir="auto">'+para(x.text)+'</blockquote>'+(x.edited?'<small>Bearbeiteter Auszug</small>':'')+'</div>').join('')+'<p class="citation">['+xs[0].citationNumber+'] '+esc(Cite.location(c))+'</p></section>';}
   if(b.type==='heading')return '<h2 dir="auto">'+para(b.text||b.title)+'</h2>';
   return '<section class="block '+b.type+'">'+(b.title?'<h2 dir="auto">'+esc(b.title)+'</h2>':'')+
-   (b.verseLabel?'<p class="verse-reference">'+esc(b.verseLabel)+'</p>':'')+(b.presentation?Presentation.html(b,esc):b.type==='source'?'<blockquote dir="auto">'+para(b.text)+'</blockquote>':'<p dir="auto">'+para(b.text)+'</p>')+
+   (b.verseLabel?'<p class="verse-reference">'+esc(b.verseLabel)+'</p>':'')+(b.presentation?Presentation.html(b,esc):b.type==='source'?'<blockquote dir="auto">'+para(b.text)+'</blockquote>':b.type==='note'?'<div class="note-content">'+NotesFormatting.markdown(b.text,true)+'</div>':'<p dir="auto">'+para(b.text)+'</p>')+
    b.companionCitations.map(c=>'<p class="citation">['+c.number+'] '+esc(c.text)+'</p>').join('')+(b.edited?'<p class="status">Bearbeiteter Auszug</p>':'')+(b.citationText?'<p class="citation">['+b.citationNumber+'] '+esc(classic?Cite.location(b.citation):b.citationText)+'</p>':'')+
    (b.noteSnapshot?.refs?.length?'<ul class="references">'+b.noteSnapshot.refs.map(r=>'<li>'+esc(r.label)+(r.citation?.edition?' — '+esc(r.citation.edition):'')+'</li>').join('')+'</ul>':'')+'</section>';
  };
@@ -49,6 +49,13 @@ function zip(files){
 }
 function docx(sheet,notes=[]){
  const d=documentModel(sheet,notes),p=(s,style='Normal',size=null)=>String(s).split('\n').map(line=>'<w:p><w:pPr><w:pStyle w:val="'+style+'"/>'+(isRtl(line)?'<w:bidi/>':'')+'</w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="SBL Hebrew"/>'+(isRtl(line)?'<w:rtl/>':'')+(size?'<w:sz w:val="'+Math.round(size*2)+'"/><w:szCs w:val="'+Math.round(size*2)+'"/>':'')+'</w:rPr><w:t xml:space="preserve">'+esc(line.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,''))+'</w:t></w:r></w:p>').join('');
+ const noteLinks=new Map();
+ const noteParagraphs=(text,size)=>NotesFormatting.paragraphs(text).map(line=>{
+  const content=line.runs.map(r=>r.text).join(''),rtl=isRtl(content);
+  const run=r=>{if(r.target?.reference&&r.text!==r.target.reference)r={...r,text:r.text+' ('+r.target.reference+')'};let xml='<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="SBL Hebrew"/>'+(r.bold?'<w:b/><w:bCs/>':'')+(r.italic?'<w:i/><w:iCs/>':'')+(isRtl(r.text)?'<w:rtl/>':'')+(size?'<w:sz w:val="'+Math.round(size*2)+'"/><w:szCs w:val="'+Math.round(size*2)+'"/>':'')+'</w:rPr><w:t xml:space="preserve">'+esc(r.text.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,''))+'</w:t></w:r>';
+   if(r.target?.url){if(!noteLinks.has(r.target.url))noteLinks.set(r.target.url,'rId'+(noteLinks.size+2));xml='<w:hyperlink r:id="'+noteLinks.get(r.target.url)+'">'+xml+'</w:hyperlink>';}return xml;};
+  return '<w:p><w:pPr><w:pStyle w:val="'+(line.type==='quote'?'Quote':'Normal')+'"/>'+(rtl?'<w:bidi/>':'')+(line.type==='quote'?'<w:ind w:left="360" w:right="360"/>':'')+'</w:pPr>'+(line.type==='list'?run({text:'• '}):'')+line.runs.map(run).join('')+'</w:p>';
+ }).join('');
  let body=(d.layout.showTitle?p(d.title,'Title'):'')+(d.description?p(d.description):'');
  const cell=(content,width)=>'<w:tc><w:tcPr><w:tcW w:w="'+width+'" w:type="pct"/></w:tcPr>'+content+'</w:tc>';
  const paired=(pr,size,width,citation,omitHeading=false)=>{
@@ -74,7 +81,7 @@ function docx(sheet,notes=[]){
   if(b.type==='heading')return p(b.text||b.title,'Heading1',size);
   let out=b.title?p(b.title,'Heading2',size):'';
   if(b.presentation){out+=paired(b.presentation,size,width,b.citation);for(const c of b.companionCitations)out+=p('['+c.number+'] '+c.text,'Caption',8);}
-  else out+=p(b.text,b.type==='source'?'Quote':'Normal',size);
+  else out+=b.type==='note'?noteParagraphs(b.text,size):p(b.text,b.type==='source'?'Quote':'Normal',size);
   if(b.edited)out+=p('Bearbeiteter Auszug','Caption',8);
   if(b.citationText)out+=p('['+b.citationNumber+'] '+(d.layout.template==='classic'?Cite.location(b.citation):b.citationText),'Caption',d.layout.template==='classic'?8:null);
   for(const r of b.noteSnapshot?.refs||[])out+=p(r.label+(r.citation?.edition?' — '+r.citation.edition:''),'Caption',8);
@@ -93,8 +100,8 @@ function docx(sheet,notes=[]){
  return zip({
   '[Content_Types].xml':head+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>',
   '_rels/.rels':head+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/></Relationships>',
-  'word/document.xml':head+'<w:document xmlns:w="'+ns+'"><w:body>'+body+'<w:sectPr><w:pgSz w:w="'+pageW+'" w:h="'+pageH+'"'+(landscape?' w:orient="landscape"':'')+'/><w:pgMar w:top="'+margin+'" w:right="'+margin+'" w:bottom="'+margin+'" w:left="'+margin+'"/></w:sectPr></w:body></w:document>',
-  'word/_rels/document.xml.rels':head+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>',
+  'word/document.xml':head+'<w:document xmlns:w="'+ns+'" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:body>'+body+'<w:sectPr><w:pgSz w:w="'+pageW+'" w:h="'+pageH+'"'+(landscape?' w:orient="landscape"':'')+'/><w:pgMar w:top="'+margin+'" w:right="'+margin+'" w:bottom="'+margin+'" w:left="'+margin+'"/></w:sectPr></w:body></w:document>',
+  'word/_rels/document.xml.rels':head+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>'+[...noteLinks].map(([url,id])=>'<Relationship Id="'+id+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="'+esc(url)+'" TargetMode="External"/>').join('')+'</Relationships>',
   'word/styles.xml':head+'<w:styles xmlns:w="'+ns+'"><w:docDefaults><w:rPrDefault><w:rPr><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="160" w:line="320" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>'+[['Normal','Normal',24],['Title','Title',44],['Heading1','heading 1',32],['Heading2','heading 2',28],['Quote','Quote',24],['Caption','Caption',19]].map(([style,name,size])=>'<w:style w:type="paragraph" w:styleId="'+style+'"'+(style==='Normal'?' w:default="1"':'')+'><w:name w:val="'+name+'"/>'+(style==='Normal'?'':'<w:basedOn w:val="Normal"/>')+'<w:pPr>'+(style.startsWith('Heading')?'<w:keepNext/>':'')+'</w:pPr><w:rPr><w:sz w:val="'+size+'"/>'+(style.startsWith('Heading')||style==='Title'?'<w:b/>':'')+'</w:rPr></w:style>').join('')+'</w:styles>',
   'docProps/core.xml':head+'<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:title>'+esc(d.title)+'</dc:title><dc:creator>Safran</dc:creator></cp:coreProperties>'
  });
