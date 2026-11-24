@@ -196,43 +196,64 @@ not all notes found on the source pages. For example Genesis 1:2 has 16 uniquely
 anchored notes among 283 page notes; it therefore has no false continuation button.
 The chapter view can still load real additional page notes in batches of 100.
 
-## German working-translation batch 1
+## German working translations across the transcribed corpus
 
-The translation overlay covers the first 10,000 transcribed `mp`/`mm`/`mf` contexts
-in the stable manuscript/page/context order of `masora-index.js`. Empty contexts are
-skipped; all source readings within a selected context are retained in order,
-including empty or damaged readings. The published source files are unchanged.
-This is a working-translation project, **not 10,000 fully verified translations**.
-Every reading is labelled `draft` or `partial`; uncertain/untranslated material is
-visible in brackets and the disclosure says **teilweise offen** when any reading is
-partial. A wholly unparsed source reading remains explicitly untranslated and is
-counted as partial, never presented as a successful translation.
+The overlay covers all 26,969 transcribed `mp`/`mm`/`mf` contexts in the stable
+manuscript/page/context order of `masora-index.js`. The initial 10,000 ordinals are
+preserved. Completely empty contexts are skipped; all source readings within a
+selected context are retained in order, including individual empty or damaged
+readings. The selected contexts contain 92,315 readings; the corpus index also counts
+two readings in otherwise untranscribed contexts, which are not translation records.
+Published source files remain unchanged.
 
-The reproducible translators under `tools/masora/translations/` combine directly
-translated recurring Masorah formulas, inspected exact-text German drafts, and
-reference-anchored biblical quotation extraction. Quotation extraction uses existing
-public-domain German interlinear mappings (preferentially Philippson, with other
-editions attributed per reading). It requires exact Hebrew source-word matching,
-full coverage of those words and no intersecting German segment extending outside
-the matched source span. Ambiguity, source lacunae and noncanonical spelling variants
-are not silently repaired. Where fragments can be translated independently, remaining
-source words are explicitly retained as uncertain. Literal Hebrew wordforms may
-remain in quotation marks when the note discusses their spelling rather than their
-meaning. No translation creates a new source-word anchor or changes verse assignment.
+This is a working-translation project, **not a claim that every note is fully
+translated or critically verified**. Every reading is labelled `draft` or `partial`.
+Uncertain/untranslated material stays visible in brackets, and the disclosure says
+**teilweise offen** whenever any reading is partial. A wholly unparsed reading is
+explicitly untranslated and counted as partial, never a completed translation.
+The current coverage totals are stored in `masora-translations/index.js` and tested
+against every record. The first 10,000 contexts are also revisited using the expanded
+manual dictionaries and bounded source-verified formula refinements.
 
-Run `node tools/masora/build-translations.js` to regenerate the four runtime scripts
-and the manifest from the source sequence. The translator `build(rows)` functions
-are deterministic and use no network/API. Intermediate `part-*.json` files are optional
-local staging outputs and are not shipped. `--from-staged-json` can assemble those
-outputs during editorial work. Runtime scripts are lazy-loaded only for needed
-notes, and the app verifies the exact label, type, reading UUIDs, source transcriptions
-and reference labels before displaying an overlay. A changed original is therefore
-shown without its obsolete translation. Failure to load translations does not hide
-the original notes.
+The reproducible translators under `tools/masora/translations/` combine recurring
+Masorah formulas, inspected exact-source German drafts, and anchored biblical quote
+extraction. Existing German interlinear mappings are attributed per reading.
+Extraction requires exact Hebrew source-word matches, full coverage of those words,
+and no intersecting German segment extending outside the selected source span.
+Lacunae and orthographic variants are not silently repaired. A broken word spacing
+may receive an explicitly partial alternative rendering only when its concatenated
+consonants match an exact sequence of whole words in an explicitly cited verse;
+no letter is added or changed, and the original spacing remains visible. Juxtaposed lemma and
+incipit quotations can be rendered as separate exact spans, retaining every source
+word; independently translatable fragments remain partial when unresolved words
+remain. Literal Hebrew wordforms may be quoted when a note discusses their spelling.
+A translation never changes source text, word anchoring, or verse assignment.
 
-The first generated batch contains 10,000 contexts and 29,808 source readings.
-6,479 contexts have draft translations for all readings; 3,521 contain at least one
-partial or wholly unresolved reading. There are 17,924 draft readings and 11,884
-partial readings. These totals are recorded in the generated manifest and checked
-against every record by `tests/masora-translations.test.js`; they must not be
-reported as 10,000 completed translations.
+Two bounded refinements have source support: simple count/uniqueness plus `דס`
+refers to the exact adjacent word combination, as illustrated on p.163 of
+[The Small Masorah](https://api.repository.cam.ac.uk/server/api/core/bitstreams/12148888-592a-4476-be6e-e34782394311/content).
+Individually marked `רׄפׄ` or `ר״פ` denotes verse beginning, as in the glossary of
+[Kelley, Mynatt and Crawford, The Masorah of Biblia Hebraica Stuttgartensia](https://www.devinpeterson.com/uploads/6/4/9/5/6495937/335294020-the-masorah-of-biblia-hebraica-stuttgartensia-page-h-kelley-timothy-g-crawf.pdf).
+This is distinguished from explicit `רפי`/`רפה` (Rafe); ambiguous unmarked shortforms
+are not expanded wholesale. There is no separate abbreviation-glossary UI.
+
+Run `node tools/masora/build-translations.js` to regenerate the full manifest and
+11 runtime chunks of at most 2,500 notes. The translator `build(rows)` functions are
+deterministic and need no network or API. Optional staging `part-*.json` files are
+not shipped; `--from-staged-json` can assemble available editorial staging files.
+Only needed chunks are loaded by the app. Before showing an overlay, the app checks
+exact source label, type, reading UUIDs, transcription and reference labels. Changed
+originals therefore cannot receive obsolete overlays. Translation-loading failures
+do not hide original notes.
+
+The current generated corpus contains 26,969 contexts /92,315 readings. Coverage
+and remaining untranslated content are reported by the manifest, not inferred from
+the existence of a translation record. Original BIMA/Corpus Masoreticum attribution
+and licensing remain attached to the overlays.
+
+Current generated coverage: 17,454 contexts have no reading marked open; 9,515
+contexts retain partial or wholly untranslated passages. Of 92,315 readings, 58,737
+are draft translations and 33,578 partial. Reprocessing the initial package reduced
+its open contexts from 3,521 to 2,866, resolving 655 additional contexts as working
+translations. The open figures are retained explicitly and are not counted as
+completed critical translations.

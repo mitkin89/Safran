@@ -121,7 +121,9 @@
       feature(/(?:^|\s)(?:ו?חסר|ו?חס)(?:\s|$)/,'Die Notiz kennzeichnet eine defektive Form, gewöhnlich eine Schreibung mit weniger Vokalbuchstaben. Welche Stelle betroffen ist, muss am Beleg geprüft werden.');
       feature(/(?:^|\s)(?:ו?מלא|ו?מל)(?:\s|$)/,'Die Notiz kennzeichnet die Form als voll geschrieben, gewöhnlich mit Vokalbuchstaben.');
       feature(/(?:^|\s)(?:קרי|כתיב)(?:\s|$)/,'Die Notiz unterscheidet die geschriebene und die überlieferte gelesene Form (Ketiv/Qere).');
-      feature(/(?:^|\s)(?:רפה|רפי|רפ)(?:\s|$)/,'Die Notiz kennzeichnet die Aussprache ohne Dagesch (Rafe).');
+      feature(/(?:^|\s)(?:רפה|רפי)(?:\s|$)/,'Die Notiz kennzeichnet die Aussprache ohne Dagesch (Rafe).');
+      feature(/(?:^|\s)דס(?:מיך|מיכין)?(?:\s|$)/,'Die Zählung betrifft genau diese zusammenhängende Wortverbindung.');
+      if(/ר[\u05c4\u05c5\u0307״"']+פ/.test(head))feature(/(?:^|\s)רפ(?:\s|$)/,'Die Zählung betrifft Vorkommen am Versanfang.');
       feature(/(?:^|\s)(?:דגש|דגוש)(?:\s|$)/,'Die Notiz kennzeichnet eine Form mit Dagesch.');
       feature(/(?:^|\s)(?:כת|וכת) כן(?:\s|$)/,'Die Notiz hebt die hier überlieferte Schreibung ausdrücklich hervor.');
       const vowels={פתח:'Patach',קמץ:'Qamets',סגול:'Segol',חירק:'Chireq',צירי:'Tsere',חולם:'Cholem',שורק:'Schureq',קבוץ:'Qibbuts',שוא:'Schewa'};
