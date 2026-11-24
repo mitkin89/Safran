@@ -6,6 +6,7 @@ window.LibraryMasora = (() => {
     const t=(...args)=>window.I18N.t(...args),safe=s=>esc(String(s??''));
     const kinds={mp:'Masora parva',mm:'Masora magna',mf:'Masora finalis',gl:'Glosse',cm:'Kommentar',sn:'Schreibernotiz',ge:'Glossareintrag',tg:'Targum',uncategorized:'Ohne Zuordnung'};
     let fontSize=16,index=null,indexPending=null,generation=0,limit=100,timer=null,contextKey='';
+    const T=window.MasoraTranslations,translationParts=new Map(),translationPending=new Map();let translationIndex=null,translationMap=null,translationIndexPending=null;
     const datasets={},pending=new Map();let targets=[],follow=false,followTimer=null,lastFollow='';
     try{follow=localStorage.getItem('masoraFollow')==='1';}catch{}
     try{fontSize=Number(localStorage.getItem('masoraFs'))||16;}catch{}
@@ -32,6 +33,16 @@ window.LibraryMasora = (() => {
       }
       return pending.get(id);
     }
+    async function getTranslations(hits){
+      if(!translationIndex)await (translationIndexPending||(translationIndexPending=load('masora-translations/index.js',()=>window.MASORA_TRANSLATION_INDEX).then(data=>{translationMap=T.index(data);translationIndex=data;}).finally(()=>{translationIndexPending=null;})));
+      const parts=new Map();for(const hit of hits){const batch=translationMap.get(hit.entry.uuid);if(batch)parts.set(batch.part,batch);}
+      await Promise.all([...parts.values()].map(batch=>{
+        if(translationParts.has(batch.part))return null;
+        if(!translationPending.has(batch.part))translationPending.set(batch.part,load(batch.file,()=>window.MASORA_TRANSLATION_PARTS?.[batch.part]).then(data=>{if(data?.schema!==1||data.part!==batch.part)throw Error('Wrong translation batch');translationParts.set(batch.part,data.notes);}).finally(()=>translationPending.delete(batch.part)));
+        return translationPending.get(batch.part);
+      }));
+    }
+    function translationFor(entry){const batch=translationMap?.get(entry.uuid);return batch?T.match(entry,translationParts.get(batch.part)?.[entry.uuid],D):null;}
     const note=value=>D.prose(value);
     function plain(value){
       // Original editorial prose may contain HTML; keep its text, never executable source markup.
@@ -63,7 +74,7 @@ window.LibraryMasora = (() => {
         '<span class="masora-reading">'+(text?'<bdi class="'+(/[\u0590-\u05ff]/.test(text)?'masora-he':'masora-note')+'" dir="'+(['rtl','ltr'].includes(r.dir)?r.dir:'auto')+'">'+safe(plain(text))+'</bdi>':'')+
         (r.references?.length?' <span class="masora-refs">'+r.references.map(referenceButton).join(' · ')+'</span>':'')+
         (notes?' <span class="masora-note" dir="auto">'+safe(plain(notes))+'</span>':'')+'</span>').join('<span class="masora-separator" aria-hidden="true"> · </span>')+
-        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-actions">'+explanation+source+'</div></article>';
+        (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-actions">'+T.html(translationFor(entry),safe,t)+explanation+source+'</div></article>';
     }
     async function render(){
       const ctx=context();if(!ctx){close();return;}if(panel.hidden)return;
@@ -80,6 +91,7 @@ window.LibraryMasora = (() => {
         await Promise.all(ms.map(getManuscript));if(token!==generation||panel.hidden)return;
         const hits=D.query(index,datasets,ctx,options),verseMode=options.scope==='verse'&&!!ctx.verse;
         const split=verseMode?D.forVerse(hits,ctx):{primary:hits,related:[]};
+        let translationError=false;try{await getTranslations(split.primary.slice(0,limit));}catch{translationError=true;}if(token!==generation||panel.hidden)return;
         targets=[];
         const pageCount=new Set(hits.map(h=>h.page.id)).size;
         const count=verseMode?(split.primary.length===1?t('1 wortbezogene Notiz zum Vers'):t('{} wortbezogene Notizen zum Vers',split.primary.length)):t('{} Notizen auf {} Handschriftenseiten',hits.length,pageCount);
@@ -94,7 +106,7 @@ window.LibraryMasora = (() => {
         const rows='<div class="masora-primary">'+renderHits(split.primary.slice(0,limit))+'</div>'+(verseMode&&!split.primary.length?'<p class="masora-no-word">'+safe(t('Für diesen Vers wurde kein eindeutiger Wortbezug ermittelt. Die Kapitelansicht zeigt die Notizen der Handschriftenseiten.'))+'</p>':'');
         const empty=hits.length?'':'<p class="masora-empty">'+safe(t('Keine passenden Notizen im importierten Bestand.'))+'</p>'+
           (['chapter','verse'].includes(options.scope)?'<button type="button" id="masoraBrowse">'+safe(t('Gesamten Bestand durchsuchen'))+'</button>':'');
-        body.innerHTML='<p id="masoraWordStatus" role="status"></p>'+intro+navigation+rows+empty+(split.primary.length>limit?'<button type="button" id="masoraMore">'+safe(t('Weitere anzeigen'))+'</button>':'')+
+        body.innerHTML='<p id="masoraWordStatus" role="status"></p>'+(translationError?'<p class="muted">'+safe(t('Arbeitsübersetzungen konnten nicht geladen werden. Die Originalnotizen bleiben verfügbar.'))+'</p>':'')+intro+navigation+rows+empty+(split.primary.length>limit?'<button type="button" id="masoraMore">'+safe(t('Weitere anzeigen'))+'</button>':'')+
           '<footer class="masora-credit"><p>'+safe(t('Offline-Bestand: {} Handschriften · {} Seiten · {} Masora-Einträge',index.counts.manuscripts,index.counts.pages,index.counts.transcribedMasoraContexts))+'</p>'+
           (!index.complete?'<p>'+safe(t('Teilimport: Weitere veröffentlichte Seiten werden noch geladen.'))+'</p>':'')+
           '<p>Corpus Masoreticum / BIMA · <a href="'+safe(index.source.licenseUrl)+'" class="masora-external">'+safe(index.source.license)+'</a> · '+safe(t('Import'))+' '+safe(index.source.retrieved)+'</p></footer>';

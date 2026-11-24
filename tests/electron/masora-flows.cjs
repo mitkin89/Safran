@@ -26,6 +26,11 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#masoraScope').value='verse';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('.masora-primary .masora-entry') && !document.querySelector('.masora-choices')",'Versansicht enthält nur eindeutige Wortbezüge');
  assert(await js("document.querySelector('#masoraScope').value==='verse' && /automatisch|automatically/i.test(document.querySelector('.masora-scope-note').textContent)"));
+ assert(await js("document.querySelector('.masora-primary .masora-translation')"));
+ await js("document.querySelector('.masora-primary .masora-translation').open=true");
+ assert(await js("document.querySelector('.masora-primary .masora-translation .masora-de[lang=de]').textContent.trim().length>0"));
+ await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+ fs.writeFileSync('/tmp/safran-masora-working-translation.png',(await win.webContents.capturePage()).toPNG());
  assert(await js("document.querySelector('.masora-word-nav button') && document.querySelector('.masora-explanation') && document.querySelector('.masora-transcription').tagName==='DIV' && !document.querySelector('.masora-related')"));
  await js("document.querySelector('.masora-primary .masora-explanation').open=true");
  assert(await js("document.querySelector('.masora-explanation').textContent.includes('Lesehilfe')"));
@@ -93,5 +98,11 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('.masora-empty')&&!document.querySelector('.masora-entry')",'Leere Suche ohne erfundene Notiz');
  await js("document.querySelector('#masoraScope').value='all';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("Object.keys(window.MASORA_DATA||{}).length===window.MASORA_INDEX.manuscripts.length && document.querySelector('.masora-empty')",'Gesamter importierter Bestand offline durchsuchbar');
+ // Translation coverage extends through the final corpus batch, not just the first10000.
+ await js("{const ids=new Set(window.MASORA_TRANSLATION_INDEX.batches.at(-1).ids);let found;for(const [id,ms]of Object.entries(window.MASORA_DATA)){for(const page of ms.pages){for(const entry of page.contexts){if(!ids.has(entry.uuid))continue;const reading=entry.readings.find(r=>window.MasoraData.text(r).length>60);if(reading){found={id,entry,reading};break;}}if(found)break;}if(found)break;}if(!found)throw Error('No final translation source');window.masoraLastExpected=found.entry.uuid;document.querySelector('#masoraMs').value=found.id;document.querySelector('#masoraQuery').value=window.MasoraData.text(found.reading);document.querySelector('#masoraScope').value='all';document.querySelector('#masoraScope').dispatchEvent(new Event('change',{bubbles:true}));}");
+ await waitFor("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation')",'Arbeitsübersetzung im letzten Bestandsabschnitt geladen');
+ assert(await js("window.MASORA_TRANSLATION_INDEX.count===26969 && Object.keys(window.MASORA_TRANSLATION_PARTS[10].notes).length>0"));
+ await js("document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const e=document.querySelector('.masora-entry[data-masora-context=\"'+window.masoraLastExpected+'\"] .masora-translation'),p=document.querySelector('#masoraPanel');p.scrollTop+=e.getBoundingClientRect().top-p.querySelector('.masora-head').getBoundingClientRect().bottom-8;requestAnimationFrame(resolve);})))");
+ fs.writeFileSync('/tmp/safran-masora-complete-translations.png',(await win.webContents.capturePage()).toPNG());
  console.log('Electron: Masorah verse scope, unique/ambiguous word navigation, reader highlights, filters, fonts and pinning passed offline.');
 };

@@ -97,7 +97,7 @@
     if(!s||s==='ל'||!/^[א-ת]+$/.test(s))return null;
     const values={א:1,ב:2,ג:3,ד:4,ה:5,ו:6,ז:7,ח:8,ט:9,י:10,כ:20,ל:30,מ:40,נ:50,ס:60,ע:70,פ:80,צ:90,ק:100,ר:200,ש:300,ת:400};
     // Standard descending numeral groups; admit the traditional 15/16 spellings.
-    if(!/^[תשרק]*(?:[צפעסנמלכ]?[י]?[אבגדהוזחט]?|ט[וז])$/.test(s))return null;
+    if(!/^ת{0,2}[שרק]?(?:[צפעסנמלכ][אבגדהוזחט]?|י[אבגדהוזחט]?|ט[וז]|[אבגדהוזחט])?$/.test(s))return null;
     const n=[...s].reduce((sum,c)=>sum+values[c],0);return n>0&&n<1000?n:null;
   }
   function explain(entry){
@@ -121,7 +121,9 @@
       feature(/(?:^|\s)(?:ו?חסר|ו?חס)(?:\s|$)/,'Die Notiz kennzeichnet eine defektive Form, gewöhnlich eine Schreibung mit weniger Vokalbuchstaben. Welche Stelle betroffen ist, muss am Beleg geprüft werden.');
       feature(/(?:^|\s)(?:ו?מלא|ו?מל)(?:\s|$)/,'Die Notiz kennzeichnet die Form als voll geschrieben, gewöhnlich mit Vokalbuchstaben.');
       feature(/(?:^|\s)(?:קרי|כתיב)(?:\s|$)/,'Die Notiz unterscheidet die geschriebene und die überlieferte gelesene Form (Ketiv/Qere).');
-      feature(/(?:^|\s)(?:רפה|רפי|רפ)(?:\s|$)/,'Die Notiz kennzeichnet die Aussprache ohne Dagesch (Rafe).');
+      feature(/(?:^|\s)(?:רפה|רפי)(?:\s|$)/,'Die Notiz kennzeichnet die Aussprache ohne Dagesch (Rafe).');
+      feature(/(?:^|\s)דס(?:מיך|מיכין)?(?:\s|$)/,'Die Zählung betrifft genau diese zusammenhängende Wortverbindung.');
+      if(/ר[\u05c4\u05c5\u0307״"']+פ/.test(head))feature(/(?:^|\s)רפ(?:\s|$)/,'Die Zählung betrifft Vorkommen am Versanfang.');
       feature(/(?:^|\s)(?:דגש|דגוש)(?:\s|$)/,'Die Notiz kennzeichnet eine Form mit Dagesch.');
       feature(/(?:^|\s)(?:כת|וכת) כן(?:\s|$)/,'Die Notiz hebt die hier überlieferte Schreibung ausdrücklich hervor.');
       const vowels={פתח:'Patach',קמץ:'Qamets',סגול:'Segol',חירק:'Chireq',צירי:'Tsere',חולם:'Cholem',שורק:'Schureq',קבוץ:'Qibbuts',שוא:'Schewa'};
