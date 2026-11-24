@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs/promises');
-module.exports=async({win,js,waitFor})=>{
+module.exports=async({win,js,waitFor,book})=>{
  const click=s=>js(`document.querySelector(${JSON.stringify(s)}).click()`);
  const fill=(s,v,event='input')=>js(`{const e=document.querySelector(${JSON.stringify(s)});e.value=${JSON.stringify(v)};e.dispatchEvent(new Event('${event}',{bubbles:true}));}`);
  await js(`(async()=>{await window.research.put('projects',{id:'notes-test',title:'Notizprojekt'},0);await window.research.put('notes',{id:'research-test',projectId:'notes-test',title:'Recherchegedanke',note:'Verknüpfter Gedanke',tags:['Test'],refs:[{label:'Genesis 1:1',sectionPath:[0],quote:'בְּרֵאשִׁית',citation:{work:'Genesis',edition:'Testausgabe'}}]},0);await window.notes.save({id:'legacy-test',key:'Tanakh¦Genesis',title:'Genesis',sk:'[0]',row:'1',secLabel:'Kapitel 1',note:'Versnotiz',tags:['Test'],ts:1});})()`);
@@ -27,5 +27,9 @@ module.exports=async({win,js,waitFor})=>{
  win.setSize(760,900);await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');assert(await js('document.documentElement.scrollWidth<=innerWidth+2'),'Keine horizontale Überbreite');
  await click('nav [data-tab=read]');await waitFor("document.querySelector('#rOut .row .bm')",'Versnotiz');await click('#rOut .row .bm');await waitFor("document.querySelector('#noteDlg[open]')",'Schnellnotiz');await fill('#ndText','Schnellnotiz\nmit Absatz');await click('#ndLarge');await waitFor("document.querySelector('#nwText')?.value==='Schnellnotiz\\nmit Absatz'",'Schnellentwurf im großen Editor');await click('#nwSave');await waitFor("document.querySelector('#nwSaveState').textContent==='Gespeichert'",'Schnellentwurf gespeichert');assert.equal(await js("localStorage.getItem('notesQuickDraft')"),null);
  await require('./notes-usability-flows.cjs')({win,js,waitFor});
+ await require('./notes-project-flows.cjs')({win,js,waitFor});
+ await require('./commentary-notes-flows.cjs')({win,js,waitFor,book});
+ await require('./notes-cross-reference-flows.cjs')({win,js,waitFor,book});
+ await require('./notes-notebooks-flows.cjs')({win,js,waitFor});
  console.log('Notes workspace: shared stores, drafts, filters, sources, conflicts and undo passed');
 };

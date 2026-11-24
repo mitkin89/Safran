@@ -280,17 +280,9 @@
     <!-- NOTIZEN -->
     <section id="tab-research" hidden><div id="researchRoot"></div></section>
     <section id="tab-notes" hidden>
-      <div class="bar">
-        <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
-        <select id="nKind" title="Art der Notiz"><option value="all">Alle Arten</option><option value="bookmark">Lesezeichen</option><option value="linked">Notizen mit Fundstelle</option><option value="free">Freie Notizen</option></select>
-        <label class="nonly"><input type="checkbox" id="nOnly"> nur mit Notiz</label>
-        <select id="nSort" title="Reihenfolge der Notizen"><option value="manual">Reihenfolge: manuell</option><option value="new">Neueste zuerst</option><option value="book">Nach Buch</option></select>
-        <button id="nNew" title="Eine Notiz ohne Textstelle anlegen">＋ Neue Notiz</button>
-        <button id="nIO" title="Notizen sichern, exportieren oder eine Sicherung einlesen">⇅</button>
-        <span id="nCount" class="muted"></span>
-        <button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button>
-      </div>
-      <div class="nw-filters"><label>Projekt<select id="nProject"><option value="">Alle Projekte</option></select></label><label>Werk<select id="nWork"><option value="">Alle Werke</option></select></label><label>Kapitel / Abschnitt<select id="nChapter"><option value="">Alle Abschnitte</option></select></label><label>Schlagwort / Thema<select id="nTagFilter"><option value="">Alle Schlagwörter</option></select></label><button id="nReset">Filter zurücksetzen</button></div><div id="nTags" hidden></div>
+      <div class="nw-topbar"><button id="nwToggleBooks" title="Notizbücher ein- oder ausblenden" aria-label="Notizbücher ein- oder ausblenden" aria-expanded="true">☰</button><input id="nFilter" type="search" aria-label="Notizen durchsuchen" placeholder="Notizen durchsuchen …"><button id="nwFiltersToggle" aria-expanded="false" aria-controls="nwFilterPanel">Filter</button><button id="nNew" class="primary">＋ Neue Notiz</button><button id="nIO" title="Sichern, exportieren oder importieren">⇅ Export</button><button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button></div>
+      <div id="nwFilterPanel" class="nw-filters" hidden><label class="nw-project-filter" hidden>Notizbuch<select id="nProject"><option value="">Alle Notizbücher</option></select></label><label>Art<select id="nKind"><option value="all">Alle Arten</option><option value="bookmark">Lesezeichen</option><option value="linked">Notizen mit Fundstelle</option><option value="free">Freie Notizen</option></select></label><label>Werk<select id="nWork"><option value="">Alle Werke</option></select></label><label>Kapitel / Abschnitt<select id="nChapter"><option value="">Alle Abschnitte</option></select></label><label>Schlagwort / Thema<select id="nTagFilter"><option value="">Alle Schlagwörter</option></select></label><label class="nw-only"><input type="checkbox" id="nOnly"> Nur mit eigenem Text</label><button id="nReset">Zurücksetzen</button></div>
+      <div id="nwFilterChips" aria-label="Aktive Filter"></div><div id="nTags" hidden></div><select id="nSort" aria-label="Notizen sortieren"><option value="manual">Manuelle Reihenfolge</option><option value="new">Zuletzt bearbeitet</option><option value="book">Nach Werk und Stelle</option></select>
       <div id="nOut"></div>
     </section>
 
@@ -517,6 +509,9 @@
     <p id="ndExcerpt" class="muted"></p>
     <input id="ndTitleIn" placeholder="Titel (optional)" hidden>
     <textarea id="ndText" rows="12" placeholder="Eigene Notiz (leer lassen = nur Lesezeichen)"></textarea>
+    <div class="nd-project-row"><label for="ndProject">Projekt</label><div><select id="ndProject"><option value="">Ohne Projekt</option></select><button id="ndNewProject" type="button">＋ Neues Projekt</button></div></div>
+    <div id="ndProjectCreate" hidden><label for="ndProjectName">Name des neuen Projekts</label><div class="bar"><input id="ndProjectName" placeholder="z. B. Schöpfungsbericht"><button id="ndProjectCreateSave" type="button">Anlegen</button><button id="ndProjectCreateCancel" type="button">Abbrechen</button></div></div>
+    <p id="ndProjectStatus" class="muted" role="status" aria-live="polite"></p>
     <input id="ndTags" list="ndTagList" placeholder="Tags, mit Komma getrennt (z. B. Klasse 5, Predigt)" autocomplete="off"><datalist id="ndTagList"></datalist>
     <div class="bar"><button id="ndSave" class="primary">Speichern</button><button id="ndLarge">Groß bearbeiten</button><button id="ndDel">Lesezeichen entfernen</button><button id="ndClose">Abbrechen</button></div>
   </dialog>
@@ -689,7 +684,9 @@
   <script src="library-map.js"></script>
   <script src="notes-workspace-data.js"></script>
   <script src="notes-formatting.js"></script>
+  <script src="notes-rich-text.js"></script>
   <script src="library-notes-workspace.js"></script>
+  <script src="note-anchors.js"></script>
   <script src="library-notes.js"></script>
   <script src="research-history.js"></script>
   <script src="research-editions.js"></script>

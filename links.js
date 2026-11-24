@@ -153,8 +153,8 @@ class LinkStore {
 }
 
 // Text zu einer Stelle aus geladenen Textdaten herauslösen (nur normale Kapitel/Vers-Strukturen)
-function resolveText(data, tail) {
-  if (data && data.text && !Array.isArray(data.text) && typeof data.text === 'object') { // Werk mit mehreren Teilen: Standardteil „“ (z. B. Ibn Ezra on Genesis)
+function resolveTextEntries(data, tail) {
+  if (data && data.text && !Array.isArray(data.text) && typeof data.text === 'object') {
     const def = data.text[''] !== undefined ? data.text[''] : null;
     if (def == null) return null;
     data = { ...data, text: def, sectionNames: [] };
@@ -162,19 +162,16 @@ function resolveText(data, tail) {
   const p = parseTail(tail);
   if (!p) return null;
   const talmud = data.sectionNames && data.sectionNames[0] === 'Daf';
-  let idx;
-  if (/[ab]$/.test(p.chap)) idx = (parseInt(p.chap, 10) - 1) * 2 + (p.chap.endsWith('a') ? 0 : 1);
-  else idx = talmud ? (parseInt(p.chap, 10) - 1) * 2 : parseInt(p.chap, 10) - 1;
-  let node = data.text && data.text[idx];
-  if (node == null) return null;
-  const extra = String(tail).split('-')[0].split(':').slice(1).map(Number);
-  for (const n of extra) { if (!Array.isArray(node)) break; node = node[n - 1]; if (node == null) return null; }
-  const flat = (x, o = []) => { if (typeof x === 'string') { if (x.trim()) o.push(x); } else if (Array.isArray(x)) x.forEach(c => flat(c, o)); return o; };
-  let items = flat(node);
-  if (extra.length === 1 && p.v2 > p.v1 && Array.isArray(data.text[idx]) && p.v2 !== Infinity) {
-    items = flat(data.text[idx].slice(p.v1 - 1, p.v2));
-  }
-  return items.length ? items : null;
+  const idx = /[ab]$/.test(p.chap) ? (parseInt(p.chap, 10)-1)*2+(p.chap.endsWith('a')?0:1) : talmud?(parseInt(p.chap,10)-1)*2:parseInt(p.chap,10)-1;
+  let node=data.text&&data.text[idx];if(node==null)return null;
+  const extra=String(tail).split('-')[0].split(':').slice(1).map(Number),actual=[];
+  for(const n of extra){if(!Array.isArray(node))break;node=node[n-1];if(node==null)return null;actual.push(n);}
+  const items=[];
+  const flat=(x,path)=>{if(typeof x==='string'){if(x.trim())items.push({html:x,tail:[p.chap,...path].join(':')});}else if(Array.isArray(x))x.forEach((c,i)=>flat(c,[...path,i+1]));};
+  if(extra.length===1&&p.v2>p.v1&&Array.isArray(data.text[idx])&&p.v2!==Infinity)data.text[idx].slice(p.v1-1,p.v2).forEach((v,i)=>flat(v,[p.v1+i]));
+  else flat(node,actual);
+  return items.length?items:null;
 }
+function resolveText(data,tail){return resolveTextEntries(data,tail)?.map(item=>item.html)||null;}
 
-module.exports = { LinkStore, parseTail, splitRef, resolveText, FILES, APPROX_MB };
+module.exports = { LinkStore, parseTail, splitRef, resolveText, resolveTextEntries, FILES, APPROX_MB };

@@ -4,7 +4,7 @@ window.LibraryNotes = (() => {
   function create(host) {
   // ---------- Lesezeichen und Notizen ----------
   const NT = window.notes;
-  let notesAll = [], workspace = null;
+  let notesAll = [], workspace = null, readerNoteIndex = new Map(), skipQuickRestore=false;
   const quickDraftKey="notesQuickDraft";
   const noteTags = n => (Array.isArray(n.tags) ? n.tags : []);
   const kindOf = n => n.kind || 'row'; // 'row' = Lesezeichen an einer Zeile, 'free' = freie Notiz ('hl' = frühere Farbmarkierungen: bleiben in der Datei, werden aber nicht mehr angezeigt)
@@ -16,7 +16,7 @@ window.LibraryNotes = (() => {
   async function backfillHe() {
     let changed = false;
     for (const n of notesAll) {
-      if (kindOf(n) !== 'row' || n.he || heTried.has(n.id)) continue;
+      if (kindOf(n) !== 'row' || n.he || n.commentaryRef || heTried.has(n.id)) continue;
       heTried.add(n.id);
       try {
         const g = host.groupsByKey.get(n.key); const v = g && g.versions.find(x => x.kind === 'he');
@@ -111,19 +111,17 @@ window.LibraryNotes = (() => {
     const blk = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id));
     const vfs = host.$('#vfStar');
     if (vfs && host.view.vf) { const on = blk.has(host.noteId(host.view.group, s.k, 'blk:' + host.fmtVerses([...host.view.vf.set]))); vfs.textContent = on ? '★' : '☆'; vfs.classList.toggle('on', on); }
-    const rowNotes = new Map(notesAll.filter(n => kindOf(n) === 'row').map(n => [n.id, n]));
+    readerNoteIndex=window.NoteAnchors.index(workspace?workspace.all():notesAll,host.groups);
     host.$$('#rOut .row[data-l]').forEach(r => {
-      const nid = host.noteId(host.view.group, s.k, r.dataset.l), nn = rowNotes.get(nid);
-      const on = !!nn;
-      // der Notiztext steht unter der Zeile (Klick öffnet die Notiz) und als Tooltip am Stern
-      let st = r.querySelector(':scope > .rnote');
-      if (nn && nn.note) { if (!st) { st = document.createElement('div'); st.className = 'rnote'; r.appendChild(st); } st.textContent = nn.note; st.dataset.id = nid; st.title = I18N.t('Klicken: Notiz bearbeiten'); }
-      else if (st) st.remove();
+      const matched=readerNoteIndex.get(window.NoteAnchors.signature(host.view.group.key,s.k,r.dataset.l))||[],nn=matched[0],on=matched.length>0;
+      r.querySelectorAll(':scope > .rnote').forEach(n=>n.remove());
+      for(const note of matched){if(!note.note)continue;const st=document.createElement('div');st.className='rnote';st.textContent=note.note;st.dataset.id=note.id;st.dataset.owner=window.NoteAnchors.owner(note);st.title=window.NotesWorkspaceData.title(note)+' · '+I18N.t('Klicken: Notiz bearbeiten');r.appendChild(st);}
       r.classList.toggle('noted', on);
       const lab = r.querySelector('.lab');
       if (!lab.querySelector('.bm')) lab.insertAdjacentHTML('afterbegin', '<span class="bm" title="Lesezeichen / Notiz">☆</span>');
       const b = lab.querySelector('.bm');
-      b.title = nn && nn.note ? nn.note : I18N.t('Lesezeichen / Notiz');
+      b.title = matched.length>1?matched.length+' Notizen zu dieser Stelle':nn?.note||I18N.t('Lesezeichen / Notiz');
+      b.dataset.noteCount=String(matched.length);
       b.classList.toggle('on', on);
       b.textContent = on ? '★' : '☆';
     });
@@ -131,34 +129,84 @@ window.LibraryNotes = (() => {
 
   // Notiz-Fenster für alle drei Arten
   let editing = null, editingOld = null;
+  let quickProjects=[],projectRequest=0;
+  function quickProjectOptions(selected='') {
+    const select=host.$('#ndProject');
+    const list=quickProjects.filter(p=>!p.archived||p.id===selected);
+    select.innerHTML='<option value="">Ohne Projekt</option>'+list.map(p=>'<option value="'+host.esc(p.id)+'">'+host.esc(p.title+(p.archived?' (archiviert)':''))+'</option>').join('');
+    if(selected&&!list.some(p=>p.id===selected)){const option=document.createElement('option');option.value=selected;option.textContent='Bisher zugeordnetes Projekt';select.append(option);}
+    select.value=selected;
+  }
+  async function loadQuickProjects(owner,selected) {
+    const request=++projectRequest,select=host.$('#ndProject');quickProjectOptions(selected);select.disabled=true;
+    host.$('#ndProjectStatus').textContent='Projekte werden geladen …';
+    try{const state=await window.research.state();if(request!==projectRequest||editing?.id!==owner)return;quickProjects=state.projects;quickProjectOptions(selected);host.$('#ndProjectStatus').textContent=quickProjects.length?'':'Du kannst hier direkt ein neues Projekt anlegen.';}
+    catch{if(request===projectRequest&&editing?.id===owner)host.$('#ndProjectStatus').textContent='Projekte konnten nicht geladen werden. Die bisherige Zuordnung bleibt erhalten.';}
+    finally{if(request===projectRequest&&editing?.id===owner)select.disabled=false;}
+  }
+  function persistQuickDraft(){try{const value=quickDraft();if(value)localStorage.setItem(quickDraftKey,JSON.stringify(value));}catch{}}
+  host.$('#ndProject').onchange=()=>{host.$('#ndProjectStatus').textContent='';persistQuickDraft();};
+  host.$('#ndNewProject').onclick=()=>{host.$('#ndProjectStatus').textContent='';host.$('#ndProjectCreate').hidden=false;host.$('#ndProjectName').value='';host.$('#ndProjectName').focus();};
+  host.$('#ndProjectCreateCancel').onclick=()=>{host.$('#ndProjectStatus').textContent='';host.$('#ndProjectCreate').hidden=true;host.$('#ndProject').focus();};
+  host.$('#ndProjectName').onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();host.$('#ndProjectCreateSave').click();}};
+  host.$('#ndProjectCreateSave').onclick=async()=>{
+    const title=host.$('#ndProjectName').value.trim(),owner=editing?.id;if(!title){host.$('#ndProjectStatus').textContent='Bitte einen Projektnamen eingeben.';host.$('#ndProjectName').focus();return;}
+    const request=++projectRequest,id=crypto.randomUUID();host.$('#ndProjectCreateSave').disabled=true;host.$('#ndSave').disabled=true;host.$('#ndProject').disabled=true;
+    try{const state=await window.research.put('projects',{id,title},0);if(request!==projectRequest||editing?.id!==owner)return;quickProjects=state.projects;quickProjectOptions(id);host.$('#ndProjectCreate').hidden=true;host.$('#ndProjectStatus').textContent='Projekt angelegt. Die Notiz wird beim Speichern zugeordnet.';persistQuickDraft();}
+    catch(e){if(request===projectRequest&&editing?.id===owner)host.$('#ndProjectStatus').textContent=String(e.message||e);}
+    finally{if(request===projectRequest&&editing?.id===owner){host.$('#ndProjectCreateSave').disabled=false;host.$('#ndSave').disabled=false;host.$('#ndProject').disabled=false;}}
+  };
   function openNoteDlg(it, o = {}) {
     editing = structuredClone(it);
     editingOld = notesAll.some(x => x.id === it.id) ? JSON.parse(JSON.stringify(it)) : null; // für „Rückgängig“ beim Überschreiben
     try{const saved=JSON.parse(localStorage.getItem(quickDraftKey)||'null');if(saved?.record?.id===it.id){editing=saved.record;editingOld=saved.base;it=editing;}}catch{}
     const k = kindOf(it);
-    host.$('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${k === 'block' ? (it.vs || I18N.t('ganzes Kapitel')) : it.row}`;
+    host.$('#ndTitle').textContent = it.commentaryRef || (k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${k === 'block' ? (it.vs || I18N.t('ganzes Kapitel')) : it.row}`);
     host.$('#ndExcerpt').textContent = k === 'free' ? '' : [it.he, it.excerpt].filter(Boolean).join('\n');
     host.$('#ndTitleIn').hidden = k !== 'free';
     host.$('#ndTitleIn').value = it.title || '';
     host.$('#ndText').value = it.note || '';
     host.$('#ndTags').value = noteTags(it).join(', ');
+    host.$('#ndProjectCreate').hidden=true;host.$('#ndProjectCreateSave').disabled=false;host.$('#ndSave').disabled=false;
+    void loadQuickProjects(it.id,it.projectId||'');
     host.$('#ndText').placeholder = I18N.t(k === 'row' ? 'Eigene Notiz (leer lassen = nur Lesezeichen)' : 'Notiz');
     host.$('#ndDel').hidden = !o.canDelete;
-    host.$('#ndDel').textContent = I18N.t(k === 'free' ? 'Notiz entfernen' : 'Lesezeichen entfernen');
+    host.$('#ndDel').textContent = it.refs?.length>1?'Notiz mit allen Verknüpfungen löschen':I18N.t(k === 'free' ? 'Notiz entfernen' : 'Lesezeichen entfernen');
     host.$('#ndClose').textContent = I18N.t(o.optional ? 'Ohne Notiz' : 'Abbrechen');
     host.$('#noteDlg').showModal();
     (k === 'free' ? host.$('#ndTitleIn') : host.$('#ndText')).focus();
   }
   const refreshNotes = () => { markNotes(); renderNotes(); host.apSoon(); try { if (!host.$('#mapPanel').hidden) { host.mapInfo(); host.mapDraw(); } } catch { /* Karte nicht bereit */ } };
+  document.addEventListener('click',async e=>{
+    const button=e.target.closest('.cmtNote');if(!button)return;e.preventDefault();e.stopPropagation();if(button.disabled)return;button.disabled=true;
+    const actions=button.closest('.cmtActions');let status=actions.querySelector('.cmtActionStatus');if(!status){status=document.createElement('span');status.className='cmtActionStatus';status.setAttribute('role','status');actions.append(status);}status.textContent='Quelle wird geladen …';
+    try{
+      const source=await window.research.captureCommentary({ref:button.dataset.ref,rel:button.dataset.rel,...(button.dataset.itemIndex!==undefined?{itemIndex:Number(button.dataset.itemIndex)}:{})});
+      await loadNotes();const ref=source.reference,group=host.groups.find(g=>g.versions.some(v=>v.rel===ref.rel)),sk=JSON.stringify(ref.sectionPath),row=ref.labels?.[0]||'';
+      const id=group&&row?host.noteId(group,sk,row):'commentary|'+ref.rel+'|'+ref.label;
+      const old=notesAll.find(n=>n.id===id)||notesAll.find(n=>n.commentaryRef===ref.label&&n.refs?.some(r=>r.rel===ref.rel));
+      const note=old||{id,kind:group&&row?'row':'free',key:group?.key||'',title:group?.title||source.title,noteTitle:ref.label,sk,secLabel:source.citation.locator,row,excerpt:source.text.slice(0,350),note:'',refs:[structuredClone(ref)],commentaryRef:ref.label,order:topOrder()};
+      status.textContent='';openNoteDlg(note,{canDelete:!!old});
+    }catch(err){status.textContent=String(err.message||err);status.setAttribute('role','alert');}
+    finally{button.disabled=false;}
+  });
+  function openSavedNote(note){
+    if(note._store==='research'){skipQuickRestore=true;host.showTab('notes');workspace.openSaved(note);}
+    else openNoteDlg(notesAll.find(n=>n.id===note.id)||note,{canDelete:true});
+  }
+  function chooseReaderNote(notes){
+    const dlg=document.createElement('dialog');dlg.className='nw-dialog';dlg.id='readerNoteChooser';dlg.innerHTML='<h2>Notizen zu dieser Stelle</h2><div class="reader-note-choices">'+notes.map(n=>'<button type="button" data-note-owner="'+host.esc(window.NoteAnchors.owner(n))+'"><b>'+host.esc(window.NotesWorkspaceData.title(n))+'</b><span>'+host.esc((n.note||'Lesezeichen').slice(0,180))+'</span></button>').join('')+'</div><button type="button" data-close>Schließen</button>';document.body.append(dlg);dlg.onclose=()=>dlg.remove();dlg.querySelector('[data-close]').onclick=()=>dlg.close();dlg.querySelectorAll('[data-note-owner]').forEach(b=>b.onclick=()=>{const note=notes.find(n=>window.NoteAnchors.owner(n)===b.dataset.noteOwner);dlg.close();dlg.remove();openSavedNote(note);});dlg.showModal();
+  }
   host.$('#rOut').addEventListener('click', e => {
     const rn = e.target.closest('.rnote');
-    if (rn && !window.getSelection().toString()) { const nn = notesAll.find(x => x.id === rn.dataset.id); if (nn) openNoteDlg(nn, { canDelete: true }); return; }
+    if (rn && !window.getSelection().toString()) { const nn=(workspace?workspace.all():notesAll).find(n=>rn.dataset.owner?window.NoteAnchors.owner(n)===rn.dataset.owner:n.id===rn.dataset.id);if(nn)openSavedNote(nn);return; }
     const b = e.target.closest('.bm');
     if (!b || !host.view || !host.view.group) return;
     const row = b.closest('.row');
     const s = host.view.sections[host.view.idx];
     const label = row.dataset.l;
     const id = host.noteId(host.view.group, s.k, label);
+    const matched=readerNoteIndex.get(window.NoteAnchors.signature(host.view.group.key,s.k,label))||[];if(matched.length>1){chooseReaderNote(matched);return;}if(matched.length===1){openSavedNote(matched[0]);return;}
     const old = notesAll.find(n => n.id === id);
     const cells = [...row.querySelectorAll('.cell .txt')];
     const excerpt = cells.length ? plain(cells[Math.min(1, cells.length - 1)].innerHTML.replace(/<span class="note"[\s\S]*?<\/span><\/span>/g, '')).slice(0, 200) : '';
@@ -182,6 +230,7 @@ window.LibraryNotes = (() => {
   }
   host.$('#ndSave').onclick = async () => {
     editing.note = host.$('#ndText').value.trim();
+    editing.projectId=host.$('#ndProject').value;
     { const tg = [...new Set(host.$('#ndTags').value.split(/[,;]/).map(x => x.trim()).filter(Boolean))]; if (tg.length) editing.tags = tg; else delete editing.tags; }
     if (kindOf(editing) === 'free') {
       editing.title = host.$('#ndTitleIn').value.trim();
@@ -425,10 +474,11 @@ window.LibraryNotes = (() => {
 
   const hostLegacyBackup=()=>structuredClone(notesAll);
   workspace=window.LibraryNotesWorkspace.create({getLegacy:()=>notesAll,reload:loadNotes,getResearch:host.getResearch});
-  function quickDraft(){if(!editing)return null;return {record:{...structuredClone(editing),note:host.$('#ndText').value,tags:[...new Set(host.$('#ndTags').value.split(/[,;]/).map(s=>s.trim()).filter(Boolean))],...(kindOf(editing)==='free'?{title:host.$('#ndTitleIn').value}:{}),_store:'legacy'},base:editingOld?{...structuredClone(editingOld),_store:'legacy'}:null};}
-  for(const id of ['ndText','ndTitleIn','ndTags'])host.$('#'+id).addEventListener('input',()=>{try{localStorage.setItem(quickDraftKey,JSON.stringify(quickDraft()));}catch{}});
+  function quickDraft(){if(!editing)return null;return {record:{...structuredClone(editing),note:host.$('#ndText').value,projectId:host.$('#ndProject').value,tags:[...new Set(host.$('#ndTags').value.split(/[,;]/).map(s=>s.trim()).filter(Boolean))],...(kindOf(editing)==='free'?{title:host.$('#ndTitleIn').value}:{}),_store:'legacy'},base:editingOld?{...structuredClone(editingOld),_store:'legacy'}:null};}
+  for(const id of ['ndText','ndTitleIn','ndTags'])host.$('#'+id).addEventListener('input',persistQuickDraft);
   host.$('#ndLarge').onclick=()=>{const saved=quickDraft();host.$('#noteDlg').close();host.showTab('notes');workspace.edit(saved.record,saved.base);};
-  async function openWorkspace(){await loadNotes();try{const saved=JSON.parse(localStorage.getItem(quickDraftKey)||'null');if(saved?.record&&!document.querySelector('#noteDlg[open]')&&!(workspace.draft?._store==='legacy'&&workspace.draft.id===saved.record.id))workspace.edit(saved.record,saved.base);}catch{}}
+  async function openWorkspace(){const restoreQuick=!skipQuickRestore;skipQuickRestore=false;await loadNotes();try{const saved=JSON.parse(localStorage.getItem(quickDraftKey)||'null');if(restoreQuick&&saved?.record&&!document.querySelector('#noteDlg[open]')&&!(workspace.draft?._store==='legacy'&&workspace.draft.id===saved.record.id))workspace.edit(saved.record,saved.base);}catch{}}
+    window.research.onChanged(()=>{if(document.documentElement.dataset.tab==='read')void loadNotes();});
     return {
       openWorkspace,
       get kindOf() { return kindOf; },

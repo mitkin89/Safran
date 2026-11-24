@@ -70,9 +70,10 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
  });
 
  async function commentaryCapture(request,cache){
-  let pair=cache?.get(request.rel);if(!pair){pair=await rich(request.rel);cache?.set(request.rel,pair);}const {doc,entry}=pair,ref=String(request.ref||''),parts=LK.splitRef(ref);
+  let pair=cache?.get(request.rel);if(!pair){pair=await rich(request.rel);cache?.set(request.rel,pair);}const {doc,entry}=pair;let ref=String(request.ref||''),parts=LK.splitRef(ref);
   let sourceDoc=doc,node='';if(parts.book!==doc.title&&parts.book!==entry.title){const prefix=entry.title+', ';node=parts.book.startsWith(prefix)?parts.book.slice(prefix.length):'';if(!node||!doc.text||!Object.hasOwn(doc.text,node))throw Error('Kommentar und Edition passen nicht zusammen.');sourceDoc={...doc,text:doc.text[node]};}
   if(parts.tail.includes('-')&&(parts.tail.split('-')[0].split(':').length!==2||parts.tail.split('-')[1].includes(':')))throw Error('Diesen Kommentarbereich bitte im Lesefenster mit ausdrücklicher Zeilenauswahl übernehmen.');
+  if(request.itemIndex!==undefined){const entries=LK.resolveTextEntries(sourceDoc,parts.tail);if(!Number.isInteger(request.itemIndex)||request.itemIndex<0||!entries?.[request.itemIndex])throw Error('Dieser Kommentarabschnitt fehlt in dieser Edition.');ref=parts.book+' '+entries[request.itemIndex].tail;parts=LK.splitRef(ref);}
   const items=LK.resolveText(sourceDoc,parts.tail);if(!items)throw Error('Kommentarstelle fehlt in dieser Edition.');
   const c=S.metadata(doc,entry,[node,parts.tail].filter(Boolean).join(' · ')),body=items.map(S.plain).join('\n');
   const p=LK.parseTail(parts.tail),talmud=doc.sectionNames?.[0]==='Daf',chap=/[ab]$/.test(p.chap)?(parseInt(p.chap)-1)*2+(p.chap.endsWith('b')?1:0):(parseInt(p.chap)-1)*(talmud?2:1);

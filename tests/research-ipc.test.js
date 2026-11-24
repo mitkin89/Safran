@@ -45,3 +45,11 @@ test('combined notes backup restores projects and exact references without dupli
  await assert.rejects(f.call('importNotes',{projects:[{id:'rollback',title:'Nicht übernehmen'}],notes:[{...backup.notes[0],id:'invalid',projectId:'missing'}]}),/Projektverknüpfung/);
  state=await f.call('state');assert(!state.projects.some(p=>p.id==='rollback'));assert.equal(state.notes.length,1);
 });
+
+test('a commentary paragraph action captures its exact leaf and edition instead of its sibling paragraphs',async t=>{
+ const f=await setup(t);await f.add('paragraphs.json',{title:'Rashi on Genesis',versionTitle:'Abschnittsausgabe',language:'German',sectionNames:['Chapter','Verse','Comment'],text:[[['Erster','','Gleich','Gleich'],['Nächster Vers']]]});
+ const a=await f.call('captureCommentary',{rel:'paragraphs.json',ref:'Rashi on Genesis 1:1',itemIndex:1});assert.equal(a.text,'Gleich');assert.equal(a.reference.label,'Rashi on Genesis 1:1:3');assert.equal(a.citation.edition,'Abschnittsausgabe');assert.deepEqual(a.reference.sectionPath,[0,0]);assert.deepEqual(a.reference.labels,['3']);
+ const b=await f.call('captureCommentary',{rel:'paragraphs.json',ref:'Rashi on Genesis 1:1',itemIndex:2});assert.equal(b.reference.label,'Rashi on Genesis 1:1:4');assert.deepEqual(b.reference.labels,['4']);
+ const c=await f.call('captureCommentary',{rel:'paragraphs.json',ref:'Rashi on Genesis 1:1-2',itemIndex:3});assert.equal(c.reference.label,'Rashi on Genesis 1:2:1');assert.equal(c.text,'Nächster Vers');
+ for(const itemIndex of [-1,99,0.5,'1'])await assert.rejects(f.call('captureCommentary',{rel:'paragraphs.json',ref:'Rashi on Genesis 1:1',itemIndex}),/Kommentarabschnitt/);
+});

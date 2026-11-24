@@ -571,7 +571,7 @@ window.LibraryResearch = (() => {
       }
     });
     const readerButton=document.getElementById('rResearchBtn');let buttonSelection=null;readerButton.onpointerdown=()=>buttonSelection=host.getReaderSelection?.();readerButton.onclick=()=>{const selection=buttonSelection;buttonSelection=null;void run(()=>sourcePicker({reader:true,selection}));};
-    document.addEventListener('click',e=>{const b=e.target.closest('.cmtResearch');if(!b)return;e.preventDefault();e.stopPropagation();void run(async()=>{const source=await A.captureCommentary({ref:b.dataset.ref,rel:b.dataset.rel});await acceptSources([source]);});});
+    document.addEventListener('click',e=>{const b=e.target.closest('.cmtResearch');if(!b)return;e.preventDefault();e.stopPropagation();void run(async()=>{const source=await A.captureCommentary({ref:b.dataset.ref,rel:b.dataset.rel,...(b.dataset.itemIndex!==undefined?{itemIndex:Number(b.dataset.itemIndex)}:{})});await acceptSources([source]);});});
     document.getElementById('sResearchBtn').onclick=()=>run(async()=>{
       const s=host.getSearch();if(!s.hits?.length)throw Error('Bitte zuerst eine Textsuche mit Fundstellen ausführen.');
       // Save only the explicitly available result subset; no claim that pagination is complete.

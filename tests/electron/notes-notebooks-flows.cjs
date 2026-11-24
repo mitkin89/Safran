@@ -1,0 +1,24 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs/promises');
+module.exports=async({win,js,waitFor})=>{
+ const click=s=>js(`document.querySelector(${JSON.stringify(s)}).click()`),fill=(s,v)=>js(`{const e=document.querySelector(${JSON.stringify(s)});e.value=${JSON.stringify(v)};e.dispatchEvent(new Event('input',{bubbles:true}));}`);
+ await click('nav [data-tab=notes]');win.setSize(1700,1000);
+ await click('#nReset');assert.equal(await js("document.querySelector('#cmtPanel').checkVisibility()"),false,'Lesepanel verdeckt keine Notizen');await click('#nwNewNotebook');await fill('#nwNotebookName','Jesaja Studien');await click('.nw-dialog[open] [type=submit]');await waitFor("!document.querySelector('.nw-dialog[open]')",'Notizbuch angelegt');
+ const project=await js("document.querySelector('#nProject').value");assert(project);
+ assert(await js(`document.querySelector('[data-nw-book="${project}"]').textContent.includes('0 Einträge')`));
+ await click('#nNew');assert.equal(await js("document.querySelector('#nwProject').value"),project);await fill('#nwTitle','Messianische Hoffnung');
+ await js("document.querySelector('#nwRichText').focus()");await win.webContents.insertText('Erster Gedanke');await js("document.execCommand('insertParagraph')");await win.webContents.insertText('Zweiter Gedanke שלום');
+ assert.equal(await js("document.querySelector('#nwText').value"),'Erster Gedanke\nZweiter Gedanke שלום');
+ await js("{const n=document.querySelector('#nwRichText').lastChild,r=document.createRange();r.selectNodeContents(n);const s=getSelection();s.removeAllRanges();s.addRange(r);}");await click('[data-nw-format=bold]');assert(await js("document.querySelector('#nwText').value.includes('**Zweiter Gedanke שלום**')"));
+ await click('#nwModeToggle');assert(await js("document.querySelector('#nwText').checkVisibility()"));await click('#nwModeToggle');assert(await js("document.querySelector('#nwRichText strong,#nwRichText b')"));
+ await js("{const n=document.querySelector('#nwRichText');n.focus();const r=document.createRange();r.selectNodeContents(n);r.collapse(false);const s=getSelection();s.removeAllRanges();s.addRange(r);window.notebookCaret=n;}");
+ await click('#nwSave');await waitFor("document.querySelector('#nwSaveState').textContent==='Gespeichert'",'Notizbuchnotiz gespeichert');assert(await js("window.notebookCaret===document.querySelector('#nwRichText')"),'Speichern erhält Editor und Cursor');
+ await waitFor(`document.querySelector('[data-nw-book="${project}"]').textContent.includes('1 Eintrag')`,'Notizbuchanzahl');assert(await js(`(async()=>(await window.notes.list()).some(n=>n.projectId==='${project}'&&n.note.includes('**Zweiter Gedanke שלום**')))()`));
+ await fill('#nwNotebookSearch','Jesaja');assert.equal(await js("document.querySelectorAll('[data-nw-book]').length"),1);await fill('#nwNotebookSearch','');
+ await click('[data-nw-clear=nProject]');assert.equal(await js("document.querySelector('#nProject').value"),'');await click(`[data-nw-book="${project}"]`);assert.equal(await js("document.querySelectorAll('[data-nw-note]').length"),1);
+ await js("document.querySelector('[data-nw-resize=books]').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}))");assert.equal(await js("JSON.parse(localStorage.notesPaneSizes).books"),220);
+ await click('#nwFiltersToggle');assert(await js("document.querySelector('#nwFilterPanel').checkVisibility()"));await click('#nwFiltersToggle');
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');await fs.writeFile('/tmp/safran-notebooks-final.png',(await win.webContents.capturePage()).toPNG());
+ win.setSize(680,900);await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');assert(await js("document.querySelector('#nwEditor').checkVisibility()"));await click('#nwBackToList');assert(await js("document.querySelector('.nw-sidebar').checkVisibility()"));assert.equal(await js("document.querySelector('#nwEditor').checkVisibility()"),false);await click('[data-nw-note]');assert(await js("document.querySelector('#nwRichText').checkVisibility()"));await click('#nwToggleBooks');assert(await js("document.querySelector('#nwNotebooks').checkVisibility()"));await click('[data-nw-book=""]');assert.equal(await js("document.querySelector('#nOut').dataset.booksOpen"),'false');assert(await js('document.documentElement.scrollWidth<=innerWidth+2'));
+ console.log('Notebooks: create, assign, counts, filters, rich keyboard paragraphs, format/source modes, save continuity, resize and mobile navigation passed');
+};

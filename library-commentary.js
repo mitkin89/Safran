@@ -146,11 +146,11 @@ window.LibraryCommentary = (() => {
           const he = t.kind === 'he';
           const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
           const vh = whole ? (vn => vn !== g.lastV ? (g.lastV = vn, `<div class="cvn" data-l="${vn}">${esc(I18N.t(page ? 'Segment' : 'Vers'))} ${vn}</div>`) : '')(g.vOf.get(r)) : '';
-          return `<button type="button" class="cmtResearch" data-ref="${esc(r)}" data-rel="${esc(t.rel)}">＋ Quellenblatt</button>` + vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
+          return vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map((x,itemIndex) => {
             // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
             const sp = R.splitFootnotes(he ? stripHe(x) : x);
             const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
-            return `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl, { last: '', trad: versOf({ entry: { rel: t.rel, title: g.book, versionTitle: t.versionTitle } }, 'cites'), note: versNoteText })}</div>`;
+            return `<div class="cmtSegment"><div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl, { last: '', trad: versOf({ entry: { rel: t.rel, title: g.book, versionTitle: t.versionTitle } }, 'cites'), note: versNoteText })}</div><div class="cmtActions"><button type="button" class="cmtNote" data-ref="${esc(r)}" data-rel="${esc(t.rel)}" data-item-index="${itemIndex}" title="Notiz zu diesem Kommentarabschnitt hinzufügen oder öffnen">✎ Notiz</button><button type="button" class="cmtResearch" data-ref="${esc(r)}" data-rel="${esc(t.rel)}" data-item-index="${itemIndex}" title="Diesen Kommentarabschnitt ins Quellenblatt übernehmen">▤ Quellenblatt</button></div></div>`;
           }).join('');
         }).join('');
         const cl = cmtClosed.has(g.name);
