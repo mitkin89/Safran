@@ -121,6 +121,8 @@ And everything else:
 
 **Print books side by side:** Open a book and select its Hebrew and German versions as columns. Under **⋯ → Export …**, choose the current section, a section/chapter range or **Whole book**, then export to PDF or Word. Versions are aligned verse by verse; footnotes, personal notes and links are optional. Print the resulting PDF normally.
 
+**Research workspaces:** The **Research** tab groups source sheets, reusable collections and notes by project. Capture a chosen edition with **＋ Source sheet** in the reader or commentary pane; collect search results with **Collect results**. Arrange excerpts, own text and linked notes, edit bibliographic details, and export sheets as PDF, DOCX or HTML. Share a self-contained project JSON package, or export research data as CSV and annotations as JSON-LD. [Workflow, formats and limits](docs/RESEARCH.md).
+
 Text sizes follow **Display**: the base font and separate Hebrew, German and other language sizes. Set these to your preferred print sizes before exporting.
 
 <p align="center">

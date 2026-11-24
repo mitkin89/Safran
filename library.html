@@ -8,6 +8,7 @@
   <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="library.css">
+  <link rel="stylesheet" href="research.css">
 </head>
 <body>
   <header>
@@ -16,6 +17,7 @@
       <button data-tab="search">Suche</button>
       <button data-tab="dict" id="dictTabBtn" title="Wörterbuch">Wörterbuch</button>
       <button data-tab="notes">Notizen</button>
+      <button data-tab="research">Recherche</button>
     </nav>
     <div id="tabbar"></div>
     <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰<span class="bl">Bücher</span></button>
@@ -98,6 +100,7 @@
                 <button id="tpBtn" title="Themen (Sefaria Topics) zu diesem Abschnitt" hidden>🏷<span class="bl">Themen</span></button>
                 <button id="mapBtn" title="Karte: Orte in diesem Kapitel" hidden>🗺<span class="bl">Karte</span></button>
                 <span class="spacer"></span>
+                <button id="rResearchBtn" title="Gewählte Edition und Zeilen in ein Quellenblatt übernehmen">＋ Quellenblatt</button>
                 <button id="dispBtn" title="Anzeige, Fußnoten, Schrift, Export">⚙<span class="bl">Anzeige</span></button>
               </div>
             </div>
@@ -255,7 +258,7 @@
       <div id="sOutline" role="tabpanel" aria-labelledby="sOutlineTab" hidden>
       </div>
       <div id="sChart" hidden></div>
-      <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
+      <div id="sTools"><button id="sResearchBtn" type="button">Treffer sammeln</button> <button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <div id="sProgress" hidden><progress id="sProgressBar" max="1" aria-label="Suchfortschritt"></progress> <span id="sProgressLabel" class="muted"></span></div>
       <div id="sSyntaxCoverage"></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
@@ -275,6 +278,7 @@
     </section>
 
     <!-- NOTIZEN -->
+    <section id="tab-research" hidden><div id="researchRoot"></div></section>
     <section id="tab-notes" hidden>
       <div class="bar">
         <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
@@ -668,6 +672,7 @@
   <script src="library-outline.js"></script>
   <script src="library-map.js"></script>
   <script src="library-notes.js"></script>
+  <script src="library-research.js"></script>
   <script src="samaritan-core.js"></script>
   <script src="library-word-popup.js"></script>
   <script src="library-tabs.js"></script>

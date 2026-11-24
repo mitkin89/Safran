@@ -53,12 +53,14 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await app.whenReady();app.dock?.hide();session.defaultSession.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*']},(_details,cb)=>cb({cancel:true}));
  const libraryFlows=await require('./library-flows.cjs')({profile,docs,handlers});
  const dictionaryFlows=await require('./dictionary-flows.cjs')({profile});
+ const researchFlows=await require('./research-flows.cjs')({profile,docs,handlers});
  win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
  const errors=[];win.webContents.on('console-message',event=>{if(event.level==='error'){errors.push(event.message);console.error('Renderer:',event.message)}});
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  const expectedTitles=new Set([...docs.values()].map(doc=>doc.entry.title)).size;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_RESEARCH==='1'){await researchFlows({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1'){await require('./field-sigla-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1'){
   await require('./peshitta-status-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;

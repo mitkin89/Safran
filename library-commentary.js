@@ -146,7 +146,7 @@ window.LibraryCommentary = (() => {
           const he = t.kind === 'he';
           const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
           const vh = whole ? (vn => vn !== g.lastV ? (g.lastV = vn, `<div class="cvn" data-l="${vn}">${esc(I18N.t(page ? 'Segment' : 'Vers'))} ${vn}</div>`) : '')(g.vOf.get(r)) : '';
-          return vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
+          return `<button type="button" class="cmtResearch" data-ref="${esc(r)}" data-rel="${esc(t.rel)}">＋ Quellenblatt</button>` + vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
             // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
             const sp = R.splitFootnotes(he ? stripHe(x) : x);
             const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
