@@ -308,7 +308,7 @@ window.LibraryResearch = (() => {
       bindDragging();
       root.querySelectorAll('[data-a="classicArrange"]').forEach(e=>e.onclick=()=>{draft.layout={...draft.layout,template:"classic",orientation:"landscape"};changed();render();});
       const frame=root.querySelector('#rwPagePreview');
-      if(frame){const fit=()=>{const body=frame.contentDocument?.body;if(body?.offsetWidth)frame.contentDocument.documentElement.style.zoom=String((frame.clientWidth-2)/body.offsetWidth);};frame.onload=fit;pageObserver=new ResizeObserver(fit);pageObserver.observe(frame);updatePagePreview(frame);}
+      if(frame){const fit=()=>{const body=frame.contentDocument?.body;if(body?.offsetWidth)frame.contentDocument.documentElement.style.zoom=String((frame.clientWidth-2)/body.offsetWidth);};frame.onload=()=>{fit();window.ResearchFlow.watch(frame.contentDocument);};pageObserver=new ResizeObserver(fit);pageObserver.observe(frame);updatePagePreview(frame);}
       const np = root.querySelector('#rwNoteProject'); if (np) np.onchange = () => { draft.projectId = np.value; changed(); };
       root.querySelectorAll('[data-block]').forEach(article => {
         const i = +article.dataset.block, blocks = draft[kind === 'sheets' ? 'blocks' : 'items'], b = blocks[i];

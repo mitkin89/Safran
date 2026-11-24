@@ -14,7 +14,7 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   return S.capture(doc,entry,req,doc.textHash);
  }
  ipcMain.handle('research:state',state);
- ipcMain.handle('research:sheetPreview',async(_e,sheet)=>{const data=await state();return E.html(S.entity('sheets',sheet),[...data.notes,...data.legacyNotes]);});
+ ipcMain.handle('research:sheetPreview',async(_e,sheet)=>{const data=await state();return E.html(S.entity('sheets',sheet),[...data.notes,...data.legacyNotes],{interactive:false});});
  ipcMain.handle('research:put',async(_e,kind,record,version)=>{
   if(!['projects','sheets','collections','notes'].includes(kind))throw Error('Unbekannter Datentyp.');
   await(await store()).put(kind,record,version);broadcast();return state();
@@ -122,8 +122,8 @@ function register({ipcMain,getLibrary,readLegacyNotes,saveLegacyNote,dialog,Brow
   const chosen=await dialog.showSaveDialog(winOf(e),{defaultPath:filename,filters:[{name:format.toUpperCase(),extensions:[ext]}]});if(chosen.canceled||!chosen.filePath)return {cancelled:true};
   if(format==='pdf'){
    const tmp=path.join(tempDir(),'safran-sheet-'+crypto.randomUUID()+'.html');await fs.writeFile(tmp,html,'utf8');
-   const win=new BrowserWindow({show:false,webPreferences:{sandbox:true,javascript:false}});
-   try{win.webContents.setWindowOpenHandler(()=>({action:'deny'}));await win.loadFile(tmp);content=await win.webContents.printToPDF({pageSize:'A4',landscape:sheet.layout?.orientation==='landscape',preferCSSPageSize:true,printBackground:true});}finally{win.destroy();await fs.rm(tmp,{force:true});}
+   const win=new BrowserWindow({show:false,webPreferences:{sandbox:true,javascript:true}});
+   try{win.webContents.setWindowOpenHandler(()=>({action:'deny'}));await win.loadFile(tmp);await win.webContents.executeJavaScript("document.fonts.ready.then(()=>{const apply="+require('./research-flow').apply.toString()+";apply(document,true);})");content=await win.webContents.printToPDF({pageSize:'A4',landscape:sheet.layout?.orientation==='landscape',preferCSSPageSize:true,printBackground:true});}finally{win.destroy();await fs.rm(tmp,{force:true});}
   }else if(format==='html')content=html;
   await fs.writeFile(chosen.filePath,content);return {path:chosen.filePath};
  }
