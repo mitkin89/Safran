@@ -1,0 +1,311 @@
+{
+  "scope": "Field/Hexapla rendering; editorial notes, source references and signs are counted separately",
+  "books": 39,
+  "units": 26963,
+  "synopsisUnits": 20751,
+  "explanations": {
+    "editorial": 27654,
+    "reviewed": 60,
+    "reference": 0,
+    "sign": 1926
+  },
+  "reviewedRecords": 59,
+  "unrenderedEditorialKeys": [],
+  "coverage": {
+    "definition": "Translator rows with a difference label but no visible explanatory note; text presence is not a philological quality assessment",
+    "typesRequiringNotes": [
+      "wiedergabe",
+      "translit",
+      "vorlage",
+      "deutung",
+      "mt"
+    ],
+    "rowsWithoutExplanation": 0,
+    "versesWithGaps": 0,
+    "byBook": [
+      {
+        "book": "Amos",
+        "units": 195,
+        "comparisonRows": 287,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 17
+      },
+      {
+        "book": "Daniel",
+        "units": 305,
+        "comparisonRows": 19,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 288
+      },
+      {
+        "book": "Deuteronomy",
+        "units": 1207,
+        "comparisonRows": 960,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 443
+      },
+      {
+        "book": "Ecclesiastes",
+        "units": 372,
+        "comparisonRows": 513,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 19
+      },
+      {
+        "book": "Esther",
+        "units": 279,
+        "comparisonRows": 230,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 50
+      },
+      {
+        "book": "Exodus",
+        "units": 1380,
+        "comparisonRows": 1413,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 529
+      },
+      {
+        "book": "Ezekiel",
+        "units": 1963,
+        "comparisonRows": 2675,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 351
+      },
+      {
+        "book": "Ezra",
+        "units": 195,
+        "comparisonRows": 147,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 48
+      },
+      {
+        "book": "Genesis",
+        "units": 939,
+        "comparisonRows": 980,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 242
+      },
+      {
+        "book": "Habakkuk",
+        "units": 72,
+        "comparisonRows": 114,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 8
+      },
+      {
+        "book": "Haggai",
+        "units": 23,
+        "comparisonRows": 13,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 13
+      },
+      {
+        "book": "Hosea",
+        "units": 295,
+        "comparisonRows": 493,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 32
+      },
+      {
+        "book": "I Chronicles",
+        "units": 477,
+        "comparisonRows": 390,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 104
+      },
+      {
+        "book": "I Kings",
+        "units": 955,
+        "comparisonRows": 895,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 339
+      },
+      {
+        "book": "I Samuel",
+        "units": 982,
+        "comparisonRows": 1239,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 112
+      },
+      {
+        "book": "II Chronicles",
+        "units": 563,
+        "comparisonRows": 437,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 135
+      },
+      {
+        "book": "II Kings",
+        "units": 899,
+        "comparisonRows": 916,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 256
+      },
+      {
+        "book": "II Samuel",
+        "units": 726,
+        "comparisonRows": 748,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 121
+      },
+      {
+        "book": "Isaiah",
+        "units": 2059,
+        "comparisonRows": 2940,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 293
+      },
+      {
+        "book": "Jeremiah",
+        "units": 2519,
+        "comparisonRows": 3209,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 496
+      },
+      {
+        "book": "Job",
+        "units": 1193,
+        "comparisonRows": 1411,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 277
+      },
+      {
+        "book": "Joel",
+        "units": 63,
+        "comparisonRows": 82,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 12
+      },
+      {
+        "book": "Jonah",
+        "units": 50,
+        "comparisonRows": 64,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 8
+      },
+      {
+        "book": "Joshua",
+        "units": 1012,
+        "comparisonRows": 728,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 473
+      },
+      {
+        "book": "Judges",
+        "units": 1191,
+        "comparisonRows": 1192,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 221
+      },
+      {
+        "book": "Lamentations",
+        "units": 206,
+        "comparisonRows": 246,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 26
+      },
+      {
+        "book": "Leviticus",
+        "units": 956,
+        "comparisonRows": 981,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 179
+      },
+      {
+        "book": "Malachi",
+        "units": 46,
+        "comparisonRows": 52,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 9
+      },
+      {
+        "book": "Micah",
+        "units": 142,
+        "comparisonRows": 219,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 24
+      },
+      {
+        "book": "Nahum",
+        "units": 37,
+        "comparisonRows": 48,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 7
+      },
+      {
+        "book": "Nehemiah",
+        "units": 320,
+        "comparisonRows": 262,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 64
+      },
+      {
+        "book": "Numbers",
+        "units": 957,
+        "comparisonRows": 545,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 531
+      },
+      {
+        "book": "Obadiah",
+        "units": 30,
+        "comparisonRows": 49,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 1
+      },
+      {
+        "book": "Proverbs",
+        "units": 1231,
+        "comparisonRows": 1482,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 174
+      },
+      {
+        "book": "Psalms",
+        "units": 2659,
+        "comparisonRows": 4114,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 218
+      },
+      {
+        "book": "Ruth",
+        "units": 57,
+        "comparisonRows": 36,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 28
+      },
+      {
+        "book": "Song of Songs",
+        "units": 204,
+        "comparisonRows": 318,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 13
+      },
+      {
+        "book": "Zechariah",
+        "units": 162,
+        "comparisonRows": 196,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 38
+      },
+      {
+        "book": "Zephaniah",
+        "units": 42,
+        "comparisonRows": 42,
+        "rowsWithoutExplanation": 0,
+        "unitsWithoutSynopsis": 13
+      }
+    ]
+  },
+  "otherWitnessNotes": {
+    "lxx-readings": {
+      "readings": 13414,
+      "missingNotes": 0
+    },
+    "peshitta-readings": {
+      "readings": 11132,
+      "missingNotes": 0
+    }
+  }
+}

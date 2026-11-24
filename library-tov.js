@@ -45,7 +45,7 @@ function create(host){
           const tradition=window.TextCritTraditions;
           const tags=tradition?.tags('LXX',code,ref.slice(rindex[code].book.length+1),r)||[];
           const html='<article class="tc-entry tc-tov-entry tc-lxx-reading" data-witness="'+raw(w)+'" data-lxx-type="'+raw(r.type)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" title="'+esc(window.TextCritSigla?.info('LXX',w).title||w)+'" data-tc-tov="'+raw(code+ref.slice(rindex[code].book.length))+'"'+(r.g?' data-tc-g="'+raw(r.g)+'"':'')+'>'+raw(window.TextCritSigla?.label('LXX',w)||w)+'</span> <abbr class="ab tc-tov-tag tc-ps-'+raw(r.type)+'" title="'+esc(title)+'">'+esc(lab)+'</abbr>'+greek+vorlage+note+(tradition?.badge(tags,raw)||'')+'</div><small class="tal-cite" tabindex="0" title="'+esc('Einordnung auf Grundlage der CATSS-Ausrichtung und Tovs Spalte b')+'">'+esc('LXX-Lesarten (Claude, 2026) · CATSS-Ausrichtung')+', '+raw(ref)+'</small></article>';
-          out.set(id,{anchor:anchor&&{...anchor,ref},displayRef:ref,rows:[row],html,cmp:r.vorlage||null,cmpWitness:r.vorlage?w:null,lz:anchor?readingLz(r,w,anchor.kind==='gap'?'add':r.he.length&&!r.g?'om':'var'):null});
+          out.set(id,{tovReading:{code,ref,g:r.g||''},anchor:anchor&&{...anchor,ref},displayRef:ref,rows:[row],html,cmp:r.vorlage||null,cmpWitness:r.vorlage?w:null,lz:anchor?readingLz(r,w,anchor.kind==='gap'?'add':r.he.length&&!r.g?'om':'var'):null});
         });
       }
     }
@@ -99,7 +99,7 @@ function create(host){
           const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" title="'+esc(window.TextCritSigla?.info('LXX',witness).title||witness)+'" data-tc-tov="'+esc(key)+'" data-tc-note="'+i+'">'+esc(window.TextCritSigla?.label('LXX',witness)||witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(sourceTitle)+'">'+esc(citation)+'</small></article>';
           const hebrew=/^[א-ת][א-ת ]*/.exec(columnText||'')?.[0].trim(),moved=n.codes.includes('{...}'),w=witness+(n.codes.includes('?')?'?':'');
           const lz=hebrew&&['=','=;','=:','=+'].includes(columnCode)?{op:'var',rd:hebrew,ret:true}:!moved&&n.codes.includes('---')?{op:'om'}:!moved&&n.codes.includes('--+')?{op:'add',rd:hebrew||''}:n.codes.some(c=>c==='=v'||c==='=@')?{op:'interp'}:n.codes.includes('=+')?{op:'note',title:'Zahl'}:null;
-          out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html,cmp:reconstructed?columnText:null,cmpWitness:witness,lz:lz&&readings(code,ref)===undefined?{f:'LXX',w,title:lz.ret?'Tov/Kraft':'',...lz}:null});
+          out.set(id,{tovSource:{code,ref,start:n.start,g:n.g},anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html,cmp:reconstructed?columnText:null,cmpWitness:witness,lz:lz&&readings(code,ref)===undefined?{f:'LXX',w,title:lz.ret?'Tov/Kraft':'',...lz}:null});
         });
       }
     }
@@ -133,7 +133,27 @@ function create(host){
     const edition=data.editions[v.edition];if(edition.sourceOnly)return;const m=/ (\d+):(\d+)$/.exec(v.ref);
     host.openGreek?.(anchor,{text:v.text,group:n.g,start:n.start,ctx:{title:edition.book,vt:edition.versionTitle,ch:+m[1],v:+m[2]}});
   }
-  return {load,entries,mt,credit,preview,open,loadReadings,readingEntries};
+  // Fold only exact source groups covered by one unique classified Greek span
+  // in the same edition, verse and MT anchor. All original rows stay available.
+  function renderEntries(records){
+    const words=window.GMorph?.words;if(!words)return records.map(r=>r.html).join('');
+    const folded=new Set(),details=new Map(),same=(a,b)=>a&&b&&a.ref===b.ref&&a.kind===b.kind&&a.start===b.start&&a.end===b.end;
+    for(const r of records){
+      const reading=r.tovReading;if(!reading?.g||!r.anchor)continue;
+      const edition=data?.editions[reading.code],v=edition&&data.verses[reading.code+reading.ref.slice(edition.book.length)];if(!v)continue;
+      const source=words(v.text),target=words(reading.g);if(!target.length)continue;
+      const starts=[];for(let i=0;i+target.length<=source.length;i++)if(target.every((w,j)=>source[i+j]===w))starts.push(i);
+      if(starts.length!==1)continue;
+      const start=starts[0],end=start+target.length;
+      const covered=records.filter(other=>{
+        const s=other.tovSource;if(!s||folded.has(other)||s.code!==reading.code||s.ref!==reading.ref||!same(r.anchor,other.anchor))return false;
+        const group=words(s.g||'');return group.length&&s.start>=start&&s.start+group.length<=end&&group.every((w,i)=>source[s.start+i]===w);
+      });
+      if(covered.length){covered.forEach(row=>folded.add(row));details.set(r,covered);}
+    }
+    return records.filter(r=>!folded.has(r)).map(r=>r.html+(details.has(r)?'<details class="tc-tov-source-details"><summary>'+esc('Tov/CATSS-Details')+' ('+details.get(r).length+')</summary>'+details.get(r).map(row=>row.html).join('')+'</details>':'')).join('');
+  }
+  return {load,entries,mt,credit,preview,open,loadReadings,readingEntries,renderEntries};
 }
 return {create};
 })();

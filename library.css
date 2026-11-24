@@ -1999,6 +1999,8 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .tc-hx-type[data-hx-type=mt] { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 .tc-hx-syn { display: grid; grid-template-columns: max-content 1fr; gap: .15em .6em; margin: .2em 0; }
 .tc-hx-row-sig { white-space: nowrap; }
+.tc-hx-explanation { display: block; margin: .3em 0 .45em; font: .85em/1.5 system-ui, sans-serif; color: var(--muted); white-space: normal; }
+.tc-hx-explanation[data-hx-explanation="editorial"], .tc-hx-explanation[data-hx-explanation="reviewed"] { color: var(--fg); }
 .tc-hx-syn:not(.full) .tc-hx-same-t { display: none; }
 .tc-hx-syn:not(.full) .tc-hx-same::before { content: '…'; color: var(--muted); }
 .tc-hx-syn.full .tc-hx-same { color: var(--muted); }
@@ -2630,3 +2632,5 @@ html.split #masoraPanel { right: var(--p2w); }
 .masora-refs, .masora-scope-note, .masora-credit { font-size: .82em; }
 .masora-credit { margin-top: 1.4em; padding-top: .6em; border-top: 1px solid var(--line); color: var(--muted); }
 .masora-count { font-weight: 600; }
+.tc-tov-source-details { margin: .3em 0 .6em; padding-left: .5em; border-left: 1px solid var(--line); }
+.tc-tov-source-details > summary { cursor: pointer; color: var(--muted); font-size: .85em; }

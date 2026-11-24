@@ -10,13 +10,13 @@ const HEX={
 };
 function info(f,w){
  const uncertain=String(w).endsWith('?'),key=uncertain?w.slice(0,-1):w;let value;
- if(f==='LXX'&&key==='LXX')value=['Ο΄','Septuaginta (LXX)'];
+ if(f==='LXX'&&(key==='LXX'||key.startsWith('LXX ')))value=[key.replace(/^LXX/,'Tov'),'Tov/Kraft · CATSS: Septuaginta-Text und Ausrichtung'];
  if(f==='Hex')value=HEX[key]||(key==='Hex'?['Field','Hexapla: Frederick Field (1875)']:null);
  return value?{label:value[0]+(uncertain?'?':''),title:value[1]}:{label:w,title:''};
 }
 function label(f,w){return info(f,w).label;}
 function legend(esc,t=s=>s){
- const rows=[['Ο΄','Septuaginta (LXX)'],...Object.values(HEX),['※','Asterisk: von Origenes nach dem Hebräischen ergänzt'],['÷','Obelus: in der LXX ohne hebräisches Gegenstück'],['↙','Metobelus: Ende eines mit kritischem Zeichen markierten Abschnitts']];
+ const rows=[['Tov','Tov/Kraft · CATSS: Septuaginta-Text und Ausrichtung'],['Ο΄','Septuaginta (LXX)'],...Object.values(HEX),['※','Asterisk: von Origenes nach dem Hebräischen ergänzt'],['÷','Obelus: in der LXX ohne hebräisches Gegenstück'],['↙','Metobelus: Ende eines mit kritischem Zeichen markierten Abschnitts']];
  return '<summary>'+esc(t('Siglen und Zeichen nach Field'))+'</summary><dl>'+rows.map(([s,title])=>'<div><dt lang="grc">'+esc(s)+'</dt><dd>'+esc(t(title))+'</dd></div>').join('')+'</dl><p>'+esc(t('Kritische Zeichen erscheinen nur, wo sie in der Field-Quelle stehen. Syr bezeichnet hier die Peschitta; Fields „Ὁ Σύρος“ bleibt ein eigener Quellenbeleg.'))+'</p>';
 }
 const api={info,label,legend};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.TextCritSigla=api;

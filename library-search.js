@@ -581,6 +581,7 @@ window.LibrarySearch = (() => {
       apply: sEntApply,
       resultAt: (i, cp) => cp == null ? sResults[i] : sResults[i]?.parallels?.[+cp],
       getLastSearch: () => lastSearch,
+      researchSnapshot: () => ({ params: lastSearch, hits: sResults.slice(0, 200), complete: !sBusy() && !sSumState?.res?.cancelled && sResults.length <= 200 && !(sSumState?.res?.truncated), total: sResults.length }),
       selectBook(g) {
         setSearchMode('text');
         sCats.clear(); sTitles.clear(); sTitles.add(g.title);

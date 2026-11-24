@@ -813,6 +813,23 @@ ipcMain.handle('notes:merge', async (_e, incoming) => {
 });
 ipcMain.handle('notes:delete', (_e, id) => writeNotes(items => items.filter(x => x.id !== id)));
 
+require('./research-ipc').register({
+  ipcMain, getLibrary, readLegacyNotes: readNotes,
+  privateInterlinearRead: () => privateInterlinear.read(),
+  commentaryLinks: async (book, chap) => {
+    let rows = await (await getLinks()).forSection(book, chap);
+    rows = await fillCommentaryGaps(book, chap, rows);
+    return rows.concat(await ownCommentaryLinks(book, chap));
+  },
+  saveLegacyNote: (id, patch, expectedTs) => writeNotes(items => {
+    const i = items.findIndex(n => n.id === id);
+    if (i < 0 || (items[i].ts || 0) !== expectedTs) throw Error('Notiz inzwischen geändert. Bitte neu laden.');
+    items[i] = { ...items[i], ...patch, ts: Date.now() }; return items;
+  }),
+  dialog, BrowserWindow, winOf, tempDir: () => app.getPath('temp'),
+  broadcast: () => { for (const w of BrowserWindow.getAllWindows()) if (!w.isDestroyed()) w.webContents.send('research:changed'); },
+});
+
 // Verknüpfungen (Links zwischen Texten)
 let linkStore = null, linkCancel = false;
 async function getLinks() {

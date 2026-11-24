@@ -1,0 +1,314 @@
+{
+  "status": "tanach_recognized_rows_complete",
+  "goal": "Short source-bound semantic or grammatical explanations for all recognized differing Field translator rows across the Tanach.",
+  "initialOpenRows": 28008,
+  "currentOpenRows": 0,
+  "pentateuchPass": {
+    "initialOpenRows": 4402,
+    "authoredShortNotes": 4386,
+    "remainingIdentifiedGaps": 0,
+    "note": "The difference includes repaired references and inline critical signs that were falsely counted as differing translator readings.",
+    "validation": "npm test: full suite passed; source-bound DE/EN coverage test passed; Electron Genesis display smoke passed"
+  },
+  "basis": "tools/hexapla/explanations-audit.json; counts measure visible short-note coverage, not external scholarly review",
+  "completedRanges": [
+    {
+      "book": "Amos",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 17,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Daniel",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 288,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Deuteronomy",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 443,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Ecclesiastes",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 19,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Esther",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 50,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Exodus",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 529,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Ezekiel",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 351,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Ezra",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 48,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Genesis",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 242,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Habakkuk",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 8,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Haggai",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 13,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Hosea",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 32,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "I Chronicles",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 104,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "I Kings",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 339,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "I Samuel",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 112,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "II Chronicles",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 135,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "II Kings",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 256,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "II Samuel",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 121,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Isaiah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 293,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Jeremiah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 496,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Job",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 277,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Joel",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 12,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Jonah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 8,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Joshua",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 473,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Judges",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 221,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Lamentations",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 26,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Leviticus",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 179,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Malachi",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 9,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Micah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 24,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Nahum",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 7,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Nehemiah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 64,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Numbers",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 531,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Obadiah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 1,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Proverbs",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 174,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Psalms",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 218,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Ruth",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 28,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Song of Songs",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 13,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Zechariah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 38,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    },
+    {
+      "book": "Zephaniah",
+      "chapters": "all",
+      "remainingIdentifiedGaps": 0,
+      "unitsWithoutSynopsis": 13,
+      "scope": "Recognized differing translator rows; unsplit source commentaries are outside this coverage claim."
+    }
+  ],
+  "nextRange": null,
+  "rebuildQueue": "node tools/hexapla/audit_explanations.cjs --write --gaps-csv /tmp/hexapla-erlaeuterungsluecken.csv",
+  "currentRequestedScope": "Complete Tanach: Pentateuch, Neviim through Malachi, Ketuvim",
+  "nextRequestedScope": null,
+  "neviimPass": {
+    "status": "complete",
+    "initialOpenRows": 14236,
+    "remainingIdentifiedGaps": 0,
+    "remainingDisplaySelectors": 0,
+    "validation": "All 21 books have no recognized explanation gaps or invisible curated records; targeted regressions passed (30/30)."
+  },
+  "ketuvimPass": {
+    "status": "complete",
+    "remainingIdentifiedGaps": 0,
+    "remainingDisplaySelectors": 0,
+    "validation": "All 13 books covered in German and English; all curated notes visible; Electron Psalms display passed; complete suite passed (367/367); final focused recheck passed (22/22)."
+  },
+  "visibleEditorialNotes": 27654,
+  "validation": {
+    "build": "Source guards verified",
+    "coverage": "39 books, 0 recognized differing rows without notes, 0 invisible curated records",
+    "electron": "Genesis and Psalms display smokes passed",
+    "fullSuite": "npm test passed: 367 tests, 0 failures; final focused recheck passed: 22 tests, 0 failures.",
+    "targeted": "22/22 passed after final semantic corrections"
+  }
+}

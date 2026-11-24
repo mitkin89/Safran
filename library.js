@@ -38,6 +38,7 @@
   const keyOf = e => e.categories.join('/') + '¦' + e.title;
 
   // ---------- Reiter ----------
+  let researchUI = null;
   let onTabChange = null; // wird weiter unten für den Reiter „Wörterbuch“ gesetzt
   const tabScroll = {}; // Scrollposition von Notizen/Suche, damit man nach einem Sprung ins Lesen an derselben Stelle zurückkommt
   // Wörterbuch-Reiter: Fläche beginnt direkt unter der Kopfzeile (Höhe hängt vom Fenster ab), in der Seitenleiste bleibt es beim festen Wert
@@ -61,6 +62,7 @@
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
     if (prevTab && prevTab !== t && (prevTab === 'read' || t === 'read') && panelOpen) { panelOpen = false; applyPanel(); } // beim Verlassen und Zurückkehren ist die Bücherliste zu
     if (onTabChange) onTabChange(t, prevTab);
+    if (t === 'research') researchUI?.open();
     if (prevTab !== t && typeof window.__refind === 'function') window.__refind(); // offene Suchleiste: im neuen Reiter neu suchen
     if ((t === 'notes' || t === 'search') && prevTab !== t && tabScroll[t]) { const y = tabScroll[t]; requestAnimationFrame(() => window.scrollTo(0, y)); setTimeout(() => window.scrollTo(0, y), 150); }
   }
@@ -2370,6 +2372,8 @@
       const items = [];
       if (word) items.push({ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) });
       items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+      const selection=researchUI?.getReaderSelection();
+      if(selection?.labels?.length)items.push({label:I18N.t('Zum Quellenblatt hinzufügen …'),fn:()=>researchUI.captureSelection(selection)});
       ctxShow(e, items); return;
     }
     if (!row || !view || !view.group) return;
@@ -2913,6 +2917,29 @@
     get view() { return view; }, set view(value) { view = value; },
   });
   // end-reader-module:notes
+
+  researchUI = window.LibraryResearch.create({
+    portraitOf,
+    showTab, getView: () => view, getRow: () => cmtRow,
+    getSearch: () => searchUI.researchSnapshot(),
+    notesChanged: () => notesUI.loadNotes(),
+    getReaderSelection: () => {
+      const sel=window.getSelection(),out=$('#rOut');if(!sel?.rangeCount||sel.isCollapsed)return {};
+      const range=sel.getRangeAt(0),node=sel.anchorNode?.nodeType===1?sel.anchorNode:sel.anchorNode?.parentElement;
+      if(!node?.closest('#rOut')||!out.contains(range.endContainer))return {};
+      const rel=node.closest('.cell[data-rel]')?.dataset.rel;
+      const labels=$$('#rOut .row[data-l]').filter(row=>range.intersectsNode(rel?row.querySelector(`.cell[data-rel="${CSS.escape(rel)}"]`)||row:row)).map(row=>row.dataset.l);
+      return {rel,labels};
+    },
+
+    openRef: async ref => {
+      const g = [...groupsByKey.values()].find(g => ref.rel ? g.versions.some(v => v.rel === ref.rel) : g.key === ref.key);
+      if (ref.rel && !g) throw Error('Diese Edition ist nicht mehr in der Bibliothek.');
+      if (g) await openGroup(g, { rel: ref.rel, sectionPath: ref.sectionPath, rowLabel: ref.labels?.[0] }, true);
+      else await jumpTo(ref.label);
+    },
+  });
+
 
   window.LibraryExport.create({
     $, getView: () => view, getNotes: () => notesUI.notesAll, stripHe, noteId,
