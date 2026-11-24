@@ -1,17 +1,19 @@
 # Rechercheprojekte und Quellenblätter
 
-Im Reiter **Recherche** ein Projekt mit Titel, Beschreibung und Schlagwörtern anlegen. Darin liegen Quellenblätter, Sammlungen und Notizen. Die Einträge lassen sich nach Text, Quelle, Thema und Schlagwort filtern. Projekte können archiviert und später wieder geöffnet werden.
+Über **Projekt verwalten → Neues Projekt** im Reiter **Recherche** ein Projekt mit Titel, Beschreibung und Schlagwörtern anlegen. Darin liegen Quellenblätter, Sammlungen und Notizen. Die Einträge lassen sich nach Text, Quelle, Thema und Schlagwort filtern. Projekte können archiviert und später wieder geöffnet werden.
 
 ## Quellenblätter erstellen
 
 1. Im Lesefenster einen Text öffnen. **＋ Quellenblatt** zeigt eine ausdrückliche Editions- und Abschnittsauswahl. Die aktuell gewählten Zeilen werden vorgeschlagen. Leere Zeilenauswahl übernimmt den ganzen Abschnitt; `1–3, 7` übernimmt die entsprechenden vorhandenen Zeilen. Fehlende Zeilen werden als Fehler gemeldet.
 2. Das Zielblatt wählen oder ein neues Blatt erstellen. Ein geöffnetes Blatt im aktuellen Projekt erhält den Baustein direkt. **Speichern** schreibt den Entwurf dauerhaft.
 3. Im Kommentarbereich übernimmt **＋ Quellenblatt** den zugehörigen Kommentar aus genau der dort angezeigten Edition. Verschachtelte oder kapitelübergreifende Bereiche, die nicht eindeutig aufgelöst werden können, müssen im Lesefenster ausdrücklich ausgewählt werden.
-4. Eigene Texte, Überschriften und verknüpfte Notizen hinzufügen. Mit ↑ und ↓ die Bausteine ordnen. Einträge aus einer Sammlung können wieder in ein Blatt eingefügt werden.
+4. Über **＋ Hinzufügen** eigene Texte, Überschriften und verknüpfte Notizen hinzufügen. Gespeicherte Inhalte erscheinen als lesbare Karten; **Bearbeiten** öffnet die Textfelder, **Fertig** kehrt zur Vorschau zurück. Im **⋯**-Menü der Karte stehen Verschieben und Entfernen. Einträge aus einer Sammlung können wieder in ein Blatt eingefügt werden.
+
+Links stehen die Einträge des Projekts, rechts das aktuelle Arbeitsblatt. **Beschreibung und Schlagwörter** sowie **Quellenangabe** sind zunächst eingeklappt. Lange Auszüge lassen sich mit **Mehr anzeigen** vollständig lesen. **Speichern** bleibt in der Dokumentleiste erreichbar; alternativ **⌘/Strg+S** verwenden. Die Lesetabs werden in der Rechercheansicht ausgeblendet und erscheinen beim Wechsel zurück zu **Lesen** wieder.
 
 Quellenauszüge sind gespeicherte Kopien; Bibliothekstexte werden dabei nicht bearbeitet. Änderungen am Auszug werden im Export als **Bearbeiteter Auszug** ausgewiesen. Die ursprüngliche Kopie und der SHA256-Hash des Editionstextes bleiben im Projektpaket erhalten. Die normale Leserübernahme lässt Fußnoten und deren Zeichen weg; die Übernahme von Suchtreffern enthält die vorhandenen Fußnotentexte, damit Treffer darin erhalten bleiben. Formatierung wird in Klartext überführt.
 
-**Wissenschaftliche Quellenangabe** enthält Werk, vollständigen Editionstitel, Fundstelle, Quellen-URL und explizit vorhandene Angaben zu Übersetzer, Herausgeber, Verlag und Jahr. Fehlende Angaben bleiben leer und können ergänzt werden; Namen werden nicht aus Autorenporträts erraten. Exporte zeigen die Quellenangabe am Auszug und gesammelt im Quellenverzeichnis. Dies ist eine allgemeine bibliografische Darstellung, keine Auswahl zwischen CSL-Zitierstilen.
+**Quellenangabe** auf der Quellenkarte enthält Werk, vollständigen Editionstitel, Fundstelle, Quellen-URL und explizit vorhandene Angaben zu Übersetzer, Herausgeber, Verlag und Jahr. Fehlende Angaben bleiben leer und können ergänzt werden; Namen werden nicht aus Autorenporträts erraten. Exporte zeigen die Quellenangabe am Auszug und gesammelt im Quellenverzeichnis. Dies ist eine allgemeine bibliografische Darstellung, keine Auswahl zwischen CSL-Zitierstilen.
 
 ## Sammlungen und Rechercheergebnisse
 
@@ -29,7 +31,7 @@ Vorhandene Bibliotheksnotizen behalten ihren bisherigen Leseanker in `notes.json
 
 ## Export, Wiederverwendung und Teilen
 
-Vor einem Export den Entwurf speichern.
+**Exportieren** in der Dokumentleiste öffnet die Auswahl für PDF, Word und HTML. Der aktuelle Entwurf wird vorher automatisch gespeichert; ein Speicherkonflikt stoppt den Export. Projektpakete und weitere Datenformate liegen unter **Projekt verwalten**.
 
 | Ausgabe | Inhalt |
 | --- | --- |
@@ -40,7 +42,7 @@ Vor einem Export den Entwurf speichern.
 | Forschungsdaten CSV | Bausteine aus Quellenblättern und Sammlungen sowie Notizen, UTF-8 mit BOM, RFC4180-Quoting; eine Zeile je Baustein/Notiz |
 | Annotationen JSON-LD | Notizen als W3C-Web-Annotation-`AnnotationPage`, Text-/Tag-Körper und mehrere Quellenziele, echte Zitatselektoren nur bei vorhandenem Quellenauszug |
 
-Die JSON-Datei weitergeben und über **Projektpaket importieren …** öffnen. Beim Import erhalten Projekte, Einträge und verknüpfte Notizen neue Kennungen; bestehende Einträge werden nicht überschrieben. Die Quellenkopien funktionieren auch ohne die ursprüngliche Bibliothek. Zum Anspringen des Originaltextes muss die passende Edition lokal vorhanden sein. Teilen erfolgt über Dateien, ohne öffentliche Hosting-Adresse, Zusammenarbeit in Echtzeit oder Cloud-Synchronisierung.
+Die JSON-Datei weitergeben und über **Projekt verwalten → Projektpaket importieren …** öffnen. Beim Import erhalten Projekte, Einträge und verknüpfte Notizen neue Kennungen; bestehende Einträge werden nicht überschrieben. Die Quellenkopien funktionieren auch ohne die ursprüngliche Bibliothek. Zum Anspringen des Originaltextes muss die passende Edition lokal vorhanden sein. Teilen erfolgt über Dateien, ohne öffentliche Hosting-Adresse, Zusammenarbeit in Echtzeit oder Cloud-Synchronisierung.
 
 CSV ist eine tabellarische Ausgabe; das verlustfreie Austauschformat einschließlich aller Referenzen, Themen und Versionsinformationen ist das Projektpaket. JSON-LD dient dem Annotationsaustausch. `safran:locator`, `safran:edition`, `safran:project` und `safran:topics` ergänzen das Web-Annotation-Vokabular. Wenn eine Quellen-URL fehlt, dient eine `urn:safran:source:`-Kennung als Ziel. Die URL bezeichnet ggf. die ganze Ausgabe, die konkrete Stelle steht zusätzlich in der Fundstellenangabe.
 
@@ -48,12 +50,12 @@ CSV ist eine tabellarische Ausgabe; das verlustfreie Austauschformat einschließ
 
 `research.json` liegt im aktiven Bibliotheksordner. Schreibvorgänge sind serialisiert und verwenden atomaren Dateiersatz; fünf Sicherungen bleiben erhalten. Eine beschädigte Hauptdatei wird aus einer lesbaren Sicherung geladen und beim nächsten Schreiben separat aufbewahrt. Gibt es keine lesbare Sicherung, wird nicht mit einer leeren Datei weitergeschrieben.
 
-Ungespeicherte Entwürfe werden getrennt je Lesefenster im lokalen Anwendungsspeicher zwischengespeichert und beim Öffnen der Rechercheansicht wiederhergestellt. Dauerhaftes Speichern bleibt ausdrücklich erforderlich. Bei zwischenzeitlichen Änderungen desselben Eintrags verweigert die Versionsprüfung das Überschreiben und erhält den lokalen Entwurf. **Neu laden / Entwurf verwerfen** holt den aktuellen Stand nach ausdrücklicher Bestätigung.
+Ungespeicherte Entwürfe werden getrennt je Lesefenster im lokalen Anwendungsspeicher zwischengespeichert und beim Öffnen der Rechercheansicht wiederhergestellt. Dauerhaftes Speichern bleibt ausdrücklich erforderlich. Wenn während einer laufenden Speicherung weitergetippt wird, bleiben diese neueren Änderungen als ungespeicherter Entwurf samt Eingabefokus erhalten. Ein Export bricht ab, falls während seiner vorgelagerten Speicherung weitere Änderungen hinzukamen. Bei zwischenzeitlichen Änderungen desselben Eintrags verweigert die Versionsprüfung das Überschreiben und erhält den lokalen Entwurf. **Neu laden / Entwurf verwerfen** holt den aktuellen Stand nach ausdrücklicher Bestätigung.
 
 Grenzen: maximal 32 MiB pro Recherchedatei/Projektimport, 10.000 Einträge je Datentyp, 2.000 Bausteine pro Blatt/Sammlung und 100 Referenzen pro Notiz.
 
 ## Validierung dieses Entwicklungsstands
 
 - `node --test tests/research*.test.js`: Quellen-/Kommentarauswahl, Editionsangaben, Suchtreffer mit Fußnoten, bestehende Notizanker, mehrere Referenzen, Speicherkonflikte, Sicherungswiederherstellung, Projektaustausch und Exportsicherheit/OOXML-Struktur.
-- `SAFRAN_SMOKE_RESEARCH=1 electron tests/electron/smoke.cjs`: echte Produktionsoberfläche und Preload, isolierte Testbibliothek; Projekt, Zunz-Quellenübernahme, eigener Text, Notiz mit zwei Fundstellen, Suchtreffersammlung und Wiederverwendung, echte PDF-Erzeugung, DOCX/HTML/CSV/JSON-LD, Projektimport, Entwurfswiederherstellung und Konfliktmeldung.
+- `SAFRAN_SMOKE_RESEARCH=1 electron tests/electron/smoke.cjs`: echte Produktionsoberfläche und Preload, isolierte Testbibliothek; Projekt, Zunz-Quellenübernahme, eigener Text, Notiz mit zwei Fundstellen, Suchtreffersammlung und Wiederverwendung, echte PDF-Erzeugung, DOCX/HTML/CSV/JSON-LD, Projektimport, Entwurfswiederherstellung und Konfliktmeldung. Zusätzliche Oberflächenprüfungen decken die eingeklappte Vorschau, Menüs, Bearbeitung, Tastaturspeicherung und schmale Fenster ab.
 - Allgemeine Regressionen: `npm test`. Der gezielte Electron-Lauf ergänzt diese Tests; er ist kein vollständiger Durchlauf sämtlicher vorhandener Electron-Abläufe.
