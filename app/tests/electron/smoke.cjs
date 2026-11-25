@@ -137,6 +137,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./concordance-flows.cjs')({win,js,waitFor});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_TOV==='1'){await js("for(const id of ['tcDss','tcKen','tcPs','tcHex','tcMa']){document.getElementById(id).checked=false;document.getElementById(id).dispatchEvent(new Event('change',{bubbles:true}));}");await require('./tov-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_LZ==='1'){
   await require('./textcrit-summary-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;

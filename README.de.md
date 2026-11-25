@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.0.md"><b>Neu in 2.8.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.5.md"><b>Neu in 2.8.5</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
@@ -25,7 +25,7 @@
 
 Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Der **textkritische Apparat** vergleicht den masoretischen Text mit sieben Zeugen: Aleppo-Text, Samaritanus, Qumran-Rollen, Septuaginta, Fields Hexapla, Peschitta und Kennicotts Handschriften. Der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und die **Wortkarte** zeigen, wie hebräische Wörter übersetzt werden. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **elf Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
-**Neu in 2.8.0:** die Peschitta zu allen 39 Büchern (Lesetext, Interlinear und Zeuge Syr), Fields Hexapla, der Aleppo-Vergleich (MA), eingeordnete LXX- und Peschitta-Lesarten, die Lesartenzeile und *Ähnliche Kapitel* – siehe [Versionshinweise](docs/releases/2.8.0.md) (englisch) und [Überblicksvideo](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
+**Neu in 2.8.5:** Notizbücher mit verknüpften Versauszügen, erweiterte Quellenblätter, Offline-Masora mit deutschen Arbeitsübersetzungen und übersichtlichere Studienwerkzeuge. Siehe [Versionshinweise](docs/releases/2.8.5.md).
 
 <p align="center">
   <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Jesaja 53,9 als Interlinear mit Septuaginta, Qumran-Rollen und Peschitta; daneben das Apparat-Fenster mit Lesartenzeile, der Lesart ויתנו von 1QIsaa, der LXX-Lesart καὶ δώσω mit rekonstruierter Vorlage und den Hexapla-Zeilen der Drei mit „folgt dem MT“" width="900"></a><br>

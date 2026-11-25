@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Download Safran for macOS, Windows or Linux" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Download%20Safran-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.0.md"><b>New in 2.8.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.5.md"><b>New in 2.8.5</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 as an interlinear – under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921); a clicked word is highlighted in the Hebrew and in the running translation" width="900"></a><br>
@@ -25,7 +25,7 @@
 
 Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. The **textual apparatus** compares the Masoretic text with seven witnesses: the Aleppo text, the Samaritan Pentateuch, the Qumran scrolls, the Septuagint, Field's Hexapla, the Peshitta and Kennicott's manuscripts. The **whole Tanakh word by word in German** (interlinear) and a **word card** show how Hebrew words are translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **eleven dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
-**New in 2.8.0:** the Peshitta for all 39 books (reading text, interlinear and the Syr witness), Field's Hexapla, the Aleppo comparison (MA), classified LXX and Peshitta readings, the reading line and *Similar chapters* – see the [release notes](docs/releases/2.8.0.md) and the [overview video](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
+**New in 2.8.5:** notebooks with linked verse excerpts, richer source sheets, offline Masora with German working translations, and clearer study controls. See the [release notes](docs/releases/2.8.5.md).
 
 <p align="center">
   <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Isaiah 53:9 as an interlinear with the Septuagint, the Qumran scrolls and the Peshitta; beside it the Apparatus pane with the reading line, the variant ויתנו of 1QIsaa, the LXX reading καὶ δώσω with its reconstructed Vorlage, and the Hexapla rows of the Three marked “follows the MT”" width="900"></a><br>

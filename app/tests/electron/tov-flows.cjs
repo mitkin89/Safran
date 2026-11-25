@@ -7,6 +7,8 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   await waitFor("document.querySelector('#rOut .row[data-l=\"6\"]')",'Genesis 1:6 geladen');
   await js("document.querySelector('#rOut .row[data-l=\"6\"] .txt').click()");
   await waitFor("document.querySelector('#tcBody .tc-tov-entry')?.textContent.includes('καὶ ἐγένετο')",'Tovs Plus und Rückübersetzung ohne ausgewählte LXX-Lesespalte');
+  // Original CATSS rows now live below the classified reading in a disclosure.
+  await js("{const d=document.querySelector('#tcBody .tc-tov-lemma')?.closest('details');if(d&&!d.open)d.querySelector('summary').click();}");
   assert(await js("[...document.querySelectorAll('#tcBody abbr')].some(n=>n.textContent==='erschlossen'&&n.title.includes('=;')&&n.title.includes('Rückübersetzung'))"));
   assert(await js("document.querySelector('#tcBody').textContent.includes('ויהי') && !document.querySelector('#tcBody .tc-tov-entry details, #tcBody .tc-tov-entry summary')"));
   assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-tag')].some(n=>n.textContent==='LXX-Zusatz'&&n.title.startsWith('--+'))"));
@@ -15,6 +17,8 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   await js(`${target}.scrollIntoView({block:'center'})`);
   await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
   const point=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
+  assert(await js(`document.elementFromPoint(${point.x},${point.y})?.closest('.tc-witness-label')===${target}`),'Tov witness label is visible and unobscured');
+  win.webContents.sendInputEvent({type:'mouseMove',x:1,y:1});
   win.webContents.sendInputEvent({type:'mouseMove',...point});
   await waitFor("document.querySelector('#tcHover')?.textContent.includes('στερέωμα')",'Griechischer Verskontext über dem Lemma');
   assert(await js("document.querySelectorAll('#tcHover .tc-il-unit').length>5 && document.querySelector('#tcHover .tc-il-unit.active [lang=grc]')?.textContent==='καὶ ἐγένετο' && [...document.querySelectorAll('#tcHover .tc-il-he')].some(n=>n.textContent==='רקיע') && document.querySelector('#tcHover .tc-il-retro')?.textContent.includes('erschlossen')"),'Source-aligned Greek/Hebrew interlinear hover with highlighted group');

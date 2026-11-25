@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+### New in 2.8.5
+
 - Organize the repository as an npm workspace with application code, bundled data and tools in `app/`. Move 43 numbered root test scripts into descriptively named integration checks, retain isolated execution and automatic discovery, and preserve root npm commands and release artifact paths.
 
 - Combine Research editing and arrangement into one workspace: full source cards, paired texts, editing controls and draggable commentary groups appear directly in their layout areas. Keep add/title actions, per-column reordering and undo/redo available; stack areas in narrow windows and retain a separate print preview.
