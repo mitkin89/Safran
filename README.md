@@ -18,6 +18,16 @@ Safran is a free, open-source desktop app. Read texts side by side, follow a Heb
 
 **Current release: [2.8.6](https://github.com/mitkin89/Safran/releases/tag/2.8.6)** — verse-aligned Maccabees editions, source-sheet footnotes and improved PDF exports. [Release notes](docs/releases/2.8.6.md).
 
+## Screenshots
+
+| | |
+| --- | --- |
+| ![Genesis 1 chapter overview: unusually frequent words compared with the rest of Genesis and highlighted in the Hebrew text.](screenshots/current/chapter-overview.png) | ![Genesis 1 with interlinear lines for ancient textual witnesses and an open Syriac Peshitta word analysis.](screenshots/current/ancient-versions.png) |
+| ![Word card for אֶרֶץ beside Genesis: distribution in the Tanakh, frequent forms and German renderings in Mendelssohn’s translation.](screenshots/current/word-study.png) | ![Search results in Hebrew and Aramaic, with highlighted matches, distribution across books and category filters.](screenshots/current/search.png) |
+| ![Notes workspace with notebook navigation, a note list and two linked sources: Hoffmann on Deuteronomy and Job 1:1.](screenshots/current/notebooks.png) | ![Source-sheet editor for Bava Metzia 20a: Hebrew and Aramaic main text, Sammter and Goldschmidt translations in the margins, source navigation and undo/redo controls.](screenshots/current/source-sheet.png) |
+| ![Source-sheet page preview with the Hebrew and Aramaic text between two German translations.](screenshots/current/source-sheet-preview.png) | ![Genesis 1:2 with Field’s Hexapla readings for Aquila, Symmachus and Theodotion and English explanations beside the Hebrew text.](screenshots/current/apparatus.png) |
+| ![Masorah notes on Genesis 1:2 beside the Hebrew text, with cited passages and visible German working translations.](screenshots/current/masora.png) |  |
+
 ## Install
 
 Choose a download from the [latest release](https://github.com/mitkin89/Safran/releases/latest):
@@ -51,31 +61,21 @@ New Hebrew Bible sources default to **Westminster (OSHB)** until you choose anot
 
 The chapter overview compares unusually frequent and rare words, roots, verb forms, word combinations and names. Compare a chapter with its book or the whole Tanakh, highlight the results in the reader and explore similar chapters.
 
-![Genesis 1 chapter overview: unusually frequent words compared with the rest of Genesis and highlighted in the Hebrew text.](screenshots/current/chapter-overview.png)
-
 ### Ancient versions word by word
 
 Compare the Septuagint, Onkelos, Qumran scrolls, Samaritan Pentateuch and Peshitta beneath the Westminster text where word alignments are available. Click an annotated word for its analysis, source and dictionary links.
-
-![Genesis 1 with interlinear lines for ancient textual witnesses and an open Syriac Peshitta word analysis.](screenshots/current/ancient-versions.png)
 
 ## Words, dictionaries and search
 
 A word card connects morphology, attested forms, translation choices and occurrences. Compare how an aligned translation renders a lemma, then open the passages behind that rendering.
 
-![Word card for אֶרֶץ beside Genesis: distribution in the Tanakh, frequent forms and German renderings in Mendelssohn’s translation.](screenshots/current/word-study.png)
-
 The dictionary shelf includes BDB, Gesenius, Jastrow, Levy, Liddell & Scott, Pape, Krauss and Hamburger. Search headwords or article text, explain supported abbreviations on hover, and open linked citations in the reader. You can also add DSL dictionaries.
 
 Full-text search supports phrases, wildcards, nearby words, language and book filters. Hebrew and Greek lemma searches find inflected forms; morphology and clause tools offer more structured searches. [Concordance](docs/concordance.md) · [Tanakh clause search](docs/bhsa-clause-search.md).
 
-![Search results in Hebrew and Aramaic, with highlighted matches, distribution across books and category filters.](screenshots/current/search.png)
-
 ## Notebooks and source sheets
 
 The **Notes** workspace brings your notebooks and project source sheets together. Notes can hold formatted text, tags and several linked excerpts from specific editions. Drafts stay available while you move between notes.
-
-![Notes workspace with notebook navigation, a note list and two linked sources: Hoffmann on Deuteronomy and Job 1:1.](screenshots/current/notebooks.png)
 
 Use a source sheet to prepare a lesson, a comparison or a reading session:
 
@@ -84,17 +84,11 @@ Use a source sheet to prepare a lesson, a comparison or a reading session:
 3. Add headings, your own text, commentary and linked notes. Jump through the source outline, arrange sources in the main text or margins, remove items, and undo/redo edits.
 4. Preview the page and export PDF, DOCX or HTML. Reuse collections or share a project JSON package; CSV and JSON-LD exports support research workflows.
 
-![Source-sheet editor for Bava Metzia 20a: Hebrew and Aramaic main text, Sammter and Goldschmidt translations in the margins, source navigation and undo/redo controls.](screenshots/current/source-sheet.png)
-
-![Source-sheet page preview with the Hebrew and Aramaic text between two German translations.](screenshots/current/source-sheet-preview.png)
-
 [Detailed source-sheet workflow, formats and limits](docs/RESEARCH.md) (German).
 
 ## Textual apparatus
 
 The apparatus compares the Westminster text with manuscripts and ancient versions. Read a verse or chapter, choose witnesses, follow the reading position and inspect the source behind a variant.
-
-![Genesis 1:2 with Field’s Hexapla readings for Aquila, Symmachus and Theodotion and English explanations beside the Hebrew text.](screenshots/current/apparatus.png)
 
 | Witness | Comparison | Coverage |
 | --- | --- | --- |
@@ -113,8 +107,6 @@ Classifications, inferred Hebrew Vorlagen and automated explanations are study a
 Browse **26,969 transcribed notes** from **1,550 published pages of 18 manuscripts**, imported from Corpus Masoreticum / BIMA. Filter manuscripts, follow verses and preview cited passages.
 
 The compact view keeps the Hebrew note and **German working translation** together. Explanations remain visible; manuscript and source details expand when needed. Supported word links highlight the relevant text.
-
-![Masorah notes on Genesis 1:2 beside the Hebrew text, with cited passages and visible German working translations.](screenshots/current/masora.png)
 
 Translations are working versions: damaged, ambiguous and incomplete passages remain identified. Verse and word links are derived from the available evidence. The import covers a published-page snapshot, not complete editions of every manuscript. [Method and coverage](docs/masora-import.md) · [Source license](app/LICENSE-MASORA.md).
 
