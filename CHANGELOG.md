@@ -1,5 +1,13 @@
 # Changelog
 
+### New in 2.8.7
+
+- Choose individual Sefaria editions or download all English editions for selected books. Keep downloaded English merged texts selectable beside named editions, and recognize the verified catalogue spelling variants.
+- Change the edition of a linked passage in Notes with a preview. Remove individual editions from the local library with confirmation.
+- Capture Septuagint, Onkelos, Qumran, Samaritan Pentateuch and Peshitta interlinear word groups in source sheets.
+- Include the vocalized Kaufmann-based Mishnah edition and a pilot for grammar-based morphology in Mishnah Berakhot.
+- Include Linux ARM64 Debian packaging in the release build and package launcher icons in nine sizes.
+
 ### New in 2.8.6
 
 - Group Maccabees I–IV in the library and align the available editions to individual Septuagint verses using checked source references. Retain native edition files, session keys and search scopes.
