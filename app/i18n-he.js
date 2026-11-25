@@ -654,6 +654,9 @@ window.I18N_HE = {
 "Editionen": "מהדורות",
 "Ausgabe entfernen: {}": "הסרת מהדורה: {}",
 "Entfernen …": "הסרה…",
+"Ausgabe wechseln": "החלפת מהדורה",
+"Ausgabe nicht erfasst": "לא צוינה מהדורה",
+"Ausgabe auswählen …": "בחירת מהדורה…",
 "Editionen einzeln auswählen": "בחירת מהדורות בודדות",
 "Wähle die Editionen für die markierten Bücher und Sprachen.": "בחרו מהדורות עבור הספרים והשפות שסומנו.",
 "Zusammengeführte Fassung": "מהדורה מאוחדת",
@@ -1055,4 +1058,3 @@ window.I18N_HE = {
 "h10": "Safran כבר מכיל כמה טקסטים, מילונים ואת התנ״ך העברי עם מורפולוגיה. <b>ספריית Sefaria</b> עם תנ״ך, תלמוד, משנה, מדרש ופרשנים עדיין לא הורדה."
 }
 };
-

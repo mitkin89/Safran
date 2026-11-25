@@ -3077,3 +3077,6 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .macc-native-number { color:var(--muted); font:normal .65em/1.2 sans-serif; margin-inline-end:.5em; vertical-align:super; user-select:none; }
 
 .aligned-passages .macc-continuation { margin:12px; font-size:.85em; white-space:normal; }
+
+#nwEditionPreview { white-space: pre-wrap; max-height: 35vh; overflow: auto; }
+.nw-dialog #nwEditionChoice { width: 100%; }

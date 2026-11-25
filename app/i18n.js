@@ -158,6 +158,8 @@
     "Nur dieser Text · Schriftgröße aus dem Layout.": "Only this text · font size from the layout.",
     "Einzelschriftgrößen unter „Übersetzung / Interlinear“ haben Vorrang vor den Layout-Schriftgrößen.": "Individual font sizes under Translation / interlinear override the layout font sizes.",
     "Ausgabe wechseln": "Change edition",
+    "Ausgabe nicht erfasst": "Edition not recorded",
+    "Ausgabe auswählen …": "Choose an edition…",
     "Ausgabe des Haupttextes wählen": "Choose main text edition",
     "Diese Ausgabe übernehmen": "Use this edition",
     "Der Wechsel übernimmt den Originaltext der gewählten Ausgabe. Bearbeitungen am Auszug und eine vorhandene Übersetzungsanzeige werden ersetzt. Verknüpfte Notizen behalten ihre bisherigen Quellenangaben.": "Changing editions uses the original text of the selected edition, replacing excerpt edits and any existing paired display. Linked notes retain their original source references.",
