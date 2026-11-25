@@ -2,6 +2,26 @@
 
 [English](SOURCES.md) · **Deutsch**
 
+## Morphologie-Pilot für Mischna Berakhot
+
+Eigene automatische Analysekandidaten für die vokalisierte Kaufmann-Lesefassung
+(Dan Be’eri), ausschließlich Berakhot 1–9: 57 Mischnajot, 2.159 laufende
+Wortpositionen. Regelgrundlage: M. H. Segal, *A Grammar of Mishnaic Hebrew*
+(Oxford 1927), und Miguel Pérez Fernández, *An Introductory Grammar of Rabbinic
+Hebrew*, übers. John Elwolde (Brill 1997). Geprüfte Grammatikstellen, eigene
+Regelimplementierung und lexikalische Kandidaten: `tools/mishnah-morph/`.
+Die Bücher und hochgeladenen PDFs werden nicht mitgeliefert. Hebräische Formen
+von Safrans Bavli-Lexikon dienen als zusätzliche lexikalische Hinweise; dessen
+kontextuelle Bestimmungen werden nicht zu geprüften Mischna-Analysen erklärt.
+
+Der Pilot bewahrt Wortlaut und Vokalisation; mehrere mögliche Bestimmungen
+bleiben sichtbar. Die Abdeckung ist keine Genauigkeitsangabe. Die lesbaren Angaben der bereitgestellten Accordance-Screenshots
+MISH-T 4.3 (Berakhot 1:1–3; 202 Wortpositionen) wurden verglichen: 197
+vereinbare Kandidaten, fünf dokumentierte Konventionsunterschiede. Vier zunächst fehlende Suffixangaben wurden durch Wortdetails bestätigt.
+Drei מצותן-Vorkommen haben einen Formnachweis (3mp), sind aber nicht einzeln
+extern bestätigt. Neun Suffixangaben in 1:3 sind nicht angezeigt und bleiben unbestätigt. Dies ist keine
+Genauigkeitsquote und keine externe Validierung der übrigen Mischnajot. Accordance-Modul und Referenzexporte werden nicht verteilt.
+
 ## Vokalisierte Kaufmann-Mischna
 
 Alle 63 Traktate (525 Kapitel, 4.192 Mischna-Abschnitte) der Ausgabe

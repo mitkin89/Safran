@@ -26,6 +26,7 @@ if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){
   docs.set(rel,{...d,entry,textHash:hash(d.text)});
  }
 }
+if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){add('Mishnah Berakhot','he',/Kaufmann/);add('Mishnah Berakhot','de',/Goldschmidt/);}
 if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
  for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);
  add('Mishnah Berakhot','de',/Goldschmidt/);
@@ -148,6 +149,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){await require('./mishnah-morph-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
   await require('./kaufmann-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;

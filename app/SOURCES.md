@@ -2,6 +2,25 @@
 
 **English** · [Deutsch](SOURCES.de.md)
 
+## Mishnaic morphology pilot: Berakhot
+
+Original automatic candidate analyses for the pointed Be’eri edition based on
+Kaufmann A50, limited to Berakhot 1–9 (57 mishnah units, 2,159 running-word
+positions). Grammatical sources: M. H. Segal, *A Grammar of Mishnaic Hebrew*
+(Oxford 1927), and Miguel Pérez Fernández, *An Introductory Grammar of Rabbinic
+Hebrew*, trans. John Elwolde (Brill 1997). Verified citations, original rules,
+lexical candidates and tests: `tools/mishnah-morph/`. The books and uploaded PDFs
+are not redistributed. Hebrew surface forms from Safran's Bavli lexicon are
+additional lexical hints, not transferred contextually reviewed Mishnah tags.
+
+Source text and vowels remain unchanged, with alternative candidates retained.
+Coverage is not an accuracy measure. Readable features in the user-provided Accordance MISH-T 4.3 screenshots
+for Berakhot 1:1–3 were compared at 202 word positions: 197 compatible
+candidates and five documented convention differences. Four initially absent suffix tags were confirmed by word details. Three
+מצותן occurrences have form-level3mp evidence but are not individually confirmed. Nine suffix tags in 1:3 are not displayed and remain unconfirmed. This is not an accuracy score
+or external validation of the remaining Mishnah units. No Accordance module or reference
+exports are included.
+
 ## Vocalized Kaufmann-based Mishnah
 
 All 63 tractates (525 chapters, 4,192 mishnah segments) of *Mishnah based on the

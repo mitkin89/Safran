@@ -1,0 +1,4131 @@
+[
+  {
+    "word": "שְׁלִיחַ",
+    "analyses": [
+      {
+        "lemma": "שליח",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      },
+      {
+        "lemma": "שלח",
+        "morph": "HVqsmsc",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "שלח"
+      }
+    ],
+    "note": "שליח ציבור: lexikalisiertes Nomen „Beauftragter“; auch als passiv-partizipiale Bildung zu שלח analysierbar."
+  },
+  {
+    "word": "צִבּוּר",
+    "analyses": [
+      {
+        "lemma": "ציבור",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לְשׁוֹלְחָיו",
+    "analyses": [
+      {
+        "lemma": "ל/שלח",
+        "morph": "HR/Vqrmpc/Sp3ms",
+        "rules": [
+          "prefix",
+          "verb",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "שלח"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁשְּׁלוּחוֹ",
+    "analyses": [
+      {
+        "lemma": "ש/שלוח",
+        "morph": "HTr/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "שלח"
+      },
+      {
+        "lemma": "ש/שלח",
+        "morph": "HTr/Vqsmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "שלח"
+      }
+    ],
+    "note": "„Sein Beauftragter“: substantivierte Passivbildung; nominale und partizipiale Einordnung konkurrieren."
+  },
+  {
+    "word": "כְּמוֹתוֹ",
+    "analyses": [
+      {
+        "lemma": "כמו",
+        "morph": "HR/Sp3ms",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "דּוֹסָה",
+    "analyses": [
+      {
+        "lemma": "דוסה",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַחוֹלִין",
+    "analyses": [
+      {
+        "lemma": "ה/חולה",
+        "morph": "HTd/Aampa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "חלה"
+      }
+    ]
+  },
+  {
+    "word": "חַי",
+    "analyses": [
+      {
+        "lemma": "חי",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon",
+        "root": "חיה"
+      },
+      {
+        "lemma": "חיה",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "חיה"
+      }
+    ],
+    "note": "Prädikativ „lebend“: Adjektiv bzw. statives Partizip."
+  },
+  {
+    "word": "מְקֻבָּל",
+    "analyses": [
+      {
+        "lemma": "קבל",
+        "morph": "HVPsmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "קבל"
+      }
+    ]
+  },
+  {
+    "word": "מְטֹרָף",
+    "analyses": [
+      {
+        "lemma": "טרף",
+        "morph": "HVPsmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "טרף"
+      }
+    ]
+  },
+  {
+    "word": "מְבָרְכִין",
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVprmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "הַפֵּרוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/פרי",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "פֵּרוֹת",
+    "analyses": [
+      {
+        "lemma": "פרי",
+        "morph": "HNcmpc",
+        "rules": [
+          "nominal",
+          "construct",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָאִילָן",
+    "analyses": [
+      {
+        "lemma": "ה/אילן",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בּוֹרֵא",
+    "analyses": [
+      {
+        "lemma": "ברא",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברא"
+      }
+    ]
+  },
+  {
+    "word": "פְרִי",
+    "analyses": [
+      {
+        "lemma": "פרי",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָעֵץ",
+    "analyses": [
+      {
+        "lemma": "ה/עץ",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַיַּיִן",
+    "analyses": [
+      {
+        "lemma": "ה/יין",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַגֶּפֶן",
+    "analyses": [
+      {
+        "lemma": "ה/גפן",
+        "morph": "HTd/Ncbsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָאֲדָמָה",
+    "analyses": [
+      {
+        "lemma": "ה/אדמה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַפַּת",
+    "analyses": [
+      {
+        "lemma": "ה/פת",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַמּוֹצִיא",
+    "analyses": [
+      {
+        "lemma": "ה/יצא",
+        "morph": "HTd/Vhrmsa",
+        "rules": [
+          "article",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "יצא"
+      }
+    ]
+  },
+  {
+    "word": "הַיְרָקוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/ירק",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "דְשָׁאִים",
+    "analyses": [
+      {
+        "lemma": "דשא",
+        "morph": "HNcmpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בֵּרַךְ",
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVpp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "כֻּלָּם",
+    "analyses": [
+      {
+        "lemma": "כל",
+        "morph": "HNcmsc/Sp3mp",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נִהְיָה",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVNp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      },
+      {
+        "lemma": "היה",
+        "morph": "HVNrmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ],
+    "note": "Die Form kann Nifal-Perfekt oder maskulines Partizip sein; die Segensformel allein erzwingt kein Tempus."
+  },
+  {
+    "word": "גִּדּוּלָיו",
+    "analyses": [
+      {
+        "lemma": "גידול",
+        "morph": "HNcmpc/Sp3ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַחֹמֶץ",
+    "analyses": [
+      {
+        "lemma": "ה/חומץ",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַגּוֹבַאי",
+    "analyses": [
+      {
+        "lemma": "ה/גובאי",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַנּוֹבְלוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/נובלת",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      },
+      {
+        "lemma": "ה/נבל",
+        "morph": "HTd/Vqrfpa",
+        "rules": [
+          "article",
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "נבל"
+      }
+    ],
+    "note": "Hier substantiviert: abgefallene/verdorbene Früchte; Nomen gegenüber femininem Partizip offen."
+  },
+  {
+    "word": "מִין",
+    "analyses": [
+      {
+        "lemma": "מין",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "קְלָלָה",
+    "analyses": [
+      {
+        "lemma": "קללה",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מִינִים",
+    "analyses": [
+      {
+        "lemma": "מין",
+        "morph": "HNcmpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בֵּינֵיהֶן",
+    "analyses": [
+      {
+        "lemma": "בין",
+        "morph": "HR/Sp3fp",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      },
+      {
+        "lemma": "בין",
+        "morph": "HR/Sp3mp",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Die Suffixform ־הן kann im Mischnahebräischen auch auf maskuline מינים zurückverweisen; Endungsform und Referent sind zu unterscheiden."
+  },
+  {
+    "word": "מִמִּין",
+    "analyses": [
+      {
+        "lemma": "מן/מין",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שִׁבְעָה",
+    "analyses": [
+      {
+        "lemma": "שבע",
+        "morph": "HAcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "אֵיזֶה",
+    "analyses": [
+      {
+        "lemma": "איזה",
+        "morph": "HPi",
+        "rules": [
+          "pronoun"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיִּרְצֶה",
+    "analyses": [
+      {
+        "lemma": "ש/רצה",
+        "morph": "HTr/Vqi3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "רצה"
+      }
+    ]
+  },
+  {
+    "word": "פָּטַר",
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HVqp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "פטר"
+      }
+    ]
+  },
+  {
+    "word": "הַפַּרְפֶּרֶת",
+    "analyses": [
+      {
+        "lemma": "ה/פרפרת",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַפַּרְפְּרָיוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/פרפרת",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "פָטַר",
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HVqp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "פטר"
+      }
+    ]
+  },
+  {
+    "word": "קְדֵרָה",
+    "analyses": [
+      {
+        "lemma": "קדרה",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הֵסַבּוּ",
+    "analyses": [
+      {
+        "lemma": "סבב",
+        "morph": "HVhp3cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "סבב"
+      }
+    ]
+  },
+  {
+    "word": "לְכֻלָּם",
+    "analyses": [
+      {
+        "lemma": "ל/כל",
+        "morph": "HR/Ncmsc/Sp3mp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "יַיִן",
+    "analyses": [
+      {
+        "lemma": "יין",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַמִּגְמָר",
+    "analyses": [
+      {
+        "lemma": "ה/מגמר",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְבִיאִין",
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVhrmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "בוא"
+      }
+    ]
+  },
+  {
+    "word": "הַסְּעוֹדָה",
+    "analyses": [
+      {
+        "lemma": "ה/סעודה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הֵבִיאוּ",
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVhp3cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "בוא"
+      }
+    ]
+  },
+  {
+    "word": "מָלִיחַ",
+    "analyses": [
+      {
+        "lemma": "מליח",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon",
+        "root": "מלח"
+      },
+      {
+        "lemma": "מלח",
+        "morph": "HVqsmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "מלח"
+      }
+    ],
+    "note": "Substantiviertes Adjektiv „Gesalzenes“; alternativ passiv-partizipiale Wortbildung."
+  },
+  {
+    "word": "כַּתְּחִלָּה",
+    "analyses": [
+      {
+        "lemma": "כ/ה/תחילה",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּפַת",
+    "analyses": [
+      {
+        "lemma": "ו/פת",
+        "morph": "HC/Ncfsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַמָּלִיחַ",
+    "analyses": [
+      {
+        "lemma": "ה/מליח",
+        "morph": "HTd/Aamsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon",
+        "root": "מלח"
+      },
+      {
+        "lemma": "ה/מלח",
+        "morph": "HTd/Vqsmsa",
+        "rules": [
+          "article",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "מלח"
+      }
+    ],
+    "note": "Substantiviertes Adjektiv „Gesalzenes“; alternativ passiv-partizipiale Wortbildung."
+  },
+  {
+    "word": "וּפוֹטֵר",
+    "analyses": [
+      {
+        "lemma": "ו/פטר",
+        "morph": "HC/Vqrmsa",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "פטר"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁהַפַּת",
+    "analyses": [
+      {
+        "lemma": "ש/ה/פת",
+        "morph": "HTr/Td/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "טְפֵלָה",
+    "analyses": [
+      {
+        "lemma": "טפל",
+        "morph": "HAafsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַכְּלָל",
+    "analyses": [
+      {
+        "lemma": "ה/כלל",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "עִקָּר",
+    "analyses": [
+      {
+        "lemma": "עיקר",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָעִקָּר",
+    "analyses": [
+      {
+        "lemma": "ה/עיקר",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַטְּפֵלָה",
+    "analyses": [
+      {
+        "lemma": "ה/טפל",
+        "morph": "HTd/Aafsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "אָכַל",
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVqp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אכל"
+      }
+    ]
+  },
+  {
+    "word": "תְּאֵנִים",
+    "analyses": [
+      {
+        "lemma": "תאנה",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וַעֲנָבִים",
+    "analyses": [
+      {
+        "lemma": "ו/ענב",
+        "morph": "HC/Ncmpa",
+        "rules": [
+          "prefix",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְרִמּוֹנִים",
+    "analyses": [
+      {
+        "lemma": "ו/רימון",
+        "morph": "HC/Ncmpa",
+        "rules": [
+          "prefix",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "עֲלֵיהֶן",
+    "analyses": [
+      {
+        "lemma": "על",
+        "morph": "HR/Sp3fp",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      },
+      {
+        "lemma": "על",
+        "morph": "HR/Sp3mp",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Die Form ־הן begegnet hier auch bei maskulinen Referenten; beide Suffixanalysen bleiben Kandidaten."
+  },
+  {
+    "word": "שָׁלוֹשׁ",
+    "analyses": [
+      {
+        "lemma": "שלוש",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁאָכַל",
+    "analyses": [
+      {
+        "lemma": "ש/אכל",
+        "morph": "HTr/Vqp3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אכל"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁלֶק",
+    "analyses": [
+      {
+        "lemma": "שלק",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְזוֹנוֹ",
+    "analyses": [
+      {
+        "lemma": "מזון",
+        "morph": "HNcmsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "אַחֲרָיו",
+    "analyses": [
+      {
+        "lemma": "אחר",
+        "morph": "HR/Sp3ms",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַשּׁוֹתֶה",
+    "analyses": [
+      {
+        "lemma": "ה/שתה",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "article",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "שתה"
+      }
+    ]
+  },
+  {
+    "word": "לְצִמְאוֹ",
+    "analyses": [
+      {
+        "lemma": "ל/צמא",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נְפָשׁוֹת",
+    "analyses": [
+      {
+        "lemma": "נפש",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "רַבּוֹת",
+    "analyses": [
+      {
+        "lemma": "רב",
+        "morph": "HAafpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְחֶסְרוֹנָן",
+    "analyses": [
+      {
+        "lemma": "ו/חסרון",
+        "morph": "HC/Ncmsc/Sp3fp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁאָכְלוּ",
+    "analyses": [
+      {
+        "lemma": "ש/אכל",
+        "morph": "HTr/Vqp3cp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אכל"
+      }
+    ]
+  },
+  {
+    "word": "לְזַמֵּן",
+    "analyses": [
+      {
+        "lemma": "ל/זמן",
+        "morph": "HR/Vpc",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "זמן"
+      }
+    ]
+  },
+  {
+    "word": "דְּמַאי",
+    "analyses": [
+      {
+        "lemma": "דמאי",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Lexikalisiertes halachisches Nomen; aus der Endung ־אי wird keine verbale Analyse abgeleitet."
+  },
+  {
+    "word": "וּמַעֲשֵׂר",
+    "analyses": [
+      {
+        "lemma": "ו/מעשר",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁנִּטְּלָה",
+    "analyses": [
+      {
+        "lemma": "ש/נטל",
+        "morph": "HTr/VNp3fs",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "נטל"
+      }
+    ]
+  },
+  {
+    "word": "תְרוּמָתוֹ",
+    "analyses": [
+      {
+        "lemma": "תרומה",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְהֶקְדֵּשׁ",
+    "analyses": [
+      {
+        "lemma": "ו/הקדש",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁנִּפְדּוּ",
+    "analyses": [
+      {
+        "lemma": "ש/פדה",
+        "morph": "HTr/VNp3cp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "פדה"
+      }
+    ]
+  },
+  {
+    "word": "הַשַּׁמָּשׁ",
+    "analyses": [
+      {
+        "lemma": "ה/שמש",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "כַּזַּיִת",
+    "analyses": [
+      {
+        "lemma": "כ/ה/זית",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְהַכּוּתִי",
+    "analyses": [
+      {
+        "lemma": "ו/ה/כותי",
+        "morph": "HC/Td/Ngmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְזַמְּנִין",
+    "analyses": [
+      {
+        "lemma": "זמן",
+        "morph": "HVprmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "זמן"
+      }
+    ]
+  },
+  {
+    "word": "טֶבֶל",
+    "analyses": [
+      {
+        "lemma": "טבל",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נִטְּלָה",
+    "analyses": [
+      {
+        "lemma": "נטל",
+        "morph": "HVNp3fs",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "נטל"
+      }
+    ]
+  },
+  {
+    "word": "נִפְדּוּ",
+    "analyses": [
+      {
+        "lemma": "פדה",
+        "morph": "HVNp3cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "פדה"
+      }
+    ]
+  },
+  {
+    "word": "פָּחוּת",
+    "analyses": [
+      {
+        "lemma": "פחות",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מִכַּזַּיִת",
+    "analyses": [
+      {
+        "lemma": "מן/כ/ה/זית",
+        "morph": "HR/R/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְהַנָּכְרִי",
+    "analyses": [
+      {
+        "lemma": "ו/ה/נכרי",
+        "morph": "HC/Td/Aamsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "כַּבֵּיצָה",
+    "analyses": [
+      {
+        "lemma": "כ/ה/ביצה",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נְבָרֵךְ",
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVpi1cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "לֵאלֹהֵינוּ",
+    "analyses": [
+      {
+        "lemma": "ל/אלהים",
+        "morph": "HR/Ncmpc/Sp1cp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "עֶשֶׂר",
+    "analyses": [
+      {
+        "lemma": "עשר",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לַיי",
+    "analyses": [
+      {
+        "lemma": "ל/יהוה",
+        "morph": "HR/Np",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "יי ist hier die übliche Ersatzschreibung des Gottesnamens, keine frei erschlossene neue Wortwurzel."
+  },
+  {
+    "word": "בָּאֶלֶף",
+    "analyses": [
+      {
+        "lemma": "ב/ה/אלף",
+        "morph": "HR/Td/Acmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "כְּעִנְיָן",
+    "analyses": [
+      {
+        "lemma": "כ/עניין",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "עוֹנִין",
+    "analyses": [
+      {
+        "lemma": "ענה",
+        "morph": "HVqrmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "ענה"
+      }
+    ]
+  },
+  {
+    "word": "הַכְּרוּבִים",
+    "analyses": [
+      {
+        "lemma": "ה/כרוב",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁאָכַלְנוּ",
+    "analyses": [
+      {
+        "lemma": "ש/אכל",
+        "morph": "HTr/Vqp1cp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אכל"
+      }
+    ]
+  },
+  {
+    "word": "הַגָּלִילִי",
+    "analyses": [
+      {
+        "lemma": "ה/גלילי",
+        "morph": "HTd/Ngmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "רֹב",
+    "analyses": [
+      {
+        "lemma": "רוב",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַקָּהָל",
+    "analyses": [
+      {
+        "lemma": "ה/קהל",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "תְּהִלִּים",
+    "analyses": [
+      {
+        "lemma": "תהלים",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Buchtitel in einer redaktionellen Stellenangabe, kein laufendes Mischna-Nomen."
+  },
+  {
+    "word": "סח",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "כז",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "בְּמַקְהֵלוֹת",
+    "analyses": [
+      {
+        "lemma": "ב/מקהלה",
+        "morph": "HR/Ncfpa",
+        "rules": [
+          "prefix",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "אֱלהִים",
+    "analyses": [
+      {
+        "lemma": "אלהים",
+        "morph": "HNcmpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Morphologisch Pluralform, in der zitierten Segensformel singularischer Gottesbezug; Numerus und Referent getrennt halten."
+  },
+  {
+    "word": "מִמְּקוֹר",
+    "analyses": [
+      {
+        "lemma": "מן/מקור",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מָּצִינוּ",
+    "analyses": [
+      {
+        "lemma": "מצא",
+        "morph": "HVqp1cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "מצא"
+      }
+    ]
+  },
+  {
+    "word": "מְרֻבִּים",
+    "analyses": [
+      {
+        "lemma": "רבה",
+        "morph": "HVPsmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "רבה"
+      }
+    ]
+  },
+  {
+    "word": "מְמֻעָטִים",
+    "analyses": [
+      {
+        "lemma": "מעט",
+        "morph": "HVPsmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "מעט"
+      }
+    ]
+  },
+  {
+    "word": "יִשְׁמָעֵאל",
+    "analyses": [
+      {
+        "lemma": "ישמעאל",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַמְּבֹרָךְ",
+    "analyses": [
+      {
+        "lemma": "ה/ברך",
+        "morph": "HTd/VPsmsa",
+        "rules": [
+          "article",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "לֵחָלֵק",
+    "analyses": [
+      {
+        "lemma": "ל/חלק",
+        "morph": "HR/VNc",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "חלק"
+      }
+    ],
+    "note": "Reduzierter Nifal-Infinitiv mit Wegfall von ה nach ל; hier „sich aufteilen“, kein Qal-Infinitiv nach bloßem Präfixmuster."
+  },
+  {
+    "word": "אַרְבָּעָה",
+    "analyses": [
+      {
+        "lemma": "ארבע",
+        "morph": "HAcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נֶחְלָקִין",
+    "analyses": [
+      {
+        "lemma": "חלק",
+        "morph": "HVNrmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "חלק"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיְּהוּ",
+    "analyses": [
+      {
+        "lemma": "ש/היה",
+        "morph": "HTr/Vqi3mp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ]
+  },
+  {
+    "word": "עֶשְׂרִים",
+    "analyses": [
+      {
+        "lemma": "עשרים",
+        "morph": "HAcbpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "חֲבוֹרוֹת",
+    "analyses": [
+      {
+        "lemma": "חבורה",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "אוֹכְלוֹת",
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVqrfpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "אכל"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁמִּקְצָתָן",
+    "analyses": [
+      {
+        "lemma": "ש/מקצת",
+        "morph": "HTr/Ncfsc/Sp3fp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מִצְטָרְפִין",
+    "analyses": [
+      {
+        "lemma": "צרף",
+        "morph": "HVtrmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "צרף"
+      }
+    ],
+    "note": "Hitpael von צרף mit Metathese/Assimilation des Stammpräfixes; „sich zusammenschließen“."
+  },
+  {
+    "word": "לַזִּמּוּן",
+    "analyses": [
+      {
+        "lemma": "ל/ה/זימון",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לְעַצְמָן",
+    "analyses": [
+      {
+        "lemma": "ל/עצם",
+        "morph": "HR/Ncmsc/Sp3fp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיִּתֵּן",
+    "analyses": [
+      {
+        "lemma": "ש/נתן",
+        "morph": "HTr/Vqi3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "נתן"
+      }
+    ]
+  },
+  {
+    "word": "לְתוֹכוֹ",
+    "analyses": [
+      {
+        "lemma": "ל/תוך",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בִּסְעוֹדָה",
+    "analyses": [
+      {
+        "lemma": "ב/סעודה",
+        "morph": "HR/Ncfsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נוֹטְלִים",
+    "analyses": [
+      {
+        "lemma": "נטל",
+        "morph": "HVqrmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "נטל"
+      }
+    ]
+  },
+  {
+    "word": "לַיָּדַיִם",
+    "analyses": [
+      {
+        "lemma": "ל/ה/יד",
+        "morph": "HR/Td/Ncfda",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מוֹזְגִין",
+    "analyses": [
+      {
+        "lemma": "מזג",
+        "morph": "HVqrmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "מזג"
+      }
+    ]
+  },
+  {
+    "word": "הַכּוֹס",
+    "analyses": [
+      {
+        "lemma": "ה/כוס",
+        "morph": "HTd/Ncbsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְכַבְּדִין",
+    "analyses": [
+      {
+        "lemma": "כבד",
+        "morph": "HVprmpa",
+        "rules": [
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "כבד"
+      }
+    ]
+  },
+  {
+    "word": "מְקַנֵּחַ",
+    "analyses": [
+      {
+        "lemma": "קנח",
+        "morph": "HVprmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "קנח"
+      }
+    ]
+  },
+  {
+    "word": "בַּמַּפָּא",
+    "analyses": [
+      {
+        "lemma": "ב/ה/מפה",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Quellschreibung מפא; als Variante des Nomens מפה „Tuch“ angesetzt."
+  },
+  {
+    "word": "וּמַנִּיחָהּ",
+    "analyses": [
+      {
+        "lemma": "ו/נוח",
+        "morph": "HC/Vhrmsa/Sp3fs",
+        "rules": [
+          "prefix",
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "נוח"
+      }
+    ]
+  },
+  {
+    "word": "הַשֻּׁלְחָן",
+    "analyses": [
+      {
+        "lemma": "ה/שולחן",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַכֶּסֶת",
+    "analyses": [
+      {
+        "lemma": "ה/כסת",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּמָזוֹן",
+    "analyses": [
+      {
+        "lemma": "ו/מזון",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּבְשָׂמִים",
+    "analyses": [
+      {
+        "lemma": "ו/בושם",
+        "morph": "HC/Ncmpa",
+        "rules": [
+          "prefix",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְאוֹר",
+    "analyses": [
+      {
+        "lemma": "מאור",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְאוֹרֵי",
+    "analyses": [
+      {
+        "lemma": "מאור",
+        "morph": "HNcmpc",
+        "rules": [
+          "nominal",
+          "construct",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַבְּשָׂמִים",
+    "analyses": [
+      {
+        "lemma": "ה/בושם",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁלַּמֵּתִים",
+    "analyses": [
+      {
+        "lemma": "של/ה/מות",
+        "morph": "HR/Td/Vqrmpa",
+        "rules": [
+          "prefix",
+          "article",
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "מות"
+      }
+    ]
+  },
+  {
+    "word": "עֲבוֹדָה",
+    "analyses": [
+      {
+        "lemma": "עבודה",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "זָרָה",
+    "analyses": [
+      {
+        "lemma": "זר",
+        "morph": "HAafsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיֵּאוֹתוּ",
+    "analyses": [
+      {
+        "lemma": "ש/אות",
+        "morph": "HTr/VNi3mp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אות"
+      }
+    ],
+    "note": "Nifal von אות „Nutzen haben“; nicht nach bloßem Wortanfang als Qal festgelegt."
+  },
+  {
+    "word": "וְשָׁכַח",
+    "analyses": [
+      {
+        "lemma": "ו/שכח",
+        "morph": "HC/Vqp3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "שכח"
+      }
+    ]
+  },
+  {
+    "word": "בֵרַךְ",
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVpp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "לִמְקוֹמוֹ",
+    "analyses": [
+      {
+        "lemma": "ל/מקום",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וִיבָרֵךְ",
+    "analyses": [
+      {
+        "lemma": "ו/ברך",
+        "morph": "HC/Vpi3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "יְבָרֵךְ",
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVpi3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁנִּזְכַּר",
+    "analyses": [
+      {
+        "lemma": "ש/זכר",
+        "morph": "HTr/VNp3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "זכר"
+      }
+    ]
+  },
+  {
+    "word": "אֶמָּתַי",
+    "analyses": [
+      {
+        "lemma": "אימתי",
+        "morph": "HD",
+        "rules": [
+          "adverb"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיִּתְאַכֵּל",
+    "analyses": [
+      {
+        "lemma": "ש/אכל",
+        "morph": "HTr/Vti3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אכל"
+      }
+    ],
+    "note": "Hitpael mit passiver Funktion „verdaut werden“; die Funktion macht die Form nicht zu Pual."
+  },
+  {
+    "word": "בְּמֵעָיו",
+    "analyses": [
+      {
+        "lemma": "ב/מעי",
+        "morph": "HR/Ncmpc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַכּוּתִי",
+    "analyses": [
+      {
+        "lemma": "ה/כותי",
+        "morph": "HTd/Ngmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיִּשְׁמַע",
+    "analyses": [
+      {
+        "lemma": "ש/שמע",
+        "morph": "HTr/Vqi3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "שמע"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁנֶּעֱשׁוּ",
+    "analyses": [
+      {
+        "lemma": "ש/עשה",
+        "morph": "HTr/VNp3cp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "עשה"
+      }
+    ]
+  },
+  {
+    "word": "בוֹ",
+    "analyses": [
+      {
+        "lemma": "ב",
+        "morph": "HR/Sp3ms",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נִסִּים",
+    "analyses": [
+      {
+        "lemma": "נס",
+        "morph": "HNcmpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לַאֲבוֹתֵינוּ",
+    "analyses": [
+      {
+        "lemma": "ל/אב",
+        "morph": "HR/Ncmpc/Sp1cp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁנֶּעְקְרָה",
+    "analyses": [
+      {
+        "lemma": "ש/עקר",
+        "morph": "HTr/VNp3fs",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "עקר"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁעָקַר",
+    "analyses": [
+      {
+        "lemma": "ש/עקר",
+        "morph": "HTr/Vqp3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "עקר"
+      }
+    ]
+  },
+  {
+    "word": "מֵאַרְצֵנוּ",
+    "analyses": [
+      {
+        "lemma": "מן/ארץ",
+        "morph": "HR/Ncfsc/Sp1cp",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַזִּיקִים",
+    "analyses": [
+      {
+        "lemma": "ה/זיק",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַזּוֹעוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/זועה",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַבְּרָקִים",
+    "analyses": [
+      {
+        "lemma": "ה/ברק",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָרְעָמִים",
+    "analyses": [
+      {
+        "lemma": "ה/רעם",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָרוּחוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/רוח",
+        "morph": "HTd/Ncbpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁכּחוֹ",
+    "analyses": [
+      {
+        "lemma": "ש/כוח",
+        "morph": "HTr/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הֶהָרִים",
+    "analyses": [
+      {
+        "lemma": "ה/הר",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַגְּבָעוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/גבעה",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַיַּמִּים",
+    "analyses": [
+      {
+        "lemma": "ה/ים",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַנְּהָרוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/נהר",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַמִּדְבָּרוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/מדבר",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בְרֵאשִׁית",
+    "analyses": [
+      {
+        "lemma": "ב/ראשית",
+        "morph": "HR/Ncfsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "In der festen Wendung עושה בראשית als Bezeichnung der Schöpfung gebraucht; keine freie Zeitangabe erschlossen."
+  },
+  {
+    "word": "רוֹאֶהוּ",
+    "analyses": [
+      {
+        "lemma": "ראה",
+        "morph": "HVqrmsa/Sp3ms",
+        "rules": [
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "ראה"
+      }
+    ]
+  },
+  {
+    "word": "לִפְרָקִים",
+    "analyses": [
+      {
+        "lemma": "ל/פרק",
+        "morph": "HR/Ncmpa",
+        "rules": [
+          "prefix",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הַגְּשָׁמִים",
+    "analyses": [
+      {
+        "lemma": "ה/גשם",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בְּשׁוֹרוֹת",
+    "analyses": [
+      {
+        "lemma": "בשורה",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְהַמֵּטִיב",
+    "analyses": [
+      {
+        "lemma": "ו/ה/יטב",
+        "morph": "HC/Td/Vhrmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "יטב"
+      }
+    ]
+  },
+  {
+    "word": "שְׁמוּעוֹת",
+    "analyses": [
+      {
+        "lemma": "שמועה",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הָרָעוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/רע",
+        "morph": "HTd/Aafpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "דַּיַּן",
+    "analyses": [
+      {
+        "lemma": "דיין",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      },
+      {
+        "lemma": "דיין",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "דיין האמת erlaubt nominale Status-constructus-Lesung „Richter der Wahrheit“ bzw. lexikalisierte Titelverbindung."
+  },
+  {
+    "word": "הָאֱמֶת",
+    "analyses": [
+      {
+        "lemma": "ה/אמת",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בַיִת",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "חָדָשׁ",
+    "analyses": [
+      {
+        "lemma": "חדש",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְקָנָה",
+    "analyses": [
+      {
+        "lemma": "ו/קנה",
+        "morph": "HC/Vqp3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "קנה"
+      }
+    ]
+  },
+  {
+    "word": "כֵלִים",
+    "analyses": [
+      {
+        "lemma": "כלי",
+        "morph": "HNcmpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "חֲדָשִׁים",
+    "analyses": [
+      {
+        "lemma": "חדש",
+        "morph": "HAampa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁהִגִּיעָנוּ",
+    "analyses": [
+      {
+        "lemma": "ש/נגע",
+        "morph": "HTr/Vhp3ms/Sp1cp",
+        "rules": [
+          "prefix",
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "נגע"
+      }
+    ]
+  },
+  {
+    "word": "הַצּוֹעֵק",
+    "analyses": [
+      {
+        "lemma": "ה/צעק",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "article",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "צעק"
+      }
+    ]
+  },
+  {
+    "word": "תְפִלַּת",
+    "analyses": [
+      {
+        "lemma": "תפילה",
+        "morph": "HNcfsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "שָׁוְא",
+    "analyses": [
+      {
+        "lemma": "שוא",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְעֻבֶּרֶת",
+    "analyses": [
+      {
+        "lemma": "עבר",
+        "morph": "HVPsfsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "עבר"
+      },
+      {
+        "lemma": "מעובר",
+        "morph": "HAafsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Zustandsbezeichnung „schwanger“; Pual-Partizip und lexikalisiertes Adjektiv sind beide mögliche Einordnungen."
+  },
+  {
+    "word": "יְהִי",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVqj3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ],
+    "note": "Jussiv in der Gebetsformel יהי רצון; eine erhaltene Formel, kein Nachweis eines frei produktiven MH-Jussivparadigmas."
+  },
+  {
+    "word": "שֶׁתֵּלֵד",
+    "analyses": [
+      {
+        "lemma": "ש/ילד",
+        "morph": "HTr/Vqi3fs",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ילד"
+      }
+    ]
+  },
+  {
+    "word": "אִשְׁתִּי",
+    "analyses": [
+      {
+        "lemma": "אשה",
+        "morph": "HNcfsc/Sp1cs",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "זָכָר",
+    "analyses": [
+      {
+        "lemma": "זכר",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְשָׁמַע",
+    "analyses": [
+      {
+        "lemma": "ו/שמע",
+        "morph": "HC/Vqp3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "שמע"
+      }
+    ]
+  },
+  {
+    "word": "צְוָחוֹת",
+    "analyses": [
+      {
+        "lemma": "צווחה",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בָּעִיר",
+    "analyses": [
+      {
+        "lemma": "ב/ה/עיר",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "יְהוּא",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVqi3mp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ],
+    "note": "Quellschreibung יהוא mit pluralischem אלו; als Variante von יהו/יהיו angesetzt, kein Singular allein aufgrund des auslautenden א."
+  },
+  {
+    "word": "בְתוֹךְ",
+    "analyses": [
+      {
+        "lemma": "ב/תוך",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לִכְרַךְ",
+    "analyses": [
+      {
+        "lemma": "ל/כרך",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "בִּיצִיאָתוֹ",
+    "analyses": [
+      {
+        "lemma": "ב/יציאה",
+        "morph": "HR/Ncfsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "עַזַּי",
+    "analyses": [
+      {
+        "lemma": "עזי",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וְנוֹתֵן",
+    "analyses": [
+      {
+        "lemma": "ו/נתן",
+        "morph": "HC/Vqrmsa",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "נתן"
+      }
+    ]
+  },
+  {
+    "word": "וְצוֹעֵק",
+    "analyses": [
+      {
+        "lemma": "ו/צעק",
+        "morph": "HC/Vqrmsa",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "צעק"
+      }
+    ]
+  },
+  {
+    "word": "חַיָּב",
+    "analyses": [
+      {
+        "lemma": "חייב",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לְבָרֵךְ",
+    "analyses": [
+      {
+        "lemma": "ל/ברך",
+        "morph": "HR/Vpc",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ]
+  },
+  {
+    "word": "דברים",
+    "analyses": [
+      {
+        "lemma": "דברים",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Buchtitel in einer redaktionellen Stellenangabe; als Eigenname behandelt, nicht als laufendes Mischna-Wort."
+  },
+  {
+    "word": "ה",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "וְאָהַבְתָּ",
+    "analyses": [
+      {
+        "lemma": "ו/אהב",
+        "morph": "HC/Vqp2ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אהב"
+      }
+    ]
+  },
+  {
+    "word": "אֱלהֶיךָ",
+    "analyses": [
+      {
+        "lemma": "אלהים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לְבָבְךָ",
+    "analyses": [
+      {
+        "lemma": "לבב",
+        "morph": "HNcmsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּבְכָל",
+    "analyses": [
+      {
+        "lemma": "ו/ב/כל",
+        "morph": "HC/R/Ncmsc",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נַפְשְׁךָ",
+    "analyses": [
+      {
+        "lemma": "נפש",
+        "morph": "HNcfsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְאֹדֶךָ",
+    "analyses": [
+      {
+        "lemma": "מאוד",
+        "morph": "HNcmsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Substantiviertes מאוד in der Bibelzitatformel „mit deinem ganzen Vermögen/Kraft“; nicht das freie Adverb."
+  },
+  {
+    "word": "יְצָרֶיךָ",
+    "analyses": [
+      {
+        "lemma": "יצר",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "plural",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "רָע",
+    "analyses": [
+      {
+        "lemma": "רע",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "נוֹטֵל",
+    "analyses": [
+      {
+        "lemma": "נטל",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "נטל"
+      }
+    ]
+  },
+  {
+    "word": "נַפְשֶׁךָ",
+    "analyses": [
+      {
+        "lemma": "נפש",
+        "morph": "HNcfsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מָמוֹנֶךָ",
+    "analyses": [
+      {
+        "lemma": "ממון",
+        "morph": "HNcmsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מִדָּה",
+    "analyses": [
+      {
+        "lemma": "מידה",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּמִדָּה",
+    "analyses": [
+      {
+        "lemma": "ו/מידה",
+        "morph": "HC/Ncfsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מוֹדֵד",
+    "analyses": [
+      {
+        "lemma": "מדד",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "מדד"
+      }
+    ]
+  },
+  {
+    "word": "בַּכֹּל",
+    "analyses": [
+      {
+        "lemma": "ב/ה/כל",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הֱוֵי",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVqv2ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ],
+    "note": "Erhaltener Imperativ הוי „sei“ zu היה; aus dem schwachen Wortbild wird keine neue Wurzel erzeugt."
+  },
+  {
+    "word": "מוֹדֶה",
+    "analyses": [
+      {
+        "lemma": "ידה",
+        "morph": "HVhrmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "ידה"
+      }
+    ]
+  },
+  {
+    "word": "מְאֹד",
+    "analyses": [
+      {
+        "lemma": "מאוד",
+        "morph": "HD",
+        "rules": [
+          "adverb"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "יָקֵל",
+    "analyses": [
+      {
+        "lemma": "קלל",
+        "morph": "HVhi3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "קלל"
+      }
+    ]
+  },
+  {
+    "word": "שַׁעַר",
+    "analyses": [
+      {
+        "lemma": "שער",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מְכֻוָּן",
+    "analyses": [
+      {
+        "lemma": "כון",
+        "morph": "HVPsmsa",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "כון"
+      }
+    ],
+    "note": "Pual-Partizip der im MH regularisierten intensiven Bildung zu כון; „ausgerichtet“."
+  },
+  {
+    "word": "בְּמַקְלוֹ",
+    "analyses": [
+      {
+        "lemma": "ב/מקל",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּבְמַנְעַלּוֹ",
+    "analyses": [
+      {
+        "lemma": "ו/ב/מנעל",
+        "morph": "HC/R/Ncmsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּבַאֲפֻנְדָּתוֹ",
+    "analyses": [
+      {
+        "lemma": "ו/ב/אפונדה",
+        "morph": "HC/R/Ncfsc/Sp3ms",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וּבַאֲבַק",
+    "analyses": [
+      {
+        "lemma": "ו/ב/אבק",
+        "morph": "HC/R/Ncmsc",
+        "rules": [
+          "prefix",
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "רַגְלוֹ",
+    "analyses": [
+      {
+        "lemma": "רגל",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "יַעֲשֶׂנּוּ",
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVqi3ms/Sp3ms",
+        "rules": [
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "עשה"
+      }
+    ]
+  },
+  {
+    "word": "קַפַּנְדַּרְיָה",
+    "analyses": [
+      {
+        "lemma": "קפנדריה",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Entlehntes Nomen „Abkürzungsweg“; kein hebräisches Verb aus der Buchstabenfolge erschlossen."
+  },
+  {
+    "word": "וּרְקִיקָה",
+    "analyses": [
+      {
+        "lemma": "ו/רקיקה",
+        "morph": "HC/Ncfsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "וָחֹמֶר",
+    "analyses": [
+      {
+        "lemma": "ו/חומר",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "prefix",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Teil der Schlussfigur קל וחומר, hier substantiviert „das Schwerere“."
+  },
+  {
+    "word": "חוֹתַם",
+    "analyses": [
+      {
+        "lemma": "חותם",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Die Quellpunktierung hat חוֹתַם; nominal „Abschluss“ ist angesetzt, nicht automatisch das anders vokalisierte Partizip חותם."
+  },
+  {
+    "word": "בַמִּקְדָּשׁ",
+    "analyses": [
+      {
+        "lemma": "ב/ה/מקדש",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "מִשֶּׁקִּלְקְלוּ",
+    "analyses": [
+      {
+        "lemma": "מן/ש/קלקל",
+        "morph": "HR/Tr/Vpp3cp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "קלקל"
+      }
+    ],
+    "note": "Quadriliterales קלקל wird unter der produktiven Piel-Klasse geführt; vier Konsonanten werden nicht auf eine erfundene dreiradikalige Wurzel gekürzt."
+  },
+  {
+    "word": "הַמִּינִים",
+    "analyses": [
+      {
+        "lemma": "ה/מין",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "article",
+          "nominal",
+          "plural"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Hier „Sektierer“, eigenes lexikalisches Verständnis gegenüber מין „Art“; identische unpunktierte Grundform."
+  },
+  {
+    "word": "הִתְקִינוּ",
+    "analyses": [
+      {
+        "lemma": "תקן",
+        "morph": "HVhp3cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "תקן"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיְּהוּא",
+    "analyses": [
+      {
+        "lemma": "ש/היה",
+        "morph": "HTr/Vqi3mp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ],
+    "note": "יהוא vor אומרים als Pluralvariante von יהו/יהיו, nicht mechanisch als Singular."
+  },
+  {
+    "word": "וְהִתְקִינוּ",
+    "analyses": [
+      {
+        "lemma": "ו/תקן",
+        "morph": "HC/Vhp3cp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "תקן"
+      }
+    ]
+  },
+  {
+    "word": "שֶׁיְּהֵא",
+    "analyses": [
+      {
+        "lemma": "ש/היה",
+        "morph": "HTr/Vqi3ms",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "היה"
+      }
+    ],
+    "note": "Reduzierte MH-Imperfektform יהא = יהיה, hier Singular zu אדם."
+  },
+  {
+    "word": "שְׁלוֹם",
+    "analyses": [
+      {
+        "lemma": "שלום",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "רות",
+    "analyses": [
+      {
+        "lemma": "רות",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Buchtitel in einer redaktionellen Stellenangabe; als Eigenname behandelt, nicht als laufendes Mischna-Wort."
+  },
+  {
+    "word": "ב",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "ד",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "בֹעַז",
+    "analyses": [
+      {
+        "lemma": "בעז",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "לַקּוֹצְרִים",
+    "analyses": [
+      {
+        "lemma": "ל/ה/קצר",
+        "morph": "HR/Td/Vqrmpa",
+        "rules": [
+          "prefix",
+          "article",
+          "verb",
+          "plural"
+        ],
+        "method": "lexicon",
+        "root": "קצר"
+      }
+    ]
+  },
+  {
+    "word": "וַיֹּאמְרוּ",
+    "analyses": [
+      {
+        "lemma": "ו/אמר",
+        "morph": "HC/Vqw3mp",
+        "rules": [
+          "prefix",
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "אמר"
+      }
+    ],
+    "note": "Biblisches Zitat aus Ruth 2:4: Wajjiqtol ist im zitierten Bibeltext erhalten, kein produktives Mischna-Erzähltempus."
+  },
+  {
+    "word": "יְבָרֶכְךָ",
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVpi3ms/Sp2ms",
+        "rules": [
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      },
+      {
+        "lemma": "ברך",
+        "morph": "HVpj3ms/Sp2ms",
+        "rules": [
+          "verb",
+          "suffix"
+        ],
+        "method": "lexicon",
+        "root": "ברך"
+      }
+    ],
+    "note": "Im Segenszitat kann יברך als Imperfekt mit Wunschfunktion/Jussiv verstanden werden; die nicht verkürzbare Piel-Form unterscheidet beides nicht sichtbar."
+  },
+  {
+    "word": "שופטים",
+    "analyses": [
+      {
+        "lemma": "שופטים",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Buchtitel in einer redaktionellen Stellenangabe; als Eigenname behandelt, nicht als laufendes Mischna-Wort."
+  },
+  {
+    "word": "יב",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "עִמְּךָ",
+    "analyses": [
+      {
+        "lemma": "עם",
+        "morph": "HR/Sp2ms",
+        "rules": [
+          "prefix",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "גִּבּוֹר",
+    "analyses": [
+      {
+        "lemma": "גיבור",
+        "morph": "HAamsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "הֶחָיִל",
+    "analyses": [
+      {
+        "lemma": "ה/חיל",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "משלי",
+    "analyses": [
+      {
+        "lemma": "משלי",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Buchtitel in einer redaktionellen Stellenangabe; als Eigenname behandelt, nicht als laufendes Mischna-Wort."
+  },
+  {
+    "word": "כג",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "כב",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "תָּבוּז",
+    "analyses": [
+      {
+        "lemma": "בוז",
+        "morph": "HVqi2ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "בוז"
+      }
+    ]
+  },
+  {
+    "word": "זָקְנָה",
+    "analyses": [
+      {
+        "lemma": "זקן",
+        "morph": "HVqp3fs",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "זקן"
+      }
+    ]
+  },
+  {
+    "word": "אִמֶּךָ",
+    "analyses": [
+      {
+        "lemma": "אם",
+        "morph": "HNcfsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  },
+  {
+    "word": "תהלים",
+    "analyses": [
+      {
+        "lemma": "תהלים",
+        "morph": "HNp",
+        "rules": [
+          "nominal"
+        ],
+        "method": "lexicon"
+      }
+    ],
+    "note": "Buchtitel in einer redaktionellen Stellenangabe; als Eigenname behandelt, nicht als laufendes Mischna-Wort."
+  },
+  {
+    "word": "קיט",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "קכו",
+    "analyses": [],
+    "note": "Redaktionelle Stellenangabe (hebräische Zahl), kein laufendes Mischna-Wort."
+  },
+  {
+    "word": "הֵפֵרוּ",
+    "analyses": [
+      {
+        "lemma": "פרר",
+        "morph": "HVhp3cp",
+        "rules": [
+          "verb"
+        ],
+        "method": "lexicon",
+        "root": "פרר"
+      }
+    ]
+  },
+  {
+    "word": "תוֹרָתֶךָ",
+    "analyses": [
+      {
+        "lemma": "תורה",
+        "morph": "HNcfsc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix"
+        ],
+        "method": "lexicon"
+      }
+    ]
+  }
+]

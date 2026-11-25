@@ -1,0 +1,361 @@
+[
+  {
+    "ref": "1:1",
+    "token": 4,
+    "word": "שְׁמַע",
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hier bezeichnet שְׁמַע den Gebetsnamen; es ist keine Aufforderung an den Leser."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 39,
+    "word": "שְׁמַע",
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hier bezeichnet שְׁמַע den Gebetsnamen; es ist keine Aufforderung an den Leser."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 22,
+    "word": "רַבָּן",
+    "analyses": [
+      {
+        "lemma": "רבן",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Lexikalisierter Titel vor dem Eigennamen; keine Zerlegung in רב mit Possessivsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 32,
+    "word": "מִבֵּית",
+    "analyses": [
+      {
+        "lemma": "מן/בית",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "prefix",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht hier im Constructus vor המשתה."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 21,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד, kein Status constructus vor einem nachfolgenden Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 58,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד, kein Status constructus vor einem nachfolgenden Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 89,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד, kein Status constructus vor einem nachfolgenden Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 29,
+    "word": "מַעֲשֶׂה",
+    "analyses": [
+      {
+        "lemma": "מעשה",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Selbständiges Nomen mit nachfolgendem Relativsatz."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 47,
+    "word": "מֻתָּרִין",
+    "analyses": [
+      {
+        "lemma": "נתר",
+        "morph": "HVHsmpa",
+        "rules": [
+          "verb",
+          "hofal-ntr"
+        ],
+        "root": "נתר",
+        "method": "context",
+        "note": "Hofal-Form zu נתר; daneben ist eine lexikalisierte Adjektivanalyse möglich. Kein Beleg für die Wurzel יתר."
+      },
+      {
+        "lemma": "מותר",
+        "morph": "HAampa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hofal-Form zu נתר; daneben ist eine lexikalisierte Adjektivanalyse möglich. Kein Beleg für die Wurzel יתר."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 64,
+    "word": "הֶקְטֵר",
+    "analyses": [
+      {
+        "lemma": "הקטר",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct",
+          "action-noun"
+        ],
+        "root": "קטר",
+        "method": "context",
+        "note": "Handlungsnomen im Constructus vor חלבים; keine Bestimmung als Hifil-Infinitiv constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 4,
+    "word": "שְׁמַע",
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hier bezeichnet שְׁמַע den Gebetsnamen."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 9,
+    "word": "לַלָּבָן",
+    "analyses": [
+      {
+        "lemma": "ל/ה/לבן",
+        "morph": "HR/Td/Aamsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Substantiviert verwendete Farbbezeichnung; Adjektiv und nominaler Gebrauch können unterschiedlich klassifiziert werden."
+      },
+      {
+        "lemma": "ל/ה/לבן",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Substantiviert verwendete Farbbezeichnung; Adjektiv und nominaler Gebrauch können unterschiedlich klassifiziert werden."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 17,
+    "word": "הָנֵץ",
+    "analyses": [
+      {
+        "lemma": "נץ",
+        "morph": "HVhc",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Infinitiv in der Wendung הנץ החמה. Die lexikalische Stammform ist נץ; eine rekonstruierte schwache Wurzel wird hier nicht behauptet."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 40,
+    "word": "בַתּוֹרָה",
+    "analyses": [
+      {
+        "lemma": "ב/תורה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Präposition mit verschmolzenem Artikel in בַתּוֹרָה."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 1,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Constructus vor dem Namen שמי; hier keine gleichberechtigte Absolutus-Analyse."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 14,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Constructus vor dem Namen הלל; hier keine gleichberechtigte Absolutus-Analyse."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 9,
+    "word": "וּבַבֹּקֶר",
+    "analyses": [
+      {
+        "lemma": "ו/ב/בקר",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Konjunktion und Präposition mit verschmolzenem Artikel; die Zeitangabe ist kein Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 23,
+    "word": "בַדֶּרֶךְ",
+    "analyses": [
+      {
+        "lemma": "ב/דרך",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Präposition mit verschmolzenem Artikel; selbständige Ortsangabe, kein Status constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 47,
+    "word": "בַדֶּרֶךְ",
+    "analyses": [
+      {
+        "lemma": "ב/דרך",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Präposition mit verschmolzenem Artikel; selbständige Ortsangabe, kein Status constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 46,
+    "word": "בָא",
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb",
+          "periphrastic-participle"
+        ],
+        "method": "context",
+        "note": "Partizip nach הייתי in der Vergangenheitsumschreibung; die alternative 3.-Person-Perfektanalyse passt nicht zu diesem Satz."
+      }
+    ]
+  }
+]

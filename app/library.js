@@ -528,8 +528,10 @@
       return !!doc&&annotated(doc.text);
     };
     const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):kaufmannLabel(v.versionTitle)||window.LibraryWorks.versionLabel(v);
+    const mishnahCandidate=v=>v.title==='Mishnah Berakhot'&&v.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
     const localEditions = new Set(entries.map(e => e.rel));
-    const itemH = v => `<div class="version-row"><label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>${localEditions.has(v.rel)?`<button type="button" class="version-remove" data-remove-edition="${esc(v.rel)}" aria-label="${esc(I18N.t('Ausgabe entfernen: {}',versionName(v)))}">${esc(I18N.t('Entfernen …'))}</button>` : ''}</div>`;
+    const itemH = v => `<div class="version-row"><label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}${mishnahCandidate(v)?`<span class="vmorph mhm-version-candidate">${esc(I18N.t('Wortbestimmung · maschinell'))}</span>`:''}</span></span></label>${localEditions.has(v.rel)?`<button type="button" class="version-remove" data-remove-edition="${esc(v.rel)}" aria-label="${esc(I18N.t('Ausgabe entfernen: {}',versionName(v)))}">${esc(I18N.t('Entfernen …'))}</button>` : ''}</div>`;
+
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.
     const menuKind = v => /^The Samaritan Pentateuch/.test(v.versionTitle||'')?'en':/^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
@@ -720,7 +722,8 @@
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
+    const mh = d.entry.title === 'Mishnah Berakhot' && (d.entry.versionTitle || d.versionTitle) === "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri" ? ' data-mishnah-morph="1"' : '';
+    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv}${mh} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -815,6 +818,7 @@
         `<div class="independent-columns" style="--n:${n}">${vis.map(i=>`<section>${shownRows.filter(r=>r.cells[i]!=null).map(r=>nativeRow(r,i)).join('')}</section>`).join('')}</div>`;
     }
     $('#rOut').innerHTML = vfBar + (!canonical && !passages && independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
+    mishnahMorphUI.refresh();
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     navigationUI.recordNav(s, rowLabel);
@@ -1089,6 +1093,11 @@
     get showTab() { return showTab; },
   });
   // end-reader-module:word-cards
+
+  const mishnahMorphUI=window.LibraryMishnahMorph.create({
+    $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
+    openDict:(...args)=>openDict(...args),closeOther:()=>wordPopupUI.close(),
+  });
 
   const textcritUI = window.LibraryTextCrit.create({
     $, esc, getView: () => view, getRow: () => cmtRow, withAnchor,

@@ -3080,3 +3080,34 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 
 #nwEditionPreview { white-space: pre-wrap; max-height: 35vh; overflow: auto; }
 .nw-dialog #nwEditionChoice { width: 100%; }
+/* Candidate morphology, limited to the source-bound vocalized Kaufmann pilot. */
+.mhw { cursor:pointer; border-radius:3px; }
+.mhw:hover,.mhw:focus-visible { background:color-mix(in srgb,var(--accent) 15%,transparent); }
+.mhw:focus-visible { outline:1px solid var(--accent); outline-offset:2px; }
+.mhw.mhw-selected { background:color-mix(in srgb,var(--accent) 25%,transparent); }
+#mishnahMorphPopup { position:fixed; z-index:70; width:360px; max-width:calc(100vw - 16px); max-height:calc(100vh - 16px); box-sizing:border-box; overflow:auto; padding:12px; border:1px solid var(--accent); border-radius:8px; background:var(--card); color:var(--fg); box-shadow:0 6px 24px #0004; font-size:14px; line-height:1.5; }
+.mhm-top,.mhm-dialog-head { display:flex; align-items:start; justify-content:space-between; gap:12px; }
+.mhm-word { font-family:"HeDict",serif; font-size:25px; }
+.mhm-close { border:0; background:none; color:inherit; cursor:pointer; padding:2px 6px; }
+.mhm-badge { display:inline-block; color:var(--muted); font-size:12px; margin-block:4px 8px; }
+.mhm-analysis { border-top:1px solid var(--line); padding-block:7px; }
+.mhm-analysis bdi { font-family:"HeDict",serif; font-size:20px; }
+.mhm-analysis p { margin:3px 0 0; }
+.mhm-hints { color:var(--muted); font-size:12px; }
+.mhm-grammar { border-top:1px solid var(--line); padding-top:7px; margin-block:4px 8px; }
+.mhm-grammar summary { cursor:pointer; color:var(--muted); font-size:12px; }
+.mhm-grammar ul { margin:7px 0; padding-inline-start:19px; font-size:12px; }
+.mhm-grammar li { margin-bottom:7px; }
+.mhm-grammar small { display:block; color:var(--muted); }
+.mhm-actions,.mhm-actions > div { display:flex; flex-wrap:wrap; gap:6px; }
+.mhm-actions { margin-top:8px; }
+.mhm-actions > div { width:100%; }
+.mhm-actions button { font-size:13px; padding:4px 8px; }
+#mishnahMorphForms { width:min(760px,calc(100vw - 32px)); max-height:calc(100vh - 32px); box-sizing:border-box; border:1px solid var(--line); border-radius:10px; padding:16px; color:var(--fg); background:var(--card); font-size:14px; }
+#mishnahMorphForms::backdrop { background:#0007; }
+.mhm-dialog-head h3 { margin:0; }
+#mishnahMorphForms > p { margin-block:7px; }
+.mhm-table-scroll { overflow:auto; max-height:65vh; }
+#mishnahMorphForms table { border-collapse:collapse; width:100%; text-align:left; }
+#mishnahMorphForms :is(th,td) { border-bottom:1px solid var(--line); padding:7px; vertical-align:top; }
+#mishnahMorphForms td:first-child { font-family:"HeDict",serif; font-size:21px; }

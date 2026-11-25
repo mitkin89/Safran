@@ -1,0 +1,109 @@
+{
+  "scope": "User-provided Accordance MISH-T 4.3 screenshots of Berakhot 1:1–3 only",
+  "wordPositions": 202,
+  "readableFeatureCompatible": 197,
+  "remainingConventionDifferences": 5,
+  "positionsWithUnreadableSuffixTags": 12,
+  "isAccuracyScore": false,
+  "referenceFileDistributed": false,
+  "alignment": "Manually aligned word positions; source edition, abbreviations and morpheme splitting checked separately",
+  "perMishnah": [
+    {
+      "ref": "1:1",
+      "wordPositions": 95,
+      "compatible": 93,
+      "conventionDifferences": 2,
+      "positionsWithUnreadableSuffixTags": 3
+    },
+    {
+      "ref": "1:2",
+      "wordPositions": 40,
+      "compatible": 39,
+      "conventionDifferences": 1,
+      "positionsWithUnreadableSuffixTags": 0
+    },
+    {
+      "ref": "1:3",
+      "wordPositions": 67,
+      "compatible": 65,
+      "conventionDifferences": 2,
+      "positionsWithUnreadableSuffixTags": 9
+    }
+  ],
+  "remainingDifferences": [
+    {
+      "ref": "1:1",
+      "token": 13,
+      "type": "lemma-convention",
+      "note": "אשמרת/אשמורת versus אשמורה; nominal gender, number and form agree."
+    },
+    {
+      "ref": "1:1",
+      "token": 52,
+      "type": "segmentation-and-word-class",
+      "note": "בלבד as lexicalized adverb versus ב/ל/בד; Segal §298 explicitly supports the adverb in Berakhot1:1."
+    },
+    {
+      "ref": "1:2",
+      "token": 30,
+      "type": "lemma-orthography",
+      "note": "שלוש versus שלש; feminine cardinal numeral features agree."
+    },
+    {
+      "ref": "1:3",
+      "token": 56,
+      "type": "lemma-orthography",
+      "note": "לסטים versus ליסטים; nominal features agree."
+    },
+    {
+      "ref": "1:3",
+      "token": 59,
+      "type": "word-class-convention",
+      "note": "כדי as adjective versus functional adverb; retained as an explicit classification difference."
+    }
+  ],
+  "corrections": "Twenty context-bound positions refined using independent grammar/context analysis; see context-corrections.json. Other occurrences remain machine candidates.",
+  "limitations": [
+    "Three suffix occurrences in מצותן are not individually confirmed. A follow-up shows 3mp for the form, but its exact occurrence is not visible.",
+    "Agreement means a compatible analysis of supplied features, not a full accuracy measure.",
+    "No claim is made for the remaining 54 Mishnah units without reference screenshots.",
+    "Nine suffix tags in 1:3 are not displayed in the supplied overview and are not externally confirmed."
+  ],
+  "confirmedSuffixPositionsFromFollowUps": [
+    {
+      "ref": "1:1",
+      "token": 10,
+      "word": "בִּתְרוּמָתָן",
+      "status": "compatible"
+    },
+    {
+      "ref": "1:1",
+      "token": 31,
+      "word": "בָנָיו",
+      "status": "compatible"
+    },
+    {
+      "ref": "1:1",
+      "token": 35,
+      "word": "לוֹ",
+      "status": "compatible"
+    },
+    {
+      "ref": "1:1",
+      "token": 41,
+      "word": "לָהֶם",
+      "status": "compatible"
+    }
+  ],
+  "formOnlySuffixFollowUp": {
+    "word": "מִצְוָתָן",
+    "features": "third person masculine plural",
+    "possibleTokens": [
+      59,
+      69,
+      78
+    ],
+    "exactOccurrenceVisible": false,
+    "meaning": "Form-level evidence supplied; the three occurrences are not individually confirmed."
+  }
+}
