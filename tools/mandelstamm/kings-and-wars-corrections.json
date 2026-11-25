@@ -1,0 +1,195 @@
+{
+  "book": "Mishneh Torah, Kings and Wars",
+  "date": "2026-11-25",
+  "editor": "Codex",
+  "scope": "All 12 chapters read; selected unambiguous typographical/grammatical corrections, plus one source-checked missing negation. Not a complete philological collation. Historical spelling retained.",
+  "source_file": "bundled/own/Mishneh Torah, Kings and Wars/de/Jad Haghasakkah, trans. by L. Mandelstamm. St. Petersburg, 1851. Corrected and edited by Igor Itkin - German [de].json",
+  "before_sha256": "5f3ae549cbfbacfedf9bd9f8f41aff68cfd6bce6bc00dba6bd91a5e81ca392f4",
+  "after_sha256": "b96950a45ce3b6704cf27d96137ee04bb3bfa37c06602e202489d6165a472ca8",
+  "changes": [
+    {
+      "ref": "1:7",
+      "before": "—mit der Salbung",
+      "after": "— mit der Salbung",
+      "reason": "Leerzeichen nach Gedankenstrich",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "5:1",
+      "before": "das Wohnen ins Ägypten",
+      "after": "das Wohnen in Ägypten",
+      "reason": "Fehlerhafte Präposition in der Überschrift",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "7:4",
+      "before": "den etwas Flüchtenden",
+      "after": "den etwa Flüchtenden",
+      "reason": "Offensichtlicher Buchstabendreher",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "7:5",
+      "before": "eine Holz oder Getreidescheune",
+      "after": "eine Holz- oder Getreidescheune",
+      "reason": "Fehlender Ergänzungsstrich",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "8:1",
+      "before": "nicht anderes vorfindet",
+      "after": "nichts anderes vorfindet",
+      "reason": "Fehlendes s im Indefinitpronomen",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "8:5",
+      "before": "abhalten darf.Hierbei",
+      "after": "abhalten darf. Hierbei",
+      "reason": "Fehlendes Leerzeichen zwischen Sätzen",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "8:5",
+      "before": "beim Ein und Ausgehen",
+      "after": "beim Ein- und Ausgehen",
+      "reason": "Fehlender Ergänzungsstrich",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "8:6",
+      "before": "ehelichen.Will er",
+      "after": "ehelichen. Will er",
+      "reason": "Fehlendes Leerzeichen zwischen Sätzen",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "8:9",
+      "before": "Will die schöne Gefangene nach zwölf Monaten ihren Götzendienst aufgeben",
+      "after": "Will die schöne Gefangene nach zwölf Monaten ihren Götzendienst nicht aufgeben",
+      "reason": "Fehlende Verneinung; am hebräischen Vergleichstext geprüft",
+      "type": "source-checked missing negation",
+      "source_url": "https://www.sefaria.org/Mishneh_Torah,_Kings_and_Wars.8.9",
+      "source_edition": "Torat Emet 363",
+      "source_excerpt": "יְפַת תֹּאַר שֶׁלֹּא רָצְתָה לְהָנִיחַ עֲבוֹדָה זָרָה אַחַר הַשְּׁנֵים עָשָׂר חֹדֶשׁ"
+    },
+    {
+      "ref": "9:2",
+      "before": "ihn nicht zu lassen darf",
+      "after": "ihn nicht zulassen darf",
+      "reason": "Fälschlich getrenntes Verb",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "9:6",
+      "before": "Minderjährig oder Erwachsen",
+      "after": "minderjährig oder erwachsen",
+      "reason": "Adjektive kleingeschrieben",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "9:7",
+      "before": "nach Israelitischem Recht",
+      "after": "nach israelitischem Recht",
+      "reason": "Adjektiv kleingeschrieben",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "9:8",
+      "before": "eine Nichtjüdische Frau",
+      "after": "eine nichtjüdische Frau",
+      "reason": "Adjektiv kleingeschrieben",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "9:9",
+      "before": "einen Arbeiter den Lohn vorenthält",
+      "after": "einem Arbeiter den Lohn vorenthält",
+      "reason": "Falscher Kasus beim Empfänger des Lohns",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "9:12",
+      "before": "Hals Arterien",
+      "after": "Halsarterien",
+      "reason": "Fälschlich getrenntes Kompositum",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "9:13",
+      "before": "Hals Arterien",
+      "after": "Halsarterien",
+      "reason": "Fälschlich getrenntes Kompositum",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "10:3",
+      "before": "Nichtjüdisch werden",
+      "after": "nichtjüdisch werden",
+      "reason": "Adjektiv kleingeschrieben",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "10:3",
+      "before": "nach israelitischen Recht",
+      "after": "nach israelitischem Recht",
+      "reason": "Fehlerhafte Adjektivendung",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "10:5",
+      "before": "Hochzeitzeremonie",
+      "after": "Hochzeitszeremonie",
+      "reason": "Fehlendes Fugen-s",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "10:6",
+      "before": "obwohl er Todesschuldig ist",
+      "after": "obwohl er todesschuldig ist",
+      "reason": "Adjektiv kleingeschrieben",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "10:9",
+      "before": "ist der Todesschuldig",
+      "after": "ist er todesschuldig",
+      "reason": "Fehlerhaftes Pronomen und Großschreibung",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "12:3",
+      "before": "die dem Rufe der ehrlichen Abkunft stehen",
+      "after": "die in dem Rufe der ehrlichen Abkunft stehen",
+      "reason": "Fehlende Präposition",
+      "type": "typographical or grammatical correction"
+    },
+    {
+      "ref": "12:3",
+      "before": "wie er nicht sagen",
+      "after": "wird er nicht sagen",
+      "reason": "Fehlerhafte Verbform",
+      "type": "typographical or grammatical correction"
+    }
+  ],
+  "not_changed": [
+    {
+      "refs": [
+        "1:2",
+        "1:9",
+        "4:1"
+      ],
+      "note": "Possible incorrect biblical chapter/book references; not silently corrected in this spelling pass."
+    },
+    {
+      "refs": [
+        "6:11",
+        "9:14",
+        "10:4",
+        "10:12",
+        "11:5"
+      ],
+      "note": "Possible substantive, syntactic or quotation issues require a separate comparison with the edition; retained."
+    }
+  ]
+}
