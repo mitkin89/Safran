@@ -9,7 +9,7 @@ Open **Search → Grammatik & Syntax → Klauseln & Beziehungen**. For morpholog
 The two databases can segment the same text differently. Verses with different consonant sequences, ambiguous word positions, or incompatible clause boundaries are omitted from combined results. The index status shows how many BHSA source verses aligned with the bundled Westminster edition.
 
 
-The index is derived from [ETCBC BHSA 2021](https://doi.org/10.17026/dans-z6y-skyh) under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). See the [bundled attribution](../bundled/bhsa/ATTRIBUTION.md). To regenerate the index, run `node tools/bhsa/build.js /path/to/bhsa/tf/2021` with the pinned source files listed in the attribution. The generator verifies their hashes.
+The index is derived from [ETCBC BHSA 2021](https://doi.org/10.17026/dans-z6y-skyh) under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). See the [bundled attribution](../app/bundled/bhsa/ATTRIBUTION.md). To regenerate the index, run `node tools/bhsa/build.js /path/to/bhsa/tf/2021` with the pinned source files listed in the attribution. The generator verifies their hashes.
 
 ## Advanced query builder
 

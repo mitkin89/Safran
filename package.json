@@ -1,109 +1,16 @@
 {
-  "name": "safran",
+  "name": "safran-workspace",
   "version": "2.8.1",
-  "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
-  "main": "main.js",
-  "desktopName": "safran.desktop",
+  "private": true,
+  "workspaces": [
+    "app"
+  ],
   "scripts": {
-    "start": "electron .",
-    "test:smoke": "electron tests/electron/smoke.cjs",
-    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js && node test9.js && node test10.js && node test11.js && node test12.js && node test13.js && node test14.js && node test15.js && node test16.js && node test17.js && node test18.js && node test19.js && node test20.js && node test21.js && node test22.js && node test23.js && node test24.js && node test25.js && node test26.js && node test27.js && node test28.js && node test29.js && node test30.js && node test31.js && node test32.js && node test33.js && node test34.js && node test35.js && node test36.js && node test37.js && node test38.js && node test39.js && node test40.js && node test41.js && node test42.js && node test43.js && node test44.js && node --test tests/*.test.js",
-    "dist": "electron-builder --mac",
-    "dist:win": "electron-builder --win",
-    "dist:linux": "electron-builder --linux"
-  },
-  "dependencies": {
-    "mammoth": "^1.8.0"
-  },
-  "devDependencies": {
-    "electron": "^45.2.3",
-    "electron-builder": "^26.0.0"
-  },
-  "build": {
-    "appId": "de.talmud.safran",
-    "productName": "Safran",
-    "mac": {
-      "category": "public.app-category.education",
-      "target": [
-        "dmg"
-      ],
-      "icon": "build/icon.png"
-    },
-    "win": {
-      "target": [
-        "nsis",
-        "portable"
-      ],
-      "icon": "build/icon.png"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "category": "Education",
-      "icon": "build/icon.png",
-      "maintainer": "Safran <noreply@example.com>",
-      "syncDesktopName": true
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
-    },
-    "files": [
-      "**/*",
-      "build/icon.png",
-      "!test*.js",
-      "!tests/**",
-      "!tools/**",
-      "!README.md",
-      "!screenshots/**",
-      "!ud/**",
-      "!private/**",
-      "!interlin.private*",
-      "!interlin-buber*",
-      "!interlin-ren.private*",
-      "!interlin-ren-buber*",
-      "!bundled/manifest.private*.json",
-      "!bundled/own/Alter on */**",
-      "!bundled/own/Rational Bible on */**",
-      "!bundled/own/*/de/Zürcher Bibel (2007).json",
-      "!bundled/own/*/de/Elberfelder Bibel (2006).json",
-      "!bundled/own/*/de/Die Schrift, verdeutscht von Martin Buber*.json",
-      "!bundled/own/*/de/Die Heilige Schrift, übersetzt von Naftali Herz Tur-Sinai*.json"
-    ],
-    "icon": "build/icon.png",
-    "dmg": {
-      "window": {
-        "width": 560,
-        "height": 430
-      },
-      "contents": [
-        {
-          "x": 150,
-          "y": 150,
-          "type": "file"
-        },
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 150,
-          "y": 320,
-          "type": "file",
-          "path": "build/dmg/Safran freischalten.command"
-        },
-        {
-          "x": 410,
-          "y": 320,
-          "type": "file",
-          "path": "build/dmg/Zuerst lesen.txt"
-        }
-      ]
-    },
-    "afterPack": "build/adhoc-sign.js"
+    "start": "npm run start --workspace safran --",
+    "test:smoke": "npm run test:smoke --workspace safran --",
+    "test": "npm run test --workspace safran --",
+    "dist": "npm run dist --workspace safran --",
+    "dist:win": "npm run dist:win --workspace safran --",
+    "dist:linux": "npm run dist:linux --workspace safran --"
   }
 }

@@ -21,7 +21,7 @@ jobs:
         with: { node-version: 22 }
       - run: npm ci
       - run: npm test
-      - run: npx electron-builder ${{ matrix.os == 'macos-latest' && '--mac' || matrix.os == 'windows-latest' && '--win' || '--linux' }} --publish never
+      - run: npm run ${{ matrix.os == 'macos-latest' && 'dist' || matrix.os == 'windows-latest' && 'dist:win' || 'dist:linux' }} -- --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: sefaria-${{ matrix.os }}

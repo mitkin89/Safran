@@ -1,0 +1,22 @@
+const A = require('../../autoref.js'); let bad = 0;
+const t = (inp, want) => { const out = A.link(inp, { last: '' }); const refs = [...out.matchAll(/data-sref="([^"]+)"/g)].map(x => x[1]); if (JSON.stringify(refs) !== JSON.stringify(want)) { bad++; console.log('FEHLER', inp, '→', refs, 'erwartet', want); } };
+t('"Below His feet" [Exodus 24:10], "Written by the finger of God" [ibid. 31:18], "God\'s ears" [Numbers 11:1]', ['Exodus 24:10', 'Exodus 31:18', 'Numbers 11:1']);
+t('heißt es: »Unter Seinen Füßen« (Ex. 24:10), »Finger Gottes« (Ex. 31:18) und (Deut. 32:41)', ['Exodus 24:10', 'Exodus 31:18', 'Deuteronomy 32:41']);
+t('s. Ps. 23, 4 und Jes. 6, 3 und 1 Kön. 8:27', ['Psalms 23:4', 'Isaiah 6:3', 'I Kings 8:27']);
+t('ובתחת רגליו (שמות לא יח) ו(דברים לב מא) וגם [בראשית ב, ז]', ['Exodus 31:18', 'Deuteronomy 32:41', 'Genesis 2:7']);
+t('(שמואל ב ז יד) (תהלים כד א)', ['II Samuel 7:14', 'Psalms 24:1']);
+t('בראשית ברא אלהים שמות בני ישראל (דברים אלו אמר)', []);
+t('um 3:4 Uhr, zwei mal 3, 4 und mi 3:4', []);
+t('<a href="x">Exodus 3:4</a> und Exodus 5:6', ['Exodus 5:6']);
+t('Genesis 1:1-5 und Psalms 23', ['Genesis 1:1-5']);
+t('vgl. Jerem. XXIII, 24; Ps. CXLV, 15 und I Sam. XIV, 24-25; Gen. I, 1', ['Jeremiah 23:24', 'Psalms 145:15', 'I Samuel 14:24-25', 'Genesis 1:1']);
+t('BR. XII, 15 und Kap. IV, 5', []);
+t('bSabb 109ᵇ₃ und bBm 144ᵇ, aber b 26ᵃ ohne Traktat', ['Shabbat 109b', 'Bava Metzia 144b']);
+t('jSabb 6,8ᵇ₆₄, jBerakh 1,2, 4ᵃ; jTerum 11, 43ᵇ', ['Jerusalem Talmud Shabbat 6', 'Jerusalem Talmud Berakhot 1:2', 'Jerusalem Talmud Terumot 11']);
+t('MKel 2,3; TKel bḳ. 1,11, 570₉; TSabb 2,4, 112₄', ['Mishnah Kelim 2:3', 'Tosefta Kelim Bava Kamma 1:11', 'Tosefta Shabbat 2:4']);
+t('Gen R 14,6 und Ḳoh R 3,1; Lev R 5,2; Num R 1,2', ['Bereshit Rabbah 14:6', 'Kohelet Rabbah 3:1', 'Vayikra Rabbah 5:2', 'Bamidbar Rabbah 1:2']);
+t('bSabb 12ᵃ, ib. 4,5 und bFoo 3ᵃ', ['Shabbat 12a']);
+t('Maim. zu MKel 5,1; Maim MʾOhal 3,7; (s. Maim. Kel 5,1), Maim. zu MʿEduj 2,8', ['Rambam on Mishnah Kelim 5:1', 'Rambam on Mishnah Oholot 3:7', 'Mishneh Torah, Vessels 5:1', 'Rambam on Mishnah Eduyot 2:8']);
+t('Maim. הל׳ כלים 4,2) und Maim. (הל׳ שבת 22,15) RABD zu Maim. הל׳ כלים 5,1', ['Mishneh Torah, Vessels 4:2', 'Mishneh Torah, Sabbath 22:15', 'Mishneh Torah, Vessels 5:1']);
+if (A.gem('לא') !== 31 || A.gem('כ״ד') !== 24 || A.gem('קמ') !== 140) { bad++; console.log('gem'); }
+console.log(bad ? 'FEHLER' : 'Stellenerkennung ok'); process.exit(bad ? 1 : 0);

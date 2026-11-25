@@ -1,4 +1,12 @@
 # Development
+## Repository layout
+
+The repository root contains the npm workspace, project documentation and screenshots. Application code, bundled data, build resources, conversion tools and tests live in `app/`. Paths in the implementation sections below are relative to `app/` unless stated otherwise.
+
+Run `npm ci`, `npm start`, `npm test`, `npm run test:smoke` and `npm run dist` from the repository root; the npm workspace forwards these commands to Safran. For direct tool commands, first run `cd app` (for example `node tools/masora/build-translations.js`). Release builds still write to the root `dist/` directory. The shipped application version is defined in `app/package.json`; keep the workspace metadata in sync when preparing releases. The build config resolves the installed Electron version through Node so npm-hoisted dependencies work on all three platforms.
+
+The 43 formerly numbered root test scripts now have descriptive names in `app/tests/integration/`. `app/tests/run.cjs` discovers these corpus checks and runs each in a separate process, then invokes Node's test runner for `app/tests/*.test.js`. Tests and conversion tools remain excluded from packaged applications.
+
 
 Private Buber/Rosenzweig interlinear alignments can be imported locally; see
 [PRIVATE-INTERLINEAR.md](PRIVATE-INTERLINEAR.md). No private texts or alignments
@@ -31,7 +39,7 @@ npm run test:smoke  # actual Electron renderer, temporary profile, no network
 SAFRAN_SMOKE_SEARCH=1 npm run test:smoke  # focused search/download/syntax flows
 ```
 
-New isolated regressions live in `tests/*.test.js` and are discovered by Node’s test runner. The older numbered corpus tests remain in the existing test chain. The Electron smoke test loads the production HTML, renderer scripts and preload against public fixture texts; it covers Tanakh/Bavli cards, modal visibility, forms/navigation, a retained modified translation and the second reading pane. On Linux run it under `xvfb-run --auto-servernum`. The Linux CI job explicitly installs the Electron binary, then sets its `node_modules/electron/dist/chrome-sandbox` helper to root ownership and mode 4755 before launching Electron; the workflow verifies those permissions and keeps sandboxing enabled. Normal pushes and pull requests run `.github/workflows/check.yml`; release builds use the same committed lockfile without falling back to an unpinned install.
+New isolated regressions live in `tests/*.test.js` and are discovered by Node’s test runner. The corpus integration checks run in isolated processes before the focused regression suite. The Electron smoke test loads the production HTML, renderer scripts and preload against public fixture texts; it covers Tanakh/Bavli cards, modal visibility, forms/navigation, a retained modified translation and the second reading pane. On Linux run it under `xvfb-run --auto-servernum`. The Linux CI job explicitly installs the Electron binary, then sets its `node_modules/electron/dist/chrome-sandbox` helper to root ownership and mode 4755 before launching Electron; the workflow verifies those permissions and keeps sandboxing enabled. Normal pushes and pull requests run `.github/workflows/check.yml`; release builds use the same committed lockfile without falling back to an unpinned install.
 
 The Electron suite also runs `tests/electron/library-flows.cjs`: actual search workers feed results through the production preload to the renderer, and downloads use `Library.downloadEntries()` with an injected local transport. It covers opening a highlighted verse, independent pane cancellation, search failure/retry, escaped catalog errors, canceled downloads, rejected non-JSON responses and retries that skip valid existing files. Controlled gates make cancellation deterministic. IPC fixture handlers replace the application's main-process wiring; these tests do not cover real network access, credentials or native system dialogs. All files and indexes live in the temporary profile. The runner explicitly handles the last window closing so a failed assertion cannot silently become exit code zero.
 
@@ -74,7 +82,7 @@ The remaining reader controllers use explicit `create(host)` adapters. Mutable s
 
 ## Interface language
 
-The interface is available in German and English. The English strings live in `i18n.js`: German original on the left, translation on the right; `{}` and `{#}` (number) are placeholders. New interface strings in the code stay German and get an entry there. `test10.js` checks the table.
+The interface is available in German and English. The English strings live in `i18n.js`: German original on the left, translation on the right; `{}` and `{#}` (number) are placeholders. New interface strings in the code stay German and get an entry there. `app/tests/integration/interface-languages.cjs` checks the table.
 
 ## Bundled texts
 
