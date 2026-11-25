@@ -14,27 +14,47 @@
 
 ![Genesis 1 in Safran: Westminster Hebrew, S. R. Hirsch’s German translation and an interlinear line, with corresponding words highlighted.](screenshots/current/reading.png)
 
+*Reading Genesis 1 with Hebrew, German and interlinear text*
+
 Safran is a free, open-source desktop app. Read texts side by side, follow a Hebrew word into its grammar and translations, and collect your findings in notebooks and source sheets. Texts, dictionaries and your work stay on your computer. Safran is an independent project and is not affiliated with Sefaria.
 
 **Current release: [2.8.6](https://github.com/mitkin89/Safran/releases/tag/2.8.6)** — verse-aligned Maccabees editions, source-sheet footnotes and improved PDF exports. [Release notes](docs/releases/2.8.6.md).
 
 ![Genesis 1 chapter overview: unusually frequent words compared with the rest of Genesis and highlighted in the Hebrew text.](screenshots/current/chapter-overview.png)
 
+*Chapter overview with highlighted word frequencies*
+
 ![Genesis 1 with interlinear lines for ancient textual witnesses and an open Syriac Peshitta word analysis.](screenshots/current/ancient-versions.png)
+
+*Ancient versions and Syriac word analysis*
 
 ![Word card for אֶרֶץ beside Genesis: distribution in the Tanakh, frequent forms and German renderings in Mendelssohn’s translation.](screenshots/current/word-study.png)
 
+*Hebrew word study with translation examples*
+
 ![Search results in Hebrew and Aramaic, with highlighted matches, distribution across books and category filters.](screenshots/current/search.png)
+
+*Full-text search in Hebrew and Aramaic*
 
 ![Notes workspace with notebook navigation, a note list and two linked sources: Hoffmann on Deuteronomy and Job 1:1.](screenshots/current/notebooks.png)
 
+*Notebooks with linked passages*
+
 ![Source-sheet editor for Bava Metzia 20a: Hebrew and Aramaic main text, Sammter and Goldschmidt translations in the margins, source navigation and undo/redo controls.](screenshots/current/source-sheet.png)
+
+*Source-sheet editor with parallel translations*
 
 ![Source-sheet page preview with the Hebrew and Aramaic text between two German translations.](screenshots/current/source-sheet-preview.png)
 
+*Print preview of a source sheet*
+
 ![Genesis 1:2 with Field’s Hexapla readings for Aquila, Symmachus and Theodotion and English explanations beside the Hebrew text.](screenshots/current/apparatus.png)
 
+*Textual apparatus with readings from Field’s Hexapla*
+
 ![Masorah notes on Genesis 1:2 beside the Hebrew text, with cited passages and visible German working translations.](screenshots/current/masora.png)
+
+*Masorah notes with German working translations*
 
 ## Install
 
