@@ -66,6 +66,9 @@ aside input { width: 100%; margin-bottom: 8px; }
 .sres .snip { margin-top: 3px; font-size: 17px; line-height: 1.55; }
 .sres .snip[dir=rtl] { font-size: 20px; }
 .sres mark { background: color-mix(in srgb, var(--warn) 30%, transparent); color: inherit; }
+#editionChoices { max-height: 32vh; overflow: auto; }
+#editionChoices label { display: block; padding: 2px 0; }
+#editionChoices small { color: var(--muted); margin-inline-start: 6px; }
 #picker, #flat { max-height: 52vh; overflow: auto; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
 #picker details { margin-left: 14px; }
 #picker summary { padding: 1px 0; }

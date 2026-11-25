@@ -160,11 +160,16 @@ module.exports=async function setup({profile,docs,handlers}){
     await waitFor("!document.querySelector('#flat').hidden && document.querySelectorAll('#flat input[data-id]').length===1",'Downloadtitel filtern');
     await js("document.querySelector('#pickAllHits').click()");
     await waitFor("!document.querySelector('#dGo').disabled",'Downloadplan');
+    await js("document.querySelector('#oEditions').click()");
+    await waitFor("document.querySelector('#editionChoices input')&&!document.querySelector('#editionChoices').inert",'Editions list for selected title');
+    assert.equal(await js("document.querySelector('#dGo').disabled"),true);
+    await js("document.querySelector('#editionChoices input').click()");
+    await waitFor("!document.querySelector('#dGo').disabled&&document.querySelector('#planInfo').textContent.includes('1 Dateien')",'Explicit edition download plan');
     holdDownload=true;await js("document.querySelector('#dGo').click()");await until(()=>downloadGate,'Laufender Download');
     await js("document.querySelector('#dCancel').click()");
     await waitFor("document.querySelector('#dInfo').textContent.startsWith('Abgebrochen') && !document.querySelector('#dGo').disabled && document.querySelector('#dCancel').disabled",'Downloadabbruch');
     assert.equal(lib.list().length,0);await assert.rejects(fs.access(path.join(dir,OFF.relPathOf(entries[0]))));
-    holdDownload=false;await js("document.querySelector('#pickAll').click()");
+    holdDownload=false;await js("document.querySelector('#oEditions').click();document.querySelector('#pickAll').click()");
     await waitFor("document.querySelector('#planInfo').textContent.includes('2 Dateien')",'Zwei Dateien ausgewählt');
     await js("document.querySelector('#dGo').click()");
     await waitFor("document.querySelector('#dInfo').textContent.startsWith('Fertig') && document.querySelector('#dWarn .err')",'Ungültige Downloadantwort angezeigt');

@@ -536,7 +536,7 @@ ipcMain.handle('off:plan', async (_e, sel, opts) => {
   const c = await loadCatalog();
   if (!c) return { files: 0, titles: 0, estimateMB: 0 };
   const p = OFF.planEntries(c.groups, sel, opts);
-  return { files: p.files, titles: p.titles, estimateMB: p.estimateMB };
+  return { files: p.files, titles: p.titles, estimateMB: p.estimateMB, editions: p.editions };
 });
 
 ipcMain.handle('off:download', async (e, sel, opts) => {

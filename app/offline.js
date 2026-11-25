@@ -89,10 +89,30 @@ function pickEntries(group, opts) {
 }
 
 function planEntries(groups, sel, opts) {
-  const entries = [];
-  for (const g of selectedGroups(groups, sel)) entries.push(...pickEntries(g, opts));
+  const entries = [], selected = selectedGroups(groups, sel);
+  const editions = Array.isArray(opts.editions) ? new Set(opts.editions) : null;
+  const available = new Map();
+  let titles = 0;
+  for (const g of selected) {
+    if (!editions) {
+      entries.push(...pickEntries(g, opts));
+      titles++;
+      continue;
+    }
+    const start = entries.length;
+    for (const entry of g.entries) {
+      const kind = kindOf(entry);
+      if (!entry.json_url || !entry.versionTitle || kind === 'other' || !opts[kind]) continue;
+      const key = JSON.stringify([kind, entry.versionTitle]);
+      if (!available.has(key)) available.set(key, { key, title: entry.versionTitle, kind, files: 0 });
+      available.get(key).files++;
+      if (editions.has(key)) entries.push(entry);
+    }
+    if (entries.length > start) titles++;
+  }
   const estimateMB = entries.reduce((a, e) => a + AVG_KB[kindOf(e)], 0) / 1024;
-  return { entries, files: entries.length, titles: selectedGroups(groups, sel).length, estimateMB };
+  return { entries, files: entries.length, titles, estimateMB,
+    ...(editions ? { editions: [...available.values()].sort((a, b) => a.title.localeCompare(b.title)) } : {}) };
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));

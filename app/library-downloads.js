@@ -10,11 +10,13 @@ window.LibraryDownloads = (() => {
     let summary = [];
     const selCats = new Set();
     const selIds = new Set();
-    let planTimer = null;
+    const selectedEditions = new Set();
+    let planTimer = null, planRevision = 0, downloading = false;
 
     const covers = (c, p) => p === c || p.startsWith(c + '/');
     const sel = () => ({ cats: [...selCats], ids: [...selIds] });
-    const opts = () => ({ he: $('#oHe').checked, en: $('#oEn').checked, de: $('#oDe').checked, allVersions: $('#oAll').checked });
+    const opts = () => ({ he: $('#oHe').checked, en: $('#oEn').checked, de: $('#oDe').checked, allVersions: $('#oAll').checked,
+      ...($('#oEditions').checked ? { editions: [...selectedEditions] } : {}) });
 
     async function refreshCatalog() {
       const st = await O.state();
@@ -90,10 +92,24 @@ window.LibraryDownloads = (() => {
     }
     $('#picker').addEventListener('change', onPick);
     $('#flat').addEventListener('change', onPick);
-    ['#oHe', '#oEn', '#oDe', '#oAll'].forEach(id => $(id).addEventListener('change', schedulePlan));
+    ['#oHe', '#oEn', '#oDe'].forEach(id => $(id).addEventListener('change', schedulePlan));
+    $('#oAll').onchange = () => {
+      if ($('#oAll').checked) $('#oEditions').checked = false;
+      schedulePlan();
+    };
+    $('#oEditions').onchange = () => {
+      if ($('#oEditions').checked) $('#oAll').checked = false;
+      schedulePlan();
+    };
+    $('#editionChoices').onchange = ({ target }) => {
+      const key = target.dataset.edition;
+      if (!key) return;
+      if (target.checked) selectedEditions.add(key); else selectedEditions.delete(key);
+      schedulePlan(false);
+    };
 
     $('#pickAll').onclick = () => { for (const s of summary) { if (s.cats.length) selCats.add(s.cats[0]); else selIds.add(s.id); } refreshChecks(); schedulePlan(); };
-    $('#pickClear').onclick = () => { selCats.clear(); selIds.clear(); refreshChecks(); schedulePlan(); };
+    $('#pickClear').onclick = () => { selCats.clear(); selIds.clear(); selectedEditions.clear(); refreshChecks(); schedulePlan(); };
 
     let flatMatches = [];
     let filterTimer = null;
@@ -114,14 +130,41 @@ window.LibraryDownloads = (() => {
     });
     $('#pickAllHits').onclick = () => { flatMatches.forEach(s => selIds.add(s.id)); refreshChecks(); schedulePlan(); };
 
-    function schedulePlan() {
+    function schedulePlan(scopeChanged = true) {
       clearTimeout(planTimer);
+      const revision = ++planRevision, selection = sel(), options = opts();
+      $('#dGo').disabled = true;
+      $('#pickEditions').hidden = !options.editions;
+      const choices = $('#editionChoices');
+      if (options.editions && scopeChanged) choices.inert = true;
       planTimer = setTimeout(async () => {
-        const p = await O.plan(sel(), opts());
+        let p;
+        try { p = await O.plan(selection, options); }
+        catch (error) {
+          if (revision === planRevision) {
+            choices.inert = false;
+            $('#planInfo').textContent = String(error.message || error);
+          }
+          return;
+        }
+        if (revision !== planRevision) return;
+        if (options.editions) {
+          const editions = p.editions || [], signature = JSON.stringify([I18N.lang, editions]);
+          if (choices.dataset.signature !== signature) {
+            const languages = { he: 'H', en: 'E', de: 'D' };
+            choices.innerHTML = editions.map(e => {
+              const title = e.title === 'merged' ? I18N.t('Zusammengeführte Fassung') : e.title;
+              return `<label><input type="checkbox" data-edition="${esc(e.key)}"> <span class="nt">${esc(title)}</span><small>${languages[e.kind]} · ${e.files}</small></label>`;
+            }).join('') || `<p class="muted">${esc(I18N.t('Keine Editionen für diese Auswahl.'))}</p>`;
+            choices.dataset.signature = signature;
+          }
+          choices.querySelectorAll('input[data-edition]').forEach(i => { i.checked = selectedEditions.has(i.dataset.edition); });
+          choices.inert = false;
+        }
         $('#planInfo').textContent = p.files
           ? `${p.titles} Titel · ${p.files} Dateien · etwa ${fmtEst(p.estimateMB)} (grobe Schätzung)`
           : 'Nichts ausgewählt.';
-        $('#dGo').disabled = !p.files;
+        $('#dGo').disabled = downloading || !p.files;
       }, 200);
     }
 
@@ -134,11 +177,19 @@ window.LibraryDownloads = (() => {
     });
 
     $('#dGo').onclick = async () => {
+      const startedAt = planRevision;
+      downloading = true;
       $('#dGo').disabled = true; $('#dCancel').disabled = false;
       $('#dWarn').innerHTML = '';
       $('#dInfo').textContent = 'Starte …';
-      const res = await O.download(sel(), opts());
-      $('#dCancel').disabled = true; $('#dGo').disabled = false;
+      let res;
+      try { res = await O.download(sel(), opts()); }
+      catch (error) { res = { error: String(error.message || error) }; }
+      finally {
+        downloading = false;
+        $('#dCancel').disabled = true;
+        if (startedAt === planRevision) $('#dGo').disabled = false; else schedulePlan();
+      }
       $('#dProg').hidden = true;
       if (res.error) { $('#dInfo').innerHTML = `<span class="err">${esc(res.error)}</span>`; return; }
       $('#dInfo').textContent = `${res.cancelled ? 'Abgebrochen' : 'Fertig'}: ${res.done} von ${res.total} Dateien · ${fmtSize(res.bytes)}.`;

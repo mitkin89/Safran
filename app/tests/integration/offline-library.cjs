@@ -88,6 +88,17 @@ const O = require('../../offline');
   assert.deepStrictEqual(p3.entries.map(e => e.versionTitle), ['merged', 'Nur eine Version']); // ohne merged: vorhandene Version
   const p4 = O.planEntries(groups, { cats: ['Tanakh'] }, { he: true, en: true, de: true, allVersions: true });
   assert.strictEqual(p4.files, 6);
+  const scoped = O.buildGroups({ books: [...catalog.books,
+    mk('Exodus', ['Tanakh', 'Torah'], 'English', 'JPS 1985'),
+  ] });
+  const torah = { cats: ['Tanakh/Torah'] }, jps = JSON.stringify(['en', 'JPS 1985']);
+  const options = O.planEntries(scoped, torah, { en: true, editions: [] });
+  assert.equal(options.files, 0);
+  assert.deepEqual(options.editions.find(e => e.key === jps), {key:jps,title:'JPS 1985',kind:'en',files:2});
+  const specific = O.planEntries(scoped, torah, { en: true, allVersions: true, editions: [jps] });
+  assert.deepEqual(specific.entries.map(e=>[e.title,e.versionTitle]), [['Genesis','JPS 1985'],['Exodus','JPS 1985']]);
+  assert.equal(specific.titles, 2);
+  assert.equal(O.planEntries(scoped, torah, { he: true, editions: [jps] }).files, 0);
   assert.strictEqual(O.planEntries(groups, { cats: ['Tanak'] }, { he: true }).files, 0); // Präfix nur an Pfadgrenzen
   assert.strictEqual(O.relPathOf(catalog.books[4]), 'json/Tanakh/Torah/Genesis/English/Die Bücher Moses [de].json');
   assert.strictEqual(O.relPathOf({ json_url: 'https://storage.googleapis.com/sefaria-export/json/A/B%3AC/D%20/English/x%3F.json' }), 'json/A/B_C/D/English/x_.json');

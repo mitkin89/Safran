@@ -307,6 +307,7 @@
           <label><input type="checkbox" id="oEn" checked> Englisch</label>
           <label><input type="checkbox" id="oDe" checked> Deutsch (alle Übersetzungen)</label>
           <label title="Standard: pro Sprache die zusammengeführte Fassung. Mit dieser Option werden alle einzelnen Versionen geladen (deutlich mehr Daten)."><input type="checkbox" id="oAll"> auch alle Einzelversionen</label>
+          <label><input type="checkbox" id="oEditions"> Editionen einzeln auswählen</label>
         </div>
         <div class="bar">
           <input id="pickFilter" placeholder="Titel suchen (z. B. Genesis, Berakhot, Rashi …) – leer lassen für die Kategorie-Ansicht">
@@ -314,6 +315,11 @@
           <button id="pickAll" title="Alle Kategorien und Titel auswählen (je nach Sprachwahl oben ein großer Download)">Alles auswählen</button>
           <button id="pickClear">Auswahl leeren</button>
         </div>
+        <fieldset id="pickEditions" hidden>
+          <legend>Editionen</legend>
+          <p class="muted">Wähle die Editionen für die markierten Bücher und Sprachen.</p>
+          <div id="editionChoices"></div>
+        </fieldset>
         <div id="picker"></div>
         <div id="flat" hidden></div>
       </div>
