@@ -16,9 +16,7 @@
 
 Safran ist eine kostenlose Desktop-App mit offenem Quellcode. Lies Texte nebeneinander, verfolge ein hebräisches Wort zu Grammatik und Übersetzungen und sammle deine Beobachtungen in Notizbüchern und Quellenblättern. Texte, Wörterbücher und deine Arbeit bleiben auf deinem Rechner. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
-**Aktuelle Version: [2.8.5](https://github.com/mitkin89/Safran/releases/tag/2.8.5)** — Notizbücher, erweiterte Quellenblätter und Offline-Masora mit deutschen Arbeitsübersetzungen. [Versionshinweise](docs/releases/2.8.5.md).
-
-**Seit 2.8.5 auf `main`:** Makkabäer I–IV erscheinen jeweils als ein Werk. Kahana, Kautzsch und Septuaginta stehen unter **Versionen** zur Auswahl. Diese Änderung ist noch nicht in den Installationsdateien von 2.8.5 enthalten.
+**Aktuelle Version: [2.8.6](https://github.com/mitkin89/Safran/releases/tag/2.8.6)** — versweise zugeordnete Makkabäer-Ausgaben, Fußnoten in Quellenblättern und verbesserter PDF-Export. [Versionshinweise](docs/releases/2.8.6.md).
 
 ## Installation
 

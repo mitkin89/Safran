@@ -16,9 +16,7 @@
 
 Safran is a free, open-source desktop app. Read texts side by side, follow a Hebrew word into its grammar and translations, and collect your findings in notebooks and source sheets. Texts, dictionaries and your work stay on your computer. Safran is an independent project and is not affiliated with Sefaria.
 
-**Current release: [2.8.5](https://github.com/mitkin89/Safran/releases/tag/2.8.5)** — notebooks, richer source sheets and offline Masora with German working translations. [Release notes](docs/releases/2.8.5.md).
-
-**Since 2.8.5, on `main`:** Maccabees I–IV are grouped once per work, with Kahana, Kautzsch and Septuagint editions under **Versions**. This change is not yet in the 2.8.5 installers.
+**Current release: [2.8.6](https://github.com/mitkin89/Safran/releases/tag/2.8.6)** — verse-aligned Maccabees editions, source-sheet footnotes and improved PDF exports. [Release notes](docs/releases/2.8.6.md).
 
 ## Install
 

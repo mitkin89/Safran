@@ -1,8 +1,10 @@
 # Changelog
 
-### Unreleased
+### New in 2.8.6
 
-- Group Maccabees I–IV once per work in the library, with Kahana, Kautzsch and Septuagint editions in the version chooser. Preserve native files, old session keys and edition search scopes; show differing verse/paragraph divisions in separate columns without asserting verse alignment.
+- Group Maccabees I–IV in the library and align the available editions to individual Septuagint verses using checked source references. Retain native edition files, session keys and search scopes.
+- Preserve source footnotes in source sheets and align folio translations with the corresponding source lines in PDF exports.
+- Accept Sefaria language codes when validating downloads and correct transcription and commentary assignments in bundled German texts.
 
 ### New in 2.8.5
 
