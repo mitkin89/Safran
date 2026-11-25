@@ -39,3 +39,11 @@ test('split Kautzsch verse fragments are not asserted to align with the Greek ve
   }
   assert(!W.independentNumbering({title:'Genesis'},[{},{ }],[[{label:'1'}],[{label:'2'}]]));
 });
+
+test('downloaded English merged texts stay visible next to local named editions', () => {
+  const title='Genesis';
+  const merged={title,kind:'en',versionTitle:'merged',rel:'merged'};
+  const named={title,kind:'en',versionTitle:'The Steinsaltz Tanakh - English',rel:'named',own:true};
+  assert(W.visibleVersion(merged,[merged,named]));
+  assert(W.visibleVersion(named,[merged,named]));
+});

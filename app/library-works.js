@@ -25,7 +25,7 @@
   }
   // A Kahana base text is not superseded by an edition of the other work alias.
   const sameSource = (a, b) => a.title === b.title;
-  const visibleVersion = (v, versions) => v.versionTitle !== 'merged' || !versions.some(x => x.kind === v.kind && x.versionTitle !== 'merged' && sameSource(x, v));
+  const visibleVersion = (v, versions) => v.kind === 'en' || v.versionTitle !== 'merged' || !versions.some(x => x.kind === v.kind && x.versionTitle !== 'merged' && sameSource(x, v));
   function versionLabel(v) {
     const name = v.versionTitle === 'merged' ? 'Standardtext' : String(v.versionTitle || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
     return /\(Kahana Translation\)$/.test(v.title || '') ? name + ' · Kahana' : name;

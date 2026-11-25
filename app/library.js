@@ -341,8 +341,8 @@
     if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
-      const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
-      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (v.versionTitle !== 'merged' || !g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
+      const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // hebräische Sammelfassung wird nicht als Vorgabe übernommen
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (window.LibraryWorks.visibleVersion(v,g.versions))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
     }
@@ -383,7 +383,7 @@
   async function loadView(target = {}) {
     const V = view; // Tab, für den geladen wird (der Nutzer kann inzwischen woanders sein)
     const tok = V.loadTok = (V.loadTok || 0) + 1;
-    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(old?.versionTitle!=='merged')continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged'&&window.LibraryWorks.sameSource(v,old)).sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
+    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(!old||window.LibraryWorks.visibleVersion(old,V.group.versions))continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged'&&window.LibraryWorks.sameSource(v,old)).sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
     // Versionen ändern: an derselben Stelle bleiben (markierter Vers, sonst der oberste sichtbare), statt zu Vers 1 zurückzuspringen
     let keepRow = null;
     if (view === V && !target.noKeep && !target.sectionPath && target.rowLabel == null && V.key) {
@@ -515,7 +515,7 @@
   }
   const westminsterFirst = (a,b) => Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||''));
   function renderVersions() {
-    const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)));
+    const g = view.group,versions=g.versions.filter(v=>window.LibraryWorks.visibleVersion(v,g.versions));
     $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
     const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; };
@@ -627,7 +627,7 @@
       items.push({label:I18N.t('Alle anderen Versionen schließen'),mark:'▣',fn:()=>apply(new Set([d.entry.rel]))});
       items.push({sep:true});
     }
-    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)))).sort(westminsterFirst);
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (window.LibraryWorks.visibleVersion(v,g.versions))).sort(westminsterFirst);
     if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
       for (const v of same) {
         const on = view.selected.has(v.rel);
