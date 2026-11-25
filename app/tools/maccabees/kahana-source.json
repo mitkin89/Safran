@@ -1,0 +1,93 @@
+{
+  "title": "The Book of Maccabees I (Kahana Translation)",
+  "language": "Hebrew",
+  "versionTitle": "ספר המקבים",
+  "family": 2,
+  "source": "https://www.sefaria.org/api/texts/The_Book_of_Maccabees_I_(Kahana_Translation)?context=0&pad=0",
+  "versionSource": "https://he.wikisource.org/wiki/%D7%A1%D7%A4%D7%A8_%D7%94%D7%9E%D7%A7%D7%91%D7%99%D7%9D_%D7%90_-_%D7%9B%D7%9C_%D7%94%D7%A1%D7%A4%D7%A8",
+  "license": "unknown",
+  "description": "Source metadata and checksums only; quotation text is not redistributed.",
+  "textHash": "ea11590cd367937cc42f46bfc64341ee247b70be9529e498bf9c25f1243e70f7",
+  "chapters": [
+    {
+      "slots": 64,
+      "visible": 64,
+      "signature": "4388:76f91c92:a6f82f0"
+    },
+    {
+      "slots": 69,
+      "visible": 69,
+      "signature": "4408:ca1e1090:8af11344"
+    },
+    {
+      "slots": 60,
+      "visible": 60,
+      "signature": "4593:c03d83be:4b7b1b48"
+    },
+    {
+      "slots": 60,
+      "visible": 60,
+      "signature": "4440:23c326ca:9776175e"
+    },
+    {
+      "slots": 68,
+      "visible": 68,
+      "signature": "5524:d6430f01:ca0c43d7"
+    },
+    {
+      "slots": 63,
+      "visible": 63,
+      "signature": "5234:c21b2d95:1d5afb4d"
+    },
+    {
+      "slots": 50,
+      "visible": 50,
+      "signature": "3953:b53e2567:aec5d1eb"
+    },
+    {
+      "slots": 32,
+      "visible": 32,
+      "signature": "2912:c234975a:f5385ee"
+    },
+    {
+      "slots": 73,
+      "visible": 73,
+      "signature": "5563:be9c17f7:4e9ae343"
+    },
+    {
+      "slots": 89,
+      "visible": 89,
+      "signature": "7332:410012a4:ef153690"
+    },
+    {
+      "slots": 74,
+      "visible": 74,
+      "signature": "6198:132bc08:c815ccea"
+    },
+    {
+      "slots": 53,
+      "visible": 53,
+      "signature": "4221:3adc5f65:5bf46859"
+    },
+    {
+      "slots": 54,
+      "visible": 54,
+      "signature": "4283:f1754518:45fa54c8"
+    },
+    {
+      "slots": 49,
+      "visible": 49,
+      "signature": "4344:5201c28c:b4b6646e"
+    },
+    {
+      "slots": 41,
+      "visible": 41,
+      "signature": "3651:8b3aa89d:69cc934d"
+    },
+    {
+      "slots": 24,
+      "visible": 24,
+      "signature": "2156:1845e8d0:8c64b35c"
+    }
+  ]
+}

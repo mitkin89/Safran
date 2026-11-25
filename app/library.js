@@ -728,7 +728,8 @@
     if(AP&&AP.sectionKey!==view.group.key+'|'+s.k){apRemember();AP.sectionKey=view.group.key+'|'+s.k;AP.whole=true;}
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
-    const independent = window.LibraryWorks.independentNumbering(view.group, view.loaded, cols);
+    const passages = window.MaccabeesAlignment.passages(view.group,view.loaded,cols,s.path);
+    const independent = !!passages || window.LibraryWorks.independentNumbering(view.group, view.loaded, cols);
     const rows = independent ? window.LibraryWorks.independentRows(cols) : R.alignRows(cols);
     const vis = view.loaded.map((_, i) => i); // alle gewählten Versionen bleiben als Spalten stehen, auch wenn eine im Abschnitt leer ist
     // Anordnung „je Sprache“: Gruppen nach Sprache (Hebräisch, Englisch, Deutsch, Andere), die Versionen einer Sprache stehen in einer Spalte untereinander
@@ -758,8 +759,19 @@
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
     let body = shownRows.map(r =>
       `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
-    if (independent) body = `<div class="independent-columns" style="--n:${n}">${vis.map(i => `<section>${shownRows.filter(r => r.cells[i] != null).map(r => `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`).join('')}</section>`).join('')}</div>`;
-    $('#rOut').innerHTML = vfBar + (independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
+    if (independent) {
+      const nativeRow=(r,i)=>`<div class="row${rowLabel != null && !quiet && r.label===rowLabel?' hit':''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`;
+      body=passages?`<div class="aligned-passages" style="--n:${n}">${passages.map(ranges=>{
+        const cells=vis.map(i=>shownRows.filter(r=>r.cells[i]!=null&&Number(r.label)>=ranges[i][0]&&Number(r.label)<=ranges[i][1]));
+        if(cells.every(c=>!c.length))return '';
+        return `<div class="passage-row">${vis.map(i=>{
+          const continuation=ranges.continuations?.[i],empty=continuation?`<button type="button" class="macc-continuation" data-macc-chapter="${continuation.chapter}" data-macc-row="${continuation.range[0]}" data-macc-rel="${esc(view.loaded[i].entry.rel)}">${esc(I18N.t('Entsprechender Abschnitt'))}: ${esc(I18N.t('Kapitel'))} ${continuation.chapter}, ${esc(I18N.t('Vers'))} ${continuation.range[0]===continuation.range[1]?continuation.range[0]:continuation.range.join('–')}</button>`:`<p class="muted macc-source-gap">${esc(I18N.t(ranges[i][0]?'Kein Text in dieser Fassung.':'Kein entsprechender Abschnitt in diesem Kapitel.'))}</p>`;
+          return `<section>${cells[i].map(r=>nativeRow(r,i)).join('')||empty}</section>`;
+        }).join('')}</div>`;
+      }).join('')}</div>`:
+        `<div class="independent-columns" style="--n:${n}">${vis.map(i=>`<section>${shownRows.filter(r=>r.cells[i]!=null).map(r=>nativeRow(r,i)).join('')}</section>`).join('')}</div>`;
+    }
+    $('#rOut').innerHTML = vfBar + (passages ? '<p class="muted numbering-note">Unterschiedliche Zählung: Entsprechende Textabschnitte stehen nebeneinander. Die Versnummern jeder Fassung bleiben erhalten.</p>' : independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     navigationUI.recordNav(s, rowLabel);
@@ -938,6 +950,12 @@
     sel.style.width = Math.ceil(fitSpan.getBoundingClientRect().width + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + 34) + 'px';
   }
   $('#rSection').onchange = () => { view.idx = +$('#rSection').value; renderSection(); };
+  $('#rOut').addEventListener('click',e=>{
+    const button=e.target.closest('.macc-continuation');if(!button||!view)return;
+    const chapter=Number(button.dataset.maccChapter),at=view.sections.findIndex(s=>s.path.length===1&&s.path[0]===chapter-1);
+    if(at<0)return;e.preventDefault();view.idx=at;renderSection(button.dataset.maccRow);
+    const rows=[...$('#rOut').querySelectorAll('.row[data-l]')],rel=button.dataset.maccRel;for(const row of rows)if(row.classList.contains('hit')&&row.querySelector('.cell')?.dataset.rel!==rel)row.classList.remove('hit');const row=rows.find(r=>r.dataset.l===button.dataset.maccRow&&r.querySelector('.cell')?.dataset.rel===rel);row?.scrollIntoView({block:'center'});
+  });
   $('#prevSec').onclick = () => { if (view.idx > 0) { view.idx--; renderSection(); } };
   $('#nextSec').onclick = () => { if (view.idx < view.sections.length - 1) { view.idx++; renderSection(); } };
   // Fußnoten: Klick auf das Zeichen im Text öffnet/schließt die Fußnote; ein Klick auf die geöffnete Fußnote schließt sie
