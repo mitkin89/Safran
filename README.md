@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release&color=7b4b1f"></a>
+  <a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" height="24"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/code-MIT-blue"></a>
   <a href="https://github.com/mitkin89/Safran/releases/latest"><b>Download for macOS, Windows or Linux</b></a>
 </p>
