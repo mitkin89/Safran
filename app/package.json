@@ -114,5 +114,10 @@
     "directories": {
       "output": "../dist"
     }
+  },
+  "homepage": "https://github.com/mitkin89/Safran",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitkin89/Safran.git"
   }
 }

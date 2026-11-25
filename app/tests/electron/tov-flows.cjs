@@ -55,9 +55,9 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));
   docs.set(entry.rel,{...doc,entry:{...entry,own:false,bytes:fs.statSync(path.join(root,'bundled',entry.rel)).size},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
   const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
-  await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Joshua'))",'Josua verfügbar');
+  await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Joshua')) && document.querySelector('#rOut .row .cell')",'Josua verfügbar und wiederhergestellter Lesetext geladen');
   await book('Joshua');
-  await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]') && !document.querySelector('#tcBtn').hidden",'Textkritik außerhalb der Tora');
+  await waitFor("document.querySelector('#rTitle').textContent.includes('Joshua') && document.querySelector('#rOut .row[data-l=\"1\"]') && !document.querySelector('#tcBtn').hidden",'Textkritik außerhalb der Tora');
   await js("document.querySelector('#tcBtn').click();document.querySelector('#rOut .row[data-l=\"1\"] .txt').click()");
   await waitFor("document.querySelector('#tcBody .tc-tov-entry') && document.querySelector('#tcBody').textContent.includes('Joshua 1:1')",'Tov im Buch Josua ohne samaritanischen Apparat');
   assert(await js("!document.querySelector('#tcBody .tc-entry[data-tc-group]') && localStorage.getItem('tcTov')==='1'"));
