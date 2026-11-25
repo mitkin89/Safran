@@ -11,13 +11,22 @@ function build(){
   const germanGreek=read('maccabees-'+slugs[b]+'-groups.json'),pairs=[{families:[0,1],maps:germanGreek}];
   if(b===0){sources.push(read('kahana-source.json'));pairs.push({families:[2,1],maps:read('kahana-i-groups.json')});}
   if(b<2){const family=b===0?3:2,he=require(path.join(root,'tests/fixtures/maccabees-'+slugs[b]+'-he.json'));sources.push(profile(he,family,{source:he.source,versionSource:he.versionSource,license:he.license}));pairs.push({families:[family,0],maps:read('frankel-'+slugs[b]+'-groups.json')});}
+  // English merged exports have their own native divisions and can be incomplete.
+  if(b<2){
+   for(const [slug,family,base]of (b===0?[['i',4,0],['kahana-i',5,2]]:[['ii',3,0]])){
+    const fixture='maccabees-'+slug+'-en.json',doc=require(path.join(root,'tests/fixtures',fixture));
+    const checked=profile(doc,family,{fixture,versionSource:doc.versionSource,license:doc.license});
+    while(checked.chapters.length<sources[0].chapters.length)checked.chapters.push({slots:0,visible:0,signature:require('../../maccabees-text').signature([])});
+    sources.push(checked);pairs.push({families:[family,base],maps:read('english-'+slug+'-groups.json')});
+   }
+  }
   const crossFile='maccabees-'+slugs[b]+'-cross-chapter.json',cross=fs.existsSync(path.join(__dirname,crossFile))?read(crossFile):[];
   const book={sources,chapters:[]};
   if(sources.some(s=>s.chapters.length!==sources[0].chapters.length))throw Error('Chapter count mismatch');
   for(let c=0;c<sources[0].chapters.length;c++){
-   const counts=sources.map(s=>s.chapters[c].slots),groups=compose(counts,pairs.map(p=>({families:p.families,groups:Array.isArray(p.maps)?p.maps[c]:p.maps[c+1]})));
+   const counts=sources.map(s=>s.chapters[c].slots),chapterPairs=pairs.map(p=>({families:p.families,groups:Array.isArray(p.maps)?p.maps[c]:p.maps[c+1]})),groups=compose(counts,chapterPairs);
    const continuations=[];for(const link of cross)for(const [from,to]of [[link.source,link.target],[link.target,link.source]])if(from.chapter===c+1)continuations.push({from,to});
-   book.chapters.push({groups,continuations});chapters++;passages+=groups.length;
+   book.chapters.push({groups,pairs:chapterPairs,continuations});chapters++;passages+=groups.length;
   }
   books['Makkabäer '+romans[b]]=book;
  }

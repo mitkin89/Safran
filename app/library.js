@@ -739,8 +739,8 @@
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
     const head = byLang
       ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? versBadge(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
-      : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
+      : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map((d,i) =>
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}${passages&&!cols[i].length?' <span class="macc-unavailable">· '+esc(I18N.t('Kein Text in dieser Fassung.'))+'</span>':''}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
@@ -761,17 +761,24 @@
       `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
     if (independent) {
       const nativeRow=(r,i)=>`<div class="row${rowLabel != null && !quiet && r.label===rowLabel?' hit':''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`;
-      body=passages?`<div class="aligned-passages" style="--n:${n}">${passages.map(ranges=>{
+      body=passages?`<div class="aligned-passages">${passages.map(ranges=>{
         const cells=vis.map(i=>shownRows.filter(r=>r.cells[i]!=null&&Number(r.label)>=ranges[i][0]&&Number(r.label)<=ranges[i][1]));
         if(cells.every(c=>!c.length))return '';
-        return `<div class="passage-row">${vis.map(i=>{
-          const continuation=ranges.continuations?.[i],empty=continuation?`<button type="button" class="macc-continuation" data-macc-chapter="${continuation.chapter}" data-macc-row="${continuation.range[0]}" data-macc-rel="${esc(view.loaded[i].entry.rel)}">${esc(I18N.t('Entsprechender Abschnitt'))}: ${esc(I18N.t('Kapitel'))} ${continuation.chapter}, ${esc(I18N.t('Vers'))} ${continuation.range[0]===continuation.range[1]?continuation.range[0]:continuation.range.join('–')}</button>`:`<p class="muted macc-source-gap">${esc(I18N.t(ranges[i][0]?'Kein Text in dieser Fassung.':'Kein entsprechender Abschnitt in diesem Kapitel.'))}</p>`;
-          return `<section>${cells[i].map(r=>nativeRow(r,i)).join('')||empty}</section>`;
+        const primary=cells.find(c=>c.length),label=primary[0].label;
+        const rangeLabel=primary.length>1?label+'–'+primary[primary.length-1].label:label;
+        const hit=rowLabel!=null&&!quiet&&primary.some(r=>r.label===rowLabel);
+        return `<div class="row passage-row${hit?' hit':''}" data-l="${esc(label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',label))}">${esc(rangeLabel)}</button></div>${vis.map(i=>{
+          const continuation=ranges.continuations?.[i];
+          const empty=continuation?`<button type="button" class="macc-continuation" data-macc-chapter="${continuation.chapter}" data-macc-row="${continuation.range[0]}" data-macc-rel="${esc(view.loaded[i].entry.rel)}">${esc(I18N.t('Entsprechender Abschnitt'))}: ${esc(I18N.t('Kapitel'))} ${continuation.chapter}, ${esc(I18N.t('Vers'))} ${continuation.range[0]===continuation.range[1]?continuation.range[0]:continuation.range.join('–')}</button>`:'';
+          return `<div class="macc-column">${cells[i].map(r=>{
+            const numbering=cells[i].length>1||r.label!==label?`<span class="macc-native-number" title="${esc(I18N.t('Vers'))}">${esc(r.label)}</span>`:'';
+            return cellHtml(r.cells[i],view.loaded[i],undefined,r.label).replace('class="cell"',`class="cell" data-macc-label="${esc(r.label)}"`).replace('<div class="txt">','<div class="txt">'+numbering);
+          }).join('')||empty}</div>`;
         }).join('')}</div>`;
       }).join('')}</div>`:
         `<div class="independent-columns" style="--n:${n}">${vis.map(i=>`<section>${shownRows.filter(r=>r.cells[i]!=null).map(r=>nativeRow(r,i)).join('')}</section>`).join('')}</div>`;
     }
-    $('#rOut').innerHTML = vfBar + (passages ? '<p class="muted numbering-note">Unterschiedliche Zählung: Entsprechende Textabschnitte stehen nebeneinander. Die Versnummern jeder Fassung bleiben erhalten.</p>' : independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
+    $('#rOut').innerHTML = vfBar + (!passages && independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     navigationUI.recordNav(s, rowLabel);
@@ -954,7 +961,9 @@
     const button=e.target.closest('.macc-continuation');if(!button||!view)return;
     const chapter=Number(button.dataset.maccChapter),at=view.sections.findIndex(s=>s.path.length===1&&s.path[0]===chapter-1);
     if(at<0)return;e.preventDefault();view.idx=at;renderSection(button.dataset.maccRow);
-    const rows=[...$('#rOut').querySelectorAll('.row[data-l]')],rel=button.dataset.maccRel;for(const row of rows)if(row.classList.contains('hit')&&row.querySelector('.cell')?.dataset.rel!==rel)row.classList.remove('hit');const row=rows.find(r=>r.dataset.l===button.dataset.maccRow&&r.querySelector('.cell')?.dataset.rel===rel);row?.scrollIntoView({block:'center'});
+    const rows=[...$('#rOut').querySelectorAll('.row[data-l]')],rel=button.dataset.maccRel;
+    const row=rows.find(r=>[...r.querySelectorAll('.cell')].some(c=>c.dataset.rel===rel&&(c.dataset.maccLabel||r.dataset.l)===button.dataset.maccRow));
+    rows.forEach(r=>r.classList.toggle('hit',r===row));row?.scrollIntoView({block:'center'});
   });
   $('#prevSec').onclick = () => { if (view.idx > 0) { view.idx--; renderSection(); } };
   $('#nextSec').onclick = () => { if (view.idx < view.sections.length - 1) { view.idx++; renderSection(); } };

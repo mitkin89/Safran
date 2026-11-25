@@ -18,6 +18,14 @@ if(process.env.SAFRAN_SMOKE_MACCABEES==='1'||process.env.SAFRAN_SMOKE_MACC_ALIGN
  const h=require('../fixtures/maccabees-ii-he.json'),baseII=[...docs.values()].find(d=>d.entry.title===h.title);
  const rel='fixture/maccabees-ii/he.json',entry={...baseII.entry,title:h.title,rel,kind:'he',language:'Hebrew',versionTitle:'merged'};docs.set(rel,{...h,sectionNames:['Chapter','Verse'],entry,versionTitle:'merged',textHash:hash(h.text)});
 }
+// English editions belong only to the dedicated alignment regression scenario.
+if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){
+ for(const slug of ['i','ii','kahana-i']){
+  const d=require('../fixtures/maccabees-'+slug+'-en.json'),rel='fixture/maccabees-'+slug+'/en.json';
+  const base=[...docs.values()].find(v=>v.entry.title===d.title),entry={...base.entry,title:d.title,rel,kind:'en',language:'English',versionTitle:'merged'};
+  docs.set(rel,{...d,entry,textHash:hash(d.text)});
+ }
+}
 if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){add('Genesis','de',/Philippson/);add('Exodus','de',/Philippson/);add('Genesis','he',/^Aleppo/);add('Genesis','other',/^Septuaginta/);add('Psalms','he',/^Westminster/);add('Psalms','de',/Zunz/);add('Psalms','de',/Philippson/);}
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1')add('Job','he',/^Westminster/);

@@ -3067,9 +3067,8 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .independent-columns .row{grid-template-columns:38px minmax(0,1fr)}
 .numbering-note{padding:8px 12px;border-left:3px solid var(--accent,#70a7ed)}
 
-.aligned-passages .passage-row { display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:var(--gap,16px); border-bottom:1px solid var(--line); }
-.aligned-passages .passage-row > section { min-width:0; }
-.aligned-passages .passage-row > section > .row:last-child { border-bottom:0; }
+.aligned-passages .macc-column { min-width:0; }
+.aligned-passages .macc-column > .cell + .cell { margin-top:.65em; }
+.macc-native-number { color:var(--muted); font:normal .65em/1.2 sans-serif; margin-inline-end:.5em; vertical-align:super; user-select:none; }
 
-.aligned-passages .macc-source-gap { font-size:.85em; padding:12px; }
 .aligned-passages .macc-continuation { margin:12px; font-size:.85em; white-space:normal; }

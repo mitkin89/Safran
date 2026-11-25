@@ -6,8 +6,8 @@ module.exports = async ({win,js,waitFor,book}) => {
  await waitFor("document.querySelector('#rTitle').textContent.includes('Makkabäer I') && document.querySelectorAll('#verList input').length===4", 'Vier Fassungen in einem Werk');
  assert(await js("document.querySelector('#verList').textContent.includes('Standardtext · Kahana')"));
  await js("{const box=document.querySelector('#verBox');box.open=true;const greek=[...document.querySelectorAll('#verList .voption')].find(e=>e.textContent.includes('Septuaginta (Rahlfs)')).querySelector('input');if(!greek.checked)greek.click();}");
- await waitFor("document.querySelector('.numbering-note') && document.querySelector('#rOut').textContent.includes('Ἀλέξανδρος')", 'Griechisch und deutsche Quelle bleiben verfügbar');
- assert(await js("[...document.querySelectorAll('#rOut .row[data-l]')].every(r=>r.querySelectorAll('.cell:not(.empty)').length<=1)"));
+ await waitFor("(document.querySelector('.aligned-passages')||document.querySelector('.independent-columns')) && document.querySelector('#rOut').textContent.includes('Ἀλέξανδρος')", 'Griechisch und deutsche Quelle bleiben verfügbar');
+ assert(await js("document.querySelector('.aligned-passages')?!!document.querySelector('.passage-row > .lab'):[...document.querySelectorAll('#rOut .row[data-l]')].every(r=>r.querySelectorAll('.cell:not(.empty)').length<=1)"));
  // Restore the old native-title session key after a real page reload.
  await waitFor("localStorage.getItem('session')?.includes('Second Temple/Apocrypha¦Makkabäer I')",'Sitzung gespeichert');
  await js("{const key='session';const v=localStorage.getItem(key);localStorage.setItem(key,v.replaceAll('Second Temple/Apocrypha¦Makkabäer I','Second Temple/Apocrypha¦Makkabäer I (Septuaginta)'));}");

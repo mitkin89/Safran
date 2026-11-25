@@ -8,6 +8,7 @@ oder Wörter zwischen Fassungen ergänzt.
 ## Abdeckung und Quellen
 
 - **I: 16 Kapitel** – Kautzsch ↔ Rahlfs, Frankel ↔ Kautzsch und Kahana ↔ Rahlfs.
+- **Englische Sefaria-Exporte:** I (Brenton, 16 Kapitel), II (Teiltexte) und Kahana I (erste 14 Einträge); siehe `english-boundary-review.md`.
 - **II: 15 Kapitel** – Kautzsch ↔ Rahlfs und Frankel ↔ Kautzsch.
 - **III: 7 Kapitel**, **IV: 18 Kapitel** – Kautzsch ↔ Rahlfs.
 
@@ -61,8 +62,11 @@ node --test tests/maccabees-alignment.test.js tests/library-works.test.js
 SAFRAN_SMOKE_MACC_ALIGNMENT=1 electron tests/electron/smoke.cjs
 ```
 
-`compose.js` führt die unabhängig geprüften Tabellen über gemeinsame
-Quellenachsen zusammen. Überlappende Grenzen ergeben größere Gruppen;
+`maccabees-compose.js` führt die unabhängig geprüften Tabellen über gemeinsame
+Quellenachsen zusammen. Zur Laufzeit werden nur die für die ausgewählten
+Fassungen benötigten Verbindungen verwendet. Nicht ausgewählte Fassungen
+vergrößern daher keine sonst passenden Verszeilen. Überlappende Grenzen
+ergeben größere Gruppen;
 Numerik oder relative Absatzposition werden nicht zur Interpolation benutzt.
 Jede Quellenachse wird auf lückenlose, monotone und einmalige Abdeckung geprüft.
 
@@ -78,3 +82,11 @@ Frankel-griechischen Kapitelvergleiche samt Originalnummern und Höhenpositionen
 Mit `SAFRAN_KAHANA_SOURCE=/pfad/zur/sefaria-api-antwort.json` prüft er zusätzlich
 alle 16 Kahana-Kapitel, ohne den Text in den Testbestand aufnehmen zu müssen.
 Die Antwort muss zum dokumentierten SHA-256 in `kahana-source.json` passen.
+
+Die Anzeige verwendet dieselben gemeinsamen Verszeilen und denselben linken
+Versrand wie andere Bücher. Zusammengehörende native Einträge bleiben in
+ihrer Quellenspalte; kleine Nummern kennzeichnen geteilte oder abweichend
+gezählte Einträge. Fehlende englische Kapitel bleiben leer und werden einmal
+im Spaltenkopf gekennzeichnet. Der Inhalt wird weder ergänzt noch verschoben.
+Die englischen Testdateien bewahren die geladenen Exporttexte samt Quellen-
+und Lizenzangaben; auch ihre Prüfsummen gehören zum Quellenabgleich.
