@@ -35,7 +35,7 @@
   // Vorschau-Blasen und -Zeilen: jede Fassung mit ihrem Namen kennzeichnen, damit klar ist, woher der Text kommt
   const pvVer = vt => vt ? `<span class="pvVer">${esc(vt === 'merged' ? I18N.tr('zusammengeführte Fassung') : shortVer(vt))}</span>` : '';
   // Kennung eines Buchs; steht in HTML-Attributen, darf daher kein Steuerzeichen enthalten
-  const keyOf = e => e.categories.join('/') + '¦' + e.title;
+  const keyOf = window.LibraryWorks.keyOf;
 
   // ---------- Reiter ----------
   let researchUI = null, notesUI = null;
@@ -89,25 +89,18 @@
 
   async function loadLibrary() {
     entries = await O.library();
-    const map = new Map();
-    for (const e of entries) {
-      const k = keyOf(e);
-      let g = map.get(k);
-      if (!g) { g = { key: k, title: e.title, heTitle: e.heTitle, cats: e.categories, versions: [] }; map.set(k, g); }
-      g.versions.push(e);
-    }
-    groups = [...map.values()];
+    groups = window.LibraryWorks.groupEntries(entries);
     { // eigene Fassungen (z. B. deutsche Übersetzung) in einer anderen Kategorie als das Sefaria-Buch: zum Buch gleichen Titels stellen
       const base = new Map(); groups.forEach(g => { if (g.versions.some(v => !v.own) && !base.has(g.title)) base.set(g.title, g); });
-      groups = groups.filter(g => { const b = base.get(g.title); if (b && b !== g && g.versions.every(v => v.own)) { b.versions.push(...g.versions); return false; } return true; });
+      groups = groups.filter(g => { const b = base.get(g.title); if (b && b !== g && g.versions.every(v => v.own)) { b.versions.push(...g.versions); b.aliases.push(...g.aliases); return false; } return true; });
     }
     for(const g of groups)g.versions.push(...window.LibraryMishnahReader.entries(g));
     // Eigene Fassung mit demselben Versionsnamen wie eine Sefaria-Version (z. B. korrigierte eigene Übersetzung, die auch auf Sefaria liegt): nur die eigene zeigen, nicht beide nebeneinander
-    groups.forEach(g => { const vn = t => String(t || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, ''), ownNames = new Set(g.versions.filter(v => v.own).map(v => vn(v.versionTitle))); if (ownNames.size) g.versions = g.versions.filter(v => v.own || !ownNames.has(vn(v.versionTitle))); }); // gleicher Titel (auch mit Sprachkürzel „ [de]“ am Ende): die eigene Fassung hat Vorrang
+    groups.forEach(g => { const vn = t => String(t || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, ''), ownNames = new Set(g.versions.filter(v => v.own).map(v => v.title + '\0' + vn(v.versionTitle))); if (ownNames.size) g.versions = g.versions.filter(v => v.own || !ownNames.has(v.title + '\0' + vn(v.versionTitle))); }); // gleicher Titel (auch mit Sprachkürzel „ [de]“ am Ende): die eigene Fassung hat Vorrang
     groups.forEach(g => g.versions.sort((a, b) =>
       (KIND_RANK[a.kind] - KIND_RANK[b.kind]) || ((a.versionTitle === 'merged' ? 0 : 1) - (b.versionTitle === 'merged' ? 0 : 1)) || a.versionTitle.localeCompare(b.versionTitle)));
     groupsByKey.clear();
-    groups.forEach(g => groupsByKey.set(g.key, g));
+    groups.forEach(g => { groupsByKey.set(g.key, g); for (const key of g.aliases) groupsByKey.set(key, g); });
     cache.clear();
     renderSCats();
     // geöffnete Tabs auf die neu aufgebauten Buchobjekte umstellen; Bücher, die es nicht mehr gibt, schließen
@@ -178,7 +171,7 @@
       }
       n.titles.push(g);
     }
-    const match = g => !f || (g.title + ' ' + (g.heTitle || '') + ' ' + g.cats.join(' ')).toLowerCase().includes(f);
+    const match = g => !f || (window.LibraryWorks.titlesFor(g.title).join(' ') + ' ' + (g.heTitle || '') + ' ' + g.cats.join(' ')).toLowerCase().includes(f);
     const count = n => n.titles.filter(match).length + [...n.children.values()].reduce((a, c) => a + count(c), 0);
     const node = (n, pth, depth = 0) => {
       const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => n.children.get(k)).map(c => node(c, pth + '/' + c.name, depth + 1)).join('');
@@ -347,7 +340,7 @@
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
       const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
-      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (v.versionTitle !== 'merged' || !g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (v.versionTitle !== 'merged' || !g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
     }
@@ -388,7 +381,7 @@
   async function loadView(target = {}) {
     const V = view; // Tab, für den geladen wird (der Nutzer kann inzwischen woanders sein)
     const tok = V.loadTok = (V.loadTok || 0) + 1;
-    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(old?.versionTitle!=='merged')continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged').sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
+    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(old?.versionTitle!=='merged')continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged'&&window.LibraryWorks.sameSource(v,old)).sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
     // Versionen ändern: an derselben Stelle bleiben (markierter Vers, sonst der oberste sichtbare), statt zu Vers 1 zurückzuspringen
     let keepRow = null;
     if (view === V && !target.noKeep && !target.sectionPath && target.rowLabel == null && V.key) {
@@ -520,7 +513,7 @@
   }
   const westminsterFirst = (a,b) => Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||''));
   function renderVersions() {
-    const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'));
+    const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)));
     $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
     const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; };
@@ -532,7 +525,7 @@
       const annotated=node=>typeof node==='string'?/data-m=["']/.test(node):Array.isArray(node)?node.some(annotated):!!node&&typeof node==='object'&&Object.values(node).some(annotated);
       return !!doc&&annotated(doc.text);
     };
-    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):v.versionTitle==='merged'?I18N.t('Standardtext'):String(v.versionTitle||'').replace(/\s*\[[a-z]{2,3}\]\s*$/i,'');
+    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):window.LibraryWorks.versionLabel(v);
     const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.
@@ -605,7 +598,7 @@
       items.push({label:I18N.t('Alle anderen Versionen schließen'),mark:'▣',fn:()=>apply(new Set([d.entry.rel]))});
       items.push({sep:true});
     }
-    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'))).sort(westminsterFirst);
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)))).sort(westminsterFirst);
     if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
       for (const v of same) {
         const on = view.selected.has(v.rel);
@@ -735,10 +728,11 @@
     if(AP&&AP.sectionKey!==view.group.key+'|'+s.k){apRemember();AP.sectionKey=view.group.key+'|'+s.k;AP.whole=true;}
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
-    const rows = R.alignRows(cols);
+    const independent = window.LibraryWorks.independentNumbering(view.group, view.loaded, cols);
+    const rows = independent ? window.LibraryWorks.independentRows(cols) : R.alignRows(cols);
     const vis = view.loaded.map((_, i) => i); // alle gewählten Versionen bleiben als Spalten stehen, auch wenn eine im Abschnitt leer ist
     // Anordnung „je Sprache“: Gruppen nach Sprache (Hebräisch, Englisch, Deutsch, Andere), die Versionen einer Sprache stehen in einer Spalte untereinander
-    const byLang = layoutMode === 'lang';
+    const byLang = layoutMode === 'lang' && !independent;
     const groupsL = byLang ? LANG_ORDER.map(k => ({ k, idx: vis.filter(i => langKind(view.loaded[i]) === k) })).filter(g => g.idx.length) : null;
     const n = byLang ? groupsL.length : vis.length;
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
@@ -762,9 +756,10 @@
     const shownRows = view.vf ? rows.filter(r => { const v = rowVerse(r.label); return v != null && view.vf.set.has(v); }) : rows;
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
-    const body = shownRows.map(r =>
+    let body = shownRows.map(r =>
       `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
-    $('#rOut').innerHTML = vfBar + head + body;
+    if (independent) body = `<div class="independent-columns" style="--n:${n}">${vis.map(i => `<section>${shownRows.filter(r => r.cells[i] != null).map(r => `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`).join('')}</section>`).join('')}</div>`;
+    $('#rOut').innerHTML = vfBar + (independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     navigationUI.recordNav(s, rowLabel);
@@ -1120,7 +1115,7 @@
   // ---------- Mehrere Stellen in einem Fenster: „gen 1:3, ex 7:9“, „gen 1:30-2:3“, „gen 1-3“ ----------
   const { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl, deHit, deNames } = window.Refs;
   // Titel passt zur Eingabe: Anfang des Titels, Anfang eines Titelworts oder – bei mehreren Wörtern („rashi genesis“) – jedes Eingabewort beginnt ein Titelwort
-  const titleHit = (title, b) => { const t = normT(title); return deHit(title, b) || t.startsWith(b) || t.split(' ').some(w => w.startsWith(b)) || (b.includes(' ') && b.split(' ').every(k => t.split(' ').some(w => w.startsWith(k)))); };
+  const titleHit = (title, b) => { const t = normT(title), aliasHit = window.LibraryWorks.titlesFor(title).some(a => normT(a) === b); return aliasHit || deHit(title, b) || t.startsWith(b) || t.split(' ').some(w => w.startsWith(b)) || (b.includes(' ') && b.split(' ').every(k => t.split(' ').some(w => w.startsWith(k)))); };
   const bestGroup = book => {
     const b = normT(book);
     const c = groups.filter(x => titleHit(x.title, b));
@@ -1255,7 +1250,7 @@
   }
   async function jumpSyntax(book, ref, rel) {
     const [chapter, verse] = ref.split(':').map(Number);
-    const group = groups.find(g => g.title === book && g.versions.some(version => version.rel === rel));
+    const group = groups.find(g => g.versions.some(version => version.rel === rel));
     if (!group) return;
     const rowLabel = String(verse);
     const ix = view?.group === group && view.loaded.some(doc => doc.entry.rel === rel)
@@ -1420,7 +1415,7 @@
     if (jb) { const h = [...$$('#rOut .sbook')].find(x => x.dataset.t === jb.dataset.jb); if (h) h.scrollIntoView({ block: 'start' }); return; }
     if (e.target.closest('.sup')) { $('#sresTop').scrollIntoView({ block: 'start' }); return; }
     const go = e.target.closest('.sgo');
-    if (go) { const g = [...groupsByKey.values()].find(x => x.title === go.dataset.t); const nx = go.closest('.ssec').nextElementSibling; const first = nx && nx.dataset && nx.dataset.sl; if (g) openGroup(g, { sectionPath: JSON.parse(go.dataset.sp), rowLabel: first || undefined }, true); return; }
+    if (go) { const g = [...groupsByKey.values()].find(x => x.title === window.LibraryWorks.canonicalTitle(go.dataset.t)); const nx = go.closest('.ssec').nextElementSibling; const first = nx && nx.dataset && nx.dataset.sl; if (g) openGroup(g, { sectionPath: JSON.parse(go.dataset.sp), rowLabel: first || undefined }, true); return; }
     const row = e.target.closest('.row[data-sp]');
     if (!row) return;
     if (e.target.closest('.slk')) return sresSelect(row, 'lk');
@@ -2259,7 +2254,7 @@
     const todo = ownItems.filter(i => !i.error && i.on && (i.type === 'comm' ? (i.cmtr || '').trim() && (i.base || '').trim() : (i.title || '').trim()));
     const items = todo.map(i => {
       const title = ownTitleOf(i);
-      const g = groups.find(x => x.title === title);
+      const g = groups.find(x => x.title === window.LibraryWorks.canonicalTitle(title));
       return { id: i.id, title, heTitle: (g && g.heTitle) || '', kind: i.kind, versionTitle: i.ver.trim(), categories: g ? g.cats : i.type === 'comm' ? ['Eigene Texte', 'Kommentare'] : ['Eigene Texte'] };
     });
     if (!items.length) { $('#ownWarn').textContent = '⚠ Bitte bei jedem Eintrag Titel (bei Kommentaren Kommentator und Buch) angeben.'; return; }
@@ -2775,7 +2770,7 @@
   $('#sOut').addEventListener('click', e => {
     const row = e.target.closest('.row[data-sp]');
     if (!row || e.target.closest('.w, sup, .note, .scm, .slk') || (window.getSelection() + '')) return;
-    const g = [...groupsByKey.values()].find(x => x.title === row.dataset.t);
+    const g = [...groupsByKey.values()].find(x => x.title === window.LibraryWorks.canonicalTitle(row.dataset.t));
     if (g) { const tg = { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }; if (e.metaKey || e.ctrlKey) openGroupBg(g, tg); else openGroup(g, tg, false); }
   });
   // Rechtsklick auf ein Suchergebnis: hier öffnen, neuer Tab, zweites Fenster

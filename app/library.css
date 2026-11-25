@@ -3060,3 +3060,9 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .rw-note-shelf-item b { font-size:12px; overflow-wrap:anywhere; }
 .rw-note-shelf-item span { font-size:11px; line-height:1.5; color:var(--muted); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:anywhere; }
 .rw-note-shelf-item small { font-size:10px; color:var(--accent); }
+
+/* Compare native verse/paragraph numbering without pairing unrelated fragments. */
+.independent-columns{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:20px;align-items:start}
+.independent-columns>section{min-width:0}
+.independent-columns .row{grid-template-columns:38px minmax(0,1fr)}
+.numbering-note{padding:8px 12px;border-left:3px solid var(--accent,#70a7ed)}

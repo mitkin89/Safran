@@ -44,7 +44,7 @@ function sortCats(names, parent) {
 }
 // Buchtitel sortieren: bekannte Bücher in biblischer bzw. Traktat-Reihenfolge, Rest alphabetisch
 function sortTitles(items, getTitle = x => x.title) {
-  const r = x => { const t = getTitle(x); if (SEF_RANK.has(t)) return SEF_RANK.get(t); const k = BOOK_RANK.get(bookKey(t)); return k === undefined ? 1e6 : 1e4 + k; };
+  const r = x => { const t = getTitle(x); const m = /^Makkabäer (I|II|III|IV)$/.exec(t); if (m) return (SEF_RANK.get('The Book of Maccabees I') || 9000) + ['I','II','III','IV'].indexOf(m[1]) / 10; if (SEF_RANK.has(t)) return SEF_RANK.get(t); const k = BOOK_RANK.get(bookKey(t)); return k === undefined ? 1e6 : 1e4 + k; };
   return [...items].sort((a, b) => (r(a) - r(b)) || byName(getTitle(a), getTitle(b)));
 }
 const SefOrder = { sortCats, sortTitles, bookKey };

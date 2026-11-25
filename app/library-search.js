@@ -398,7 +398,7 @@ window.LibrarySearch = (() => {
       const sp = {
         query: q, kinds, gram, syntax:wordMode?null:syntax,
         ...(wordMode?{lemma:true,wlc:true}:{}),
-        categories: onlyTitle || syntax ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : titles,
+        categories: onlyTitle || syntax ? [] : [...sCats], titles: [...new Set((onlyTitle ? [onlyTitle] : titles).flatMap(t => window.LibraryWorks.titlesFor(t)))],
         ...(!syntax ? { distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked,
           ...sMatchParams(), wlc: $('#sWlc').checked } : {}),
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,

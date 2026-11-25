@@ -11,6 +11,11 @@ const manifest=require(path.join(root,'bundled/manifest.json'));
 const docs=new Map();let oldTranslation=false,win;
 const hash=text=>crypto.createHash('sha256').update(JSON.stringify(text)).digest('hex');
 function add(book,kind,pattern){const item=manifest.items.find(e=>e.title===book&&e.kind===kind&&pattern.test(e.versionTitle));assert(item);const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',item.rel)));const entry={...item,own:false,bytes:Buffer.byteLength(JSON.stringify(doc))};docs.set(entry.rel,{...doc,entry,textHash:hash(doc.text)});}
+if(process.env.SAFRAN_SMOKE_MACCABEES==='1'){
+ for(const e of manifest.items.filter(e=>require('../../library-works').canonicalTitle(e.title).startsWith('Makkabäer ')))add(e.title,e.kind,new RegExp(e.versionTitle.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+ const base=[...docs.values()].find(d=>d.entry.title==='The Book of Maccabees I');
+ for(const title of ['The Book of Maccabees I','The Book of Maccabees I (Kahana Translation)']){const rel='fixture/'+title+'/he.json',entry={...base.entry,title,rel,kind:'he',language:'Hebrew',versionTitle:'merged'};docs.set(rel,{...base,entry,versionTitle:'merged',text:[['טקסט לבדיקה']],textHash:hash(title)});}
+}
 if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){add('Genesis','de',/Philippson/);add('Exodus','de',/Philippson/);add('Genesis','he',/^Aleppo/);add('Genesis','other',/^Septuaginta/);add('Psalms','he',/^Westminster/);add('Psalms','de',/Zunz/);add('Psalms','de',/Philippson/);}
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1')add('Job','he',/^Westminster/);
@@ -62,9 +67,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
  const errors=[];win.webContents.on('console-message',event=>{if(event.level==='error'){errors.push(event.message);console.error('Renderer:',event.message)}});
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
- const expectedTitles=new Set([...docs.values()].map(doc=>doc.entry.title)).size;
+ const expectedTitles=require('../../library-works').groupEntries([...docs.values()].map(doc=>doc.entry)).length;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_MACCABEES==='1'){await require('./maccabees-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1'){await require('./notes-workspace-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_RESEARCH==='1'){await researchFlows({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1'){await require('./field-sigla-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}

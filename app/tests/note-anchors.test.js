@@ -10,3 +10,11 @@ test('project and legacy notes with the same id remain separate; unlocated text 
  const ref={rel:'job-he',sectionPath:[0],labels:['1']},a={id:'same',_store:'legacy',refs:[ref]},b={id:'same',_store:'research',refs:[ref]};assert.equal(A.index([a,b],groups).get(A.signature(groups[1].key,'[0]','1')).length,2);
  assert.equal(A.index([{id:'manual',refs:[{label:'Job 1:1'}]}],groups).size,0);assert.equal(A.index([{id:'conflict',refs:[{...ref,key:groups[0].key}]}],groups).size,0);assert.equal(A.index([{...a,kind:'hl'}],groups).size,0);
 });
+
+test('merged library work aliases retain saved row and structured note anchors',()=>{
+ const group={key:'Second Temple/Apocrypha¦Makkabäer I',aliases:['Second Temple/Apocrypha¦The Book of Maccabees I'],versions:[{rel:'macc'}]};
+ const row={id:'old',key:group.aliases[0],sk:'[0]',row:'2'},ref={id:'ref',refs:[{key:group.aliases[0],rel:'macc',sectionPath:[0],labels:['2']}]};
+ const before=JSON.stringify([row,ref]);
+ assert.equal(A.index([row,ref],[group]).get(A.signature(group.key,'[0]','2')).length,2);
+ assert.equal(JSON.stringify([row,ref]),before);
+});

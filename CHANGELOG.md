@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- Group Maccabees I–IV once per work in the library, with Kahana, Kautzsch and Septuagint editions in the version chooser. Preserve native files, old session keys and edition search scopes; show differing verse/paragraph divisions in separate columns without asserting verse alignment.
+
 ### New in 2.8.5
 
 - Organize the repository as an npm workspace with application code, bundled data and tools in `app/`. Move 43 numbered root test scripts into descriptively named integration checks, retain isolated execution and automatic discovery, and preserve root npm commands and release artifact paths.
