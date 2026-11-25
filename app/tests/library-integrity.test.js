@@ -53,3 +53,28 @@ test('a different or missing language still cannot replace a valid edition',asyn
   assert.deepEqual(await fs.readFile(path.join(dir,rel)),before);
  }
 });
+
+test('catalogue punctuation aliases identify only the two reported editions', () => {
+ const cases=[
+  ['Lamentations','Ejchah Übers. u. Komm. Igor Itkin [de]','Ejchah Übers. u. Komm.: Igor Itkin [de]'],
+  ['What is the Talmud','Berlin Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]','Berlin: Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]'],
+ ];
+ for(const [title,listed,exported] of cases){
+  const expected={title,language:'English',versionTitle:listed};
+  const source={title,language:'en',versionTitle:exported,text:['Text']};
+  const raw=Buffer.from(JSON.stringify(source));
+  assert.deepEqual(parseDownload(raw,expected),source);
+  assert.throws(()=>parseDownload(raw,{...expected,versionTitle:listed+' revised'}),/versionTitle/);
+  assert.throws(()=>parseDownload(Buffer.from(JSON.stringify({...source,title:'Other'})),{...expected,title:'Other'}),/versionTitle/);
+ }
+});
+
+test('empty false segments in the Hebrew Midrash Aggadah export preserve numbering', () => {
+ const expected={title:'Midrash Aggadah',language:'Hebrew',versionTitle:'merged'};
+ const source={...expected,language:'he',text:{Numbers:[['first',false,'third']]}};
+ const raw=value=>Buffer.from(JSON.stringify(value));
+ const accepted=parseDownload(raw(source),expected);
+ assert.deepEqual(require('../reader').flattenNode(accepted.text.Numbers[0]).map(r=>r.label),['1','3']);
+ assert.throws(()=>parseDownload(raw({...source,text:[true]}),expected),/ungültige Textsegmente/);
+ assert.throws(()=>parseDownload(raw({...source,versionTitle:'Other'}),{...expected,versionTitle:'Other'}),/ungültige Textsegmente/);
+});
