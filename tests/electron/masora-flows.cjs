@@ -4,6 +4,8 @@ module.exports=async({win,js,waitFor,book})=>{
  await book('Psalms');await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]')",'Psalm 1');
  await js("document.querySelector('#rOut .row[data-l=\"1\"] .verse-tool').click();if(document.querySelector('#dockTabs').hidden)document.querySelector('#studyBtn').click();document.querySelector('#dockTabs [data-panel=masora]').click()");
  await waitFor("!document.querySelector('#masoraPanel').hidden&&document.querySelector('.masora-entry')",'Masora offline geladen');
+ await waitFor("document.querySelector('#masoraBody [data-masora-target]')",'Masora-Stelle mit Vorschau');
+ const initialTitle=await js("document.querySelector('#rTitle').textContent");await js("document.querySelector('#masoraBody [data-masora-target]').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");await waitFor("document.querySelector('#lkHover')&&!document.querySelector('#lkHover').hidden&&document.querySelector('#lkHover').textContent.includes('Psalms')",'Versvorschau an Masora-Stelle');assert.equal(await js("document.querySelector('#rTitle').textContent"),initialTitle,'Hover öffnet kein anderes Buch');await js("document.querySelector('#masoraBody [data-masora-target]').dispatchEvent(new MouseEvent('mouseout',{bubbles:true}))");assert(await js("document.querySelector('#lkHover').hidden"));
  // Shared apparatus controls are functional, including scroll following and verse stepping.
  assert(await js("document.querySelector('#masoraPrev').disabled && !document.querySelector('#masoraNext').disabled"));
  await js("document.querySelector('#masoraSearchBtn').click()");assert(await js("!document.querySelector('#masoraSearch').hidden && document.activeElement.id==='masoraQuery'"));

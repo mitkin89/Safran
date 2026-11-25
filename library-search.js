@@ -33,8 +33,10 @@ window.LibrarySearch = (() => {
         const active = tab.dataset.mode === mode;
         tab.setAttribute('aria-selected', String(active));
         tab.tabIndex = active ? 0 : -1;
-        $('#' + tab.getAttribute('aria-controls')).hidden = !active;
+
       }
+      $('#sText').hidden=mode!=='text';$('#sSyntax').hidden=!['syntax','clauses'].includes(mode);$('#sOutline').hidden=true;
+      if(mode!=='text')$('#sSyntax').setAttribute('aria-labelledby',mode==='clauses'?'sClauseTab':'sSyntaxTab');
       sResults = [];
       fullCache = lastSearch = null;
       $('#sOut').replaceChildren();
@@ -42,7 +44,7 @@ window.LibrarySearch = (() => {
       for (const id of ['sSumPanel', 'sChart', 'sGroupBtn', 'sReadBtn', 'sExport', 'sProgress']) $('#' + id).hidden = true;
       $('#sInfo').textContent = mode === 'text' ? I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).') : '';
       sSetBusy();
-      if (mode === 'syntax') loadBhsaStatus();
+      if (['syntax','clauses'].includes(mode)){loadBhsaStatus();$('#sxKinds [data-syntax-kind="'+(mode==='clauses'?'clause':'word')+'"]').click();}
       updateExamples();
     }
     const modeTabs = [...$$('#sModes [role="tab"]')];
@@ -283,6 +285,7 @@ window.LibrarySearch = (() => {
     $('#sxKinds').addEventListener('click',event=>{
       const button=event.target.closest('[data-syntax-kind]');if(!button)return;
       const word=button.dataset.syntaxKind==='word';
+      setSearchMode(word?'syntax':'clauses');
       $('#gForm').hidden=!word;$('#sxClausePanel').hidden=word;
       for(const b of $$('#sxKinds button')){const active=b===button;b.classList.toggle('primary',active);b.setAttribute('aria-pressed',String(active));}
       updateExamples();
@@ -341,7 +344,7 @@ window.LibrarySearch = (() => {
       apply:applySyntaxRecord,
     });
     const examplesUI=window.LibrarySyntaxExamples.create({root:$('#sxExamples'),apply:async record=>{await applySyntaxRecord(record);$('#sxSavedPatterns [data-act=new]').click();},esc,t:(...args)=>I18N.t(...args)});
-    function updateExamples(){examplesUI.show(searchMode==='syntax'&&$('#gForm').hidden?($('#sxAdvanced').checked?'advanced':'clause'):null);}
+    function updateExamples(){examplesUI.show(['syntax','clauses'].includes(searchMode)&&$('#gForm').hidden?($('#sxAdvanced').checked?'advanced':'clause'):null);}
     updateExamples();
     function runSyntaxSearch() {
       if (sBusy()) return O.cancelSearch();

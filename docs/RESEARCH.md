@@ -1,6 +1,6 @@
 # Rechercheprojekte und Quellenblätter
 
-Über **Projekt verwalten → Neues Projekt** im Reiter **Recherche** ein Projekt mit Titel, Beschreibung und Schlagwörtern anlegen. Darin liegen Quellenblätter, Sammlungen und Notizen. Die Einträge lassen sich nach Text, Quelle, Thema und Schlagwort filtern. Projekte können archiviert und später wieder geöffnet werden.
+Über **Projekt verwalten → Neues Projekt** unter **Notizen → Quellenblätter** ein Projekt mit Titel, Beschreibung und Schlagwörtern anlegen. Darin liegen Quellenblätter, Sammlungen und Notizen. Die Einträge lassen sich nach Text, Quelle, Thema und Schlagwort filtern. Projekte können archiviert und später wieder geöffnet werden.
 
 ## Quellen direkt hinzufügen
 
@@ -165,3 +165,9 @@ Die Formatierungsleiste bietet **Fett**, *Kursiv*, Listen, Zitate, Web- und Bibe
 **Notiz im Quellenblatt verknüpfen:** Die durchsuchbare Auswahl zeigt Titel, Fundstellen, Textvorschau und Projekt. Suchbar sind auch Notiztext, Themen und Schlagwörter. Es stehen Notizen des aktuellen Projekts und Notizen ohne Projekt zur Verfügung. **Verknüpfen** übernimmt die ausgewählte Notiz; **Abbrechen** lässt das Blatt unverändert.
 
 **Notizvorschau am Stern:** Darüberfahren oder Tastaturfokus zeigt Titel, Notizbuch und Textvorschau der gespeicherten Notizen. Klicken öffnet weiterhin die Notiz bzw. eine Auswahl. Scrollen, Escape oder Verlassen des Sterns schließt die Vorschau. Neue Notizen übernehmen das zuletzt gewählte aktive Notizbuch; eine ausdrücklich ausgewählte Notizbuchliste hat Vorrang. Bestehende Notizen und lokale Entwürfe behalten ihre Zuordnung.
+
+**Notizbuch und Recherche:** Recherche zeigt bei **Notizen** standardmäßig ausschließlich gespeicherte Notizen des ausgewählten Projekts/Notizbuchs. **Ohne Notizbuch** ist eine separate Auswahl und wird nicht zur Notizbuchanzahl addiert. Titel mit genauer Fundstelle und Textvorschau erleichtern die Zuordnung. **Zu den Quellenblättern** im Notizbuch öffnet direkt dessen Notizenliste; **Notizbuch öffnen** führt zurück. Ein Hinweis im Notizbuch unterscheidet gespeicherte Notizen und lokale Entwürfe. Beim Wechsel bleiben Entwürfe erhalten; Recherche übernimmt sie erst nach dem Speichern.
+
+**Notizbuch umbenennen:** Wähle links das Notizbuch und klicke oberhalb der Notizenliste auf **Umbenennen**. Der neue Name erscheint auch beim zugehörigen Rechercheprojekt; Zuordnungen und Inhalte bleiben erhalten.
+
+**Navigation:** Quellenblätter liegen jetzt innerhalb von **Notizen → Quellenblätter**. Der zusätzliche Hauptreiter Recherche entfällt. Notizbücher, Sammlungen und Quellenblätter behalten ihre Inhalte und Zuordnungen; direkte Quellenübernahmen öffnen den Unterbereich automatisch. Die Suche bietet **Textsuche**, **Wortmerkmale** und **Klauseln & Beziehungen** direkt an. Gliederung/Mizwot bleiben über die Gliederungswerkzeuge erreichbar. Bibelstellen in der Masora zeigen beim Darüberfahren die gemeinsame Offline-Versvorschau; Klicken öffnet und markiert weiterhin die Stelle.

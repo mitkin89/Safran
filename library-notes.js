@@ -510,6 +510,7 @@ window.LibraryNotes = (() => {
     window.research.onChanged(()=>{if(document.documentElement.dataset.tab==='read')void loadNotes();});
     return {
       openWorkspace,
+      openNotebook:async id=>{skipQuickRestore=true;host.showTab('notes');await loadNotes();workspace.selectNotebook(id);},
       get kindOf() { return kindOf; },
       get loadNotes() { return loadNotes; },
       get markNotes() { return markNotes; },

@@ -53,8 +53,10 @@
   function showTab(t) {
     const prevTab = document.documentElement.dataset.tab || 'read'; // vor dem ersten Wechsel steht noch kein data-tab, die Seite zeigt aber „Lesen“
     if (prevTab === 'notes' || prevTab === 'search') tabScroll[prevTab] = window.scrollY;
-    $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
-    $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
+    $$('header nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === (t==='research'?'notes':t)));
+    $$('main > section').forEach(s => (s.hidden = s.id === 'tab-notes-hub' ? !['notes','research'].includes(t) : s.id !== 'tab-' + t));
+    $('#tab-notes').hidden=t!=='notes';$('#tab-research').hidden=t!=='research';
+    $$('#notesViews button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.notesView===t)));
     document.documentElement.dataset.tab = t;
     if (prevTab !== t && typeof window.hdShow === 'function') window.hdShow(); // beim Reiterwechsel ist die Tableiste immer zu sehen (Kapitelwechsel im selben Reiter lässt sie, wie sie ist)
     dictPlace();
@@ -67,7 +69,8 @@
     if (prevTab !== t && typeof window.__refind === 'function') window.__refind(); // offene Suchleiste: im neuen Reiter neu suchen
     if ((t === 'notes' || t === 'search') && prevTab !== t && tabScroll[t]) { const y = tabScroll[t]; requestAnimationFrame(() => window.scrollTo(0, y)); setTimeout(() => window.scrollTo(0, y), 150); }
   }
-  $$('nav button').forEach(b => (b.onclick = () => { if (b.dataset.tab === 'read' && b.classList.contains('active')) togglePanel(); else showTab(b.dataset.tab); })); // erneuter Klick auf „Lesen“ blendet die Bücherliste ein/aus
+  $$('header nav button').forEach(b => (b.onclick = () => { if (b.dataset.tab === 'read' && b.classList.contains('active')) togglePanel(); else showTab(b.dataset.tab); })); // erneuter Klick auf „Lesen“ blendet die Bücherliste ein/aus
+  $$('#notesViews button').forEach(b=>b.onclick=()=>showTab(b.dataset.notesView));
   $('#goGet').onclick = () => showTab('get'); // „Herunterladen“ liegt im ⋯-Menü, damit die Kopfzeile Platz für die Tabs lässt
 
   // ---------- Zustand ----------
@@ -2951,6 +2954,7 @@
   // end-reader-module:notes
 
   researchUI = window.LibraryResearch.create({
+    openNotebook:id=>notesUI.openNotebook(id),
     portraitOf,
     getPreferredEdition: editions => {
       if(!groups.some(g=>/^Tanakh\//.test(g.key||'')&&g.versions.some(v=>editions.some(e=>e.rel===v.rel))))return null;
@@ -3088,6 +3092,7 @@
   // Nicht angepinnte Fenster schweben wie bisher über dem Text.
   let masoraWordRequest=0;
   const masoraUI = window.LibraryMasora.create({
+    getHover:()=>linksUI.hovApi,
     $, esc, getView: () => view, getRow: () => cmtRow || readingRow($$('#rOut .row[data-l]').filter(r=>/^\d+$/.test(r.dataset.l)))?.dataset.l,
     getRows: () => $$('#rOut .row[data-l]').filter(r=>/^\d+$/.test(r.dataset.l)),
     getVisibleRow: () => readingRow($$('#rOut .row[data-l]').filter(r=>/^\d+$/.test(r.dataset.l))),

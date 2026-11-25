@@ -40,7 +40,7 @@ const handlers={
  },
  'off:summary':()=>[], 'notes:list':()=>[], 'dict:list':()=>({list:[]}), 'dict:suggest':()=>({list:[]}), 'dict:syriacMentions':()=>({results:[]}),
  'interlinear:read':()=>({data:{},renderings:null}), 'links:status':()=>({ready:false,complete:false,done:[],total:0}), 'topics:status':()=>({ready:false}),
- 'links:section':()=>[], 'links:texts':()=>({}), 'links:preview':()=>({missing:true}), 'topics:section':()=>[],
+ 'links:section':()=>[], 'links:texts':()=>({}), 'links:preview':(_e,ref)=>{if(process.env.SAFRAN_SMOKE_MASORA!=='1')return {missing:true};const links=require(path.join(root,'links')),parsed=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===parsed.book&&d.entry.kind==='he');return doc?{parts:[{he:true,versionTitle:doc.entry.versionTitle,items:links.resolveText(doc,parsed.tail)}]}:{missing:true};}, 'topics:section':()=>[],
  'links:versification':()=>require(path.join(root,'bundled/versification.json')),
  'links:mishnahTalmud':()=>require(path.join(root,'bundled/mishnah_talmud.json')),
  'outline:get':()=>null,'dict:cites':()=>({list:[]}), 'audio:index':()=>({dir:'',files:[]}), 'audio:list':()=>({items:[]}),

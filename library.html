@@ -17,7 +17,6 @@
       <button data-tab="search">Suche</button>
       <button data-tab="dict" id="dictTabBtn" title="Wörterbuch">Wörterbuch</button>
       <button data-tab="notes">Notizen</button>
-      <button data-tab="research">Recherche</button>
     </nav>
     <div id="tabbar"></div>
     <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰<span class="bl">Bücher</span></button>
@@ -116,8 +115,8 @@
       <div class="sleft">
       <div id="sModes" role="tablist" aria-label="Suchmodus">
         <button id="sTextTab" data-mode="text" type="button" role="tab" aria-controls="sText" aria-selected="true">Textsuche</button>
-        <button id="sSyntaxTab" data-mode="syntax" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Grammatik &amp; Syntax</button>
-        <button id="sOutlineTab" data-mode="outline" type="button" role="tab" aria-controls="sOutline" aria-selected="false" tabindex="-1">Gliederung &amp; Mizwot</button>
+        <button id="sSyntaxTab" data-mode="syntax" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Wortmerkmale</button>
+        <button id="sClauseTab" data-mode="clauses" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Klauseln &amp; Beziehungen</button>
       </div>
       <div id="sText" role="tabpanel" aria-labelledby="sTextTab">
       <div class="bar" id="sBar">
@@ -186,7 +185,7 @@
       </div>
       <div id="sSyntax" role="tabpanel" aria-labelledby="sSyntaxTab" hidden>
         <div id="sxSavedPatterns"></div>
-        <div class="bar" id="sxKinds" role="group" aria-label="Suchart">
+        <div class="bar" id="sxKinds" role="group" aria-label="Suchart" hidden>
           <button type="button" data-syntax-kind="word" aria-pressed="true" class="primary">Wortmerkmale</button>
           <button type="button" data-syntax-kind="clause" aria-pressed="false">Klauseln &amp; Beziehungen</button>
         </div>
@@ -255,7 +254,7 @@
         </form>
       </div>
       </div>
-      <div id="sOutline" role="tabpanel" aria-labelledby="sOutlineTab" hidden>
+      <div id="sOutline" role="tabpanel" aria-label="Gliederungssuche" hidden>
       </div>
       <div id="sChart" hidden></div>
       <div id="sTools"><button id="sResearchBtn" type="button">Treffer sammeln</button> <button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
@@ -278,6 +277,8 @@
     </section>
 
     <!-- NOTIZEN -->
+    <section id="tab-notes-hub" hidden>
+      <div id="notesViews" role="navigation" aria-label="Bereiche in Notizen"><button type="button" data-notes-view="notes" aria-pressed="true">Notizen</button><button type="button" data-notes-view="research" aria-pressed="false">Quellenblätter</button></div>
     <section id="tab-research" hidden><div id="researchRoot"></div></section>
     <section id="tab-notes" hidden>
       <div class="nw-topbar"><button id="nwToggleBooks" title="Notizbücher ein- oder ausblenden" aria-label="Notizbücher ein- oder ausblenden" aria-expanded="true">☰</button><input id="nFilter" type="search" aria-label="Notizen durchsuchen" placeholder="Notizen durchsuchen …"><button id="nwFiltersToggle" aria-expanded="false" aria-controls="nwFilterPanel">Filter</button><button id="nNew" class="primary">＋ Neue Notiz</button><button id="nIO" title="Sichern, exportieren oder importieren">⇅ Export</button><button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button></div>
@@ -285,6 +286,8 @@
       <div id="nwFilterChips" aria-label="Aktive Filter"></div><div id="nTags" hidden></div><select id="nSort" aria-label="Notizen sortieren"><option value="manual">Manuelle Reihenfolge</option><option value="new">Zuletzt bearbeitet</option><option value="book">Nach Werk und Stelle</option></select>
       <div id="nOut"></div>
     </section>
+
+    </section><!-- Notizen mit Quellenblättern -->
 
     <!-- HERUNTERLADEN -->
     <section id="tab-get" hidden>

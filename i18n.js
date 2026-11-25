@@ -207,6 +207,7 @@
     "Ziehe am Griff ⠿. Leere Bereiche nehmen ebenfalls Texte auf. Alternativ stehen im Editor Pfeile und Bereichsauswahl bereit.": "Drag using the ⠿ handle. Empty areas also accept texts. The editor also provides arrows and an area selector.",
     "Interlinear erfordert passende Original- und Übersetzungsausgaben. Zusätze erscheinen mit +. Änderungen am Auszug müssen vorher zurückgenommen werden.": "Interlinear requires matching original and translation editions. Additions appear with +. Edits to the excerpt must first be reverted.",
     "Recherche": "Research",
+    "Bereiche in Notizen": "Notes sections",
     "Projekt": "Project",
     "Neues Projekt": "New project",
     "Projekt bearbeiten": "Edit project",

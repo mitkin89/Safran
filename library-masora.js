@@ -1,7 +1,7 @@
 // Published BIMA text editions, read entirely from the bundled offline projection.
 window.LibraryMasora = (() => {
   'use strict';
-  function create({ $, esc, getView, getRow, isBible, openExternal, load, showWord, getRows, getVisibleRow, selectRow }) {
+  function create({ $, esc, getView, getRow, isBible, openExternal, load, showWord, getRows, getVisibleRow, selectRow, getHover }) {
     const panel=$('#masoraPanel'),body=$('#masoraBody'),D=window.MasoraData;
     const t=(...args)=>window.I18N.t(...args),safe=s=>esc(String(s??''));
     const kinds={mp:'Masora parva',mm:'Masora magna',mf:'Masora finalis',gl:'Glosse',cm:'Kommentar',sn:'Schreibernotiz',ge:'Glossareintrag',tg:'Targum',uncategorized:'Ohne Zuordnung'};
@@ -54,7 +54,7 @@ window.LibraryMasora = (() => {
     }
     function wordButton(location,label){
       const id=targets.push(location)-1;
-      return '<button type="button" class="masora-word" data-masora-target="'+id+'" title="'+safe(t('Wort im Lesetext markieren')+(location.method?.startsWith('westminster-cited')?' · '+t('Am MT geprüfter Vergleichsbeleg'):''))+'">'+label+'</button>';
+      return '<button type="button" class="masora-word" data-masora-target="'+id+'" aria-label="'+safe(t('Wort im Lesetext markieren')+(location.method?.startsWith('westminster-cited')?' · '+t('Am MT geprüfter Vergleichsbeleg'):''))+'">'+label+'</button>';
     }
     function entryLabel(hit){
       const label='<bdi lang="he" dir="rtl">'+safe(hit.entry.label)+'</bdi>',all=D.locations(hit.page,hit.entry),ctx=context();
@@ -84,6 +84,7 @@ window.LibraryMasora = (() => {
         (note(entry.notes)?'<p class="masora-note" dir="auto">'+safe(plain(note(entry.notes)))+'</p>':'')+'</div></div><div class="masora-interpretation">'+explanation+'</div><div class="masora-actions">'+source+'</div></article>';
     }
     async function render(){
+      getHover?.()?.hideWithin(body);
       const ctx=context();if(!ctx){close();return;}if(panel.hidden)return;
       $('#masoraPlace').textContent=t(ctx.book)+' '+ctx.chapter+(ctx.verse&&$('#masoraScope').value==='verse'?':'+ctx.verse:'');
       const options={scope:$('#masoraScope').value,manuscript:$('#masoraMs').value,type:$('#masoraType').value,q:$('#masoraQuery').value};
@@ -124,7 +125,7 @@ window.LibraryMasora = (() => {
       }
     }
     function open(){if(!context())return false;panel.hidden=false;refresh();return true;}
-    function close(){generation++;panel.hidden=true;}
+    function close(){getHover?.()?.hideWithin(body);generation++;panel.hidden=true;}
     function syncControls(){
       const rows=getRows(),ctx=context(),at=rows.findIndex(r=>Number(r.dataset.l)===ctx?.verse);
       $('#masoraPrev').disabled=!rows.length||at<=0;$('#masoraNext').disabled=!rows.length||at===rows.length-1;
@@ -165,11 +166,18 @@ window.LibraryMasora = (() => {
     function filter(){limit=100;render();}
     $('#masoraQuery').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(filter,180);});
     for(const id of ['#masoraScope','#masoraMs','#masoraType'])$(id).addEventListener('change',filter);
+    function previewTarget(target){const location=targets[Number(target.dataset.masoraTarget)],hover=getHover?.();if(!location||!hover)return;const ref=location.book+' '+location.chapter+':'+location.verse;if(hover.current()!==ref)hover.start(target,ref,true,false);}
+    body.addEventListener('mouseover',e=>{const target=e.target.closest('[data-masora-target]');if(target)previewTarget(target);});
+    body.addEventListener('mouseout',e=>{const target=e.target.closest('[data-masora-target]');if(target&&!target.contains(e.relatedTarget))getHover?.()?.hide();});
+    body.addEventListener('focusin',e=>{const target=e.target.closest('[data-masora-target]');if(target)previewTarget(target);});
+    body.addEventListener('focusout',()=>getHover?.()?.hideWithin(body));
+    body.addEventListener('scroll',()=>getHover?.()?.hideWithin(body),true);
     body.addEventListener('click',async e=>{
       const group=e.target.closest('[data-masora-group]');
       if(group){body.querySelector('.masora-primary [data-word-group="'+group.dataset.masoraGroup+'"]')?.scrollIntoView({block:'start',behavior:'smooth'});return;}
       const target=e.target.closest('[data-masora-target]');
       if(target){
+        getHover?.()?.hideWithin(body);
         const location=targets[Number(target.dataset.masoraTarget)];if(!location)return;
         try{
           const marked=await showWord(location);
