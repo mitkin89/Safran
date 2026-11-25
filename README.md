@@ -55,6 +55,12 @@ The chapter overview compares unusually frequent and rare words, roots, verb for
 
 ![Genesis 1 chapter overview: unusually frequent words compared with the rest of Genesis and highlighted in the Hebrew text.](screenshots/current/chapter-overview.png)
 
+### Ancient versions word by word
+
+Compare the Septuagint, Onkelos, Qumran scrolls, Samaritan Pentateuch and Peshitta beneath the Westminster text where word alignments are available. Click an annotated word for its analysis, source and dictionary links.
+
+![Genesis 1 with interlinear lines for ancient textual witnesses and an open Syriac Peshitta word analysis.](screenshots/current/ancient-versions.png)
+
 ## Words, dictionaries and search
 
 A word card connects morphology, attested forms, translation choices and occurrences. Compare how an aligned translation renders a lemma, then open the passages behind that rendering.

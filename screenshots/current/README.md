@@ -1,6 +1,6 @@
 # Current README screenshots
 
-Nine original PNG screenshots supplied by the user on 25 November 2026 for the README refresh. These are captures of the user’s installed Safran app. They are preserved without cropping, retouching or generated UI. Interface language and text editions vary between views. No exact installed build number is asserted from these images.
+Ten original PNG screenshots supplied by the user on 25 November 2026 for the README refresh. These are captures of the user’s installed Safran app. They are preserved without cropping, retouching or generated UI. Interface language and text editions vary between views. No exact installed build number is asserted from these images.
 
 Both READMEs link to this image set. Earlier screenshots outside this directory remain available for existing references.
 
@@ -15,3 +15,4 @@ Both READMEs link to this image set. Earlier screenshots outside this directory 
 | source-sheet-preview.png | a082c87b2c8cdfa4509135d205cb28808c1ee6a01317033216032523678e59af |
 | chapter-overview.png | 37d23f727f35a9e3049ea81243a3e95833e93097197f33e239dde413b53299b4 |
 | search.png | 962adc1e60b6c05b2c14580be62df4208520f749bca9d866cb3d66e1122fb852 |
+| ancient-versions.png | 61f583fce24cdff8f65e8cd1177fbb9e007eb7d1e4df76dca5b590e7b078abfa |

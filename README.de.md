@@ -55,6 +55,12 @@ Der Kapitelüberblick vergleicht auffällig häufige und seltene Wörter, Wurzel
 
 ![Kapitelüberblick zu Genesis 1: auffällig häufige Wörter im Vergleich zum übrigen Buch und Markierungen im hebräischen Text.](screenshots/current/chapter-overview.png)
 
+### Alte Textzeugen Wort für Wort
+
+Vergleiche Septuaginta, Onkelos, Qumranrollen, Samaritanischen Pentateuch und Peschitta unter dem Westminster-Text, soweit Wortzuordnungen vorliegen. Ein Klick auf ein annotiertes Wort öffnet Bestimmung, Quelle und Wörterbuchverknüpfungen.
+
+![Genesis 1 mit Interlinearzeilen alter Textzeugen und geöffneter Wortanalyse zur syrischen Peschitta.](screenshots/current/ancient-versions.png)
+
 ## Wörter, Wörterbücher und Suche
 
 Die Wortkarte verbindet Morphologie, belegte Formen, Übersetzungsentscheidungen und Fundstellen. Vergleiche, wie eine zugeordnete Übersetzung ein Lemma wiedergibt, und öffne die zugehörigen Belege.
