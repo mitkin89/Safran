@@ -2,7 +2,7 @@
 
 <h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
-<p align="center"><b>Deine jüdische Bibliothek, offline – mit dem ganzen Tanach Wort für Wort auf Deutsch.</b><br>Tanach, Talmud, Midrasch und Kommentare auf Hebräisch, Englisch und Deutsch, mit eingebautem Wörterbuchregal.</p>
+<p align="center"><b>Deine jüdische Bibliothek, offline – mit dem ganzen Tanach Wort für Wort auf Deutsch.</b><br>Tanach, Talmud, Midrasch und Kommentare lesen, vergleichen und durchsuchen. Notizbücher und Quellenblätter aus der eigenen Bibliothek erstellen.</p>
 
 <p align="center">
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Neueste Version" src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release&color=7b4b1f"></a>
@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.5.md"><b>Neu in 2.8.5</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.5.md"><b>Neu in 2.8.5</b></a> &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
@@ -25,7 +25,11 @@
 
 Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Der **textkritische Apparat** vergleicht den masoretischen Text mit sieben Zeugen: Aleppo-Text, Samaritanus, Qumran-Rollen, Septuaginta, Fields Hexapla, Peschitta und Kennicotts Handschriften. Der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und die **Wortkarte** zeigen, wie hebräische Wörter übersetzt werden. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **elf Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
-**Neu in 2.8.5:** Notizbücher mit verknüpften Versauszügen, erweiterte Quellenblätter, Offline-Masora mit deutschen Arbeitsübersetzungen und übersichtlichere Studienwerkzeuge. Siehe [Versionshinweise](docs/releases/2.8.5.md).
+**Aktuelle Version: [2.8.5](https://github.com/mitkin89/Safran/releases/tag/2.8.5).** Notizbücher mit verknüpften Auszügen, Quellenblätter mit Rückgängig/Wiederholen und Versauswahl sowie Offline-Masora mit deutschen Arbeitsübersetzungen. [Versionshinweise](docs/releases/2.8.5.md).
+
+**Auf `main`, nach 2.8.5:** Makkabäer I–IV erscheinen in der Bibliothek jeweils als ein Werk. Kahana, Kautzsch und Septuaginta stehen unter **Versionen** zur Auswahl. Bestehende Textdateien und Stellenangaben bleiben erhalten; unterschiedliche Vers-/Absatzaufteilungen stehen in getrennten Spalten. Diese Änderung ist noch nicht in den Installationsdateien von 2.8.5 enthalten.
+
+[Lesen und Interlinear](#was-safran-kann) · [Notizbücher und Quellenblätter](#notizbücher-und-quellenblätter) · [Masora](#masora) · [Textkritischer Apparat](#textkritischer-apparat) · [Wörterbücher](#wörterbücher) · [Entwicklung](#entwicklung)
 
 <p align="center">
   <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Jesaja 53,9 als Interlinear mit Septuaginta, Qumran-Rollen und Peschitta; daneben das Apparat-Fenster mit Lesartenzeile, der Lesart ויתנו von 1QIsaa, der LXX-Lesart καὶ δώσω mit rekonstruierter Vorlage und den Hexapla-Zeilen der Drei mit „folgt dem MT“" width="900"></a><br>
@@ -39,18 +43,20 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 | 🔡 **Der ganze Tanach Wort für Wort auf Deutsch** | Der Knopf *Interlinear* stellt Zunz oder Philippson (alle 39 Bücher) unter jedes hebräische Wort; Goldschmidt und Mendelssohn (Dessau 1815) decken die Tora ab, S. R. Hirsch Tora und Psalmen, Julius Hirsch Jesaja und die zwölf Propheten, Breuer zehn weitere Bücher, Wolf beide Samuelbücher. Darunter können Septuaginta, Targumim, Qumran-Rollen und Peschitta stehen. |
 | 🃏 **Eine Wortkarte zu jedem hebräischen Wort** | *Wie wird das Wort übersetzt?* als Diagramm je Übersetzung, das vollständige Paradigma als Tabelle und die Wiedergaben in Septuaginta, Targumim und Qumran-Rollen. |
 | ✦ **Alles zu dieser Stelle** | Ein Fenster (Cmd+I) sammelt Kommentare, Parallelstellen, Legenden, Talmud & Midrasch, Halacha, Wörter, Orte und Wörterbuchartikel zu einem Vers, einem Blatt oder einem Kapitel. |
-| 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
+| 📴 **Funktioniert offline** | Lokale Texte, Wörterbücher, Karten und heruntergeladenes Audio ohne Verbindung nutzen. Notizen und Projekte bleiben auf deinem Rechner. |
 | 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Über 50 Werke: Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, Josephus, Graetz, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
 | 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie: über 300.000 Einträge, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
 | 📜 **Handschriften und alte Übersetzungen** | Ein [textkritischer Apparat](#textkritischer-apparat) mit sieben Zeugen. Samaritanischer Pentateuch (CACCHT / DT-UCPH) mit Tal–Florentin als hebräischem Haupttext, englischer Parallelübersetzung, roten MT-Abweichungen und Morphologie unveränderter Wörter; Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, die Peschitta Wort für Wort, Fields Hexapla, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
 | 🔎 **Suche, die Grammatik kennt** | Volltextsuche in allem, alle Formen eines Wortes über das Lemma (hebräisch und griechisch), eine Grammatiksuche nach Stamm, Zeit, Person, Genus und Numerus sowie die [Klauselsuche im Tanach](docs/bhsa-clause-search.md). |
+| 📝 **Notizbücher und Quellenblätter** | Notizen und Versauszüge verknüpfen, Quellen um einen Haupttext anordnen, die Versauswahl mit passenden Interlineardaten ändern und die eigene Arbeit exportieren. |
+| מ **Masora mit deutschen Erklärungen** | 26.969 transkribierte Notizen aus 18 Handschriften offline lesen. Original und deutsche Arbeitsübersetzung stehen zusammen, mit Belegstellen und Herkunftsnachweisen. |
 | 🗺 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, zweites Lesefenster, Bibelkarte, Gliederungen, jüdischer Kalender und eine hebräische Lesung des ganzen Tanach. |
 
 ## Installation
 
 Die Datei für dein System aus der [neuesten Version](https://github.com/mitkin89/Safran/releases/latest) herunterladen. Safran hat kein kostenpflichtiges Entwicklerzertifikat, darum braucht der erste Start einen Schritt mehr.
 
-- **macOS** – die `.dmg` öffnen und **Safran** in den Ordner **Programme** ziehen.
+- **macOS (Apple Silicon)** – die `.dmg` öffnen und **Safran** in den Ordner **Programme** ziehen.
   > ⚠️ **„Safran ist beschädigt und kann nicht geöffnet werden“?** Die App ist nicht defekt; macOS meldet das bei Apps ohne kostenpflichtiges Apple-Zertifikat. Die `.dmg` erneut öffnen und mit Rechtsklick **Safran freischalten.command** → *Öffnen* → *Öffnen*. Oder im Terminal: `xattr -cr /Applications/Safran.app`. Bei *„Entwickler kann nicht überprüft werden“*: *Systemeinstellungen → Datenschutz & Sicherheit → Trotzdem öffnen*.
 - **Windows** – das Installationsprogramm (oder die portable `.exe`) starten. Zeigt SmartScreen *„Der Computer wurde durch Windows geschützt“*: **Weitere Informationen** → **Trotzdem ausführen**.
 - **Linux** – das `.AppImage` einmal ausführbar machen (`chmod +x Safran-*.AppImage`) und starten, oder das `.deb` installieren (`sudo apt install ./safran_*.deb`).
@@ -64,6 +70,8 @@ Die Oberfläche gibt es auf Deutsch, Englisch und Hebräisch. Sie startet je nac
 1. **Texte wählen:** ⋯ → *Herunterladen…* öffnen, den Katalog einmal laden (etwa 22 MB), Kategorien oder einzelne Bücher ankreuzen und die Sprachen wählen (Hebräisch, Englisch, Deutsch). Die mitgelieferten deutschen Texte und die Wörterbücher sind schon da, bevor du etwas herunterlädst.
 2. **Lesen:** ein Buch wählen, eine Stelle ins Springen-Feld tippen (`2:5`, `Daf 3a`, `gen. 1:1`) und Cmd+K (unter Windows und Linux Strg+K) für die Kommentare drücken. Ein neuer Tab zeigt den Wochenabschnitt und das Daf Yomi; ein Klick öffnet sie.
 3. **Tiefer gehen:** in einem Buch des Tanach *Interlinear* drücken, dann steht das Deutsch unter jedem hebräischen Wort. Ein Klick auf ein hebräisches Wort zeigt Grammatik und *Wortkarte*, ein Doppelklick auf ein beliebiges Wort schlägt es in den Wörterbüchern nach, und Cmd+I (Strg+I) öffnet *Alles zu dieser Stelle*.
+
+4. **Eigene Arbeit festhalten:** Unter **Notizen** ordnest du Notizbücher, sammelst verknüpfte Auszüge und erstellst Quellenblätter. **＋ Quellenblatt** im Lesefenster kann die dortige Darstellung einschließlich passender Interlinearzeilen übernehmen.
 
 ## Was Safran kann
 
@@ -119,7 +127,7 @@ Und alles Weitere:
 </tr>
 </table>
 
-**Recherche und Quellenblätter:** Im Reiter **Recherche** bündelst du Quellenblätter, wiederverwendbare Sammlungen und Notizen nach Projekten. **＋ Quelle hinzufügen** sucht direkt nach Stellenangaben oder Textausschnitten und zeigt die gewählte Edition vor der Übernahme. Unter **Layout** lassen sich Haupttext, linke/rechte Randkommentare und ein unterer Bereich anordnen. **＋ Quellenblatt** im Lesefenster oder Kommentarbereich übernimmt die gewählte Edition; **Treffer sammeln** sichert Suchergebnisse. Ordne Quellenauszüge, eigene Texte und verknüpfte Notizen, ergänze bibliografische Angaben und exportiere Quellenblätter als PDF, DOCX oder HTML. Projekte lassen sich als JSON-Paket teilen; Forschungsdaten als CSV und Annotationen als JSON-LD ausgeben. [Anleitung, Formate und Grenzen](docs/RESEARCH.md).
+**Quellen und Notizen zusammenhalten:** Der Bereich **Notizen** bündelt Notizbücher und Quellenblätter nach Projekten. [Zum Ablauf weiter unten](#notizbücher-und-quellenblätter).
 
 **Bücher zweisprachig drucken:** Öffne das Buch und wähle die hebräische und deutsche Fassung als Spalten. Unter **⋯ → Exportieren …** kannst du den aktuellen Abschnitt, einen Abschnitts-/Kapitelbereich oder **Ganzes Buch** als PDF oder Word exportieren. Die Fassungen stehen versweise nebeneinander; Fußnoten, eigene Notizen und Verknüpfungen sind optional. Die PDF lässt sich anschließend normal drucken.
 
@@ -136,6 +144,27 @@ Die Textschriftgrößen übernimmt der Export aus **Anzeige**: Grundschrift sowi
 </p>
 
 <p align="center"><a href="docs/FEATURES.md">Alle Funktionen, Tastenkürzel und das Menü Werkzeuge (englisch) →</a></p>
+
+## Notizbücher und Quellenblätter
+
+Unter **Notizen** findest du deine Notizbücher und den Projektbereich. Notizen lassen sich mit Versen oder Kommentarabsätzen verknüpfen, formatieren und als Entwürfe behalten. Gespeicherte Auszüge einer gewählten Edition führen zur Lesestelle zurück und lassen sich im Quellenblatt wiederverwenden.
+
+Quellenblätter verbinden Auszüge, eigene Texte, Überschriften und verknüpfte Notizen:
+
+- **Stelle übernehmen:** **＋ Quellenblatt** im Lesefenster oder Kommentarbereich wählen, alternativ **＋ Quelle** im Quellenblatt. Edition und Text vor der Übernahme prüfen; beim Übernehmen aus dem Lesefenster steht auch dessen aktuelle Darstellung zur Auswahl.
+- **Auswahl ändern:** einen Bereich wie `Deuteronomy 1:1–10` oder einzelne Verse wie `Deuteronomy 1:2,5,10` wählen. Passende Interlineardaten bleiben beim Ändern der Quellenauswahl erhalten. Beim manuellen Umschreiben des Auszugs kann die Wortzuordnung entfallen.
+- **Navigieren und anordnen:** über die Quellennavigation direkt springen, Quellen zwischen Haupttext, linkem/rechtem Rand und unterem Bereich verschieben und Quellen oder Kommentargruppen entfernen. Rückgängig/Wiederholen stellt Bearbeitungsschritte wieder her.
+- **Vorschau und Export:** die Anordnung prüfen und als PDF, DOCX oder HTML ausgeben. Sammlungen wiederverwenden, Projekte als JSON-Paket teilen oder Forschungsdaten als CSV und Annotationen als JSON-LD exportieren.
+
+Neue hebräische Bibelquellen verwenden standardmäßig **Westminster (OSHB)**, bis du die Ausgabe manuell wechselst. Interlinear setzt eine Wortzuordnung zwischen der gewählten Original- und Übersetzungsausgabe voraus; nicht jede verfügbare Übersetzung bietet diese Zuordnung. [Ausführliche Anleitung, Formate und Grenzen](docs/RESEARCH.md).
+
+## Masora
+
+Das Fenster **Masora** enthält **26.969 transkribierte Notizen** aus **1.550 veröffentlichten Seiten von 18 Handschriften**, importiert aus Corpus Masoreticum / BIMA. Du kannst die dem Vers oder Kapitel zugeordneten Notizen lesen, Handschriften filtern, der Lesestelle folgen und zitierte Belegstellen in der Vorschau öffnen.
+
+Die kompakte Ansicht stellt den hebräischen Originaltext und die **deutsche Arbeitsübersetzung** zusammen dar. Erklärungen bleiben sichtbar; Handschriften- und Quellenangaben lassen sich bei Bedarf aufklappen. Geprüfte Wortverknüpfungen markieren die passende Stelle im Lesetext.
+
+Die Übersetzungen sind Arbeitsfassungen. Unsichere, beschädigte und unvollständige Stellen bleiben gekennzeichnet. Wort- und Verszuordnungen erscheinen nur, soweit die Belege sie tragen; der Bestand umfasst den importierten Stand veröffentlichter Seiten, keine vollständige Edition aller Handschriften. [Herkunft und Methode](docs/masora-import.md) (englisch) · [Quellenlizenz](app/LICENSE-MASORA.md).
 
 ## Textkritischer Apparat
 
@@ -160,7 +189,7 @@ Für Mischna Berachot vergleicht das Fenster die Handschriften Kaufmann, Parma u
 - **Etiketten:** jede Hexapla-Zeile sagt, wie sie sich zur LXX-Zeile verhält – *wie LXX*, *andere Wiedergabe*, *folgt dem MT*, *Transkription* und, geprüft, *andere Vorlage* oder *andere Deutung* mit dem vorausgesetzten Hebräisch.
 - **Einordnungen:** die Einordnung der LXX-, Peschitta- und Hexapla-Lesarten und die erschlossenen hebräischen Vorlagen sind mit Claude (2026) erstellt und geprüft. Sie sind eine Hilfe, keine kritische Edition; unsichere Fälle sind markiert, und jeder Eintrag behält seine Quelle.
 
-Neu in 2.8.0: die Peschitta (Lesetext, Interlinear und Zeuge Syr), Fields Hexapla, der Aleppo-Vergleich (MA), die eingeordneten LXX-Lesarten und die Lesartenzeile – siehe [Versionshinweise](docs/releases/2.8.0.md) (englisch).
+Die aktuellen Änderungen stehen in den [Versionshinweisen zu 2.8.5](docs/releases/2.8.5.md); die Tabelle oben beschreibt den Umfang des Apparats und seine Quellen.
 
 ## Wörterbücher
 
@@ -317,8 +346,27 @@ Safran ist eine Electron-App; an jedem [Release](https://github.com/mitkin89/Saf
 ## Mitwirken
 
 - **Fehler und Ideen:** ein [Issue](https://github.com/mitkin89/Safran/issues) anlegen. Bitte System, Safran-Version (⋯-Menü) und bei Textproblemen Buch und Stelle nennen.
-- **Texte:** eigene Übersetzungen oder Kommentare mit ⋯ → *Eigene Texte für GitHub exportieren …* ausgeben und als Pull Request für `bundled/` anbieten. Bitte Quelle und Lizenz angeben.
-- **Code:** [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) beschreibt Start aus dem Quelltext (`npm install`, `npm start`), Build und Tests. Die Oberflächentexte liegen in `i18n.js` (Englisch) und `i18n-he.js` (Hebräisch).
+- **Texte:** eigene Übersetzungen oder Kommentare mit ⋯ → *Eigene Texte für GitHub exportieren …* ausgeben und als Pull Request für `app/bundled/` anbieten. Bitte Quelle und Lizenz angeben.
+- **Code:** [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) beschreibt Start aus dem Quelltext (`npm install`, `npm start`), Build und Tests. Die Oberflächentexte liegen in `app/i18n.js` (Englisch) und `app/i18n-he.js` (Hebräisch).
+
+## Entwicklung
+
+Das Repository ist ein npm-Workspace. Die Befehle im Hauptverzeichnis ausführen:
+
+```sh
+npm ci
+npm start
+npm test
+```
+
+| Verzeichnis | Inhalt |
+| --- | --- |
+| [`app/`](app/) | Desktop-App, mitgelieferte Texte, Wörterbücher und Daten |
+| [`app/tests/`](app/tests/) | Regressionstests und Integrationsprüfungen |
+| [`app/tools/`](app/tools/) | Import-, Build- und Prüfwerkzeuge |
+| [`docs/`](docs/) | Entwicklung, Quellenmethoden und Versionshinweise |
+
+Installationsdateien auf dem jeweiligen System mit `npm run dist` (macOS), `npm run dist:win` oder `npm run dist:linux` erstellen. [Entwicklungsanleitung](docs/DEVELOPMENT.md) (englisch).
 
 ## Editionsnotizen
 
@@ -342,7 +390,7 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 | --- | --- |
 | Quellcode der App | MIT |
 | Westminster Leningrad Codex: Text · OSHB-Lemmata und -Morphologie | gemeinfrei · CC BY 4.0 |
-| Aleppo-Text (*Miqra al pi ha-Masora*), Perseus Morpheus, LSJ-Bedeutungen, UBS Bible Routes | CC BY-SA |
+| Aleppo-Text (*Miqra al pi ha-Masora*), Corpus-Masoreticum-/BIMA-Transkriptionen, Perseus Morpheus, LSJ-Bedeutungen, UBS Bible Routes | CC BY-SA; Bedingungen der jeweiligen Quelle beachten |
 | ETCBC-Daten (Qumran-Rollen, Targumim, Peschitta, Inschriften), Tal–Florentin, SEDRA | **CC BY-NC 4.0** – nicht kommerziell |
 | CATSS-Septuaginta ([LICENSE-CATSS.md](app/LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](app/LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – nicht kommerziell |
 | lxx-morph, STEPBible (Glossen, Verszählung), OpenBible.info | CC BY 4.0 |
