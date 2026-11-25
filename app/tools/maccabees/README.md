@@ -1,92 +1,82 @@
-# Makkabäer I–IV: Zuordnung der Textabschnitte
+# Makkabäer I–IV: gemeinsame Verszählung
 
-Alle **56 Kapitel** der vier Bücher sind nach inhaltlich verglichenen
-Abschnitten ausgerichtet. Native Texte, Vers-/Absatznummern, leere Quelleinträge
-und Editionszugehörigkeit bleiben erhalten. Es werden keine Verse umnummeriert
-oder Wörter zwischen Fassungen ergänzt.
+Alle **56 Kapitel** werden in der Verszählung der mitgelieferten Septuaginta
+(Rahlfs) dargestellt. Jede sichtbare Zeile entspricht genau einem dieser
+Verse, unabhängig von der Auswahl der Fassungen. Anders geteilte Quelleinträge
+werden dafür verbunden oder an geprüften inhaltlichen Grenzen geteilt.
+Die Quelldateien bleiben unverändert. Originalstellen und Textintervalle bleiben
+an jeder Zelle hinterlegt; ihre Zählung erscheint beim Überfahren.
 
 ## Abdeckung und Quellen
 
-- **I: 16 Kapitel** – Kautzsch ↔ Rahlfs, Frankel ↔ Kautzsch und Kahana ↔ Rahlfs.
-- **Englische Sefaria-Exporte:** I (Brenton, 16 Kapitel), II (Teiltexte) und Kahana I (erste 14 Einträge); siehe `english-boundary-review.md`.
-- **II: 15 Kapitel** – Kautzsch ↔ Rahlfs und Frankel ↔ Kautzsch.
-- **III: 7 Kapitel**, **IV: 18 Kapitel** – Kautzsch ↔ Rahlfs.
+- **I: 16 Kapitel** – Kautzsch, Rahlfs, Frankel, Kahana, englischer Brenton-Export
+  und die vorhandenen englischen Kahana-Einträge.
+- **II: 15 Kapitel** – Kautzsch, Rahlfs, Frankel und die vorhandenen englischen
+  Einträge der Sefaria Community Translation.
+- **III: 7 Kapitel**, **IV: 18 Kapitel** – Kautzsch und Rahlfs.
 
-Kautzsch (1900) und Septuaginta (Rahlfs) stammen unverändert aus
-`bundled/manifest.json`; Herkunft und Lizenzen siehe `SOURCES.de.md`.
-Frankels gemeinfreie hebräische Fassung wurde über die Sefaria-API abgeglichen;
-Sefaria nennt die Da'at-Ausgabe als Vorlage. Die beiden öffentlichen
-Testquellen `tests/fixtures/maccabees-{i,ii}-he.json` bewahren die Versions-,
-Quellen- und Lizenzangaben der API. Die Frankel- und Kahana-Textstände
-wurden zusätzlich mit den von Safran geladenen `merged.json`-Dateien des
-öffentlichen Sefaria-Export-Buckets verglichen; die Buchtexte stimmen
-bytegenau als JSON-Textarrays überein.
+Kautzsch (1900) und Rahlfs stammen unverändert aus `bundled/manifest.json`;
+Herkunft und Lizenzen stehen in `SOURCES.de.md`. Die gemeinfreien Frankel-Texte
+liegen mit Quellenangaben in `tests/fixtures/maccabees-{i,ii}-he.json`.
+Kahana wurde am vollständigen Sefaria-Text und hebräischen Wikisource-Text
+geprüft. `kahana-source.json` bewahrt nur Metadaten und Prüfsummen.
+Die englischen Testdateien enthalten die tatsächlich geladenen, attribuierten
+Sefaria-Exporte; deren Lücken werden nicht ergänzt. Einzelheiten zu diesen
+Textständen stehen in `english-boundary-review.md`.
 
-Kahanas Fassung wurde ebenfalls am vollständigen Sefaria-Text und am als Quelle
-genannten hebräischen Wikisource-Text geprüft. `kahana-source.json` enthält nur
-Versionsangaben, Kapitelumfänge und Prüfsummen; der Kahana-Wortlaut wird hier
-nicht neu verteilt.
+## Geprüfte Versgrenzen
 
-## Grenzen der Zuordnung
+Die ursprünglichen `*-groups.json`-Tabellen belegen die Zusammengehörigkeit
+von Passagen. Sie genügen allein nicht für eine Darstellung einzelner Verse.
+`canonical-*.json` ergänzt deshalb genaue, inhaltlich geprüfte Schnitte für
+mehrversige Gruppen. Die Dateien enthalten Arrays von:
 
-Die Tabellen `*-groups.json` enthalten aufsteigende, inklusive Bereiche. Gleiche
-Kapitelgrößen wurden nicht als Zuordnungsnachweis verwendet. Satzfortsetzungen,
-zusammengezogene bzw. geteilte Verse und übergreifende Grenzen werden zu einem
-größeren Textabschnitt gruppiert. Das ist eine Entsprechung von Passagen,
-keine Wortzuordnung oder Gleichsetzung der Lesarten.
+```json
+{"chapter": 1, "greek": [12, 13], "parts": [[[16, 0, 100]], [[16, 100, 180]]]}
+```
 
-Einzelprüfungen und Quellenbelege sind dokumentiert in:
+`parts` enthält je griechischem Zielvers eine Liste von Quellintervallen:
+`[nativerEintrag, Start, Ende, optionalesQuellkapitel]`. Einträge und Kapitel
+sind 1-basiert, Offsets entsprechen JavaScript-UTF-16; das Ende ist exklusiv.
+Die Zahlen im Beispiel illustrieren nur das Format.
 
-- `maccabees-i-notes.json`
-- `maccabees-ii-review.md`
-- `maccabees-iii-iv-notes.md`
-- `hebrew-boundary-review.md`
+Erweiterte Korrekturen dürfen benachbarte ursprünglich einversige Gruppen
+ersetzen. Das verhindert, dass etwa eine einleitende Redewendung beim falschen
+Vers bleibt. Tatsächlich umgestellte Teilsätze werden nach ihrem Inhalt
+zugeordnet; Wortlaut und Quellprovenienz bleiben erhalten. Die Anzeige ergänzt
+keine fehlenden Wörter und behauptet keine Wort-für-Wort-Gleichheit.
+
+Prüfhinweise stehen in `canonical-i-de-review.md`, `canonical-ii-de-review.md`,
+`canonical-iv-de-notes.md` und `canonical-he-review.md`.
 
 Besondere Fälle:
 
-- II 1:8–9 (Frankel/Kautzsch) ↔ Rahlfs 1:8.
-- II 8:16–26 ↔ Rahlfs 8:14–20: Die versetzte Gebetsfortsetzung verlangt eine
-  größere Gruppe; eine engere lineare Gleichsetzung wäre falsch.
-- Kautzsch I 13:19 und II 4:24 sowie einzelne griechische Einträge in IV sind
-  leer. Die Nummern danach behalten ihre ursprünglichen Werte.
-- **IV 7:24 (Deutsch) ↔ 8:1 (Griechisch)** liegt an einer anderen Kapitelgrenze.
-  Die Anzeige setzt dort einen Verweis zum entsprechenden Kapitel statt einer
-  falschen Zuordnung zu einem Vers desselben Kapitels. `[0,0]` bedeutet in den
-  Tabellen ausdrücklich, dass innerhalb dieses Kapitels keine Gegenseite steht.
+- II 8:26 enthält eine versetzte Gebetsfortsetzung. Sie wird beim passenden
+  griechischen Vers dargestellt, nicht durch proportionale Aufteilung angenähert.
+- IV 7:24 (Deutsch) entspricht griechisch 8:1 und erscheint deshalb dort mit
+  der ursprünglichen Quellenstelle 7:24.
+- Leere Quelleinträge bleiben leer. Es werden weder griechische Wörter noch
+  englische Kapitel ergänzt, um Lücken zu verdecken.
 
-## Aufbau und Textstandsprüfung
+## Aufbau und Prüfung
 
 ```sh
 node tools/maccabees/build-alignment.js
-node --test tests/maccabees-alignment.test.js tests/library-works.test.js
+node --test tests/maccabees-canonical.test.js tests/maccabees-alignment.test.js tests/library-works.test.js
 SAFRAN_SMOKE_MACC_ALIGNMENT=1 electron tests/electron/smoke.cjs
 ```
 
-`maccabees-compose.js` führt die unabhängig geprüften Tabellen über gemeinsame
-Quellenachsen zusammen. Zur Laufzeit werden nur die für die ausgewählten
-Fassungen benötigten Verbindungen verwendet. Nicht ausgewählte Fassungen
-vergrößern daher keine sonst passenden Verszeilen. Überlappende Grenzen
-ergeben größere Gruppen;
-Numerik oder relative Absatzposition werden nicht zur Interpolation benutzt.
-Jede Quellenachse wird auf lückenlose, monotone und einmalige Abdeckung geprüft.
+Die Laufzeit prüft die vollständige Buch-SHA-256 und zusätzlich die nativen
+Kapitelnummern samt HTML-Prüfwerten. Nur bekannte Textstände erhalten die
+geprüften Versgrenzen. Unbekannte oder geänderte Fassungen erhalten keine
+unbelegte Zuordnung.
 
-Die Laufzeitdaten enthalten die vom Backend ebenfalls ermittelte **SHA-256 des
-gesamten Buchtextes** und einen zusätzlichen Rendering-Prüfwert je Kapitel
-(Nummern und normalisierte HTML-Spalten). Nur wenn alle gewählten Fassungen
-zum geprüften Stand passen, wird die Zuordnung angewandt. Geänderte oder
-unbekannte Fassungen bleiben getrennt; gleiche Nummern erzeugen für sie keine
-behauptete Entsprechung.
+`maccabees-canonical.test.js` prüft alle Zielversnummern sowie jeden originalen
+Quelltextcharakter auf vollständige und genau einmalige Verwendung über das
+gesamte Buch. Das schließt Umstellungen über Kapitelgrenzen ein. HTML-Formatierung
+wird beim Teilen ausgeglichen; Fußnoten bleiben beim zugehörigen Textintervall.
 
-Der Oberflächentest prüft alle 56 deutsch-griechischen und alle 31
-Frankel-griechischen Kapitelvergleiche samt Originalnummern und Höhenpositionen.
-Mit `SAFRAN_KAHANA_SOURCE=/pfad/zur/sefaria-api-antwort.json` prüft er zusätzlich
-alle 16 Kahana-Kapitel, ohne den Text in den Testbestand aufnehmen zu müssen.
-Die Antwort muss zum dokumentierten SHA-256 in `kahana-source.json` passen.
-
-Die Anzeige verwendet dieselben gemeinsamen Verszeilen und denselben linken
-Versrand wie andere Bücher. Zusammengehörende native Einträge bleiben in
-ihrer Quellenspalte; kleine Nummern kennzeichnen geteilte oder abweichend
-gezählte Einträge. Fehlende englische Kapitel bleiben leer und werden einmal
-im Spaltenkopf gekennzeichnet. Der Inhalt wird weder ergänzt noch verschoben.
-Die englischen Testdateien bewahren die geladenen Exporttexte samt Quellen-
-und Lizenzangaben; auch ihre Prüfsummen gehören zum Quellenabgleich.
+Die Oberflächentests prüfen die tatsächlichen Fassungswahlen, gemeinsame
+Versnummern, Spaltenpositionen und Quellintervalle. Mit
+`SAFRAN_KAHANA_SOURCE=/pfad/zur/sefaria-api-antwort.json` werden zusätzlich die
+vollständigen Kahana-Quellen geprüft, ohne ihren Wortlaut mitzuliefern.

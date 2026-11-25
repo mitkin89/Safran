@@ -728,19 +728,20 @@
     if(AP&&AP.sectionKey!==view.group.key+'|'+s.k){apRemember();AP.sectionKey=view.group.key+'|'+s.k;AP.whole=true;}
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
-    const passages = window.MaccabeesAlignment.passages(view.group,view.loaded,cols,s.path);
+    const canonical = window.MaccabeesAlignment.verseRows(view.group,view.loaded,cols,s.path);
+    const passages = canonical ? null : window.MaccabeesAlignment.passages(view.group,view.loaded,cols,s.path);
     const independent = !!passages || window.LibraryWorks.independentNumbering(view.group, view.loaded, cols);
-    const rows = independent ? window.LibraryWorks.independentRows(cols) : R.alignRows(cols);
+    const rows = canonical || (independent ? window.LibraryWorks.independentRows(cols) : R.alignRows(cols));
     const vis = view.loaded.map((_, i) => i); // alle gewählten Versionen bleiben als Spalten stehen, auch wenn eine im Abschnitt leer ist
     // Anordnung „je Sprache“: Gruppen nach Sprache (Hebräisch, Englisch, Deutsch, Andere), die Versionen einer Sprache stehen in einer Spalte untereinander
-    const byLang = layoutMode === 'lang' && !independent;
+    const byLang = layoutMode === 'lang' && !independent && !canonical;
     const groupsL = byLang ? LANG_ORDER.map(k => ({ k, idx: vis.filter(i => langKind(view.loaded[i]) === k) })).filter(g => g.idx.length) : null;
     const n = byLang ? groupsL.length : vis.length;
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
     const head = byLang
       ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? versBadge(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map((d,i) =>
-      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}${passages&&!cols[i].length?' <span class="macc-unavailable">· '+esc(I18N.t('Kein Text in dieser Fassung.'))+'</span>':''}</div>`).join('')}</div>`;
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}${(canonical||passages)&&!cols[i].length?' <span class="macc-unavailable">· '+esc(I18N.t('Kein Text in dieser Fassung.'))+'</span>':''}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
@@ -757,9 +758,15 @@
     const shownRows = view.vf ? rows.filter(r => { const v = rowVerse(r.label); return v != null && view.vf.set.has(v); }) : rows;
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
-    let body = shownRows.map(r =>
+    let body = canonical ? '' : shownRows.map(r =>
       `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
-    if (independent) {
+    if (canonical) {
+      body=`<div class="aligned-passages canonical-verses">${shownRows.map(r=>`<div class="row passage-row${rowLabel!=null&&!quiet&&r.label===rowLabel?' hit':''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${vis.map(i=>{
+        const cell=r.cells[i],parts=cell?.parts||[],refs=[...new Set(parts.map(p=>p.chapter+':'+p.slot))];
+        const html=cellHtml(cell?.html??null,view.loaded[i],undefined,r.label);
+        return `<div class="macc-column">${cell?html.replace('class="cell"',`class="cell" data-macc-label="${esc(r.label)}" data-macc-parts="${esc(JSON.stringify(parts.map(({slot,chapter,start,end})=>({slot,chapter,start,end}))))}" title="${esc('Originalzählung: '+refs.join(', '))}"`):html}</div>`;
+      }).join('')}</div>`).join('')}</div>`;
+    } else if (independent) {
       const nativeRow=(r,i)=>`<div class="row${rowLabel != null && !quiet && r.label===rowLabel?' hit':''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`;
       body=passages?`<div class="aligned-passages">${passages.map(ranges=>{
         const cells=vis.map(i=>shownRows.filter(r=>r.cells[i]!=null&&Number(r.label)>=ranges[i][0]&&Number(r.label)<=ranges[i][1]));
@@ -778,7 +785,7 @@
       }).join('')}</div>`:
         `<div class="independent-columns" style="--n:${n}">${vis.map(i=>`<section>${shownRows.filter(r=>r.cells[i]!=null).map(r=>nativeRow(r,i)).join('')}</section>`).join('')}</div>`;
     }
-    $('#rOut').innerHTML = vfBar + (!passages && independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
+    $('#rOut').innerHTML = vfBar + (!canonical && !passages && independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     navigationUI.recordNav(s, rowLabel);

@@ -21,7 +21,9 @@ function build(){
    }
   }
   const crossFile='maccabees-'+slugs[b]+'-cross-chapter.json',cross=fs.existsSync(path.join(__dirname,crossFile))?read(crossFile):[];
-  const book={sources,chapters:[]};
+  const canonicalFiles=b===0?{0:'i-de',2:'i-kahana-he',3:'i-he',4:'i-en',5:'i-kahana-en'}:b===1?{0:'ii-de',2:'ii-he',3:'ii-en'}:b===3?{0:'iv-de'}:{};
+  const canonical={};for(const [family,file]of Object.entries(canonicalFiles))canonical[family]=read('canonical-'+file+'.json');
+  const book={sources,chapters:[],canonical};
   if(sources.some(s=>s.chapters.length!==sources[0].chapters.length))throw Error('Chapter count mismatch');
   for(let c=0;c<sources[0].chapters.length;c++){
    const counts=sources.map(s=>s.chapters[c].slots),chapterPairs=pairs.map(p=>({families:p.families,groups:Array.isArray(p.maps)?p.maps[c]:p.maps[c+1]})),groups=compose(counts,chapterPairs);
