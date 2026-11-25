@@ -27,7 +27,9 @@
     }).map(([s]) => s);
   }
   const fmtSize = b => (b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' GB' : (b / 1048576).toFixed(1) + ' MB');
+  const kaufmannLabel = v => v === "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri" ? I18N.t('Kaufmann A50 · vokalisiert (Dan Be’eri)') : null;
   const shortVer = v => {
+    if (kaufmannLabel(v)) return kaufmannLabel(v);
     if (v === 'merged') return 'zusammengeführt';
     const s = String(v || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
     return s.length > 90 ? s.slice(0, 90) + '…' : s;
@@ -525,7 +527,7 @@
       const annotated=node=>typeof node==='string'?/data-m=["']/.test(node):Array.isArray(node)?node.some(annotated):!!node&&typeof node==='object'&&Object.values(node).some(annotated);
       return !!doc&&annotated(doc.text);
     };
-    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):window.LibraryWorks.versionLabel(v);
+    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):kaufmannLabel(v.versionTitle)||window.LibraryWorks.versionLabel(v);
     const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.

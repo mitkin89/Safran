@@ -2,6 +2,23 @@
 
 **English** · [Deutsch](SOURCES.de.md)
 
+## Vocalized Kaufmann-based Mishnah
+
+All 63 tractates (525 chapters, 4,192 mishnah segments) of *Mishnah based on the
+Kaufmann manuscript, edited by Dan Be’eri* are bundled as a separate Hebrew
+edition. Digital text: [Sefaria](https://www.sefaria.org/digitized-by-sefaria).
+The [original edition by Rabbi Dan Be’eri](https://archive.org/details/MishnaCorrectedKaufman00WHOLE)
+is licensed **CC BY-SA 3.0**. This is an edited reading based on Kaufmann A50,
+including corrections, supplements and conventional numbering, rather than a
+diplomatic transcription. Its supplemental sixth chapter of Avot is retained.
+The separate Digital Mishnah Berakhot transcription is unaffected.
+
+Text, vowels, editorial marks and notes are retained unchanged from explicitly
+named exports, without merging editions or generating vocalization. License
+metadata are normalized to the original edition's CC BY-SA 3.0; Sefaria's
+original metadata (61 PD; Ta’anit and Avot `unknown`) are also retained. Source
+URLs, hashes, importer and coverage report: `tools/kaufmann/`.
+
 ## Sefaria source and licenses
 
 Greek **Testaments of the Twelve Patriarchs, Pseudo-Phocylides, 3 Baruch and eight Enoch witnesses**: [Online Critical Pseudepigrapha](https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha), **CC BY 4.0**; the Testaments additionally retain the Greek Wikisource **CC BY-SA 4.0** notice and its provisional, uncollated text status. Stanza 1.11.0 / Stanford NLP Group supplies a separately distributed automatic analysis layer (Perseus POS, PROIEL lemmas) under **CC BY-NC-SA 4.0**; the matching OGA 0.2.0 entries retain **CC BY-SA 4.0**. No model weights are bundled. Original word forms, fragments, native numbering and witness alternatives remain; no German text changes. Full bibliography, model/training-data notices and modifications: [LICENSE-PSEUDEPIGRAPHA.md](LICENSE-PSEUDEPIGRAPHA.md); exact revisions and per-passage coverage: [tools/pseudepigrapha/README.md](tools/pseudepigrapha/README.md).

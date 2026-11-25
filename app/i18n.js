@@ -1429,6 +1429,7 @@
     'Eigene Texte zu „{}“ aus der Bibliothek entfernen?\n\n{}\n\n(Die Originaldateien bleiben unberührt.)': 'Remove your own texts for “{}” from the library?\n\n{}\n\n(The original files are not touched.)',
     'Diesen eigenen Text aus der Bibliothek entfernen? (Die Originaldatei bleibt unberührt.)': 'Remove this own text from the library? (The original file is not touched.)',
     'Als Upload-CSV für Sefaria speichern (Ref,Text)': 'Save as upload CSV for Sefaria (Ref,Text)', 'Quelldatei neu einlesen ({})': 'Re-read source file ({})',
+    'Kaufmann A50 · vokalisiert (Dan Be’eri)': 'Kaufmann A50 · vocalized (Dan Be’eri)',
     'zusammengeführt': 'merged', 'zusammengeführte Fassung': 'merged version', 'Hebr.': 'Heb.', 'Engl.': 'Eng.', 'Deutsch': 'German', 'Englisch': 'English', 'Hebräisch': 'Hebrew', 'Andere': 'Other',
     // ----- Verknüpfungen -----
     'Verknüpfungen': 'Links', 'Kommentare': 'Commentaries', 'Kommentare zu {}': 'Commentaries on {}', 'Keine Verknüpfungen.': 'No links.',

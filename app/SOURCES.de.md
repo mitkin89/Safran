@@ -2,6 +2,29 @@
 
 [English](SOURCES.md) · **Deutsch**
 
+## Vokalisierte Kaufmann-Mischna
+
+Alle 63 Traktate (525 Kapitel, 4.192 Mischna-Abschnitte) der Ausgabe
+*Mishnah based on the Kaufmann manuscript, edited by Dan Be’eri* sind als eigene
+hebräische Offline-Fassung enthalten. Digitaltext: [Sefaria](https://www.sefaria.org/digitized-by-sefaria);
+Vorlage: [Rabbi Dan Be’eris vollständige Ausgabe](https://archive.org/details/MishnaCorrectedKaufman00WHOLE),
+**CC BY-SA 3.0** laut Lizenzangabe der Originalausgabe.
+
+Die Ausgabe beruht auf Kaufmann A50, ist aber eine bearbeitete Lesefassung mit
+Korrekturen, Ergänzungen und der üblichen Kapitel-/Mischna-Zählung; sie ist keine
+diplomatische Transkription der Handschrift. Auch das ergänzte sechste Kapitel
+von Avot gehört zum übernommenen Ausgabenbestand. Der vorhandene diplomatische
+Berakhot-Vergleich aus Digital Mishnah bleibt eine getrennte Fassung.
+
+Der Wortlaut einschließlich Vokalzeichen, Quellenmarkierungen, HTML und
+Anmerkungen wird unverändert aus den ausdrücklich benannten Sefaria-Exporten
+übernommen; keine Mischung mit `merged` und keine maschinelle Nachvokalisierung.
+Die Lizenzmetadaten wurden nach der Originalausgabe vereinheitlicht: Sefaria
+nennt bei 61 Traktaten PD, bei Ta’anit und Avot `unknown`. Diese Exportangaben
+bleiben zusätzlich im Textdokument erhalten; Safran führt die Ausgabe mit
+Namensnennung und CC BY-SA 3.0. Import, Prüfsummen und Vollständigkeitsbericht:
+`tools/kaufmann/`.
+
 ## Sefaria-Quelle und Lizenzen
 
 Griechische **Testamente der zwölf Patriarchen, Pseudo-Phokylides, 3 Baruch und acht Henoch-Zeugen**: [Online Critical Pseudepigrapha](https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha), **CC BY 4.0**; bei den Testamenten zusätzlich griechische Wikisource **CC BY-SA 4.0**, mit Hinweis auf den vorläufigen, nicht am Druck kollationierten Stand. Stanza 1.11.0 / Stanford NLP Group liefert eine getrennt ausgelieferte automatische Analyseschicht (Perseus-Formtags, PROIEL-Lemmata) unter **CC BY-NC-SA 4.0**; passende OGA-0.2.0-Einträge behalten **CC BY-SA 4.0**. Keine Modellgewichte werden mitgeliefert. Wortformen, Fragmente, Originalzählung und Lesarten bleiben erhalten; deutsche Texte bleiben unverändert. Bibliographie, Modell-/Trainingsdatenhinweise und Änderungen: [LICENSE-PSEUDEPIGRAPHA.md](LICENSE-PSEUDEPIGRAPHA.md); Quellstände und abschnittsgenaue Abdeckung: [tools/pseudepigrapha/README.md](tools/pseudepigrapha/README.md).

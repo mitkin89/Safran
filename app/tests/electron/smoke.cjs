@@ -26,6 +26,10 @@ if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){
   docs.set(rel,{...d,entry,textHash:hash(d.text)});
  }
 }
+if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
+ for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);
+ add('Mishnah Berakhot','de',/Goldschmidt/);
+}
 if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){add('Genesis','de',/Philippson/);add('Exodus','de',/Philippson/);add('Genesis','he',/^Aleppo/);add('Genesis','other',/^Septuaginta/);add('Psalms','he',/^Westminster/);add('Psalms','de',/Zunz/);add('Psalms','de',/Philippson/);}
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1')add('Job','he',/^Westminster/);
@@ -142,6 +146,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  }
  if(process.env.SAFRAN_SMOKE_STATS==='1'){
   await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
+ if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
+  await require('./kaufmann-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_MISHNAH==='1'){
