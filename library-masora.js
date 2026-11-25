@@ -166,8 +166,8 @@ window.LibraryMasora = (() => {
     function filter(){limit=100;render();}
     $('#masoraQuery').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(filter,180);});
     for(const id of ['#masoraScope','#masoraMs','#masoraType'])$(id).addEventListener('change',filter);
-    function previewTarget(target){const location=targets[Number(target.dataset.masoraTarget)],hover=getHover?.();if(!location||!hover)return;const ref=location.book+' '+location.chapter+':'+location.verse;if(hover.current()!==ref)hover.start(target,ref,true,false);}
-    body.addEventListener('mouseover',e=>{const target=e.target.closest('[data-masora-target]');if(target)previewTarget(target);});
+    function previewTarget(target){const location=targets[Number(target.dataset.masoraTarget)],hover=getHover?.();if(!location||!hover)return;const ref=location.book+' '+location.chapter+':'+location.verse;hover.start(target,ref,true,false,{masoraPhrase:location.phrase});}
+    body.addEventListener('mouseover',e=>{const target=e.target.closest('[data-masora-target]');if(target&&!target.contains(e.relatedTarget))previewTarget(target);});
     body.addEventListener('mouseout',e=>{const target=e.target.closest('[data-masora-target]');if(target&&!target.contains(e.relatedTarget))getHover?.()?.hide();});
     body.addEventListener('focusin',e=>{const target=e.target.closest('[data-masora-target]');if(target)previewTarget(target);});
     body.addEventListener('focusout',()=>getHover?.()?.hideWithin(body));

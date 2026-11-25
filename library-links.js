@@ -391,6 +391,15 @@ window.LibraryLinks = (() => {
       for (const i of target.indices) words[i].classList.add('pvhl');
       return true;
     }
+    function markMasoraPhrase(box,phrase){
+      const D=window.MasoraData,needle=D?.matchTokens(phrase);if(!needle?.length)return;
+      for(const part of box.querySelectorAll('.pvp[data-he]')){
+        const walker=document.createTreeWalker(part,NodeFilter.SHOW_TEXT),tokens=[];let node;
+        while((node=walker.nextNode()))for(const m of node.textContent.matchAll(/[\u05d0-\u05ea][\u0591-\u05bd\u05bf-\u05c7\u05d0-\u05ea]*/gu))tokens.push({node,start:m.index,end:m.index+m[0].length,text:D.matchTokens(m[0])[0]});
+        const matches=new Map();for(let i=0;i<=tokens.length-needle.length;i++)if(needle.every((word,j)=>tokens[i+j].text===word))for(const token of tokens.slice(i,i+needle.length)){const ranges=matches.get(token.node)||new Map();ranges.set(token.start,token.end);matches.set(token.node,ranges);}
+        for(const [textNode,ranges]of matches){const fragment=document.createDocumentFragment(),text=textNode.textContent;let at=0;for(const [start,end]of [...ranges].sort((a,b)=>a[0]-b[0])){fragment.append(text.slice(at,start));const mark=document.createElement('span');mark.className='pvhl';mark.textContent=text.slice(start,end);fragment.append(mark);at=end;}fragment.append(text.slice(at));textNode.replaceWith(fragment);}
+      }
+    }
     const startHov = (a, ref, quiet, below, pick) => {
       hideHov(); hovRef = ref; hovAnchor = a;
       const request = hovRequest;
@@ -415,6 +424,7 @@ window.LibraryLinks = (() => {
           + (pick && r.pickMiss ? `<div class="vnote">${host.esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
         hov.innerHTML = `<b>${host.esc(ref)}</b>${vn}${html}`;
         if (pick?.exact && !markExact(hov, pick.exact)) return;
+        if(pick?.masoraPhrase)markMasoraPhrase(hov,pick.masoraPhrase);
         hov.hidden = false;
         if (pick && pick.lem) pvMark(hov, ref, pick.lem);
         if (pick && pick.greek) pvMarkGreek(hov, ref, pick.greek);

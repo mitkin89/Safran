@@ -326,3 +326,7 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 @media(max-width:760px){#researchRoot.rw-spatial-editor .rw-layout{grid-template-columns:minmax(0,1fr)}}
 
 #researchRoot .rw-arrangement.classic .rw-source-footer>button { max-width:100%; white-space:normal; text-align:start; }
+#researchRoot .rw-source-actions { display:flex; flex-wrap:wrap; gap:7px; margin:10px 0; }
+#researchRoot .rw-source-actions button { font-size:11px; min-height:28px; padding:4px 8px; }
+#researchRoot .rw-source-footer .rw-source-actions { width:100%; }
+#researchRoot .rw-presentation-preview.is-collapsed { max-height:360px; }
