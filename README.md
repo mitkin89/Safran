@@ -102,7 +102,16 @@ Compare the Septuagint, Onkelos, Qumran scrolls, Samaritan Pentateuch and Peshit
 
 A word card connects morphology, attested forms, translation choices and occurrences. Compare how an aligned translation renders a lemma, then open the passages behind that rendering.
 
-The dictionary shelf includes BDB, Gesenius, Jastrow, Levy, Liddell & Scott, Pape, Krauss and Hamburger. Search headwords or article text, explain supported abbreviations on hover, and open linked citations in the reader. You can also add DSL dictionaries.
+### Built-in dictionaries
+
+The dictionaries are ready to use offline. Open **Dictionary** to search by headword or within entries, or double-click a word in the reader to look it up where you found it.
+
+- **Biblical Hebrew:** Brown–Driver–Briggs (BDB) and Gesenius.
+- **Rabbinic Hebrew and Aramaic:** Jastrow and Levy for reading the Talmud and Midrash.
+- **Ancient Greek:** Liddell & Scott and Pape for looking up words in texts such as the Septuagint.
+- **Jewish reference works:** the index to Samuel Krauss’s *Talmudische Archäologie* and Jacob Hamburger’s *Real-Encyclopädie des Judentums*.
+
+Follow linked citations back to the reader, hover over supported abbreviations for explanations, or add your own dictionaries in DSL format.
 
 Full-text search supports phrases, wildcards, nearby words, language and book filters. Hebrew and Greek lemma searches find inflected forms; morphology and clause tools offer more structured searches. [Concordance](docs/concordance.md) · [Tanakh clause search](docs/bhsa-clause-search.md).
 
