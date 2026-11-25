@@ -2372,6 +2372,8 @@ body.has-dock-tabs .pinp .pinB { display: none; }
 #verList { position: fixed; width: min(720px,calc(100vw - 32px)); min-width: 0; box-sizing: border-box; padding: 10px 12px; gap: 4px; overscroll-behavior: contain; }
 #verList .vgrp { position: sticky; top: -10px; z-index: 1; margin: 14px -4px 3px; padding: 8px 10px; border: 1px solid var(--line); border-inline-start: 4px solid var(--accent); border-radius: 6px; background: var(--side-bg); color: var(--fg); font-size: 13px; letter-spacing: .07em; }
 #verList .vgrp:first-child { margin-top: 0; }
+#verList .version-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; align-items: center; }
+#verList .version-remove { padding: 3px 6px; font-size: 12px; color: var(--muted); }
 #verList label.voption { display: grid; grid-template-columns: 20px 38px minmax(0,1fr); align-items: center; gap: 8px; padding: 7px 5px; border-radius: 6px; white-space: normal; cursor: pointer; }
 #verList label.voption:hover { background: color-mix(in srgb,var(--accent) 8%,transparent); }
 #verList label.voption:has(input:checked) { background: color-mix(in srgb,var(--accent) 6%,transparent); }

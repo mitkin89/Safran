@@ -1614,6 +1614,8 @@
     'Katalog laden / aktualisieren': 'Load / refresh catalog', 'Noch kein Katalog geladen.': 'No catalog loaded yet.', 'Lade Katalog (ca. 22 MB) …': 'Loading catalog (about 22 MB) …',
     'Katalog vom {} · {#} Einträge': 'Catalog of {} · {} entries',
     'Editionen': 'Editions',
+    'Ausgabe entfernen: {}': 'Remove edition: {}',
+    'Entfernen …': 'Remove…',
     'Editionen einzeln auswählen': 'Choose individual editions',
     'Wähle die Editionen für die markierten Bücher und Sprachen.': 'Choose editions for the selected books and languages.',
     'Zusammengeführte Fassung': 'Merged edition',

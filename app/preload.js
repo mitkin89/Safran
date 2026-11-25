@@ -38,6 +38,8 @@ contextBridge.exposeInMainWorld('offline', {
   updateRun: () => ipcRenderer.invoke('off:updateRun'),
   library: () => ipcRenderer.invoke('off:library'),
   read: rel => ipcRenderer.invoke('off:read', rel),
+  removeEdition: rel => ipcRenderer.invoke('off:removeEdition', rel),
+  onEditionRemoved: cb => ipcRenderer.on('off:editionRemoved', () => cb()),
   bhsaStatus: () => ipcRenderer.invoke('off:bhsaStatus'),
   wordSyntax: (book, verse, position) => ipcRenderer.invoke('off:wordSyntax', book, verse, position),
   search: (o, scope) => { const requestId = ++searchSeq; activeSearch = requestId; activeSearchScope = scope; return ipcRenderer.invoke('off:search', { ...o, requestId }).finally(() => { if (activeSearch === requestId) activeSearch = null; }); },

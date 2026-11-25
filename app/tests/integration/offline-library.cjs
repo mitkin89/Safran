@@ -181,6 +181,25 @@ const O = require('../../offline');
   assert.strictEqual((await lp.search({ query: 'אלה', kinds: ['he'], prefix: true })).results.length, 0); // kein ganzes Wort
   fs.rmSync(dir3, { recursive: true, force: true });
 
+  // A removed catalogue edition stays excluded from automatic updates after a restart.
+  const deleteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'safran-edition-remove-'));
+  const deletable = catalog.books[2], sibling = catalog.books[3], removedRel = O.relPathOf(deletable);
+  const fetchEdition = async url => {
+    const entry = [deletable, sibling].find(e => e.json_url === url);
+    return Buffer.from(JSON.stringify({title:entry.title,versionTitle:entry.versionTitle,language:entry.language,text:[['Test']]}));
+  };
+  const deletionLibrary = await new O.Library(deleteDir, fetchEdition).load();
+  assert.equal((await deletionLibrary.downloadEntries([deletable, sibling])).failed.length, 0);
+  await deletionLibrary.removeEdition(removedRel, deletionLibrary.index.entries[removedRel]);
+  assert.equal(fs.existsSync(path.join(deleteDir, removedRel)), false);
+  const restarted = await new O.Library(deleteDir, fetchEdition).load();
+  assert.deepEqual(restarted.list().map(e => e.versionTitle), [sibling.versionTitle]);
+  assert.deepEqual((await restarted.checkUpdates([deletable, sibling], async () => null)).added, []);
+  assert.equal((await restarted.applyUpdates([], [deletable])).total, 0);
+  assert.equal((await restarted.downloadEntries([deletable])).failed.length, 0);
+  assert.equal(restarted.index.removedDownloads.includes(removedRel), false);
+  fs.rmSync(deleteDir, {recursive:true,force:true});
+
   // ---------- Eigene Texte ----------
   const po = O.parseOwn('Kapitel 1\nEins\nZwei\nKapitel 2\nDrei', 'x.txt');
   assert.deepStrictEqual(po.text, [['Eins', 'Zwei'], ['Drei']]);

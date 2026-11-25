@@ -31,6 +31,13 @@ module.exports=async function setup({profile,docs,handlers}){
   replace('off:state',async e=>({...await handlers['off:state'](e),catalog:catalog?{generated_at:'2026-11-17',total:entries.length}:null}));
   replace('off:library',async e=>[...await handlers['off:library'](e),...lib.list()]);
   replace('off:read',(e,rel)=>docs.has(rel)?handlers['off:read'](e,rel):lib.read(rel));
+  let confirmEditionRemoval=false, removalRequests=0;
+  ipcMain.handle('off:removeEdition',async (_e,rel)=>{
+    removalRequests++;
+    if(!confirmEditionRemoval)return {removed:false};
+    await lib.removeEdition(rel,lib.index.entries[rel]);
+    return {removed:true};
+  });
   replace('off:summary',()=>OFF.summarize(groups));
   replace('off:catalogFetch',()=>{if(catalogError)return {error:'Katalog nicht erreichbar <Test>'};catalog=true;return {};});
   replace('off:plan',(_e,sel,opts)=>OFF.planEntries(groups,sel,opts));
@@ -194,6 +201,17 @@ module.exports=async function setup({profile,docs,handlers}){
     assert.equal((await lib.read(OFF.relPathOf(entries[0]))).text[0][0],'Aktualisierter Testtext.');
     await js("document.querySelector('#uCheck').click()");
     await waitFor("document.querySelector('#uInfo').textContent.startsWith('Alles aktuell') && document.querySelector('#uRun').hidden",'Keine weiteren Aktualisierungen');
+    await js("document.querySelector('nav [data-tab=read]').click();[...document.querySelectorAll('#tree .lib-item')].find(n=>n.textContent.includes('UI Download B')).click()");
+    await waitFor("document.querySelector('#rTitle').textContent.includes('UI Download B')&&document.querySelector('#verList [data-remove-edition]')",'Remove button for downloaded edition');
+    await js("document.querySelector('#verList [data-remove-edition]').click()");
+    await until(()=>removalRequests===1,'Edition removal requested');
+    assert.equal(lib.list().length,2);
+    await waitFor("!document.querySelector('#verList [data-remove-edition]').disabled",'Cancel leaves edition available');
+    confirmEditionRemoval=true;
+    await js("document.querySelector('#verList [data-remove-edition]').click()");
+    await waitFor("![...document.querySelectorAll('#tree .lib-item')].some(n=>n.textContent.includes('UI Download B'))",'Confirmed edition removed from reader and library');
+    assert.deepEqual(lib.list().map(e=>e.title),['UI Download A']);
+    console.log('Electron: Cancel and confirm edition removal passed.');
     console.log('Electron: Download-Titelfilter sowie Update-Fehler, Wiederholung und aktualisierte Textdatei bestanden.');
   };
 };

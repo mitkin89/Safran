@@ -559,6 +559,36 @@ ipcMain.handle('off:library', async () => {
   return lib.list();
 });
 
+ipcMain.handle('off:removeEdition', async (e, rel) => {
+  try {
+    const lib = await getLibrary();
+    const entry = typeof rel === 'string' && lib.index.entries[rel];
+    if (!entry || !Object.hasOwn(lib.index.entries, rel)) return { error: M('Ausgabe nicht gefunden.', 'Edition not found.') };
+    const t = (de, en, he) => UI_LANG === 'he' ? he : M(de, en);
+    const parent = winOf(e);
+    const options = {
+      type: 'warning',
+      title: t('Ausgabe dauerhaft entfernen?', 'Permanently remove this edition?', 'להסיר את המהדורה לצמיתות?'),
+      message: t('Diese Ausgabe wirklich dauerhaft aus der lokalen Bibliothek entfernen?', 'Permanently remove this edition from your local library?', 'להסיר את המהדורה הזו לצמיתות מהספרייה המקומית?'),
+      detail: entry.title + '\n' + entry.versionTitle,
+      buttons: [t('Abbrechen', 'Cancel', 'ביטול'), t('Dauerhaft entfernen', 'Remove permanently', 'הסרה לצמיתות')],
+      defaultId: 0, cancelId: 0, noLink: true,
+    };
+    const { response } = await (parent ? dialog.showMessageBox(parent, options) : dialog.showMessageBox(options));
+    if (response !== 1) return { removed: false };
+    if (lib !== await getLibrary()) return { error: M('Die Bibliothek wurde gewechselt.', 'The library was changed.') };
+    await lib.removeEdition(rel, entry);
+    invalidateReads();
+    const caller = e.senderFrame;
+    if (offlineWin && !offlineWin.isDestroyed()) {
+      for (const frame of offlineWin.webContents.mainFrame.framesInSubtree) {
+        if (frame !== caller && !frame.detached) frame.send('off:editionRemoved');
+      }
+    }
+    return { removed: true };
+  } catch (err) { return { error: err.message }; }
+});
+
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
 const BHSA = require('./bhsa-index');
 ipcMain.handle('off:bhsaStatus', async () => {

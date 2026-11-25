@@ -651,6 +651,8 @@ window.I18N_HE = {
 "2 · Auswahl": "2 · בחירה",
 "Deutsch (alle Übersetzungen)": "גרמנית (כל התרגומים)",
 "Editionen": "מהדורות",
+"Ausgabe entfernen: {}": "הסרת מהדורה: {}",
+"Entfernen …": "הסרה…",
 "Editionen einzeln auswählen": "בחירת מהדורות בודדות",
 "Wähle die Editionen für die markierten Bücher und Sprachen.": "בחרו מהדורות עבור הספרים והשפות שסומנו.",
 "Zusammengeführte Fassung": "מהדורה מאוחדת",

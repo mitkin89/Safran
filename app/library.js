@@ -528,7 +528,8 @@
       return !!doc&&annotated(doc.text);
     };
     const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):kaufmannLabel(v.versionTitle)||window.LibraryWorks.versionLabel(v);
-    const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
+    const localEditions = new Set(entries.map(e => e.rel));
+    const itemH = v => `<div class="version-row"><label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>${localEditions.has(v.rel)?`<button type="button" class="version-remove" data-remove-edition="${esc(v.rel)}" aria-label="${esc(I18N.t('Ausgabe entfernen: {}',versionName(v)))}">${esc(I18N.t('Entfernen …'))}</button>` : ''}</div>`;
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.
     const menuKind = v => /^The Samaritan Pentateuch/.test(v.versionTitle||'')?'en':/^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
@@ -548,6 +549,32 @@
   $('#verBox').addEventListener('toggle',placeVersions);
   window.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#verBox').open){e.preventDefault();e.stopImmediatePropagation();$('#verBox').open=false;placeVersions();$('#verSummary').focus();}},true);
   window.addEventListener('resize',placeVersions);window.addEventListener('scroll',placeVersions,{passive:true});
+  async function refreshAfterEditionRemoval() {
+    await loadLibrary();
+    if (view?.group) await loadView();
+    else {
+      $('#verBox').open = false;
+      placeVersions();
+      if (!tabs.length) newTab();
+    }
+    await refreshState();
+  }
+  O.onEditionRemoved(() => refreshAfterEditionRemoval().catch(err => alert(err.message)));
+  $('#verList').addEventListener('click', async e => {
+    const button = e.target.closest('[data-remove-edition]');
+    if (!button || button.disabled) return;
+    button.disabled = true;
+    try {
+      const result = await O.removeEdition(button.dataset.removeEdition);
+      if (result.error) throw new Error(result.error);
+      if (!result.removed) return;
+      await refreshAfterEditionRemoval();
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      button.disabled = false;
+    }
+  });
   $('#verList').addEventListener('change', async e => {
     const rel = e.target.dataset.rel;
     if (!rel || !view) return;
