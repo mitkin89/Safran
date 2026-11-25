@@ -77,7 +77,7 @@ function pickEntries(group, opts) {
   for (const k of ['he', 'en']) {
     if (!opts[k]) continue;
     const list = byKind[k];
-    if (opts.allVersions) out.push(...list);
+    if (k === 'en' || opts.allVersions) out.push(...list);
     else {
       const merged = list.filter(e => e.versionTitle === 'merged');
       out.push(...(merged.length ? merged : list));

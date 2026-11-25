@@ -81,7 +81,7 @@ const O = require('../../offline');
   assert.strictEqual(O.kindOf(catalog.books[5]), 'other');
 
   const p1 = O.planEntries(groups, { cats: ['Tanakh'] }, { he: true, en: true, de: false });
-  assert.deepStrictEqual(p1.entries.map(e => e.versionTitle), ['merged', 'merged']); // nur zusammengeführte Fassungen
+  assert.deepStrictEqual(p1.entries.map(e => e.versionTitle), ['merged', 'merged', 'JPS 1985']); // Hebräisch zusammengeführt, Englisch vollständig
   const p2 = O.planEntries(groups, { cats: ['Tanakh/Torah'] }, { he: false, en: false, de: true });
   assert.deepStrictEqual(p2.entries.map(e => e.versionTitle), ['Die Bücher Moses [de]']);
   const p3 = O.planEntries(groups, { ids: [groups[1].id] }, { he: true, en: true, de: false });
