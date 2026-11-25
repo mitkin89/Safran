@@ -8,12 +8,12 @@ function text(v,max=2000000){if(v==null)return '';if(typeof v!=='string'||v.leng
 const id=v=>{if(typeof v!=='string'||!v||v.length>250)throw Error('Ungültige Kennung.');return v;};
 const tags=v=>[...new Set((Array.isArray(v)?v:[]).map(x=>text(x,200).trim()).filter(Boolean))].slice(0,100);
 function citation(c={}){return Object.fromEntries(['work','edition','translator','editor','publisher','year','locator','url','language'].map(k=>[k,text(c[k],20000)]));}
-function reference(r){if(typeof r==='string')r={label:r};if(!r||typeof r!=='object')throw Error('Ungültige Quellenverknüpfung.');return {label:text(r.label,20000),key:text(r.key,20000),rel:text(r.rel,20000),quote:text(r.quote),citation:citation(r.citation),sectionPath:Array.isArray(r.sectionPath)?r.sectionPath.map(p=>typeof p==='number'&&Number.isInteger(p)&&p>=0?p:text(p,1000)):[],labels:(Array.isArray(r.labels)?r.labels:[]).map(x=>text(String(x),1000))};}
+function reference(r){if(typeof r==='string')r={label:r};if(!r||typeof r!=='object')throw Error('Ungültige Quellenverknüpfung.');return {label:text(r.label,20000),key:text(r.key,20000),rel:text(r.rel,20000),quote:text(r.quote),...(r.quoteHe?{quoteHe:text(r.quoteHe)}:{}),citation:citation(r.citation),sectionPath:Array.isArray(r.sectionPath)?r.sectionPath.map(p=>typeof p==='number'&&Number.isInteger(p)&&p>=0?p:text(p,1000)):[],labels:(Array.isArray(r.labels)?r.labels:[]).map(x=>text(String(x),1000))};}
 function legacyRefs(n){
- if(Array.isArray(n.refs))return n.refs;
+ if(Array.isArray(n.refs))return n.refs.map((r,i)=>!i&&n.he&&n.he!==r.quote&&!r.quoteHe?{...r,quoteHe:n.he}:r);
  if(!n.key&&!n.secLabel&&!n.excerpt)return [];
  let sectionPath=[];try{const p=JSON.parse(n.sk);if(Array.isArray(p))sectionPath=p;}catch{}
- return [reference({label:[n.title,n.secLabel,n.row].filter(Boolean).join(' · '),key:n.key||'',sectionPath,labels:n.row?[String(n.row)]:[],quote:n.excerpt||''})];
+ return [reference({label:[n.title,n.secLabel,n.row].filter(Boolean).join(' · '),key:n.key||'',sectionPath,labels:n.row?[String(n.row)]:[],quote:n.excerpt||'',...(n.he&&n.he!==n.excerpt?{quoteHe:n.he}:{})})];
 }
 function block(b){return cleanBlock(b,false);}
 function cleanBlock(b,paired=false){

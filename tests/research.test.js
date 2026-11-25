@@ -25,3 +25,12 @@ test('formatted linked notes retain emphasis, lists, quotes, RTL and safe links 
  const html=E.html(sheet,[note]);assert.match(html,/<strong>Fett<\/strong>/);assert.match(html,/<em>kursiv<\/em>/);assert.match(html,/<li dir="auto">Liste<\/li>/);assert.match(html,/<blockquote>/);assert.match(html,/href="https:\/\/example.com\/\?a=1&amp;b=2"/);assert(!html.includes('href="#"'));assert(!html.includes('**Fett**'));
  const files=unzip(E.docx(sheet,[note])),xml=files['word/document.xml'];assert.match(xml,/<w:b\/>/);assert.match(xml,/<w:i\/>/);assert.match(xml,/<w:bidi\/>/);assert.match(xml,/w:hyperlink r:id="rId2"/);assert.match(xml,/xmlns:r="http:\/\/schemas.openxmlformats.org\/officeDocument\/2006\/relationships"/);assert.match(files['word/_rels/document.xml.rels'],/Target="https:\/\/example.com\/\?a=1&amp;b=2" TargetMode="External"/);assert(!xml.includes('**Fett**'));assert(xml.includes('Liste'));assert(xml.includes('Zitat'));assert(xml.includes('Bibel (Genesis 1:1)'));assert(html.includes('Bibel (Genesis 1:1)'));
 });
+
+test('linked notes export their saved verse quotes before the comment, including Hebrew snapshots and missing-source labels',()=>{
+ const old={id:'job',title:'Job',key:'Tanakh¦Job',sk:'[0]',secLabel:'Kapitel 1',row:'12',excerpt:'Der HERR sprach zum Ankläger.',he:'וַיֹּאמֶר יְהוָה',note:'Mein Kommentar'},refs=S.legacyRefs(old);assert.equal(refs[0].quote,old.excerpt);assert.equal(refs[0].quoteHe,old.he);
+ const note=S.note({...old,projectId:'project',refs}),sheet={title:'Notizblatt',blocks:[{id:'block',type:'note',noteId:note.id,noteSnapshot:note}]},html=E.html(sheet,[note]),xml=unzip(E.docx(sheet,[note]))['word/document.xml'];
+ for(const output of [html,xml]){assert(output.includes(old.excerpt));assert(output.includes(old.he));assert(output.includes(old.note));assert(output.indexOf(old.excerpt)<output.indexOf(old.note));}
+ assert.equal(note.refs[0].quoteHe,old.he);const fallback=E.html(sheet,[]);assert(fallback.includes(old.excerpt));assert(fallback.includes(old.he));
+ const missing=E.html({blocks:[{type:'note',noteSnapshot:{title:'Ohne Auszug',note:'Kommentar',refs:[{label:'Job 1:12'}]}}]});assert(missing.includes('Kein Textauszug gespeichert.'));
+ const hostile=E.html({blocks:[{type:'note',noteSnapshot:{note:'Kommentar',refs:[{label:'Job 1:12',quote:'<script>bad()</script>'}]}}]});assert(!hostile.includes('<script>'));assert(hostile.includes('&lt;script&gt;'));
+});

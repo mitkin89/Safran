@@ -2,10 +2,10 @@
  'use strict';
  const normalize=value=>String(value||'').normalize('NFD').replace(/\p{M}/gu,'').replace(/[־–—]/g,' ').toLocaleLowerCase().replace(/\s+/g,' ').trim();
  function refs(note){
-  if(Array.isArray(note.refs))return note.refs;
+  if(Array.isArray(note.refs))return note.refs.map((r,i)=>!i&&note.he&&note.he!==r.quote&&!r.quoteHe?{...r,quoteHe:note.he}:r);
   if(!note.key&&!note.secLabel&&!note.excerpt)return [];
   let sectionPath=[];try{sectionPath=JSON.parse(note.sk||'[]');}catch{}
-  return [{label:[note.title,note.secLabel,note.vs||note.row].filter(Boolean).join(' · '),key:note.key||'',sectionPath,labels:note.set?.length?note.set.map(String):note.row?[String(note.row)]:[],quote:note.excerpt||'',citation:{work:note.title||'',locator:[note.secLabel,note.vs||note.row].filter(Boolean).join(' · ')}}];
+  return [{label:[note.title,note.secLabel,note.vs||note.row].filter(Boolean).join(' · '),key:note.key||'',sectionPath,labels:note.set?.length?note.set.map(String):note.row?[String(note.row)]:[],quote:note.excerpt||'',...(note.he&&note.he!==note.excerpt?{quoteHe:note.he}:{}),citation:{work:note.title||'',locator:[note.secLabel,note.vs||note.row].filter(Boolean).join(' · ')}}];
  }
  const owner=n=>(n._store||'legacy')+':'+n.id;
  function records(legacy,state){return [...(legacy||[]).filter(n=>n.kind!=='hl').map(n=>({...n,_store:'legacy',refs:refs(n)})),...(state?.notes||[]).map(n=>({...n,_store:'research',refs:refs(n)}))];}
