@@ -34,7 +34,9 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
  if(source.text!==source.originalText)throw Error('Der Auszug wurde bearbeitet. Bitte den Originaltext wiederherstellen, bevor du eine Übersetzung zuordnest.');
  const a=await rich(source.reference.rel),b=await rich(rel);if(a.entry.title!==b.entry.title)throw Error('Die Ausgabe gehört nicht zum selben Werk.');
  const captured=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels},a.doc.textHash);
- if(captured.sourceHash!==source.sourceHash||captured.text!==source.originalText)throw Error('Der gespeicherte Auszug und die Originalausgabe stimmen nicht überein. Bitte die Quelle neu übernehmen.');
+ const legacy=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels,includeFootnotes:false},a.doc.textHash);
+ const oldNotes=R.flattenNode(R.getByPath(a.doc.text,source.reference.sectionPath)).filter(r=>source.reference.labels.includes(r.label)).map(r=>r.label+'  '+S.plain(r.html)+R.splitFootnotes(r.html).notes.map(n=>'\n[Fußnote '+(n.marker||'')+'] '+S.plain(n.html)).join('')).join('\n');
+ if(captured.sourceHash!==source.sourceHash||![captured.text,legacy.text,oldNotes].includes(source.originalText))throw Error('Der gespeicherte Auszug und die Originalausgabe stimmen nicht überein. Bitte die Quelle neu übernehmen.');
  const originalRows=R.flattenNode(R.getByPath(a.doc.text,source.reference.sectionPath)).filter(r=>source.reference.labels.includes(r.label)),rows=[],plans=[];
  if(originalRows.length>200)throw Error('Bitte höchstens 200 Verse auf einmal auswählen.');
  const book=a.entry.title;
@@ -44,7 +46,7 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
    for(const s of t.sections)for(const v of s.verses){if(V.partial(book,+s.chapter,v,'heb',trad))throw Error('Teilverszuordnung nicht eindeutig.');pairs.push(...V.verse(book,+s.chapter,v,'heb',trad));}
    if(!pairs.length)throw Error('Kein Gegenstück in dieser Ausgabe für '+r.label+'.');
    const selected=pairs.map(([ch,v])=>{const req={sectionPath:[ch-1],labels:[String(v)]},capture=S.capture(b.doc,b.entry,req,b.doc.textHash);plans.push(req);return {ch,v,text:capture.text.replace(/^\S+\s+/,'')};});
-   const parts=source.reference.sectionPath.filter(p=>p!=='');rows.push({label:r.label,key:(parts[0]+1)+':'+r.label,targetLabel:selected.map(x=>x.ch+':'+x.v).join(', '),original:S.plain(r.html),translation:selected.map(x=>x.text).join('\n')});
+   const parts=source.reference.sectionPath.filter(p=>p!=='');rows.push({label:r.label,key:(parts[0]+1)+':'+r.label,targetLabel:selected.map(x=>x.ch+':'+x.v).join(', '),original:S.segmentText(r.html),translation:selected.map(x=>x.text).join('\n')});
   }
  }else{
   if(JSON.stringify(a.doc.sectionNames)!==JSON.stringify(b.doc.sectionNames))throw Error('Die Abschnittsstrukturen der Ausgaben unterscheiden sich.');
@@ -53,7 +55,7 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
   const native=R.flattenNode(R.getByPath(b.doc.text,section.path)),byLabel=new Map(native.map(r=>[r.label,r])),present=originalRows.filter(r=>byLabel.has(r.label)).map(r=>r.label);
   if(!present.length)throw Error('Für die gewählten Zeilen ist in dieser Ausgabe keine Übersetzung vorhanden.');
   plans.push({sectionPath:section.path,labels:present});
-  for(const r of originalRows){const translated=byLabel.get(r.label);rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.plain(r.html),translation:translated?S.plain(translated.html):'',...(!translated?{missing:true}:{})});}
+  for(const r of originalRows){const translated=byLabel.get(r.label);rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.segmentText(r.html),translation:translated?S.segmentText(translated.html):'',...(!translated?{missing:true}:{})});}
  }
  const mergedPlans=new Map();for(const plan of plans){const key=JSON.stringify(plan.sectionPath);if(!mergedPlans.has(key))mergedPlans.set(key,{sectionPath:plan.sectionPath,labels:[]});for(const label of plan.labels)if(!mergedPlans.get(key).labels.includes(label))mergedPlans.get(key).labels.push(label);}plans.splice(0,plans.length,...mergedPlans.values());
  const companion=S.capture(b.doc,b.entry,plans[0],b.doc.textHash);companion.text=companion.originalText=rows.filter(r=>!r.missing).map(r=>r.targetLabel+'  '+r.translation).join('\n');companion.reference.quote=companion.text;
