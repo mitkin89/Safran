@@ -6,6 +6,12 @@ on:
         description: Existing version tag to rebuild and upload as a draft
         required: false
         type: string
+      platform:
+        description: Platform to rebuild
+        required: false
+        default: all
+        type: choice
+        options: [all, windows, linux, macos]
   push:
     tags: ['v*', '[0-9]*']
 permissions:
@@ -15,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: ${{ fromJSON(inputs.platform == 'windows' && '["windows-latest"]' || inputs.platform == 'linux' && '["ubuntu-latest"]' || inputs.platform == 'macos' && '["macos-latest"]' || '["macos-latest", "windows-latest", "ubuntu-latest"]') }}
     runs-on: ${{ matrix.os }}
     steps:
       # Windows: manche mitgelieferten Texte haben Pfade über 260 Zeichen, ohne diese Einstellung scheitert das Auschecken
@@ -26,9 +32,12 @@ jobs:
           ref: ${{ inputs.release_tag || github.ref }}
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Set package homepage metadata
+        run: |
+          node -e "const fs = require('node:fs'); const file = 'app/package.json'; const p = JSON.parse(fs.readFileSync(file, 'utf8')); p.homepage = 'https://github.com/mitkin89/Safran'; fs.writeFileSync(file, JSON.stringify(p, null, 2) + '\n');"
       - run: npm ci
       - run: npm test
-      - run: npm run ${{ matrix.os == 'macos-latest' && 'dist' || matrix.os == 'windows-latest' && 'dist:win' || 'dist:linux' }} -- --publish never -c.extraMetadata.homepage=https://github.com/mitkin89/Safran
+      - run: npm run ${{ matrix.os == 'macos-latest' && 'dist' || matrix.os == 'windows-latest' && 'dist:win' || 'dist:linux' }} -- --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: sefaria-${{ matrix.os }}
