@@ -1,154 +1,195 @@
-<p align="center">
-  <img src="app/logo.png" alt="Safran logo" width="96">
-</p>
+<p align="center"><img src="app/logo.png" alt="Safran logo" width="100"></p>
 
-<h1 align="center">Safran · <span dir="rtl">סַפְרָן</span></h1>
+<h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
-<p align="center">
-  <b>A Jewish library for close reading and study, offline.</b><br>
-  Read texts side by side. Explore a word. Bring your sources together.
-</p>
+<p align="center"><b>A Jewish library for reading, comparing and taking notes — offline.</b><br>Tanakh, Talmud, Midrash and commentaries, with German interlinear translations, dictionaries and source sheets.</p>
 
 <p align="center">
-  <a href="https://github.com/mitkin89/Safran/releases/latest"><img src="https://img.shields.io/badge/Download%20Safran-a66b30?style=for-the-badge" alt="Download Safran"></a>
+  <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release&color=7b4b1f"></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/code-MIT-blue"></a>
+  <a href="https://github.com/mitkin89/Safran/releases/latest"><b>Download for macOS, Windows or Linux</b></a>
 </p>
 
-<p align="center">
-  macOS · Windows · Linux<br>
-  <a href="https://github.com/mitkin89/Safran/releases/latest"><img src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release&color=7b4b1f" alt="Latest release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/code-MIT-6c737d" alt="Source code: MIT license"></a>
-</p>
+<p align="center"><b>English</b> · <a href="README.de.md">Deutsch</a> · <a href="#install">Install</a> · <a href="#notebooks-and-source-sheets">Notebooks & source sheets</a> · <a href="#masora">Masora</a> · <a href="#development">Development</a></p>
 
-<p align="center">
-  <b>English</b> · <a href="README.de.md">Deutsch</a> · <a href="#get-started">Get started</a> · <a href="docs/USER-GUIDE.md">User guide</a> · <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">Watch the tour</a>
-</p>
+![Genesis 1 in Safran: Westminster Hebrew, S. R. Hirsch’s German translation and an interlinear line, with corresponding words highlighted.](screenshots/current/reading.png)
 
-<a href="screenshots/current/reading.png"><img src="screenshots/current/reading.png" alt="Genesis 1 in Safran: Hebrew, S. R. Hirsch’s German translation and interlinear word alignments, with corresponding words highlighted." width="100%"></a>
+Safran is a free, open-source desktop app. Read texts side by side, follow a Hebrew word into its grammar and translations, and collect your findings in notebooks and source sheets. Texts, dictionaries and your work stay on your computer. Safran is an independent project and is not affiliated with Sefaria.
 
-<p align="center"><sub>Hebrew and German, connected word by word. Original screenshot from the desktop app.</sub></p>
+**Current release: [2.8.5](https://github.com/mitkin89/Safran/releases/tag/2.8.5)** — notebooks, richer source sheets and offline Masora with German working translations. [Release notes](docs/releases/2.8.5.md).
 
-Safran is a free, open-source desktop app for studying **Tanakh, Talmud, Midrash and commentaries**. It combines parallel editions, word study and textual sources with notebooks and printable source sheets. Your downloaded library and your work stay on your computer; reading and local study need no account or internet connection.
+**Since 2.8.5, on `main`:** Maccabees I–IV are grouped once per work, with Kahana, Kautzsch and Septuagint editions under **Versions**. This change is not yet in the 2.8.5 installers.
 
-<a name="what-safran-can-do"></a>
+## Install
 
-## What you can do
+Choose a download from the [latest release](https://github.com/mitkin89/Safran/releases/latest):
 
-<table>
-<tr>
-<td width="50%" valign="top">
-<a name="read-and-compare"></a>
-<h3>Read and compare</h3>
-Keep editions and commentaries beside the text, follow references and open a second reading pane. Adjust the type, layout and theme to suit your reading.<br><br>
-<a href="docs/USER-GUIDE.md#read-and-compare">Explore the reader →</a>
-</td>
-<td width="50%" valign="top">
-<h3>Read Hebrew word by word</h3>
-German interlinear translations by Zunz and Philippson cover all 39 books of the Tanakh. Add other translations and ancient versions where word alignments are available.<br><br>
-<a href="docs/USER-GUIDE.md#ancient-versions-word-by-word">See interlinear views →</a>
-</td>
-</tr>
-<tr>
-<td valign="top">
-<a name="words-dictionaries-and-search"></a><a name="dictionaries"></a>
-<h3>Follow a word</h3>
-Open its grammar, attested forms, translation choices and occurrences. Search more than 300,000 dictionary entries, including Liddell &amp; Scott, Pape, BDB and Jastrow.<br><br>
-<a href="docs/USER-GUIDE.md#words-dictionaries-and-search">Explore word study →</a>
-</td>
-<td valign="top">
-<h3>Ask more precise questions</h3>
-Search phrases, nearby words, lemmas and morphology. Build Tanakh clause queries and compare the vocabulary of a chapter with its book or the whole Tanakh.<br><br>
-<a href="docs/bhsa-clause-search.md">Explore clause search →</a>
-</td>
-</tr>
-<tr>
-<td valign="top">
-<a name="textual-apparatus"></a><a name="masora"></a>
-<h3>Consult the sources</h3>
-Read the textual apparatus and Masora alongside the passage. Compare manuscript readings and ancient versions, with source references and marked uncertainty.<br><br>
-<a href="docs/USER-GUIDE.md#textual-apparatus">Apparatus</a> · <a href="docs/USER-GUIDE.md#masora">Masora →</a>
-</td>
-<td valign="top">
-<a name="notebooks-and-source-sheets"></a>
-<h3>Build your own study material</h3>
-Keep linked excerpts in notebooks. Arrange sources and notes around a main text, then preview and export a source sheet as PDF, DOCX or HTML.<br><br>
-<a href="docs/USER-GUIDE.md#notebooks-and-source-sheets">Explore notebooks and source sheets →</a>
-</td>
-</tr>
-</table>
-
-## A closer look
-
-Click a screenshot to open the full-size image.
-
-<table>
-<tr>
-<td width="50%" valign="top"><a href="screenshots/current/word-study.png"><img src="screenshots/current/word-study.png" alt="A word card for אֶרֶץ showing occurrences, forms and German renderings." width="100%"></a><br><b>From a word to its uses</b><br>Forms, occurrences and translation choices in one place.</td>
-<td width="50%" valign="top"><a href="screenshots/current/apparatus.png"><img src="screenshots/current/apparatus.png" alt="Field’s Hexapla readings beside Genesis 1:2 in the apparatus pane." width="100%"></a><br><b>Read with the apparatus</b><br>Keep readings and their source notes beside the passage.</td>
-</tr>
-<tr>
-<td valign="top"><a href="screenshots/current/notebooks.png"><img src="screenshots/current/notebooks.png" alt="The Notes workspace with notebooks, a note list and linked source excerpts." width="100%"></a><br><b>Keep the connection to the text</b><br>Notebooks with linked sources and saved excerpts.</td>
-<td valign="top"><a href="screenshots/current/source-sheet.png"><img src="screenshots/current/source-sheet.png" alt="A source sheet for Bava Metzia 20a with Hebrew and Aramaic text and German translations in the margins." width="100%"></a><br><b>Prepare a lesson or reading session</b><br>Arrange, annotate and export your sources.</td>
-</tr>
-</table>
-
-[More screenshots and the full user guide →](docs/USER-GUIDE.md)
-
-<a name="install"></a>
-
-## Get started
-
-Download Safran from the **[latest release](https://github.com/mitkin89/Safran/releases/latest)**.
-
-| System | File | Installation |
+| System | Download | Start |
 | --- | --- | --- |
-| macOS · Apple Silicon | `.dmg` | Drag Safran into Applications. |
-| Windows | Setup or portable `.exe` | Run the installer, or open the portable app. |
+| macOS, Apple Silicon | `.dmg` | Open and drag Safran into Applications. |
+| Windows | Setup `.exe` or portable `.exe` | Run the installer, or open the portable app. |
 | Linux | `.AppImage` or `.deb` | Make the AppImage executable, or install the Debian package. |
 
-Unsigned or locally signed builds can trigger a first-launch prompt. The [installation guide](docs/USER-GUIDE.md#install) explains the macOS and Windows steps.
+Safran has no paid developer certificate. On macOS, if Gatekeeper blocks the app, use **System Settings → Privacy & Security → Open Anyway**. The DMG also includes **Safran freischalten.command**; right-click it and choose **Open**. On Windows, SmartScreen may offer **More info → Run anyway**. Only use these steps for a download you trust from this repository.
 
-1. **Open a book.** Bundled texts and dictionaries are ready on first launch. Choose editions under **Versions**.
-2. **Add more texts.** Use **⋯ → Download…** to choose books and languages from Sefaria. Downloaded texts work offline.
-3. **Start studying.** Click a word, open a notebook or use **＋ Source sheet** to save a passage with its edition.
+### First steps
 
-The interface supports **German, English and Hebrew**. [Release 2.8.5 notes](docs/releases/2.8.5.md) · [All features and shortcuts](docs/FEATURES.md).
+1. **Start reading.** Bundled texts and dictionaries are available on first launch. Pick a book and chapter; **Versions** selects the editions shown alongside one another.
+2. **Add your library.** Under **⋯ → Download…**, load the Sefaria catalog, then choose books and languages. Once downloaded, they work offline.
+3. **Study a word.** Turn on **Interlinear**, click a Hebrew word for grammar and its word card, or double-click a word for a dictionary lookup.
+4. **Keep what you find.** Open **Notes** to create a notebook, or use **＋ Source sheet** in the reader to collect an excerpt and its edition.
+
+The interface supports German, English and Hebrew; change it under **⋯ → Language**. The screenshots show the current desktop app with Hebrew sources, German translations and its reading and research tools.
+
+## Read and compare
+
+- **Parallel editions:** Hebrew, English, German and ancient versions in columns, with tabs, passage navigation and a second reading pane.
+- **German interlinear:** Zunz and Philippson cover all 39 books of the Tanakh. Further translations cover individual books or groups, including Mendelssohn, Goldschmidt, Hirsch and Breuer. Ancient-version alignments can be added where available.
+- **Follow the text:** select a word to highlight its counterparts, open footnotes in place and follow linked references into other books.
+- **Commentaries and context:** a verse or chapter can bring together commentaries, parallels, Talmud and Midrash links, halakhah, places and dictionary citations.
+- **Reading tools:** adjustable fonts, light/dark themes, outlines, Bible maps, a Jewish calendar and optional Hebrew audio.
+
+New Hebrew Bible sources default to **Westminster (OSHB)** until you choose another edition. Interlinear depends on a matching word alignment; the presence of a translation does not guarantee interlinear support. Differing verse numbering remains edition-specific.
+
+The chapter overview compares unusually frequent and rare words, roots, verb forms, word combinations and names. Compare a chapter with its book or the whole Tanakh, highlight the results in the reader and explore similar chapters.
+
+![Genesis 1 chapter overview: unusually frequent words compared with the rest of Genesis and highlighted in the Hebrew text.](screenshots/current/chapter-overview.png)
+
+### Ancient versions word by word
+
+Compare the Septuagint, Onkelos, Qumran scrolls, Samaritan Pentateuch and Peshitta beneath the Westminster text where word alignments are available. Click an annotated word for its analysis, source and dictionary links.
+
+![Genesis 1 with interlinear lines for ancient textual witnesses and an open Syriac Peshitta word analysis.](screenshots/current/ancient-versions.png)
+
+## Words, dictionaries and search
+
+A word card connects morphology, attested forms, translation choices and occurrences. Compare how an aligned translation renders a lemma, then open the passages behind that rendering.
+
+![Word card for אֶרֶץ beside Genesis: distribution in the Tanakh, frequent forms and German renderings in Mendelssohn’s translation.](screenshots/current/word-study.png)
+
+The dictionary shelf includes BDB, Gesenius, Jastrow, Levy, Liddell & Scott, Pape, Krauss and Hamburger. Search headwords or article text, explain supported abbreviations on hover, and open linked citations in the reader. You can also add DSL dictionaries.
+
+Full-text search supports phrases, wildcards, nearby words, language and book filters. Hebrew and Greek lemma searches find inflected forms; morphology and clause tools offer more structured searches. [Concordance](docs/concordance.md) · [Tanakh clause search](docs/bhsa-clause-search.md).
+
+![Search results in Hebrew and Aramaic, with highlighted matches, distribution across books and category filters.](screenshots/current/search.png)
+
+## Notebooks and source sheets
+
+The **Notes** workspace brings your notebooks and project source sheets together. Notes can hold formatted text, tags and several linked excerpts from specific editions. Drafts stay available while you move between notes.
+
+![Notes workspace with notebook navigation, a note list and two linked sources: Hoffmann on Deuteronomy and Job 1:1.](screenshots/current/notebooks.png)
+
+Use a source sheet to prepare a lesson, a comparison or a reading session:
+
+1. Capture a passage from the reader or add it by reference inside the sheet. Choose the edition and preview its text. You can also import the reader’s display, including compatible interlinear lines.
+2. Select a range such as `Deuteronomy 1:1–10`, or separate verses such as `Deuteronomy 1:2,5,10`. Changing the source selection preserves compatible word mappings; rewriting the excerpt by hand can disable them.
+3. Add headings, your own text, commentary and linked notes. Jump through the source outline, arrange sources in the main text or margins, remove items, and undo/redo edits.
+4. Preview the page and export PDF, DOCX or HTML. Reuse collections or share a project JSON package; CSV and JSON-LD exports support research workflows.
+
+![Source-sheet editor for Bava Metzia 20a: Hebrew and Aramaic main text, Sammter and Goldschmidt translations in the margins, source navigation and undo/redo controls.](screenshots/current/source-sheet.png)
+
+![Source-sheet page preview with the Hebrew and Aramaic text between two German translations.](screenshots/current/source-sheet-preview.png)
+
+[Detailed source-sheet workflow, formats and limits](docs/RESEARCH.md) (German).
+
+## Textual apparatus
+
+The apparatus compares the Westminster text with manuscripts and ancient versions. Read a verse or chapter, choose witnesses, follow the reading position and inspect the source behind a variant.
+
+![Genesis 1:2 with Field’s Hexapla readings for Aquila, Symmachus and Theodotion and English explanations beside the Hebrew text.](screenshots/current/apparatus.png)
+
+| Witness | Comparison | Coverage |
+| --- | --- | --- |
+| **MA** | Aleppo text against Leningrad: consonants, vowels and word division | 39 books; losses in the Aleppo codex marked |
+| **SMR** | Samaritan Pentateuch, Tal–Florentin, with original notes | Torah |
+| **DSS** | Biblical Qumran scrolls, manuscript sigla and reconstruction marks | 36 books |
+| **LXX** | CATSS notes, retroversions and classified Septuagint readings | 38 books; Esther has a Rahlfs reading text |
+| **Hex** | Field’s Hexapla and the Greek revisers | 39 books |
+| **Syr** | Peshitta word alignments and Safran’s classified readings | 39 books |
+| **Ken** | Kennicott’s medieval manuscript readings | 39 books |
+
+Classifications, inferred Hebrew Vorlagen and automated explanations are study aids. They do not replace a critical edition; uncertain readings remain marked. Source text and provenance stay available. [Apparatus traditions](docs/apparatus-traditions.md).
+
+## Masora
+
+Browse **26,969 transcribed notes** from **1,550 published pages of 18 manuscripts**, imported from Corpus Masoreticum / BIMA. Filter manuscripts, follow verses and preview cited passages.
+
+The compact view keeps the Hebrew note and **German working translation** together. Explanations remain visible; manuscript and source details expand when needed. Supported word links highlight the relevant text.
+
+![Masorah notes on Genesis 1:2 beside the Hebrew text, with cited passages and visible German working translations.](screenshots/current/masora.png)
+
+Translations are working versions: damaged, ambiguous and incomplete passages remain identified. Verse and word links are derived from the available evidence. The import covers a published-page snapshot, not complete editions of every manuscript. [Method and coverage](docs/masora-import.md) · [Source license](app/LICENSE-MASORA.md).
+
+## What is in the library?
+
+Safran bundles more than 50 German works, including translations and commentaries by Zunz, Philippson, Herxheimer, Mendelssohn, Hirsch and Breuer; Rashi after Bamberger; Kautzsch’s Apocrypha; Midrash translations; Josephus; Graetz; and Ginzberg’s *Legenden der Juden*. Further books and editions can be downloaded from Sefaria. Import your own TXT, DOCX, CSV or JSON texts as well.
+
+Also bundled are Westminster with OSHB morphology, Aleppo, Qumran texts, the Septuagint, Targumim, the Peshitta and apparatus data. Coverage and permissions differ by source; see [sources and licenses](app/SOURCES.md).
 
 <details>
-<summary><b>Release downloads and the current main branch</b></summary>
+<summary><b>The full list of bundled German texts</b></summary>
 
-The installers belong to the published release. The current `main` branch also includes passage alignment across all 56 chapters of Maccabees I–IV and further source-sheet PDF improvements. See [changes since 2.8.5](https://github.com/mitkin89/Safran/compare/2.8.5...main).
+| Work | Scope |
+| --- | --- |
+| Zunz, *Die vier und zwanzig Bücher der Heiligen Schrift* (1838) | whole Tanakh |
+| Philippson, *Die Israelitische Bibel*, translation **and** commentary | whole Tanakh |
+| Herxheimer, *Die vier und zwanzig Bücher der Bibel* (1843), translation **and** commentary | whole Tanakh |
+| Kautzsch, *Die Apokryphen und Pseudepigraphen des Alten Testaments* (1900) | Ben Sira, Jubilees, Enoch, Tobit, Judith, Maccabees, Wisdom of Solomon and more |
+| Mendelssohn, *Die fünf Bücher Mose*, German translation (Dessau 1815) | Torah; interlinear |
+| Mendelssohn, *Netivot ha-Shalom* (translation, Taitsch and Biur) | Torah |
+| Rashi after Bamberger · Hertz, Pentateuch commentary | Rashi: Exodus to Deuteronomy · Hertz: Exodus, Numbers, Deuteronomy |
+| Goldschmidt, translation of the Torah (1921) | Torah |
+| S. R. Hirsch, Torah and Psalms · Julius Hirsch, Isaiah and the Twelve Prophets · Joseph and Raphael Breuer: Joshua, Judges, Jeremiah, Ezekiel, Ezra, Nehemiah | translation and commentary |
+| Wünsche's Midrash translations | Bemidbar and Devarim Rabbah, the Rabbah volumes on the five Megillot, Pesikta de-Rav Kahana, Midrash Shmuel, *Mechiltha* (Mekhilta de-Rabbi Yishmael, with Jakob Winter, 1909) |
+| *Mischne Tora* (Mandelstamm, 1851) | 39 sections |
+| *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
+| Ginzberg, *Die Legenden der Juden*, reading edition from his German manuscript, aligned with Sefaria's *Legends of the Jews* | vols. 1–4, with over 4,000 of Ginzberg's notes as footnotes; abbreviations explained on hover; 10,600 sources (Bible, Midrash, Talmud, Josephus, Philo …) linked and shown as connections in both directions; outline |
+| *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Avot DeRabbi Natan* (Pollak) · Tractate *Soferim* (Müller) · *Sanctification of the New Month* (Hildesheimer) | |
+| Talmud: Rawicz (Megillah, Rosh Hashanah, Ketubot, Sanhedrin, Chullin I) · Straschun (Taanit) · Sammter (Bava Metzia, 1876) · Pinner (Berakhot, 1842, with notes, plus his *Einleitung in den Talmud* and preface; his translation of Maimonides’ Introduction to the Mishnah, segmented like Sefaria) | 19th-century German translations, by daf and segment |
+| Mishnah from the Talmud: the mishnayot of all 37 tractates in Goldschmidt's translation, plus those of Pinner, Sammter, Rawicz and Straschun, as separate Mishnah versions | by chapter and mishnah, with the translator's footnotes |
+| Josephus, *Antiquities*, *Jewish War* and *Against Apion* (German by Clementz, 1899/1900) | segmented like Sefaria (Whiston), with Niese's section numbers |
+| H. Graetz, *Geschichte der Juden* (11 volumes, from zeno.org) | chapters and notes with footnotes, page marks of the print edition, outline; the Hebrew that zeno stores reversed is turned around |
+| D. Hoffmann, *Das Buch Leviticus* and *Das Buch Deuteronomium* | translation and commentary |
+| Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
+| S. Krauss, *Talmudische Archäologie* (vols. I–III, 1910–1912) | full text with endnotes, figures and outline; the register is a dictionary of its own |
+
+Goldschmidt's complete Talmud and the 19th-century Talmud translations are also published as an open dataset: [german-talmud-translations](https://github.com/mitkin89/german-talmud-translations), DOI [10.5281/zenodo.24466136](https://doi.org/10.5281/zenodo.24466136).
 
 </details>
 
-<a name="german-texts-that-are-not-on-sefaria"></a><a name="what-is-in-the-library"></a><a name="offline-use-and-your-data"></a>
+App updates ask before replacing changed library texts. Existing versions can be kept; replaced files are backed up under `backups/text-updates` in the library folder.
 
-## Your library, on your computer
+## Offline use and your data
 
-Safran includes historical German translations, commentaries and reference works by Zunz, Philippson, Mendelssohn, Hirsch, Breuer and others, alongside Hebrew texts, ancient versions and dictionaries. Download further editions from [Sefaria](https://www.sefaria.org), or import your own texts.
+Reading, local search, dictionaries, notebooks and source sheets work without an account or an internet connection. Downloading additional books, refreshing calendar data and checking for updates require a connection. Notes, projects and imported files are stored locally.
 
-Reading, local search, dictionaries, notebooks and source sheets work offline. Downloads and update checks need a connection. Notes, projects and imported files are stored locally.
+Back up your library folder and use note/project exports before moving your work to another computer. Texts and dictionaries retain their own source licenses.
 
-[Bundled texts](docs/USER-GUIDE.md#what-is-in-the-library) · [Data and backups](docs/USER-GUIDE.md#offline-use-and-your-data) · [Sources and licenses](app/SOURCES.md)
-
-<a name="development"></a>
-
-## Development and contributions
+## Development
 
 Run from the repository root:
 
 ```sh
 npm ci
 npm start
+npm test
 ```
 
-Run checks with `npm test`. Application code and data live in [`app/`](app/); build instructions and test details are in the [development guide](docs/DEVELOPMENT.md).
+| Location | Contents |
+| --- | --- |
+| [`app/`](app/) | Application code and bundled data |
+| [`app/tests/`](app/tests/) | Integration, regression and Electron UI tests |
+| [`app/tools/`](app/tools/) | Import, build and corpus review tools |
+| [`docs/`](docs/) | Development guides, methods and release notes |
 
-[Report a bug or suggest an idea](https://github.com/mitkin89/Safran/issues) · [Development guide](docs/DEVELOPMENT.md) · [Changelog](CHANGELOG.md)
+Build on the target system with `npm run dist` (macOS), `npm run dist:win` or `npm run dist:linux`. [Development guide](docs/DEVELOPMENT.md) · [All features and shortcuts](docs/FEATURES.md) · [Changelog](CHANGELOG.md).
+
+Found a problem? [Open an issue](https://github.com/mitkin89/Safran/issues) with your OS, Safran version, book, edition and passage. Contributions of texts should identify their source and license.
 
 ## Sources and license
 
-The **source code** is [MIT-licensed](LICENSE). Bundled texts, dictionaries and datasets retain their own licenses; some allow only non-commercial use. Consult the [complete source and license list](app/SOURCES.md) before redistributing data. Safran is an independent project and is not affiliated with Sefaria.
+Safran’s source code is [MIT-licensed](LICENSE). **That license does not cover the bundled texts and datasets.** Some are public domain or CC BY/CC BY-SA; others permit only non-commercial use, including CATSS, Kennicott and several ETCBC/Tal–Florentin datasets. See the complete [source and license list](app/SOURCES.md) before redistributing or reusing data.
 
----
+Corpus Masoreticum / BIMA transcriptions are [CC BY-SA 4.0](app/LICENSE-MASORA.md). Sefaria downloads keep each edition’s own license. Safran is not affiliated with Sefaria.
 
-<p align="center"><sub><b>סַפְרָן</b> means librarian in modern Hebrew, from the same root as <i>sefer</i>, book.<br>Built by <a href="https://talmud.de">talmud.de</a>.</sub></p>
+<p align="center"><sub><b>סַפְרָן</b> means librarian in modern Hebrew, from the same root as <i>sefer</i>, book. Safran is built by <a href="https://talmud.de">talmud.de</a>.</sub></p>
