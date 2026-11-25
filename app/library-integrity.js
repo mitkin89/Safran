@@ -1,4 +1,11 @@
 'use strict';
+// Sefaria's catalogue uses language names, while merged exports use ISO codes.
+// These are aliases for the same requested language, not different editions.
+const languageAliases = new Map([['he','he'],['hebrew','he'],['en','en'],['english','en']]);
+const languageId = value => {
+  const n=value.normalize('NFC');
+  return languageAliases.get(n.toLowerCase()) || n;
+};
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 
 function parseLibraryIndex(raw) {
@@ -25,7 +32,9 @@ function parseDownload(buffer, expected) {
     else throw new Error('Download enthält ungültige Textsegmente');
   }
   for (const field of ['title', 'language', 'versionTitle']) {
-    if (expected[field] != null && (typeof doc[field] !== 'string' || doc[field].normalize('NFC') !== String(expected[field]).normalize('NFC'))) throw new Error('Download gehört nicht zur angeforderten Ausgabe: ' + field);
+    if (expected[field] == null) continue;
+    const normalize = field === 'language' ? languageId : value => value.normalize('NFC');
+    if (typeof doc[field] !== 'string' || normalize(doc[field]) !== normalize(String(expected[field]))) throw new Error('Download gehört nicht zur angeforderten Ausgabe: ' + field);
   }
   return doc;
 }

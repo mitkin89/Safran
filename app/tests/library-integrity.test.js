@@ -27,3 +27,29 @@ test('Fehlerseite oder falsche Ausgabe ersetzt keinen gültigen Download',async 
  }
 });
 test('gültige komplexe Texte und leere Felder bleiben zulässig',()=>{assert.deepEqual(parseDownload(Buffer.from(JSON.stringify(doc({Vorwort:[''],Hauptteil:[null,['Text']]}))),entry).text,{Vorwort:[''],Hauptteil:[null,['Text']]});});
+
+test('Sefaria language names and merged-export codes identify the same edition',async t=>{
+ const dir=await fixture(t);
+ for(const [name,code]of [['Hebrew','he'],['English','en']]){
+  for(const [expected,actual]of [[name,code],[code,name]]){
+   const wanted={...entry,language:expected},source={...doc([['Text']]),language:actual};
+   assert.deepEqual(parseDownload(Buffer.from(JSON.stringify(source)),wanted),source);
+  }
+  const wanted={...entry,language:name,json_url:'https://example.org/sefaria-export/Example/'+code+'/Edition.json'};
+  const source=Buffer.from(JSON.stringify({...doc([['Text']]),language:code}));
+  const lib=await new Library(dir,async()=>source).load(),result=await lib.downloadEntries([wanted]);
+  assert.equal(result.failed.length,0);assert.deepEqual(await fs.readFile(path.join(dir,relPathOf(wanted))),source);
+  assert.equal(lib.index.entries[relPathOf(wanted)].language,name);
+ }
+});
+test('a different or missing language still cannot replace a valid edition',async t=>{
+ const dir=await fixture(t);let response=Buffer.from(JSON.stringify(doc([['alt']])));
+ const lib=await new Library(dir,async()=>response).load();await lib.downloadEntries([entry]);
+ const rel=relPathOf(entry),before=await fs.readFile(path.join(dir,rel));
+ for(const language of ['en','English','Greek',undefined,null,42]){
+  response=Buffer.from(JSON.stringify({...doc([['wrong']]),language}));
+  const result=await lib.downloadEntries([entry],{force:new Set([rel])});
+  assert.equal(result.failed.length,1);assert.match(result.failed[0].error,/language/);
+  assert.deepEqual(await fs.readFile(path.join(dir,rel)),before);
+ }
+});
