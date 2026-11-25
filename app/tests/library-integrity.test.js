@@ -54,7 +54,7 @@ test('a different or missing language still cannot replace a valid edition',asyn
  }
 });
 
-test('catalogue punctuation aliases identify only the two reported editions', () => {
+test('book-specific catalogue punctuation aliases do not apply to other works', () => {
  const cases=[
   ['Lamentations','Ejchah Übers. u. Komm. Igor Itkin [de]','Ejchah Übers. u. Komm.: Igor Itkin [de]'],
   ['What is the Talmud','Berlin Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]','Berlin: Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]'],
@@ -66,6 +66,24 @@ test('catalogue punctuation aliases identify only the two reported editions', ()
   assert.deepEqual(parseDownload(raw,expected),source);
   assert.throws(()=>parseDownload(raw,{...expected,versionTitle:listed+' revised'}),/versionTitle/);
   assert.throws(()=>parseDownload(Buffer.from(JSON.stringify({...source,title:'Other'})),{...expected,title:'Other'}),/versionTitle/);
+ }
+});
+
+test('JPS catalogue aliases work across books and keep different editions distinct', () => {
+ const editions=[
+  ['THE JPS TANAKH Gender-Sensitive Edition','THE JPS TANAKH: Gender-Sensitive Edition'],
+  ['Tanakh The Holy Scriptures, published by JPS','Tanakh: The Holy Scriptures, published by JPS'],
+  ['The Holy Scriptures A New Translation JPS 1917','The Holy Scriptures: A New Translation (JPS 1917)'],
+ ];
+ for(const title of ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']){
+  for(const [listed,exported] of editions){
+   const expected={title,language:'English',versionTitle:listed};
+   const source={title,language:'en',versionTitle:exported,text:['Text']};
+   const encode=value=>Buffer.from(JSON.stringify(value));
+   assert.deepEqual(parseDownload(encode(source),expected),source);
+   const wrong=editions.find(([name])=>name!==listed)[1];
+   assert.throws(()=>parseDownload(encode({...source,versionTitle:wrong}),expected),/versionTitle/);
+  }
  }
 });
 

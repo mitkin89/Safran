@@ -6,11 +6,19 @@ const languageId = value => {
   const n=value.normalize('NFC');
   return languageAliases.get(n.toLowerCase()) || n;
 };
-// The export bucket catalogue omits a colon from these two edition titles.
-const versionTitleAliases = new Map([
-  ['Lamentations', ['Ejchah Übers. u. Komm. Igor Itkin [de]', 'Ejchah Übers. u. Komm.: Igor Itkin [de]']],
-  ['What is the Talmud', ['Berlin Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]', 'Berlin: Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]']],
-]);
+// Verified spellings from the export catalogue and the corresponding JSON files.
+// The three JPS editions use the same labels across books.
+const versionTitleAliases = [
+  ["THE JPS TANAKH Gender-Sensitive Edition", "THE JPS TANAKH: Gender-Sensitive Edition", ""],
+  ["Tanakh The Holy Scriptures, published by JPS", "Tanakh: The Holy Scriptures, published by JPS", ""],
+  ["The Holy Scriptures A New Translation JPS 1917", "The Holy Scriptures: A New Translation (JPS 1917)", ""],
+  ["Bíblia catalana, traducció interconfessional Catalan Bible, interconfessional translation [ca]", "Bíblia catalana, traducció interconfessional (Catalan Bible, interconfessional translation [ca]", "Exodus"],
+  ["Catalan Bible, interconfessional translation Bíblia catalana, traducció interconfessional [ca]", "Catalan Bible, interconfessional translation (Bíblia catalana, traducció interconfessional) [ca]", "Exodus"],
+  ["El Pentateuco Con El Comentario de Rabí Shelomó Itzjakí Rashí [es]", "El Pentateuco Con El Comentario de Rabí Shelomó Itzjakí (Rashí) [es]", "Genesis"],
+  ["THE OLD TESTAMENT TRANSLATED OUT OF THE ORIGINAL TONGUES AND WITH THE FORMER TRANSLATIONS DILIGENTLY COMPARED AND REVISED, BY HIS MAJESTY’S SPECIAL COMMAND  AUTHORIZED KING JAMES VERSION  ", "THE OLD TESTAMENT TRANSLATED OUT OF THE ORIGINAL TONGUES: AND WITH THE FORMER TRANSLATIONS DILIGENTLY COMPARED AND REVISED, BY HIS MAJESTY’S SPECIAL COMMAND  AUTHORIZED KING JAMES VERSION  ", "Genesis"],
+  ["Ejchah Übers. u. Komm. Igor Itkin [de]", "Ejchah Übers. u. Komm.: Igor Itkin [de]", "Lamentations"],
+  ["Berlin Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]", "Berlin: Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]", "What is the Talmud"],
+];
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 
 function parseLibraryIndex(raw) {
@@ -47,8 +55,9 @@ function parseDownload(buffer, expected) {
     const actual = typeof doc[field] === 'string' ? normalize(doc[field]) : null;
     const wanted = normalize(String(expected[field]));
     if (actual === wanted) continue;
-    const aliases = field === 'versionTitle' && typeof doc.title === 'string' && versionTitleAliases.get(doc.title.normalize('NFC'));
-    if (aliases && aliases.includes(actual) && aliases.includes(wanted)) continue;
+    if (field === 'versionTitle' && versionTitleAliases.some(([listed, exported, book]) =>
+      (!book || (typeof doc.title === 'string' && doc.title.normalize('NFC') === book)) &&
+      (listed === wanted && exported === actual || exported === wanted && listed === actual))) continue;
     throw new Error('Download gehört nicht zur angeforderten Ausgabe: ' + field);
   }
   return doc;
