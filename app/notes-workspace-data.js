@@ -7,6 +7,18 @@
   let sectionPath=[];try{sectionPath=JSON.parse(note.sk||'[]');}catch{}
   return [{label:[note.title,note.secLabel,note.vs||note.row].filter(Boolean).join(' · '),key:note.key||'',sectionPath,labels:note.set?.length?note.set.map(String):note.row?[String(note.row)]:[],quote:note.excerpt||'',...(note.he&&note.he!==note.excerpt?{quoteHe:note.he}:{}),citation:{work:note.title||'',locator:[note.secLabel,note.vs||note.row].filter(Boolean).join(' · ')}}];
  }
+ function recapturedReference(previous,block){
+  const next={...block.reference,quote:block.text,citation:block.citation};
+  const work=r=>r.citation?.work||String(r.key||'').split('¦').pop();
+  const same=work(previous)&&work(previous)===work(next)&&
+   JSON.stringify(previous.sectionPath||[])===JSON.stringify(next.sectionPath||[])&&
+   (previous.labels||[]).length>0&&JSON.stringify(previous.labels.map(String))===JSON.stringify((next.labels||[]).map(String));
+  // A translation edition replaces its own excerpt, not the companion Hebrew snapshot.
+  const language=String(next.citation?.language||'').toLowerCase(),text=next.quote||'';
+  const hebrew=/^(he|heb|hebrew)$/.test(language)||(!language&&(text.match(/[\u05d0-\u05ea]/g)||[]).length>(text.match(/[a-zA-Z\u00c0-\u024f]/g)||[]).length);
+  if(same&&previous.quoteHe&&!next.quoteHe&&!hebrew)next.quoteHe=previous.quoteHe;
+  return next;
+ }
  const owner=n=>(n._store||'legacy')+':'+n.id;
  function records(legacy,state){return [...(legacy||[]).filter(n=>n.kind!=='hl').map(n=>({...n,_store:'legacy',refs:refs(n)})),...(state?.notes||[]).map(n=>({...n,_store:'research',refs:refs(n)}))];}
  function referenceLabel(r={}){return String(r.label||r.citation?.locator||'Fundstelle').replace(/ · (?:Kapitel|Chapter) (\d+) · ([\d, –—-]+)$/,' $1,$2').replace(/ · (?:Blatt|Daf) (\d+[ab]) · (.+)$/,' $1:$2');}
@@ -28,5 +40,5 @@
  }
  function lastNotebook(storage,projects){try{const id=storage.getItem('notesLastNotebook')||'';return projects.some(p=>p.id===id&&!p.archived)?id:'';}catch{return '';}}
  function rememberNotebook(storage,id){try{storage.setItem('notesLastNotebook',id||'');}catch{}}
- const api={normalize,refs,owner,records,title,kind,locations,filter,referenceLabel,excerpt,lastNotebook,rememberNotebook};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.NotesWorkspaceData=api;
+ const api={normalize,refs,recapturedReference,owner,records,title,kind,locations,filter,referenceLabel,excerpt,lastNotebook,rememberNotebook};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.NotesWorkspaceData=api;
 })(typeof window==='undefined'?globalThis:window);

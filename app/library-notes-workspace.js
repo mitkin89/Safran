@@ -152,7 +152,8 @@ window.LibraryNotesWorkspace=(()=>{
    const bar=$('#nwUndo');bar.hidden=false;bar.innerHTML='Notiz entfernt. <button>Rückgängig</button>';bar.querySelector('button').onclick=()=>run(async()=>{if(old._store==='research')await A.put('notes',{...old,version:0},0);else{const {_store,...record}=old;await window.notes.save({...record,expectedTs:0});}bar.hidden=true;await host.reload();const restored=records().find(n=>key(n)===key(old));edit(pending||restored,!!pending);if(pending)base=clone(restored);persist();});setTimeout(()=>bar.hidden=true,10000);
   }
   function replaceReference(index,items){
-   draft.refs.splice(index,1,...items.map(b=>({...clone(b.reference),quote:b.text,citation:clone(b.citation)})));
+   const previous=D.refs(draft)[index];
+   draft.refs.splice(index,1,...items.map(b=>D.recapturedReference(previous,clone(b))));
    if(index===0){delete draft.excerpt;delete draft.he;}
    changed();renderEditor();
   }
