@@ -17,13 +17,50 @@ module.exports=async function setup({profile,docs,handlers}){
   replace('links:texts',(_e,refs)=>Object.fromEntries(refs.filter(r=>r===commentRef).map(r=>[r,{kind:'de',rel,versionTitle:doc.versionTitle,items:require('../../links').resolveText(doc,require('../../links').splitRef(r).tail)}])));
  }
  return async function run({win,js,waitFor,book}){
-  await require('./research-flow-layout.cjs')();
+  if(process.env.SAFRAN_SMOKE_RESEARCH_WITNESSES!=='1')await require('./research-flow-layout.cjs')();
   const element = selector => `{const els=[...document.querySelectorAll(${JSON.stringify(selector)})];const e=els.find(e=>e.checkVisibility())||els[0];if(!e)throw Error('Element fehlt: '+${JSON.stringify(selector)});let p=e.parentElement;while(p){if(p.tagName==='DETAILS'&&p.firstElementChild!==e)p.open=true;p=p.parentElement;}}`;
   const click = async selector => {await waitFor(`document.querySelector(${JSON.stringify(selector)})`,selector);return js(element(selector).slice(0,-1) + 'e.click();}');};
   const fill = async (selector,value) => {await waitFor(`document.querySelector(${JSON.stringify(selector)})`,selector);return js(element(selector).slice(0,-1) + `e.value=${JSON.stringify(value)};e.dispatchEvent(new Event('input',{bubbles:true}));}`);};
   await click('nav [data-tab=notes]');await click('#notesViews [data-notes-view=research]');await waitFor("document.querySelector('#rwProject')",'Recherche');
   await click('[data-a="projectNew"]');await waitFor("document.querySelector('.rw-dialog[open]')",'Projekt');await fill('.rw-dialog [data-f="title"]','Sprachvergleich');await fill('.rw-dialog [data-f="description"]','Quellen und Beobachtungen');await click('.rw-dialog [type="submit"]');await waitFor("document.querySelector('#rwProject')?.selectedOptions[0]?.textContent==='Sprachvergleich'",'Projekt gespeichert');
   await click('[data-a="new"]');await fill('#rwEditor > .rw-editorfields > label [data-f="title"]','Anfang und Wort');await click('[data-a="addText"]');await fill('[data-block="0"] [data-f="text"]','Eigene Beobachtung: λόγος und דבר.');await click('[data-a="save"]');await waitFor("document.querySelector('#rwStatus').textContent==='Gespeichert.'",'Quellenblatt gespeichert');
+  if(process.env.SAFRAN_SMOKE_RESEARCH_WITNESSES==='1'){
+   // Exercise the real reader alignments through the source-sheet capture dialog.
+   const names=['LXX','Onkelos','Qumran','Samaritan','Peshitta'];
+   const versions=[/CATSS/,/^Targum Onkelos/,/ETCBC DSS/,/^Samaritanischer Pentateuch/,/^The Samaritan Pentateuch, Florentin/,/^ETCBC Peshitta/];
+   const manifest=require('../../bundled/manifest.json');
+   for(const pattern of versions){
+    const entry=manifest.items.find(e=>e.title==='Genesis'&&pattern.test(e.versionTitle));
+    assert(entry);
+    const doc=JSON.parse(await fs.readFile(path.join(__dirname,'../../bundled',entry.rel),'utf8'));
+    docs.set(entry.rel,{...doc,entry,textHash:require('node:crypto').createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
+   }
+   await win.reload();
+   await waitFor("document.querySelector('#tree .lib-item')",'Reloaded library');
+   await click('nav [data-tab="read"]');
+   await book('Genesis');
+   await waitFor("document.querySelector('#rTitle').textContent.includes('Genesis')&&document.querySelector('#rOut .cell[data-mt] .w')",'Westminster Genesis');
+   await click('#ilBtn');
+   await waitFor(`${JSON.stringify(names)}.every(name=>document.querySelector('#ilPop input[value='+name+']'))`,'Select the five witnesses in the reader');
+   await js(`{for(const name of ${JSON.stringify(names)}){const input=document.querySelector('#ilPop input[value='+name+']');input.checked=true;input.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click();}`);
+   await waitFor(`${JSON.stringify(names)}.every(name=>document.querySelector('#rOut .row[data-l="1"] .ilt[data-tr='+name+'] .ils'))`,'Rendered word groups for five witnesses');
+   await click('#rResearchBtn');
+   await waitFor("document.querySelector('#rwCaptureDisplay')&&!document.querySelector('#rwSourceFind').disabled",'Capture reader appearance');
+   await click('#rwCaptureDisplay');
+   await waitFor("!document.querySelector('#rwSourceFind').disabled",'LXX capture ready');
+   await fill('.rw-source-dialog [data-f="labels"]','1');
+   await click('#rwSourceFind');
+   await waitFor("document.querySelector('#rwSourcePreview .rw-wordgroup')&&!document.querySelector('#rwSourceAdd').disabled",'Greek groups in source-sheet preview');
+   assert.match(await js("document.querySelector('#rwSourcePreview').textContent"),/ἀρχῇ/);
+   await click('#rwSourceAdd');
+   await click('[data-a="save"]');
+   await waitFor("document.querySelector('#rwSaveState').textContent==='Gespeichert'",'LXX capture saved');
+   const saved=(await service.state()).sheets.at(-1).blocks.at(-1).presentation;
+   const pairs=[saved,...(saved.additional||[]),...(saved.originalInterlinear||[])];
+   assert.deepEqual(pairs.map(p=>p.readerWitness).filter(Boolean).sort(),[...names].sort());
+   console.log('Electron: Five ancient interlinear witnesses captured and saved in a source sheet.');
+   return;
+  }
   await book('Genesis');await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]')",'Text');await click('#rResearchBtn');await waitFor("document.querySelector('#rwCaptureSection')?.options.length>0&&!document.querySelector('.rw-dialog [type=submit]').disabled",'Quellenauswahl');
   const german=[...docs.values()].find(d=>d.entry.title==='Genesis'&&d.entry.kind==='de').entry.rel;
   await js(`{const e=document.querySelector('#rwCaptureEdition');e.value=${JSON.stringify(german)};e.dispatchEvent(new Event('change'));}`);await waitFor("document.querySelector('#rwCaptureSection')?.options.length>0&&!document.querySelector('.rw-dialog [type=submit]').disabled",'Gewählte Edition');await fill('.rw-dialog [data-f="labels"]','1–2');await click('.rw-dialog [type="submit"]');await waitFor("!document.querySelector('#rwSourceAdd').disabled&&document.querySelector('#rwSourcePreview article')",'Übernahmevorschau');await click('#rwSourceAdd');

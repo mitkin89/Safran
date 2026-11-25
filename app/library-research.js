@@ -559,7 +559,19 @@ window.LibraryResearch = (() => {
       function showPreview(items){blocks=items;add.disabled=!items.length;preview.innerHTML=items.map(b=>`<article><h3 class="nt">${esc(b.title)} · ${esc(b.citation.locator)}</h3><small class="nt">${esc(b.citation.edition)}</small>${b.presentation?presentationHtml(b):`<p class="nt" dir="auto">${esc(b.text)}</p>`}</article>`).join('');}
       function fail(e){error.textContent=String(e.message||e).replace(/^Error invoking remote method '[^']*': (Error: )?/,'');}
       async function previewReference(g){try{selectedEdition=edition.selectedOptions[0]?.dataset;const items=await A.sourcePreview({query:referenceQuery,rel:edition.value});if(!closed&&g===generation)showPreview(items);}catch(e){if(!closed&&g===generation)fail(e);}}
-      async function readerSections(){const g=++generation;add.disabled=true;find.disabled=true;try{const data=await A.sections($('#rwCaptureEdition').value);if(closed||g!==generation)return;const matches=data.sections.some(s=>JSON.stringify(s.path)===JSON.stringify(section.path));$('#rwCaptureSection').innerHTML=(!matches?'<option value="" selected disabled>Dieser Abschnitt fehlt in dieser Edition.</option>':'')+data.sections.map(s=>`<option value="${esc(JSON.stringify(s.path))}" ${JSON.stringify(s.path)===JSON.stringify(section.path)?'selected':''}>${esc(s.label)}</option>`).join('');find.disabled=!data.sections.length||!matches;}catch(e){if(!closed&&g===generation)fail(e);}}
+      async function readerSections(){
+        const g=++generation;add.disabled=true;find.disabled=true;
+        try{
+          const data=await A.sections($('#rwCaptureEdition').value);
+          if(closed||g!==generation)return;
+          const current=JSON.stringify(section.path),isCurrent=s=>JSON.stringify(s.path)===current;
+          const matches=data.sections.some(isCurrent);
+          const sections=$('#rwCaptureDisplay')?.checked&&readerDisplay.witnesses?.length?data.sections.filter(isCurrent):data.sections;
+          $('#rwCaptureSection').innerHTML=(!matches?'<option value="" selected disabled>Dieser Abschnitt fehlt in dieser Edition.</option>':'')+
+            sections.map(s=>`<option value="${esc(JSON.stringify(s.path))}" ${isCurrent(s)?'selected':''}>${esc(s.label)}</option>`).join('');
+          find.disabled=!sections.length||!matches;
+        }catch(e){if(!closed&&g===generation)fail(e);}
+      }
       async function search(){
         if(mode==='reference'&&!/\d+[ab]?(?:\s*[:,].*)?$/i.test(query.value.trim())){const items=await showWorks();if(items.length){info.textContent='Wähle ein Werk und ergänze die Stelle.';query.focus();return;}}
         hideWorks();invalidate();const g=generation;find.disabled=true;info.textContent=mode==='text'?'Suche läuft …':'Vorschau wird geladen …';

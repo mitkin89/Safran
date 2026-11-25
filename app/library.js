@@ -2995,13 +2995,32 @@
     showTab, getView: () => view, getRow: () => cmtRow,
     getReaderDisplay: () => {
       const v=view;if(!v?.loaded?.length)return null;
-      const primary=v.loaded.find(d=>d.entry.kind==='he'&&d.entry.versionTitle===disp.pvHe)||v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||''))||v.loaded[0],ordered=[primary,...v.loaded.filter(d=>d!==primary)],unsupported=[];
-      const interlinearRels=interlinearUI.selectedSources.map(name=>{const title=window.INTERLIN_SOURCES?.[name]?.[v.group.title]?.translation.versionTitle,entry=v.group.versions.find(e=>title?e.versionTitle===title:name==='BuberRosenzweig'&&/Martin Buber.*Franz Rosenzweig/.test(e.versionTitle||''));if(!entry)unsupported.push(name);return entry?.rel;}).filter(Boolean);
+      const witnessNames=['LXX','Onkelos','Qumran','Samaritan','Peshitta'];
+      const witnesses=interlinearUI.selectedSources.filter(name=>witnessNames.includes(name));
+      const primary=(witnesses.length&&v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||'')))||v.loaded.find(d=>d.entry.kind==='he'&&d.entry.versionTitle===disp.pvHe)||v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||''))||v.loaded[0],ordered=[primary,...v.loaded.filter(d=>d!==primary)],unsupported=[];
+      const interlinearRels=interlinearUI.selectedSources.filter(name=>!witnesses.includes(name)).map(name=>{const title=window.INTERLIN_SOURCES?.[name]?.[v.group.title]?.translation.versionTitle,entry=v.group.versions.find(e=>title?e.versionTitle===title:name==='BuberRosenzweig'&&/Martin Buber.*Franz Rosenzweig/.test(e.versionTitle||''));if(!entry)unsupported.push(name);return entry?.rel;}).filter(Boolean);
       const clamp=n=>Math.max(8,Math.min(36,Math.round(n*2)/2)),sizes={};
       for(const d of ordered){const cell=[...document.querySelectorAll('#rOut .cell[data-rel]')].find(c=>c.dataset.rel===d.entry.rel),text=cell?.querySelector('.txt');sizes[d.entry.rel]=clamp((parseFloat(getComputedStyle(text||cell||$('#rOut')).fontSize)||18)*.75);}
       const green=$('#rOut .ilt'),glossSize=green?clamp(parseFloat(getComputedStyle(green).fontSize)*.75):12;
       const headings=[...document.querySelectorAll('#rOut .olhead')].map(h=>{let row=h.nextElementSibling;while(row&&!row.matches('.row[data-l]'))row=row.nextElementSibling;return {before:row?.dataset.l||'',text:h.textContent.trim()};}).filter(h=>h.before&&h.text);
-      return {rel:primary.entry.rel,visibleRels:ordered.map(d=>d.entry.rel),interlinearRels,unsupported,sizes,glossSize,headings};
+      const witnessRows=witnesses.length?[...document.querySelectorAll('#rOut .row[data-l]')].flatMap(row=>{
+        const cell=[...row.querySelectorAll('.cell[data-mt]')].find(c=>c.dataset.rel===primary.entry.rel);
+        if(!cell)return [];
+        const groups=[...cell.querySelectorAll('.ilg, .w')].filter(n=>!n.parentElement.closest('.ilg')).map(n=>{
+          const original=(n.querySelector('.ilw')||n).textContent.trim();
+          const lines=[...n.querySelectorAll('.ilt')].filter(l=>witnesses.includes(l.dataset.tr)).map(l=>{
+            const copy=l.cloneNode(true);
+            copy.querySelectorAll('summary').forEach(node=>node.remove());
+            const sigil=copy.querySelector('.ilsig');
+            if(sigil)sigil.after(' ');
+            return {name:l.dataset.tr,text:copy.textContent.trim()};
+          }).filter(l=>l.text);
+          return {original,lines};
+        });
+        return [{label:row.dataset.l,groups}];
+      }):[];
+      return {rel:primary.entry.rel,visibleRels:ordered.map(d=>d.entry.rel),interlinearRels,unsupported,sizes,glossSize,headings,
+        witnesses,witnessRows,witnessSection:v.sections?.[v.idx]?.path};
     },
     getSearch: () => searchUI.researchSnapshot(),
     notesChanged: () => notesUI.loadNotes(),
