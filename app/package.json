@@ -1,0 +1,123 @@
+{
+  "name": "safran",
+  "version": "2.8.5",
+  "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
+  "main": "main.js",
+  "desktopName": "safran.desktop",
+  "scripts": {
+    "start": "electron .",
+    "test:smoke": "electron tests/electron/smoke.cjs",
+    "test": "node tests/run.cjs",
+    "dist": "electron-builder --config build/config.cjs --mac",
+    "dist:win": "electron-builder --config build/config.cjs --win",
+    "dist:linux": "electron-builder --config build/config.cjs --linux"
+  },
+  "dependencies": {
+    "mammoth": "^1.8.0"
+  },
+  "devDependencies": {
+    "electron": "^45.2.3",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "de.talmud.safran",
+    "productName": "Safran",
+    "mac": {
+      "category": "public.app-category.education",
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.png"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Education",
+      "icon": "build/icon.png",
+      "maintainer": "Safran <noreply@example.com>",
+      "syncDesktopName": true
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "**/*",
+      "build/icon.png",
+      "!test*.js",
+      "!tests/**",
+      "!tools/**",
+      "!README.md",
+      "!screenshots/**",
+      "!ud/**",
+      "!private/**",
+      "!interlin.private*",
+      "!interlin-buber*",
+      "!interlin-ren.private*",
+      "!interlin-ren-buber*",
+      "!bundled/manifest.private*.json",
+      "!bundled/own/Alter on */**",
+      "!bundled/own/Rational Bible on */**",
+      "!bundled/own/*/de/Zürcher Bibel (2007).json",
+      "!bundled/own/*/de/Elberfelder Bibel (2006).json",
+      "!bundled/own/*/de/Die Schrift, verdeutscht von Martin Buber*.json",
+      "!bundled/own/*/de/Die Heilige Schrift, übersetzt von Naftali Herz Tur-Sinai*.json",
+      {
+        "from": "..",
+        "to": ".",
+        "filter": [
+          "LICENSE"
+        ]
+      }
+    ],
+    "icon": "build/icon.png",
+    "dmg": {
+      "window": {
+        "width": 560,
+        "height": 430
+      },
+      "contents": [
+        {
+          "x": 150,
+          "y": 150,
+          "type": "file"
+        },
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 150,
+          "y": 320,
+          "type": "file",
+          "path": "build/dmg/Safran freischalten.command"
+        },
+        {
+          "x": 410,
+          "y": 320,
+          "type": "file",
+          "path": "build/dmg/Zuerst lesen.txt"
+        }
+      ]
+    },
+    "directories": {
+      "output": "../dist"
+    }
+  },
+  "homepage": "https://github.com/mitkin89/Safran",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitkin89/Safran.git"
+  }
+}

@@ -1,4 +1,4 @@
-<p align="center"><img src="logo.png" alt="Safran-Logo" width="120"></p>
+<p align="center"><img src="app/logo.png" alt="Safran-Logo" width="120"></p>
 
 <h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.0.md"><b>Neu in 2.8.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.5.md"><b>Neu in 2.8.5</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
@@ -25,7 +25,7 @@
 
 Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Der **textkritische Apparat** vergleicht den masoretischen Text mit sieben Zeugen: Aleppo-Text, Samaritanus, Qumran-Rollen, Septuaginta, Fields Hexapla, Peschitta und Kennicotts Handschriften. Der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und die **Wortkarte** zeigen, wie hebräische Wörter übersetzt werden. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **elf Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
-**Neu in 2.8.0:** die Peschitta zu allen 39 Büchern (Lesetext, Interlinear und Zeuge Syr), Fields Hexapla, der Aleppo-Vergleich (MA), eingeordnete LXX- und Peschitta-Lesarten, die Lesartenzeile und *Ähnliche Kapitel* – siehe [Versionshinweise](docs/releases/2.8.0.md) (englisch) und [Überblicksvideo](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
+**Neu in 2.8.5:** Notizbücher mit verknüpften Versauszügen, erweiterte Quellenblätter, Offline-Masora mit deutschen Arbeitsübersetzungen und übersichtlichere Studienwerkzeuge. Siehe [Versionshinweise](docs/releases/2.8.5.md).
 
 <p align="center">
   <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Jesaja 53,9 als Interlinear mit Septuaginta, Qumran-Rollen und Peschitta; daneben das Apparat-Fenster mit Lesartenzeile, der Lesart ויתנו von 1QIsaa, der LXX-Lesart καὶ δώσω mit rekonstruierter Vorlage und den Hexapla-Zeilen der Drei mit „folgt dem MT“" width="900"></a><br>
@@ -235,7 +235,7 @@ Goldschmidts vollständiger Talmud und die Talmudübersetzungen des 19. Jahrhund
 
 </details>
 
-Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die biblischen Qumran-Rollen (36 Bücher) und alle 735 nichtbiblischen Rollen (die 40 größten als eigene Bücher, die übrigen je Höhle) mit Lemma und Morphologie, Targum Onkelos, Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
+Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die biblischen Qumran-Rollen (36 Bücher) und alle 735 nichtbiblischen Rollen (die 40 größten als eigene Bücher, die übrigen je Höhle) mit Lemma und Morphologie, Targum Onkelos, Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](app/SOURCES.de.md).
 
 Für den Apparat und die alten Übersetzungen außerdem: die Peschitta (ETCBC, 39 Bücher, Wort für Wort dem MT zugeordnet), Fields Hexapla zu allen 39 Büchern, der Samaritanische Pentateuch nach Tal–Florentin und Kennicotts Handschriftenlesarten zu allen 39 Büchern.
 
@@ -322,21 +322,21 @@ Safran ist eine Electron-App; an jedem [Release](https://github.com/mitkin89/Saf
 
 ## Editionsnotizen
 
-Philippsons importierter Text ist um verschobene Verse, doppelte Blöcke, klare OCR-Fehler und Worttrennungen bereinigt. Wiederhergestellte Versenden stehen in Klammern; unsichere Lesungen und abweichende Übersetzungsentscheidungen bleiben in den [Prüf- und Korrekturlisten](tools/interlinear/philippson/PRUEFLISTE-TANACH.md) dokumentiert. Redaktionelle Zwischenüberschriften sind aus dem Verstext entfernt.
+Philippsons importierter Text ist um verschobene Verse, doppelte Blöcke, klare OCR-Fehler und Worttrennungen bereinigt. Wiederhergestellte Versenden stehen in Klammern; unsichere Lesungen und abweichende Übersetzungsentscheidungen bleiben in den [Prüf- und Korrekturlisten](app/tools/interlinear/philippson/PRUEFLISTE-TANACH.md) dokumentiert. Redaktionelle Zwischenüberschriften sind aus dem Verstext entfernt.
 
-Mendelssohns deutscher Pentateuch (Dessau 1815, lateinische Schrift) ist eine eigene Interlinear-Quelle neben Taitsch und Biur. Alle fünf Bücher / 5.846 Versfelder sind gegen Westminster zugeordnet, einschließlich gemeinsamer Ketiv/Qere-Segmente. Bestätigt verschobene Satzfortsetzungen stehen wieder in ihren Versen; der nichtbiblische Druckanhang ist getrennt erhalten. Offene OCR-Kandidaten und mögliche Auslassungen stehen unverändert in den [Prüf- und Korrekturlisten](tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md). Mendelssohns Übersetzung (Dessau 1815 und das Taitsch von 1795), der Biur und diese Wortzuordnung gibt es auch als offenen Datensatz: [mendelssohn-pentateuch](https://github.com/mitkin89/mendelssohn-pentateuch), DOI [10.5281/zenodo.24466528](https://doi.org/10.5281/zenodo.24466528).
+Mendelssohns deutscher Pentateuch (Dessau 1815, lateinische Schrift) ist eine eigene Interlinear-Quelle neben Taitsch und Biur. Alle fünf Bücher / 5.846 Versfelder sind gegen Westminster zugeordnet, einschließlich gemeinsamer Ketiv/Qere-Segmente. Bestätigt verschobene Satzfortsetzungen stehen wieder in ihren Versen; der nichtbiblische Druckanhang ist getrennt erhalten. Offene OCR-Kandidaten und mögliche Auslassungen stehen unverändert in den [Prüf- und Korrekturlisten](app/tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md). Mendelssohns Übersetzung (Dessau 1815 und das Taitsch von 1795), der Biur und diese Wortzuordnung gibt es auch als offenen Datensatz: [mendelssohn-pentateuch](https://github.com/mitkin89/mendelssohn-pentateuch), DOI [10.5281/zenodo.24466528](https://doi.org/10.5281/zenodo.24466528).
 
-Berachot 2a–10b gibt es außerdem als **William Davidson Edition – Safran-Morphologie** mit 10.786 hebräisch-aramäischen Wortannotationen. Ein Wortklick zeigt Lemma, Bestimmung, Alternativen und Quellenhinweise; die Formtabelle enthält ausschließlich Belege aus diesem Bereich. Grammatik- und Lemmasuche berücksichtigen diese Ausgabe. Offene Merkmale bleiben markiert, der Wortlaut einschließlich Vokalisation ist unverändert. Siehe [Methode und Prüfbericht](tools/bavli/PRUEFBERICHT.md).
+Berachot 2a–10b gibt es außerdem als **William Davidson Edition – Safran-Morphologie** mit 10.786 hebräisch-aramäischen Wortannotationen. Ein Wortklick zeigt Lemma, Bestimmung, Alternativen und Quellenhinweise; die Formtabelle enthält ausschließlich Belege aus diesem Bereich. Grammatik- und Lemmasuche berücksichtigen diese Ausgabe. Offene Merkmale bleiben markiert, der Wortlaut einschließlich Vokalisation ist unverändert. Siehe [Methode und Prüfbericht](app/tools/bavli/PRUEFBERICHT.md).
 
-Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](tools/bavli/interlinear/README.md).
+Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](app/tools/bavli/interlinear/README.md).
 
-**Samaritanischer Pentateuch:** In Genesis bis Deuteronomium unter **Fassungen** „Samaritanischer Pentateuch (Tal–Florentin)“ und die englische Fassung „The Samaritan Pentateuch, Florentin and Tal (2024)“ auswählen. Die 1.074 Tal-Lesarten aus den DT-UCPH-Daten sind in den hebräischen Haupttext eingearbeitet. **Rot** kennzeichnet in beiden Sprachen und den Fußnoten die MT-Abweichungen der Druckausgabe. Die 3.459 Fußnoten und 790 Endnoten behalten ihre ursprüngliche Stellenangabe und Druckseite. Unveränderte Wörter bieten weiterhin die CACCHT-Wortkarte mit Lexem, Morphologie und Umschrift; neue oder geänderte Formen erhalten keine ungeprüfte Analyse. Beide Fassungen folgen Tals Verszählung. **CC BY-NC 4.0**; [Quellen und Build](tools/samaritan/README.md).
+**Samaritanischer Pentateuch:** In Genesis bis Deuteronomium unter **Fassungen** „Samaritanischer Pentateuch (Tal–Florentin)“ und die englische Fassung „The Samaritan Pentateuch, Florentin and Tal (2024)“ auswählen. Die 1.074 Tal-Lesarten aus den DT-UCPH-Daten sind in den hebräischen Haupttext eingearbeitet. **Rot** kennzeichnet in beiden Sprachen und den Fußnoten die MT-Abweichungen der Druckausgabe. Die 3.459 Fußnoten und 790 Endnoten behalten ihre ursprüngliche Stellenangabe und Druckseite. Unveränderte Wörter bieten weiterhin die CACCHT-Wortkarte mit Lexem, Morphologie und Umschrift; neue oder geänderte Formen erhalten keine ungeprüfte Analyse. Beide Fassungen folgen Tals Verszählung. **CC BY-NC 4.0**; [Quellen und Build](app/tools/samaritan/README.md).
 
 ## Quellen und Lizenz
 
 <p align="center"><a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" width="180"></a></p>
 
-Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Karten und Audio behalten ihre eigenen Lizenzen; alles steht in [SOURCES.de.md](SOURCES.de.md), die Änderungen in [CHANGELOG.md](CHANGELOG.md) (englisch).
+Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Karten und Audio behalten ihre eigenen Lizenzen; alles steht in [SOURCES.de.md](app/SOURCES.de.md), die Änderungen in [CHANGELOG.md](CHANGELOG.md) (englisch).
 
 | Daten | Lizenz |
 | --- | --- |
@@ -344,10 +344,10 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 | Westminster Leningrad Codex: Text · OSHB-Lemmata und -Morphologie | gemeinfrei · CC BY 4.0 |
 | Aleppo-Text (*Miqra al pi ha-Masora*), Perseus Morpheus, LSJ-Bedeutungen, UBS Bible Routes | CC BY-SA |
 | ETCBC-Daten (Qumran-Rollen, Targumim, Peschitta, Inschriften), Tal–Florentin, SEDRA | **CC BY-NC 4.0** – nicht kommerziell |
-| CATSS-Septuaginta ([LICENSE-CATSS.md](LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – nicht kommerziell |
+| CATSS-Septuaginta ([LICENSE-CATSS.md](app/LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](app/LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – nicht kommerziell |
 | lxx-morph, STEPBible (Glossen, Verszählung), OpenBible.info | CC BY 4.0 |
 | Fields Hexapla, Rahlfs, BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger, Pape und die historischen deutschen Texte | gemeinfrei |
-| Liddell & Scott (DSL-Datei nach Perseus) | keine ausdrückliche Lizenzangabe in den Dateien, siehe [SOURCES.de.md](SOURCES.de.md) |
+| Liddell & Scott (DSL-Datei nach Perseus) | keine ausdrückliche Lizenzangabe in den Dateien, siehe [SOURCES.de.md](app/SOURCES.de.md) |
 | Sefaria-Texte | eigene Lizenz je Fassung; werden heruntergeladen, nicht Teil der App |
 
 **Einige mitgelieferte Daten dürfen nur nicht kommerziell genutzt werden** (die Zeilen mit CC BY-NC und CC BY-NC-SA). Die MIT-Lizenz gilt für den Code, nicht für diese Daten; wer Safran als Ganzes weitergibt oder weiterverwendet, muss ihre Bedingungen beachten.
@@ -355,3 +355,5 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 ---
 
 <p align="center"><sub><b>סַפְרָן</b> <i>(safran)</i> ist hebräisch für Schreiber, im modernen Hebräisch Bibliothekar, von derselben Wurzel wie <i>sefer</i>, Buch. Safran entsteht bei <a href="https://talmud.de">talmud.de</a>.</sub></p>
+
+Programmcode, mitgelieferte Daten, Werkzeuge und Tests liegen in [`app/`](app/). Die npm-Befehle funktionieren weiterhin im Hauptverzeichnis; siehe [Entwicklungsanleitung](docs/DEVELOPMENT.md#repository-layout).

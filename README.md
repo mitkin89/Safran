@@ -1,4 +1,4 @@
-<p align="center"><img src="logo.png" alt="Safran logo" width="120"></p>
+<p align="center"><img src="app/logo.png" alt="Safran logo" width="120"></p>
 
 <h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Download Safran for macOS, Windows or Linux" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Download%20Safran-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.0.md"><b>New in 2.8.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.5.md"><b>New in 2.8.5</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 as an interlinear – under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921); a clicked word is highlighted in the Hebrew and in the running translation" width="900"></a><br>
@@ -25,7 +25,7 @@
 
 Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. The **textual apparatus** compares the Masoretic text with seven witnesses: the Aleppo text, the Samaritan Pentateuch, the Qumran scrolls, the Septuagint, Field's Hexapla, the Peshitta and Kennicott's manuscripts. The **whole Tanakh word by word in German** (interlinear) and a **word card** show how Hebrew words are translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **eleven dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
-**New in 2.8.0:** the Peshitta for all 39 books (reading text, interlinear and the Syr witness), Field's Hexapla, the Aleppo comparison (MA), classified LXX and Peshitta readings, the reading line and *Similar chapters* – see the [release notes](docs/releases/2.8.0.md) and the [overview video](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
+**New in 2.8.5:** notebooks with linked verse excerpts, richer source sheets, offline Masora with German working translations, and clearer study controls. See the [release notes](docs/releases/2.8.5.md).
 
 <p align="center">
   <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Isaiah 53:9 as an interlinear with the Septuagint, the Qumran scrolls and the Peshitta; beside it the Apparatus pane with the reading line, the variant ויתנו of 1QIsaa, the LXX reading καὶ δώσω with its reconstructed Vorlage, and the Hexapla rows of the Three marked “follows the MT”" width="900"></a><br>
@@ -235,7 +235,7 @@ Goldschmidt's complete Talmud and the 19th-century Talmud translations are also 
 
 </details>
 
-Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the biblical Qumran scrolls (36 books) and all 735 non-biblical scrolls (the 40 largest as separate books, the rest per cave) with lemma and morphology, Targum Onkelos, Pseudo-Jonathan and Neofiti, and the Septuagint: the CATSS text for the Tanakh and 21 Greek files after Rahlfs for Hosea, Esther with its additions and the deuterocanonical books (Maccabees 1–4, Sirach, Wisdom, Tobit, Judith, Baruch, Letter of Jeremiah, Susanna, Bel, 1 Esdras, Odes, Psalms of Solomon), with lemma and parsing for every Greek word (lxx-morph). Sources and licenses: [SOURCES.md](SOURCES.md).
+Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the biblical Qumran scrolls (36 books) and all 735 non-biblical scrolls (the 40 largest as separate books, the rest per cave) with lemma and morphology, Targum Onkelos, Pseudo-Jonathan and Neofiti, and the Septuagint: the CATSS text for the Tanakh and 21 Greek files after Rahlfs for Hosea, Esther with its additions and the deuterocanonical books (Maccabees 1–4, Sirach, Wisdom, Tobit, Judith, Baruch, Letter of Jeremiah, Susanna, Bel, 1 Esdras, Odes, Psalms of Solomon), with lemma and parsing for every Greek word (lxx-morph). Sources and licenses: [SOURCES.md](app/SOURCES.md).
 
 And for the apparatus and the ancient versions: the Peshitta (ETCBC, 39 books, aligned word by word with the MT), Field's Hexapla for all 39 books, the Samaritan Pentateuch after Tal–Florentin, and Kennicott's manuscript readings for all 39 books.
 
@@ -322,21 +322,21 @@ Safran is an Electron app; installers for macOS (`.dmg`), Windows (installer and
 
 ## Editorial notes
 
-Philippson's imported text has been corrected for misplaced verses, duplicated blocks, clear OCR errors and word breaks. Restored verse endings are marked in brackets; uncertain readings and differing translation choices remain documented in the [review and correction lists](tools/interlinear/philippson/PRUEFLISTE-TANACH.md). Editorial section headings have been removed from the verse text.
+Philippson's imported text has been corrected for misplaced verses, duplicated blocks, clear OCR errors and word breaks. Restored verse endings are marked in brackets; uncertain readings and differing translation choices remain documented in the [review and correction lists](app/tools/interlinear/philippson/PRUEFLISTE-TANACH.md). Editorial section headings have been removed from the verse text.
 
-Mendelssohn's German Pentateuch (Dessau 1815, Latin script) is a separate interlinear source from the Taitsch and Biur. All five books / 5,846 verse fields are aligned against Westminster, including joint Ketiv/Qere segments. Confirmed misplaced sentence continuations have been returned to their verses and realigned; the nonbiblical printing appendix is preserved separately. Mendelssohn's translation (Dessau 1815 and the Taitsch of 1795), the Biur and this word alignment are also published as an open dataset: [mendelssohn-pentateuch](https://github.com/mitkin89/mendelssohn-pentateuch), DOI [10.5281/zenodo.24466528](https://doi.org/10.5281/zenodo.24466528). Existing OCR candidates and possible omissions remain unchanged in the [review and correction lists](tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md).
+Mendelssohn's German Pentateuch (Dessau 1815, Latin script) is a separate interlinear source from the Taitsch and Biur. All five books / 5,846 verse fields are aligned against Westminster, including joint Ketiv/Qere segments. Confirmed misplaced sentence continuations have been returned to their verses and realigned; the nonbiblical printing appendix is preserved separately. Mendelssohn's translation (Dessau 1815 and the Taitsch of 1795), the Biur and this word alignment are also published as an open dataset: [mendelssohn-pentateuch](https://github.com/mitkin89/mendelssohn-pentateuch), DOI [10.5281/zenodo.24466528](https://doi.org/10.5281/zenodo.24466528). Existing OCR candidates and possible omissions remain unchanged in the [review and correction lists](app/tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md).
 
-Berakhot 2a–10b also has a separate **William Davidson Edition – Safran-Morphologie**: 10,786 Hebrew/Aramaic word annotations with lemma, morphology, explicit alternatives and source notes. Click a word for its analysis or the forms actually attested in the covered passage. Grammar and lemma searches include this edition; unresolved features remain marked. The original wording and vocalization are preserved. See the [method and review report](tools/bavli/PRUEFBERICHT.md).
+Berakhot 2a–10b also has a separate **William Davidson Edition – Safran-Morphologie**: 10,786 Hebrew/Aramaic word annotations with lemma, morphology, explicit alternatives and source notes. Click a word for its analysis or the forms actually attested in the covered passage. Grammar and lemma searches include this edition; unresolved features remain marked. The original wording and vocalization are preserved. See the [method and review report](app/tools/bavli/PRUEFBERICHT.md).
 
-Berakhot 2a–10b also offers an experimental **Wortzuordnung · Test** viewer for Goldschmidt and Pinner. Both versions of 2a–3b are manually aligned, with further checked passages and explicitly separate automatic/open proposals. [Review status](tools/bavli/interlinear/README.md).
+Berakhot 2a–10b also offers an experimental **Wortzuordnung · Test** viewer for Goldschmidt and Pinner. Both versions of 2a–3b are manually aligned, with further checked passages and explicitly separate automatic/open proposals. [Review status](app/tools/bavli/interlinear/README.md).
 
-**Samaritan Pentateuch:** in Genesis to Deuteronomy, choose “Samaritanischer Pentateuch (Tal–Florentin)” and the English “The Samaritan Pentateuch, Florentin and Tal (2024)” under **Versions**. The 1,074 Tal readings from the DT-UCPH data are applied to the Hebrew main text. **Red** marks the MT differences of the printed edition in both languages and in the notes. The 3,459 footnotes and 790 endnotes keep their original reference and printed page. Unchanged words still offer the CACCHT word card with lexeme, morphology and transliteration; new or changed forms get no unchecked analysis. Both versions follow Tal's verse numbering. **CC BY-NC 4.0**; [sources and build](tools/samaritan/README.md).
+**Samaritan Pentateuch:** in Genesis to Deuteronomy, choose “Samaritanischer Pentateuch (Tal–Florentin)” and the English “The Samaritan Pentateuch, Florentin and Tal (2024)” under **Versions**. The 1,074 Tal readings from the DT-UCPH data are applied to the Hebrew main text. **Red** marks the MT differences of the printed edition in both languages and in the notes. The 3,459 footnotes and 790 endnotes keep their original reference and printed page. Unchanged words still offer the CACCHT word card with lexeme, morphology and transliteration; new or changed forms get no unchecked analysis. Both versions follow Tal's verse numbering. **CC BY-NC 4.0**; [sources and build](app/tools/samaritan/README.md).
 
 ## Sources and license
 
 <p align="center"><a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" width="180"></a></p>
 
-The source code is released under the [MIT License](LICENSE). Texts, dictionaries, maps and audio keep their own licenses; everything is listed in [SOURCES.md](SOURCES.md), the changes in [CHANGELOG.md](CHANGELOG.md).
+The source code is released under the [MIT License](LICENSE). Texts, dictionaries, maps and audio keep their own licenses; everything is listed in [SOURCES.md](app/SOURCES.md), the changes in [CHANGELOG.md](CHANGELOG.md).
 
 | Data | License |
 | --- | --- |
@@ -344,10 +344,10 @@ The source code is released under the [MIT License](LICENSE). Texts, dictionarie
 | Westminster Leningrad Codex: text · OSHB lemmas and morphology | public domain · CC BY 4.0 |
 | Aleppo text (*Miqra according to the Masorah*), Perseus Morpheus, LSJ meanings, UBS Bible Routes | CC BY-SA |
 | ETCBC data (Qumran scrolls, Targumim, Peshitta, inscriptions), Tal–Florentin, SEDRA | **CC BY-NC 4.0** – non-commercial |
-| CATSS Septuagint ([LICENSE-CATSS.md](LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – non-commercial |
+| CATSS Septuagint ([LICENSE-CATSS.md](app/LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](app/LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – non-commercial |
 | lxx-morph, STEPBible (glosses, verse numbering), OpenBible.info | CC BY 4.0 |
 | Field's Hexapla, Rahlfs, BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger, Pape and the historical German texts | public domain |
-| Liddell & Scott (DSL file after Perseus) | no explicit license statement in the files, see [SOURCES.md](SOURCES.md) |
+| Liddell & Scott (DSL file after Perseus) | no explicit license statement in the files, see [SOURCES.md](app/SOURCES.md) |
 | Sefaria texts | their own license per version; downloaded, not part of the app |
 
 **Some bundled data may only be used non-commercially** (the rows marked CC BY-NC and CC BY-NC-SA). The MIT license covers the code, not these data; anyone who redistributes or reuses Safran as a whole has to observe their terms.
@@ -355,3 +355,5 @@ The source code is released under the [MIT License](LICENSE). Texts, dictionarie
 ---
 
 <p align="center"><sub><b>סַפְרָן</b> <i>(safran)</i> is Hebrew for a scribe, in modern Hebrew a librarian, from the same root as <i>sefer</i>, book. Safran is built by <a href="https://talmud.de">talmud.de</a>.</sub></p>
+
+The application source, bundled data, tools and tests are in [`app/`](app/). Run the usual npm commands from this repository root; see the [development guide](docs/DEVELOPMENT.md#repository-layout).
