@@ -1,0 +1,8 @@
+{
+  "source_file": "bundled/own/Graetz, Geschichte der Juden/de/Heinrich Graetz, Geschichte der Juden von den ältesten Zeiten bis auf die Gegenwart, 11 Bände (Leipzig 1853–1876; Text nach zeno.org).json",
+  "section_aliases": {
+    "279": 278,
+    "334": 332
+  },
+  "decision": "The source crawler treated a footnote fragment as a separate section. Keep identical paragraph arrays so existing references do not move; explicitly mark their canonical section for consumers to deduplicate. No text or footnote is discarded."
+}

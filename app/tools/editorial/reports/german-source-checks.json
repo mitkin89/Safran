@@ -1,0 +1,251 @@
+{
+  "files": [
+    {
+      "source": "bundled/own/Herxheimer on Psalms/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+      "before_sha256": "79e586f91d82f7aa3a83ff360936d566c9769fae85b92315cfe06772214af6fc",
+      "after_sha256": "448de0d8a7bffe380756d696ca5b957730327b2241a1fd55a2919c94ff3bc01a",
+      "changes": [
+        {
+          "ref": "16:3",
+          "reasons": [
+            {
+              "kind": "source-checked replacement character",
+              "before": "באר�",
+              "after": "בארץ",
+              "source": "bundled/own/Psalms/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+              "source_sha256": "841a816b411a084457e6ec1a7243b8e7744cfe202c0784f7367c1f6b568edb0c",
+              "source_ref": "16:3",
+              "hebrew_verse": "לִ֭קְדוֹשִׁים אֲשֶׁר־בָּאָ֣רֶץ הֵ֑מָּה וְ֝אַדִּירֵ֗י כָּל־חֶפְצִי־בָֽם׃"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/Philippson on Job/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+      "before_sha256": "412be54de835faabe3d2d1c5bc71081ec130a3c3a285425c61a63c2a8d7a5e7d",
+      "after_sha256": "f0a9795192235cfdab0d90aba704f31a5b94946365b5ee18c2526a4e94197fc4",
+      "changes": [
+        {
+          "ref": "20:6",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                    68 סח",
+              "arabic_page": 68,
+              "hebrew_page": "סח"
+            }
+          ]
+        },
+        {
+          "ref": "33:17",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                 74 עד",
+              "arabic_page": 74,
+              "hebrew_page": "עד"
+            }
+          ]
+        },
+        {
+          "ref": "36:8",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                 75 עה",
+              "arabic_page": 75,
+              "hebrew_page": "עה"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/Philippson on Lamentations/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+      "before_sha256": "bd99443d39af4e620836ee8518779641cced8f95a0df732e9c76a939da4ff7b9",
+      "after_sha256": "b12b0604ce915bb34a56baae4dbeaf20fa95cef8565f28cd2b2e1cd92ed9fc4a",
+      "changes": [
+        {
+          "ref": "1:8",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                                      86 פו",
+              "arabic_page": 86,
+              "hebrew_page": "פו"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/Philippson on Proverbs/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+      "before_sha256": "03a5456600e8a2d2f4da61c8efb98577583cbf8f032b3b2c4454da0ffda61c0d",
+      "after_sha256": "0c6706feee5def8bfd1ec802bbbbec51a305ad56445467599b97b0eca3b17cbd",
+      "changes": [
+        {
+          "ref": "1:2",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                          48 מח",
+              "arabic_page": 48,
+              "hebrew_page": "מח"
+            }
+          ]
+        },
+        {
+          "ref": "3:25",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                          49 מט",
+              "arabic_page": 49,
+              "hebrew_page": "מט"
+            }
+          ]
+        },
+        {
+          "ref": "6:17",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                                      50 נ",
+              "arabic_page": 50,
+              "hebrew_page": "נ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/Philippson on Psalms/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+      "before_sha256": "5ad75f9e49f98bddb8aac349043052bb0f3e43e041638ad0969c64076b781272",
+      "after_sha256": "77f0ba64f1ed52aab09e8af148131c63b2b8b22c3529b66108fca75ed31b4056",
+      "changes": [
+        {
+          "ref": "55:1",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                                                    19      יט",
+              "arabic_page": 19,
+              "hebrew_page": "יט"
+            }
+          ]
+        },
+        {
+          "ref": "61:7",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                          21 כא",
+              "arabic_page": 21,
+              "hebrew_page": "כא"
+            }
+          ]
+        },
+        {
+          "ref": "66:2",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                          22 כב",
+              "arabic_page": 22,
+              "hebrew_page": "כב"
+            }
+          ]
+        },
+        {
+          "ref": "68:21",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                                                              23 כג",
+              "arabic_page": 23,
+              "hebrew_page": "כג"
+            }
+          ]
+        },
+        {
+          "ref": "84:12",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.    29 כט",
+              "arabic_page": 29,
+              "hebrew_page": "כט"
+            }
+          ]
+        },
+        {
+          "ref": "89:1",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.    30 ל",
+              "arabic_page": 30,
+              "hebrew_page": "ל"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/Philippson on Ruth/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+      "before_sha256": "6ef45fe81505e8ee5729927adc1fe911b4932725c9dca6aeba75a31868fe2f1a",
+      "after_sha256": "ebc4d9d207932b5ba1286c5e3e0e5a7389d7e66a391de717899f16bf61048aa6",
+      "changes": [
+        {
+          "ref": "4:7",
+          "reasons": [
+            {
+              "kind": "verified print-folio artifact",
+              "before": "III.                                                                                      85 פה",
+              "arabic_page": 85,
+              "hebrew_page": "פה"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/Psalms/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+      "before_sha256": "b31e51bfdb7c5b93e1923add1c78411fbe0e5a90ad81972466140ece8dfc9e7b",
+      "after_sha256": "f99a4730d9a3ade38162920517d9264f2ba7f1430688fffc60d938267e359193",
+      "changes": [
+        {
+          "ref": "16:3",
+          "reasons": [
+            {
+              "kind": "source-checked replacement character",
+              "before": "באר�",
+              "after": "בארץ",
+              "source": "bundled/own/Psalms/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+              "source_sha256": "841a816b411a084457e6ec1a7243b8e7744cfe202c0784f7367c1f6b568edb0c",
+              "source_ref": "16:3",
+              "hebrew_verse": "לִ֭קְדוֹשִׁים אֲשֶׁר־בָּאָ֣רֶץ הֵ֑מָּה וְ֝אַדִּירֵ֗י כָּל־חֶפְצִי־בָֽם׃"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "bundled/own/The Antiquities of the Jews/de/Flavius Josephus, The Antiquities of the Jews – deutsch von Heinrich Clementz (Halle 1899).json",
+      "before_sha256": "71970afca833e307ceda2f05e10b7a7eea3cf0a8fe8b2d0f89bdad8adc5cd801",
+      "after_sha256": "639fbaec8546f6dbaa999f44cb1dd73cb4145aadb02a17e5bfdd6989620ebeaf",
+      "changes": [
+        {
+          "ref": ":16:5:2",
+          "reasons": [
+            {
+              "kind": "markup-only",
+              "detail": "Remove two unmatched leftover XML </ref> tags; visible text unchanged."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

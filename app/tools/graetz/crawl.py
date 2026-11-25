@@ -17,10 +17,12 @@ def children(p,s):
     # Unterseiten: Links, die mit p+'/' beginnen und genau eine Ebene tiefer liegen
     out=[]
     for href,txt in re.findall(r'href="([^"]+)"[^>]*>([^<]*)',s):
-        h=html.unescape(href)
+        # A footnote fragment identifies a location on the same source page.
+        h=urllib.parse.urldefrag(html.unescape(href))[0]
         if h.startswith(p+'/') and '/' not in h[len(p)+1:] and h not in out: out.append(h)
     return out
 def walk(p,depth=0):
+    p=urllib.parse.urldefrag(p)[0]
     if p in seen: return
     s=get(p);kids=children(p,s);seen[p]=kids;order.append(p)
     for k in kids: walk(k,depth+1)

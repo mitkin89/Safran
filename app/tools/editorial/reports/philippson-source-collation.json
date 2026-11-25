@@ -1,0 +1,166 @@
+{
+  "status": "Diagnostic snapshot from before reconstruction. All listed cases were processed; see philippson-restored-commentary.json and philippson-structure-check.json.",
+  "source_access": {
+    "project": "https://ocr-bw.bib.uni-mannheim.de/escriptorium/project/philippson/",
+    "authenticated_read_verified": true,
+    "documents": [
+      {
+        "id": 6486,
+        "name": "Philippson Band 1",
+        "bsb": "bsb10481772"
+      },
+      {
+        "id": 6487,
+        "name": "Philippson Band 2",
+        "bsb": "bsb10481773"
+      },
+      {
+        "id": 6488,
+        "name": "Philippson Band 3",
+        "bsb": "bsb10481774"
+      }
+    ]
+  },
+  "visually_checked_pages": [
+    {
+      "printed_page": 778,
+      "canvas": 789,
+      "image": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb10481773_00789/full/full/0/default.jpg"
+    },
+    {
+      "printed_page": 779,
+      "canvas": 788,
+      "image": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb10481773_00788/full/full/0/default.jpg"
+    },
+    {
+      "printed_page": 780,
+      "canvas": 787,
+      "image": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb10481773_00787/full/full/0/default.jpg"
+    }
+  ],
+  "confirmed_isaiah_19": {
+    "15": "Comment present in print but empty in current JSON.",
+    "16-17": "Joint comment about Egyptian weakness, fear and Judah; current comments are from Isaiah 9.",
+    "18": "Long comment on five cities, Hebrew language and עיר ההרס; current comment is from Isaiah 9. Requires careful transcription including Greek and Arabic.",
+    "19": "Comment about recognition becoming worship and מצבה; current text concerns civil war in Isaiah 9.",
+    "20": "Comment about the Egyptians receiving a saviour; current text includes Isaiah 9 and 10.",
+    "21": "Ausführung von V. 19. Current text is from Isaiah 10.",
+    "22": "Ausführung von V. 20. Current text mixes an Isaiah 10 comment with the correct short note.",
+    "23-25": "The genuine joint note at 23 continues on printed page 780. Entry 24 is from Isaiah 10. Entry 25 is a large mixed block extending through material from chapters 10–19; it also contains genuine Isaiah 19:18–21 commentary. Do not discard this block wholesale."
+  },
+  "exact_duplicate_candidates": [
+    {
+      "book": "I Samuel",
+      "target": "28:9",
+      "duplicates": "25:9",
+      "sha256": "d19cdbe11cc036364da43a930e0b11fa216e843a6305fdf5872d1576ccb47c6b"
+    },
+    {
+      "book": "I Samuel",
+      "target": "28:10",
+      "duplicates": "25:10",
+      "sha256": "d6519de0bb6efebefe546ace662be80ccfe9025892c28557b602c1c0c245cd94"
+    },
+    {
+      "book": "I Samuel",
+      "target": "28:11",
+      "duplicates": "25:11",
+      "sha256": "6a162ad1e2b4696c26aafb3c5f0f2ace55326042cb6c3250ad39ddd5f57bcb80"
+    },
+    {
+      "book": "I Samuel",
+      "target": "28:18",
+      "duplicates": "25:18",
+      "sha256": "14af14671a8977fa7e2260dcbbb7a38d5270f3d874006404846273a08a94463e"
+    },
+    {
+      "book": "I Samuel",
+      "target": "28:22",
+      "duplicates": "25:22",
+      "sha256": "f466d7db78fb8323047687b635d26a71d0eb098822bdd0dc2571096dd18b21d6"
+    },
+    {
+      "book": "I Samuel",
+      "target": "28:24",
+      "duplicates": "25:24",
+      "sha256": "25ffd1b62ab3f05a2d4f8427c6f1526edb9a84c4589cc09de66562f69dc32e50"
+    },
+    {
+      "book": "II Samuel",
+      "target": "4:6",
+      "duplicates": "1:6",
+      "sha256": "2b02306780401e03c386c374f8e0b23c4d00e543521a87f375b52162f1aaff4f"
+    },
+    {
+      "book": "II Samuel",
+      "target": "4:9",
+      "duplicates": "1:9",
+      "sha256": "794efaad34e6272d6d3152f058d5a2a1dacbc95c29a7d9f24e86c0bb066db5c8"
+    },
+    {
+      "book": "Isaiah",
+      "target": "19:10",
+      "duplicates": "9:10",
+      "sha256": "4dff0f6c5b8efe61718e54dc04680d81b10d33ea16b2dfe999ced5f42733af9b"
+    },
+    {
+      "book": "Isaiah",
+      "target": "19:12",
+      "duplicates": "9:12",
+      "sha256": "731a159849f78330164fa57e4053cba7e26a4812b5e83d845226620dd1ddabc4"
+    },
+    {
+      "book": "Isaiah",
+      "target": "19:16",
+      "duplicates": "9:16",
+      "sha256": "32e9e50579d74dd1c7adfabe0aff3e29704f081e60bbf024ee3894b503da9510"
+    },
+    {
+      "book": "Isaiah",
+      "target": "19:17",
+      "duplicates": "9:17",
+      "sha256": "918577ac23b7c2475ebbc2b7cd9e5b599022a4a6e23eb58d57f962164a0877b9"
+    },
+    {
+      "book": "Isaiah",
+      "target": "19:18",
+      "duplicates": "9:18",
+      "sha256": "1095cefca5e812c4d39a3d82d114ac7d8fdc9bd2083322ad7ecbef5b398022f6"
+    },
+    {
+      "book": "Isaiah",
+      "target": "19:21",
+      "duplicates": "10:21",
+      "sha256": "0586708851aa119217f0ce53e29dfb3dbe901a8fc563e08f6d552dbf4288665c"
+    }
+  ],
+  "chapters_requiring_full_source_reconstruction": [
+    "Philippson on I Samuel 28: comments from chapter 25 also occur at 6, 8, 9, 10, 25; do not limit review to exact duplicates.",
+    "Philippson on II Samuel 4: entry 4 includes a foreign chapter introduction; 6, 9 and 10 concern Saul and the Amalekite; 12 includes material about Gibeon.",
+    "Philippson on Isaiah 19: restore genuine notes from printed pages 778–780."
+  ],
+  "preservation": "Keep all illustrations and captions. Preserve canonical comments in their original chapter. Do not replace uncertain readings with guesses. Publication remains pending source collation.",
+  "mixed_image_blocks": [
+    {
+      "ref": "Isaiah 19:20",
+      "captions": [
+        "Aegypt. Zimmerleute mit Axt oder Hobel und Säge. Nach Rosselini.",
+        "Aegypt. Kriegsaxt."
+      ],
+      "decision": "Preserve all image/caption blocks while reconstructing proper chapter and verse assignments from scans. Do not remove whole fields as if they were simple duplicates."
+    },
+    {
+      "ref": "Isaiah 19:25",
+      "captions": [
+        "Der syrische Wolf. (Canis Syriacus).",
+        "Das verwüstete Babel.",
+        "Felsenpaß, nach Petra führend, mit dem Eingang zu einem Grabe und der Ansicht eines Amphitheaters in der Ferne.",
+        "Ruinen eines Tempels in den Felsenklüften bei Petra.",
+        "Ansicht eines Theils der Ruinen von Petra.",
+        "Arundo donax."
+      ],
+      "decision": "Preserve all image/caption blocks while reconstructing proper chapter and verse assignments from scans. Do not remove whole fields as if they were simple duplicates."
+    }
+  ],
+  "resolution_report": "philippson-restored-commentary.json"
+}
