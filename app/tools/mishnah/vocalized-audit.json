@@ -8,16 +8,18 @@
     "alignment": {
       "P": {
         "words": 2171,
-        "aligned": 2023,
-        "insertions": 28,
-        "open": 120,
+        "aligned": 2119,
+        "insertions": 52,
+        "positionedGaps": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2201,
-        "aligned": 1947,
-        "insertions": 27,
-        "open": 227,
+        "aligned": 2103,
+        "insertions": 62,
+        "positionedGaps": 36,
+        "open": 0,
         "reviewed": 0
       }
     },

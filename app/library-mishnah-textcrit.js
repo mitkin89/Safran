@@ -45,17 +45,17 @@ function create(host){
   }).join('')+'<p class="tc-credit">Digital Mishnah · Hayim Lapin / Meyerhoff Center · CC BY 4.0. '+esc('Eigene Handschriftenzählungen und Original-TEI bleiben erhalten. Quellenkontext über den Zeugensiglen.')+'</p>';
  }
  const name=s=>s==='K'?'Kaufmann':s==='P'?'Parma':'Cambridge';
- const token=(sig,pair,diff=false)=>{
+ const token=(sig,pair,diff=false,sourceUncertain=false)=>{
   const [ref,i]=pair,w=data.witnesses[sig].units[ref].words[i];
   if(data.source?.vocalized&&sig==='K'){
    const u=data.witnesses.K.units[ref],prefix=i===0?u.text.slice(0,w.start):'',suffix=u.text.slice(w.end,u.words[i+1]?.start??u.text.length);
    return esc(prefix)+'<span class="mci-base-word" lang="he" data-vocalized-word="'+esc(ref+'|'+i)+'">'+esc(w.text)+'</span>'+esc(suffix||' ');
   }
-  const uncertain=w.text.includes('□')||w.flags.some(f=>['damage','unclear','gap'].includes(f));
+  const uncertain=sourceUncertain||w.text.includes('□')||w.flags.some(f=>['damage','unclear','gap'].includes(f));
   return '<button type="button" class="mci-word '+(uncertain?'muted':diff?'mt-diff':'')+'" lang="he" data-tc-mishnah="'+esc(sig+'|'+ref)+'" data-tc-mishnah-word="'+esc(ref+'|'+i)+'" title="'+esc('Quellenbeleg und Kontext anzeigen')+'">'+esc(w.text)+(w.flags.length?'<sup class="mci-annotation" aria-label="'+esc('Quellenzeichen')+'">·</sup>':'')+'</button>';
  };
  function interlinear(ch,refs,enabled){
-  return '<p class="tc-credit">'+esc(data.source?.vocalized?'Bezugstext: vokalisierte Kaufmann-Lesefassung (Be’eri) · maschinelle Wort- und Gruppenzuordnung':'Bezugstext: Kaufmann A50 · maschinelle Wort- und Gruppenzuordnung')+' <abbr class="ab" title="'+esc('Rot: abweichende Lesart oder Zusatz. …: Zuordnung offen. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.')+'">ⓘ</abbr></p>'+refs.map(ref=>{
+  return '<p class="tc-credit">'+esc(data.source?.vocalized?'Bezugstext: vokalisierte Kaufmann-Lesefassung (Be’eri) · maschinelle Wort- und Gruppenzuordnung':data.interlinear.version===2?'Bezugstext: Kaufmann A50 · automatische Wortzuordnung nach Digital Mishnah':'Bezugstext: Kaufmann A50 · maschinelle Wort- und Gruppenzuordnung')+' <abbr class="ab" title="'+esc('Rot: abweichende Lesart oder Zusatz. …: Zuordnung offen. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.')+'">ⓘ</abbr></p>'+refs.map(ref=>{
    const u=data.witnesses.K.units[ref];if(!u)return unbased(ch,ref,enabled);
    const witnesses=enabled.filter(s=>s!=='K'),links=Object.fromEntries(witnesses.map(sig=>[sig,(data.interlinear.chapters[ch]?.[sig]?.links||[]).filter(l=>l.ref===ref)]));
    const parent=u.words.map((_,i)=>i),find=i=>parent[i]===i?i:parent[i]=find(parent[i]);
@@ -66,13 +66,15 @@ function create(host){
    const insertion=boundary=>{
     const ls=Object.fromEntries(witnesses.map(sig=>[sig,links[sig].filter(l=>!l.base.length&&(l.after?.[0]===ref?l.after[1]:-1)===boundary)]));
     if(!witnesses.some(sig=>ls[sig].length))return;
-    columns.push('<div class="mci-column mci-insertion"><div class="mci-cell muted">+</div>'+witnesses.map(sig=>'<div class="mci-cell mci-witness">'+ls[sig].flatMap(l=>l.reading).map(pair=>token(sig,pair,true)).join(' ')+'</div>').join('')+'</div>');
+    const gapOnly=witnesses.every(sig=>ls[sig].every(l=>l.kind==='source-gap'));
+    const comparePairs=(a,b)=>{const x=a.pair[0].split(':').map(Number),y=b.pair[0].split(':').map(Number);return x[0]-y[0]||x[1]-y[1]||a.pair[1]-b.pair[1];};
+    columns.push('<div class="mci-column mci-insertion'+(gapOnly?' mci-source-gap':'')+'"><div class="mci-cell muted"'+(gapOnly?' title="'+esc('Lücke zwischen belegten Nachbarwörtern')+'"':'')+'>'+(gapOnly?'⋯':'+')+'</div>'+witnesses.map(sig=>'<div class="mci-cell mci-witness">'+ls[sig].flatMap(l=>l.reading.map(pair=>({pair,link:l}))).sort(comparePairs).map(({pair,link:l})=>token(sig,pair,l.kind!=='source-gap',l.uncertain)).join(' ')+'</div>').join('')+'</div>');
    };
    insertion(-1);
    for(const g of groups){
     columns.push('<div class="mci-column"><div class="mci-cell">'+g.indices.map(i=>token('K',[ref,i])).join(' ')+'</div>'+witnesses.map(sig=>{
      const ls=links[sig].filter(l=>l.base.some(([r,i])=>g.indices.includes(i))),covered=new Set(ls.flatMap(l=>l.base.map(x=>x[1]))),pairs=ls.flatMap(l=>l.reading),diff=ls.some(l=>l.kind!=='exact'&&l.kind!=='joined');
-     return '<div class="mci-cell mci-witness">'+ls.flatMap(l=>l.reading.map(pair=>token(sig,pair,l.kind==='form'||l.kind==='reviewed'||words(sig,l.reading).replace(/[^א-ת]/g,'')!==words('K',l.base).replace(/[^א-ת]/g,'')))).join(' ')+(covered.size<g.indices.length?' <span class="muted" title="'+esc('Zuordnung offen')+'">…</span>':!pairs.length?'<span class="mt-diff" title="'+esc('Kein Gegenstück im maschinellen Vergleich')+'">—</span>':'')+'</div>';
+     return '<div class="mci-cell mci-witness">'+ls.flatMap(l=>l.reading.map(pair=>token(sig,pair,l.kind==='form'||l.kind==='reviewed'||words(sig,l.reading).replace(/[^א-ת]/g,'')!==words('K',l.base).replace(/[^א-ת]/g,''),l.uncertain))).join(' ')+(covered.size<g.indices.length||ls.some(l=>!l.reading.length&&l.uncertain)?' <span class="muted" title="'+esc('Zuordnung offen')+'">…</span>':!pairs.length?'<span class="mt-diff" title="'+esc('Kein Gegenstück im maschinellen Vergleich')+'">—</span>':'')+'</div>';
     }).join('')+'</div>');for(const i of g.indices)insertion(i);
    }
    const open=witnesses.map(sig=>{
@@ -80,7 +82,7 @@ function create(host){
     return '<div class="mci-open"><span class="tc-witness-label">'+esc(name(sig))+'</span> '+esc('Nicht sicher zugeordnet')+' <span dir="rtl">'+rows.map(o=>token(sig,o.reading)).join(' ')+'</span></div>';
    }).join('');
    return '<section class="tc-reader-verse" '+(data.source?.vocalized?'data-mci-vocalized="1" ':'')+'data-rows="'+ref.split(':')[1]+'"><div class="tc-verse-summary">'+esc(title()+' '+ref)+'</div><div class="mci-grid"><div class="mci-labels">'+['K',...witnesses].map(sig=>'<div class="mci-cell">'+contextButton(sig,sig==='K'?[ref]:[...new Set(links[sig].flatMap(l=>l.reading.map(x=>x[0])))] )+'</div>').join('')+'</div><div class="mci-columns" dir="rtl">'+columns.join('')+'</div></div>'+open+'</section>';
-  }).join('')+'<p class="tc-credit">Digital Mishnah · CC BY 4.0 · '+esc('Gruppen statt erzwungener Einzelwortpaare; offene Wörter stehen getrennt. Nicht vollständig philologisch geprüft.')+'</p>';
+  }).join('')+'<p class="tc-credit">Digital Mishnah · CC BY 4.0 · '+esc(data.interlinear.version===2?'Wortgruppen nach Digital Mishnah; Lücken und Quellenzeichen bleiben erhalten. Automatisch zugeordnet, nicht vollständig philologisch geprüft.':'Gruppen statt erzwungener Einzelwortpaare; offene Wörter stehen getrennt. Nicht vollständig philologisch geprüft.')+'</p>';
  }
  function tosefta(ch,refs){
   const t=data.tosefta;if(!t)return '<p class="muted">'+esc('Für diesen Traktat sind keine geprüften Mischna–Tosefta-Verknüpfungen eingebunden.')+'</p>';
@@ -113,7 +115,7 @@ function create(host){
  function metadataPreview(anchor){
   const [sig,refs]=String(anchor.dataset.tcMishnah||'').split('|'),source=data?.witnesses[sig];if(!source)return '';
   const [wordRef,index]=String(anchor.dataset.tcMishnahWord||'').split('|'),i=Number(index);
-  const status=l=>!l?'Zuordnung offen':l.checked?'Geprüfte Zuordnung':l.kind==='joined'?'Wortgruppe (maschinell)':l.kind==='form'?'Form / Wortlaut':l.kind==='absent'?'Kein Gegenstück im maschinellen Vergleich':!l.base.length?'Zusatz (maschineller Vergleich)':'Wortzuordnung (maschinell)';
+  const status=l=>!l?'Zuordnung offen':l.checked?'Geprüfte Zuordnung':l.kind==='source-gap'?'Lücke zwischen belegten Nachbarwörtern':l.uncertain?'Zuordnung (maschinell) · beschädigt / unsicher':l.kind==='joined'?'Wortgruppe (maschinell)':l.kind==='form'?'Form / Wortlaut':l.kind==='absent'?'Kein Gegenstück im maschinellen Vergleich':!l.base.length?'Zusatz (maschineller Vergleich)':'Wortzuordnung (maschinell)';
   return '<b>'+esc(source.name)+'</b>'+String(refs||'').split(',').map(ref=>{
    const u=source.units[ref];if(!u)return '';const w=wordRef===ref&&index!==undefined?u.words[i]:null;
    let h='<p>'+esc(title()+' '+ref)+'</p><small>'+esc(u.id)+'</small>';

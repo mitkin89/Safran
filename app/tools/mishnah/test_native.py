@@ -14,8 +14,8 @@ class NativeTest(unittest.TestCase):
   for case in range(220):
    a=[token() for _ in range(rng.randrange(15))];b=[token() for _ in range(rng.randrange(15))]
    self.assertEqual(align.align(a,b),native.align(a,b),case)
- def test_entire_berakhot_golden_alignment(self):
+ def test_entire_berakhot_python_native_agreement(self):
   text=(HERE.parents[1]/'mishnah-textcrit-data.js').read_text();d=json.loads(text.split('window.MISHNAH_TEXTCRIT=',1)[1].strip().removesuffix(';'))
   reviews=json.loads((HERE/'alignment-review.json').read_text())
-  self.assertEqual(align.build(d,reviews,aligner=native.align),d['interlinear'])
+  self.assertEqual(align.build(d,reviews,aligner=native.align),align.build(d,reviews))
 if __name__=='__main__':unittest.main()

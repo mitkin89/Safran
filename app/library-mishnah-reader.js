@@ -71,7 +71,7 @@ function create(host){
     txt.innerHTML=adapter.sourceUnit(sig,ref);
    }
   }
-  for(const word of $('#rOut').querySelectorAll('[data-tc-mishnah]'))word.title=tr('Wortdetails und Quelle anzeigen');
+  for(const word of $('#rOut').querySelectorAll('[data-tc-mishnah]')){word.removeAttribute('title');word.setAttribute('aria-label',tr('Wortdetails und Quelle anzeigen'));}
   await host.refreshMorph?.();if(token!==generation)return;
   labelLines();for(const grid of $('#rOut').querySelectorAll('.mci-grid'))observer?.observe(grid);
  }
@@ -87,7 +87,6 @@ function create(host){
   if(getView()===view&&!$('#ilPop').hidden)$('#ilPop').innerHTML=menu();
  }
  $('#rOut').addEventListener('click',e=>{const w=e.target.closest('[data-tc-mishnah]');if(w)show(w);});
- $('#rOut').addEventListener('pointerover',e=>{const w=e.target.closest('[data-tc-mishnah]');if(w&&!w.contains(e.relatedTarget)){clearTimeout(timer);timer=setTimeout(()=>show(w),220);}});
  $('#rOut').addEventListener('pointerout',e=>{if(e.target.closest('[data-tc-mishnah]')){clearTimeout(timer);timer=setTimeout(hide,180);}});
  $('#rOut').addEventListener('focusin',e=>{const w=e.target.closest('[data-tc-mishnah]');if(w)show(w);});
  $('#rOut').addEventListener('focusout',e=>{if(e.target.closest('[data-tc-mishnah]'))timer=setTimeout(hide,180);});

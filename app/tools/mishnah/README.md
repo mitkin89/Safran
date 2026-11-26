@@ -30,27 +30,63 @@ complete reference mapping and philological review are still required.
 
 ## Word/group alignment
 
-`align.py` compares whole chapters with dynamic programming. Exact consonantal
-forms, explicitly encoded abbreviation expansions, conservative spelling
-similarity and concatenations of up to three source tokens are candidates.
-Only links shared by every minimum-cost path are accepted. Unrelated
-replacements, repeated-word ambiguity and damaged/unclear tokens remain open.
-Source whitespace is not silently edited: joined groups handle split source
-fragments. Two reviewed abbreviation pairs in `alignment-review.json` are bound
-to source SHA-256 and exact token strings. Automatic links remain unreviewed.
+`collate_project.py` executes Digital Mishnah's pinned XQuery word preparation
+and CollateX Java 1.7.1 (Needleman–Wunsch, unjoined tokens). It concatenates
+prepared units in chapter order before collation, so Cambridge's additional
+units do not force incorrect same-number pairs. h1 and original transposition
+copies are excluded to compare the corrected reading state. This reproduces
+the project's preprocessing and algorithm, adapted to Safran's chapter scope;
+it is not a downloaded or manually reviewed project apparatus.
+
+`sources/project-collation.json.gz` contains the build-time result, normalized
+project tokens, stable word IDs, input SHA-256 and provenance. The normal
+`python3 tools/mishnah/build.py` rebuild remains offline and needs no Java.
+`project_align.py` bridges complete surviving letter sequences to the original extract,
+groups fragments by project word/expansion columns, and retains all original
+text, offsets and annotations. Internal gap tokens stay in the same word group;
+gap-only tokens outside project words are positioned at boundaries between
+their actual source neighbours. They have no lexical counterpart and are not
+classified as additions. Missing or reversed anchors still leave material open. No normalized comparison string replaces the diplomatic reading.
 
 All 2,171 Parma tokens and 2,201 Cambridge tokens occur exactly once in linked
-or unresolved material. Parma: 2,002 linked to base words, 32 insertions, 137
-open. Cambridge: 1,909 linked, 33 insertions, 259 open. The full 57-unit Kaufmann
-reference is shown in the interlinear view. The source-context preview highlights
-the selected original token and retains corrections, expansions and original TEI.
-Red marks differing consonantal readings and additions; damage and unresolved
-material remain muted. A dash means no counterpart in the automated comparison,
-not an independently established manuscript omission.
+or unresolved material. Parma: 2,124 linked to base words, 47 insertions, 0 open.
+Cambridge: 2,116 linked, 49 insertions, 36 positioned gap tokens, 0 open.
+A positioned gap is not a reconstructed reading or a manually verified word
+match. These counts describe automatic placement, not
+philological certainty. Two hash-bound, previously reviewed Parma pairs retain
+their reviewed status; new automatic placements do not acquire it.
 
-Run `python3 tools/mishnah/test_align.py` for ambiguity, group, insertion and
-damage invariants; `node --test tests/mishnah-textcrit.test.js` checks complete
-source-word conservation, rendering, reviewed pairs and source offsets.
+Damaged/uncertain words and words adjacent to gaps stay muted even when placed
+in a column. An uncertain empty counterpart is shown as an ellipsis rather
+than a secure omission. Original gap extents, additions and deletions remain
+available in the source context. All 57 Kaufmann reference units remain visible.
+
+To regenerate the project cache, run:
+
+```
+python3 tools/mishnah/collate_project.py --upstream-dir /path/to/build-inputs
+```
+
+The input directory must contain `w-sep-to-json-new.xqm` at application commit
+`60792f6078128ba15a741d2ec3ac013784d07e0c`, the three `S*-w-sep.xml` files at
+the data commit above, Saxon HE 10.9, CollateX tools 1.7.1, Nashorn core 15.4,
+and ASM 7.3.1 (`asm`, `asm-commons`, `asm-tree`, `asm-util`, `asm-analysis`).
+The tool checks the source and main dependency hashes against
+`docs/audits/digital-mishnah-2026-11-26/provenance.json`. It downloads nothing
+and uses no external collation server. Java dependencies are build-only and
+not distributed with Safran. The script records its eXist/Saxon compatibility
+edits and one extraction fix: recursively retaining nested `orig` text. The
+upstream dispatcher skipped Cambridge's `לַעְזַר` in Berakhot 1:5 (project word
+`S01520.1.1.1.5.00070`), which also disturbed the neighbouring abbreviation
+`ר׳` in our character bridge. No characters were missing from either source;
+the fix retains the original text rather than using the normalized `reg`
+reading. The project's normalization and word-group rules are retained.
+
+Run `python3 tools/mishnah/test_project_align.py` for gap/word/expansion bridge invariants;
+`node --test tests/mishnah-textcrit.test.js tests/mishnah-reader.test.js`
+checks complete source-token conservation, rendering, reviewed pairs and source
+offsets. Source transcripts are Digital Mishnah, CC BY 4.0; the cache contains
+adapted, normalized and collated excerpts with the original witness IDs.
 
 ## Mishnah–Tosefta passage links
 
@@ -96,3 +132,20 @@ annotations overlapping that token (including explicit source expansions). It
 does not repeat the paragraph or invent morphology, manuscript dates, folio
 locations or certainty percentages. The apparatus retains its separate full
 source-context preview.
+
+
+## Compatibility with the expanded manuscript and vocalized corpora
+
+Berakhot uses the project CollateX cache through `project_align.py`. The
+existing `align.py`/native implementation and the other tractates remain
+available without an API change. `build_vocalized.py` uses a separate source-
+bound project cache for the existing Be'eri Berakhot reading edition; its
+vowels, punctuation, word-card offsets and full text remain untouched.
+`V00001` IDs identify synthetic comparison tokens of that edition, never
+manuscript word IDs. Its consonantal projection is passed through the same
+project `buildJSON` normalization and grouping rules. The other 62 vocalized
+comparisons retain their existing data and build path.
+
+Regenerate the additional cache with `python3 tools/mishnah/collate_vocalized.py
+--upstream-dir /path/to/build-inputs`, then build the vocalized comparison.
+The reference edition path and text hash must match before it can be used.

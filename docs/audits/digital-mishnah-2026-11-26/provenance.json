@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-26",
+  "dataCommit": "39389be30e93032d722e8dd3b7bcdfe15e76a421",
+  "applicationCommit": "60792f6078128ba15a741d2ec3ac013784d07e0c",
+  "unit": "1.1.1.1",
+  "algorithm": "needleman-wunsch",
+  "joined": false,
+  "upstreamLiveResponse": false,
+  "sourceHashes": {
+    "w-sep-to-json-new.xqm": "3ac205966d6281cf2cb7b62b8b957b8657e69511137c8c686aace846e0a4036b",
+    "S07326-w-sep.xml": "90800eccfec0e07739ddd391f51faa8da48a88719d1eaa2342dba79d26b1570b",
+    "S00483-w-sep.xml": "500fc9aceb3e60444c638fd6ee4ea77b297df73f811c6a335cefb33379fd998e",
+    "S01520-w-sep.xml": "e9a536e1450ef81e7acee63cd7bd3f53f6e301b5e7ff8d80b1a5b659a3d5a514",
+    "saxon-he-10.9.jar": "491d8edf4ec811d15c2b2417b007218b9b938f15e4dfbad004025beb4e70e960",
+    "collatex-tools-1.7.1.jar": "97f4897325d10ad02d9817cbbfbd7648413ba1711a570a4d37183591d1803ff9",
+    "nashorn-core-15.4.jar": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+  }
+}
