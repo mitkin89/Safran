@@ -3,7 +3,12 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 module.exports=async({docs,win,js,waitFor,book})=>{
  const root=path.resolve(__dirname,'../..'),manifest=require(path.join(root,'bundled/manifest.json')),entry=manifest.items.find(e=>e.title==='Mishnah Berakhot'&&e.kind==='de'),doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));docs.set(entry.rel,{...doc,entry:{...entry,own:false,bytes:10000}});
  const vocalizedEntry=manifest.items.find(e=>e.title==='Mishnah Berakhot'&&e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"),vocalizedDoc=JSON.parse(fs.readFileSync(path.join(root,'bundled',vocalizedEntry.rel)));docs.set(vocalizedEntry.rel,{...vocalizedDoc,entry:{...vocalizedEntry,own:false,bytes:10000},textHash:require('../../tools/mishnah-morph/build.cjs').hash(vocalizedDoc.text)});
- await win.reload();await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Mishnah Berakhot'))",'Mischna verfügbar');await book('Mishnah Berakhot');
+ const previousTitle=await js("document.querySelector('#rTitle').textContent");
+ await win.reload();
+ // The library tree is populated before startup restores the previous reading tab.
+ await waitFor(`document.querySelector('#rTitle').textContent===${JSON.stringify(previousTitle)}&&document.querySelector('#rOut .row[data-l]')`,'Lesetab nach Neustart wiederhergestellt');
+ await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Mishnah Berakhot'))",'Mischna verfügbar');
+ await book('Mishnah Berakhot');
  await waitFor("document.querySelector('#rTitle').textContent.includes('Mishnah Berakhot')&&!document.querySelector('#tcBtn').hidden",'Mischna-Apparat verfügbar');
  await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .txt')",'Mischna-Lesetext geladen');
  await js("{const c=document.querySelector('#verList input[data-rel=\"digital-mishnah/berakhot/K\"]');if(!c.checked)c.click();}");
