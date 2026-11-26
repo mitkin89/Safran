@@ -174,9 +174,17 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
   const family = roots?.[params.concordanceRoot];
   if (roots && !family) return { ...empty, error: 'Keine Wurzelzuordnung für dieses Lemma.' };
   const exactLemma = family ? '' : params.concordanceLemma;
-  const scan = family || exactLemma ? entries.filter(e => e.kind === 'he' && /^Westminster/.test(e.versionTitle || '')) : entries;
+  const scan = family || exactLemma ? entries.filter(e => e.kind === 'he' && /^Westminster/.test(e.versionTitle || ''))
+    : params.lemma ? entries.filter(e => e.kind === 'he'
+      ? /Westminster|Safran-Morphologie/.test(e.versionTitle || '')
+      : e.kind === 'other' || e.language === 'Greek' || e.language === 'Syriac') : entries;
   const lemma = !!params.lemma || !!family || !!exactLemma, out = { ...empty, total: scan.length }, stats = new Map();
-  if (lemma) out.lemmaCoverage = { words: 0, withLemma: 0, editions: [] };
+  if (lemma) {
+    out.lemmaCoverage = { words: 0, withLemma: 0, editions: [] };
+    out.excludedWithoutLemma = family || exactLemma ? 0 : entries.length - scan.length;
+  }
+  const progress = () => onProgress({ scanned: out.scanned, total: out.total, found: out.dist.reduce((n, x) => n + x.o, 0) });
+  const excludeWithoutLemma = () => { out.total--; out.excludedWithoutLemma++; progress(); };
   for (const e of Order.sortTitles(scan, x => x.title)) {
     if (isCancelled()) break;
     const surfaceCache = !lemma ? await require('./concordance-surface-cache').open(dir, e, cacheDir) : null;
@@ -197,6 +205,12 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
     if (lemma && (d.greekMorphology || d.syriacMorphology)) {
       d.textHash = crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex');
       validHash = (d.greekMorphology || d.syriacMorphology).textHash === d.textHash;
+    }
+    if (lemma && !(validHash ||
+        (e.kind === 'he' && /Westminster|Safran-Morphologie/.test(e.versionTitle || '')) ||
+        (/^Septuaginta \(/.test(e.versionTitle || '') && data().LXX_MORPH && GM.bookIndex(data().LXX_MORPH, e.title, e.versionTitle) >= 0))) {
+      excludeWithoutLemma();
+      continue;
     }
     let h = 0, o = 0, shown = 0, words = 0, withLemma = 0, locator;
     const locate = p => (locator ||= R.makeLocator(d.text, d.sectionNames))(p);
@@ -229,7 +243,7 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
         const root = family && roots[aa?.lemmaId];
         if (family) {
           if (root?.id !== family.id || root.lang !== family.lang) continue;
-        } else if (exactLemma ? aa?.lemmaId !== exactLemma : t.key !== q && !lemmaHit) {
+        } else if (exactLemma ? aa?.lemmaId !== exactLemma : lemma ? !lemmaHit : t.key !== q) {
           continue;
         }
         o++; passage = true;
@@ -250,6 +264,10 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
       if (row % 100 === 0) await new Promise(r => setImmediate(r));
     }
     if (vocabulary && complete && !isCancelled()) await surfaceCache.save(vocabulary);
+    if (lemma && complete && !isCancelled() && !withLemma) {
+      excludeWithoutLemma();
+      continue;
+    }
     if (lemma && !isCancelled()) {
       out.lemmaCoverage.words += words;
       out.lemmaCoverage.withLemma += withLemma;
@@ -268,4 +286,13 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
   out.crossLanguage=!!params.crossLanguage;
   out.cancelled = isCancelled(); return out;
 }
-module.exports = { search, normalize, tokens, textOf, syriacWordSpans };
+// Reuse exact-source lexical assignments in witness statistics. Spelling-only
+// context lemmas without a lexical ID remain ungrouped there.
+function reviewedSyriacParts(doc,id,form,chapter,verse) {
+  const review=syriacReview(doc.title), row=review?.words.get(String(id));
+  if (!doc.textHash || review?.textHash!==doc.textHash || !row || row.form!==form || row.chapter!==chapter || row.verse!==verse) return [];
+  if (row.parts) return row.parts.map(([,lex,sp])=>({lex,sp}));
+  if (row.corpusDictionaryReview?.lexeme) return [{lex:row.corpusDictionaryReview.lexeme,sp:'reviewed'}];
+  return [];
+}
+module.exports = { search, normalize, tokens, textOf, syriacWordSpans, reviewedSyriacParts };

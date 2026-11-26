@@ -98,7 +98,7 @@ window.LibrarySearch = (() => {
       if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
       const rootMode = cc && $('#sConcordanceMode').value === 'root';
       const exactLemma = cc && $('#sConcordanceMode').value === 'lemma' && concordanceLemma;
-      $('#sHint').textContent = rootMode ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).') : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma) : cc ? I18N.t('Ein Wort in lokalen Werken; optional zugeordnete Bibeltexte in Hebräisch, Griechisch und Syrisch. Grundformen nur aus passenden Wortanalysen, sonst genaue Wortform. Ohne Fußnoten. Fassungen zählen getrennt.') : p.join(' · ');
+      $('#sHint').textContent = rootMode ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).') : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma) : cc ? I18N.t($('#sConcordanceMode').value === 'lemma' ? 'Lemma-Suche: nur Fassungen mit nutzbaren Lemma-Zuordnungen und nur belegte Lemmata. Für andere Werke die Wortformsuche verwenden.' : 'Wortformsuche in lokalen Werken. Ohne Fußnoten. Fassungen zählen getrennt.') : p.join(' · ');
       const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
       $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
     }
@@ -425,8 +425,9 @@ window.LibrarySearch = (() => {
         + (res.cancelled ? ' · ' + I18N.t('– abgebrochen') : '')
         + (res.truncated || res.capped ? ' · ' + I18N.t('Anzeige begrenzt; Häufigkeiten zählen alle durchsuchten Stellen. Werk auswählen, um weitere Belege zu sehen.') : '')
         + (res.lemmaCoverage && !res.hitsByBasis.root && !sp.concordanceRoot
-          ? ' · ' + I18N.t('{} Lemmatreffer · {} Wortformtreffer', res.hitsByBasis.lemma.toLocaleString(I18N.loc), res.hitsByBasis.surface.toLocaleString(I18N.loc))
+          ? ' · ' + I18N.t('{} Lemmatreffer', res.hitsByBasis.lemma.toLocaleString(I18N.loc))
           : '')
+        + (res.excludedWithoutLemma ? ' · ' + I18N.t('{} Fassungen ohne nutzbare Lemma-Zuordnungen ausgeschlossen.', res.excludedWithoutLemma) : '')
         + (res.crossLanguage ? ' · ' + I18N.t('Entsprechungen aus Wortzuordnungen; getrennt von den Vorkommenszahlen.') : '')
         + (res.errors ? ' · ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
       if (res.concordance) $('#sLemmaCoverage').innerHTML = concordanceCoverageHtml(res);

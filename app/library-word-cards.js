@@ -607,11 +607,11 @@ window.LibraryWordCards = (() => {
     // All indices encode references in the same book order.
     if (WR && (!IR || JSON.stringify(IR.books) === JSON.stringify(WR.books))) {
       for (const [key, lang] of Object.entries(WC_TR_WITNESSES)) {
-        const entry = WR[key][lemma];
+        const grouped = WR.groups?.[key]?.[lemma], entry = grouped || WR[key][lemma];
         if (!entry) continue;
         const [labels, cells] = entry;
-        src[key] = { lang, labels: labels.map(form => ({ forms: [form] })),
-          cells: cells.map(([g, code, n, refs]) => ({ g, code, n, refs })) };
+        src[key] = { lang, grouped:!!grouped, labels: grouped ? labels : labels.map(form => ({ forms: [form] })),
+          cells: cells.map(([g, code, n, refs, form]) => ({ g, code, n, refs, form })) };
       }
     }
     for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
@@ -757,7 +757,7 @@ window.LibraryWordCards = (() => {
     }).filter(d => d.vals.length > 1 || S.f[d.k]);
     // Gruppen unter dem Filter; Stellen je Gruppe in der Reihenfolge des Tanach (Doppelte bleiben: zwei Vorkommen im Vers = zwei Zeilen)
     const gn = new Map(), grefs = new Map();
-    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach(num => a.push({ num, code: c.code, g: c.g, lemma: c.lemma })); } });
+    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach(num => a.push({ num, code: c.code, g: c.g, lemma: c.lemma, form:c.form })); } });
     grefs.forEach(a => a.sort((x, y) => x.num - y.num));
     const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.labels[g] && D.labels[g].same ? I18N.lang : D.lang, refs: grefs.get(g) }))  /* Qumran „gleich …“: Text der Oberfläche, nicht hebräisch */.sort((a, b) => (!!a.other - !!b.other) || b.n - a.n);
     const tot = gs.reduce((a, g) => a + g.n, 0), all = D.total;
@@ -796,7 +796,7 @@ window.LibraryWordCards = (() => {
         if (o) u.add(o.i);
         if (bk !== lb) { html += `<div class="bk">${host.esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
         const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
-        html += `<div class="ln"><a data-ref="${host.esc(r)}"${it.lemma ? ` data-same-lemma="${host.esc(it.lemma)}"` : ''}>${cv}</a><span class="he" lang="he" dir="rtl">${o ? host.esc(o.he) : ''}${wcTrLemmaCaption(it.lemma)}</span><span class="de" lang="${de ? 'de' : D.lang}" dir="${RTL(D.lang) ? 'rtl' : 'ltr'}">${o && o.de ? host.esc(o.de) : S.cur === 'Q' ? (D.labels[it.g].same ? '=' : host.esc(D.labels[it.g].forms[0])) : !de ? host.esc(D.labels[it.g].forms[0]) : withLabel ? `<span class="muted">${host.esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${host.esc(hs.get(it.g))}</small>` : ''}</span></div>`;
+        html += `<div class="ln"><a data-ref="${host.esc(r)}"${it.lemma ? ` data-same-lemma="${host.esc(it.lemma)}"` : ''}>${cv}</a><span class="he" lang="he" dir="rtl">${o ? host.esc(o.he) : ''}${wcTrLemmaCaption(it.lemma)}</span><span class="de" lang="${de ? 'de' : D.lang}" dir="${RTL(D.lang) ? 'rtl' : 'ltr'}">${o && o.de ? host.esc(o.de) : S.cur === 'Q' ? (D.labels[it.g].same ? '=' : host.esc(D.labels[it.g].forms[0])) : !de ? host.esc(it.form || D.labels[it.g].forms[0]) : withLabel ? `<span class="muted">${host.esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${host.esc(hs.get(it.g))}</small>` : ''}</span></div>`;
       });
       const rest = items.length - lim, STEP = 300;
       const more = rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${host.esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(items.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';
@@ -805,7 +805,7 @@ window.LibraryWordCards = (() => {
     const detail = g => {
       const fm = g.forms.slice(1), sum = fm.reduce((a, f) => a + f[1], 0), gAll = D.cells.reduce((a, c) => a + (c.g === g.g ? c.n : 0), 0), h = hint(g);
       return `<div class="wcTrX">${h ? `<p class="wcTrHint" dir="auto">${host.esc(h)} <span class="muted">– ${host.esc(I18N.t('diese Wiedergabe ist bei dem gleich geschriebenen Wort deutlich häufiger.'))}</span></p>` : ''}
-        ${fm.length ? `<div class="wcTrFm"><span class="muted">${host.esc(I18N.t('Formen:'))}</span>${fm.map(([f, n]) => `<span class="fm" lang="de">${host.esc(f)} <small>${wcNum(n)}</small></span>`).join('')}${sum < gAll ? `<span class="muted">${host.esc(I18N.t('… und weitere Formen'))}</span>` : ''}${fk.length ? `<span class="muted">(${host.esc(I18N.t('ohne Filter gezählt'))})</span>` : ''}</div>` : ''}
+        ${fm.length ? `<div class="wcTrFm"><span class="muted">${host.esc(I18N.t('Formen:'))}</span>${fm.map(([f, n]) => `<span class="fm" lang="${D.lang}" dir="${RTL(D.lang) ? 'rtl' : 'ltr'}">${host.esc(f)} <small>${wcNum(n)}</small></span>`).join('')}${sum < gAll ? `<span class="muted">${host.esc(I18N.t('… und weitere Formen'))}</span>` : ''}${fk.length ? `<span class="muted">(${host.esc(I18N.t('ohne Filter gezählt'))})</span>` : ''}</div>` : ''}
         ${g.refs ? ctx(g.refs, String(g.g)) : ''}</div>`;
     };
     // Ring: die häufigsten Wiedergaben (bis 7, ohne die zusammengefassten Einzelbelege) in den Kategorienfarben, der Rest grau; dieselbe Farbe trägt die Zeile in der Liste
@@ -829,7 +829,7 @@ window.LibraryWordCards = (() => {
     const name = g => de&&!g.other ? `<button type="button" class="wcSamePick" data-g="${g.g}" aria-pressed="${S.same===String(g.g)}" title="${host.esc(I18N.t('Andere hebräische Wörter mit dieser Wiedergabe zeigen'))}">${host.esc(lab(g))}</button>` : g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
     const row = g => {
       const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
-      return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${host.esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${host.esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${host.esc(h)}">${host.esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
+      return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${host.esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${host.esc(g.gl)}</small>` : ''}${D.grouped ? ` <small class="muted wcTrKind">${host.esc(I18N.t(g.type === 'lemma' ? 'Lemma' : g.type === 'phrase' ? 'Wortgruppe' : 'Wortform ohne sichere Lemma-Zuordnung'))}</small>` : ''}${h ? ` <small class="hint" title="${host.esc(h)}">${host.esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
     };
     const onesRow = () => {
       const open = S.open === 'ones', n = ones.length;
@@ -838,18 +838,23 @@ window.LibraryWordCards = (() => {
       return `<div class="wcTrR c0 can ones${open ? ' open' : ''}" data-g="ones" data-s="rest" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}${sw}<span class="f"><bdi>${host.esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
     };
     const others = shown.filter(g => g.other), normal = shown.filter(g => !g.other);
-    const list = gs.length ? normal.map(row).join('') + (main.length > shown.length ? `<div class="mr"><button type="button" class="wcTrAllRows" dir="auto">${host.esc(I18N.t('alle {} Wiedergaben zeigen', wcNum(main.length)))}</button></div>` : '') + (fold ? onesRow() : '') + others.map(row).join('')
+    const list = D.grouped ? (['lemma','form','phrase'].map(type=>{
+      const members=gs.filter(g=>g.type===type);if(!members.length)return '';
+      const rows=members.map(row).join('');if(type==='lemma')return rows;
+      const title=I18N.t(type==='form' ? 'Wortformen ohne sichere Lemma-Zuordnung' : 'Wortgruppen');
+      return `<details class="wcTrUnresolved"${members.some(g=>String(g.g)===S.open)?' open':''}><summary>${host.esc(title)} · ${wcNum(members.length)} · ${host.esc(I18N.t('{} Belege',wcNum(members.reduce((n,g)=>n+g.n,0))))}</summary>${rows}</details>`;
+    }).join('') || `<p class="muted">${host.esc(I18N.t('Keine Belege für diese Auswahl.'))}</p>`) : gs.length ? normal.map(row).join('') + (main.length > shown.length ? `<div class="mr"><button type="button" class="wcTrAllRows" dir="auto">${host.esc(I18N.t('alle {} Wiedergaben zeigen', wcNum(main.length)))}</button></div>` : '') + (fold ? onesRow() : '') + others.map(row).join('')
       : `<p class="muted">${host.esc(I18N.t('Keine Belege für diese Auswahl.'))}</p>`;
     // ----- Vergleich zweier Fassungen: an denselben Stellen gibt A das Wort mit X wieder, B mit Y (Paare nach A gruppiert); Klick auf ein Paar zeigt die Stellen mit beiden Wiedergaben -----
     function cmpView() {
       const kB = S.cmp, B = S.src[kB], deB = B.lang === 'de';
-      const per = Dx => { const m = new Map(); let n = 0; Dx.cells.forEach(c => { if (!match(c)) return; n += c.n; unB36(c.refs).forEach(num => (m.get(num) || m.set(num, []).get(num)).push({ g: c.g, code: c.code, lemma: c.lemma })); }); return { m, n }; };
+      const per = Dx => { const m = new Map(); let n = 0; Dx.cells.forEach(c => { if (!match(c)) return; n += c.n; unB36(c.refs).forEach(num => (m.get(num) || m.set(num, []).get(num)).push({ g: c.g, code: c.code, lemma: c.lemma, form:c.form })); }); return { m, n }; };
       const PA = per(D), PB = per(B), pairs = new Map(); let np = 0;
       PA.m.forEach((as, num) => { // mehrere Vorkommen im Vers: erst die mit gleicher Bestimmung zusammen, dann der Reihe nach
         const bs = PB.m.get(num); if (!bs) return; const free = bs.slice(), pr = [], left = [];
         as.forEach(a => { const j = free.findIndex(b => b.lemma === a.lemma && b.code === a.code); if (j >= 0) pr.push([a, free.splice(j, 1)[0]]); else left.push(a); });
         left.forEach(a => { const j = free.findIndex(b => b.lemma === a.lemma); if (j >= 0) pr.push([a, free.splice(j, 1)[0]]); });
-        pr.forEach(([a, b]) => { const key = 'x' + a.g + '-' + b.g, p = pairs.get(key) || pairs.set(key, { key, a: a.g, b: b.g, n: 0, refs: [] }).get(key); p.n++; p.refs.push({ num, lemma: a.lemma, code: a.code, codeB: b.code, g: a.g, gb: b.g }); np++; });
+        pr.forEach(([a, b]) => { const key = 'x' + a.g + '-' + b.g, p = pairs.get(key) || pairs.set(key, { key, a: a.g, b: b.g, n: 0, refs: [] }).get(key); p.n++; p.refs.push({ num, lemma: a.lemma, code: a.code, codeB: b.code, g: a.g, gb: b.g, form:a.form, formB:b.form }); np++; });
       });
       const lA = g => D.labels[g].other ? I18N.t('Andere') : D.labels[g].forms[0], lB = g => B.labels[g].other ? I18N.t('Andere') : B.labels[g].forms[0];
       const sameLang = D.lang === B.lang, isSame = p => sameLang && !D.labels[p.a].other && !B.labels[p.b].other && String(lA(p.a)).toLowerCase() === String(lB(p.b)).toLowerCase();
@@ -875,13 +880,13 @@ window.LibraryWordCards = (() => {
           };
         };
         const pa = picker(S.cur, D), pb = picker(kB, B);
-        const cell = (Dx, o, t) => `<span class="de" lang="${Dx.lang}" dir="${RTL(Dx.lang) ? 'rtl' : 'ltr'}">${o && o.de ? host.esc(o.de) : `<span class="muted">${host.esc(t)}</span>`}</span>`;
+        const cell = (Dx, o, t, form) => `<span class="de" lang="${Dx.lang}" dir="${RTL(Dx.lang) ? 'rtl' : 'ltr'}">${o && o.de ? host.esc(o.de) : `<span class="muted">${host.esc(form || t)}</span>`}</span>`;
         let lb = null, html = `<div class="ln ln2 hd" aria-hidden="true"><span></span><span></span><span>${host.esc(srcName(S.cur))}</span><span>${host.esc(srcName(kB))}</span></div>`;
         part.forEach((it, j) => {
           const r = refs[j], bk = Math.floor(it.num / 1e6), oa = pa(r, it.g, it.code, it.lemma), ob = pb(r, it.gb, it.codeB), he = (oa || ob || {}).he || '';
           if (bk !== lb) { html += `<div class="bk">${host.esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
           const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
-          html += `<div class="ln ln2"><a data-ref="${host.esc(r)}"${it.lemma ? ` data-same-lemma="${host.esc(it.lemma)}"` : ''}>${cv}</a><span class="he" lang="he" dir="rtl">${host.esc(he)}${wcTrLemmaCaption(it.lemma)}</span>${cell(D, oa, lA(it.g))}${cell(B, ob, lB(it.gb))}</div>`;
+          html += `<div class="ln ln2"><a data-ref="${host.esc(r)}"${it.lemma ? ` data-same-lemma="${host.esc(it.lemma)}"` : ''}>${cv}</a><span class="he" lang="he" dir="rtl">${host.esc(he)}${wcTrLemmaCaption(it.lemma)}</span>${cell(D, oa, lA(it.g),it.form)}${cell(B, ob, lB(it.gb),it.formB)}</div>`;
         });
         const rest = p.refs.length - lim, STEP = 300;
         return `<div class="wcTrX"><div class="fmRL wcTrCx">${html}${rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${host.esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(p.refs.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : ''}</div></div>`;
@@ -901,8 +906,11 @@ window.LibraryWordCards = (() => {
     const dimRow = d => `<div class="wcTrFR"><span class="muted">${host.esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${host.esc(v)}" aria-pressed="${S.f[d.k] === v}">${host.esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${host.esc(S.f[d.k])}" aria-pressed="true">${host.esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`;
     const mainDims = dims.filter(d => WC_TR_MAIN.has(d.k)), restDims = dims.filter(d => !WC_TR_MAIN.has(d.k));
     const X = S.cmp && S.cmp !== S.cur && S.src[S.cmp] ? cmpView() : null;
-    const sum = `<div class="wcTrSum${X ? ' cmp' : ''}">${X ? X.head : `<span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${host.esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</span>`}${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${host.esc(S.f[k])}" title="${host.esc(I18N.t('Filter entfernen'))}">${host.esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${host.esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${host.esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
-    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : S.cur === 'Q' ? 'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.' : S.cur === 'Samaritan' ? 'Samaritanus (Tal–Florentin): belegte Wortformen aus den eindeutigen Interlinear-Zuordnungen zum Westminster-Text.' : S.cur === 'Peshitta' ? 'Peschitta (ETCBC): belegte syrische Wortformen aus den Interlinear-Zuordnungen zum Westminster-Text.' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
+    const groupSummary = D.grouped ? [I18N.t('{} Belege',wcNum(tot)), ...[
+      ['lemma','{} Lemma','{} Lemmata'], ['form','{} Wortform ohne Lemma','{} Wortformen ohne Lemma'], ['phrase','{} Wortgruppe','{} Wortgruppen']
+    ].flatMap(([type,singular,plural])=>{const n=gs.filter(g=>g.type===type).length;return n?[I18N.t(n===1?singular:plural,wcNum(n))]:[];})].join(' · ') : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length));
+    const sum = `<div class="wcTrSum${X ? ' cmp' : ''}">${X ? X.head : `<span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${host.esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : groupSummary)}</span>`}${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${host.esc(S.f[k])}" title="${host.esc(I18N.t('Filter entfernen'))}">${host.esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${host.esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${host.esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
+    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : S.cur === 'Q' ? 'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.' : S.cur === 'Samaritan' ? 'Samaritanus: nach belegten Lexemen der eigenen Wortanalysen gruppiert. Originalformen und Fundstellen bleiben erhalten; Wörter ohne sichere Zuordnung und Wortgruppen stehen separat.' : S.cur === 'Peshitta' ? 'Peschitta: nach belegten Lexemen der eigenen Wortanalysen gruppiert. Originalformen und Fundstellen bleiben erhalten; Wörter ohne sichere Zuordnung und Wortgruppen stehen separat.' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
     { // was gerade eingeklappt ist (Formen einer Zeile, Einzelbelege, weitere Wiedergaben, weitere Merkmale) – die Suche im Fenster (wcFind) findet es und klappt es beim Springen auf
       const hid = [], gtxt = g => lab(g) + (g.gl ? ' ' + g.gl : '');
       if (X) { if (X.hidden) hid.push({ act: 'rows', sel: '.wcTrAllRows', text: X.hidden }); }

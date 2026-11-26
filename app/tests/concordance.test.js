@@ -12,12 +12,13 @@ test('cross-work occurrences retain spelling, context, source locations and comp
  const r=await find({limit:2,perFile:1});assert.equal(r.stats.reduce((n,x)=>n+x.n,0),5);assert.equal(r.dist.reduce((n,x)=>n+x.h,0),2);assert.equal(r.results.length,2);assert(r.capped||r.truncated);assert.equal(r.scanned,2);assert.deepEqual(r.results[0].loc,{path:[0],label:'1'});
  const full=await find({perFile:10});assert.equal(full.results.length,5);assert(full.results.some(x=>x.snippet.hit==='שִׂיחַ'));assert(!full.results.some(x=>x.snippet.hit==='שיחור'));assert.equal(full.results[1].position,3);
 });
-test('Greek source lemmas work across inflections but edited source falls back to word forms',async t=>{
+test('Greek lemma search excludes edited annotations; word-form search remains available',async t=>{
  const d={title:'The War of the Jews',kind:'other',language:'Greek',text:[['ἐποίησεν ποιεῖ']],greekMorphology:{version:1,work:'test',F:['ἐποίησεν','ποιεῖ'],L:['ποιέω'],T:['v3saia---'],E:[[0,0,0],[1,0,0]],P:{'1.1':'0.1'},locator:{'[0,"1"]':'1.1'}}};d.greekMorphology.textHash=hash(d);
  const bad=structuredClone(d);bad.title='Edited work';bad.text=[['ἐποίησεν ποιεῖ καλῶς']];const find=await fixture(t,[d,bad]);
- const r=await find({query:'ποιέω',lemma:true});assert.equal(r.results.length,2);assert(r.results.every(x=>x.basis==='lemma'&&x.analysisSource==='OGA'&&x.title===d.title));assert.deepEqual(r.coverage,{annotated:1,surface:1});
- assert.deepEqual([r.lemmaCoverage.withLemma,r.lemmaCoverage.words],[2,5]);
- assert.deepEqual(r.lemmaCoverage.editions.find(row=>row.title===bad.title),{title:bad.title,versionTitle:d.versionTitle||'Source',words:3,withLemma:0,hits:0});
+ const r=await find({query:'ποιέω',lemma:true});assert.equal(r.results.length,2);assert(r.results.every(x=>x.basis==='lemma'&&x.analysisSource==='OGA'&&x.title===d.title));assert.deepEqual(r.coverage,{annotated:1,surface:0});assert.equal(r.excludedWithoutLemma,1);assert.equal(r.total,1);
+ assert.deepEqual([r.lemmaCoverage.withLemma,r.lemmaCoverage.words],[2,2]);
+ assert(!r.lemmaCoverage.editions.some(row=>row.title===bad.title));
+ assert.equal((await find({query:'ποιει',lemma:true})).results.length,0,'surface spelling must not match a different lemma');
  const surface=await find({query:'ποιει',lemma:false});assert.equal(surface.results.length,2);assert(surface.results.every(x=>x.snippet.hit==='ποιεῖ'));
 });
 test('Syriac consonantal lemma annotations require matching text and numbering',async t=>{
@@ -38,8 +39,8 @@ test('Ruth adds only reviewed lemma hits and preserves the Peshitta verse keys',
  assert(vinegar.results.some(hit => hit.loc.label === '14' && hit.loc.path[0] === 1 && hit.snippet.hit === 'ܒܚܠܐ'));
  const bread = await find('ܠܚܡ');
  assert(bread.results.some(hit => hit.loc.label === '14' && hit.loc.path[0] === 1 && hit.snippet.hit === 'ܠܚܡܐ' && hit.basis === 'lemma'));
- assert(bread.results.some(hit => hit.loc.label === '1' && hit.loc.path[0] === 0 && hit.snippet.hit === 'ܠܚܡ' && hit.basis === 'surface'));
- assert(bread.results.some(hit => hit.loc.label === '4' && hit.loc.path[0] === 1 && hit.snippet.hit === 'ܠܚܡ' && hit.basis === 'surface'));
+ assert(!bread.results.some(hit => hit.basis === 'surface'));
+ assert((await find('ܠܚܡ', false)).results.some(hit => hit.loc.label === '4' && hit.loc.path[0] === 1 && hit.snippet.hit === 'ܠܚܡ'));
  const review = require('../peshitta-ruth-lemma-review.json').entries;
  assert.equal(review.find(row => row.id === '283299').parts[1][1], 'XL=');
  assert.equal(review.find(row => row.id === '283526').parts[1][1], 'CN>=');
@@ -90,7 +91,8 @@ test('Isaiah exposes contextual and parallel-text lemmas with their respective p
  assert.equal(parallel.analysisReference, 'II Kings 18:19');
  assert(!inVerse(await find('ܐܡܪ', false), 36, '4', 'ܐܡܪܘ'));
  assert(!inVerse(await find('ܡܕܝܢܐ'), 1, '21', 'ܡܕܝܢܬܐ'), 'a candidate based on spelling alone stays out of the lemma index');
- assert.equal(inVerse(await find('ܡܕܝܢܬܐ'), 1, '21', 'ܡܕܝܢܬܐ')?.basis, 'surface');
+ assert(!inVerse(await find('ܡܕܝܢܬܐ'), 1, '21', 'ܡܕܝܢܬܐ'));
+ assert.equal(inVerse(await find('ܡܕܝܢܬܐ', false), 1, '21', 'ܡܕܝܢܬܐ')?.basis, 'surface');
  const killers = inVerse(await find('ܩܛܘܠ'), 1, '21', 'ܩܛܘ̈ܠܐ');
  assert.equal(killers?.analysisSource, 'ETCBC Syriac (automatischer Übersetzungsabgleich)');
  assert.equal(killers.analysisReference, 'Numbers 35:6 · Deuteronomy 4:42');
@@ -198,12 +200,10 @@ test('real MT, CATSS and Peshitta links are bidirectional, source-specific and s
 
 test('word card preview stops after its result limit while full concordance counts both works', async t => {
  const find = await fixture(t, [{ title: 'Genesis', text: [['שיח שיח שיח', 'אחר']] }, { title: 'Exodus', text: [['שיח']] }]);
- const preview = await find({ concordancePreview: true, lemma: true, limit: 2 });
+ const preview = await find({ concordancePreview: true, limit: 2 });
  assert.equal(preview.results.length, 2);
  assert.equal(preview.scanned, 1);
- assert.deepEqual(preview.lemmaCoverage,{ words:4, withLemma:0, editions:[
-   {title:'Genesis',versionTitle:'Source',words:4,withLemma:0,hits:3},
- ]});
+ assert.equal(preview.lemmaCoverage, undefined);
  assert.deepEqual(preview.hitsByBasis,{lemma:0,surface:3,root:0});
  const full = await find({ limit: 2 });
  assert.equal(full.scanned, 2);
@@ -260,4 +260,22 @@ test('UniMorph context supplement admits reviewed positions and withholds incomp
   assert.equal(hits.length > 0, decision.contextReview.accepted, `${decision.book} ${decision.chapter}:${decision.verse} ${decision.form}`);
   if (decision.contextReview.accepted) assert(hits.every(hit => hit.basis === 'lemma' && hit.analysisReference.startsWith('UniMorph Syriac')));
  }
+});
+
+test('lemma search excludes Bach and falsely labelled sources while word-form search keeps them', async t => {
+ const word = '<span class="w" data-l="4397" data-m="HNcmsa">מלאך</span>';
+ const find = await fixture(t, [
+  {title:'Genesis',versionTitle:'Westminster fixture',text:[[word+' <span class="w" data-l="0" data-m="HNcmsa">מלאך</span>']]},
+  {title:'Bach',text:[['מלאך']]},
+  {title:'Unsupported',versionTitle:'Westminster fixture',text:[['מלאך']]},
+ ]);
+ const lemmas = await find({query:'מלאך',lemma:true});
+ assert.deepEqual(lemmas.results.map(hit=>[hit.title,hit.position,hit.basis]),[['Genesis',1,'lemma']]);
+ assert.equal(lemmas.total,1); assert.equal(lemmas.scanned,1);assert.equal(lemmas.excludedWithoutLemma,2);
+ assert.equal(lemmas.lemmaCoverage.editions.length,1);
+ assert.equal(lemmas.hitsByBasis.surface,0);
+ const forms = await find({query:'מלאך'});
+ assert.equal(forms.results.length,4);assert(forms.results.some(hit=>hit.title==='Bach'));
+ const excluded = await C.search({dir:os.tmpdir(),entries:[{rel:'nonexistent-bach.json',title:'Bach',kind:'he',language:'Hebrew'}],params:{query:'מלאך',lemma:true}});
+ assert.equal(excluded.total,0);assert.equal(excluded.excludedWithoutLemma,1);assert.equal(excluded.errors,0,'known unsupported editions are excluded before reading files');
 });

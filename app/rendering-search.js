@@ -25,14 +25,14 @@
     for (const [lemma, details] of members) {
       for (const [source, entry] of Object.entries(details.src)) {
         const merged = sources[source] ||= {
-          lang: entry.lang, labels: [], cells: [], total: 0, byLemma: {},
+          lang: entry.lang, grouped:entry.grouped, labels: [], cells: [], total: 0, byLemma: {},
           groups: new Map(),
         };
         merged.byLemma[lemma] = entry;
         merged.total += entry.total;
         const indices = entry.labels.map(label => {
           // Preserve distinct labels for different kinds of variants or lexemes.
-          const group = JSON.stringify([key(label.forms[0]), label.gl, !!label.same, !!label.other]);
+          const group = JSON.stringify([key(label.forms[0]), label.key, label.type, label.gl, !!label.same, !!label.other]);
           if (!merged.groups.has(group)) {
             merged.groups.set(group, merged.labels.length);
             merged.labels.push({ ...label, forms: [label.forms[0]], variants: new Map() });

@@ -38,3 +38,10 @@ test('word-family renderings combine counts while preserving the source lemma of
  assert.equal(merged.Philippson.total,2);
  assert.equal(a.cells[0].lemma,undefined);
 });
+test('witness families preserve lexical identities even when displayed lemmas are identical',()=>{
+ const {familySources}=require('../rendering-search');
+ const entry=key=>({lang:'syr',grouped:true,total:1,labels:[{key,type:'lemma',forms:['ܡܝ',['ܡ̈ܝܐ',1]]}],cells:[{g:0,n:1,code:'HN',refs:'rt',form:'ܡ̈ܝܐ'}]});
+ const merged=familySources([['1',{src:{Peshitta:entry('MJ')}}],['2',{src:{Peshitta:entry('MJ=')}}]]).Peshitta;
+ assert.equal(merged.grouped,true);assert.equal(merged.labels.length,2);assert.equal(merged.total,2);
+ assert(merged.cells.every(c=>c.form==='ܡ̈ܝܐ'));
+});
