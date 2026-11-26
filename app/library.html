@@ -124,6 +124,16 @@
         <button id="sGo" class="primary">Suchen</button>
 
       </div>
+      <div id="sScope">
+        <details id="sCatPanel" class="catpanel">
+          <summary id="sCatBtn">In: Gesamte Bibliothek</summary>
+          <div class="bar"><input id="sCatFilter" aria-label="Kategorien und Werke durchsuchen" placeholder="Kategorien und Werke durchsuchen …"><button id="sCatAll" type="button">Alle Kategorien auswählen</button><button id="sCatReset" type="button">Auswahl zurücksetzen</button></div>
+          <p class="muted">Ohne Auswahl wird die gesamte Bibliothek durchsucht.</p>
+          <div id="sCatTree"></div>
+        </details>
+        <div id="sScopeChips" aria-label="Ausgewählte Suchbereiche"></div>
+        <label id="sWlcLabel" title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
+      </div>
       <div class="bar" id="sOpts">
         <label title="„Automatisch“ richtet sich nach der Schrift der Eingabe: hebräische Buchstaben = hebräische Texte, sonst deutsche und englische">Sprache <select id="sLang">
           <option value="auto" selected>Automatisch</option>
@@ -133,7 +143,7 @@
           <option value="other">Andere</option>
           <option value="all">Alle</option>
         </select></label>
-        <label>Treffer <select id="sMode">
+        <label>Suchen nach <select id="sMode">
           <option value="exact">Wortform</option>
           <option value="lemma">Lemma / alle Flexionsformen</option>
           <option value="root">Wortfamilie</option>
@@ -142,14 +152,14 @@
       </div>
       <p id="sHint" class="muted"></p>
       <details id="sAdv">
-        <summary>Erweitert<span id="sAdvN"></span></summary>
+        <summary>Weitere Optionen<span id="sAdvN"></span></summary>
         <div class="bar" id="advBar">
-          <label id="sWordModeLabel">Wortform-Abgleich <select id="sWordMode">
+          <label id="sWordModeLabel">Übereinstimmung <select id="sWordMode">
             <option value="exact">Genau dieses Wort</option>
             <option value="prefix">Wort mit Vorsilben</option>
             <option value="part">Auch Wortteile</option>
           </select></label>
-          <label title="Gilt, wenn mehrere Wörter im Suchfeld stehen">Abstand <select id="sDist" title="Wie weit dürfen die Wörter höchstens auseinander stehen? Gezählt werden die Wörter dazwischen, innerhalb eines Verses bzw. Absatzes.">
+          <label id="sDistLabel" title="Gilt, wenn mehrere Wörter im Suchfeld stehen">Abstand <select id="sDist" title="Wie weit dürfen die Wörter höchstens auseinander stehen? Gezählt werden die Wörter dazwischen, innerhalb eines Verses bzw. Absatzes.">
             <option value="-1">beliebig im Vers</option>
             <option value="0">direkt nebeneinander</option>
             <option value="1">höchstens 1 Wort dazwischen</option>
@@ -159,9 +169,8 @@
             <option value="10" selected>höchstens 10 Wörter dazwischen</option>
             <option value="20">höchstens 20 Wörter dazwischen</option>
           </select></label>
-          <label title="Die Wörter müssen in der eingegebenen Reihenfolge stehen"><input type="checkbox" id="sOrd"> Reihenfolge einhalten</label>
+          <label id="sOrdLabel" title="Die Wörter müssen in der eingegebenen Reihenfolge stehen"><input type="checkbox" id="sOrd"> Reihenfolge einhalten</label>
           <label title="Findet auch ähnlich geschriebene Wörter (siehe Hilfe unten)"><input type="checkbox" id="sFuzzy"> Fuzzy (ähnliche Schreibweise)</label>
-          <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
         </div>
         <details id="sHelp" class="help">
           <summary>Hilfe: mehrere Wörter, Wortfolge, Platzhalter und Fuzzy</summary>
@@ -182,7 +191,7 @@
         </details>
       </details>
       <div id="sSaved" class="ssaved">
-        <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="sRecentClear" type="button" title="Liste leeren">✕</button></div><div id="sRecentL" class="dchips"></div></div>
+        <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="sRecentClear" type="button" title="Liste leeren">✕</button></div><div id="sRecentL" class="dchips"></div><button id="sRecentMore" type="button" aria-expanded="false" aria-controls="sRecentL" hidden>Alle anzeigen</button></div>
         <div class="dsv"><div class="dsvh"><b>Favoriten</b></div><div id="sFavL" class="dchips"></div></div>
       </div>
       </div>
@@ -260,21 +269,15 @@
       <div id="sOutline" role="tabpanel" aria-label="Gliederungssuche" hidden>
       </div>
       <div id="sChart" hidden></div>
-      <div id="sTools"><button id="sResearchBtn" type="button">Treffer sammeln</button> <button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
+      <div id="sTools"><button id="sResearchBtn" type="button" hidden>Treffer sammeln</button> <button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <div id="sProgress" hidden><progress id="sProgressBar" max="1" aria-label="Suchfortschritt"></progress> <span id="sProgressLabel" class="muted"></span></div>
       <div id="sSyntaxCoverage"></div>
-      <p id="sInfo" class="muted">Suchart unter „Treffer“ wählen; Werke und Kategorien rechts auswählen.</p>
+      <p id="sInfo" class="muted" aria-live="polite"></p>
       <div id="sLemmaCoverage"></div>
       <div id="sOut"></div>
       </div>
       <div id="sRight">
       <section id="sxExamples" class="catpanel" aria-label="Suchbeispiele" hidden></section>
-      <div id="sCatPanel" class="catpanel">
-        <h3 id="sCatBtn">Kategorien: alle</h3>
-        <div class="bar"><input id="sCatFilter" placeholder="Kategorien durchsuchen …"><button id="sCatAll" type="button" title="Alle Hauptkategorien anhaken (es wird überall gesucht); danach ein Unterpunkt anklicken = nur dieser">Alle Kategorien auswählen</button></div>
-        <p class="muted">Ohne Häkchen wird überall gesucht. Mit Häkchen nur in den gewählten Kategorien; ein Häkchen bei einer Hauptkategorie gilt für alles darunter.</p>
-        <div id="sCatTree"></div>
-      </div>
       <div id="sSumPanel" class="catpanel" hidden><h3>Treffer nach Buch</h3><div id="sSum"></div></div>
       </div>
     </section>
