@@ -128,6 +128,18 @@ function stripHtml(s) {
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
 }
 
+// Inline-Formatierung aus Sefaria-Text für innerHTML: nur einfache Tags ohne Attribute; alles andere fällt weg.
+// Ein nicht geschlossenes „<…“ am Ende (der Vorlagentext liefert später das „>“) wird als Text maskiert.
+const INLINE_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'br'];
+function cleanInline(s) {
+  s = String(s ?? '').replace(/<(?![a-z\/])/gi, '&lt;').replace(/<[^>]*$/, m => m.replace(/</g, '&lt;'));
+  return s.replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
+    t = t.toLowerCase();
+    if (!INLINE_TAGS.includes(t)) return '';
+    return m.startsWith('</') ? `</${t}>` : `<${t}>`;
+  });
+}
+
 function flatten(arr, out = []) {
   if (Array.isArray(arr)) arr.forEach(x => flatten(x, out));
   else out.push(arr);
@@ -139,4 +151,4 @@ function chapterLengths(arr) {
   return Array.isArray(arr) ? arr.map(ch => (Array.isArray(ch) ? flatten(ch).length : 1)) : [];
 }
 
-module.exports = { parseCSV, toCSV, parseRef, validateRows, textToRows, compareSegments, stripHtml, flatten, chapterLengths };
+module.exports = { parseCSV, toCSV, parseRef, validateRows, textToRows, compareSegments, stripHtml, cleanInline, flatten, chapterLengths };

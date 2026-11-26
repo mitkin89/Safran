@@ -19,6 +19,7 @@ contextBridge.exposeInMainWorld('lib', {
   textToRows: lib.textToRows,
   compareSegments: lib.compareSegments,
   stripHtml: lib.stripHtml,
+  cleanInline: lib.cleanInline,
   segmentsFromText: sef.segmentsFromText,
   textUrl: sef.textUrl,
   encRef: sef.encRef,
