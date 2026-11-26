@@ -27,3 +27,72 @@ test('Fehlerseite oder falsche Ausgabe ersetzt keinen gültigen Download',async 
  }
 });
 test('gültige komplexe Texte und leere Felder bleiben zulässig',()=>{assert.deepEqual(parseDownload(Buffer.from(JSON.stringify(doc({Vorwort:[''],Hauptteil:[null,['Text']]}))),entry).text,{Vorwort:[''],Hauptteil:[null,['Text']]});});
+
+test('Sefaria language names and merged-export codes identify the same edition',async t=>{
+ const dir=await fixture(t);
+ for(const [name,code]of [['Hebrew','he'],['English','en']]){
+  for(const [expected,actual]of [[name,code],[code,name]]){
+   const wanted={...entry,language:expected},source={...doc([['Text']]),language:actual};
+   assert.deepEqual(parseDownload(Buffer.from(JSON.stringify(source)),wanted),source);
+  }
+  const wanted={...entry,language:name,json_url:'https://example.org/sefaria-export/Example/'+code+'/Edition.json'};
+  const source=Buffer.from(JSON.stringify({...doc([['Text']]),language:code}));
+  const lib=await new Library(dir,async()=>source).load(),result=await lib.downloadEntries([wanted]);
+  assert.equal(result.failed.length,0);assert.deepEqual(await fs.readFile(path.join(dir,relPathOf(wanted))),source);
+  assert.equal(lib.index.entries[relPathOf(wanted)].language,name);
+ }
+});
+test('a different or missing language still cannot replace a valid edition',async t=>{
+ const dir=await fixture(t);let response=Buffer.from(JSON.stringify(doc([['alt']])));
+ const lib=await new Library(dir,async()=>response).load();await lib.downloadEntries([entry]);
+ const rel=relPathOf(entry),before=await fs.readFile(path.join(dir,rel));
+ for(const language of ['en','English','Greek',undefined,null,42]){
+  response=Buffer.from(JSON.stringify({...doc([['wrong']]),language}));
+  const result=await lib.downloadEntries([entry],{force:new Set([rel])});
+  assert.equal(result.failed.length,1);assert.match(result.failed[0].error,/language/);
+  assert.deepEqual(await fs.readFile(path.join(dir,rel)),before);
+ }
+});
+
+test('book-specific catalogue punctuation aliases do not apply to other works', () => {
+ const cases=[
+  ['Lamentations','Ejchah Übers. u. Komm. Igor Itkin [de]','Ejchah Übers. u. Komm.: Igor Itkin [de]'],
+  ['What is the Talmud','Berlin Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]','Berlin: Jüdischer Buch-Verlag Erwin Löwe, 1938 [de]'],
+ ];
+ for(const [title,listed,exported] of cases){
+  const expected={title,language:'English',versionTitle:listed};
+  const source={title,language:'en',versionTitle:exported,text:['Text']};
+  const raw=Buffer.from(JSON.stringify(source));
+  assert.deepEqual(parseDownload(raw,expected),source);
+  assert.throws(()=>parseDownload(raw,{...expected,versionTitle:listed+' revised'}),/versionTitle/);
+  assert.throws(()=>parseDownload(Buffer.from(JSON.stringify({...source,title:'Other'})),{...expected,title:'Other'}),/versionTitle/);
+ }
+});
+
+test('JPS catalogue aliases work across books and keep different editions distinct', () => {
+ const editions=[
+  ['THE JPS TANAKH Gender-Sensitive Edition','THE JPS TANAKH: Gender-Sensitive Edition'],
+  ['Tanakh The Holy Scriptures, published by JPS','Tanakh: The Holy Scriptures, published by JPS'],
+  ['The Holy Scriptures A New Translation JPS 1917','The Holy Scriptures: A New Translation (JPS 1917)'],
+ ];
+ for(const title of ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']){
+  for(const [listed,exported] of editions){
+   const expected={title,language:'English',versionTitle:listed};
+   const source={title,language:'en',versionTitle:exported,text:['Text']};
+   const encode=value=>Buffer.from(JSON.stringify(value));
+   assert.deepEqual(parseDownload(encode(source),expected),source);
+   const wrong=editions.find(([name])=>name!==listed)[1];
+   assert.throws(()=>parseDownload(encode({...source,versionTitle:wrong}),expected),/versionTitle/);
+  }
+ }
+});
+
+test('empty false segments in the Hebrew Midrash Aggadah export preserve numbering', () => {
+ const expected={title:'Midrash Aggadah',language:'Hebrew',versionTitle:'merged'};
+ const source={...expected,language:'he',text:{Numbers:[['first',false,'third']]}};
+ const raw=value=>Buffer.from(JSON.stringify(value));
+ const accepted=parseDownload(raw(source),expected);
+ assert.deepEqual(require('../reader').flattenNode(accepted.text.Numbers[0]).map(r=>r.label),['1','3']);
+ assert.throws(()=>parseDownload(raw({...source,text:[true]}),expected),/ungültige Textsegmente/);
+ assert.throws(()=>parseDownload(raw({...source,versionTitle:'Other'}),{...expected,versionTitle:'Other'}),/ungültige Textsegmente/);
+});

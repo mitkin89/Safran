@@ -37,7 +37,7 @@ function create(host){
   syncFollow();
   try{$('#tcWitnessOptions').hidden=localStorage.getItem('tcWitnessExpanded')!=='1';}catch{}
   function syncWitness(){
-    const expanded=!$('#tcWitnessOptions').hidden,isMishnah=host.getView()?.group?.title==='Mishnah Berakhot',n=isMishnah?1+Number($('#tcMishnahParma').checked)+Number($('#tcMishnahCambridge').checked):Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked)+Number($('#tcPs').checked)+Number($('#tcHex').checked)+Number($('#tcMa').checked);
+    const expanded=!$('#tcWitnessOptions').hidden,isMishnah=window.LibraryMishnahTextCrit.supports(host.getView()?.group?.title),n=isMishnah?1+Number($('#tcMishnahParma').checked)+Number($('#tcMishnahCambridge').checked):Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked)+Number($('#tcPs').checked)+Number($('#tcHex').checked)+Number($('#tcMa').checked);
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
     $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===(isMishnah?3:7)?I18N.t('Alle {}',n):n?I18N.t('{} ausgewählt',n):I18N.t('Keine'))+'</span>';
   }
@@ -60,7 +60,7 @@ function create(host){
   function rows(){return [...$('#rOut').querySelectorAll('.row[data-l]')].filter(r=>/^\d+$/.test(r.dataset.l));}
   function context(){
     const v=host.getView(),s=v?.sections?.[v.idx],chapter=s?.path?.length===1?s.path[0]+1:null;
-    const isMishnah=v?.group?.title==='Mishnah Berakhot';
+    const isMishnah=window.LibraryMishnahTextCrit.supports(v?.group?.title);
     if((!books.has(v?.group?.title)&&!isMishnah)||!Number.isInteger(chapter))return null;
     const next=v.group.key+'|'+s.k;
     if(next!==key){key=next;selected=null;clickedTal=null;lastContentKey=null;}
@@ -165,7 +165,13 @@ function create(host){
     syncWitness();
     if(c?.isMishnah){
       body.innerHTML='<p class="muted">'+esc('Apparat wird geladen …')+'</p>';
-      try{await mishnah.load();if(token!==generation||panel.hidden)return;const refs=whole?mishnah.refs(c.chapter):[c.chapter+':'+c.row];body.innerHTML=mishnah.render(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])],$('#tcMishnahView').value);markCurrent(c);host.refreshFind?.();}
+      try{
+        const mode=$('#tcMishnahView').value,v=mode==='interlinear'?await mishnah.loadVocalized(c.book):null;
+        if(!v)await mishnah.load(c.book);if(token!==generation||panel.hidden)return;
+        const refs=whole?(v?Object.keys(v.base).filter(r=>r.startsWith(c.chapter+':')):mishnah.refs(c.chapter)):[c.chapter+':'+c.row];
+        $('#tcPlace').textContent=(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(v?'Vokalisierte Kaufmann-Lesefassung':'Digital-Mishnah-Zählung');
+        body.innerHTML=(v?mishnah.renderVocalized:mishnah.render)(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])],mode);markCurrent(c);host.refreshFind?.();
+      }
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }

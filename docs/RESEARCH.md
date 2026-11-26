@@ -47,6 +47,12 @@ In der Vorschau sowie in PDF und HTML fließen die Randtexte automatisch in die 
 
 Sammlungen können auch eigene Texte und Notizen enthalten. Über **Aus Sammlung übernehmen** wird ein gewählter Baustein als eigene Kopie in ein Quellenblatt eingefügt.
 
+## Fußnoten unter dem Segment
+
+Beim erneuten oder erstmaligen Übernehmen einer Quelle werden ihre eingebetteten Fußnoten mitgespeichert. Die Zeichen bleiben als `[1]`, `[i]` usw. im Text erhalten; die zugehörigen Anmerkungen stehen direkt unter dem jeweiligen Segment in kleinerer Schrift. Bei parallelen Ausgaben gehören sie weiterhin zur jeweiligen Textspalte. Vorschau, HTML, PDF und Word behalten diese Zuordnung bei. Es handelt sich um Anmerkungen unter dem Segment, nicht um automatisch gesetzte Fußnoten am Seitenende.
+
+Bereits gespeicherte Quellenkopien werden nicht nachträglich verändert. Fehlen darin Fußnoten, die betreffende Quelle erneut übernehmen oder über **Stelle / Verse ändern** neu laden.
+
 ## Notizen und mehrere Quellen
 
 Die Projektansicht **Notizen** zeigt Projektnotizen und noch keinem Projekt zugeordnete Bibliotheksnotizen. Titel, Text, Themen, Schlagwörter und Projektzuordnung bearbeiten. **Textstelle aus Projekt verknüpfen** übernimmt Edition und Zitat aus einem vorhandenen Quellenbaustein. **Weitere Fundstelle** ergänzt eine frei eingegebene Referenz; es wird dabei kein Quellenwortlaut erfunden. Mehrere Referenzen können dieselbe Notiz belegen.

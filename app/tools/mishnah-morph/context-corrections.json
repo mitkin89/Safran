@@ -1,0 +1,2578 @@
+[
+  {
+    "ref": "1:1",
+    "token": 4,
+    "word": "שְׁמַע",
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hier bezeichnet שְׁמַע den Gebetsnamen; es ist keine Aufforderung an den Leser."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 39,
+    "word": "שְׁמַע",
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hier bezeichnet שְׁמַע den Gebetsnamen; es ist keine Aufforderung an den Leser."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 22,
+    "word": "רַבָּן",
+    "analyses": [
+      {
+        "lemma": "רבן",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Lexikalisierter Titel vor dem Eigennamen; keine Zerlegung in רב mit Possessivsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 32,
+    "word": "מִבֵּית",
+    "analyses": [
+      {
+        "lemma": "מן/בית",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "prefix",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht hier im Constructus vor המשתה."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 21,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד, kein Status constructus vor einem nachfolgenden Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 58,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד, kein Status constructus vor einem nachfolgenden Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 89,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד, kein Status constructus vor einem nachfolgenden Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 29,
+    "word": "מַעֲשֶׂה",
+    "analyses": [
+      {
+        "lemma": "מעשה",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Selbständiges Nomen mit nachfolgendem Relativsatz."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 47,
+    "word": "מֻתָּרִין",
+    "analyses": [
+      {
+        "lemma": "נתר",
+        "morph": "HVHsmpa",
+        "rules": [
+          "verb",
+          "hofal-ntr"
+        ],
+        "root": "נתר",
+        "method": "context",
+        "note": "Hofal-Form zu נתר; daneben ist eine lexikalisierte Adjektivanalyse möglich. Kein Beleg für die Wurzel יתר."
+      },
+      {
+        "lemma": "מותר",
+        "morph": "HAampa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hofal-Form zu נתר; daneben ist eine lexikalisierte Adjektivanalyse möglich. Kein Beleg für die Wurzel יתר."
+      }
+    ]
+  },
+  {
+    "ref": "1:1",
+    "token": 64,
+    "word": "הֶקְטֵר",
+    "analyses": [
+      {
+        "lemma": "הקטר",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct",
+          "action-noun"
+        ],
+        "root": "קטר",
+        "method": "context",
+        "note": "Handlungsnomen im Constructus vor חלבים; keine Bestimmung als Hifil-Infinitiv constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 4,
+    "word": "שְׁמַע",
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Hier bezeichnet שְׁמַע den Gebetsnamen."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 9,
+    "word": "לַלָּבָן",
+    "analyses": [
+      {
+        "lemma": "ל/ה/לבן",
+        "morph": "HR/Td/Aamsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Substantiviert verwendete Farbbezeichnung; Adjektiv und nominaler Gebrauch können unterschiedlich klassifiziert werden."
+      },
+      {
+        "lemma": "ל/ה/לבן",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Substantiviert verwendete Farbbezeichnung; Adjektiv und nominaler Gebrauch können unterschiedlich klassifiziert werden."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 17,
+    "word": "הָנֵץ",
+    "analyses": [
+      {
+        "lemma": "נץ",
+        "morph": "HVhc",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Infinitiv in der Wendung הנץ החמה. Die lexikalische Stammform ist נץ; eine rekonstruierte schwache Wurzel wird hier nicht behauptet."
+      }
+    ]
+  },
+  {
+    "ref": "1:2",
+    "token": 40,
+    "word": "בַתּוֹרָה",
+    "analyses": [
+      {
+        "lemma": "ב/תורה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Präposition mit verschmolzenem Artikel in בַתּוֹרָה."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 1,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Constructus vor dem Namen שמי; hier keine gleichberechtigte Absolutus-Analyse."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 14,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Constructus vor dem Namen הלל; hier keine gleichberechtigte Absolutus-Analyse."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 9,
+    "word": "וּבַבֹּקֶר",
+    "analyses": [
+      {
+        "lemma": "ו/ב/בקר",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Konjunktion und Präposition mit verschmolzenem Artikel; die Zeitangabe ist kein Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 23,
+    "word": "בַדֶּרֶךְ",
+    "analyses": [
+      {
+        "lemma": "ב/דרך",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Präposition mit verschmolzenem Artikel; selbständige Ortsangabe, kein Status constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 47,
+    "word": "בַדֶּרֶךְ",
+    "analyses": [
+      {
+        "lemma": "ב/דרך",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "prefix",
+          "article",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Präposition mit verschmolzenem Artikel; selbständige Ortsangabe, kein Status constructus."
+      }
+    ]
+  },
+  {
+    "ref": "1:3",
+    "token": 46,
+    "word": "בָא",
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb",
+          "periphrastic-participle"
+        ],
+        "method": "context",
+        "note": "Partizip nach הייתי in der Vergangenheitsumschreibung; die alternative 3.-Person-Perfektanalyse passt nicht zu diesem Satz."
+      }
+    ]
+  },
+  {
+    "ref": "1:4",
+    "token": 7,
+    "word": "וּבָעֶרֶב",
+    "analyses": [
+      {
+        "lemma": "ו/ב/ערב",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Die Präposition verschmilzt hier mit dem bestimmten Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "1:4",
+    "token": 6,
+    "word": "לְאַחֲרֶיהָ",
+    "analyses": [
+      {
+        "lemma": "ל/אחר",
+        "morph": "HR/D/Sp3fs",
+        "rules": [
+          "adverb",
+          "suffix",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Nach ihr: Nach dem Präfix folgt das Adverb mit Pronominalsuffix; dessen eigene Wortart fehlte bisher im Code."
+      }
+    ]
+  },
+  {
+    "ref": "1:4",
+    "token": 11,
+    "word": "לְאַחֲרֶיהָ",
+    "analyses": [
+      {
+        "lemma": "ל/אחר",
+        "morph": "HR/D/Sp3fs",
+        "rules": [
+          "adverb",
+          "suffix",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Nach ihr: Nach dem Präfix folgt das Adverb mit Pronominalsuffix; dessen eigene Wortart fehlte bisher im Code."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 4,
+    "word": "בַּלֵּילוֹת",
+    "analyses": [
+      {
+        "lemma": "ב/לילה",
+        "morph": "HRd/Ncmpa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Die Vokalisierung בַּלֵּילוֹת zeigt den mit der Präposition verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 20,
+    "word": "בַּלֵּילוֹת",
+    "analyses": [
+      {
+        "lemma": "ב/לילה",
+        "morph": "HRd/Ncmpa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Die Vokalisierung בַּלֵּילוֹת zeigt den mit der Präposition verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 29,
+    "word": "יוֹם",
+    "analyses": [
+      {
+        "lemma": "יום",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "יום steht vor dem abhängigen Infinitiv צאתך im Constructus: Tag deines Auszugs."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 31,
+    "word": "מֵאֶרֶץ",
+    "analyses": [
+      {
+        "lemma": "מן/ארץ",
+        "morph": "HR/Ncbsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ארץ steht vor מצרים im Constructus: Land Ägyptens."
+      }
+    ]
+  },
+  {
+    "ref": "2:1",
+    "token": 3,
+    "word": "בַתּוֹרָה",
+    "analyses": [
+      {
+        "lemma": "ב/תורה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Verschmolzener Artikel in der Verbindung mit תורה."
+      }
+    ]
+  },
+  {
+    "ref": "2:1",
+    "token": 10,
+    "word": "לִבּוֹ",
+    "analyses": [
+      {
+        "lemma": "לב",
+        "morph": "HNcmsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "suffix"
+        ],
+        "method": "context",
+        "note": "לבו ist hier Herz mit Possessivsuffix; die Präpositionszerlegung ל/ב passt nicht."
+      }
+    ]
+  },
+  {
+    "ref": "2:2",
+    "token": 8,
+    "word": "לַשְּׁנִיָּה",
+    "analyses": [
+      {
+        "lemma": "ל/שני",
+        "morph": "HRd/Aofsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Substantivierte Ordinalzahl mit verschmolzenem Artikel: zur zweiten."
+      }
+    ]
+  },
+  {
+    "ref": "2:2",
+    "token": 58,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet eine adverbiale Zeitangabe: und danach."
+      }
+    ]
+  },
+  {
+    "ref": "2:2",
+    "token": 63,
+    "word": "מִצְוֹת",
+    "analyses": [
+      {
+        "lemma": "מצוה",
+        "morph": "HNcfpa",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "מצוות ist das abschließende Glied von עול מצוות, hier kein Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "2:2",
+    "token": 74,
+    "word": "בַּיּוֹם",
+    "analyses": [
+      {
+        "lemma": "ב/יום",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "בַּיּוֹם enthält den mit der Präposition verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "2:2",
+    "token": 75,
+    "word": "וּבַלַּיְלָה",
+    "analyses": [
+      {
+        "lemma": "ו/ב/לילה",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "וּבַלַּיְלָה enthält den mit der Präposition verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "2:2",
+    "token": 80,
+    "word": "בַיּוֹם",
+    "analyses": [
+      {
+        "lemma": "ב/יום",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Artikel in בַיּוֹם; die alternative unbestimmte Analyse wird hier entfernt."
+      }
+    ]
+  },
+  {
+    "ref": "2:4",
+    "token": 13,
+    "word": "בַּתְּפִלָּה",
+    "analyses": [
+      {
+        "lemma": "ב/תפלה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Artikel in בַּתְּפִלָּה: im Gebet."
+      }
+    ]
+  },
+  {
+    "ref": "2:5",
+    "token": 13,
+    "word": "מַעֲשֶׂה",
+    "analyses": [
+      {
+        "lemma": "מעשה",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Absolutes Handlungsnomen nach עשה: die Handlung vollziehen."
+      }
+    ]
+  },
+  {
+    "ref": "2:5",
+    "token": 14,
+    "word": "מַעֲשֶׂה",
+    "analyses": [
+      {
+        "lemma": "מעשה",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Absolutes Nomen vor dem Bericht mit ב: eine Begebenheit mit …"
+      }
+    ]
+  },
+  {
+    "ref": "2:5",
+    "token": 15,
+    "word": "בְרַבָּן",
+    "analyses": [
+      {
+        "lemma": "ב/רבן",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "nominal",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "רבן ist der Titel Rabban, keine Form von רב mit Possessivsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "2:7",
+    "token": 1,
+    "word": "וּכְשֶׁמֵּת",
+    "analyses": [
+      {
+        "lemma": "ו/כ/ש/מות",
+        "morph": "HC/R/Tr/Vqp3ms",
+        "rules": [
+          "verb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "In der Erzählung bedeutet וכשמת als er starb; die Partizip-Alternative passt hier nicht."
+      }
+    ]
+  },
+  {
+    "ref": "2:8",
+    "token": 10,
+    "word": "רַבָּן",
+    "analyses": [
+      {
+        "lemma": "רבן",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "רבן ist der Titel Rabban, keine Form von רב mit Possessivsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "2:8",
+    "token": 20,
+    "word": "הַשֵּׁם",
+    "analyses": [
+      {
+        "lemma": "ה/שם",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "article",
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "השם ist hier absolut: den Namen beanspruchen; es folgt kein Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "3:1",
+    "token": 22,
+    "word": "שֶׁלַּמִּטָּה",
+    "analyses": [
+      {
+        "lemma": "ש/ל/מטה",
+        "morph": "HTr/Rd/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Der Artikel in שֶׁלַּמִּטָּה ist mit ל verschmolzen; die Segmentierung von של bleibt eine eigene Konvention."
+      }
+    ]
+  },
+  {
+    "ref": "3:1",
+    "token": 28,
+    "word": "לַמִּטָּה",
+    "analyses": [
+      {
+        "lemma": "ל/מטה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "לַמִּטָּה enthält den mit der Präposition verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "3:3",
+    "token": 10,
+    "word": "בַּתְּפִלָּה",
+    "analyses": [
+      {
+        "lemma": "ב/תפלה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Artikel in בַּתְּפִלָּה."
+      }
+    ]
+  },
+  {
+    "ref": "3:4",
+    "token": 1,
+    "word": "בַּעַל",
+    "analyses": [
+      {
+        "lemma": "בעל",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בעל ist das Nomen im Constructus vor קרי, keine Zerlegung ב/על."
+      }
+    ]
+  },
+  {
+    "ref": "3:4",
+    "token": 4,
+    "word": "בְּלִבּוֹ",
+    "analyses": [
+      {
+        "lemma": "ב/לב",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "suffix",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "בלבו ist die Präposition mit Herz und Suffix; die Zerlegung ב/ל/ב passt hier nicht."
+      }
+    ]
+  },
+  {
+    "ref": "3:4",
+    "token": 3,
+    "word": "מְהַרְהֵר",
+    "analyses": [
+      {
+        "lemma": "הרהר",
+        "morph": "HVlrmsa",
+        "rules": [
+          "verb",
+          "reduplicated"
+        ],
+        "method": "context",
+        "note": "Pilpel; Segal §195 führt הרהר unter den reduplizierten Stämmen auf. Die Referenz verwendet die gröbere Piʿel-Kategorie.",
+        "root": "הרר"
+      }
+    ]
+  },
+  {
+    "ref": "3:4",
+    "token": 10,
+    "word": "לְאַחֲרֶיהָ",
+    "analyses": [
+      {
+        "lemma": "ל/אחר",
+        "morph": "HR/D/Sp3fs",
+        "rules": [
+          "adverb",
+          "prefix",
+          "suffix"
+        ],
+        "method": "context",
+        "note": "Adverb mit Präposition und Suffix; dessen Segment muss im Code ausdrücklich enthalten sein."
+      }
+    ]
+  },
+  {
+    "ref": "3:4",
+    "token": 14,
+    "word": "לְאַחֲרָיו",
+    "analyses": [
+      {
+        "lemma": "ל/אחר",
+        "morph": "HR/D/Sp3ms",
+        "rules": [
+          "adverb",
+          "prefix",
+          "suffix"
+        ],
+        "method": "context",
+        "note": "Adverb mit Präposition und Suffix; dessen Segment muss im Code ausdrücklich enthalten sein."
+      }
+    ]
+  },
+  {
+    "ref": "3:4",
+    "token": 23,
+    "word": "וּלְאַחֲרֵיהֶם",
+    "analyses": [
+      {
+        "lemma": "ו/ל/אחר",
+        "morph": "HC/R/D/Sp3mp",
+        "rules": [
+          "adverb",
+          "prefix",
+          "suffix"
+        ],
+        "method": "context",
+        "note": "Adverb mit Präposition und Suffix; dessen Segment muss im Code ausdrücklich enthalten sein."
+      }
+    ]
+  },
+  {
+    "ref": "3:5",
+    "token": 3,
+    "word": "בַּתְּפִלָּה",
+    "analyses": [
+      {
+        "lemma": "ב/תפלה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Artikel in בַּתְּפִלָּה."
+      }
+    ]
+  },
+  {
+    "ref": "3:5",
+    "token": 6,
+    "word": "בַּעַל",
+    "analyses": [
+      {
+        "lemma": "בעל",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בעל ist das Nomen im Constructus vor קרי."
+      }
+    ]
+  },
+  {
+    "ref": "3:5",
+    "token": 21,
+    "word": "תָנֵץ",
+    "analyses": [
+      {
+        "lemma": "נץ",
+        "morph": "HVhi3fs",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Die Lesung תנץ wird als Hifil Imperfekt 3fs bestimmt. Keine ungesicherte schwache Wurzel נוץ; als Lemma steht wie bei הנץ die Zitierform נץ."
+      }
+    ]
+  },
+  {
+    "ref": "3:5",
+    "token": 29,
+    "word": "בַמַּיִם",
+    "analyses": [
+      {
+        "lemma": "ב/מים",
+        "morph": "HRd/Ncmpa",
+        "rules": [
+          "article",
+          "prefix",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Artikel in בַמַּיִם; מים bleibt das pluralische Nomen, ohne erfundenes Singularlemma."
+      }
+    ]
+  },
+  {
+    "ref": "3:6",
+    "token": 5,
+    "word": "שֶׁפָּלְטָה",
+    "analyses": [
+      {
+        "lemma": "ש/פלט",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "verb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation פָּלְטָה zeigt Qal Perfekt 3fs, nicht Piʿel פִּלְּטָה.",
+        "root": "פלט"
+      }
+    ]
+  },
+  {
+    "ref": "4:1",
+    "token": 4,
+    "word": "חֲצוֹת",
+    "analyses": [
+      {
+        "lemma": "חצות",
+        "morph": "HNcfsa",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "Zeitangabe nach עד ohne nachfolgendes Genitivattribut; hier absolut wie in Berakhot 1:1."
+      }
+    ]
+  },
+  {
+    "ref": "4:3",
+    "token": 1,
+    "word": "רַבָּן",
+    "analyses": [
+      {
+        "lemma": "רבן",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Rabban ist hier ein Titel, keine Form von רב mit Possessivsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "4:3",
+    "token": 4,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor יום im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "4:4",
+    "token": 14,
+    "word": "בִּמְקוֹם",
+    "analyses": [
+      {
+        "lemma": "ב/מקום",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "מקום סכנה ist eine Constructusverbindung."
+      }
+    ]
+  },
+  {
+    "ref": "4:4",
+    "token": 24,
+    "word": "הַשֵּׁם",
+    "analyses": [
+      {
+        "lemma": "ה/שם",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "nominal",
+          "article"
+        ],
+        "method": "context",
+        "note": "השם ist die Anrede ohne nachfolgendes Genitivattribut, hier absolut."
+      }
+    ]
+  },
+  {
+    "ref": "4:5",
+    "token": 21,
+    "word": "לִבּוֹ",
+    "analyses": [
+      {
+        "lemma": "לב",
+        "morph": "HNcmsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "suffix"
+        ],
+        "method": "context",
+        "note": "לבו bezeichnet sein Herz; die Präpositionszerlegung ל/ב ist hier ausgeschlossen."
+      }
+    ]
+  },
+  {
+    "ref": "4:6",
+    "token": 10,
+    "word": "לִבּוֹ",
+    "analyses": [
+      {
+        "lemma": "לב",
+        "morph": "HNcmsc/Sp3ms",
+        "rules": [
+          "nominal",
+          "suffix"
+        ],
+        "method": "context",
+        "note": "לבו bezeichnet sein Herz; die Präpositionszerlegung ל/ב ist hier ausgeschlossen."
+      }
+    ]
+  },
+  {
+    "ref": "4:5",
+    "token": 23,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor קודש הקודשים im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "4:6",
+    "token": 12,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor קודש הקודשים im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "5:1",
+    "token": 3,
+    "word": "לְהִתְפַּלֵּל",
+    "analyses": [
+      {
+        "lemma": "ל/פלל",
+        "morph": "HR/Vtc",
+        "rules": [
+          "verb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Präposition ל vor dem Hitpael-Infinitiv; beide Segmente erhalten ein Lemma."
+      }
+    ]
+  },
+  {
+    "ref": "5:1",
+    "token": 7,
+    "word": "רֹאשׁ",
+    "analyses": [
+      {
+        "lemma": "ראש",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "ראש ist das abschließende Glied von כובד ראש, hier absolut."
+      }
+    ]
+  },
+  {
+    "ref": "5:1",
+    "token": 19,
+    "word": "לַמָּקוֹם",
+    "analyses": [
+      {
+        "lemma": "ל/מקום",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation לַמָּקוֹם enthält einen mit ל verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "5:1",
+    "token": 21,
+    "word": "הַמֶּלֶךְ",
+    "analyses": [
+      {
+        "lemma": "ה/מלך",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "nominal",
+          "article"
+        ],
+        "method": "context",
+        "note": "המלך steht hier absolut, nicht als Constructus vor einem Genitiv."
+      }
+    ]
+  },
+  {
+    "ref": "5:2",
+    "token": 12,
+    "word": "הַדַּעַת",
+    "analyses": [
+      {
+        "lemma": "ה/דעת",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "nominal",
+          "article",
+          "construct"
+        ],
+        "method": "context",
+        "note": "הדעת ist das Objekt nach חונן ohne nachfolgendes Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "5:2",
+    "token": 23,
+    "word": "בַּהוֹדָיָה",
+    "analyses": [
+      {
+        "lemma": "ב/ה/הודיה",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Der Artikel in בַּהוֹדָיָה ist nach der Vokalisation zu berücksichtigen."
+      }
+    ]
+  },
+  {
+    "ref": "5:4",
+    "token": 14,
+    "word": "כֹּהֵן",
+    "analyses": [
+      {
+        "lemma": "כהן",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "כהן ist hier das Nomen Priester, keine Zerlegung כ plus הן."
+      }
+    ]
+  },
+  {
+    "ref": "5:5",
+    "token": 43,
+    "word": "בְּפִי",
+    "analyses": [
+      {
+        "lemma": "ב/פה",
+        "morph": "HR/Ncmsc/Sp1cs",
+        "rules": [
+          "nominal",
+          "suffix",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "בפי bedeutet hier in meinem Mund; ein unsuffigierter Constructus hätte kein nachfolgendes Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "4:3",
+    "token": 8,
+    "word": "שְׁמוֹנֶה",
+    "analyses": [
+      {
+        "lemma": "שמנה",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Die vokalisierte feminine Zahlform steht hier in der Bezeichnung שמונה עשרה für die achtzehn Segenssprüche."
+      }
+    ]
+  },
+  {
+    "ref": "4:3",
+    "token": 14,
+    "word": "שְׁמוֹנֶה",
+    "analyses": [
+      {
+        "lemma": "שמנה",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Die vokalisierte feminine Zahlform steht hier in der Bezeichnung שמונה עשרה für die achtzehn Segenssprüche."
+      }
+    ]
+  },
+  {
+    "ref": "4:3",
+    "token": 24,
+    "word": "שְׁמוֹנֶה",
+    "analyses": [
+      {
+        "lemma": "שמנה",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Die vokalisierte feminine Zahlform steht hier in der Bezeichnung שמונה עשרה für die achtzehn Segenssprüche."
+      }
+    ]
+  },
+  {
+    "ref": "4:3",
+    "token": 29,
+    "word": "שְׁמוֹנֶה",
+    "analyses": [
+      {
+        "lemma": "שמנה",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Die vokalisierte feminine Zahlform steht hier in der Bezeichnung שמונה עשרה für die achtzehn Segenssprüche."
+      }
+    ]
+  },
+  {
+    "ref": "4:4",
+    "token": 20,
+    "word": "שְׁמוֹנֶה",
+    "analyses": [
+      {
+        "lemma": "שמנה",
+        "morph": "HAcfsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Die vokalisierte feminine Zahlform steht hier in der Bezeichnung שמונה עשרה für die achtzehn Segenssprüche."
+      }
+    ]
+  },
+  {
+    "ref": "6:1",
+    "token": 4,
+    "word": "הַפֵּרוֹת",
+    "analyses": [
+      {
+        "lemma": "ה/פרי",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "nominal",
+          "article",
+          "construct"
+        ],
+        "method": "context",
+        "note": "הפירות steht hier absolut; es folgt kein Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "6:2",
+    "token": 21,
+    "word": "שֶׁהַכֹּל",
+    "analyses": [
+      {
+        "lemma": "ש/ה/כל",
+        "morph": "HTr/Td/Ncmsa",
+        "rules": [
+          "nominal",
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "הכל steht im Segensspruch als absolutes Satzsubjekt, nicht im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "6:3",
+    "token": 8,
+    "word": "שֶׁהַכֹּל",
+    "analyses": [
+      {
+        "lemma": "ש/ה/כל",
+        "morph": "HTr/Td/Ncmsa",
+        "rules": [
+          "nominal",
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "הכל steht im Segensspruch als absolutes Satzsubjekt, nicht im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "6:3",
+    "token": 19,
+    "word": "שֶׁהַכֹּל",
+    "analyses": [
+      {
+        "lemma": "ש/ה/כל",
+        "morph": "HTr/Td/Ncmsa",
+        "rules": [
+          "nominal",
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "הכל steht im Segensspruch als absolutes Satzsubjekt, nicht im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "6:8",
+    "token": 32,
+    "word": "שֶׁהַכֹּל",
+    "analyses": [
+      {
+        "lemma": "ש/ה/כל",
+        "morph": "HTr/Td/Ncmsa",
+        "rules": [
+          "nominal",
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "הכל steht im Segensspruch als absolutes Satzsubjekt, nicht im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "6:2",
+    "token": 22,
+    "word": "נִהְיָה",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVNp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation נִהְיָה bezeichnet Nifal Perfekt 3ms. Das Partizip würde נִהְיֶה lauten."
+      }
+    ]
+  },
+  {
+    "ref": "6:3",
+    "token": 9,
+    "word": "נִהְיָה",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVNp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation נִהְיָה bezeichnet Nifal Perfekt 3ms. Das Partizip würde נִהְיֶה lauten."
+      }
+    ]
+  },
+  {
+    "ref": "6:3",
+    "token": 20,
+    "word": "נִהְיָה",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVNp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation נִהְיָה bezeichnet Nifal Perfekt 3ms. Das Partizip würde נִהְיֶה lauten."
+      }
+    ]
+  },
+  {
+    "ref": "6:8",
+    "token": 33,
+    "word": "נִהְיָה",
+    "analyses": [
+      {
+        "lemma": "היה",
+        "morph": "HVNp3ms",
+        "rules": [
+          "verb"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation נִהְיָה bezeichnet Nifal Perfekt 3ms. Das Partizip würde נִהְיֶה lauten."
+      }
+    ]
+  },
+  {
+    "ref": "6:5",
+    "token": 33,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht im Namen בית שמאי im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "6:7",
+    "token": 4,
+    "word": "כַּתְּחִלָּה",
+    "analyses": [
+      {
+        "lemma": "כ/ה/תחילה",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כַּתְּחִלָּה enthält den mit der Präposition verschmolzenen Artikel."
+      }
+    ]
+  },
+  {
+    "ref": "6:8",
+    "token": 10,
+    "word": "רַבָּן",
+    "analyses": [
+      {
+        "lemma": "רבן",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal"
+        ],
+        "method": "context",
+        "note": "רבן ist der Titel Rabban, nicht רב mit Possessivsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "7:3",
+    "token": 43,
+    "word": "בָּרִבּוֹא",
+    "analyses": [
+      {
+        "lemma": "ב/רבוא",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Der Artikel in בָּרִבּוֹא wird durch die kompensatorische Vokallängung vor ר angezeigt. Das Genus wird nicht allein an die Referenz angepasst."
+      }
+    ]
+  },
+  {
+    "ref": "7:3",
+    "token": 52,
+    "word": "בָּרִבּוֹא",
+    "analyses": [
+      {
+        "lemma": "ב/רבוא",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Der Artikel in בָּרִבּוֹא wird durch die kompensatorische Vokallängung vor ר angezeigt. Das Genus wird nicht allein an die Referenz angepasst."
+      }
+    ]
+  },
+  {
+    "ref": "7:3",
+    "token": 78,
+    "word": "לְפִי",
+    "analyses": [
+      {
+        "lemma": "לפי",
+        "morph": "HR",
+        "rules": [
+          "prefix"
+        ],
+        "method": "context",
+        "note": "לפי ist hier die Präposition gemäß, keine Form von פה mit Suffix 1cs."
+      }
+    ]
+  },
+  {
+    "ref": "7:3",
+    "token": 95,
+    "word": "בְּבֵית",
+    "analyses": [
+      {
+        "lemma": "ב/בית",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "בית steht vor הכנסת im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "7:3",
+    "token": 96,
+    "word": "הַכְּנֶסֶת",
+    "analyses": [
+      {
+        "lemma": "ה/כנסת",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "nominal",
+          "article",
+          "construct"
+        ],
+        "method": "context",
+        "note": "הכנסת bildet das absolute Schlussglied der Nominalkette."
+      }
+    ]
+  },
+  {
+    "ref": "8:1",
+    "token": 4,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:1",
+    "token": 9,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:2",
+    "token": 1,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:3",
+    "token": 1,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:4",
+    "token": 1,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:5",
+    "token": 1,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:5",
+    "token": 15,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:7",
+    "token": 6,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:8",
+    "token": 11,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor שמאי oder הלל im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "8:1",
+    "token": 15,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:1",
+    "token": 26,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:2",
+    "token": 6,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:2",
+    "token": 17,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:3",
+    "token": 7,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:3",
+    "token": 16,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:8",
+    "token": 17,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:8",
+    "token": 28,
+    "word": "וְאַחַר",
+    "analyses": [
+      {
+        "lemma": "ו/אחר",
+        "morph": "HC/D",
+        "rules": [
+          "adverb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "ואחר כך bildet die adverbiale Zeitangabe und danach."
+      }
+    ]
+  },
+  {
+    "ref": "8:5",
+    "token": 20,
+    "word": "הָאֵשׁ",
+    "analyses": [
+      {
+        "lemma": "ה/אש",
+        "morph": "HTd/Ncbsa",
+        "rules": [
+          "nominal",
+          "article",
+          "construct"
+        ],
+        "method": "context",
+        "note": "האש ist das absolute Schlussglied der Nominalverbindung מאור/מאורי האש."
+      }
+    ]
+  },
+  {
+    "ref": "8:5",
+    "token": 26,
+    "word": "הָאֵשׁ",
+    "analyses": [
+      {
+        "lemma": "ה/אש",
+        "morph": "HTd/Ncbsa",
+        "rules": [
+          "nominal",
+          "article",
+          "construct"
+        ],
+        "method": "context",
+        "note": "האש ist das absolute Schlussglied der Nominalverbindung מאור/מאורי האש."
+      }
+    ]
+  },
+  {
+    "ref": "8:6",
+    "token": 9,
+    "word": "שֶׁלַּגּוֹיִם",
+    "analyses": [
+      {
+        "lemma": "ש/ל/גוי",
+        "morph": "HTr/Rd/Ncmpa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "לַגּוֹיִם enthält den verschmolzenen Artikel; die של-Segmentierung bleibt eine eigene Konvention."
+      }
+    ]
+  },
+  {
+    "ref": "8:8",
+    "token": 9,
+    "word": "אוֹתוֹ",
+    "analyses": [
+      {
+        "lemma": "אותו",
+        "morph": "HPdxms",
+        "rules": [
+          "pronoun"
+        ],
+        "method": "context",
+        "note": "In אלא אותו הכוס bestimmt אותו das Nomen demonstrativ: derselbe/jener Becher. Es steht hier kein transitives Verb für ein Akkusativzeichen."
+      }
+    ]
+  },
+  {
+    "ref": "5:3",
+    "token": 26,
+    "word": "בְּאוֹתָהּ",
+    "analyses": [
+      {
+        "lemma": "ב/אותה",
+        "morph": "HR/Pdxfs",
+        "rules": [
+          "pronoun",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "באותה שעה ist die demonstrative Zeitangabe in jener Stunde, kein Akkusativzeichen mit Objektsuffix."
+      }
+    ]
+  },
+  {
+    "ref": "9:1",
+    "token": 12,
+    "word": "בַּמָּקוֹם",
+    "analyses": [
+      {
+        "lemma": "ב/מקום",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Artikel in בַּמָּקוֹם vor dem attributiven הזה."
+      }
+    ]
+  },
+  {
+    "ref": "9:2",
+    "token": 65,
+    "word": "דַּיַּן",
+    "analyses": [
+      {
+        "lemma": "דיין",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "דיין steht vor האמת im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:3",
+    "token": 10,
+    "word": "לִזְמַן",
+    "analyses": [
+      {
+        "lemma": "ל/זמן",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "nominal",
+          "prefix",
+          "construct"
+        ],
+        "method": "context",
+        "note": "זמן steht vor dem attributiven הזה absolut, nicht vor einem Genitivattribut."
+      }
+    ]
+  },
+  {
+    "ref": "9:3",
+    "token": 44,
+    "word": "בָא",
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVqrmsa",
+        "rules": [
+          "verb",
+          "periphrastic-participle"
+        ],
+        "method": "context",
+        "note": "היה בא bildet hier eine Vergangenheit mit Partizip: er war unterwegs."
+      }
+    ]
+  },
+  {
+    "ref": "9:3",
+    "token": 45,
+    "word": "בַדֶּרֶךְ",
+    "analyses": [
+      {
+        "lemma": "ב/דרך",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "בַּדֶּרֶךְ enthält den verschmolzenen Artikel; דרך ist hier absolut."
+      }
+    ]
+  },
+  {
+    "ref": "9:3",
+    "token": 47,
+    "word": "קוֹל",
+    "analyses": [
+      {
+        "lemma": "קול",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "קול steht vor צווחות im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:3",
+    "token": 49,
+    "word": "בָּעִיר",
+    "analyses": [
+      {
+        "lemma": "ב/ה/עיר",
+        "morph": "HR/Td/Ncfsa",
+        "rules": [
+          "article",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Artikel in בָּעִיר; die unbestimmte Alternative passt hier nicht zur Vokalisation."
+      }
+    ]
+  },
+  {
+    "ref": "9:4",
+    "token": 22,
+    "word": "לָבֹא",
+    "analyses": [
+      {
+        "lemma": "ל/בוא",
+        "morph": "HR/Vqc",
+        "rules": [
+          "verb",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Infinitiv mit Präposition ל; beide Segmente erhalten ein Lemma."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 5,
+    "word": "כַּשֵּׁם",
+    "analyses": [
+      {
+        "lemma": "כ/שם",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "Die Vokalisation כַּשֵּׁם enthält den mit כ verschmolzenen Artikel; שם ist hier kein Constructus vor einem Genitiv."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 15,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 21,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 29,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 36,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 38,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 42,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 44,
+    "word": "בְּכָל",
+    "analyses": [
+      {
+        "lemma": "ב/כל",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "construct",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "כל steht vor einem suffigierten Nomen im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 25,
+    "word": "בְּיֵצֶר",
+    "analyses": [
+      {
+        "lemma": "ב/יצר",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "nominal",
+          "prefix",
+          "construct"
+        ],
+        "method": "context",
+        "note": "יצר טוב enthält ein attributives Adjektiv; יצר ist hier absolut."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 27,
+    "word": "וּבְיֵצֶר",
+    "analyses": [
+      {
+        "lemma": "ו/ב/יצר",
+        "morph": "HC/R/Ncmsa",
+        "rules": [
+          "nominal",
+          "prefix",
+          "construct"
+        ],
+        "method": "context",
+        "note": "יצר רע enthält ein attributives Adjektiv; יצר ist hier absolut."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 50,
+    "word": "בַּכֹּל",
+    "analyses": [
+      {
+        "lemma": "ב/ה/כל",
+        "morph": "HR/Td/Ncmsa",
+        "rules": [
+          "article",
+          "prefix",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "בַּכֹּל enthält den Artikel; הכל steht ohne folgendes Genitivattribut absolut."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 68,
+    "word": "בֵּית",
+    "analyses": [
+      {
+        "lemma": "בית",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht vor קודש הקודשים im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 95,
+    "word": "מִשֶּׁקִּלְקְלוּ",
+    "analyses": [
+      {
+        "lemma": "מן/ש/קלקל",
+        "morph": "HR/Tr/Vlp3cp",
+        "rules": [
+          "verb",
+          "reduplicated",
+          "prefix"
+        ],
+        "method": "context",
+        "note": "Pilpel des reduplizierten Stamms קלקל (Segal §195); nicht auf das Piʿel-Modell der Flexion reduzieren."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 116,
+    "word": "בַשֵּׁם",
+    "analyses": [
+      {
+        "lemma": "ב/שם",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "article",
+          "prefix",
+          "nominal"
+        ],
+        "method": "context",
+        "note": "בַשֵּׁם enthält den mit ב verschmolzenen Artikel; שם steht absolut."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 121,
+    "word": "מִבֵּית",
+    "analyses": [
+      {
+        "lemma": "מן/בית",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "nominal",
+          "prefix",
+          "construct"
+        ],
+        "method": "context",
+        "note": "בית steht im Ortsnamen בית לחם im Constructus."
+      }
+    ]
+  },
+  {
+    "ref": "6:1",
+    "token": 39,
+    "word": "לֶחֶם",
+    "analyses": [
+      {
+        "lemma": "לחם",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "bread-gender"
+        ],
+        "method": "context",
+        "note": "לֶחֶם „Brot/Speise“: maskulin nach Jastrow Artikel 5467 und Levy Artikel 9327; nicht mit dem aramäischen לחם oder dem Verb לחם vermischen."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 122,
+    "word": "לֶחֶם",
+    "analyses": [
+      {
+        "lemma": "לחם",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "bread-gender"
+        ],
+        "method": "context",
+        "note": "לֶחֶם „Brot/Speise“: maskulin nach Jastrow Artikel 5467 und Levy Artikel 9327; nicht mit dem aramäischen לחם oder dem Verb לחם vermischen."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 35,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 37,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 41,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 46,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 51,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "9:2",
+    "token": 31,
+    "word": "בְרֵאשִׁית",
+    "analyses": [
+      {
+        "lemma": "בראשית",
+        "morph": "HNcxsa",
+        "rules": [
+          "nominal",
+          "creation-noun"
+        ],
+        "method": "context",
+        "note": "In עושה בראשית ist בראשית das lexikalisierte kosmologische Nomen „Schöpfung“ (Jastrow 28318), keine freie Präposition ב plus ראשית. Genus bleibt unspezifiziert."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 134,
+    "word": "גִּבּוֹר",
+    "analyses": [
+      {
+        "lemma": "גיבור",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct",
+          "hero-construct"
+        ],
+        "method": "context",
+        "note": "גיבור החיל als nominales „Held/Krieger von Tapferkeit“: Jastrow 21754; Genitivverbindung nach Segal §380."
+      },
+      {
+        "lemma": "גיבור",
+        "morph": "HAamsc",
+        "rules": [
+          "nominal",
+          "construct",
+          "hero-construct"
+        ],
+        "method": "context",
+        "note": "Alternativ adjektivischer Kopf mit nominaler Ergänzung („mächtig an Tapferkeit“); Segal §380(ii) belegt Adjektive im Constructus. Beide Lesarten bleiben sichtbar."
+      }
+    ]
+  }
+]

@@ -10184,7 +10184,7 @@
     "Josephus"
    ],
    "kind": "other",
-   "hash": "479bf2894506d463164336fb8b3311b1504ac2c6"
+   "hash": "cf2559aedec83fa8a7f526f36be2841514035649"
   },
   {
    "rel": "own/GreekCorpus-tlg0526.tlg002/other/Open Greek Corpus - OGA.json",
@@ -10653,6 +10653,825 @@
    ],
    "kind": "other",
    "hash": "88965de64ee269bf1ee6e45972cfdea2fc3c2c91"
+  },
+  {
+   "rel": "own/Mishnah Berakhot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Berakhot",
+   "heTitle": "משנה ברכות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "aaf407fc918148ba62eefdbce75ab0fa213804a9"
+  },
+  {
+   "rel": "own/Mishnah Peah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Peah",
+   "heTitle": "משנה פאה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "57a50eb4d2ab4e512b82b151bc1d61a0a811e33b"
+  },
+  {
+   "rel": "own/Mishnah Demai/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Demai",
+   "heTitle": "משנה דמאי",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "2b8ced1c46d0beef0b0ab2127038e7103fd78462"
+  },
+  {
+   "rel": "own/Mishnah Kilayim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Kilayim",
+   "heTitle": "משנה כלאים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "feaa36e55405b367fb339996128ae0e7cbd199cd"
+  },
+  {
+   "rel": "own/Mishnah Sheviit/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Sheviit",
+   "heTitle": "משנה שביעית",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "37287a27301a63b700168089758318bd8af8906e"
+  },
+  {
+   "rel": "own/Mishnah Terumot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Terumot",
+   "heTitle": "משנה תרומות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "089b4630ab3f84435d774ab32db19665d7dc06af"
+  },
+  {
+   "rel": "own/Mishnah Maasrot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Maasrot",
+   "heTitle": "משנה מעשרות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "5accbadc016f77e5e62d6215d4b64e7edf7d296f"
+  },
+  {
+   "rel": "own/Mishnah Maaser Sheni/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Maaser Sheni",
+   "heTitle": "משנה מעשר שני",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "a67e4c766a5a213149302f08696e776fa4b7f6d7"
+  },
+  {
+   "rel": "own/Mishnah Challah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Challah",
+   "heTitle": "משנה חלה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "d99f0e742aa95b7f3a7a7bbba85d15ad50f7c45c"
+  },
+  {
+   "rel": "own/Mishnah Orlah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Orlah",
+   "heTitle": "משנה ערלה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "d69bed4da76f5d30d15104613477f8542621a6be"
+  },
+  {
+   "rel": "own/Mishnah Bikkurim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Bikkurim",
+   "heTitle": "משנה ביכורים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Zeraim"
+   ],
+   "kind": "he",
+   "hash": "8201471085d65b905408f43cf2087586753274b4"
+  },
+  {
+   "rel": "own/Mishnah Shabbat/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Shabbat",
+   "heTitle": "משנה שבת",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "3bacdc71688b146d7f83be3e3712875e515126ef"
+  },
+  {
+   "rel": "own/Mishnah Eruvin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Eruvin",
+   "heTitle": "משנה עירובין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "2625fe023ad1e71481a62fcdfdc72491296f8e85"
+  },
+  {
+   "rel": "own/Mishnah Pesachim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Pesachim",
+   "heTitle": "משנה פסחים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "cff96758dccb046afec8327b0f22f98feed1a946"
+  },
+  {
+   "rel": "own/Mishnah Shekalim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Shekalim",
+   "heTitle": "משנה שקלים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "4b9c52aa74aa23bf2677891ba0ffe8ccb838585e"
+  },
+  {
+   "rel": "own/Mishnah Yoma/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Yoma",
+   "heTitle": "משנה יומא",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "fc208154d01e36c5560d6b7c56f0cda2ed14f025"
+  },
+  {
+   "rel": "own/Mishnah Sukkah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Sukkah",
+   "heTitle": "משנה סוכה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "f36f6da72865a8667f92ca7ce7f79914dfc0d614"
+  },
+  {
+   "rel": "own/Mishnah Beitzah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Beitzah",
+   "heTitle": "משנה ביצה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "83765717b84880c4c55d4698846e95a481723926"
+  },
+  {
+   "rel": "own/Mishnah Rosh Hashanah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Rosh Hashanah",
+   "heTitle": "משנה ראש השנה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "3bb3f316f4df20b46e617593e941f687556e5a1d"
+  },
+  {
+   "rel": "own/Mishnah Ta'anit/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Ta'anit",
+   "heTitle": "משנה תענית",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "8d9896c6ba0b11d29c5f5533447e3d29710032f6"
+  },
+  {
+   "rel": "own/Mishnah Megillah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Megillah",
+   "heTitle": "משנה מגילה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "9e2c9ffefa2cd5d57497983b89349dfcfd4d290d"
+  },
+  {
+   "rel": "own/Mishnah Moed Katan/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Moed Katan",
+   "heTitle": "משנה מועד קטן",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "d81d0d5e06bc8a47a8c69956bf105bc3fd115725"
+  },
+  {
+   "rel": "own/Mishnah Chagigah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Chagigah",
+   "heTitle": "משנה חגיגה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Moed"
+   ],
+   "kind": "he",
+   "hash": "c3321009aa82bca03ccf0bbae6a93ed9bef37adc"
+  },
+  {
+   "rel": "own/Mishnah Yevamot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Yevamot",
+   "heTitle": "משנה יבמות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "d787b4489a3e16db4c09b58fb3e5fc5c9eb0ee75"
+  },
+  {
+   "rel": "own/Mishnah Ketubot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Ketubot",
+   "heTitle": "משנה כתובות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "92bb7c0299fdae5da7fb554d3a86e613bd2a03e7"
+  },
+  {
+   "rel": "own/Mishnah Nedarim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Nedarim",
+   "heTitle": "משנה נדרים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "88227f31ffc737e311b63779a3cbcf6933c7a42a"
+  },
+  {
+   "rel": "own/Mishnah Nazir/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Nazir",
+   "heTitle": "משנה נזיר",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "fa94e9da8e404b8da23d57a0ed9977efb70a3b10"
+  },
+  {
+   "rel": "own/Mishnah Sotah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Sotah",
+   "heTitle": "משנה סוטה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "a6af3ffcee21a20233405873628ef65c9bf8a308"
+  },
+  {
+   "rel": "own/Mishnah Gittin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Gittin",
+   "heTitle": "משנה גיטין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "54ce11c7b8fe052f7af34fa645001c984e85e5d1"
+  },
+  {
+   "rel": "own/Mishnah Kiddushin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Kiddushin",
+   "heTitle": "משנה קידושין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nashim"
+   ],
+   "kind": "he",
+   "hash": "464744bc6d9a1bcaf1f99d1e0ea2ce71eed7990e"
+  },
+  {
+   "rel": "own/Mishnah Bava Kamma/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Bava Kamma",
+   "heTitle": "משנה בבא קמא",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "0c457987ca262545f871bb5cae02f14d5733358b"
+  },
+  {
+   "rel": "own/Mishnah Bava Metzia/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Bava Metzia",
+   "heTitle": "משנה בבא מציעא",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "f9408be7cac8cf5219edb4889335169fc79904ea"
+  },
+  {
+   "rel": "own/Mishnah Bava Batra/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Bava Batra",
+   "heTitle": "משנה בבא בתרא",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "138e1121d68642a2eb60c797c8b0ca938047c32f"
+  },
+  {
+   "rel": "own/Mishnah Sanhedrin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Sanhedrin",
+   "heTitle": "משנה סנהדרין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "664b4e47867fadcc195f54a1388715a75be136d8"
+  },
+  {
+   "rel": "own/Mishnah Makkot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Makkot",
+   "heTitle": "משנה מכות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "a535369862221190342d3a89415ca602ec63ffb6"
+  },
+  {
+   "rel": "own/Mishnah Shevuot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Shevuot",
+   "heTitle": "משנה שבועות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "df7028fdebee8829dc9144743de3b7c8d85bb3e3"
+  },
+  {
+   "rel": "own/Mishnah Eduyot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Eduyot",
+   "heTitle": "משנה עדיות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "053035f11180a863f8ce7600e46d8815518dc63b"
+  },
+  {
+   "rel": "own/Mishnah Avodah Zarah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Avodah Zarah",
+   "heTitle": "משנה עבודה זרה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "8ec856fcefd700238d5aafb6852c4a4edd7853aa"
+  },
+  {
+   "rel": "own/Pirkei Avot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Pirkei Avot",
+   "heTitle": "משנה אבות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "24a05ecedb106b69fff9f1c92b4690c1c88a2603"
+  },
+  {
+   "rel": "own/Mishnah Horayot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Horayot",
+   "heTitle": "משנה הוריות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Nezikin"
+   ],
+   "kind": "he",
+   "hash": "151a0ca1ff7ba25c55baff8bb62bdc206a2ae385"
+  },
+  {
+   "rel": "own/Mishnah Zevachim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Zevachim",
+   "heTitle": "משנה זבחים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "fc4b91726f5a40c2ea392d7dc2aa16304d2e3aca"
+  },
+  {
+   "rel": "own/Mishnah Menachot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Menachot",
+   "heTitle": "משנה מנחות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "09afff5f795344c5ab9cdf5aacc2154098d282d9"
+  },
+  {
+   "rel": "own/Mishnah Chullin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Chullin",
+   "heTitle": "משנה חולין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "0a4a0f2f46ba595edb7f5c12fd83709bad609d8b"
+  },
+  {
+   "rel": "own/Mishnah Bekhorot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Bekhorot",
+   "heTitle": "משנה בכורות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "d4760fcef69a0bce406c030301ce81d54b5162b7"
+  },
+  {
+   "rel": "own/Mishnah Arakhin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Arakhin",
+   "heTitle": "משנה ערכין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "0300f10887ff5cc5129a650652f8f49124cf41e2"
+  },
+  {
+   "rel": "own/Mishnah Temurah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Temurah",
+   "heTitle": "משנה תמורה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "18f3493bc557d3c9e855e9bf6735ae9529e23788"
+  },
+  {
+   "rel": "own/Mishnah Keritot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Keritot",
+   "heTitle": "משנה כריתות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "53a55ba3f01c6f0b811325070207f28a9462dd57"
+  },
+  {
+   "rel": "own/Mishnah Meilah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Meilah",
+   "heTitle": "משנה מעילה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "0520a900392c0dc7ee44963bf60c2982b7b16f0e"
+  },
+  {
+   "rel": "own/Mishnah Tamid/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Tamid",
+   "heTitle": "משנה תמיד",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "dc45a937de2985779dc19e345c0968e1683b56f6"
+  },
+  {
+   "rel": "own/Mishnah Middot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Middot",
+   "heTitle": "משנה מדות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "56287d606c01b92c191ecc97e8545705331e9a6a"
+  },
+  {
+   "rel": "own/Mishnah Kinnim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Kinnim",
+   "heTitle": "משנה קינים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Kodashim"
+   ],
+   "kind": "he",
+   "hash": "4027ad4223b5034d785829b580532855c8ba3f12"
+  },
+  {
+   "rel": "own/Mishnah Kelim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Kelim",
+   "heTitle": "משנה כלים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "d8c357c71ba1f8a0218c8cb95da24c6e2487edf8"
+  },
+  {
+   "rel": "own/Mishnah Oholot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Oholot",
+   "heTitle": "משנה אהלות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "beaf9884eab0216d8bfdd1b35b5a77ff422e2654"
+  },
+  {
+   "rel": "own/Mishnah Negaim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Negaim",
+   "heTitle": "משנה נגעים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "558daf6e7aae54507e6c7f29f66d9a8e3213433d"
+  },
+  {
+   "rel": "own/Mishnah Parah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Parah",
+   "heTitle": "משנה פרה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "033ce069a57091009a7fcdd717ceefa254e5efe0"
+  },
+  {
+   "rel": "own/Mishnah Tahorot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Tahorot",
+   "heTitle": "משנה טהרות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "923334d26e6ca935bdd7d5d3c5db05ffc2bdff02"
+  },
+  {
+   "rel": "own/Mishnah Mikvaot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Mikvaot",
+   "heTitle": "משנה מקואות",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "20c31d124f1c8730a782b91db03cbcb4e81cc953"
+  },
+  {
+   "rel": "own/Mishnah Niddah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Niddah",
+   "heTitle": "משנה נדה",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "496d6d9180a07a36130a5bf413984a83b7bd2e6a"
+  },
+  {
+   "rel": "own/Mishnah Makhshirin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Makhshirin",
+   "heTitle": "משנה מכשירין",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "a1d9a9e272cdfc37bbf4d1870acc743f4b4de598"
+  },
+  {
+   "rel": "own/Mishnah Zavim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Zavim",
+   "heTitle": "משנה זבים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "fa031d144fd3f5e13702ccf5ee49554ececd25cb"
+  },
+  {
+   "rel": "own/Mishnah Tevul Yom/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Tevul Yom",
+   "heTitle": "משנה טבול יום",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "d2389c6e09791abd3182c89de2526f8d04b89e62"
+  },
+  {
+   "rel": "own/Mishnah Yadayim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Yadayim",
+   "heTitle": "משנה ידים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "57590230cf99945b2aa5d38415d0491b48f99104"
+  },
+  {
+   "rel": "own/Mishnah Oktzin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+   "title": "Mishnah Oktzin",
+   "heTitle": "משנה עוקצים",
+   "language": "Hebrew",
+   "versionTitle": "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri",
+   "categories": [
+    "Mishnah",
+    "Seder Tahorot"
+   ],
+   "kind": "he",
+   "hash": "7a602f9c41ef02e4e7c96d8e3ee7a6ece9778a8d"
   }
  ]
 }

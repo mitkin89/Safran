@@ -20,7 +20,8 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  // Source-only entries remain accessible in a chapter without inventing MT 25:19.
  {const item=manifest.items.find(e=>e.title==='Numbers'&&e.versionTitle.startsWith('Westminster'));const raw=fs.readFileSync(path.join(root,'bundled',item.rel)),doc=JSON.parse(raw);docs.set(item.rel,{...doc,entry:{...item,own:false,bytes:raw.length}});}
  {const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;}
- await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Numbers'))",'Numbers in der Bibliothek');
+ // The library appears before the previous reading session finishes loading.
+ await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Numbers')) && document.querySelector('#rOut .row .cell')",'Numbers verfügbar und wiederhergestellter Lesetext geladen');
  await book('Numbers');await waitFor("document.querySelector('#rTitle').textContent.includes('Numbers')",'Numbers geladen');
  await js("document.querySelector('#rSection').value='24';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#rOut .row[data-l=\"18\"] .txt')&&document.querySelector('#rOut .row[data-l=\"1\"] .w')?.textContent.replace(/[^א-ת]/g,'')==='וישב'",'Numbers 25 bereit');

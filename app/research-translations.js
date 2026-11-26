@@ -34,7 +34,9 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
  if(source.text!==source.originalText)throw Error('Der Auszug wurde bearbeitet. Bitte den Originaltext wiederherstellen, bevor du eine Übersetzung zuordnest.');
  const a=await rich(source.reference.rel),b=await rich(rel);if(a.entry.title!==b.entry.title)throw Error('Die Ausgabe gehört nicht zum selben Werk.');
  const captured=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels},a.doc.textHash);
- if(captured.sourceHash!==source.sourceHash||captured.text!==source.originalText)throw Error('Der gespeicherte Auszug und die Originalausgabe stimmen nicht überein. Bitte die Quelle neu übernehmen.');
+ const legacy=S.capture(a.doc,a.entry,{sectionPath:source.reference.sectionPath,labels:source.reference.labels,includeFootnotes:false},a.doc.textHash);
+ const oldNotes=R.flattenNode(R.getByPath(a.doc.text,source.reference.sectionPath)).filter(r=>source.reference.labels.includes(r.label)).map(r=>r.label+'  '+S.plain(r.html)+R.splitFootnotes(r.html).notes.map(n=>'\n[Fußnote '+(n.marker||'')+'] '+S.plain(n.html)).join('')).join('\n');
+ if(captured.sourceHash!==source.sourceHash||![captured.text,legacy.text,oldNotes].includes(source.originalText))throw Error('Der gespeicherte Auszug und die Originalausgabe stimmen nicht überein. Bitte die Quelle neu übernehmen.');
  const originalRows=R.flattenNode(R.getByPath(a.doc.text,source.reference.sectionPath)).filter(r=>source.reference.labels.includes(r.label)),rows=[],plans=[];
  if(originalRows.length>200)throw Error('Bitte höchstens 200 Verse auf einmal auswählen.');
  const book=a.entry.title;
@@ -44,7 +46,7 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
    for(const s of t.sections)for(const v of s.verses){if(V.partial(book,+s.chapter,v,'heb',trad))throw Error('Teilverszuordnung nicht eindeutig.');pairs.push(...V.verse(book,+s.chapter,v,'heb',trad));}
    if(!pairs.length)throw Error('Kein Gegenstück in dieser Ausgabe für '+r.label+'.');
    const selected=pairs.map(([ch,v])=>{const req={sectionPath:[ch-1],labels:[String(v)]},capture=S.capture(b.doc,b.entry,req,b.doc.textHash);plans.push(req);return {ch,v,text:capture.text.replace(/^\S+\s+/,'')};});
-   const parts=source.reference.sectionPath.filter(p=>p!=='');rows.push({label:r.label,key:(parts[0]+1)+':'+r.label,targetLabel:selected.map(x=>x.ch+':'+x.v).join(', '),original:S.plain(r.html),translation:selected.map(x=>x.text).join('\n')});
+   const parts=source.reference.sectionPath.filter(p=>p!=='');rows.push({label:r.label,key:(parts[0]+1)+':'+r.label,targetLabel:selected.map(x=>x.ch+':'+x.v).join(', '),original:S.segmentText(r.html),translation:selected.map(x=>x.text).join('\n')});
   }
  }else{
   if(JSON.stringify(a.doc.sectionNames)!==JSON.stringify(b.doc.sectionNames))throw Error('Die Abschnittsstrukturen der Ausgaben unterscheiden sich.');
@@ -53,7 +55,7 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
   const native=R.flattenNode(R.getByPath(b.doc.text,section.path)),byLabel=new Map(native.map(r=>[r.label,r])),present=originalRows.filter(r=>byLabel.has(r.label)).map(r=>r.label);
   if(!present.length)throw Error('Für die gewählten Zeilen ist in dieser Ausgabe keine Übersetzung vorhanden.');
   plans.push({sectionPath:section.path,labels:present});
-  for(const r of originalRows){const translated=byLabel.get(r.label);rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.plain(r.html),translation:translated?S.plain(translated.html):'',...(!translated?{missing:true}:{})});}
+  for(const r of originalRows){const translated=byLabel.get(r.label);rows.push({label:r.label,targetLabel:r.label,key:r.label,original:S.segmentText(r.html),translation:translated?S.segmentText(translated.html):'',...(!translated?{missing:true}:{})});}
  }
  const mergedPlans=new Map();for(const plan of plans){const key=JSON.stringify(plan.sectionPath);if(!mergedPlans.has(key))mergedPlans.set(key,{sectionPath:plan.sectionPath,labels:[]});for(const label of plan.labels)if(!mergedPlans.get(key).labels.includes(label))mergedPlans.get(key).labels.push(label);}plans.splice(0,plans.length,...mergedPlans.values());
  const companion=S.capture(b.doc,b.entry,plans[0],b.doc.textHash);companion.text=companion.originalText=rows.filter(r=>!r.missing).map(r=>r.targetLabel+'  '+r.translation).join('\n');companion.reference.quote=companion.text;
@@ -62,12 +64,45 @@ async function prepare({source,rel,rels,mode,sourceSize,translationSize},rich,pr
  companion.citation.locator=[...new Set(references.map(r=>r.citation.locator))].join('; ');companion.reference.citation=companion.citation;
  return {...sizes,mode,companion,rows:mode==='interlinear'?await aligned(book,a.doc,b.doc,rows,privateRead):rows,references};
 }
+const witnessEditions={
+ LXX:['Septuaginta','Greek'],Onkelos:['Targum Onkelos','Aramaic'],
+ Qumran:['Qumran-Rollen','Hebrew (Qumran)'],Samaritan:['Samaritanus · Tal–Florentin','Samaritan Hebrew'],
+ Peshitta:['Peschitta','Syriac']
+};
+function witnessPair(source,name,rows,sizes,previous){
+ const [edition,language]=witnessEditions[name];
+ const citation={...S.citation(),work:source.citation.work,edition,language,...previous?.citation,locator:'MT · '+source.citation.locator};
+ const quote=rows.filter(r=>r.translation).map(r=>r.label+'  '+r.translation).join('\n');
+ const reference={...source.reference,rel:'',citation,quote};
+ const companion=S.block({...previous,type:'source',title:edition,reference,citation,text:quote,originalText:quote});
+ return {...sizes,readerWitness:name,mode:'interlinear',rows,companion,references:[reference]};
+}
 async function readerView(request,rich,privateRead=async()=>null){
  const {rel,visibleRels,interlinearRels=[],sizes={},glossSize=12}=request;
  if(!Array.isArray(visibleRels)||!visibleRels.length||visibleRels.length>9||visibleRels[0]!==rel||new Set(visibleRels).size!==visibleRels.length||!Array.isArray(interlinearRels)||interlinearRels.length>8||new Set(interlinearRels).size!==interlinearRels.length)throw Error('Ungültige Auswahl aus dem Lesefenster.');
  const {doc,entry}=await rich(rel),source=S.capture(doc,entry,{sectionPath:request.sectionPath,labels:request.labels},doc.textHash),pairSize=target=>({sourceSize:sizes[rel],translationSize:sizes[target]});
  const parallel=[];for(const target of visibleRels.slice(1))parallel.push(await prepare({source,rel:target,mode:'parallel',...pairSize(target)},rich,privateRead));
  const interlinear=[];for(const target of interlinearRels)interlinear.push(await prepare({source,rel:target,mode:'interlinear',sourceSize:sizes[rel],translationSize:glossSize},rich,privateRead));
+ const witnesses=request.witnesses||[];
+ if(!Array.isArray(witnesses)||witnesses.length+interlinear.length>8||
+    new Set(witnesses).size!==witnesses.length||witnesses.some(n=>!Object.hasOwn(witnessEditions,n)))throw Error('Ungültige Auswahl aus dem Lesefenster.');
+ if(witnesses.length){
+  if(JSON.stringify(request.witnessSection)!==JSON.stringify(source.reference.sectionPath)||!Array.isArray(request.witnessRows))throw Error('Für diese Interlinearzeilen bitte den im Lesefenster geöffneten Abschnitt wählen.');
+  const byLabel=new Map(request.witnessRows.map(row=>[row.label,row.groups]));
+  const chapter=source.reference.sectionPath.filter(part=>part!=='')[0]+1;
+  const original=R.flattenNode(R.getByPath(doc.text,source.reference.sectionPath)).filter(row=>source.reference.labels.includes(row.label));
+  for(const name of witnesses){
+   const rows=original.map(row=>{
+    const groups=(byLabel.get(row.label)||[]).map(g=>({original:g.original,translation:g.lines.filter(l=>l.name===name).map(l=>l.text).join(' · ')}));
+    const original=S.segmentText(row.html);
+    return {label:row.label,key:V.known(entry.title)?chapter+':'+row.label:row.label,targetLabel:row.label,original,
+     translation:groups.map(g=>g.translation).filter(Boolean).join(' '),
+     groups:groups.length?groups:[{original:original.split('\n')[0],translation:''}]};
+   });
+   if(rows.some(r=>r.translation))interlinear.push(witnessPair(source,name,rows,{sourceSize:sizes[rel],translationSize:glossSize}));
+  }
+  if(!interlinear.some(pair=>pair.readerWitness))throw Error('Für die ausgewählten Zeilen sind keine Wortzuordnungen der gewählten Textzeugen sichtbar.');
+ }
  if(parallel.length)source.presentation={...parallel[0],...(parallel.length>1?{additional:parallel.slice(1)}:{}),...(interlinear.length?{originalInterlinear:interlinear}:{})};
  else if(interlinear.length)source.presentation={...interlinear[0],...(interlinear.length>1?{additional:interlinear.slice(1)}:{})};
  if(source.presentation&&Array.isArray(request.headings))source.presentation.readerHeadings=request.headings.filter(h=>source.reference.labels.includes(h.before)).map(h=>({before:h.before,text:h.text}));
@@ -79,7 +114,13 @@ async function rangePreview({source,sectionPath,labels},rich,privateRead=async()
  if(source.sourceHash!==fresh.sourceHash)throw Error('Die Quelldatei wurde inzwischen geändert. Bitte zuerst die Ausgabe neu übernehmen.');
  fresh.id=source.id;fresh.region=source.region||'main';fresh.title=source.title;fresh.citation={...source.citation,locator:fresh.citation.locator,language:fresh.citation.language};fresh.reference.citation=fresh.citation;
  if(source.presentation){
-  const old=source.presentation,make=async pair=>{const next=await prepare({source:fresh,rel:pair.companion.reference.rel,mode:pair.mode,sourceSize:pair.sourceSize,translationSize:pair.translationSize},read,privateRead);if(next.companion.sourceHash!==pair.companion.sourceHash)throw Error('Eine zugehörige Ausgabe wurde inzwischen geändert. Bitte die Übersetzungsanzeige zuerst neu auswählen.');next.companion.id=pair.companion.id;next.companion.citation={...pair.companion.citation,locator:next.companion.citation.locator,language:next.companion.citation.language};next.companion.reference.citation=next.companion.citation;next.references.forEach(ref=>ref.citation={...pair.companion.citation,locator:ref.citation.locator,language:next.companion.citation.language});return next;},primary=await make(old),additional=[];
+  const old=source.presentation,make=async pair=>{
+   if(pair.readerWitness){
+    const rows=pair.rows.filter(row=>fresh.reference.labels.includes(row.label));
+    if(JSON.stringify(sectionPath)!==JSON.stringify(source.reference.sectionPath)||rows.length!==fresh.reference.labels.length)throw Error('Für weitere Verse bitte die Interlinearzeilen erneut aus dem Lesefenster übernehmen.');
+    return witnessPair(fresh,pair.readerWitness,rows,{sourceSize:pair.sourceSize,translationSize:pair.translationSize},pair.companion);
+   }
+   const next=await prepare({source:fresh,rel:pair.companion.reference.rel,mode:pair.mode,sourceSize:pair.sourceSize,translationSize:pair.translationSize},read,privateRead);if(next.companion.sourceHash!==pair.companion.sourceHash)throw Error('Eine zugehörige Ausgabe wurde inzwischen geändert. Bitte die Übersetzungsanzeige zuerst neu auswählen.');next.companion.id=pair.companion.id;next.companion.citation={...pair.companion.citation,locator:next.companion.citation.locator,language:next.companion.citation.language};next.companion.reference.citation=next.companion.citation;next.references.forEach(ref=>ref.citation={...pair.companion.citation,locator:ref.citation.locator,language:next.companion.citation.language});return next;},primary=await make(old),additional=[];
   for(const pair of old.additional||[])additional.push(await make(pair));
   const originalInterlinear=[];for(const pair of old.originalInterlinear||[])originalInterlinear.push(await make(pair));
   fresh.presentation={...primary,...(additional.length?{additional}:{}),...(originalInterlinear.length?{originalInterlinear}:{}),...(old.readerHeadings?.length&&JSON.stringify(sectionPath)===JSON.stringify(source.reference.sectionPath)?{readerHeadings:old.readerHeadings.filter(h=>fresh.reference.labels.includes(h.before))}:{})};

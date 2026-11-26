@@ -13,7 +13,8 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#allPanel').classList.contains('docked')",'Überblick für Größenprüfung angepinnt');
  // Shared panel handles support dock width and free floating dimensions.
  await waitFor("document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=w]:not([hidden])')",'Überblick-Trennkante');
- assert.equal(await js("document.querySelectorAll('.panel-resize-handle').length"),72,'Acht Größenkanten für neun Panels');
+ const resizeEdges=await js("Array.from(document.querySelectorAll('.panel-resize-handle[data-panel=allPanel]'), h=>h.dataset.edge).sort()");
+ assert.deepEqual(resizeEdges,['e','n','ne','nw','s','se','sw','w'],'Acht Größenkanten für die Textstatistik');
  const oldWidth=await js("document.querySelector('#allPanel').getBoundingClientRect().width");
  await js("document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=w]').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowLeft',shiftKey:true,bubbles:true}))");
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");

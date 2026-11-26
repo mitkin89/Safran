@@ -33,11 +33,12 @@ function presentation(p,nested=false){
  if(p.additional!==undefined&&(!Array.isArray(p.additional)||p.additional.length>7||nested&&p.additional.length))throw Error('Höchstens 8 Übersetzungen ohne Verschachtelung auswählen.');
  const additional=(p.additional||[]).map(x=>presentation(x,true));
  if(additional.some(x=>x.mode!==p.mode))throw Error('Übersetzungsanzeigen müssen denselben Modus verwenden.');
- const rels=[p.companion?.reference?.rel,...additional.map(x=>x.companion.reference?.rel)];if(new Set(rels).size!==rels.length)throw Error('Übersetzungsausgaben dürfen nicht doppelt vorkommen.');
+ const rels=[p,...additional].map(x=>x.readerWitness?'witness:'+x.readerWitness:x.companion?.reference?.rel);if(new Set(rels).size!==rels.length)throw Error('Übersetzungsausgaben dürfen nicht doppelt vorkommen.');
  if(!['parallel','interlinear'].includes(p.mode)||!Array.isArray(p.rows)||!p.rows.length||p.rows.length>200||!Array.isArray(p.references)||p.references.length>400)throw Error('Ungültige Übersetzungsanzeige.');
  if([...additional,...originalInterlinear].some(x=>x.rows.length!==p.rows.length||x.rows.some((r,i)=>r.label!==p.rows[i].label||r.key!==p.rows[i].key||r.original!==p.rows[i].original)))throw Error('Übersetzungszeilen passen nicht zum selben Originaltext.');
  const companion=cleanBlock(p.companion,true);if(companion.type!=='source')throw Error('Übersetzungsquelle fehlt.');
- return {...(originalInterlinear.length?{originalInterlinear}:{}),...(readerHeadings.length?{readerHeadings}:{}),...(additional.length?{additional}:{}),...Layout.pairSizes(p),mode:p.mode,companion,references:p.references.map(reference),rows:p.rows.map(r=>{if(p.mode==='interlinear'&&(!Array.isArray(r.groups)||r.groups.length>1000))throw Error('Ungültige Wortgruppen.');return {label:text(r.label,1000),targetLabel:text(r.targetLabel,1000),key:text(r.key,1000),original:text(r.original),translation:text(r.translation),...(r.missing===true?{missing:true}:{}),...(p.mode==='interlinear'?{groups:r.groups.map(g=>({original:text(g.original),translation:text(g.translation)}))}:{})};})};
+ if(p.readerWitness!==undefined&&(p.mode!=='interlinear'||!['LXX','Onkelos','Qumran','Samaritan','Peshitta'].includes(p.readerWitness)))throw Error('Ungültiger Interlinear-Textzeuge.');
+ return {...(p.readerWitness?{readerWitness:p.readerWitness}:{}),...(originalInterlinear.length?{originalInterlinear}:{}),...(readerHeadings.length?{readerHeadings}:{}),...(additional.length?{additional}:{}),...Layout.pairSizes(p),mode:p.mode,companion,references:p.references.map(reference),rows:p.rows.map(r=>{if(p.mode==='interlinear'&&(!Array.isArray(r.groups)||r.groups.length>1000))throw Error('Ungültige Wortgruppen.');return {label:text(r.label,1000),targetLabel:text(r.targetLabel,1000),key:text(r.key,1000),original:text(r.original),translation:text(r.translation),...(r.missing===true?{missing:true}:{}),...(p.mode==='interlinear'?{groups:r.groups.map(g=>({original:text(g.original),translation:text(g.translation)}))}:{})};})};
 }
 function note(n){if(Array.isArray(n.refs)&&n.refs.length>100)throw Error('Höchstens 100 Fundstellen pro Notiz.');return {id:id(n.id||uid()),projectId:id(n.projectId),title:text(n.title,20000),note:text(n.note),tags:tags(n.tags),topics:tags(n.topics),refs:(Array.isArray(n.refs)?n.refs:[]).slice(0,100).map(reference),version:Number.isInteger(n.version)?n.version:0,ts:Number.isFinite(n.ts)?n.ts:Date.now(),kind:'free'};}
 function entity(kind,x){
@@ -137,11 +138,18 @@ function plain(html){
    return c>0&&c<=0x10ffff&&!(c>=0xd800&&c<=0xdfff)?String.fromCodePoint(c):'\ufffd';
   }).trim();
 }
+// Keep each edition's annotations immediately after its native segment.
+function segmentText(html,includeFootnotes=true){
+ const split=R.splitFootnotes(html);
+ if(!includeFootnotes)return plain(html);
+ const main=plain(split.main.replace(/<sup data-fn="\d+">([\s\S]*?)<\/sup>/g,(_,marker)=>'['+marker+']'));
+ return main+split.notes.map(n=>'\n[Fußnote '+plain(n.marker)+'] '+plain(n.html).replace(/\s*\n\s*/g,' ')).join('');
+}
 function capture(doc,entry,request,contentHash){
  const p=request.sectionPath;if(!Array.isArray(p)||p.length>20||p.some(x=>!Number.isInteger(x)&&typeof x!=='string'||['__proto__','constructor','prototype'].includes(x)))throw Error('Ungültige Fundstelle.');
  const sections=R.sectionsOf(doc.text,doc.sectionNames),section=sections.find(s=>JSON.stringify(s.path)===JSON.stringify(p));if(!section)throw Error('Abschnitt fehlt in dieser Edition.');
  const rows=R.flattenNode(R.getByPath(doc.text,p)),labels=rangeLabels(request.labels,rows.map(r=>r.label));
- const selected=rows.filter(r=>labels.includes(r.label)),body=selected.map(r=>r.label+'  '+plain(r.html)+(request.includeFootnotes?R.splitFootnotes(r.html).notes.map(n=>'\n[Fußnote '+(n.marker||'')+'] '+plain(n.html)).join(''):'')).join('\n');
+ const selected=rows.filter(r=>labels.includes(r.label)),body=selected.map(r=>r.label+'  '+segmentText(r.html,request.includeFootnotes!==false)).join('\n');
  const where=section.label+(labels.length?' · '+labels.join(', '):''),c=metadata(doc,entry,where);
  const ref=reference({label:(doc.title||entry.title)+' · '+where,rel:entry.rel,sectionPath:p,labels,citation:c,quote:body});
  return block({type:'source',title:doc.title||entry.title,text:body,originalText:body,citation:c,reference:ref,sourceHash:/^[a-f0-9]{64}$/.test(contentHash||'')?contentHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex'),capturedAt:now()});
@@ -158,4 +166,4 @@ function bundleProject(s,projectId,legacy=[]){
 }
 function annotations(notes){return {'@context':['http://www.w3.org/ns/anno.jsonld',{safran:'https://github.com/mitkin89/Safran/ns/'}],type:'AnnotationPage',items:notes.map(n=>({id:/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(n.id)?'urn:uuid:'+n.id:'urn:safran:annotation:'+encodeURIComponent(n.id),type:'Annotation',modified:new Date(n.ts||0).toISOString(),body:[{type:'TextualBody',value:n.note||'',format:'text/plain',purpose:'commenting'},...(n.tags||[]).map(value=>({type:'TextualBody',value,purpose:'tagging'}))],target:(n.refs||[]).map(r=>{const url=r.citation?.url;return {type:'SpecificResource',source:/^https?:\/\/\S+$/.test(url||'')?url:'urn:safran:source:'+encodeURIComponent(r.rel||r.label),...(r.quote?{selector:{type:'TextQuoteSelector',exact:r.quote}}:{}),'safran:locator':r.label,'safran:edition':r.citation?.edition||''};}),'safran:project':n.projectId||'','safran:topics':n.topics||[]}))};}
 function csv(items){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';return '\uFEFF'+[['type','id','title','text','work','edition','translator','locator','source_url','captured_at','tags','topics','translation_mode','translation_edition','translation_locator','translation_text'],...items.map(x=>[x.type||'note',x.id,x.title,x.note??x.text,x.citation?.work||'',x.citation?.edition||'',x.citation?.translator||'',x.citation?.locator||'',x.citation?.url||'',x.capturedAt||'',(x.tags||[]).join('; '),(x.topics||[]).join('; '),x.presentation?.mode||'',...(x.presentation?['edition','locator','text'].map(k=>[x.presentation,...(x.presentation.additional||[]),...(x.presentation.originalInterlinear||[])].map(p=>k==='text'?p.companion.text:p.companion.citation[k]).join('\n')):['','',''])])].map(row=>row.map(q).join(',')).join('\r\n')+'\r\n';}
-module.exports={ResearchStore,empty,validate,entity,block,note,reference,citation,cite,capture,metadata,rangeLabels,plain,legacyRefs,resolveBlocks,bundleProject,annotations,csv,MAX_BYTES};
+module.exports={ResearchStore,empty,validate,entity,block,note,reference,citation,cite,capture,metadata,rangeLabels,plain,segmentText,legacyRefs,resolveBlocks,bundleProject,annotations,csv,MAX_BYTES};

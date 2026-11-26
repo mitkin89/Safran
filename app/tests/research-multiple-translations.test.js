@@ -47,3 +47,24 @@ test('range changes keep discontiguous native verses, both translations and inte
  await assert.rejects(T.rangePreview({source,sectionPath:[0],labels:'999'},rich),/fehlt|außerhalb|Ungültige/);
  docs.de.text[0][1]+=' changed';await assert.rejects(T.rangePreview({source,sectionPath:[0],labels:'2,5,10'},rich),/zugehörige Ausgabe/);docs.he.text[0][1]+=' changed';await assert.rejects(T.rangePreview({source,sectionPath:[0],labels:'2,5,10'},rich),/Quelldatei/);
 });
+test('reader captures five ancient witnesses with word groups, saves them and exports their text',async()=>{
+ const {rich}=fixture();
+ const witnesses=['LXX','Onkelos','Qumran','Samaritan','Peshitta'];
+ const forms=['λόγος','מֵימְרָא','4Q1 דבר','דבר','ܡܠܬܐ'];
+ const request={rel:'he',visibleRels:['he','de2'],sectionPath:[0],labels:['1','2'],
+  witnesses,witnessSection:[0],witnessRows:[{label:'1',groups:[{original:'מקור א',lines:witnesses.map((name,i)=>({name,text:forms[i]}))}]}]};
+ const source=await T.readerView(request,rich);
+ const sheet=S.entity('sheets',{id:'sheet',projectId:'project',title:'Witnesses',blocks:[source]});
+ const saved=sheet.blocks[0];
+ assert.deepEqual(saved.presentation.originalInterlinear.map(p=>p.readerWitness),witnesses);
+ assert.deepEqual(saved.presentation.originalInterlinear.map(p=>p.rows[0].groups[0].translation),forms);
+ assert(saved.presentation.originalInterlinear.every(p=>!p.rows[1].translation));
+ const html=E.html(sheet),word=xml(E.docx(sheet)),csv=S.csv(sheet.blocks);
+ for(const form of forms)for(const output of [html,word,csv])assert(output.includes(form));
+ const only=await T.readerView({...request,visibleRels:['he']},rich);
+ assert.deepEqual([only.presentation,...only.presentation.additional].map(p=>p.readerWitness),witnesses);
+ const narrowed=await T.rangePreview({source:saved,sectionPath:[0],labels:['1']},rich);
+ assert.deepEqual(narrowed.presentation.originalInterlinear.map(p=>p.companion.id),saved.presentation.originalInterlinear.map(p=>p.companion.id));
+ await assert.rejects(T.rangePreview({source:saved,sectionPath:[0],labels:['1','3']},rich),/erneut aus dem Lesefenster/);
+ await assert.rejects(T.readerView({...request,witnessSection:[1]},rich),/geöffneten Abschnitt/);
+});

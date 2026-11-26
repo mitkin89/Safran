@@ -27,7 +27,9 @@
     }).map(([s]) => s);
   }
   const fmtSize = b => (b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' GB' : (b / 1048576).toFixed(1) + ' MB');
+  const kaufmannLabel = v => v === "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri" ? I18N.t('Kaufmann A50 · vokalisiert (Dan Be’eri)') : null;
   const shortVer = v => {
+    if (kaufmannLabel(v)) return kaufmannLabel(v);
     if (v === 'merged') return 'zusammengeführt';
     const s = String(v || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
     return s.length > 90 ? s.slice(0, 90) + '…' : s;
@@ -339,8 +341,8 @@
     if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
-      const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
-      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (v.versionTitle !== 'merged' || !g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
+      const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // hebräische Sammelfassung wird nicht als Vorgabe übernommen
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (window.LibraryWorks.visibleVersion(v,g.versions))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
     }
@@ -381,7 +383,7 @@
   async function loadView(target = {}) {
     const V = view; // Tab, für den geladen wird (der Nutzer kann inzwischen woanders sein)
     const tok = V.loadTok = (V.loadTok || 0) + 1;
-    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(old?.versionTitle!=='merged')continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged'&&window.LibraryWorks.sameSource(v,old)).sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
+    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(!old||window.LibraryWorks.visibleVersion(old,V.group.versions))continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged'&&window.LibraryWorks.sameSource(v,old)).sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
     // Versionen ändern: an derselben Stelle bleiben (markierter Vers, sonst der oberste sichtbare), statt zu Vers 1 zurückzuspringen
     let keepRow = null;
     if (view === V && !target.noKeep && !target.sectionPath && target.rowLabel == null && V.key) {
@@ -513,7 +515,7 @@
   }
   const westminsterFirst = (a,b) => Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||''));
   function renderVersions() {
-    const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)));
+    const g = view.group,versions=g.versions.filter(v=>window.LibraryWorks.visibleVersion(v,g.versions));
     $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
     const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; };
@@ -525,8 +527,11 @@
       const annotated=node=>typeof node==='string'?/data-m=["']/.test(node):Array.isArray(node)?node.some(annotated):!!node&&typeof node==='object'&&Object.values(node).some(annotated);
       return !!doc&&annotated(doc.text);
     };
-    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):window.LibraryWorks.versionLabel(v);
-    const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
+    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):kaufmannLabel(v.versionTitle)||window.LibraryWorks.versionLabel(v);
+    const mishnahCandidate=v=>window.LibraryMishnahMorph?.supports(v.title,v.versionTitle);
+    const localEditions = new Set(entries.map(e => e.rel));
+    const itemH = v => `<div class="version-row"><label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}${mishnahCandidate(v)?`<span class="vmorph mhm-version-candidate">${esc(I18N.t('Wortbestimmung · maschinell'))}</span>`:''}</span></span></label>${localEditions.has(v.rel)?`<button type="button" class="version-remove" data-remove-edition="${esc(v.rel)}" aria-label="${esc(I18N.t('Ausgabe entfernen: {}',versionName(v)))}">${esc(I18N.t('Entfernen …'))}</button>` : ''}</div>`;
+
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.
     const menuKind = v => /^The Samaritan Pentateuch/.test(v.versionTitle||'')?'en':/^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
@@ -546,6 +551,32 @@
   $('#verBox').addEventListener('toggle',placeVersions);
   window.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#verBox').open){e.preventDefault();e.stopImmediatePropagation();$('#verBox').open=false;placeVersions();$('#verSummary').focus();}},true);
   window.addEventListener('resize',placeVersions);window.addEventListener('scroll',placeVersions,{passive:true});
+  async function refreshAfterEditionRemoval() {
+    await loadLibrary();
+    if (view?.group) await loadView();
+    else {
+      $('#verBox').open = false;
+      placeVersions();
+      if (!tabs.length) newTab();
+    }
+    await refreshState();
+  }
+  O.onEditionRemoved(() => refreshAfterEditionRemoval().catch(err => alert(err.message)));
+  $('#verList').addEventListener('click', async e => {
+    const button = e.target.closest('[data-remove-edition]');
+    if (!button || button.disabled) return;
+    button.disabled = true;
+    try {
+      const result = await O.removeEdition(button.dataset.removeEdition);
+      if (result.error) throw new Error(result.error);
+      if (!result.removed) return;
+      await refreshAfterEditionRemoval();
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      button.disabled = false;
+    }
+  });
   $('#verList').addEventListener('change', async e => {
     const rel = e.target.dataset.rel;
     if (!rel || !view) return;
@@ -598,7 +629,7 @@
       items.push({label:I18N.t('Alle anderen Versionen schließen'),mark:'▣',fn:()=>apply(new Set([d.entry.rel]))});
       items.push({sep:true});
     }
-    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'&&window.LibraryWorks.sameSource(x,v)))).sort(westminsterFirst);
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (window.LibraryWorks.visibleVersion(v,g.versions))).sort(westminsterFirst);
     if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
       for (const v of same) {
         const on = view.selected.has(v.rel);
@@ -691,7 +722,8 @@
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
+    const mh = window.LibraryMishnahMorph?.supports(d.entry.title,d.entry.versionTitle || d.versionTitle) ? ' data-mishnah-morph="1"' : '';
+    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv}${mh} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -728,18 +760,20 @@
     if(AP&&AP.sectionKey!==view.group.key+'|'+s.k){apRemember();AP.sectionKey=view.group.key+'|'+s.k;AP.whole=true;}
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
-    const independent = window.LibraryWorks.independentNumbering(view.group, view.loaded, cols);
-    const rows = independent ? window.LibraryWorks.independentRows(cols) : R.alignRows(cols);
+    const canonical = window.MaccabeesAlignment.verseRows(view.group,view.loaded,cols,s.path);
+    const passages = canonical ? null : window.MaccabeesAlignment.passages(view.group,view.loaded,cols,s.path);
+    const independent = !!passages || window.LibraryWorks.independentNumbering(view.group, view.loaded, cols);
+    const rows = canonical || (independent ? window.LibraryWorks.independentRows(cols) : R.alignRows(cols));
     const vis = view.loaded.map((_, i) => i); // alle gewählten Versionen bleiben als Spalten stehen, auch wenn eine im Abschnitt leer ist
     // Anordnung „je Sprache“: Gruppen nach Sprache (Hebräisch, Englisch, Deutsch, Andere), die Versionen einer Sprache stehen in einer Spalte untereinander
-    const byLang = layoutMode === 'lang' && !independent;
+    const byLang = layoutMode === 'lang' && !independent && !canonical;
     const groupsL = byLang ? LANG_ORDER.map(k => ({ k, idx: vis.filter(i => langKind(view.loaded[i]) === k) })).filter(g => g.idx.length) : null;
     const n = byLang ? groupsL.length : vis.length;
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
     const head = byLang
       ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? versBadge(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
-      : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
+      : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map((d,i) =>
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}${(canonical||passages)&&!cols[i].length?' <span class="macc-unavailable">· '+esc(I18N.t('Kein Text in dieser Fassung.'))+'</span>':''}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
@@ -756,10 +790,35 @@
     const shownRows = view.vf ? rows.filter(r => { const v = rowVerse(r.label); return v != null && view.vf.set.has(v); }) : rows;
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
-    let body = shownRows.map(r =>
+    let body = canonical ? '' : shownRows.map(r =>
       `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
-    if (independent) body = `<div class="independent-columns" style="--n:${n}">${vis.map(i => `<section>${shownRows.filter(r => r.cells[i] != null).map(r => `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`).join('')}</section>`).join('')}</div>`;
-    $('#rOut').innerHTML = vfBar + (independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
+    if (canonical) {
+      body=`<div class="aligned-passages canonical-verses">${shownRows.map(r=>`<div class="row passage-row${rowLabel!=null&&!quiet&&r.label===rowLabel?' hit':''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${vis.map(i=>{
+        const cell=r.cells[i],parts=cell?.parts||[],refs=[...new Set(parts.map(p=>p.chapter+':'+p.slot))];
+        const html=cellHtml(cell?.html??null,view.loaded[i],undefined,r.label);
+        return `<div class="macc-column">${cell?html.replace('class="cell"',`class="cell" data-macc-label="${esc(r.label)}" data-macc-parts="${esc(JSON.stringify(parts.map(({slot,chapter,start,end})=>({slot,chapter,start,end}))))}" title="${esc('Originalzählung: '+refs.join(', '))}"`):html}</div>`;
+      }).join('')}</div>`).join('')}</div>`;
+    } else if (independent) {
+      const nativeRow=(r,i)=>`<div class="row${rowLabel != null && !quiet && r.label===rowLabel?' hit':''}" data-l="${esc(r.label)}" style="--n:1"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',r.label))}">${esc(r.label)}</button></div>${cellHtml(r.cells[i],view.loaded[i],undefined,r.label)}</div>`;
+      body=passages?`<div class="aligned-passages">${passages.map(ranges=>{
+        const cells=vis.map(i=>shownRows.filter(r=>r.cells[i]!=null&&Number(r.label)>=ranges[i][0]&&Number(r.label)<=ranges[i][1]));
+        if(cells.every(c=>!c.length))return '';
+        const primary=cells.find(c=>c.length),label=primary[0].label;
+        const rangeLabel=primary.length>1?label+'–'+primary[primary.length-1].label:label;
+        const hit=rowLabel!=null&&!quiet&&primary.some(r=>r.label===rowLabel);
+        return `<div class="row passage-row${hit?' hit':''}" data-l="${esc(label)}" style="--n:${n}"><div class="lab"><button type="button" class="verse-tool" title="${esc(I18N.t('Werkzeuge zu Vers {} öffnen',label))}">${esc(rangeLabel)}</button></div>${vis.map(i=>{
+          const continuation=ranges.continuations?.[i];
+          const empty=continuation?`<button type="button" class="macc-continuation" data-macc-chapter="${continuation.chapter}" data-macc-row="${continuation.range[0]}" data-macc-rel="${esc(view.loaded[i].entry.rel)}">${esc(I18N.t('Entsprechender Abschnitt'))}: ${esc(I18N.t('Kapitel'))} ${continuation.chapter}, ${esc(I18N.t('Vers'))} ${continuation.range[0]===continuation.range[1]?continuation.range[0]:continuation.range.join('–')}</button>`:'';
+          return `<div class="macc-column">${cells[i].map(r=>{
+            const numbering=cells[i].length>1||r.label!==label?`<span class="macc-native-number" title="${esc(I18N.t('Vers'))}">${esc(r.label)}</span>`:'';
+            return cellHtml(r.cells[i],view.loaded[i],undefined,r.label).replace('class="cell"',`class="cell" data-macc-label="${esc(r.label)}"`).replace('<div class="txt">','<div class="txt">'+numbering);
+          }).join('')||empty}</div>`;
+        }).join('')}</div>`;
+      }).join('')}</div>`:
+        `<div class="independent-columns" style="--n:${n}">${vis.map(i=>`<section>${shownRows.filter(r=>r.cells[i]!=null).map(r=>nativeRow(r,i)).join('')}</section>`).join('')}</div>`;
+    }
+    $('#rOut').innerHTML = vfBar + (!canonical && !passages && independent ? '<p class="muted numbering-note">Abweichende Vers-/Absatzaufteilung: Die Fassungen stehen in getrennten Spalten mit ihrer eigenen Zählung; gleiche Nummern sind keine gesicherte Zuordnung.</p>' : '') + head + body;
+    mishnahMorphUI.refresh();
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     navigationUI.recordNav(s, rowLabel);
@@ -905,6 +964,7 @@
   }
   const mishnahReaderUI=window.LibraryMishnahReader.create({
     $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
+    refreshMorph:()=>mishnahMorphUI.refresh(),
     remember:()=>rememberKinds(),reload:async expected=>{if(view===expected)await loadView();},
   });
   const interlinearUI = window.LibraryInterlinear.create({
@@ -938,6 +998,14 @@
     sel.style.width = Math.ceil(fitSpan.getBoundingClientRect().width + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + 34) + 'px';
   }
   $('#rSection').onchange = () => { view.idx = +$('#rSection').value; renderSection(); };
+  $('#rOut').addEventListener('click',e=>{
+    const button=e.target.closest('.macc-continuation');if(!button||!view)return;
+    const chapter=Number(button.dataset.maccChapter),at=view.sections.findIndex(s=>s.path.length===1&&s.path[0]===chapter-1);
+    if(at<0)return;e.preventDefault();view.idx=at;renderSection(button.dataset.maccRow);
+    const rows=[...$('#rOut').querySelectorAll('.row[data-l]')],rel=button.dataset.maccRel;
+    const row=rows.find(r=>[...r.querySelectorAll('.cell')].some(c=>c.dataset.rel===rel&&(c.dataset.maccLabel||r.dataset.l)===button.dataset.maccRow));
+    rows.forEach(r=>r.classList.toggle('hit',r===row));row?.scrollIntoView({block:'center'});
+  });
   $('#prevSec').onclick = () => { if (view.idx > 0) { view.idx--; renderSection(); } };
   $('#nextSec').onclick = () => { if (view.idx < view.sections.length - 1) { view.idx++; renderSection(); } };
   // Fußnoten: Klick auf das Zeichen im Text öffnet/schließt die Fußnote; ein Klick auf die geöffnete Fußnote schließt sie
@@ -1026,6 +1094,11 @@
     get showTab() { return showTab; },
   });
   // end-reader-module:word-cards
+
+  const mishnahMorphUI=window.LibraryMishnahMorph.create({
+    $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
+    openDict:(...args)=>openDict(...args),closeOther:()=>wordPopupUI.close(),
+  });
 
   const textcritUI = window.LibraryTextCrit.create({
     $, esc, getView: () => view, getRow: () => cmtRow, withAnchor,
@@ -2959,13 +3032,32 @@
     showTab, getView: () => view, getRow: () => cmtRow,
     getReaderDisplay: () => {
       const v=view;if(!v?.loaded?.length)return null;
-      const primary=v.loaded.find(d=>d.entry.kind==='he'&&d.entry.versionTitle===disp.pvHe)||v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||''))||v.loaded[0],ordered=[primary,...v.loaded.filter(d=>d!==primary)],unsupported=[];
-      const interlinearRels=interlinearUI.selectedSources.map(name=>{const title=window.INTERLIN_SOURCES?.[name]?.[v.group.title]?.translation.versionTitle,entry=v.group.versions.find(e=>title?e.versionTitle===title:name==='BuberRosenzweig'&&/Martin Buber.*Franz Rosenzweig/.test(e.versionTitle||''));if(!entry)unsupported.push(name);return entry?.rel;}).filter(Boolean);
+      const witnessNames=['LXX','Onkelos','Qumran','Samaritan','Peshitta'];
+      const witnesses=interlinearUI.selectedSources.filter(name=>witnessNames.includes(name));
+      const primary=(witnesses.length&&v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||'')))||v.loaded.find(d=>d.entry.kind==='he'&&d.entry.versionTitle===disp.pvHe)||v.loaded.find(d=>/^Westminster/.test(d.entry.versionTitle||''))||v.loaded[0],ordered=[primary,...v.loaded.filter(d=>d!==primary)],unsupported=[];
+      const interlinearRels=interlinearUI.selectedSources.filter(name=>!witnesses.includes(name)).map(name=>{const title=window.INTERLIN_SOURCES?.[name]?.[v.group.title]?.translation.versionTitle,entry=v.group.versions.find(e=>title?e.versionTitle===title:name==='BuberRosenzweig'&&/Martin Buber.*Franz Rosenzweig/.test(e.versionTitle||''));if(!entry)unsupported.push(name);return entry?.rel;}).filter(Boolean);
       const clamp=n=>Math.max(8,Math.min(36,Math.round(n*2)/2)),sizes={};
       for(const d of ordered){const cell=[...document.querySelectorAll('#rOut .cell[data-rel]')].find(c=>c.dataset.rel===d.entry.rel),text=cell?.querySelector('.txt');sizes[d.entry.rel]=clamp((parseFloat(getComputedStyle(text||cell||$('#rOut')).fontSize)||18)*.75);}
       const green=$('#rOut .ilt'),glossSize=green?clamp(parseFloat(getComputedStyle(green).fontSize)*.75):12;
       const headings=[...document.querySelectorAll('#rOut .olhead')].map(h=>{let row=h.nextElementSibling;while(row&&!row.matches('.row[data-l]'))row=row.nextElementSibling;return {before:row?.dataset.l||'',text:h.textContent.trim()};}).filter(h=>h.before&&h.text);
-      return {rel:primary.entry.rel,visibleRels:ordered.map(d=>d.entry.rel),interlinearRels,unsupported,sizes,glossSize,headings};
+      const witnessRows=witnesses.length?[...document.querySelectorAll('#rOut .row[data-l]')].flatMap(row=>{
+        const cell=[...row.querySelectorAll('.cell[data-mt]')].find(c=>c.dataset.rel===primary.entry.rel);
+        if(!cell)return [];
+        const groups=[...cell.querySelectorAll('.ilg, .w')].filter(n=>!n.parentElement.closest('.ilg')).map(n=>{
+          const original=(n.querySelector('.ilw')||n).textContent.trim();
+          const lines=[...n.querySelectorAll('.ilt')].filter(l=>witnesses.includes(l.dataset.tr)).map(l=>{
+            const copy=l.cloneNode(true);
+            copy.querySelectorAll('summary').forEach(node=>node.remove());
+            const sigil=copy.querySelector('.ilsig');
+            if(sigil)sigil.after(' ');
+            return {name:l.dataset.tr,text:copy.textContent.trim()};
+          }).filter(l=>l.text);
+          return {original,lines};
+        });
+        return [{label:row.dataset.l,groups}];
+      }):[];
+      return {rel:primary.entry.rel,visibleRels:ordered.map(d=>d.entry.rel),interlinearRels,unsupported,sizes,glossSize,headings,
+        witnesses,witnessRows,witnessSection:v.sections?.[v.idx]?.path};
     },
     getSearch: () => searchUI.researchSnapshot(),
     notesChanged: () => notesUI.loadNotes(),

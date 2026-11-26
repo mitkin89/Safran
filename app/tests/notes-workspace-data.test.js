@@ -1,5 +1,15 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),D=require('../notes-workspace-data');
+test('changing a translation edition preserves the Hebrew companion only for the same passage',()=>{
+ const previous=D.refs({title:'Genesis',key:'Tanakh/Torah¦Genesis',sk:'[0]',row:'7',excerpt:'Alte Übersetzung',he:'וַיַּעַשׂ אֱלֹהִים'})[0];
+ const block={reference:{sectionPath:[0],labels:['7']},text:'Neue Übersetzung',citation:{work:'Genesis',edition:'Hirsch'}};
+ const next=D.recapturedReference(previous,block);
+ assert.equal(next.quote,'Neue Übersetzung');assert.equal(next.quoteHe,previous.quoteHe);assert.equal(next.citation.edition,'Hirsch');
+ assert.equal(D.recapturedReference(previous,{...block,reference:{...block.reference,labels:['8']}}).quoteHe,undefined);
+ assert.equal(D.recapturedReference(previous,{...block,citation:{work:'Exodus'}}).quoteHe,undefined);
+ assert.equal(D.recapturedReference(previous,{...block,text:'טקסט עברי'}).quoteHe,undefined);
+ assert.equal(block.reference.quoteHe,undefined);assert.equal(previous.quote,'Alte Übersetzung');
+});
 test('Hebrew search ignores pointing and keeps work/chapter filters on the same reference',()=>{
  const n={id:'n',projectId:'p',title:'Gedanke',note:'בְּרֵאשִׁית',tags:['Test'],refs:[{sectionPath:[0],citation:{work:'Genesis',edition:'Ausgabe A'}},{sectionPath:[1],citation:{work:'Exodus'}}]};
  assert.equal(D.filter([n],{query:'בראשית Ausgabe',project:'p',work:'Genesis',chapter:'1',tag:'Test'}).length,1);

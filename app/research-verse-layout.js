@@ -1,6 +1,6 @@
 'use strict';
 // Export-only grouping: snapshots and the user's arrangement are never rewritten.
-const V=require('./versemap'),cfg=require('./bundled/versification.json');
+const V=require('./versemap'),cfg=require('./bundled/versification.json'),Cite=require('./research-citations');
 const key=(work,ch,verse)=>JSON.stringify([work,String(ch),String(verse)]);
 const pathOf=b=>(b.reference?.sectionPath||[]).filter(x=>x!=='');
 function sourceKeys(b,label){
@@ -20,7 +20,7 @@ function presentationRow(p,i){
 }
 function fragments(b){
  if(b.type!=='source'||b.text!==b.originalText)return [{block:b,keys:[]}];
- if(b.presentation)return b.presentation.rows.map((row,i,all)=>({keys:sourceKeys(b,row.label),block:{...b,title:i?'':b.title,presentation:presentationRow(b.presentation,i),citationText:i===all.length-1?b.citationText:'',companionCitationText:i===all.length-1?b.companionCitationText:'',companionCitations:i===all.length-1?b.companionCitations:[]}}));
+ if(b.presentation)return b.presentation.rows.map((row,i,all)=>({keys:sourceKeys(b,row.label),block:{...b,reference:{...b.reference,labels:[row.label]},title:i?'':b.title,presentation:presentationRow(b.presentation,i),citationText:i===all.length-1?b.citationText:'',companionCitationText:i===all.length-1?b.companionCitationText:'',companionCitations:i===all.length-1?b.companionCitations:[]}}));
  const labels=b.reference?.labels||[];
  if(!labels.length||labels.some(l=>!/^\d+$/.test(l)))return [{block:b,keys:[]}];
  // Captured verse starts have two spaces; embedded newlines/footnotes stay intact.
@@ -49,7 +49,21 @@ function aligned(blocks){
  const main=blocks.filter(b=>!b.region||b.region==='main').flatMap(fragments),rows=[],byKey=new Map();
  for(const f of main){const last=rows.at(-1),same=f.keys.length&&last?.keys[0]===f.keys[0];const row=same?last:{keys:f.keys,main:[],left:[],right:[]};if(!same)rows.push(row);row.main.push(f.block);for(const k of f.keys)if(!byKey.has(k))byKey.set(k,row);}
  const rest={keys:[],main:[],left:[],right:[]};let matches=0;
- for(const original of blocks){if(!['left','right'].includes(original.region))continue;const pieces=pathOf(original).length===1&&/^(?:.+?)(?:\s+on\s+| על )/i.test(original.citation?.work||'')?fragments(original).map(f=>f.block):[original];for(const b of pieces){const targets=anchors(b).map(k=>byKey.get(k)).filter(Boolean);const row=rows.find(r=>targets.includes(r));if(row){const ref=JSON.parse(row.keys[0]);row[b.region].push({...b,verseLabel:ref[1]+':'+ref[2]});matches++;}else rest[b.region].push(b);}}
+ for(const original of blocks){
+  if(!['left','right'].includes(original.region))continue;
+  const isCommentary=/^(?:.+?)(?:\s+on\s+| על )/i.test(original.citation?.work||'');
+  const pieces=original.type==='source'&&pathOf(original).length===1?fragments(original):[{block:original,keys:[]}];
+  for(const {block:b,keys}of pieces){
+   // A directly quoted edition uses its own mapped verse keys. Commentary
+   // instead points to the base work. Unsplit/edited excerpts stay intact.
+   const targets=(!isCommentary&&b!==original?keys:anchors(b)).map(k=>byKey.get(k)).filter(Boolean),row=rows.find(r=>targets.includes(r));
+   if(row){
+    const ref=JSON.parse(row.keys[0]),folio=Cite.section(row.main[0]?.citation);
+    row[b.region].push({...b,verseLabel:(/^\d+[ab]$/.test(folio)?folio:ref[1])+':'+ref[2]});matches++;
+   }else rest[b.region].push(b);
+  }
+ }
+
  if(!matches)return null;
  if(rest.left.length||rest.right.length)rows.push(rest);
  return rows;

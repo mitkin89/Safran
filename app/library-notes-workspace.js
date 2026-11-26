@@ -79,7 +79,7 @@ window.LibraryNotesWorkspace=(()=>{
   function sourceMarkup(r,i){
    const original=r.quote||(!i?draft.excerpt||draft.he||'':''),extra=r.quoteHe&&r.quoteHe!==original?r.quoteHe:!i&&draft.he&&draft.he!==original?draft.he:'',text=original||'',long=text.length>550,hebrew=(text.match(/[\u05d0-\u05ea]/g)||[]).length>(text.match(/[a-zA-Z\u00c0-\u024f]/g)||[]).length;
    return `<article class="nw-ref"><header><button data-nw-open-ref="${i}" class="nw-source-title">${esc(D.referenceLabel(r))}</button><details class="nw-ref-menu"><summary aria-label="Fundstelle verwalten">⋯</summary><div><button data-nw-edit-ref="${i}">Fundstelle bearbeiten …</button><button data-nw-remove-ref="${i}">Fundstelle entfernen</button></div></details></header>
-    <p class="nw-edition">${r.citation?.edition?esc(r.citation.edition):`Ausgabe nicht erfasst · <button data-nw-edit-ref="${i}" class="nw-inline">Ausgabe ergänzen …</button>`}</p>
+    <p class="nw-edition"><span class="${r.citation?.edition?'nt':''}">${r.citation?.edition?esc(r.citation.edition):esc(I18N.t('Ausgabe nicht erfasst'))}</span> · <button data-nw-change-edition="${i}" class="nw-inline">${esc(I18N.t('Ausgabe wechseln'))}</button></p>
     <div class="nw-source-excerpt"><p class="nw-source-label">Textauszug und Quellenangabe</p>${text?`<blockquote dir="auto"${hebrew?' class="nw-hebrew"':''}>${esc(long?text.slice(0,550).replace(/\s+\S*$/,'')+' …':text)}</blockquote>${long?`<details class="nw-full-quote"><summary>Vollständigen Text anzeigen</summary><blockquote dir="auto"${hebrew?' class="nw-hebrew"':''}>${esc(text)}</blockquote></details>`:''}`:`<p class="muted">Kein Textauszug gespeichert.</p><button data-nw-edit-ref="${i}">Textauszug ergänzen …</button>`}${extra?`<blockquote dir="auto" class="nw-hebrew">${esc(extra)}</blockquote>`:''}</div></article>`;
   }
   function renderEditor(){
@@ -119,6 +119,7 @@ window.LibraryNotesWorkspace=(()=>{
    $('#nwAddRef').onclick=()=>run(async()=>{const owner=key(draft);await host.getResearch().pickNoteSources(items=>{if(!draft||key(draft)!==owner)return;draft.refs=[...D.refs(draft),...items.map(b=>({...clone(b.reference),quote:b.text,citation:clone(b.citation)}))];changed();renderEditor();});});
    $('#nwManualRef').onclick=()=>run(()=>manualRef());
    el.querySelectorAll('[data-nw-open-ref]').forEach(b=>b.onclick=()=>run(()=>host.getResearch().openReference(refs[+b.dataset.nwOpenRef])));
+   el.querySelectorAll('[data-nw-change-edition]').forEach(b=>b.onclick=()=>run(()=>changeEdition(+b.dataset.nwChangeEdition)));
    el.querySelectorAll('[data-nw-edit-ref]').forEach(b=>b.onclick=()=>run(()=>manualRef(+b.dataset.nwEditRef)));
    el.querySelectorAll('[data-nw-remove-ref]').forEach(b=>b.onclick=()=>{const index=+b.dataset.nwRemoveRef;draft.refs.splice(index,1);if(index===0){delete draft.excerpt;delete draft.he;}changed();renderEditor();});
    el.querySelectorAll('[data-nw-sheet]').forEach(b=>b.onclick=()=>run(()=>host.getResearch().showSheet(b.dataset.nwSheet)));
@@ -150,12 +151,68 @@ window.LibraryNotesWorkspace=(()=>{
    delete cache.entries[key(old)];draft=null;base=null;dirty=false;persist();await host.reload();renderEditor();
    const bar=$('#nwUndo');bar.hidden=false;bar.innerHTML='Notiz entfernt. <button>Rückgängig</button>';bar.querySelector('button').onclick=()=>run(async()=>{if(old._store==='research')await A.put('notes',{...old,version:0},0);else{const {_store,...record}=old;await window.notes.save({...record,expectedTs:0});}bar.hidden=true;await host.reload();const restored=records().find(n=>key(n)===key(old));edit(pending||restored,!!pending);if(pending)base=clone(restored);persist();});setTimeout(()=>bar.hidden=true,10000);
   }
+  function replaceReference(index,items){
+   const previous=D.refs(draft)[index];
+   draft.refs.splice(index,1,...items.map(b=>D.recapturedReference(previous,clone(b))));
+   if(index===0){delete draft.excerpt;delete draft.he;}
+   changed();renderEditor();
+  }
+  async function changeEdition(index){
+   const owner=key(draft),ref=D.refs(draft)[index];
+   if(!ref)return;
+   const query=D.referenceLabel(ref),dlg=document.createElement('dialog');
+   const t=message=>esc(I18N.t(message));
+   dlg.className='nw-dialog';
+   dlg.innerHTML=`<form><h2>${t('Ausgabe wechseln')}</h2><p class="nt">${esc(query)}</p>
+    <label>${t('Ausgabe')}<select id="nwEditionChoice" disabled><option value="">${t('Ausgabe auswählen …')}</option></select></label>
+    <div id="nwEditionPreview" class="nt" dir="auto"></div><p class="err" role="status"></p>
+    <div class="bar"><button type="submit" class="primary" disabled>${t('Übernehmen')}</button><button type="button" id="nwEditionCancel">${t('Abbrechen')}</button></div></form>`;
+   document.body.append(dlg);
+   const choice=dlg.querySelector('select'),submit=dlg.querySelector('[type=submit]'),preview=dlg.querySelector('#nwEditionPreview'),error=dlg.querySelector('.err');
+   let generation=0,items=[];
+   const fail=err=>{error.textContent=String(err.message||err).replace(/^Error invoking remote method '[^']*': (Error: )?/,'');};
+   choice.onchange=async()=>{
+    const request=++generation;
+    items=[];submit.disabled=true;error.textContent='';preview.textContent='';
+    if(!choice.value)return;
+    try{
+     const rel=choice.value;
+     const result=ref.rel&&Array.isArray(ref.sectionPath)&&ref.labels?.length
+      ?await A.sourceEditionPreview({source:{type:'source',reference:clone(ref)},rel})
+      :await A.sourcePreview({query,rel});
+     if(!dlg.open||request!==generation)return;
+     items=result;
+     preview.textContent=items.map(b=>b.text).join('\n\n');
+     submit.disabled=!items.length;
+    }catch(err){if(dlg.open&&request===generation)fail(err);}
+   };
+   await new Promise(resolve=>{
+    dlg.onclose=resolve;
+    dlg.querySelector('#nwEditionCancel').onclick=()=>dlg.close();
+    dlg.querySelector('form').onsubmit=e=>{
+     e.preventDefault();
+     if(!items.length||!draft||key(draft)!==owner)return;
+     replaceReference(index,items);dlg.close();
+    };
+    dlg.showModal();
+    A.sourceEditions(query).then(({editions})=>{
+     if(!dlg.open)return;
+     for(const e of editions){
+      const option=new Option(e.versionTitle+' · '+e.language,e.rel);
+      option.className='nt';choice.add(option);
+     }
+     choice.disabled=!editions.length;
+     if(!editions.length)error.textContent=I18N.t('Keine Editionen für diese Auswahl.');
+    }).catch(err=>{if(dlg.open)fail(err);});
+   });
+   dlg.remove();
+  }
   async function manualRef(index=null){
    const owner=key(draft),existing=index===null?null:D.refs(draft)[index],dlg=document.createElement('dialog');dlg.className='nw-dialog';
    dlg.innerHTML=`<form><h2>${existing?'Fundstelle bearbeiten':'Manuelle Fundstelle'}</h2><label>Fundstelle<input id="nwManualLabel" required placeholder="z. B. Genesis 1:1" value="${esc(existing?.label||'')}"></label><label>Ausgabe (falls bekannt)<input id="nwManualEdition" value="${esc(existing?.citation?.edition||'')}"></label><p class="nw-hint">Trage die Ausgabe ein, aus der der gespeicherte Text stammt. Ist sie unbekannt, lasse das Feld leer.</p><label>Gespeicherter Textauszug<textarea id="nwManualQuote" rows="6" dir="auto">${esc(existing?.quote||(!index&&existing?draft.excerpt||draft.he||'':''))}</textarea></label>${existing?'<details class="nw-recapture"><summary>Neuen Auszug aus der Bibliothek übernehmen</summary><p>Ersetzt diese Fundstelle und ihren gespeicherten Text durch die ausdrücklich gewählte Ausgabe.</p><button id="nwRecapture" type="button">Ausgabe und Auszug auswählen …</button></details>':''}<div class="bar"><button type="submit" class="primary">${existing?'Übernehmen':'Hinzufügen'}</button><button type="button" id="nwManualCancel">Abbrechen</button></div></form>`;document.body.append(dlg);
    let recapture=false;
    await new Promise(resolve=>{dlg.onclose=resolve;dlg.querySelector('#nwManualCancel').onclick=()=>dlg.close();const replace=dlg.querySelector('#nwRecapture');if(replace)replace.onclick=()=>{recapture=true;dlg.close();};dlg.querySelector('form').onsubmit=e=>{e.preventDefault();if(draft&&key(draft)===owner){const ref={...clone(existing||{}),label:dlg.querySelector('#nwManualLabel').value.trim(),quote:dlg.querySelector('#nwManualQuote').value,citation:{...clone(existing?.citation||{}),edition:dlg.querySelector('#nwManualEdition').value.trim()}};if(index===null)draft.refs=[...D.refs(draft),ref];else draft.refs[index]=ref;changed();renderEditor();}dlg.close();};dlg.showModal();});dlg.remove();
-   if(recapture)await host.getResearch().pickNoteSources(items=>{if(!draft||key(draft)!==owner||!items.length)return;draft.refs.splice(index,1,...items.map(b=>({...clone(b.reference),quote:b.text,citation:clone(b.citation)})));if(index===0){delete draft.excerpt;delete draft.he;}changed();renderEditor();});
+   if(recapture)await host.getResearch().pickNoteSources(items=>{if(!draft||key(draft)!==owner||!items.length)return;replaceReference(index,items);});
   }
   $('#nNew').onclick=()=>{root.dataset.mobileView='editor';const note={id:crypto.randomUUID(),_store:'legacy',kind:'free',title:'Neue Notiz',note:'',tags:[],topics:[],refs:[],projectId:$('#nProject').value==='none'?'':$('#nProject').value||D.lastNotebook(localStorage,state.projects),ts:0};edit(note,true);$('#nwTitle').focus();$('#nwTitle').select();};
   for(const id of ['nFilter','nKind','nOnly','nProject','nWork','nChapter','nTagFilter','nSort'])$('#'+id).addEventListener(id==='nFilter'?'input':'change',()=>{if(id==='nWork'){$('#nChapter').value='';filters();}renderList();});

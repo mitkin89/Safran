@@ -46,7 +46,7 @@ window.LibraryWordPopup = (() => {
   // Kapitel und Vers einer griechischen Zelle (nur Texte mit Kapitel:Vers)
   function greekCtx(cell) {
     const row = cell.closest('.row'); if (!row || !cell.dataset.gt) return null;
-    let path = null, label = row.dataset.l;
+    let path = null, label = cell.dataset.maccLabel || row.dataset.l;
     try {
       if (row.classList.contains('sh')) { path = JSON.parse(row.dataset.sp); label = row.dataset.sl; }
       else { const h = row.closest('.pgb') && row.closest('.pgb').querySelector('.pgh[data-sk]'); path = h ? JSON.parse(h.dataset.sk) : reader.view && reader.view.sections && reader.view.sections[reader.view.idx] ? reader.view.sections[reader.view.idx].path : null; }

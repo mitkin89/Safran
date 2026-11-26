@@ -77,7 +77,7 @@ function pickEntries(group, opts) {
   for (const k of ['he', 'en']) {
     if (!opts[k]) continue;
     const list = byKind[k];
-    if (opts.allVersions) out.push(...list);
+    if (k === 'en' || opts.allVersions) out.push(...list);
     else {
       const merged = list.filter(e => e.versionTitle === 'merged');
       out.push(...(merged.length ? merged : list));
@@ -89,10 +89,30 @@ function pickEntries(group, opts) {
 }
 
 function planEntries(groups, sel, opts) {
-  const entries = [];
-  for (const g of selectedGroups(groups, sel)) entries.push(...pickEntries(g, opts));
+  const entries = [], selected = selectedGroups(groups, sel);
+  const editions = Array.isArray(opts.editions) ? new Set(opts.editions) : null;
+  const available = new Map();
+  let titles = 0;
+  for (const g of selected) {
+    if (!editions) {
+      entries.push(...pickEntries(g, opts));
+      titles++;
+      continue;
+    }
+    const start = entries.length;
+    for (const entry of g.entries) {
+      const kind = kindOf(entry);
+      if (!entry.json_url || !entry.versionTitle || kind === 'other' || !opts[kind]) continue;
+      const key = JSON.stringify([kind, entry.versionTitle]);
+      if (!available.has(key)) available.set(key, { key, title: entry.versionTitle, kind, files: 0 });
+      available.get(key).files++;
+      if (editions.has(key)) entries.push(entry);
+    }
+    if (entries.length > start) titles++;
+  }
   const estimateMB = entries.reduce((a, e) => a + AVG_KB[kindOf(e)], 0) / 1024;
-  return { entries, files: entries.length, titles: selectedGroups(groups, sel).length, estimateMB };
+  return { entries, files: entries.length, titles, estimateMB,
+    ...(editions ? { editions: [...available.values()].sort((a, b) => a.title.localeCompare(b.title)) } : {}) };
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -254,6 +274,7 @@ class Library {
     this.fetchBuffer = fetchBuffer;
     this.index = { version: 1, entries: {} };
     this._saving = Promise.resolve();
+    this.editionWrites = new Set();
     this._indexBlocked = false;
     this.recovery = null;
   }
@@ -338,7 +359,7 @@ class Library {
     throw err;
   }
 
-  async downloadEntries(entries, { concurrency = 4, onProgress = () => {}, isCancelled = () => false, force = null } = {}) {
+  async downloadEntries(entries, { concurrency = 4, onProgress = () => {}, isCancelled = () => false, force = null, restoreRemoved = true } = {}) {
     const total = entries.length;
     let done = 0, bytes = 0, next = 0, sinceSave = 0;
     const failed = [];
@@ -350,7 +371,11 @@ class Library {
         const e = entries[i];
         const rel = relPathOf(e);
         const dest = path.join(this.dir, rel);
+        let writing = false;
         try {
+          if (!restoreRemoved && this.index.removedDownloads?.includes(rel)) continue;
+          if (this.editionWrites.has(rel)) throw new Error('Diese Ausgabe wird gerade bearbeitet.');
+          this.editionWrites.add(rel); writing = true;
           let size = 0, have = false;
           try { const st = await fs.stat(dest); size = st.size; have = st.size > 0 && !!this.index.entries[rel] && !(force && force.has(rel)); } catch { /* noch nicht da */ }
           if (!have) {
@@ -366,14 +391,17 @@ class Library {
               rel, title: e.title, heTitle, language: e.language, versionTitle: e.versionTitle,
               categories: e.categories, kind: kindOf(e), bytes: size,
             };
+            if (this.index.removedDownloads?.includes(rel)) this.index.removedDownloads = this.index.removedDownloads.filter(r => r !== rel);
             if (++sinceSave >= 25) { sinceSave = 0; await this.save(); }
           }
           bytes += size;
         } catch (err) {
           failed.push({ rel, title: e.title, versionTitle: e.versionTitle, error: String((err && err.message) || err) });
+        } finally {
+          if (writing) this.editionWrites.delete(rel);
+          done++;
+          onProgress({ done, total, bytes, current: `${e.title} (${e.versionTitle})`, failed: failed.length });
         }
-        done++;
-        onProgress({ done, total, bytes, current: `${e.title} (${e.versionTitle})`, failed: failed.length });
       }
     };
     await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, total)) }, worker));
@@ -442,7 +470,7 @@ class Library {
     for (const ent of entries) {
       let { it, src, priv } = ent;
       const rel = String(it.rel || '');
-      if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel)) continue;
+      if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel.normalize('NFC'))) continue;
       const currentKey = have.get(rel.normalize('NFC')) || rel;
       const cur = this.index.entries[currentKey], plan = updates.plan(rel);
       if (cur && ((plan && !plan.allowed) || (!cur.bundled && !(plan && plan.allowed)) || (cur.bundled && cur.bundledHash === it.hash))) { if (priv && cur.bundled && !cur.private) { cur.private = true; flagged++; } continue; } // eigene Fassung behalten oder schon aktuell
@@ -533,10 +561,36 @@ class Library {
   async removeOwn(rel) {
     const e = this.index.entries[rel];
     if (!e || !e.own) throw new Error('Nur eigene Texte können entfernt werden.');
-    if (e.bundled) this.index.skipBundled = [...new Set([...(this.index.skipBundled || []), rel])];
-    try { await fs.unlink(path.join(this.dir, rel)); } catch { /* war schon weg */ }
-    delete this.index.entries[rel];
-    await this.save();
+    await this.removeEdition(rel, e);
+  }
+
+  async removeEdition(rel, expected) {
+    const entry = this.index.entries[rel];
+    if (!Object.hasOwn(this.index.entries, rel) || entry !== expected) throw new Error('Die Ausgabe wurde inzwischen geändert.');
+    if (this.editionWrites.has(rel)) throw new Error('Diese Ausgabe wird gerade bearbeitet.');
+    this.editionWrites.add(rel);
+    const file = path.join(this.dir, rel), staged = file + '.remove-' + randomUUID();
+    const list = entry.own ? 'skipBundled' : 'removedDownloads';
+    let moved = false, marked = false;
+    try {
+      try { await renameRetry(file, staged); moved = true; }
+      catch (err) { if (err.code !== 'ENOENT') throw err; }
+      const excluded = this.index[list] ||= [];
+      if (!excluded.includes(rel)) { excluded.push(rel); marked = true; }
+      delete this.index.entries[rel];
+      try {
+        await this.save();
+        if (moved) await fs.unlink(staged);
+      } catch (err) {
+        if (moved) await renameRetry(staged, file);
+        this.index.entries[rel] = entry;
+        if (marked) this.index[list] = this.index[list].filter(r => r !== rel);
+        await this.save();
+        throw err;
+      }
+    } finally {
+      this.editionWrites.delete(rel);
+    }
   }
 
   // Prüft, ob lokale Dateien im Sefaria-Export geändert wurden (Dateigröße) und ob es neue zusammengeführte Fassungen gibt.
@@ -573,6 +627,7 @@ class Library {
     await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, local.length)) }, worker));
     // neu: Fassungen derselben Bücher, die es lokal noch nicht gibt (nur zusammengeführte Fassungen bzw. Deutsch, passend zu den vorhandenen Sprachen)
     const added = [];
+    const removed = new Set(this.index.removedDownloads || []);
     const groups = new Map();
     for (const le of local) {
       const k = le.categories.join('/') + '\u0000' + le.title;
@@ -582,7 +637,8 @@ class Library {
     for (const [k, kinds] of groups) {
       for (const ce of byGroup.get(k) || []) {
         const kd = kindOf(ce);
-        if (this.index.entries[relPathOf(ce)]) continue;
+        const rel = relPathOf(ce);
+        if (this.index.entries[rel] || removed.has(rel)) continue;
         if (!kinds.has(kd)) continue;
         if ((kd === 'he' || kd === 'en') && ce.versionTitle !== 'merged') continue;
         added.push(ce);
@@ -595,7 +651,8 @@ class Library {
   async applyUpdates(changed, added, opts) {
     // Die alte Datei bleibt liegen, bis die neue vollständig geladen ist (Download als .part, dann Umbenennen) – so geht bei einem Netzfehler nichts verloren
     const force = new Set(changed.map(relPathOf));
-    return this.downloadEntries([...changed, ...added], { ...(opts || {}), force });
+    const removed = new Set(this.index.removedDownloads || []);
+    return this.downloadEntries([...changed, ...added].filter(e => !removed.has(relPathOf(e))), { ...(opts || {}), force, restoreRemoved: false });
   }
 
   async read(rel) {

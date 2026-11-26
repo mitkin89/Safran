@@ -1,5 +1,9 @@
 // English UI terminology only; original edition readings and notes remain unchanged.
 (function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else window.I18N_TEXTCRIT_EN=d;})({
+  "Kaufmann · vokalisiert": "Kaufmann · vocalized",
+  "Vokalisierte Kaufmann-Lesefassung": "Vocalized Kaufmann reading edition",
+  "Bezugstext: vokalisierte Kaufmann-Lesefassung (Be’eri) · maschinelle Wort- und Gruppenzuordnung": "Base text: vocalized Kaufmann reading edition (Be’eri) · automated word and group alignment",
+  "Die verfügbaren Handschriften stehen wortweise unter der vokalisierten Kaufmann-Lesefassung. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.": "Available manuscripts appear word by word below the vocalized Kaufmann reading edition. Differences are red; unresolved alignments remain separate.",
   "⇣ Folgen": "⇣ Follow",
   "Apparatus": "Apparatus",
   "Apparatus-Einstellungen": "Apparatus settings",
@@ -262,6 +266,11 @@
   "Vergleichsansicht": "Comparison view",
   "Apparat": "Apparatus",
   "Quellenzeichen": "Source annotations",
+  "Bezugstext: Kaufmann A50 · automatische Wortzuordnung nach Digital Mishnah": "Reference text: Kaufmann A50 · automated alignment using Digital Mishnah",
+  "Rot: abweichende Lesart oder Zusatz. Beschädigte Wörter behalten ihre Lücken. …: Zuordnung offen oder unsicher. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.": "Red: different reading or addition. Damaged words retain their gaps. …: unresolved or uncertain alignment. —: no counterpart in the automated comparison. Source annotations remain available in context.",
+  "Wortgruppen nach Digital Mishnah; Lücken und Quellenzeichen bleiben erhalten. Automatisch zugeordnet, nicht vollständig philologisch geprüft.": "Word groups using Digital Mishnah; gaps and source annotations are retained. Automatically aligned, not fully reviewed philologically.",
+  "Lücke zwischen belegten Nachbarwörtern": "Gap between attested neighbouring words",
+  "Zuordnung (maschinell) · beschädigt / unsicher": "Automated alignment · damaged / uncertain",
   "Bezugstext: Kaufmann A50 · maschinelle Wort- und Gruppenzuordnung": "Reference text: Kaufmann A50 · automated word and group alignment",
   "Rot: abweichende Lesart oder Zusatz. …: Zuordnung offen. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.": "Red: different reading or addition. …: unresolved alignment. —: no counterpart in the automated comparison. Source annotations remain available in context.",
   "Zuordnung offen": "Alignment unresolved",

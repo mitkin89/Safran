@@ -8,16 +8,18 @@
   "interlinear": {
     "P": {
       "words": 2171,
-      "aligned": 2002,
-      "insertions": 32,
-      "open": 137,
+      "aligned": 2124,
+      "insertions": 47,
+      "positionedGaps": 0,
+      "open": 0,
       "reviewed": 2
     },
     "C": {
       "words": 2201,
-      "aligned": 1909,
-      "insertions": 33,
-      "open": 259,
+      "aligned": 2111,
+      "insertions": 49,
+      "positionedGaps": 41,
+      "open": 0,
       "reviewed": 0
     }
   },

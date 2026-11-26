@@ -39,3 +39,15 @@ test('verse alignment and automatic text flow are enabled together without chang
  assert(html.includes('verse-aligned'));assert(html.includes('flowing-verses'));assert(html.includes('verse-continuation-row'));assert(html.includes('<script>'));assert.equal(JSON.stringify([b,c]),before);
  const preview=E.html({title:'Blatt',layout:{template:'classic'},blocks:[b,c]},[],{interactive:false});assert(!preview.includes('<script>'));assert(preview.includes('verse-aligned'));
 });
+
+test('whole translated folio excerpts align line by line with the Hebrew, preserving Daf labels',()=>{
+ const make=(edition,language,prefix)=>S.capture({title:'Bava Metzia',versionTitle:edition,language,sectionNames:['Daf','Line'],text:Array.from({length:39},(_,i)=>i===38?Array.from({length:8},(_,j)=>prefix+'_'+(j+1)):[])},{title:'Bava Metzia',rel:edition},{sectionPath:[38],labels:'1-8'});
+ const he=make('Hebrew','Hebrew','מקור'),left=make('Sammter','German','Links'),right=make('Goldschmidt','German','Rechts');left.region='left';right.region='right';
+ const before=JSON.stringify([he,left,right]),rows=A.aligned([he,left,right]);assert.equal(rows.length,8);
+ for(let i=0;i<8;i++)for(const region of ['left','right']){assert.equal(rows[i][region].length,1);assert.equal(rows[i][region][0].reference.labels[0],String(i+1));assert.equal(rows[i][region][0].verseLabel,'20a:'+(i+1));assert(!rows[i][region][0].text.includes('_'+(i+2)));}
+ assert.equal(rows.flatMap(r=>r.left).map(b=>b.text).join('\n'),left.text);assert.equal(rows.flatMap(r=>r.right).map(b=>b.text).join('\n'),right.text);assert.equal(JSON.stringify([he,left,right]),before);
+});
+test('a translation in a different verse tradition uses mapped keys on either side',()=>{
+ const he=main('Psalms',22),greek=main('Psalms',21);greek.region='right';greek.citation.edition='Septuaginta (Rahlfs)';greek.citation.language='Greek';
+ const rows=A.aligned([he,greek]);assert(rows);assert.equal(rows[0].right[0].reference.labels[0],'1');assert.equal(rows[0].right[0].verseLabel,'23:1');
+});

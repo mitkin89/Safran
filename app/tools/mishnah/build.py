@@ -4,7 +4,7 @@ Run with a directory containing the three upstream TEI XML files.
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import re,json,hashlib,gzip,difflib,sys
-import align
+import project_align
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 NS={'t':'http://www.tei-c.org/ns/1.0'};XI='{http://www.w3.org/XML/1998/namespace}id'
 COMMIT='39389be30e93032d722e8dd3b7bcdfe15e76a421'
@@ -84,7 +84,11 @@ def build(folder=None):
                 for nearby in [other[c-1] if c else None,other[d] if d<len(other) else None]:
                     if nearby and ('□' in nearby[2]['text'] or set(nearby[2]['flags'])&{'damage','unclear','gap'}):unsafe=True
                 out['records'].append({'ref':anchor,'witness':sig,'operation':op,'base':[[r,i] for r,i,_ in left],'reading':[[r,i] for r,i,_ in right],'sourceRefs':sourceRefs,'after':previous[1] if previous and previous[0]==anchor else -1,'uncertain':unsafe,'method':'chapter sequence comparison (automated)'})
-    out['interlinear']=align.build(out,json.loads((HERE/'alignment-review.json').read_text()))
+    project_cache=json.loads(gzip.decompress((HERE/'sources/project-collation.json.gz').read_bytes()))
+    assert project_cache['provenance']['dataCommit']==COMMIT
+    reviews=json.loads((HERE/'alignment-review.json').read_text())
+    reviews['boundaries']=json.loads((HERE/'source-boundary-review.json').read_text())['boundaries']
+    out['interlinear']=project_align.build(out,reviews,project_cache)
     links=json.loads((HERE/'tosefta-links.json').read_text());pd_raw=gzip.decompress((HERE/'sources/tosefta-public-domain.json.gz').read_bytes())
     assert links['kaufmannSha256']==out['witnesses']['K']['sha256']
     assert hashlib.sha256(pd_raw).hexdigest()==links['publicDomainSha256']

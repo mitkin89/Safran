@@ -2,6 +2,47 @@
 
 **English** · [Deutsch](SOURCES.de.md)
 
+## Mishnaic morphology pilot: Berakhot
+
+Original automatic candidate analyses for the pointed Be’eri edition based on
+Kaufmann A50, limited to Berakhot 1–9 (57 mishnah units, 2,159 running-word
+positions). Grammatical sources: M. H. Segal, *A Grammar of Mishnaic Hebrew*
+(Oxford 1927), and Miguel Pérez Fernández, *An Introductory Grammar of Rabbinic
+Hebrew*, trans. John Elwolde (Brill 1997). Verified citations, original rules,
+lexical candidates and tests: `tools/mishnah-morph/`. The books and uploaded PDFs
+are not redistributed. Hebrew surface forms from Safran's Bavli lexicon are
+additional lexical hints, not transferred contextually reviewed Mishnah tags.
+
+Source text and vowels remain unchanged, with alternative candidates retained.
+Coverage is not an accuracy measure. Readable user-provided Accordance MISH-T
+4.3 screenshots were compared across all 57 Berakhot units (chapters 1–9):
+2,159 source positions examined, 2,153 grammatically comparable, 1,885
+compatible candidates, 268 strict feature or convention differences,
+five wording variants and one source-only word. This is not an accuracy score
+and the differences are not automatically errors. A separate assessment accounts for 47 through documented class/headword conventions; The subsequent review covers all 226 residual positions: 167 conventions, 42 retained with support, seven corrected and ten unresolved. Four suffix positions were
+confirmed by word details; 205 lack separately visible suffix tags, including
+three מצותן occurrences with form-level 3mp evidence. No Accordance module or
+private reference transcription is distributed. Card meanings are original
+editorial glosses or visibly labelled biblical glosses from `oshb-lemmas.js`,
+not validated contextual translations.
+
+## Vocalized Kaufmann-based Mishnah
+
+All 63 tractates (525 chapters, 4,192 mishnah segments) of *Mishnah based on the
+Kaufmann manuscript, edited by Dan Be’eri* are bundled as a separate Hebrew
+edition. Digital text: [Sefaria](https://www.sefaria.org/digitized-by-sefaria).
+The [original edition by Rabbi Dan Be’eri](https://archive.org/details/MishnaCorrectedKaufman00WHOLE)
+is licensed **CC BY-SA 3.0**. This is an edited reading based on Kaufmann A50,
+including corrections, supplements and conventional numbering, rather than a
+diplomatic transcription. Its supplemental sixth chapter of Avot is retained.
+The separate Digital Mishnah Berakhot transcription is unaffected.
+
+Text, vowels, editorial marks and notes are retained unchanged from explicitly
+named exports, without merging editions or generating vocalization. License
+metadata are normalized to the original edition's CC BY-SA 3.0; Sefaria's
+original metadata (61 PD; Ta’anit and Avot `unknown`) are also retained. Source
+URLs, hashes, importer and coverage report: `tools/kaufmann/`.
+
 ## Sefaria source and licenses
 
 Greek **Testaments of the Twelve Patriarchs, Pseudo-Phocylides, 3 Baruch and eight Enoch witnesses**: [Online Critical Pseudepigrapha](https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha), **CC BY 4.0**; the Testaments additionally retain the Greek Wikisource **CC BY-SA 4.0** notice and its provisional, uncollated text status. Stanza 1.11.0 / Stanford NLP Group supplies a separately distributed automatic analysis layer (Perseus POS, PROIEL lemmas) under **CC BY-NC-SA 4.0**; the matching OGA 0.2.0 entries retain **CC BY-SA 4.0**. No model weights are bundled. Original word forms, fragments, native numbering and witness alternatives remain; no German text changes. Full bibliography, model/training-data notices and modifications: [LICENSE-PSEUDEPIGRAPHA.md](LICENSE-PSEUDEPIGRAPHA.md); exact revisions and per-passage coverage: [tools/pseudepigrapha/README.md](tools/pseudepigrapha/README.md).

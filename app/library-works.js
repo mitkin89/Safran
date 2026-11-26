@@ -25,17 +25,15 @@
   }
   // A Kahana base text is not superseded by an edition of the other work alias.
   const sameSource = (a, b) => a.title === b.title;
-  const visibleVersion = (v, versions) => v.versionTitle !== 'merged' || !versions.some(x => x.kind === v.kind && x.versionTitle !== 'merged' && sameSource(x, v));
+  const visibleVersion = (v, versions) => v.kind === 'en' || v.versionTitle !== 'merged' || !versions.some(x => x.kind === v.kind && x.versionTitle !== 'merged' && sameSource(x, v));
   function versionLabel(v) {
     const name = v.versionTitle === 'merged' ? 'Standardtext' : String(v.versionTitle || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
     return /\(Kahana Translation\)$/.test(v.title || '') ? name + ' · Kahana' : name;
   }
-  function independentNumbering(group, docs, columns) {
-    if (!aliases.has(group.title) || docs.length < 2) return false;
-    const sources = new Set(docs.map(d => /Kautzsch/.test(d.versionTitle || '') ? 'Kautzsch' : 'other'));
-    // Kautzsch I/II contain split verse fragments, including chapters with equal lengths.
-    if (['Makkabäer I', 'Makkabäer II'].includes(canonicalTitle(group.title)) && sources.size > 1) return true;
-    return columns.some(c => JSON.stringify(c.map(r => r.label)) !== JSON.stringify(columns[0].map(r => r.label)));
+  function independentNumbering(group, docs) {
+    // Checked source/chapter maps are applied by MaccabeesAlignment. Unchecked
+    // editions must not acquire a verse correspondence from equal row counts.
+    return aliases.has(group.title) && docs.length > 1;
   }
   function independentRows(columns) {
     return columns.flatMap((col, i) => col.map(r => ({ label: r.label, cells: columns.map((_, j) => i === j ? r.html : null) })));

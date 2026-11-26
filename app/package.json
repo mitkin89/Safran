@@ -1,6 +1,6 @@
 {
   "name": "safran",
-  "version": "2.8.5",
+  "version": "2.8.7",
   "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
   "main": "main.js",
   "desktopName": "safran.desktop",
@@ -42,7 +42,7 @@
         "deb"
       ],
       "category": "Education",
-      "icon": "build/icon.png",
+      "icon": "build/icons",
       "maintainer": "Safran <noreply@example.com>",
       "syncDesktopName": true
     },

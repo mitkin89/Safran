@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "work": "Makkabäer I",
+  "checkedChapters": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "counts": {
+    "chapters": 16,
+    "passageGroups": 798,
+    "kautzschSlots": 954,
+    "rahlfsVerses": 924
+  },
+  "basis": {
+    "primary": [
+      "Unchanged bundled Kautzsch (1900), The Book of Maccabees I",
+      "Unchanged bundled Septuaginta (Rahlfs), Makkabäer I (Septuaginta)"
+    ],
+    "bridge": {
+      "edition": "Menge-Bibel 1939",
+      "url": "https://raw.githubusercontent.com/bzerangue/osis-bibles/master/de/meng39.xml",
+      "sha256": "fbb1fab4d40ee79c7b2cfe9fb4adf497e28b44b7fe346e88be0bf3128a392ba1",
+      "use": "Independent German passage and verse-reference comparison. Not displayed as an additional edition.",
+      "numberingAdjustment": [
+        {
+          "chapter": 12,
+          "menge": [
+            53,
+            54
+          ],
+          "rahlfs": [
+            53,
+            53
+          ],
+          "reason": "Both Menge final entries together form the single final Rahlfs verse, verified in Greek."
+        }
+      ]
+    },
+    "review": "German text-similarity candidates were reviewed by content; all split/merged candidates and low-similarity candidates were inspected. Overlapping sentence boundaries were conservatively joined. Greek chapter beginnings/endings and the divergent chapter-12 ending were also checked. This is passage correspondence, not word alignment."
+  },
+  "notes": [
+    {
+      "chapter": 13,
+      "kautzsch": [
+        19,
+        19
+      ],
+      "rahlfs": [
+        20,
+        20
+      ],
+      "kind": "empty-source-slot",
+      "explanation": "Der vorhandene Kautzsch-Text hat an Stelle 13:19 einen leeren Eintrag. Rahlfs 13:20 berichtet Tryphons Marsch über Adora und Simons Begleitung. Es wird kein deutscher Text ergänzt."
+    }
+  ],
+  "crossChapter": []
+}

@@ -11,10 +11,27 @@ const manifest=require(path.join(root,'bundled/manifest.json'));
 const docs=new Map();let oldTranslation=false,win;
 const hash=text=>crypto.createHash('sha256').update(JSON.stringify(text)).digest('hex');
 function add(book,kind,pattern){const item=manifest.items.find(e=>e.title===book&&e.kind===kind&&pattern.test(e.versionTitle));assert(item);const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',item.rel)));const entry={...item,own:false,bytes:Buffer.byteLength(JSON.stringify(doc))};docs.set(entry.rel,{...doc,entry,textHash:hash(doc.text)});}
-if(process.env.SAFRAN_SMOKE_MACCABEES==='1'){
+if(process.env.SAFRAN_SMOKE_MACCABEES==='1'||process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){
  for(const e of manifest.items.filter(e=>require('../../library-works').canonicalTitle(e.title).startsWith('Makkabäer ')))add(e.title,e.kind,new RegExp(e.versionTitle.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
  const base=[...docs.values()].find(d=>d.entry.title==='The Book of Maccabees I');
- for(const title of ['The Book of Maccabees I','The Book of Maccabees I (Kahana Translation)']){const rel='fixture/'+title+'/he.json',entry={...base.entry,title,rel,kind:'he',language:'Hebrew',versionTitle:'merged'};docs.set(rel,{...base,entry,versionTitle:'merged',text:[['טקסט לבדיקה']],textHash:hash(title)});}
+ for(const title of ['The Book of Maccabees I','The Book of Maccabees I (Kahana Translation)']){const rel='fixture/'+title+'/he.json',entry={...base.entry,title,rel,kind:'he',language:'Hebrew',versionTitle:'merged'},he=title===base.entry.title?require('../fixtures/maccabees-i-he.json'):process.env.SAFRAN_KAHANA_SOURCE?{text:JSON.parse(fs.readFileSync(process.env.SAFRAN_KAHANA_SOURCE,'utf8')).he}:{text:[['טקסט לבדיקה']]};docs.set(rel,{...base,...he,entry,versionTitle:'merged',textHash:hash(he.text)});}
+ const h=require('../fixtures/maccabees-ii-he.json'),baseII=[...docs.values()].find(d=>d.entry.title===h.title);
+ const rel='fixture/maccabees-ii/he.json',entry={...baseII.entry,title:h.title,rel,kind:'he',language:'Hebrew',versionTitle:'merged'};docs.set(rel,{...h,sectionNames:['Chapter','Verse'],entry,versionTitle:'merged',textHash:hash(h.text)});
+}
+// English editions belong only to the dedicated alignment regression scenario.
+if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){
+ for(const slug of ['i','ii','kahana-i']){
+  const d=require('../fixtures/maccabees-'+slug+'-en.json'),rel='fixture/maccabees-'+slug+'/en.json';
+  const base=[...docs.values()].find(v=>v.entry.title===d.title),entry={...base.entry,title:d.title,rel,kind:'en',language:'English',versionTitle:'merged'};
+  docs.set(rel,{...d,entry,textHash:hash(d.text)});
+ }
+}
+if(process.env.SAFRAN_SMOKE_MISHNAH_CORPUS==='1'){for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);}
+if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){for(const title of require('../../mishnah-morph').titles)add(title,'he',/Kaufmann/);}
+if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){add('Mishnah Berakhot','he',/Kaufmann/);add('Mishnah Berakhot','de',/Goldschmidt/);}
+if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
+ for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);
+ add('Mishnah Berakhot','de',/Goldschmidt/);
 }
 if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){add('Genesis','de',/Philippson/);add('Exodus','de',/Philippson/);add('Genesis','he',/^Aleppo/);add('Genesis','other',/^Septuaginta/);add('Psalms','he',/^Westminster/);add('Psalms','de',/Zunz/);add('Psalms','de',/Philippson/);}
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
@@ -70,9 +87,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  const expectedTitles=require('../../library-works').groupEntries([...docs.values()].map(doc=>doc.entry)).length;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){await require('./maccabees-alignment-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MACCABEES==='1'){await require('./maccabees-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1'){await require('./notes-workspace-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
- if(process.env.SAFRAN_SMOKE_RESEARCH==='1'){await researchFlows({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_RESEARCH==='1'||process.env.SAFRAN_SMOKE_RESEARCH_WITNESSES==='1'){await researchFlows({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1'){await require('./field-sigla-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_PESHITTA_STATUS==='1'){
   await require('./peshitta-status-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
@@ -131,6 +149,13 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  }
  if(process.env.SAFRAN_SMOKE_STATS==='1'){
   await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
+ if(process.env.SAFRAN_SMOKE_MISHNAH_CORPUS==='1'){await require('./mishnah-corpus-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){await require('./mishnah-zeraim-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){await require('./mishnah-morph-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
+  await require('./kaufmann-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_MISHNAH==='1'){

@@ -1,0 +1,193 @@
+{
+  "sourceSha256": {
+    "C": "e3dc0ee0ad5bcc2508105f3aa1e2be0ee17ca01a2cb02e7c4ad9804c5868e35a"
+  },
+  "boundaries": [
+    {
+      "id": "cambridge-1-3-adam-korin",
+      "witness": "C",
+      "source": [
+        [
+          "1:3",
+          17
+        ],
+        [
+          "1:3",
+          18
+        ],
+        [
+          "1:3",
+          19
+        ]
+      ],
+      "expectedSource": [
+        "אד",
+        "□",
+        "ורין"
+      ],
+      "projectWord": "S01520.1.1.1.3.00160",
+      "reason": "The gap spans the word boundary between אדם and קורין. The surviving ורין belongs under קורין; no missing letters are supplied.",
+      "targets": {
+        "diplomatic": [
+          {
+            "base": [
+              [
+                "1:3",
+                17
+              ],
+              [
+                "1:3",
+                18
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                17
+              ]
+            ],
+            "expectedBaseConsonants": "אדם"
+          },
+          {
+            "base": [
+              [
+                "1:3",
+                19
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                19
+              ]
+            ],
+            "expectedBaseConsonants": "קורין"
+          }
+        ],
+        "vocalized": [
+          {
+            "base": [
+              [
+                "1:3",
+                17
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                17
+              ]
+            ],
+            "expectedBaseConsonants": "האדם"
+          },
+          {
+            "base": [
+              [
+                "1:3",
+                18
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                19
+              ]
+            ],
+            "expectedBaseConsonants": "קורין"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cambridge-1-3-ani-hayiti",
+      "witness": "C",
+      "source": [
+        [
+          "1:3",
+          45
+        ],
+        [
+          "1:3",
+          46
+        ],
+        [
+          "1:3",
+          47
+        ]
+      ],
+      "expectedSource": [
+        "א",
+        "□",
+        "הייתי"
+      ],
+      "projectWord": "S01520.1.1.1.3.00410",
+      "reason": "The gap spans the word boundary between אני and הייתי. The surviving complete הייתי belongs under הייתי; no missing letters are supplied.",
+      "targets": {
+        "diplomatic": [
+          {
+            "base": [
+              [
+                "1:3",
+                44
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                45
+              ]
+            ],
+            "expectedBaseConsonants": "אני"
+          },
+          {
+            "base": [
+              [
+                "1:3",
+                45
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                47
+              ]
+            ],
+            "expectedBaseConsonants": "הייתי"
+          }
+        ],
+        "vocalized": [
+          {
+            "base": [
+              [
+                "1:3",
+                43
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                45
+              ]
+            ],
+            "expectedBaseConsonants": "אני"
+          },
+          {
+            "base": [
+              [
+                "1:3",
+                44
+              ]
+            ],
+            "reading": [
+              [
+                "1:3",
+                47
+              ]
+            ],
+            "expectedBaseConsonants": "הייתי"
+          }
+        ]
+      }
+    }
+  ]
+}

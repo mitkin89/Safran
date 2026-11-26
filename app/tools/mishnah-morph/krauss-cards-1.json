@@ -1,0 +1,546 @@
+[
+  {
+    "title": "Mishnah Peah",
+    "ref": "2:7",
+    "token": 5,
+    "word": "לֶסְטִים",
+    "analyses": [
+      {
+        "lemma": "לסטים",
+        "morph": "HNcmpa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Räuber; Banditen",
+          "en": "robbers; bandits"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "λῃστής",
+          "source": "Krauss"
+        },
+        "note": "Krauss führt das griechische Lehnwort an. Hier ergibt sich der Plural aus קצרו, nicht allein aus dem Ausgang ־ים; kein erfundener hebräischer Singularstamm."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 3636
+      }
+    ],
+    "note": "Krauss führt das griechische Lehnwort an. Hier ergibt sich der Plural aus קצרו, nicht allein aus dem Ausgang ־ים; kein erfundener hebräischer Singularstamm.",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5"
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "2:7",
+    "token": 16,
+    "word": "לֶסְטִים",
+    "analyses": [
+      {
+        "lemma": "לסטים",
+        "morph": "HNcmpa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Räuber; Banditen",
+          "en": "robbers; bandits"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "λῃστής",
+          "source": "Krauss"
+        },
+        "note": "Krauss führt das griechische Lehnwort an. Hier ergibt sich der Plural aus קצרו, nicht allein aus dem Ausgang ־ים; kein erfundener hebräischer Singularstamm."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 3636
+      }
+    ],
+    "note": "Krauss führt das griechische Lehnwort an. Hier ergibt sich der Plural aus קצרו, nicht allein aus dem Ausgang ־ים; kein erfundener hebräischer Singularstamm.",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5"
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "2:8",
+    "token": 2,
+    "word": "לֶסְטִים",
+    "analyses": [
+      {
+        "lemma": "לסטים",
+        "morph": "HNcmpa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Räuber; Banditen",
+          "en": "robbers; bandits"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "λῃστής",
+          "source": "Krauss"
+        },
+        "note": "Krauss führt das griechische Lehnwort an. Hier ergibt sich der Plural aus קצרו, nicht allein aus dem Ausgang ־ים; kein erfundener hebräischer Singularstamm."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 3636
+      }
+    ],
+    "note": "Krauss führt das griechische Lehnwort an. Hier ergibt sich der Plural aus קצרו, nicht allein aus dem Ausgang ־ים; kein erfundener hebräischer Singularstamm.",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5"
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "8:1",
+    "token": 40,
+    "word": "אִסָּרוֹת",
+    "analyses": [
+      {
+        "lemma": "איסר",
+        "morph": "HNcmpa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Asse; römische Kupfermünzen",
+          "en": "asses; Roman copper coins"
+        },
+        "loanword": {
+          "language": "Lateinisch / Griechisch",
+          "form": "as / ἀσσάριον",
+          "source": "Krauss"
+        },
+        "note": "Maskulines Münzlemma trotz Plural auf ־ות; Krauss nennt Peah 8:1 und diese Pluralform ausdrücklich."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 565
+      }
+    ],
+    "note": "Maskulines Münzlemma trotz Plural auf ־ות; Krauss nennt Peah 8:1 und diese Pluralform ausdrücklich.",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5"
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "8:7",
+    "token": 10,
+    "word": "בַּפּוֹנְדְּיוֹן",
+    "analyses": [
+      {
+        "lemma": "ב/פונדיון",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "für einen Pondion (Münze)",
+          "en": "for a pondion (coin)"
+        },
+        "loanword": {
+          "language": "Lateinisch",
+          "form": "[du]pondius",
+          "source": "Krauss"
+        },
+        "note": "Maskulines Münzlemma; Artikelverschmelzung bei בַּ, kein Artikel bei בְּ. Die Herkunftsform [du]pondius wird als Angabe bei Krauss wiedergegeben, nicht als neu gesicherte Etymologie."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 4732
+      }
+    ],
+    "note": "Maskulines Münzlemma; Artikelverschmelzung bei בַּ, kein Artikel bei בְּ. Die Herkunftsform [du]pondius wird als Angabe bei Krauss wiedergegeben, nicht als neu gesicherte Etymologie.",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5"
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "8:4",
+    "token": 23,
+    "word": "בְּפוֹנְדְּיוֹן",
+    "analyses": [
+      {
+        "lemma": "ב/פונדיון",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "für einen Pondion (Münze)",
+          "en": "for a pondion (coin)"
+        },
+        "loanword": {
+          "language": "Lateinisch",
+          "form": "[du]pondius",
+          "source": "Krauss"
+        },
+        "note": "Maskulines Münzlemma; Artikelverschmelzung bei בַּ, kein Artikel bei בְּ. Die Herkunftsform [du]pondius wird als Angabe bei Krauss wiedergegeben, nicht als neu gesicherte Etymologie."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 4732
+      }
+    ],
+    "note": "Maskulines Münzlemma; Artikelverschmelzung bei בַּ, kein Artikel bei בְּ. Die Herkunftsform [du]pondius wird als Angabe bei Krauss wiedergegeben, nicht als neu gesicherte Etymologie.",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e"
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:1",
+    "token": 7,
+    "word": "הָאַכְסַנְיָה",
+    "analyses": [
+      {
+        "lemma": "ה/אכסניא",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "die einquartierten Truppen; die Garnison",
+          "en": "the quartered troops; the garrison"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ξενία",
+          "source": "Krauss"
+        },
+        "note": "Krauss אכסניא II nennt Demai 3:1 ausdrücklich: Truppen, nicht Herberge (I) oder Wirtin (III). Femininum als Kollektiv nach dem Wörterbucheintrag."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 687
+      }
+    ],
+    "note": "Krauss אכסניא II nennt Demai 3:1 ausdrücklich: Truppen, nicht Herberge (I) oder Wirtin (III). Femininum als Kollektiv nach dem Wörterbucheintrag.",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d"
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "8:3",
+    "token": 6,
+    "word": "בַּקָּרוֹן",
+    "analyses": [
+      {
+        "lemma": "ב/קרון",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "der Wagen",
+          "en": "the wagon"
+        },
+        "loanword": {
+          "language": "Lateinisch",
+          "form": "carrum",
+          "source": "Krauss"
+        },
+        "note": "Krauss קרון I führt feminin an und nennt Kilayim 8:3. Artikel bzw. Präposition werden von der ursprünglichen Quellform getrennt bestimmt."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 5947
+      }
+    ],
+    "note": "Krauss קרון I führt feminin an und nennt Kilayim 8:3. Artikel bzw. Präposition werden von der ursprünglichen Quellform getrennt bestimmt.",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e"
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "8:4",
+    "token": 7,
+    "word": "הַקָּרוֹן",
+    "analyses": [
+      {
+        "lemma": "ה/קרון",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "der Wagen",
+          "en": "the wagon"
+        },
+        "loanword": {
+          "language": "Lateinisch",
+          "form": "carrum",
+          "source": "Krauss"
+        },
+        "note": "Krauss קרון I führt feminin an und nennt Kilayim 8:3. Artikel bzw. Präposition werden von der ursprünglichen Quellform getrennt bestimmt."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 5947
+      }
+    ],
+    "note": "Krauss קרון I führt feminin an und nennt Kilayim 8:3. Artikel bzw. Präposition werden von der ursprünglichen Quellform getrennt bestimmt.",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e"
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "8:4",
+    "token": 10,
+    "word": "הַקָּרוֹן",
+    "analyses": [
+      {
+        "lemma": "ה/קרון",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "der Wagen",
+          "en": "the wagon"
+        },
+        "loanword": {
+          "language": "Lateinisch",
+          "form": "carrum",
+          "source": "Krauss"
+        },
+        "note": "Krauss קרון I führt feminin an und nennt Kilayim 8:3. Artikel bzw. Präposition werden von der ursprünglichen Quellform getrennt bestimmt."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 5947
+      }
+    ],
+    "note": "Krauss קרון I führt feminin an und nennt Kilayim 8:3. Artikel bzw. Präposition werden von der ursprünglichen Quellform getrennt bestimmt.",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e"
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "1:5",
+    "token": 34,
+    "word": "וְאַנְדְּרוֹגִינוֹס",
+    "analyses": [
+      {
+        "lemma": "ו/אנדרוגינוס",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Androgynos; rabbinische Rechtskategorie für eine Person mit männlichen und weiblichen Geschlechtsmerkmalen",
+          "en": "androgynos; rabbinic legal category for a person with male and female sex characteristics"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ἀνδρόγυνος",
+          "source": "Krauss"
+        },
+        "note": "Krauss nennt Bikkurim 1:5; maskulines grammatisches Lemma. Die Quellvarianten auf ־נוס und ־נס bleiben erhalten. Historische Rechtsbezeichnung."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 874
+      }
+    ],
+    "note": "Krauss nennt Bikkurim 1:5; maskulines grammatisches Lemma. Die Quellvarianten auf ־נוס und ־נס bleiben erhalten. Historische Rechtsbezeichnung.",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173"
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "4:1",
+    "token": 1,
+    "word": "אַנְדְּרוֹגִינָס",
+    "analyses": [
+      {
+        "lemma": "אנדרוגינוס",
+        "morph": "HNcmsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Androgynos; rabbinische Rechtskategorie für eine Person mit männlichen und weiblichen Geschlechtsmerkmalen",
+          "en": "androgynos; rabbinic legal category for a person with male and female sex characteristics"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ἀνδρόγυνος",
+          "source": "Krauss"
+        },
+        "note": "Krauss nennt Bikkurim 1:5; maskulines grammatisches Lemma. Die Quellvarianten auf ־נוס und ־נס bleiben erhalten. Historische Rechtsbezeichnung."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 874
+      }
+    ],
+    "note": "Krauss nennt Bikkurim 1:5; maskulines grammatisches Lemma. Die Quellvarianten auf ־נוס und ־נס bleiben erhalten. Historische Rechtsbezeichnung.",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173"
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "4:5",
+    "token": 43,
+    "word": "אַנְדְּרוֹגִינָס",
+    "analyses": [
+      {
+        "lemma": "אנדרוגינוס",
+        "morph": "HNcmsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "Androgynos; rabbinische Rechtskategorie für eine Person mit männlichen und weiblichen Geschlechtsmerkmalen",
+          "en": "androgynos; rabbinic legal category for a person with male and female sex characteristics"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ἀνδρόγυνος",
+          "source": "Krauss"
+        },
+        "note": "Krauss nennt Bikkurim 1:5; maskulines grammatisches Lemma. Die Quellvarianten auf ־נוס und ־נס bleiben erhalten. Historische Rechtsbezeichnung."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 874
+      }
+    ],
+    "note": "Krauss nennt Bikkurim 1:5; maskulines grammatisches Lemma. Die Quellvarianten auf ־נוס und ־נס bleiben erhalten. Historische Rechtsbezeichnung.",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173"
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "3:6",
+    "token": 11,
+    "word": "אַכְסַדְרָה",
+    "analyses": [
+      {
+        "lemma": "אכסדרא",
+        "morph": "HNcfsa",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "überdachter Gang; Halle",
+          "en": "covered passage; hall"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ἐξέδρα",
+          "source": "Krauss"
+        },
+        "note": "Krauss führt das feminine Bauwort an und nennt Maasrot 3:6. Die Quellschreibung auf ה bleibt erhalten; nicht mit אכסרא in Bausch und Bogen verwechseln."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 668
+      }
+    ],
+    "note": "Krauss führt das feminine Bauwort an und nennt Maasrot 3:6. Die Quellschreibung auf ה bleibt erhalten; nicht mit אכסרא in Bausch und Bogen verwechseln.",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e"
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "2:5",
+    "token": 38,
+    "word": "אַכְסְרָה",
+    "analyses": [
+      {
+        "lemma": "אכסרא",
+        "morph": "HD",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "in Bausch und Bogen; ohne Einzelbewertung",
+          "en": "in bulk; without individual valuation"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ἐνσχερῷ",
+          "source": "Krauss"
+        },
+        "note": "Krauss אכסרא II nennt beide Mischna-Stellen; Adverb, nicht das Bauwort אכסדרא. Die unvokalisierte redaktionelle Nebenform באכסרה wird hier nicht automatisch mitannotiert."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 693
+      }
+    ],
+    "note": "Krauss אכסרא II nennt beide Mischna-Stellen; Adverb, nicht das Bauwort אכסדרא. Die unvokalisierte redaktionelle Nebenform באכסרה wird hier nicht automatisch mitannotiert.",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d"
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "4:2",
+    "token": 24,
+    "word": "אַכְסָרָה",
+    "analyses": [
+      {
+        "lemma": "אכסרא",
+        "morph": "HD",
+        "rules": [
+          "krauss-card"
+        ],
+        "method": "krauss-card",
+        "gloss": {
+          "de": "in Bausch und Bogen; ohne Einzelbewertung",
+          "en": "in bulk; without individual valuation"
+        },
+        "loanword": {
+          "language": "Griechisch",
+          "form": "ἐνσχερῷ",
+          "source": "Krauss"
+        },
+        "note": "Krauss אכסרא II nennt beide Mischna-Stellen; Adverb, nicht das Bauwort אכסדרא. Die unvokalisierte redaktionelle Nebenform באכסרה wird hier nicht automatisch mitannotiert."
+      }
+    ],
+    "evidence": [
+      {
+        "dictId": "d701423861c6",
+        "entry": 693
+      }
+    ],
+    "note": "Krauss אכסרא II nennt beide Mischna-Stellen; Adverb, nicht das Bauwort אכסדרא. Die unvokalisierte redaktionelle Nebenform באכסרה wird hier nicht automatisch mitannotiert.",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a"
+  }
+]

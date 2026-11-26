@@ -1,0 +1,24 @@
+[
+  {
+    "book": "Makkabäer IV",
+    "source": {
+      "family": 0,
+      "title": "Das vierte Buch der Makkabäer",
+      "chapter": 7,
+      "range": [
+        24,
+        24
+      ]
+    },
+    "target": {
+      "family": 1,
+      "title": "Makkabäer IV (Septuaginta)",
+      "chapter": 8,
+      "range": [
+        1,
+        1
+      ]
+    },
+    "explanation": "Dieser Abschnitt steht in der griechischen Fassung am Anfang von Kapitel 8."
+  }
+]

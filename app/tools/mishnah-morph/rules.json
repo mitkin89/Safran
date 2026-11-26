@@ -1,0 +1,145 @@
+{
+  "lexical": {
+    "label": "Belegte Ausgangsform; kontextuell zu prüfen",
+    "refs": [
+      "Safran: hebräische Wortformen des Berakhot-Ausgangslexikons; keine Übernahme einer kontextuellen Bestimmung als gesicherte Mischna-Analyse"
+    ]
+  },
+  "pronoun": {
+    "label": "Pronomen",
+    "refs": [
+      "Segal §§67–78, S.39–43",
+      "Pérez Fernández, Unit 1.3–5, S.17–18"
+    ]
+  },
+  "prefix": {
+    "label": "Gebundene Präposition oder Partikel",
+    "refs": [
+      "Pérez Fernández, Unit 22.6–8A, S.160",
+      "Pérez Fernández, Unit 8.2, 8.5–7, S.50–52"
+    ]
+  },
+  "article": {
+    "label": "Artikel vor belegter Restform",
+    "refs": [
+      "Segal §§375–378, S.181–185",
+      "Pérez Fernández, Unit 3.2, 3.5–6, S.26"
+    ]
+  },
+  "plural": {
+    "label": "Mischnahebräische Pluralformen auf ־ים und ־ין",
+    "refs": [
+      "Segal §281, S.126",
+      "Pérez Fernández, Unit 10.5A–C, S.63–64"
+    ]
+  },
+  "nominal": {
+    "label": "Nominale Flexion und Wortart",
+    "refs": [
+      "Pérez Fernández, Unit 10.2–7, S.62–64",
+      "Pérez Fernández, Unit 13.2–4, S.80–81"
+    ]
+  },
+  "construct": {
+    "label": "Status constructus",
+    "refs": [
+      "Segal §§379–381, S.185–187",
+      "Pérez Fernández, Unit 11.2–5, S.69–70"
+    ]
+  },
+  "suffix": {
+    "label": "Pronominalsuffix; Varianten und Mehrdeutigkeit",
+    "refs": [
+      "Segal §71, S.41",
+      "Pérez Fernández, Unit 4.4–9, S.30–31"
+    ]
+  },
+  "verb": {
+    "label": "Verbform; keine automatische syntaktische Zeitbestimmung",
+    "refs": [
+      "Segal §§111–143, S.57–68",
+      "Pérez Fernández, Unit 19.2–6, S.129–132; Unit 20.2–6, S.144–146"
+    ]
+  },
+  "adverb": {
+    "label": "Adverb oder adverbialer Gebrauch",
+    "refs": [
+      "Pérez Fernández, Unit 23.3–8, S.172–173"
+    ]
+  },
+  "hofal-ntr": {
+    "label": "Hofal-Form von נתר",
+    "refs": [
+      "Pérez Fernández, Unit 15.4F, S.97; Unit 19.7B, S.132"
+    ]
+  },
+  "action-noun": {
+    "label": "Nominalisiertes Handlungswort",
+    "refs": [
+      "Segal §§250–251, S.113–114",
+      "Pérez Fernández, Unit 9.6A und 9.9, S.58–59"
+    ]
+  },
+  "periphrastic-participle": {
+    "label": "Partizip nach היה",
+    "refs": [
+      "Pérez Fernández, Unit 16.13A, S.108–109"
+    ]
+  },
+  "reduplicated": {
+    "label": "Reduplizierter Stamm: Pilpel",
+    "refs": [
+      "Segal §195, S.88 (דקדק, Berakhot 2:3)",
+      "Pérez Fernández, Unit 15.4G, S.97"
+    ]
+  },
+  "lexical-gender": {
+    "label": "Lexikalisch belegtes Genus",
+    "refs": [
+      "Jastrow, Artikel תְּפִלֵּי / תְּפִלִּין: f. pl. (Safran-Wörterbuch d895bc1c727b, Artikel 24302)",
+      "Pérez Fernández, Unit 10.5A–C, S.63–64: Pluralendung und Genus getrennt bestimmen"
+    ]
+  },
+  "loanword-gender": {
+    "label": "Lexikalisch belegtes Genus eines Lehnworts",
+    "refs": [
+      "Krauss, Griechische und lateinische Lehnwörter Teil II, Artikel קרון I und אסדא (Safran-Wörterbuch d701423861c6, Artikel 5947 und 1048)",
+      "Pérez Fernández, Unit 10.8–10, S.64–65: Genuswandel und lexikalische Bedeutung"
+    ]
+  },
+  "rabbinic-lemma": {
+    "label": "Rabbinisches Wörterbuchlemma",
+    "refs": [
+      "Levy, Wörterbuch Bd.1–4, Artikel תנחום (Safran e8d290b744f6, Artikel 19255)",
+      "Jastrow, Artikel תחנון / תחנונים (Safran d895bc1c727b, Artikel 745)",
+      "Pérez Fernández, Unit 10.5A, S.63: Pluralvarianten ־ים und ־ין"
+    ]
+  },
+  "bread-gender": {
+    "label": "Genus von לֶחֶם",
+    "refs": [
+      "Jastrow, Artikel לֶחֶם, m. (Safran d895bc1c727b, Artikel 5467)",
+      "Levy, Wörterbuch Bd.1–4, Artikel לֶחֶם, m. (Safran e8d290b744f6, Artikel 9327)"
+    ]
+  },
+  "life-lemma": {
+    "label": "Nominales Plurallemma חיים",
+    "refs": [
+      "Jastrow, חיים, m. pl. life, mit חייך (Safran d895bc1c727b, Artikel 8609)",
+      "Pérez Fernández, Unit 11.2–5, S.69–70: Constructus und Suffixe"
+    ]
+  },
+  "creation-noun": {
+    "label": "Lexikalisiertes Schöpfungsnomen",
+    "refs": [
+      "Jastrow, בראשית: cosmological term, creation / primeval period / Nature (Safran d895bc1c727b, Artikel 28318)"
+    ]
+  },
+  "hero-construct": {
+    "label": "Nominaler oder adjektivischer Constructus",
+    "refs": [
+      "Jastrow, גיבור: strong / mighty / hero (Safran d895bc1c727b, Artikel 21754)",
+      "Segal §380(ii), S.186–187: substantivierte Partizipien und Adjektive im Constructus"
+    ]
+  }
+}

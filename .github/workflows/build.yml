@@ -38,6 +38,14 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run ${{ matrix.os == 'macos-latest' && 'dist' || matrix.os == 'windows-latest' && 'dist:win' || 'dist:linux' }} -- --publish never
+      - name: Build and verify Linux ARM64 Debian package
+        if: runner.os == 'Linux'
+        run: |
+          npm exec --workspace safran -- electron-builder --config build/config.cjs --linux deb --arm64 --publish never
+          package=$(find dist -maxdepth 1 -name '*_arm64.deb' -print)
+          test "$(dpkg-deb -f "$package" Architecture)" = arm64
+          test "$(dpkg-deb -f "$package" Version)" = "$(node -p "require('./app/package.json').version")"
+          readelf -h dist/linux-arm64-unpacked/safran | grep -E 'Machine:.*AArch64'
       - uses: actions/upload-artifact@v4
         with:
           name: sefaria-${{ matrix.os }}

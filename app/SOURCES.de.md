@@ -2,6 +2,55 @@
 
 [English](SOURCES.md) · **Deutsch**
 
+## Morphologie-Pilot für Mischna Berakhot
+
+Eigene automatische Analysekandidaten für die vokalisierte Kaufmann-Lesefassung
+(Dan Be’eri), ausschließlich Berakhot 1–9: 57 Mischnajot, 2.159 laufende
+Wortpositionen. Regelgrundlage: M. H. Segal, *A Grammar of Mishnaic Hebrew*
+(Oxford 1927), und Miguel Pérez Fernández, *An Introductory Grammar of Rabbinic
+Hebrew*, übers. John Elwolde (Brill 1997). Geprüfte Grammatikstellen, eigene
+Regelimplementierung und lexikalische Kandidaten: `tools/mishnah-morph/`.
+Die Bücher und hochgeladenen PDFs werden nicht mitgeliefert. Hebräische Formen
+von Safrans Bavli-Lexikon dienen als zusätzliche lexikalische Hinweise; dessen
+kontextuelle Bestimmungen werden nicht zu geprüften Mischna-Analysen erklärt.
+
+Der Pilot bewahrt Wortlaut und Vokalisation; mehrere mögliche Bestimmungen
+bleiben sichtbar. Die Abdeckung ist keine Genauigkeitsangabe. Lesbare Accordance-Screenshots
+MISH-T 4.3 wurden über alle 57 Mischnajot von Berakhot (Kapitel 1–9) verglichen:
+2.159 Quellwortpositionen untersucht, 2.153 grammatisch vergleichbar,
+1.885 mit sichtbaren Angaben vereinbare Kandidaten, 268 strenge Merkmals- oder
+Konventionsunterschiede, fünf Wortlautvarianten und ein nur bei Be’eri
+vorhandenes Wort. Dies ist keine Genauigkeitsquote; die Unterschiede sind
+nicht automatisch Fehler. Eine gesonderte Bewertung erklärt davon 47 durch belegte Wortart- oder Lemmakonventionen; Der anschließende Durchgang prüft alle 226 Reststellen: 167 Konventionen, 42 beleggestützt beibehaltene Analysen, sieben Korrekturen und zehn unentscheidbare Stellen. Vier Suffixpositionen sind durch Wortdetails
+bestätigt; 205 haben keinen separat sichtbaren Suffix-Tag, darunter drei
+מצותן-Vorkommen mit Formnachweis (3mp). Accordance-Modul und private
+Referenztranskription werden nicht verteilt. Kurzbedeutungen in Wortkarten
+sind eigene redaktionelle Glossen oder sichtbar als biblisch gekennzeichnete
+Bedeutungen aus `oshb-lemmas.js`, keine geprüften Kontextübersetzungen.
+
+## Vokalisierte Kaufmann-Mischna
+
+Alle 63 Traktate (525 Kapitel, 4.192 Mischna-Abschnitte) der Ausgabe
+*Mishnah based on the Kaufmann manuscript, edited by Dan Be’eri* sind als eigene
+hebräische Offline-Fassung enthalten. Digitaltext: [Sefaria](https://www.sefaria.org/digitized-by-sefaria);
+Vorlage: [Rabbi Dan Be’eris vollständige Ausgabe](https://archive.org/details/MishnaCorrectedKaufman00WHOLE),
+**CC BY-SA 3.0** laut Lizenzangabe der Originalausgabe.
+
+Die Ausgabe beruht auf Kaufmann A50, ist aber eine bearbeitete Lesefassung mit
+Korrekturen, Ergänzungen und der üblichen Kapitel-/Mischna-Zählung; sie ist keine
+diplomatische Transkription der Handschrift. Auch das ergänzte sechste Kapitel
+von Avot gehört zum übernommenen Ausgabenbestand. Der vorhandene diplomatische
+Berakhot-Vergleich aus Digital Mishnah bleibt eine getrennte Fassung.
+
+Der Wortlaut einschließlich Vokalzeichen, Quellenmarkierungen, HTML und
+Anmerkungen wird unverändert aus den ausdrücklich benannten Sefaria-Exporten
+übernommen; keine Mischung mit `merged` und keine maschinelle Nachvokalisierung.
+Die Lizenzmetadaten wurden nach der Originalausgabe vereinheitlicht: Sefaria
+nennt bei 61 Traktaten PD, bei Ta’anit und Avot `unknown`. Diese Exportangaben
+bleiben zusätzlich im Textdokument erhalten; Safran führt die Ausgabe mit
+Namensnennung und CC BY-SA 3.0. Import, Prüfsummen und Vollständigkeitsbericht:
+`tools/kaufmann/`.
+
 ## Sefaria-Quelle und Lizenzen
 
 Griechische **Testamente der zwölf Patriarchen, Pseudo-Phokylides, 3 Baruch und acht Henoch-Zeugen**: [Online Critical Pseudepigrapha](https://github.com/OnlineCriticalPseudepigrapha/Online-Critical-Pseudepigrapha), **CC BY 4.0**; bei den Testamenten zusätzlich griechische Wikisource **CC BY-SA 4.0**, mit Hinweis auf den vorläufigen, nicht am Druck kollationierten Stand. Stanza 1.11.0 / Stanford NLP Group liefert eine getrennt ausgelieferte automatische Analyseschicht (Perseus-Formtags, PROIEL-Lemmata) unter **CC BY-NC-SA 4.0**; passende OGA-0.2.0-Einträge behalten **CC BY-SA 4.0**. Keine Modellgewichte werden mitgeliefert. Wortformen, Fragmente, Originalzählung und Lesarten bleiben erhalten; deutsche Texte bleiben unverändert. Bibliographie, Modell-/Trainingsdatenhinweise und Änderungen: [LICENSE-PSEUDEPIGRAPHA.md](LICENSE-PSEUDEPIGRAPHA.md); Quellstände und abschnittsgenaue Abdeckung: [tools/pseudepigrapha/README.md](tools/pseudepigrapha/README.md).

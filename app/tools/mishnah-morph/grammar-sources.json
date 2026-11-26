@@ -1,0 +1,28 @@
+{
+  "scope": "Mishnah Berakhot 1–9 only",
+  "sources": [
+    {
+      "author": "M. H. Segal",
+      "title": "A Grammar of Mishnaic Hebrew",
+      "edition": "Oxford 1927; uploaded reprint",
+      "pdfSha256": "ac6e7bbc8a9b1ed8bb0f0b8b461b9ae1627e886716f0296528e69e4c365a0ddc",
+      "printedToPdfPageOffset": 43
+    },
+    {
+      "author": "Miguel Pérez Fernández",
+      "title": "An Introductory Grammar of Rabbinic Hebrew",
+      "translator": "John Elwolde",
+      "edition": "Brill 1997",
+      "pdfSha256": "522cf645d53be86850d775a36729b592f8510eb781530324d0b326fad1230252",
+      "printedToPdfPageOffset": 20
+    }
+  ],
+  "implementation": "Original candidate rules and lexical analyses; no book text or uploaded PDFs redistributed.",
+  "externalReference": {
+    "module": "MISH-T",
+    "version": "4.3",
+    "basis": "Kaufmann A50; user-provided sample",
+    "scope": "All 57 Berakhot units, chapters 1–9: 2159 source positions examined; 2153 grammatically comparable; 1885 compatible with supplied features, 268 strict feature or convention differences (47 separately accounted for by documented conventions), five wording variants and one source-only word; 205 positions lack separately visible suffix tags; all 226 residual positions separately reviewed, 10 still unresolved; screenshot comparison is not a full accuracy score",
+    "distribution": "No Accordance module or exported reference tags included"
+  }
+}

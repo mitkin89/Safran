@@ -4,15 +4,7 @@ const L = window.lib, A = window.api;
 
 // ---------- Hilfen ----------
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const ALLOWED = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'br'];
-// Nur einfache Formatierungs-Tags durchlassen, alles andere (und alle Attribute) entfernen
-function clean(s) {
-  return String(s ?? '').replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
-    t = t.toLowerCase();
-    if (!ALLOWED.includes(t)) return '';
-    return m.startsWith('</') ? `</${t}>` : `<${t}>`;
-  });
-}
+const clean = L.cleanInline; // Allowlist für Sefaria-Text, siehe lib.js
 const fileSafe = s => String(s).replace(/[^\p{L}\p{N}]+/gu, '_').replace(/^_|_$/g, '');
 
 function showTab(t) {

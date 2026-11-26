@@ -81,13 +81,24 @@ const O = require('../../offline');
   assert.strictEqual(O.kindOf(catalog.books[5]), 'other');
 
   const p1 = O.planEntries(groups, { cats: ['Tanakh'] }, { he: true, en: true, de: false });
-  assert.deepStrictEqual(p1.entries.map(e => e.versionTitle), ['merged', 'merged']); // nur zusammengeführte Fassungen
+  assert.deepStrictEqual(p1.entries.map(e => e.versionTitle), ['merged', 'merged', 'JPS 1985']); // Hebräisch zusammengeführt, Englisch vollständig
   const p2 = O.planEntries(groups, { cats: ['Tanakh/Torah'] }, { he: false, en: false, de: true });
   assert.deepStrictEqual(p2.entries.map(e => e.versionTitle), ['Die Bücher Moses [de]']);
   const p3 = O.planEntries(groups, { ids: [groups[1].id] }, { he: true, en: true, de: false });
   assert.deepStrictEqual(p3.entries.map(e => e.versionTitle), ['merged', 'Nur eine Version']); // ohne merged: vorhandene Version
   const p4 = O.planEntries(groups, { cats: ['Tanakh'] }, { he: true, en: true, de: true, allVersions: true });
   assert.strictEqual(p4.files, 6);
+  const scoped = O.buildGroups({ books: [...catalog.books,
+    mk('Exodus', ['Tanakh', 'Torah'], 'English', 'JPS 1985'),
+  ] });
+  const torah = { cats: ['Tanakh/Torah'] }, jps = JSON.stringify(['en', 'JPS 1985']);
+  const options = O.planEntries(scoped, torah, { en: true, editions: [] });
+  assert.equal(options.files, 0);
+  assert.deepEqual(options.editions.find(e => e.key === jps), {key:jps,title:'JPS 1985',kind:'en',files:2});
+  const specific = O.planEntries(scoped, torah, { en: true, allVersions: true, editions: [jps] });
+  assert.deepEqual(specific.entries.map(e=>[e.title,e.versionTitle]), [['Genesis','JPS 1985'],['Exodus','JPS 1985']]);
+  assert.equal(specific.titles, 2);
+  assert.equal(O.planEntries(scoped, torah, { he: true, editions: [jps] }).files, 0);
   assert.strictEqual(O.planEntries(groups, { cats: ['Tanak'] }, { he: true }).files, 0); // Präfix nur an Pfadgrenzen
   assert.strictEqual(O.relPathOf(catalog.books[4]), 'json/Tanakh/Torah/Genesis/English/Die Bücher Moses [de].json');
   assert.strictEqual(O.relPathOf({ json_url: 'https://storage.googleapis.com/sefaria-export/json/A/B%3AC/D%20/English/x%3F.json' }), 'json/A/B_C/D/English/x_.json');
@@ -169,6 +180,25 @@ const O = require('../../offline');
   assert.strictEqual((await lp.search({ query: 'אלה', kinds: ['he'] })).results.length, 1);              // Teilwort ohne Option
   assert.strictEqual((await lp.search({ query: 'אלה', kinds: ['he'], prefix: true })).results.length, 0); // kein ganzes Wort
   fs.rmSync(dir3, { recursive: true, force: true });
+
+  // A removed catalogue edition stays excluded from automatic updates after a restart.
+  const deleteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'safran-edition-remove-'));
+  const deletable = catalog.books[2], sibling = catalog.books[3], removedRel = O.relPathOf(deletable);
+  const fetchEdition = async url => {
+    const entry = [deletable, sibling].find(e => e.json_url === url);
+    return Buffer.from(JSON.stringify({title:entry.title,versionTitle:entry.versionTitle,language:entry.language,text:[['Test']]}));
+  };
+  const deletionLibrary = await new O.Library(deleteDir, fetchEdition).load();
+  assert.equal((await deletionLibrary.downloadEntries([deletable, sibling])).failed.length, 0);
+  await deletionLibrary.removeEdition(removedRel, deletionLibrary.index.entries[removedRel]);
+  assert.equal(fs.existsSync(path.join(deleteDir, removedRel)), false);
+  const restarted = await new O.Library(deleteDir, fetchEdition).load();
+  assert.deepEqual(restarted.list().map(e => e.versionTitle), [sibling.versionTitle]);
+  assert.deepEqual((await restarted.checkUpdates([deletable, sibling], async () => null)).added, []);
+  assert.equal((await restarted.applyUpdates([], [deletable])).total, 0);
+  assert.equal((await restarted.downloadEntries([deletable])).failed.length, 0);
+  assert.equal(restarted.index.removedDownloads.includes(removedRel), false);
+  fs.rmSync(deleteDir, {recursive:true,force:true});
 
   // ---------- Eigene Texte ----------
   const po = O.parseOwn('Kapitel 1\nEins\nZwei\nKapitel 2\nDrei', 'x.txt');

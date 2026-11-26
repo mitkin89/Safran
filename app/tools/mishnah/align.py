@@ -68,15 +68,17 @@ def align(a,b):
         links.append({'a':list(range(i,i+p)),'b':list(range(j,j+q)),'boundary':i-1,'kind':k})
     return links
 
-def build(data,reviews):
+def build(data,reviews,chapters=None,aligner=None):
     for sig,sha in reviews.get('sourceSha256',{}).items():assert data['witnesses'][sig]['sha256']==sha,'Review source changed: '+sig
     result={'version':1,'method':'consensus of all minimum-cost paths; chapter scope','chapters':{},'reviews':reviews.get('groups',[])}
     counts={}
+    chapters=chapters or range(1,10)
+    aligner=aligner or align
     for sig in ['P','C']:
         totals={'words':0,'aligned':0,'insertions':0,'open':0,'reviewed':0}
-        for ch in range(1,10):
+        for ch in chapters:
             def stream(s):return [(r,i,w) for r,u in data['witnesses'][s]['units'].items() if r.startswith(str(ch)+':') for i,w in enumerate(u['words'])]
-            a,b=stream('K'),stream(sig);links=align([w for _,_,w in a],[w for _,_,w in b]);mapped=[];used=set()
+            a,b=stream('K'),stream(sig);links=aligner([w for _,_,w in a],[w for _,_,w in b]) if a else [];mapped=[];used=set()
             for link in links:
                 base=[[a[i][0],a[i][1]] for i in link['a']];reading=[[b[i][0],b[i][1]] for i in link['b']]
                 # A source group must not be split/duplicated across reference units.
