@@ -1,9 +1,8 @@
 {
-  "scope": "User-provided Accordance MISH-T 4.3 screenshots of Berakhot 1:1–3 only",
-  "wordPositions": 202,
-  "readableFeatureCompatible": 197,
-  "remainingConventionDifferences": 5,
-  "positionsWithUnreadableSuffixTags": 12,
+  "scope": "All user-provided readable Accordance MISH-T 4.3 screenshots of Mishnah Berakhot chapters 1–9; supplied features compared at all source positions",
+  "wordPositions": 2159,
+  "readableFeatureCompatible": 1877,
+  "positionsWithUnreadableSuffixTags": 205,
   "isAccuracyScore": false,
   "referenceFileDistributed": false,
   "alignment": "Manually aligned word positions; source edition, abbreviations and morpheme splitting checked separately",
@@ -11,63 +10,2443 @@
     {
       "ref": "1:1",
       "wordPositions": 95,
+      "referenceRows": 95,
       "compatible": 93,
-      "conventionDifferences": 2,
-      "positionsWithUnreadableSuffixTags": 3
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 3,
+      "complete": true
     },
     {
       "ref": "1:2",
       "wordPositions": 40,
+      "referenceRows": 40,
       "compatible": 39,
-      "conventionDifferences": 1,
-      "positionsWithUnreadableSuffixTags": 0
+      "featureOrConventionDifferences": 1,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
     },
     {
       "ref": "1:3",
       "wordPositions": 67,
+      "referenceRows": 67,
       "compatible": 65,
-      "conventionDifferences": 2,
-      "positionsWithUnreadableSuffixTags": 9
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 9,
+      "complete": true
+    },
+    {
+      "ref": "1:4",
+      "wordPositions": 35,
+      "referenceRows": 35,
+      "compatible": 27,
+      "featureOrConventionDifferences": 8,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 8,
+      "complete": true
+    },
+    {
+      "ref": "1:5",
+      "wordPositions": 55,
+      "referenceRows": 55,
+      "compatible": 45,
+      "featureOrConventionDifferences": 9,
+      "textVariants": 1,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 7,
+      "complete": true
+    },
+    {
+      "ref": "2:1",
+      "wordPositions": 46,
+      "referenceRows": 46,
+      "compatible": 45,
+      "featureOrConventionDifferences": 0,
+      "textVariants": 1,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "2:2",
+      "wordPositions": 80,
+      "referenceRows": 79,
+      "compatible": 74,
+      "featureOrConventionDifferences": 5,
+      "textVariants": 0,
+      "sourceOnlyPositions": 1,
+      "positionsWithUnreadableSuffixTags": 3,
+      "complete": true
+    },
+    {
+      "ref": "2:3",
+      "wordPositions": 34,
+      "referenceRows": 34,
+      "compatible": 31,
+      "featureOrConventionDifferences": 3,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "2:4",
+      "wordPositions": 13,
+      "referenceRows": 13,
+      "compatible": 11,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "2:5",
+      "wordPositions": 40,
+      "referenceRows": 40,
+      "compatible": 36,
+      "featureOrConventionDifferences": 3,
+      "textVariants": 1,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 6,
+      "complete": true
+    },
+    {
+      "ref": "2:6",
+      "wordPositions": 20,
+      "referenceRows": 20,
+      "compatible": 16,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 5,
+      "complete": true
+    },
+    {
+      "ref": "2:7",
+      "wordPositions": 26,
+      "referenceRows": 26,
+      "compatible": 23,
+      "featureOrConventionDifferences": 3,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 7,
+      "complete": true
+    },
+    {
+      "ref": "2:8",
+      "wordPositions": 21,
+      "referenceRows": 21,
+      "compatible": 19,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "3:1",
+      "wordPositions": 36,
+      "referenceRows": 36,
+      "compatible": 29,
+      "featureOrConventionDifferences": 7,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 6,
+      "complete": true
+    },
+    {
+      "ref": "3:2",
+      "wordPositions": 23,
+      "referenceRows": 23,
+      "compatible": 22,
+      "featureOrConventionDifferences": 1,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "3:3",
+      "wordPositions": 13,
+      "referenceRows": 13,
+      "compatible": 12,
+      "featureOrConventionDifferences": 1,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "3:4",
+      "wordPositions": 23,
+      "referenceRows": 23,
+      "compatible": 15,
+      "featureOrConventionDifferences": 8,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 9,
+      "complete": true
+    },
+    {
+      "ref": "3:5",
+      "wordPositions": 50,
+      "referenceRows": 50,
+      "compatible": 46,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "3:6",
+      "wordPositions": 15,
+      "referenceRows": 15,
+      "compatible": 13,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "4:1",
+      "wordPositions": 34,
+      "referenceRows": 34,
+      "compatible": 32,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "4:2",
+      "wordPositions": 34,
+      "referenceRows": 34,
+      "compatible": 32,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 8,
+      "complete": true
+    },
+    {
+      "ref": "4:3",
+      "wordPositions": 30,
+      "referenceRows": 30,
+      "compatible": 22,
+      "featureOrConventionDifferences": 8,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "4:4",
+      "wordPositions": 38,
+      "referenceRows": 38,
+      "compatible": 31,
+      "featureOrConventionDifferences": 6,
+      "textVariants": 1,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 5,
+      "complete": true
+    },
+    {
+      "ref": "4:5",
+      "wordPositions": 25,
+      "referenceRows": 25,
+      "compatible": 21,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 5,
+      "complete": true
+    },
+    {
+      "ref": "4:6",
+      "wordPositions": 14,
+      "referenceRows": 14,
+      "compatible": 12,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "4:7",
+      "wordPositions": 31,
+      "referenceRows": 31,
+      "compatible": 27,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "5:1",
+      "wordPositions": 32,
+      "referenceRows": 32,
+      "compatible": 27,
+      "featureOrConventionDifferences": 5,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "5:2",
+      "wordPositions": 23,
+      "referenceRows": 23,
+      "compatible": 23,
+      "featureOrConventionDifferences": 0,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "5:3",
+      "wordPositions": 34,
+      "referenceRows": 34,
+      "compatible": 30,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 5,
+      "complete": true
+    },
+    {
+      "ref": "5:4",
+      "wordPositions": 30,
+      "referenceRows": 30,
+      "compatible": 25,
+      "featureOrConventionDifferences": 5,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "5:5",
+      "wordPositions": 53,
+      "referenceRows": 53,
+      "compatible": 45,
+      "featureOrConventionDifferences": 8,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 8,
+      "complete": true
+    },
+    {
+      "ref": "6:1",
+      "wordPositions": 54,
+      "referenceRows": 54,
+      "compatible": 50,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "6:2",
+      "wordPositions": 24,
+      "referenceRows": 24,
+      "compatible": 24,
+      "featureOrConventionDifferences": 0,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "6:3",
+      "wordPositions": 31,
+      "referenceRows": 31,
+      "compatible": 28,
+      "featureOrConventionDifferences": 3,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "6:4",
+      "wordPositions": 22,
+      "referenceRows": 22,
+      "compatible": 20,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "6:5",
+      "wordPositions": 39,
+      "referenceRows": 39,
+      "compatible": 32,
+      "featureOrConventionDifferences": 7,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "6:6",
+      "wordPositions": 39,
+      "referenceRows": 39,
+      "compatible": 33,
+      "featureOrConventionDifferences": 6,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 5,
+      "complete": true
+    },
+    {
+      "ref": "6:7",
+      "wordPositions": 28,
+      "referenceRows": 28,
+      "compatible": 19,
+      "featureOrConventionDifferences": 9,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "6:8",
+      "wordPositions": 41,
+      "referenceRows": 41,
+      "compatible": 35,
+      "featureOrConventionDifferences": 6,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 6,
+      "complete": true
+    },
+    {
+      "ref": "7:1",
+      "wordPositions": 42,
+      "referenceRows": 42,
+      "compatible": 40,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "7:2",
+      "wordPositions": 17,
+      "referenceRows": 17,
+      "compatible": 16,
+      "featureOrConventionDifferences": 1,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "7:3",
+      "wordPositions": 111,
+      "referenceRows": 111,
+      "compatible": 95,
+      "featureOrConventionDifferences": 16,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 6,
+      "complete": true
+    },
+    {
+      "ref": "7:4",
+      "wordPositions": 20,
+      "referenceRows": 20,
+      "compatible": 14,
+      "featureOrConventionDifferences": 6,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "7:5",
+      "wordPositions": 38,
+      "referenceRows": 38,
+      "compatible": 31,
+      "featureOrConventionDifferences": 7,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "8:1",
+      "wordPositions": 30,
+      "referenceRows": 30,
+      "compatible": 28,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "8:2",
+      "wordPositions": 20,
+      "referenceRows": 20,
+      "compatible": 16,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "8:3",
+      "wordPositions": 20,
+      "referenceRows": 20,
+      "compatible": 18,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "8:4",
+      "wordPositions": 15,
+      "referenceRows": 15,
+      "compatible": 14,
+      "featureOrConventionDifferences": 1,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "8:5",
+      "wordPositions": 26,
+      "referenceRows": 26,
+      "compatible": 24,
+      "featureOrConventionDifferences": 2,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 0,
+      "complete": true
+    },
+    {
+      "ref": "8:6",
+      "wordPositions": 32,
+      "referenceRows": 32,
+      "compatible": 24,
+      "featureOrConventionDifferences": 8,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 1,
+      "complete": true
+    },
+    {
+      "ref": "8:7",
+      "wordPositions": 26,
+      "referenceRows": 26,
+      "compatible": 22,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "8:8",
+      "wordPositions": 47,
+      "referenceRows": 47,
+      "compatible": 35,
+      "featureOrConventionDifferences": 12,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "9:1",
+      "wordPositions": 24,
+      "referenceRows": 24,
+      "compatible": 23,
+      "featureOrConventionDifferences": 1,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "9:2",
+      "wordPositions": 66,
+      "referenceRows": 66,
+      "compatible": 60,
+      "featureOrConventionDifferences": 5,
+      "textVariants": 1,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 2,
+      "complete": true
+    },
+    {
+      "ref": "9:3",
+      "wordPositions": 61,
+      "referenceRows": 61,
+      "compatible": 48,
+      "featureOrConventionDifferences": 13,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "9:4",
+      "wordPositions": 22,
+      "referenceRows": 22,
+      "compatible": 18,
+      "featureOrConventionDifferences": 4,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 4,
+      "complete": true
+    },
+    {
+      "ref": "9:5",
+      "wordPositions": 154,
+      "referenceRows": 154,
+      "compatible": 122,
+      "featureOrConventionDifferences": 32,
+      "textVariants": 0,
+      "sourceOnlyPositions": 0,
+      "positionsWithUnreadableSuffixTags": 27,
+      "complete": true
     }
   ],
   "remainingDifferences": [
     {
       "ref": "1:1",
-      "token": 13,
+      "tokens": [
+        13
+      ],
+      "words": [
+        "הָאַשְׁמֹרֶת"
+      ],
       "type": "lemma-convention",
       "note": "אשמרת/אשמורת versus אשמורה; nominal gender, number and form agree."
     },
     {
       "ref": "1:1",
-      "token": 52,
+      "tokens": [
+        52
+      ],
+      "words": [
+        "בִלְבַד"
+      ],
       "type": "segmentation-and-word-class",
       "note": "בלבד as lexicalized adverb versus ב/ל/בד; Segal §298 explicitly supports the adverb in Berakhot1:1."
     },
     {
       "ref": "1:2",
-      "token": 30,
+      "tokens": [
+        30
+      ],
+      "words": [
+        "בְּשָׁלוֹשׁ"
+      ],
       "type": "lemma-orthography",
       "note": "שלוש versus שלש; feminine cardinal numeral features agree."
     },
     {
       "ref": "1:3",
-      "token": 56,
+      "tokens": [
+        56
+      ],
+      "words": [
+        "הַלֵּסְטִים"
+      ],
       "type": "lemma-orthography",
       "note": "לסטים versus ליסטים; nominal features agree."
     },
     {
       "ref": "1:3",
-      "token": 59,
+      "tokens": [
+        59
+      ],
+      "words": [
+        "כְּדַי"
+      ],
       "type": "word-class-convention",
       "note": "כדי as adjective versus functional adverb; retained as an explicit classification difference."
+    },
+    {
+      "ref": "1:4",
+      "tokens": [
+        4,
+        9
+      ],
+      "words": [
+        "לְפָנֶיהָ",
+        "לְפָנֶיהָ"
+      ],
+      "type": "lemma-convention",
+      "note": "פנים versus פנה; nominal plural construct features have a compatible candidate."
+    },
+    {
+      "ref": "1:4",
+      "tokens": [
+        6,
+        11
+      ],
+      "words": [
+        "לְאַחֲרֶיהָ",
+        "לְאַחֲרֶיהָ"
+      ],
+      "type": "lemma-convention",
+      "note": "אחר versus אחרי; adverb segment supplied in Safran, suffix not separately shown in reference."
+    },
+    {
+      "ref": "1:4",
+      "tokens": [
+        19,
+        23,
+        27,
+        33
+      ],
+      "words": [
+        "אֵינוּ",
+        "אֵינוּ",
+        "אֵינוּ",
+        "אֵינוּ"
+      ],
+      "type": "word-class-convention",
+      "note": "אין as negation particle versus adverb; no forced reclassification."
+    },
+    {
+      "ref": "1:5",
+      "tokens": [
+        8,
+        23
+      ],
+      "words": [
+        "בֶּן",
+        "בֶּן"
+      ],
+      "type": "name-segmentation-convention",
+      "note": "בן as construct common noun in a personal name versus proper-name tagging."
+    },
+    {
+      "ref": "1:5",
+      "tokens": [
+        10
+      ],
+      "words": [
+        "הֲרֵי"
+      ],
+      "type": "particle-classification",
+      "note": "הרי: introductory/demonstrative particle versus reference intr category; category mapping remains explicit rather than assuming an interrogative."
+    },
+    {
+      "ref": "1:5",
+      "tokens": [
+        13
+      ],
+      "words": [
+        "שִׁבְעִים"
+      ],
+      "type": "numeral-gender-convention",
+      "note": "שבעים as common gender versus reference masculine; no unsupported gender restriction introduced."
+    },
+    {
+      "ref": "1:5",
+      "tokens": [
+        35,
+        37,
+        41,
+        46,
+        51
+      ],
+      "words": [
+        "חַיֶּיךָ",
+        "חַיֶּיךָ",
+        "חַיֶּיךָ",
+        "חַיֶּיךָ",
+        "חַיֶּיךָ"
+      ],
+      "type": "lemma-convention",
+      "note": "חי versus חיים; plural construct nominal features agree, suffix not separately shown."
+    },
+    {
+      "ref": "2:2",
+      "tokens": [
+        29,
+        37
+      ],
+      "words": [
+        "וְיַצִּיב",
+        "וְיַצִּיב"
+      ],
+      "type": "word-class-convention",
+      "note": "יציב: adjective versus common noun in a quoted liturgical formula."
+    },
+    {
+      "ref": "2:2",
+      "tokens": [
+        43
+      ],
+      "words": [
+        "בֶּן"
+      ],
+      "type": "name-segmentation-convention",
+      "note": "בן: construct common noun versus proper-name component."
+    },
+    {
+      "ref": "2:2",
+      "tokens": [
+        59
+      ],
+      "words": [
+        "כָּךְ"
+      ],
+      "type": "lemma-convention",
+      "note": "כך versus כן as an adverb."
+    },
+    {
+      "ref": "2:2",
+      "tokens": [
+        77
+      ],
+      "words": [
+        "אֵינוּ"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "2:3",
+      "tokens": [
+        15
+      ],
+      "words": [
+        "דִקְדֵּק"
+      ],
+      "type": "lemma-root-policy",
+      "note": "Pilpel agrees after correction; citation lemma דקדק versus the reference lexical root דקק remains distinct."
+    },
+    {
+      "ref": "2:3",
+      "tokens": [
+        16
+      ],
+      "words": [
+        "בְּאוֹתוֹתֶיהָ"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "אות: Safran feminine versus reference common-gender plural; no unverified gender replacement."
+    },
+    {
+      "ref": "2:3",
+      "tokens": [
+        27
+      ],
+      "words": [
+        "לְמַפְרֵעַ"
+      ],
+      "type": "segmentation-and-word-class",
+      "note": "למפרע as lexicalized adverb versus ל plus nominal מפרע."
+    },
+    {
+      "ref": "2:4",
+      "tokens": [
+        1
+      ],
+      "words": [
+        "הָאֻמָּנִים"
+      ],
+      "type": "lemma-orthography",
+      "note": "אומן versus אמן."
+    },
+    {
+      "ref": "2:4",
+      "tokens": [
+        9
+      ],
+      "words": [
+        "שֶּׁאֵינָן"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb; suffix not separately displayed."
+    },
+    {
+      "ref": "2:5",
+      "tokens": [
+        6,
+        29
+      ],
+      "words": [
+        "הָרִאשׁוֹן",
+        "הָרִאשׁוֹן"
+      ],
+      "type": "substantivized-ordinal",
+      "note": "ראשון: ordinal adjective versus substantivized common noun."
+    },
+    {
+      "ref": "2:5",
+      "tokens": [
+        32
+      ],
+      "words": [
+        "אֵינִי"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb; suffix not separately displayed."
+    },
+    {
+      "ref": "2:6",
+      "tokens": [
+        3
+      ],
+      "words": [
+        "הָרִאשׁוֹן"
+      ],
+      "type": "substantivized-ordinal",
+      "note": "ראשון: ordinal adjective versus substantivized common noun."
+    },
+    {
+      "ref": "2:6",
+      "tokens": [
+        10
+      ],
+      "words": [
+        "שֶׁאָבֵל"
+      ],
+      "type": "word-class-convention",
+      "note": "אבל: adjective versus substantivized common noun."
+    },
+    {
+      "ref": "2:6",
+      "tokens": [
+        15
+      ],
+      "words": [
+        "אֵינִי"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb; suffix not separately displayed."
+    },
+    {
+      "ref": "2:6",
+      "tokens": [
+        19
+      ],
+      "words": [
+        "אַסְטְנֵס"
+      ],
+      "type": "loanword-lemma-and-classification",
+      "note": "אסטנס versus איסטניס, adjective versus common noun."
+    },
+    {
+      "ref": "2:7",
+      "tokens": [
+        12,
+        19
+      ],
+      "words": [
+        "שֶׁאֵין",
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "2:7",
+      "tokens": [
+        14
+      ],
+      "words": [
+        "תַּנְחוּמִין"
+      ],
+      "type": "lemma-convention",
+      "note": "תנחומים versus תנחום."
+    },
+    {
+      "ref": "2:8",
+      "tokens": [
+        8
+      ],
+      "words": [
+        "הָרִאשׁוֹן"
+      ],
+      "type": "substantivized-ordinal",
+      "note": "ראשון: ordinal adjective versus substantivized common noun."
+    },
+    {
+      "ref": "2:8",
+      "tokens": [
+        12
+      ],
+      "words": [
+        "בֶּן"
+      ],
+      "type": "name-segmentation-convention",
+      "note": "בן: construct common noun versus proper-name component."
+    },
+    {
+      "ref": "3:1",
+      "tokens": [
+        2
+      ],
+      "words": [
+        "שֶׁמֵּתוֹ"
+      ],
+      "type": "lemma-policy",
+      "note": "מת versus reference מות for the nominal dead person; suffix not separately confirmed."
+    },
+    {
+      "ref": "3:1",
+      "tokens": [
+        3
+      ],
+      "words": [
+        "מֻטָּל"
+      ],
+      "type": "weak-root-policy",
+      "note": "Hofal participle טול versus reference נטל; root derivation remains explicit."
+    },
+    {
+      "ref": "3:1",
+      "tokens": [
+        9
+      ],
+      "words": [
+        "הַתְּפִלִּין"
+      ],
+      "type": "open-nominal-gender-and-lemma",
+      "note": "תפילין/תפלין spelling and masculine versus reference feminine plural remain open."
+    },
+    {
+      "ref": "3:1",
+      "tokens": [
+        16,
+        19,
+        22
+      ],
+      "words": [
+        "שֶׁלִּפְנֵי",
+        "שֶׁלְּאַחַר",
+        "שֶׁלַּמִּטָּה"
+      ],
+      "type": "של-segmentation",
+      "note": "Source-bound ש/ל segmentation versus reference lexicalized של; article in שלמטה supplied, but segmentation is not forced."
+    },
+    {
+      "ref": "3:1",
+      "tokens": [
+        27
+      ],
+      "words": [
+        "שֶׁאֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין as negation particle versus adverb."
+    },
+    {
+      "ref": "3:2",
+      "tokens": [
+        15
+      ],
+      "words": [
+        "לָאו"
+      ],
+      "type": "lemma-convention",
+      "note": "לאו surface in both texts, reference lexicalizes under לא; not a text variant."
+    },
+    {
+      "ref": "3:3",
+      "tokens": [
+        8
+      ],
+      "words": [
+        "הַתְּפִלִּין"
+      ],
+      "type": "open-nominal-gender-and-lemma",
+      "note": "תפילין/תפלין spelling and masculine versus reference feminine plural remain open."
+    },
+    {
+      "ref": "3:4",
+      "tokens": [
+        3
+      ],
+      "words": [
+        "מְהַרְהֵר"
+      ],
+      "type": "stem-system-convention",
+      "note": "Pilpel per Segal §195 versus coarser reference Piʿel; morphology is not flattened to match the reference."
+    },
+    {
+      "ref": "3:4",
+      "tokens": [
+        5,
+        15
+      ],
+      "words": [
+        "וְאֵינוּ",
+        "וְאֵינוּ"
+      ],
+      "type": "word-class-convention",
+      "note": "אין as negation particle versus adverb."
+    },
+    {
+      "ref": "3:4",
+      "tokens": [
+        8,
+        22
+      ],
+      "words": [
+        "לְפָנֶיהָ",
+        "לִפְנֵיהֶם"
+      ],
+      "type": "lemma-and-gender-convention",
+      "note": "פנים masculine versus reference פנה common gender; suffix not separately shown."
+    },
+    {
+      "ref": "3:4",
+      "tokens": [
+        10,
+        14,
+        23
+      ],
+      "words": [
+        "לְאַחֲרֶיהָ",
+        "לְאַחֲרָיו",
+        "וּלְאַחֲרֵיהֶם"
+      ],
+      "type": "lemma-convention",
+      "note": "אחר versus אחרי; the adverb segment is now present."
+    },
+    {
+      "ref": "3:5",
+      "tokens": [
+        15
+      ],
+      "words": [
+        "יָכוֹל"
+      ],
+      "type": "lemma-and-word-class-policy",
+      "note": "יכל as participial ability verb versus lexical יכול with only gender/number visible; no false class certainty."
+    },
+    {
+      "ref": "3:5",
+      "tokens": [
+        27
+      ],
+      "words": [
+        "לָאו"
+      ],
+      "type": "lemma-convention",
+      "note": "לאו surface versus reference lexical לא, no wording change."
+    },
+    {
+      "ref": "3:5",
+      "tokens": [
+        31
+      ],
+      "words": [
+        "אֲבָל"
+      ],
+      "type": "word-class-convention",
+      "note": "אבל as conjunction versus reference adverb."
+    },
+    {
+      "ref": "3:5",
+      "tokens": [
+        41
+      ],
+      "words": [
+        "שֶׁיָּטִיל"
+      ],
+      "type": "weak-root-policy",
+      "note": "Hifil טול versus reference נטל; no unsupported root conversion."
+    },
+    {
+      "ref": "3:6",
+      "tokens": [
+        8
+      ],
+      "words": [
+        "וְהַמְשַׁמֶּשֶׁת"
+      ],
+      "type": "participle-state-convention",
+      "note": "Substantivized participle with relative clause is absolute in Safran, construct in reference."
+    },
+    {
+      "ref": "3:6",
+      "tokens": [
+        11
+      ],
+      "words": [
+        "צְרִיכִין"
+      ],
+      "type": "word-class-convention",
+      "note": "צריך as adjective versus common noun."
+    },
+    {
+      "ref": "4:1",
+      "tokens": [
+        23
+      ],
+      "words": [
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין as negation particle versus adverb."
+    },
+    {
+      "ref": "4:1",
+      "tokens": [
+        26
+      ],
+      "words": [
+        "וְשֶׁלַּמּוּסָפִים"
+      ],
+      "type": "של-segmentation",
+      "note": "ש/ל with source-vocalization article versus lexicalized של in reference."
+    },
+    {
+      "ref": "4:2",
+      "tokens": [
+        3,
+        4
+      ],
+      "words": [
+        "בֶן",
+        "הַקָּנָה"
+      ],
+      "type": "name-segmentation-convention",
+      "note": "בן as common construct noun, and הקנה split into article plus name, versus reference proper-name tagging."
+    },
+    {
+      "ref": "4:3",
+      "tokens": [
+        9,
+        15,
+        25,
+        30
+      ],
+      "words": [
+        "עֶשְׂרֵה",
+        "עֶשְׂרֵה",
+        "עֶשְׂרֵה",
+        "עֶשְׂרֵה"
+      ],
+      "type": "numeral-lemma-convention",
+      "note": "עשר versus עשרה; feminine numeral features agree."
+    },
+    {
+      "ref": "4:3",
+      "tokens": [
+        13,
+        28
+      ],
+      "words": [
+        "מֵעֵין",
+        "מֵעֵין"
+      ],
+      "type": "lexicalized-preposition",
+      "note": "מעין as lexicalized comparison preposition versus מן plus עין."
+    },
+    {
+      "ref": "4:3",
+      "tokens": [
+        20
+      ],
+      "words": [
+        "שָׁגְרָה"
+      ],
+      "type": "open-verbal-form",
+      "note": "Source שָׁגְרָה is parsed as Qal perfect 3fs, reference passive participle ms; source vocalization and feminine subject are retained."
+    },
+    {
+      "ref": "4:3",
+      "tokens": [
+        27
+      ],
+      "words": [
+        "לָאו"
+      ],
+      "type": "lemma-convention",
+      "note": "לאו versus lexical לא."
+    },
+    {
+      "ref": "4:4",
+      "tokens": [
+        7
+      ],
+      "words": [
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "4:4",
+      "tokens": [
+        9
+      ],
+      "words": [
+        "תַחֲנוּנִים"
+      ],
+      "type": "lemma-convention",
+      "note": "תחנונים versus תחנון."
+    },
+    {
+      "ref": "4:4",
+      "tokens": [
+        19
+      ],
+      "words": [
+        "מֵעֵין"
+      ],
+      "type": "lexicalized-preposition",
+      "note": "מעין as lexicalized preposition versus מן plus עין."
+    },
+    {
+      "ref": "4:4",
+      "tokens": [
+        21
+      ],
+      "words": [
+        "עֶשְׂרֵה"
+      ],
+      "type": "numeral-lemma-convention",
+      "note": "עשר versus עשרה."
+    },
+    {
+      "ref": "4:4",
+      "tokens": [
+        26
+      ],
+      "words": [
+        "עַמְּךָ"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "עם masculine versus reference common gender."
+    },
+    {
+      "ref": "4:4",
+      "tokens": [
+        36
+      ],
+      "words": [
+        "יי"
+      ],
+      "type": "divine-name-lemma",
+      "note": "Source spelling יי versus lexical יהוה; neither reference spelling nor lemma is inserted into the source."
+    },
+    {
+      "ref": "4:5",
+      "tokens": [
+        7,
+        14
+      ],
+      "words": [
+        "אֵינוּ",
+        "אֵינוּ"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "4:5",
+      "tokens": [
+        8,
+        15
+      ],
+      "words": [
+        "יָכוֹל",
+        "יָכוֹל"
+      ],
+      "type": "ability-lemma-policy",
+      "note": "יכל participial verb versus lexical יכול with bare gender/number tags."
+    },
+    {
+      "ref": "4:6",
+      "tokens": [
+        5
+      ],
+      "words": [
+        "בְקָרוֹן"
+      ],
+      "type": "open-loanword-gender-and-article",
+      "note": "קרון masculine with source בְ versus reference feminine with fused article in bracketed reading; not mechanically harmonized."
+    },
+    {
+      "ref": "4:6",
+      "tokens": [
+        7
+      ],
+      "words": [
+        "בְאַסְדָּא"
+      ],
+      "type": "loanword-lemma-and-gender",
+      "note": "אסדא versus אסדה; source gender unspecified versus reference feminine."
+    },
+    {
+      "ref": "4:7",
+      "tokens": [
+        3
+      ],
+      "words": [
+        "בֶּן"
+      ],
+      "type": "name-segmentation-convention",
+      "note": "בן: common construct noun versus proper-name component."
+    },
+    {
+      "ref": "4:7",
+      "tokens": [
+        6
+      ],
+      "words": [
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "4:7",
+      "tokens": [
+        24
+      ],
+      "words": [
+        "מָקוֹם"
+      ],
+      "type": "nominal-state",
+      "note": "מקום before a relative clause remains absolute in Safran, reference construct."
+    },
+    {
+      "ref": "4:7",
+      "tokens": [
+        25
+      ],
+      "words": [
+        "שֶׁיֶּשׁ"
+      ],
+      "type": "particle-classification",
+      "note": "יש: affirmation/existence particle versus adverb."
+    },
+    {
+      "ref": "5:1",
+      "tokens": [
+        1
+      ],
+      "words": [
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "5:1",
+      "tokens": [
+        8
+      ],
+      "words": [
+        "חֲסִידִים"
+      ],
+      "type": "substantivized-adjective",
+      "note": "חסיד: adjective versus common noun."
+    },
+    {
+      "ref": "5:1",
+      "tokens": [
+        15
+      ],
+      "words": [
+        "כְּדֵי"
+      ],
+      "type": "lexicalized-preposition",
+      "note": "כדי: own lexicalized/nominal analyses versus reference prepositional segmentation."
+    },
+    {
+      "ref": "5:1",
+      "tokens": [
+        20,
+        26
+      ],
+      "words": [
+        "וַאֲפִלּוּ",
+        "אֲפִלּוּ"
+      ],
+      "type": "word-class-convention",
+      "note": "אפילו: conjunction versus adverb."
+    },
+    {
+      "ref": "5:3",
+      "tokens": [
+        17
+      ],
+      "words": [
+        "לִפְנֵי"
+      ],
+      "type": "lemma-segmentation-convention",
+      "note": "לפני/פנים versus ל plus פנה."
+    },
+    {
+      "ref": "5:3",
+      "tokens": [
+        25
+      ],
+      "words": [
+        "סָרְבָן"
+      ],
+      "type": "substantivized-adjective",
+      "note": "סרבן: adjective versus common noun."
+    },
+    {
+      "ref": "5:3",
+      "tokens": [
+        26
+      ],
+      "words": [
+        "בְּאוֹתָהּ"
+      ],
+      "type": "demonstrative-versus-object-marker",
+      "note": "באותה שעה is a demonstrative time expression; reference object-marker segmentation is not forced."
+    },
+    {
+      "ref": "5:3",
+      "tokens": [
+        28
+      ],
+      "words": [
+        "מְנַיִן"
+      ],
+      "type": "interrogative-classification",
+      "note": "מניין: interrogative analysis versus מן plus adverb אין."
+    },
+    {
+      "ref": "5:4",
+      "tokens": [
+        2
+      ],
+      "words": [
+        "לִפְנֵי"
+      ],
+      "type": "lemma-segmentation-convention",
+      "note": "לפני/פנים versus ל plus פנה."
+    },
+    {
+      "ref": "5:4",
+      "tokens": [
+        6
+      ],
+      "words": [
+        "אַחַר"
+      ],
+      "type": "word-class-convention",
+      "note": "אחר: preposition versus adverb."
+    },
+    {
+      "ref": "5:4",
+      "tokens": [
+        8
+      ],
+      "words": [
+        "אָמֵן"
+      ],
+      "type": "particle-classification",
+      "note": "אמן: affirmative particle versus adverb."
+    },
+    {
+      "ref": "5:4",
+      "tokens": [
+        12
+      ],
+      "words": [
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין: negation particle versus adverb."
+    },
+    {
+      "ref": "5:4",
+      "tokens": [
+        22
+      ],
+      "words": [
+        "אַבְטָחָתוֹ"
+      ],
+      "type": "lemma-orthography",
+      "note": "אבטחה versus הבטחה."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        14
+      ],
+      "words": [
+        "שֶׁלָּאָדָם"
+      ],
+      "type": "של-segmentation",
+      "note": "ש/ל/article versus lexicalized של."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        15
+      ],
+      "words": [
+        "כְּמוֹתוֹ"
+      ],
+      "type": "lexicalized-preposition",
+      "note": "כמו with suffix versus כ plus nominal מות; no contextually implausible nominal interpretation is forced."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        21
+      ],
+      "words": [
+        "בֶן"
+      ],
+      "type": "name-segmentation-convention",
+      "note": "בן: construct common noun versus proper name."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        22
+      ],
+      "words": [
+        "דּוֹסָה"
+      ],
+      "type": "name-orthography",
+      "note": "דוסה versus דוסא."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        26
+      ],
+      "words": [
+        "הַחוֹלִין"
+      ],
+      "type": "substantivized-adjective",
+      "note": "חולה as adjective versus reference participle of חלה."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        35
+      ],
+      "words": [
+        "מְנַיִן"
+      ],
+      "type": "interrogative-classification",
+      "note": "מניין: interrogative analysis versus מן plus adverb אין."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        41
+      ],
+      "words": [
+        "שָׁגְרָה"
+      ],
+      "type": "open-verbal-form",
+      "note": "Source שָׁגְרָה is retained as perfect 3fs; reference imperfect label is not adopted without explaining the pointed form."
+    },
+    {
+      "ref": "5:5",
+      "tokens": [
+        49
+      ],
+      "words": [
+        "לָאו"
+      ],
+      "type": "lemma-convention",
+      "note": "לאו versus reference lexical לא."
+    },
+    {
+      "ref": "6:1",
+      "tokens": [
+        1
+      ],
+      "words": [
+        "כֵּיצַד"
+      ],
+      "type": "interrogative-classification",
+      "note": "כיצד as lexical adverb versus interrogative."
+    },
+    {
+      "ref": "6:1",
+      "tokens": [
+        33,
+        35
+      ],
+      "words": [
+        "הַפַּת",
+        "הַפַּת"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "פת feminine versus reference common gender."
+    },
+    {
+      "ref": "6:1",
+      "tokens": [
+        39
+      ],
+      "words": [
+        "לֶחֶם"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "לחם common gender versus reference masculine."
+    },
+    {
+      "ref": "6:3",
+      "tokens": [
+        3,
+        29
+      ],
+      "words": [
+        "שֶׁאֵין",
+        "אֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין as negation particle versus adverb."
+    },
+    {
+      "ref": "6:3",
+      "tokens": [
+        12
+      ],
+      "words": [
+        "הַחֹמֶץ"
+      ],
+      "type": "lemma-orthography",
+      "note": "חומץ versus חמץ."
+    },
+    {
+      "ref": "6:4",
+      "tokens": [
+        9
+      ],
+      "words": [
+        "יֵשׁ"
+      ],
+      "type": "particle-classification",
+      "note": "יש as existence/affirmation particle versus adverb."
+    },
+    {
+      "ref": "6:4",
+      "tokens": [
+        20
+      ],
+      "words": [
+        "אֵיזֶה"
+      ],
+      "type": "interrogative-lemma",
+      "note": "איזה versus reference אי."
+    },
+    {
+      "ref": "6:5",
+      "tokens": [
+        4,
+        9,
+        14,
+        19
+      ],
+      "words": [
+        "שֶׁלִּפְנֵי",
+        "שֶׁלְּאַחַר",
+        "שֶׁלִּפְנֵי",
+        "שֶׁלְּאַחַר"
+      ],
+      "type": "של-segmentation",
+      "note": "ש/ל positional construction versus lexicalized של; no unprincipled normalization."
+    },
+    {
+      "ref": "6:5",
+      "tokens": [
+        23,
+        32
+      ],
+      "words": [
+        "הַפַּת",
+        "הַפַּת"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "פת feminine versus reference common gender."
+    },
+    {
+      "ref": "6:5",
+      "tokens": [
+        36
+      ],
+      "words": [
+        "אַף"
+      ],
+      "type": "particle-classification",
+      "note": "אף as affirmative particle/adverb versus conjunction."
+    },
+    {
+      "ref": "6:6",
+      "tokens": [
+        7,
+        21
+      ],
+      "words": [
+        "לְעַצְמוֹ",
+        "לְעַצְמוֹ"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "עצם masculine versus reference feminine."
+    },
+    {
+      "ref": "6:6",
+      "tokens": [
+        22,
+        38
+      ],
+      "words": [
+        "לְאַחַר",
+        "לְאַחַר"
+      ],
+      "type": "word-class-convention",
+      "note": "לאחר as preposition chain versus prep plus adverb."
+    },
+    {
+      "ref": "6:6",
+      "tokens": [
+        30
+      ],
+      "words": [
+        "אַף"
+      ],
+      "type": "particle-classification",
+      "note": "אף as affirmative particle/adverb versus conjunction."
+    },
+    {
+      "ref": "6:6",
+      "tokens": [
+        33
+      ],
+      "words": [
+        "שֶׁאֵין"
+      ],
+      "type": "word-class-convention",
+      "note": "אין as negation particle versus adverb."
+    },
+    {
+      "ref": "6:7",
+      "tokens": [
+        3,
+        9
+      ],
+      "words": [
+        "מָלִיחַ",
+        "הַמָּלִיחַ"
+      ],
+      "type": "lemma-and-substantivization",
+      "note": "מליח adjective/passive participle versus nominal מליחה."
+    },
+    {
+      "ref": "6:7",
+      "tokens": [
+        4
+      ],
+      "words": [
+        "כַּתְּחִלָּה"
+      ],
+      "type": "lemma-orthography",
+      "note": "תחילה versus תחלה; article supplied in both."
+    },
+    {
+      "ref": "6:7",
+      "tokens": [
+        5,
+        12,
+        13
+      ],
+      "words": [
+        "וּפַת",
+        "הַפַּת",
+        "שֶׁהַפַּת"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "פת feminine versus reference common gender."
+    },
+    {
+      "ref": "6:7",
+      "tokens": [
+        14,
+        22,
+        28
+      ],
+      "words": [
+        "טְפֵלָה",
+        "טְפֵלָה",
+        "הַטְּפֵלָה"
+      ],
+      "type": "substantivized-adjective",
+      "note": "טפל adjective versus noun טפלה."
+    },
+    {
+      "ref": "6:8",
+      "tokens": [
+        4
+      ],
+      "words": [
+        "וְרִמּוֹנִים"
+      ],
+      "type": "lemma-orthography",
+      "note": "רימון versus רמון."
+    },
+    {
+      "ref": "6:8",
+      "tokens": [
+        7
+      ],
+      "words": [
+        "שָׁלוֹשׁ"
+      ],
+      "type": "numeral-lemma-orthography",
+      "note": "שלוש versus שלש."
+    },
+    {
+      "ref": "6:8",
+      "tokens": [
+        19
+      ],
+      "words": [
+        "אֲפִלּוּ"
+      ],
+      "type": "word-class-convention",
+      "note": "אפילו as conjunction versus adverb."
+    },
+    {
+      "ref": "6:8",
+      "tokens": [
+        25
+      ],
+      "words": [
+        "אַחֲרָיו"
+      ],
+      "type": "word-class-convention",
+      "note": "אחר with suffix as preposition versus adverb."
+    },
+    {
+      "ref": "6:8",
+      "tokens": [
+        39
+      ],
+      "words": [
+        "נְפָשׁוֹת"
+      ],
+      "type": "nominal-gender-convention",
+      "note": "נפש feminine versus reference common gender."
+    },
+    {
+      "ref": "6:8",
+      "tokens": [
+        41
+      ],
+      "words": [
+        "וְחֶסְרוֹנָן"
+      ],
+      "type": "open-nominal-number",
+      "note": "חסרון singular construct plus suffix versus displayed reference feminine plural; retained as unresolved."
+    },
+    {
+      "ref": "7:1",
+      "tokens": [
+        22,
+        40
+      ],
+      "words": [
+        "אֲבָל",
+        "אֵין"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "7:2",
+      "tokens": [
+        4
+      ],
+      "words": [
+        "אֵין"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "7:3",
+      "tokens": [
+        1,
+        10,
+        14,
+        19,
+        43,
+        52,
+        56,
+        59,
+        61,
+        63,
+        87,
+        98,
+        100,
+        104,
+        110
+      ],
+      "words": [
+        "כֵּיצַד",
+        "בַּעֲשָׂרָה",
+        "בַּעֲשָׂרָה",
+        "עֲשָׂרָה",
+        "בָּרִבּוֹא",
+        "בָּרִבּוֹא",
+        "כְּעִנְיָן",
+        "כָּךְ",
+        "אַחֲרָיו",
+        "יי",
+        "אֲדֹנָי",
+        "מְרֻבִּים",
+        "מְמֻעָטִים",
+        "יי",
+        "יי"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "7:3",
+      "tokens": [
+        78
+      ],
+      "words": [
+        "לְפִי"
+      ],
+      "type": "lexicalized-preposition",
+      "note": "לפי as lexicalized according-to preposition versus ל/פה; the spurious possessive 1cs candidate is removed."
+    },
+    {
+      "ref": "7:4",
+      "tokens": [
+        4,
+        14,
+        15,
+        16,
+        20
+      ],
+      "words": [
+        "אֵינָן",
+        "עֲשָׂרָה",
+        "וַעֲשָׂרָה",
+        "אֵינָן",
+        "עֶשְׂרִים"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "7:4",
+      "tokens": [
+        6
+      ],
+      "words": [
+        "לֵחָלֵק"
+      ],
+      "type": "open-stem-and-vocalization",
+      "note": "Source לֵחָלֵק supports an MH Nifal infinitive reading, while reference Piʿel differs; not forced without further adjudication."
+    },
+    {
+      "ref": "7:5",
+      "tokens": [
+        8,
+        13,
+        16,
+        18,
+        21,
+        24,
+        25
+      ],
+      "words": [
+        "שֶׁמִּקְצָתָן",
+        "הֲרֵי",
+        "לַזִּמּוּן",
+        "לָאו",
+        "לְעַצְמָן",
+        "לְעַצְמָן",
+        "אֵין"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:1",
+      "tokens": [
+        16,
+        27
+      ],
+      "words": [
+        "כָּךְ",
+        "כָּךְ"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:2",
+      "tokens": [
+        7,
+        10,
+        16,
+        18
+      ],
+      "words": [
+        "כָּךְ",
+        "הַכּוֹס",
+        "הַכּוֹס",
+        "כָּךְ"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:3",
+      "tokens": [
+        8,
+        17
+      ],
+      "words": [
+        "כָּךְ",
+        "כָּךְ"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:4",
+      "tokens": [
+        10
+      ],
+      "words": [
+        "הַשֻּׁלְחָן"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:5",
+      "tokens": [
+        6,
+        12
+      ],
+      "words": [
+        "וּבְשָׂמִים",
+        "וּבְשָׂמִים"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:6",
+      "tokens": [
+        1,
+        8,
+        9,
+        15,
+        22,
+        23,
+        26,
+        32
+      ],
+      "words": [
+        "אֵין",
+        "הַבְּשָׂמִים",
+        "שֶׁלַּגּוֹיִם",
+        "הַבְּשָׂמִים",
+        "הַבְּשָׂמִים",
+        "שֶׁלִּפְנֵי",
+        "אֵין",
+        "לְאוֹרוֹ"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:7",
+      "tokens": [
+        17,
+        19,
+        23,
+        26
+      ],
+      "words": [
+        "שֶׁנִּזְכַּר",
+        "אֶמָּתַי",
+        "כְּדֵי",
+        "בְּמֵעָיו"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:8",
+      "tokens": [
+        4,
+        6,
+        10,
+        18,
+        29,
+        34,
+        35,
+        38,
+        40,
+        41
+      ],
+      "words": [
+        "לְאַחַר",
+        "וְאֵין",
+        "הַכּוֹס",
+        "כָּךְ",
+        "כָּךְ",
+        "אָמֵן",
+        "אַחַר",
+        "וְאֵין",
+        "אָמֵן",
+        "אַחַר"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "8:8",
+      "tokens": [
+        9
+      ],
+      "words": [
+        "אוֹתוֹ"
+      ],
+      "type": "demonstrative-versus-object-marker",
+      "note": "אותו הכוס is demonstrative in this non-transitive clause, despite reference object-marker tagging."
+    },
+    {
+      "ref": "8:8",
+      "tokens": [
+        36
+      ],
+      "words": [
+        "יִשְׂרָאֵל"
+      ],
+      "type": "open-reference-word-class",
+      "note": "ישראל remains a proper name; displayed reference adverb tag is not copied."
+    },
+    {
+      "ref": "9:1",
+      "tokens": [
+        24
+      ],
+      "words": [
+        "מֵאַרְצֵנוּ"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "9:2",
+      "tokens": [
+        14,
+        15,
+        31,
+        47,
+        65
+      ],
+      "words": [
+        "שֶׁכּחוֹ",
+        "מָלֵא",
+        "בְרֵאשִׁית",
+        "רוֹאֶהוּ",
+        "דַּיַּן"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "9:3",
+      "tokens": [
+        10
+      ],
+      "words": [
+        "לִזְמַן"
+      ],
+      "type": "nominal-state",
+      "note": "זמן before attributive הזה is absolute in Safran, construct in reference."
+    },
+    {
+      "ref": "9:3",
+      "tokens": [
+        14,
+        15,
+        20,
+        22,
+        25,
+        27,
+        29,
+        39,
+        41,
+        48,
+        58,
+        60
+      ],
+      "words": [
+        "הָרָעָה",
+        "מֵעֵין",
+        "מֵעֵין",
+        "הָרָעָה",
+        "הֲרֵי",
+        "תְפִלַּת",
+        "כֵּיצַד",
+        "הֲרֵי",
+        "תְפִלַּת",
+        "צְוָחוֹת",
+        "הֲרֵי",
+        "תְפִלַּת"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "9:4",
+      "tokens": [
+        2,
+        9,
+        10,
+        21
+      ],
+      "words": [
+        "לִכְרַךְ",
+        "בֶּן",
+        "עַזַּי",
+        "לֶעָתִיד"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "9:5",
+      "tokens": [
+        1,
+        4,
+        13,
+        18,
+        20,
+        30,
+        31,
+        35,
+        37,
+        43,
+        45,
+        46,
+        50,
+        51,
+        55,
+        56,
+        83,
+        85,
+        88,
+        98,
+        116,
+        118,
+        122,
+        123,
+        125,
+        127,
+        130,
+        132,
+        134,
+        137
+      ],
+      "words": [
+        "חַיָּב",
+        "הָרָעָה",
+        "יי",
+        "נַפְשְׁךָ",
+        "מְאֹדֶךָ",
+        "נַפְשְׁךָ",
+        "אֲפִלּוּ",
+        "נַפְשֶׁךָ",
+        "מְאֹדֶךָ",
+        "מְאֹדֶךָ",
+        "מִדָּה",
+        "וּמִדָּה",
+        "בַּכֹּל",
+        "הֱוֵי",
+        "מְאֹד",
+        "מְאֹד",
+        "קַפַּנְדַּרְיָה",
+        "מִקַּל",
+        "חוֹתַם",
+        "אֵין",
+        "בַשֵּׁם",
+        "וְהִנֵּה",
+        "לֶחֶם",
+        "וַיֹּאמֶר",
+        "יי",
+        "וַיֹּאמְרוּ",
+        "יי",
+        "יי",
+        "גִּבּוֹר",
+        "אַל"
+      ],
+      "type": "unresolved-reference-difference",
+      "note": "Lemma, segmentation or grammatical-feature difference remains for adjudication; compatibility failure is not automatically an error."
+    },
+    {
+      "ref": "9:5",
+      "tokens": [
+        95
+      ],
+      "words": [
+        "מִשֶּׁקִּלְקְלוּ"
+      ],
+      "type": "reduplicated-stem-root-policy",
+      "note": "Pilpel קלקל is supported by Segal §195; lemma קלקל versus lexical root קלל remains separate."
+    },
+    {
+      "ref": "9:5",
+      "tokens": [
+        140
+      ],
+      "words": [
+        "זָקְנָה"
+      ],
+      "type": "vocalization-versus-reference-classification",
+      "note": "זקנה is retained as Qal perfect 3fs from pointed זָקְנָה and subject אמך, versus a nominal reference reading."
     }
   ],
-  "corrections": "Twenty context-bound positions refined using independent grammar/context analysis; see context-corrections.json. Other occurrences remain machine candidates.",
+  "corrections": "140 exact context-bound refinements plus lexical Pilpel דקדק, nominal מים lemma normalization and a known pointed cardinal שש that blocks false prefix splitting. Full comparison still retains candidates and unresolved alternatives.",
   "limitations": [
-    "Three suffix occurrences in מצותן are not individually confirmed. A follow-up shows 3mp for the form, but its exact occurrence is not visible.",
-    "Agreement means a compatible analysis of supplied features, not a full accuracy measure.",
-    "No claim is made for the remaining 54 Mishnah units without reference screenshots.",
-    "Nine suffix tags in 1:3 are not displayed in the supplied overview and are not externally confirmed."
+    "All source positions are examined against the supplied screenshots, but only visible supplied features are compared; this is not a full accuracy measure.",
+    "205 positions lack separately visible reference suffix tags; these suffixes are not individually externally confirmed. The three מצותן occurrences retain form-level 3mp evidence only.",
+    "276 differences include lemma/root conventions, word-class and segmentation policies, vocalization conflicts and unresolved questions; they are not 276 demonstrated errors.",
+    "One source-only word and five wording variants are tracked separately from morphology. Duplicated screenshot 8:8 is counted once.",
+    "The commercial reference transcription is kept outside the repository; public files contain only findings and independently authored analyses."
   ],
   "confirmedSuffixPositionsFromFollowUps": [
     {
@@ -105,5 +2484,64 @@
     ],
     "exactOccurrenceVisible": false,
     "meaning": "Form-level evidence supplied; the three occurrences are not individually confirmed."
-  }
+  },
+  "grammaticallyComparablePositions": 2153,
+  "textVariantPositions": 5,
+  "remainingFeatureOrConventionDifferences": 276,
+  "textDifferences": [
+    {
+      "ref": "1:5",
+      "sourceToken": 47,
+      "source": "העולם",
+      "reference": "בעולם",
+      "note": "Different wording; not counted as a morphology disagreement."
+    },
+    {
+      "ref": "1:5",
+      "referenceOnly": [
+        "יציאת",
+        "העולם הבא"
+      ],
+      "note": "Braced duplicate and bracketed phrase in the reference are absent from Be’eri running text; not inserted into the source."
+    },
+    {
+      "ref": "2:1",
+      "sourceToken": 12,
+      "source": "ואם",
+      "reference": "אם",
+      "note": "Conjunction differs; not a morphology disagreement."
+    },
+    {
+      "ref": "2:2",
+      "sourceToken": 3,
+      "source": "בין",
+      "reference": null,
+      "note": "Source-only word before הפרקים."
+    },
+    {
+      "ref": "2:5",
+      "sourceToken": 17,
+      "source": "שקרא",
+      "reference": "וקרא",
+      "note": "Reference also has an earlier שנשא absent here in Be’eri; no text is inserted or removed."
+    },
+    {
+      "ref": "4:4",
+      "sourceToken": 24,
+      "source": "השם",
+      "reference": "יי",
+      "note": "Divine-name substitution is a wording variant, not a missing morphological tag."
+    },
+    {
+      "ref": "9:2",
+      "sourceToken": 16,
+      "source": "עולם",
+      "reference": "העולם (with bracketed את)",
+      "note": "Different source wording; the article and bracketed object marker are not inserted into Be’eri."
+    }
+  ],
+  "referenceRows": 2158,
+  "sourceOnlyPositions": 1,
+  "completeUnits": 57,
+  "partialUnits": []
 }

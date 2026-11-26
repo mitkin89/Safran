@@ -15,12 +15,18 @@ von Safrans Bavli-Lexikon dienen als zusätzliche lexikalische Hinweise; dessen
 kontextuelle Bestimmungen werden nicht zu geprüften Mischna-Analysen erklärt.
 
 Der Pilot bewahrt Wortlaut und Vokalisation; mehrere mögliche Bestimmungen
-bleiben sichtbar. Die Abdeckung ist keine Genauigkeitsangabe. Die lesbaren Angaben der bereitgestellten Accordance-Screenshots
-MISH-T 4.3 (Berakhot 1:1–3; 202 Wortpositionen) wurden verglichen: 197
-vereinbare Kandidaten, fünf dokumentierte Konventionsunterschiede. Vier zunächst fehlende Suffixangaben wurden durch Wortdetails bestätigt.
-Drei מצותן-Vorkommen haben einen Formnachweis (3mp), sind aber nicht einzeln
-extern bestätigt. Neun Suffixangaben in 1:3 sind nicht angezeigt und bleiben unbestätigt. Dies ist keine
-Genauigkeitsquote und keine externe Validierung der übrigen Mischnajot. Accordance-Modul und Referenzexporte werden nicht verteilt.
+bleiben sichtbar. Die Abdeckung ist keine Genauigkeitsangabe. Lesbare Accordance-Screenshots
+MISH-T 4.3 wurden über alle 57 Mischnajot von Berakhot (Kapitel 1–9) verglichen:
+2.159 Quellwortpositionen untersucht, 2.153 grammatisch vergleichbar,
+1.877 mit sichtbaren Angaben vereinbare Kandidaten, 276 offene Merkmals- oder
+Konventionsunterschiede, fünf Wortlautvarianten und ein nur bei Be’eri
+vorhandenes Wort. Dies ist keine Genauigkeitsquote; die Unterschiede sind
+nicht automatisch Fehler. Vier Suffixpositionen sind durch Wortdetails
+bestätigt; 205 haben keinen separat sichtbaren Suffix-Tag, darunter drei
+מצותן-Vorkommen mit Formnachweis (3mp). Accordance-Modul und private
+Referenztranskription werden nicht verteilt. Kurzbedeutungen in Wortkarten
+sind eigene redaktionelle Glossen oder sichtbar als biblisch gekennzeichnete
+Bedeutungen aus `oshb-lemmas.js`, keine geprüften Kontextübersetzungen.
 
 ## Vokalisierte Kaufmann-Mischna
 

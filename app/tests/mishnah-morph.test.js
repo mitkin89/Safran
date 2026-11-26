@@ -73,6 +73,72 @@ test('feature comparison distinguishes segmentation, specified grammar and omitt
  assert(!featureCompatible({lemma:'ב/תרומה',morph:'HR/Ncfsc/Sp3mp'},[{type:'S',person:'3',gender:'f',number:'p'}]));
 });
 
+test('Berakhot 1:4–5 retains fused articles, complete adverb segments and dependent construct nouns',()=>{
+ const at=(m,t)=>D.forms[source.chapters[0][m-1][t-1]].analyses;
+ assert.deepEqual(at(4,7).map(a=>a.morph),['HC/Rd/Ncmsa']);
+ for(const t of [6,11])assert.deepEqual(at(4,t).map(a=>[a.lemma,a.morph]),[['ל/אחר','HR/D/Sp3fs']]);
+ for(const t of [4,20])assert.deepEqual(at(5,t).map(a=>a.morph),['HRd/Ncmpa']);
+ assert.deepEqual(at(5,29).map(a=>a.morph),['HNcmsc']);
+ assert.deepEqual(at(5,31).map(a=>a.morph),['HR/Ncbsc']);
+ assert.deepEqual(at(5,47).map(a=>a.morph),['HTd/Ncmsa'],'a different reference wording does not insert a preposition into העולם');
+});
+
+test('chapter 2 refinements retain Pilpel, contextual titles, narrative perfect and article fusion',()=>{
+ const at=(m,t)=>D.forms[source.chapters[1][m-1][t-1]].analyses;
+ const pilpel=at(3,15);assert.equal(pilpel.length,1);assert.equal(pilpel[0].morph,'HVlp3ms');assert.equal(pilpel[0].root,'דקק');assert.equal(pilpel[0].lemma,'דקדק');
+ assert.equal(Morph.decode(pilpel[0].morph,pilpel[0].lemma).segs[0].stem,'Pilpel');
+ for(const [m,t,code] of [[1,3,'HRd/Ncfsa'],[2,8,'HRd/Aofsa'],[2,74,'HRd/Ncmsa'],[2,75,'HC/Rd/Ncmsa'],[2,80,'HRd/Ncmsa'],[4,13,'HRd/Ncfsa'],[1,10,'HNcmsc/Sp3ms'],[2,58,'HC/D'],[2,63,'HNcfpa'],[7,1,'HC/R/Tr/Vqp3ms'],[8,20,'HTd/Ncmsa']])assert.deepEqual(at(m,t).map(a=>a.morph),[code],`${m}:${t}`);
+ assert.deepEqual(at(5,15).map(a=>[a.lemma,a.morph]),[['ב/רבן','HR/Ncmsa']]);
+ assert.deepEqual(at(8,10).map(a=>[a.lemma,a.morph]),[['רבן','HNcmsa']]);
+ for(const t of [13,14])assert.deepEqual(at(5,t).map(a=>a.morph),['HNcmsa']);
+});
+
+test('chapters 3 and 4 refinements distinguish nouns, Qal, Pilpel and nominal water lemmas',()=>{
+ const at=(c,m,t)=>D.forms[source.chapters[c-1][m-1][t-1]].analyses;
+ for(const [m,t,code] of [[1,22,'HTr/Rd/Ncfsa'],[1,28,'HRd/Ncfsa'],[3,10,'HRd/Ncfsa'],[4,1,'HNcmsc'],[4,4,'HR/Ncmsc/Sp3ms'],[4,3,'HVlrmsa'],[4,10,'HR/D/Sp3fs'],[4,14,'HR/D/Sp3ms'],[4,23,'HC/R/D/Sp3mp'],[5,3,'HRd/Ncfsa'],[5,6,'HNcmsc'],[5,21,'HVhi3fs'],[5,29,'HRd/Ncmpa'],[6,5,'HTr/Vqp3fs']])assert.deepEqual(at(3,m,t).map(a=>a.morph),[code],`3:${m} token ${t}`);
+ for(const t of [29,35,43])assert.equal(M.headLemma(at(3,5,t)[0]),'מים');
+ assert(at(3,1,1).some(a=>a.lemma==='מי'&&a.morph==='HPi'),'water correction does not affect מי');
+ assert.deepEqual(at(4,1,4).map(a=>a.morph),['HNcfsa']);
+ assert.equal(Morph.decode(at(3,4,3)[0].morph,'הרהר').segs[0].stem,'Pilpel');
+});
+
+test('later comparisons distinguish כהן, number gender, complete segments and pointed נהיה',()=>{
+ const at=(c,m,t)=>D.forms[source.chapters[c-1][m-1][t-1]].analyses;
+ for(const [m,t] of [[3,8],[3,14],[3,24],[3,29],[4,20]])assert.deepEqual(at(4,m,t).map(a=>a.morph),['HAcfsa']);
+ assert.deepEqual(at(5,4,14).map(a=>[a.lemma,a.morph]),[['כהן','HNcmsa']]);
+ assert.deepEqual(at(5,1,19).map(a=>a.morph),['HRd/Ncmsa']);
+ assert.deepEqual(at(5,2,12).map(a=>a.morph),['HTd/Ncfsa']);
+ assert.deepEqual(at(5,5,43).map(a=>a.morph),['HR/Ncmsc/Sp1cs']);
+ for(const [m,t] of [[2,22],[3,9],[3,20],[8,33]])assert.deepEqual(at(6,m,t).map(a=>a.morph),['HVNp3ms']);
+ for(const [m,t] of [[2,21],[3,8],[3,19],[8,32]])assert.deepEqual(at(6,m,t).map(a=>a.morph),['HTr/Td/Ncmsa']);
+ assert.deepEqual(at(6,5,33).map(a=>a.morph),['HNcmsc']);
+ assert.deepEqual(at(6,8,10).map(a=>a.lemma),['רבן']);
+ assert.deepEqual(at(6,1,4).map(a=>a.morph),['HTd/Ncmpa']);
+ assert.deepEqual(at(6,7,4).map(a=>a.morph),['HR/Td/Ncfsa']);
+});
+
+test('chapters 7–9 retain demonstratives, periphrastic verbs and reduplicated stems',()=>{
+ const at=(c,m,t)=>D.forms[source.chapters[c-1][m-1][t-1]].analyses;
+ assert.deepEqual(at(7,3,78).map(a=>[a.lemma,a.morph]),[['לפי','HR']]);
+ assert.deepEqual(at(8,8,9).map(a=>[a.lemma,a.morph]),[['אותו','HPdxms']]);
+ assert.deepEqual(at(5,3,26).map(a=>[a.lemma,a.morph]),[['ב/אותה','HR/Pdxfs']]);
+ assert.deepEqual(at(9,3,44).map(a=>a.morph),['HVqrmsa']);
+ assert.deepEqual(at(9,5,95).map(a=>[a.lemma,a.morph]),[['מן/ש/קלקל','HR/Tr/Vlp3cp']]);
+ const six=D.forms.find(f=>f.analyses.some(a=>a.lemma==='שש'));
+ assert(six);assert.deepEqual(six.analyses.map(a=>[a.lemma,a.morph]),[['שש','HAcmsa']]);
+});
+
+test('short meanings distinguish editorial prayer glosses and all biblical homonym meanings',()=>{
+ const G=require('../mishnah-meanings');
+ assert.match(G.lookup({lemma:'קרא',morph:'HVqrmpa'}).text,/lesen/);
+ assert.equal(G.lookup({lemma:'שמע',morph:'HNcmsa'}).text,'Schema-Gebet');
+ assert.match(G.lookup({lemma:'שמע',morph:'HVqv2ms'}).text,/hören/);
+ const dictionary={a:['עֵין','spring','Quelle'],b:['עַיִן','eye','Auge']};
+ const g=G.lookup({lemma:'מן/עין',morph:'HR/Ncbsc'},dictionary);assert.equal(g.source,'biblical');assert.deepEqual(g.alternatives,['Quelle','Auge']);
+ assert.equal(G.lookup({lemma:'unmatched',morph:'HNcmsa'},dictionary),null);
+ assert.equal(G.lookup({lemma:'קרא',morph:'HVqrmpa'},dictionary,'en').text,'read; recite; call');
+});
+
 test('a reference containing only absent or unreadable tags cannot count as agreement',()=>{
  for(const parts of [[],[{unreadable:true}],[{note:'not visible'}]]){
   const r=compare(D,{module:'MISH-T',version:'4.3',title:D.title,rows:[{ref:'1:1',word:'קוֹרִין',parts}]});

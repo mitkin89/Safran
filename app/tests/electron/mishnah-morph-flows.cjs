@@ -23,6 +23,8 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  }
  assert.equal(total,D.coverage.words);
  const known={ch:1,m:1,i:1};await word(known);
+ assert(await js("document.querySelector('#mishnahMorphPopup .mhm-meaning')?.textContent.includes('lesen')"),'word card includes a short meaning');
+ assert(await js("document.querySelector('#mishnahMorphPopup .mhm-meaning small')?.textContent.includes('Redaktionelle')"),'editorial meaning source is explicit');
  assert(await js("document.querySelector('#mishnahMorphPopup').textContent.includes('Maschineller Vorschlag')&&document.querySelector('#mishnahMorphPopup').textContent.includes('Partizip aktiv')&&document.querySelector('#mishnahMorphPopup').textContent.includes('Pl.')"),'קורין candidate is a participle, not a guessed perfect');
  if(process.env.SAFRAN_MISHNAH_MORPH_CAPTURE==='1'){
   const fs=require('node:fs'),capture=await win.webContents.capturePage();fs.writeFileSync('/tmp/safran-mishnah-morph.png',capture.toPNG());

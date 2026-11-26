@@ -14,12 +14,17 @@ are not redistributed. Hebrew surface forms from Safran's Bavli lexicon are
 additional lexical hints, not transferred contextually reviewed Mishnah tags.
 
 Source text and vowels remain unchanged, with alternative candidates retained.
-Coverage is not an accuracy measure. Readable features in the user-provided Accordance MISH-T 4.3 screenshots
-for Berakhot 1:1–3 were compared at 202 word positions: 197 compatible
-candidates and five documented convention differences. Four initially absent suffix tags were confirmed by word details. Three
-מצותן occurrences have form-level3mp evidence but are not individually confirmed. Nine suffix tags in 1:3 are not displayed and remain unconfirmed. This is not an accuracy score
-or external validation of the remaining Mishnah units. No Accordance module or reference
-exports are included.
+Coverage is not an accuracy measure. Readable user-provided Accordance MISH-T
+4.3 screenshots were compared across all 57 Berakhot units (chapters 1–9):
+2,159 source positions examined, 2,153 grammatically comparable, 1,877
+compatible candidates, 276 unresolved feature or convention differences,
+five wording variants and one source-only word. This is not an accuracy score
+and the differences are not automatically errors. Four suffix positions were
+confirmed by word details; 205 lack separately visible suffix tags, including
+three מצותן occurrences with form-level 3mp evidence. No Accordance module or
+private reference transcription is distributed. Card meanings are original
+editorial glosses or visibly labelled biblical glosses from `oshb-lemmas.js`,
+not validated contextual translations.
 
 ## Vocalized Kaufmann-based Mishnah
 

@@ -6,7 +6,7 @@ const e=require('../../bundled/manifest.json').items.find(e=>e.title===title&&e.
 const hash=v=>crypto.createHash('sha256').update(typeof v==='string'?v:JSON.stringify(v)).digest('hex');
 const main=s=>stripHtml(AutoRef.link(R.splitFootnotes(s).main,{last:''}).replace(/<a\b[^>]*class="aref"[^>]*>[\s\S]*?<\/a>/gi,' ').replace(/<small\b[^>]*>[\s\S]*?<\/small>/gi,' ').replace(/<sup\b[^>]*>[\s\S]*?<\/sup>/gi,' ').replace(/<br\s*\/?\s*>/gi,'\n')).replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>String.fromCodePoint(n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):+n));
 const lex=new Map();
-function add(word,a){const key=M.normalize(word);if(!key)return;const list=lex.get(key)||[];const id=a.lemma+'|'+a.morph;if(!list.some(x=>x.lemma+'|'+x.morph===id))list.push(a);lex.set(key,list);}
+function add(word,a){if(/Ncmp/.test(a.morph))a={...a,lemma:a.lemma.split('/').map(l=>l==='מַי'?'מים':l).join('/')};const key=M.normalize(word);if(!key)return;const list=lex.get(key)||[];const id=a.lemma+'|'+a.morph;if(!list.some(x=>x.lemma+'|'+x.morph===id))list.push(a);lex.set(key,list);}
 function ruleIds(a){const ids=['lexical'];if(/\/Sp/.test(a.morph))ids.push('suffix');if(/N|A/.test(a.morph.slice(1)))ids.push('nominal');if(/V/.test(a.morph.slice(1)))ids.push('verb');if(/P/.test(a.morph.slice(1)))ids.push('pronoun');if(/c(?:\/|$)/.test(a.morph))ids.push('construct');return [...new Set(ids)];}
 // The Hebrew forms are lexical hints only. Bavli context, reviewed status,
 // syntactic roles, and Aramaic analyses are deliberately not transferred.
@@ -16,11 +16,13 @@ for(const o of seed.occurrences){const entry=seed.lexicon[o.id];if(entry?.status
 }}
 // Closed forms and explicit Mishnaic lexical distinctions. These are our own
 // implementations of grammatical facts, not copied paradigms or book text.
-function own(word,lemma,morph,rule='nominal',root){add(word,{lemma,morph,...(root?{root}:{}),rules:[rule],method:'lexicon'});}
+function own(word,lemma,morph,rule='nominal',root){if(/^HAc/.test(morph))lex.set(M.normalize(word),[]);add(word,{lemma,morph,...(root?{root}:{}),rules:[rule],method:'lexicon'});}
 for(const[w,l,m]of [
  ['אֲנִי','אני','HPp1cs'],['אָנוּ','אנו','HPp1cp'],['אֲנַחְנוּ','אנחנו','HPp1cp'],['אַתָּה','אתה','HPp2ms'],['אַתְּ','את','HPp2fs'],['אַתֶּם','אתם','HPp2mp'],['אַתֵּם','אתם','HPp2mp'],['הוּא','הוא','HPp3ms'],['הִיא','היא','HPp3fs'],['הֵן','הן','HPp3fp'],['הֵם','הם','HPp3mp'],['זֶה','זה','HPdxms'],['זוֹ','זו','HPdxfs'],['זֹאת','זאת','HPdxfs'],['אֵלּוּ','אלו','HPdxcp'],['מִי','מי','HPi'],['מַה','מה','HPi'],['מָה','מה','HPi']])own(w,l,m,'pronoun');
 for(const[w,l,m]of [['לֹא','לא','HTn'],['אִם','אם','HC'],['אוֹ','או','HC'],['אֶלָּא','אלא','HC'],['אֲבָל','אבל','HC'],['עַל','על','HR'],['עַד','עד','HR'],['מִן','מן','HR'],['בֵּין','בין','HR'],['כֵּן','כן','HD'],['לָמָּה','למה','HPi'],['מֵאֵמָּתַי','מן/אימתי','HR/Pi']])own(w,l,m,'prefix');
 for(const[w,l,m]of [['רְבִּי','רבי','HNcmsa'],['רַבִּי','רבי','HNcmsa'],['רַבָּן','רבן','HNcmsa'],['קוֹרִין','קרא','HVqrmpa'],['קוֹרְאִין','קרא','HVqrmpa'],['נִכְנָסִים','כנס','HVNrmpa'],['לֹאכַל','ל/אכל','HR/Vqc'],['לִקְרוֹת','ל/קרא','HR/Vqc']])own(w,l,m,/V/.test(m)?'verb':'nominal');
+// A known pointed cardinal is a lexical unit, not repeated relative prefixes.
+own('שִׁשָּׁה','שש','HAcmsa','nominal');
 // Shema is a prayer title throughout this pilot. Retain the verbal possibility
 // in the form lexicon: a later token/context review may adjudicate a quotation.
 own('שְׁמַע','שמע','HNcmsa','nominal');
@@ -41,7 +43,7 @@ const firstPlain=k=>k.replace(/^([א-ת][\u05b0-\u05c7]*)/,s=>s.replace(/\u05bc/
 const memo=new Map();
 function analyze(word,depth=0){const k=M.normalize(word),cacheKey=k+'|'+depth;if(memo.has(cacheKey))return memo.get(cacheKey);let aa=(lex.get(k)||[]).map(a=>({...a}));
  if(k.endsWith('ן'))for(const a of lex.get(k.slice(0,-1)+'ם')||[])if(plural(a))aa.push({...a,rules:[...new Set([...a.rules,'plural'])],method:'paradigm'});
- if(depth<3){const cs=clusters(k),p=cs[0],rest=cs.slice(1).join('');if(cs.length>2&&p){
+ if(depth<3&&!aa.some(a=>/^HAc/.test(a.morph))){const cs=clusters(k),p=cs[0],rest=cs.slice(1).join('');if(cs.length>2&&p){
   const c=p[0],v=p.slice(1);let code='',lemma='',rid='prefix';
   if(c==='ו'&&/[\u05b0\u05b7\u05b8\u05bc]/.test(v)){code='C';lemma='ו';}
   if('בכל'.includes(c)&&/[\u05b0-\u05bb]/.test(v)){code='R';lemma=c;}
@@ -81,7 +83,7 @@ for(const [c,ch]of doc.text.entries()){
  }
  chapters.push(out);
 }
-const D={version:1,edition:version,title,rules,sources:{[title]:{textHash:hash(doc.text),rel:e.rel,chapters}},forms,coverage:{chapters:chapters.length,mishnayot:chapters.reduce((n,c)=>n+c.length,0),words:Object.values(totals).reduce((a,b)=>a+b,0),forms:rawForms.size,analysisEntries:forms.length,statuses:totals},provenance:{method:'Grammar-based candidate analysis; no complete token review or Accordance validation',lexicalSeed:'Hebrew reviewed surface forms from Safran Bavli Berakhot 2a–10b, reused as lexical hints only',lexicalSeedSha256:hash(fs.readFileSync(path.join(root,'bavli-morph.js'),'utf8')),referenceStatus:'All 202 aligned word positions in the user-supplied Berakhot 1:1–3 screenshots compared for readable features; four suffix positions additionally confirmed by word-details screenshots; three מצותן occurrences have form-level 3mp evidence but are not individually confirmed; nine suffix tags in 1:3 not displayed; conventions and lemma variants reported separately; remaining Berakhot unvalidated'}};
+const D={version:1,edition:version,title,rules,sources:{[title]:{textHash:hash(doc.text),rel:e.rel,chapters}},forms,coverage:{chapters:chapters.length,mishnayot:chapters.reduce((n,c)=>n+c.length,0),words:Object.values(totals).reduce((a,b)=>a+b,0),forms:rawForms.size,analysisEntries:forms.length,statuses:totals},provenance:{method:'Grammar-based candidate analysis with screenshot feature comparison; unresolved differences retained',lexicalSeed:'Hebrew reviewed surface forms from Safran Bavli Berakhot 2a–10b, reused as lexical hints only',lexicalSeedSha256:hash(fs.readFileSync(path.join(root,'bavli-morph.js'),'utf8')),referenceStatus:'All 57 Berakhot units, chapters 1–9: 2159 source positions examined; 2153 grammatically comparable; 1877 compatible with supplied features, 276 unresolved feature or convention differences, five wording variants and one source-only word; 205 positions lack separately visible suffix tags; screenshot comparison is not a full accuracy score'}};
 fs.writeFileSync(path.join(root,'mishnah-morph-data.js'),'// Generated by tools/mishnah-morph/build.cjs; automatic candidates, not reviewed annotations.\n(function(D){if(typeof module!=="undefined"&&module.exports)module.exports=D;else window.MISHNAH_MORPH_DATA=D;})('+JSON.stringify(D)+');\n');
 fs.writeFileSync(path.join(__dirname,'coverage.json'),JSON.stringify(D.coverage,null,2)+'\n');
 console.log(D.coverage);

@@ -5,8 +5,8 @@ Mischna Berakhot** in der ausdrücklich benannten, vokalisierten Be’eri-Ausgab
 nach Kaufmann A50. Die übrigen Kaufmann-Traktate erhalten keine Morphologie.
 
 2.159 laufende Wortpositionen sind an 941 normalisierte Wortformen gebunden.
-1.573 Positionen haben einen Analysekandidaten, 586 mehrere Alternativen.
-Die 941 Schriftformen verweisen auf 952 mögliche Analysebestände, da einzelne
+1.644 Positionen haben einen Analysekandidaten, 515 mehrere Alternativen.
+Die 941 Schriftformen verweisen auf 968 mögliche Analysebestände, da einzelne
 Vorkommen inzwischen kontextbezogen unterschieden werden.
 Diese Zahlen bezeichnen **Abdeckung, keine Genauigkeit**. Kein Datensatz wird
 als vollständig kontextuell geprüft oder als Accordance-validiert ausgegeben.
@@ -69,35 +69,42 @@ Die vom Nutzer genannte Referenz ist MISH-T 4.3 (Kaufmann A50). Ihr Textstand
 und ihre getrennten Präfix-/Suffixeinheiten unterscheiden sich von der
 Be’eri-Lesefassung. Eine gemeinsame Stellenzahl allein genügt daher nicht.
 
-Die bereitgestellten Screenshots von **Berakhot 1:1–3** wurden
-vollständig nach ihren lesbaren Angaben abgeglichen: 95 + 40 + 67 = **202
-Wortpositionen**. Bei 197 Positionen ist ein mit den gelieferten Merkmalen
-vereinbarer Kandidat vorhanden. Fünf Unterschiede bleiben ausdrücklich als
-Konventionen dokumentiert: אשמרת/אשמורה (Lemmatisierung), בלבד
-(lexikalisiertes Adverb gegenüber Segmentzerlegung) und שלוש/שלש
-(Lemmaschreibung), לסטים/ליסטים (Lemmaschreibung) sowie כדי
-(Adjektiv gegenüber funktionaler Adverbbestimmung). Das ist keine Genauigkeitsquote.
+Die lesbaren Screenshots decken **Berakhot Kapitel 1–9 vollständig** ab:
+57 Mischnajot und alle 2.159 Quellwortpositionen sind untersucht. Ein בין
+steht nur bei Be’eri, fünf Stellen haben abweichenden Wortlaut. Von den 2.153
+grammatisch vergleichbaren Positionen besitzen 1.877 einen Kandidaten, der zu
+den sichtbaren Referenzmerkmalen passt. 276 Unterschiede bleiben zur Klärung
+verzeichnet. Dies sind weder eine Genauigkeitsquote noch 276 nachgewiesene
+Fehler: Lemma-, Wurzel-, Wortart- und Segmentierungskonventionen sowie
+widersprechende Vokalisationen müssen gesondert bewertet werden.
 
-Die sieben zunächst nicht angezeigten Suffix-Tags wurden teilweise durch
-Detailausschnitte ergänzt: בתרומתן (3mp), בניו (3ms), לו (3ms) und להם (3mp)
-sind wortbezogen bestätigt und mit Safran vereinbar. Für מצותן zeigt ein weiterer
-Ausschnitt 3mp; welches der drei Vorkommen ausgewählt war, ist nicht sichtbar.
-Daher sind diese drei Positionen noch nicht einzeln bestätigt. Die vorhandene
-3mp-Analyse ist mit dem Formnachweis vereinbar; andere Vorkommen werden nicht
-allein durch identische Endung als extern geprüft bezeichnet.
-Die Ziffern (1)–(6) im ersten Screenshot sind interne Gruppen derselben
-Mischna 1:1. Vokalisierungs-, Abkürzungs- und Segmentierungsunterschiede zwischen
-MISH-T und der Be’eri-Ausgabe wurden von der Tag-Prüfung getrennt.
+Vier Suffixpositionen sind durch zusätzliche Wortdetails bestätigt.
+205 Positionen haben keinen separat sichtbaren Suffix-Tag; diese Suffixe
+sind nicht einzeln extern bestätigt. Wie vereinbart bleiben die drei
+מצותן-Vorkommen nur auf Formebene bestätigt. Wiederholte Abbildungen von
+8:8 zählen einmal. `comparison-summary.json` dokumentiert alle 57 Einheiten
+und die offenen Unterschiede; der kommerzielle Referenzexport bleibt privat.
 
-`comparison-summary.json` bewahrt nur den zusammengefassten Befund, nicht den
-kommerziellen Referenzexport. `berakhot-1-1-review.md` begründet die eigenen
-Korrekturen unabhängig nach den Grammatiken. In `context-corrections.json`
-stehen 20 verortete Anpassungen, u.a. der Titel רבן, der Gebetsname שמע,
-Hofal נתר, das Handlungsnomen הקטר, absolute Zeitangaben nach עד sowie der
-verschmolzene Artikel in בתורה, ובבקר und בדרך sowie בא als Partizip
-nach הייתי. Neun Suffixangaben in 1:3 sind in der Übersicht nicht angezeigt
-und bleiben extern unbestätigt. Sie werden nur bei exakt passendem Quellwort
-angewandt. Die übrigen 54 Mischnajot sind nicht gegen Accordance validiert.
+Die eigenen Review-Dateien erklären die Änderungen. Es gibt 140 genau
+positions- und quellwortgebundene Kontextverfeinerungen. Lexikalische Regeln
+korrigieren Pilpel דקדק, das Plurallemma מים und die bekannte Zahl שִׁשָּׁה
+(statt falscher ש/ש/יהוה-Zerlegung). Bei gleichen Vokalen und eindeutigen
+Formen sollen geprüfte geschlossene Zahlwörter nicht erneut als relative
+Präfixketten zerlegt werden. Das ist keine pauschale Übertragung aller
+Berakhot-Korrekturen auf andere Traktate.
+
+Demonstratives אותו/אותה vor einem Nomen wird in den entsprechenden
+Kontexten vom Akkusativzeichen mit Objektsuffix getrennt. Bei שגרה,
+נזכר und זקנה bestimmen Quellvokalisation und Satzkontext die eigene
+Analyse; abweichende Referenztags werden nicht blind übernommen.
+Die übrigen offenen Genus-, Wurzel- und Segmentierungsfragen bleiben sichtbar.
+
+Die Wortkarten zeigen zusätzliche kurze Bedeutungen. Eigene Glossen sind
+redaktionell gekennzeichnet; weitere Bedeutungen stammen aus den vorhandenen
+OSHB-Lemmaglossen und sind sichtbar als biblisches Wörterbuch bezeichnet.
+Mehrere gleich geschriebene Wörterbuchlemmata werden nicht willkürlich auf
+eine Bedeutung reduziert. Fehlende Einträge erhalten keine erfundene
+Übersetzung. Diese Bedeutungen sind keine geprüfte Kontextübersetzung.
 
 Das Vergleichswerkzeug akzeptiert eine **private**, zuvor ausdrücklich
 zugeordnete Referenzdatei:

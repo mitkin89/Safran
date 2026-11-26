@@ -12,7 +12,9 @@ window.LibraryMishnahMorph=(()=>{
   function close(){closePopup();closeForms();}
   function ready(){return pending||(pending=Promise.all([
    load('mishnah-morph.js',()=>window.MishnahMorph),
-   load('mishnah-morph-data.js',()=>window.MISHNAH_MORPH_DATA)
+   load('mishnah-morph-data.js',()=>window.MISHNAH_MORPH_DATA),
+   load('mishnah-meanings.js',()=>window.MishnahMeanings),
+   load('oshb-lemmas.js',()=>window.OSHB_LEMMAS).catch(()=>null)
   ]).then(([,d])=>data=d).catch(err=>{pending=null;throw err;}));}
   // This is the same main-text projection as the corpus extractor: formatting
   // tags do not create word boundaries; editorial labels and notes do.
@@ -59,6 +61,12 @@ window.LibraryMishnahMorph=(()=>{
    return decoded?.segs?.map(s=>[s.pos,s.stem,s.tense,s.info].filter(Boolean).map(s=>t(s)).join(' · ')).join(' + ')||t('Keine vollständige Formenbestimmung.');
   }
   function headLemma(a){return api().headLemma?api().headLemma(a):String(a.lemma||'').split('/').at(-1);}
+  function meaning(a){
+   const result=window.MishnahMeanings?.lookup(a,window.OSHB_LEMMAS||{},window.I18N?.lang||'de');
+   if(!result)return `<p class="mhm-meaning muted">${esc(t('Noch keine Kurzbedeutung hinterlegt.'))}</p>`;
+   const source=result.source==='editorial'?'Redaktionelle Kurzbedeutung':'Biblisches Wörterbuch';
+   return `<p class="mhm-meaning"><span class="muted">${esc(t('Bedeutung'))}</span> ${esc(result.text)} <small class="muted">${esc(t(source))}</small></p>`;
+  }
   function grammar(analyses){
    const ids=[...new Set(analyses.flatMap(a=>a.rules||[]))],rules=ids.map(id=>data.rules?.[id]).filter(r=>r?.label);
    if(!rules.length)return '';
@@ -77,7 +85,7 @@ window.LibraryMishnahMorph=(()=>{
    const form=api().form(data,record.id)||{status:'unresolved',analyses:[],hints:[]},analyses=form.analyses||[],labels={candidate:'Maschineller Vorschlag',ambiguous:'Mehrere mögliche Bestimmungen',partial:'Teilweise bestimmbar',unresolved:'Keine Bestimmung'};
    anchor=word;word.classList.add('mhw-selected');word.setAttribute('aria-expanded','true');popup=document.createElement('div');popup.id='mishnahMorphPopup';popup.setAttribute('role','dialog');popup.setAttribute('aria-label',t('Wortbestimmung'));
    const unique=[...new Set(analyses.map(headLemma).filter(Boolean))];
-   popup.innerHTML=`<div class="mhm-top"><bdi class="mhm-word" dir="rtl" lang="he">${esc(record.word)}</bdi><button type="button" class="mhm-close" aria-label="${esc(t('Schließen'))}">✕</button></div><div class="mhm-badge">${form.status==='candidate'?'':esc(t('Maschinell'))+' · '}${esc(t(labels[form.status]||labels.unresolved))}</div>${analyses.length?analyses.map(a=>`<div class="mhm-analysis"><div><span class="muted">${esc(t('Grundform'))}</span> <bdi dir="rtl" lang="he">${esc(headLemma(a))}</bdi>${a.root?` <span class="muted">· ${esc(t('Wurzel'))}</span> <bdi dir="rtl" lang="he">${esc(a.root)}</bdi>`:''}</div><p>${esc(description(a))}</p>${a.note?`<p class="mhm-analysis-note muted">${esc(a.note)}</p>`:''}</div>`).join(''):`<p class="mhm-unknown">${esc(t('Für dieses Wort liegt keine zugeordnete Bestimmung vor.'))}</p>`}${(form.hints||[]).length?`<p class="mhm-hints">${form.hints.map(h=>esc(typeof h==='string'?h:h.label||h.text||'')).filter(Boolean).join(' · ')}</p>`:''}${grammar(analyses)}<div class="mhm-actions">${unique.length?unique.map((lemma,i)=>`<div><button type="button" data-mhm-dict="${i}">${esc(t('Wörterbuch'))}${unique.length>1?` · <bdi lang="he" dir="rtl">${esc(lemma)}</bdi>`:''}</button><button type="button" data-mhm-forms="${i}">${esc(t('Belegte Formen'))} (${api().forms(data,lemma).length})</button></div>`).join(''):`<button type="button" data-mhm-word>${esc(t('Im Wörterbuch nachschlagen'))}</button>`}</div>`;
+   popup.innerHTML=`<div class="mhm-top"><bdi class="mhm-word" dir="rtl" lang="he">${esc(record.word)}</bdi><button type="button" class="mhm-close" aria-label="${esc(t('Schließen'))}">✕</button></div><div class="mhm-badge">${form.status==='candidate'?'':esc(t('Maschinell'))+' · '}${esc(t(labels[form.status]||labels.unresolved))}</div>${analyses.length?analyses.map(a=>`<div class="mhm-analysis"><div><span class="muted">${esc(t('Grundform'))}</span> <bdi dir="rtl" lang="he">${esc(headLemma(a))}</bdi>${a.root?` <span class="muted">· ${esc(t('Wurzel'))}</span> <bdi dir="rtl" lang="he">${esc(a.root)}</bdi>`:''}</div>${meaning(a)}<p>${esc(description(a))}</p>${a.note?`<p class="mhm-analysis-note muted">${esc(a.note)}</p>`:''}</div>`).join(''):`<p class="mhm-unknown">${esc(t('Für dieses Wort liegt keine zugeordnete Bestimmung vor.'))}</p>`}${(form.hints||[]).length?`<p class="mhm-hints">${form.hints.map(h=>esc(typeof h==='string'?h:h.label||h.text||'')).filter(Boolean).join(' · ')}</p>`:''}${grammar(analyses)}<div class="mhm-actions">${unique.length?unique.map((lemma,i)=>`<div><button type="button" data-mhm-dict="${i}">${esc(t('Wörterbuch'))}${unique.length>1?` · <bdi lang="he" dir="rtl">${esc(lemma)}</bdi>`:''}</button><button type="button" data-mhm-forms="${i}">${esc(t('Belegte Formen'))} (${api().forms(data,lemma).length})</button></div>`).join(''):`<button type="button" data-mhm-word>${esc(t('Im Wörterbuch nachschlagen'))}</button>`}</div>`;
    popup.onclick=e=>{if(e.target.closest('.mhm-close')){closePopup();return;}const dict=e.target.closest('[data-mhm-dict]'),forms=e.target.closest('[data-mhm-forms]');if(dict){const q=unique[Number(dict.dataset.mhmDict)];close();openDict(q);return;}if(forms){showForms(unique[Number(forms.dataset.mhmForms)]);return;}if(e.target.closest('[data-mhm-word]')){close();openDict(record.word);}};
    document.body.append(popup);position();
   }

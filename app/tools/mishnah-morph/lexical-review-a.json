@@ -1242,12 +1242,14 @@
     "analyses": [
       {
         "lemma": "דקדק",
-        "morph": "HVpp3ms",
+        "morph": "HVlp3ms",
         "rules": [
-          "verb"
+          "verb",
+          "reduplicated"
         ],
         "method": "lexicon",
-        "root": "דקדק"
+        "root": "דקק",
+        "note": "Pilpel mit Reduplikation; die Flexion folgt dem Piʿel-Modell (Segal §195; Pérez Fernández 15.4G)."
       }
     ],
     "note": "Vierkonsonantiger Stamm; Pi'el-Flexion."

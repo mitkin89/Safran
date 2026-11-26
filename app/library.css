@@ -3080,6 +3080,8 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 
 #nwEditionPreview { white-space: pre-wrap; max-height: 35vh; overflow: auto; }
 .nw-dialog #nwEditionChoice { width: 100%; }
+.mhm-meaning { margin-block:6px; }
+.mhm-meaning small { display:block; font-size:.75em; margin-top:2px; }
 /* Candidate morphology, limited to the source-bound vocalized Kaufmann pilot. */
 .mhw { cursor:pointer; border-radius:3px; }
 .mhw:hover,.mhw:focus-visible { background:color-mix(in srgb,var(--accent) 15%,transparent); }
