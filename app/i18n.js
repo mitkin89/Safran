@@ -1537,6 +1537,8 @@
     'Kein Kaufmann-Referenztext für dieses Kapitel.': 'No Kaufmann reference text for this chapter.',
     'Für diesen Traktat sind keine geprüften Mischna–Tosefta-Verknüpfungen eingebunden.': 'No checked Mishnah–Tosefta links are included for this tractate.',
     'Für dieses Kapitel ist in keinem der eingebundenen Zeugen Text vorhanden.': 'No text is available in any included witness for this chapter.',
+    'Herkunftsangabe bei Krauss': 'Etymology as given by Krauss',
+    'Lateinisch / Griechisch': 'Latin / Greek',
     // ----- OSHB-Popup -----
     'Zusatz der Septuaginta (kein hebräisches Gegenstück)': 'Plus in the Septuagint (no Hebrew counterpart)', 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)': 'Minus in the Septuagint (Hebrew word without Greek counterpart)',
     'Doublette: ein hebräisches Wort ist doppelt übersetzt': 'Doublet: one Hebrew word is translated twice', 'Infinitivus absolutus im Hebräischen': 'Infinitive absolute in the Hebrew', 'Transliteriertes hebräisches Wort': 'Transliterated Hebrew word',

@@ -20,14 +20,14 @@
     }
   ],
   "summary": {
-    "groups": 3774,
-    "positions": 11051,
-    "withHit": 2076,
-    "withoutHit": 1698,
+    "groups": 3763,
+    "positions": 11036,
+    "withHit": 2068,
+    "withoutHit": 1695,
     "byDictionary": {
-      "Jastrow": 2040,
-      "Levy, Wörterbuch (Bd. 1–4)": 1843,
-      "Krauss, Griechische und lateinische Lehnwörter (Teil II)": 271
+      "Jastrow": 2032,
+      "Levy, Wörterbuch (Bd. 1–4)": 1837,
+      "Krauss, Griechische und lateinische Lehnwörter (Teil II)": 265
     }
   },
   "rows": [
@@ -43340,88 +43340,6 @@
       ]
     },
     {
-      "word": "לֶסְטִים",
-      "key": "לֶסְטִים",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 3,
-      "positions": [
-        {
-          "title": "Mishnah Peah",
-          "ref": "2:7",
-          "token": 5
-        },
-        {
-          "title": "Mishnah Peah",
-          "ref": "2:7",
-          "token": 16
-        },
-        {
-          "title": "Mishnah Peah",
-          "ref": "2:8",
-          "token": 2
-        }
-      ],
-      "queries": [
-        {
-          "text": "לֶסְטִים",
-          "key": "לסטים",
-          "kind": "surface",
-          "matches": [
-            {
-              "dictId": "e8d290b744f6",
-              "dict": "Levy, Wörterbuch (Bd. 1–4)",
-              "entry": 9384,
-              "head": "לסטים",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 3636,
-              "head": "לסטים",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 3663,
-              "head": "לסטים",
-              "match": "consonantal-head"
-            }
-          ]
-        },
-        {
-          "text": "סְטִים",
-          "key": "סטים",
-          "kind": "possible-proclitic-remainder",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 28822,
-              "head": "סְטֵים",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 28826,
-              "head": "סטים",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 4263,
-              "head": "סטים",
-              "match": "consonantal-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "word": "קִרְסְמוּהָ",
       "key": "קִרְסְמוּהָ",
       "status": "unresolved",
@@ -73144,28 +73062,6 @@
       ]
     },
     {
-      "word": "אִסָּרוֹת",
-      "key": "אִסָּרוֹת",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Peah",
-          "ref": "8:1",
-          "token": 40
-        }
-      ],
-      "queries": [
-        {
-          "text": "אִסָּרוֹת",
-          "key": "אסרות",
-          "kind": "surface",
-          "matches": []
-        }
-      ]
-    },
-    {
       "word": "בְשַׁעֲתָן",
       "key": "בְשַׁעֲתָן",
       "status": "unresolved",
@@ -76914,56 +76810,6 @@
               "dict": "Levy, Wörterbuch (Bd. 1–4)",
               "entry": 8846,
               "head": "כר",
-              "match": "consonantal-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "word": "בַּפּוֹנְדְּיוֹן",
-      "key": "בַּפּוֹנְדְּיוֹן",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Peah",
-          "ref": "8:7",
-          "token": 10
-        }
-      ],
-      "queries": [
-        {
-          "text": "בַּפּוֹנְדְּיוֹן",
-          "key": "בפונדיון",
-          "kind": "surface",
-          "matches": []
-        },
-        {
-          "text": "פוֹנְדְּיוֹן",
-          "key": "פונדיון",
-          "kind": "possible-proclitic-remainder",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 5028,
-              "head": "פּוּנְדְּיוֹן",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "e8d290b744f6",
-              "dict": "Levy, Wörterbuch (Bd. 1–4)",
-              "entry": 14408,
-              "head": "פונדיון",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 4732,
-              "head": "פונדיון",
               "match": "consonantal-head"
             }
           ]
@@ -84361,36 +84207,6 @@
       ]
     },
     {
-      "word": "אַכְסְרָה",
-      "key": "אַכְסְרָה",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Demai",
-          "ref": "2:5",
-          "token": 38
-        }
-      ],
-      "queries": [
-        {
-          "text": "אַכְסְרָה",
-          "key": "אכסרה",
-          "kind": "surface",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 9995,
-              "head": "אַכְסָרָה",
-              "match": "consonantal-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "word": "באכסרה",
       "key": "באכסרה",
       "status": "unresolved",
@@ -84457,34 +84273,6 @@
           "text": "מַאֲכִילִין",
           "key": "מאכילין",
           "kind": "surface",
-          "matches": []
-        }
-      ]
-    },
-    {
-      "word": "הָאַכְסַנְיָה",
-      "key": "הָאַכְסַנְיָה",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Demai",
-          "ref": "3:1",
-          "token": 7
-        }
-      ],
-      "queries": [
-        {
-          "text": "הָאַכְסַנְיָה",
-          "key": "האכסניה",
-          "kind": "surface",
-          "matches": []
-        },
-        {
-          "text": "אַכְסַנְיָה",
-          "key": "אכסניה",
-          "kind": "possible-proclitic-remainder",
           "matches": []
         }
       ]
@@ -128609,63 +128397,6 @@
       ]
     },
     {
-      "word": "בַּקָּרוֹן",
-      "key": "בַּקָּרוֹן",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Kilayim",
-          "ref": "8:3",
-          "token": 6
-        }
-      ],
-      "queries": [
-        {
-          "text": "בַּקָּרוֹן",
-          "key": "בקרון",
-          "kind": "surface",
-          "matches": []
-        },
-        {
-          "text": "קָרוֹן",
-          "key": "קרון",
-          "kind": "possible-proclitic-remainder",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 14931,
-              "head": "קָרוֹן",
-              "match": "pointed-head"
-            },
-            {
-              "dictId": "e8d290b744f6",
-              "dict": "Levy, Wörterbuch (Bd. 1–4)",
-              "entry": 16961,
-              "head": "קרון",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 5947,
-              "head": "קרון",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 5948,
-              "head": "קרון",
-              "match": "consonantal-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "word": "לִרְצוּעוֹת",
       "key": "לִרְצוּעוֹת",
       "status": "unresolved",
@@ -128745,68 +128476,6 @@
           "key": "צדדי",
           "kind": "possible-proclitic-remainder",
           "matches": []
-        }
-      ]
-    },
-    {
-      "word": "הַקָּרוֹן",
-      "key": "הַקָּרוֹן",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 2,
-      "positions": [
-        {
-          "title": "Mishnah Kilayim",
-          "ref": "8:4",
-          "token": 7
-        },
-        {
-          "title": "Mishnah Kilayim",
-          "ref": "8:4",
-          "token": 10
-        }
-      ],
-      "queries": [
-        {
-          "text": "הַקָּרוֹן",
-          "key": "הקרון",
-          "kind": "surface",
-          "matches": []
-        },
-        {
-          "text": "קָרוֹן",
-          "key": "קרון",
-          "kind": "possible-proclitic-remainder",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 14931,
-              "head": "קָרוֹן",
-              "match": "pointed-head"
-            },
-            {
-              "dictId": "e8d290b744f6",
-              "dict": "Levy, Wörterbuch (Bd. 1–4)",
-              "entry": 16961,
-              "head": "קרון",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 5947,
-              "head": "קרון",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 5948,
-              "head": "קרון",
-              "match": "consonantal-head"
-            }
-          ]
         }
       ]
     },
@@ -156458,56 +156127,6 @@
               "dict": "Jastrow",
               "entry": 15743,
               "head": "קְטַ׳",
-              "match": "consonantal-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "word": "בְּפוֹנְדְּיוֹן",
-      "key": "בְּפוֹנְדְּיוֹן",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Sheviit",
-          "ref": "8:4",
-          "token": 23
-        }
-      ],
-      "queries": [
-        {
-          "text": "בְּפוֹנְדְּיוֹן",
-          "key": "בפונדיון",
-          "kind": "surface",
-          "matches": []
-        },
-        {
-          "text": "פוֹנְדְּיוֹן",
-          "key": "פונדיון",
-          "kind": "possible-proclitic-remainder",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 5028,
-              "head": "פּוּנְדְּיוֹן",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "e8d290b744f6",
-              "dict": "Levy, Wörterbuch (Bd. 1–4)",
-              "entry": 14408,
-              "head": "פונדיון",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 4732,
-              "head": "פונדיון",
               "match": "consonantal-head"
             }
           ]
@@ -227704,36 +227323,6 @@
       ]
     },
     {
-      "word": "אַכְסָרָה",
-      "key": "אַכְסָרָה",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Maaser Sheni",
-          "ref": "4:2",
-          "token": 24
-        }
-      ],
-      "queries": [
-        {
-          "text": "אַכְסָרָה",
-          "key": "אכסרה",
-          "kind": "surface",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 9995,
-              "head": "אַכְסָרָה",
-              "match": "pointed-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "word": "יְדוּעִין",
       "key": "יְדוּעִין",
       "status": "unresolved",
@@ -259438,56 +259027,6 @@
       ]
     },
     {
-      "word": "וְאַנְדְּרוֹגִינוֹס",
-      "key": "וְאַנְדְּרוֹגִינוֹס",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 1,
-      "positions": [
-        {
-          "title": "Mishnah Bikkurim",
-          "ref": "1:5",
-          "token": 34
-        }
-      ],
-      "queries": [
-        {
-          "text": "וְאַנְדְּרוֹגִינוֹס",
-          "key": "ואנדרוגינוס",
-          "kind": "surface",
-          "matches": []
-        },
-        {
-          "text": "אַנְדְּרוֹגִינוֹס",
-          "key": "אנדרוגינוס",
-          "kind": "possible-proclitic-remainder",
-          "matches": [
-            {
-              "dictId": "d895bc1c727b",
-              "dict": "Jastrow",
-              "entry": 22598,
-              "head": "אַנְדְּרוֹגִינוֹס",
-              "match": "pointed-head"
-            },
-            {
-              "dictId": "e8d290b744f6",
-              "dict": "Levy, Wörterbuch (Bd. 1–4)",
-              "entry": 1246,
-              "head": "אנדרוגינוס",
-              "match": "consonantal-head"
-            },
-            {
-              "dictId": "d701423861c6",
-              "dict": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
-              "entry": 874,
-              "head": "אנדרוגינוס",
-              "match": "consonantal-head"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "word": "יְכוֹלִין",
       "key": "יְכוֹלִין",
       "status": "unresolved",
@@ -268802,33 +268341,6 @@
           "text": "קָדְשֵׁי",
           "key": "קדשי",
           "kind": "possible-proclitic-remainder",
-          "matches": []
-        }
-      ]
-    },
-    {
-      "word": "אַנְדְּרוֹגִינָס",
-      "key": "אַנְדְּרוֹגִינָס",
-      "status": "unresolved",
-      "analyses": [],
-      "count": 2,
-      "positions": [
-        {
-          "title": "Mishnah Bikkurim",
-          "ref": "4:1",
-          "token": 1
-        },
-        {
-          "title": "Mishnah Bikkurim",
-          "ref": "4:5",
-          "token": 43
-        }
-      ],
-      "queries": [
-        {
-          "text": "אַנְדְּרוֹגִינָס",
-          "key": "אנדרוגינס",
-          "kind": "surface",
           "matches": []
         }
       ]

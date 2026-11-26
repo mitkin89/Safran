@@ -8,7 +8,7 @@ module.exports=async({docs,js,waitFor,book})=>{
  await js(`{const c=[...document.querySelectorAll('#verList input')].find(c=>c.dataset.rel===${JSON.stringify(source.entry.rel)});if(!c.checked)c.click();}`);
  for(let c=0;c<D.sources[title].chapters.length;c++){
  await js(`document.querySelector('#rSection').value=${c};document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);
- await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mishnah-morph-ready]').length===${D.sources[title].chapters[c].length}`,'decoration '+title+' '+(c+1));
+ await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mci-vocalized][data-mishnah-morph-state=matched]').length===${D.sources[title].chapters[c].length}`,'decoration '+title+' '+(c+1));
  const got=await js("[...document.querySelectorAll('#rOut .cell[data-mishnah-morph]')].map(c=>[...c.querySelectorAll('.mhw')].map(w=>w.textContent))");
  assert.deepEqual(got.map(ws=>ws.map(M.normalize)),D.sources[title].chapters[c].map(unit=>unit.map(id=>D.forms[id].key)));total+=got.flat().length;chapters++;
  }
@@ -16,7 +16,7 @@ module.exports=async({docs,js,waitFor,book})=>{
  }
  // A reviewed loanword exposes real article links in the chosen dictionary.
  await book('Mishnah Peah');await js("document.querySelector('#rSection').value='2';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
- await waitFor("document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mishnah-morph-ready]').length===8",'Peah chapter three');
+ await waitFor("document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mci-vocalized][data-mishnah-morph-state=matched]').length===8",'Peah chapter three');
  await js("[...document.querySelectorAll('#rOut .mhw')].find(w=>w.textContent.normalize('NFD').replace(/[^א-ת]/g,'')==='פרוזבול').click()");
  assert(await js("document.querySelector('#mishnahMorphPopup .mhm-meaning').textContent.includes('Prosbul')"));
  assert(await js("document.querySelector('#mishnahMorphPopup .mhm-dictionaries').textContent.includes('Krauss')&&document.querySelector('#mishnahMorphPopup .mhm-dictionaries').textContent.includes('Levy')"));
@@ -28,7 +28,7 @@ module.exports=async({docs,js,waitFor,book})=>{
   await book(title);const rel=D.sources[title].rel;
   await waitFor(`[...document.querySelectorAll('#verList input')].some(e=>e.dataset.rel===${JSON.stringify(rel)})`,'context edition');
   await js(`document.querySelector('#rSection').value=${ch-1};document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);
-  await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mishnah-morph-ready]').length===${D.sources[title].chapters[ch-1].length}`,'context chapter');
+  await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mci-vocalized][data-mishnah-morph-state=matched]').length===${D.sources[title].chapters[ch-1].length}`,'context chapter');
   await js(`document.querySelector('#rOut .row[data-l="${m}"] .cell[data-mishnah-morph]').querySelectorAll('.mhw')[${token-1}].click()`);
   assert(await js(`document.querySelector('#mishnahMorphPopup .mhm-meaning')?.textContent.includes(${JSON.stringify(expected)})`),'contextual meaning '+title+' '+ch+':'+m);
  }
@@ -36,6 +36,13 @@ module.exports=async({docs,js,waitFor,book})=>{
  await meaningAt('Mishnah Terumot',4,7,5,'Beimischung');
  await meaningAt('Mishnah Kilayim',4,1,55,'Bearbeitungsraum');
  await meaningAt('Mishnah Terumot',8,1,83,'Priesterdienst');
+ // Each seed lexeme opens a word card with attributed etymology and article link.
+ const firstCards=require('../../tools/mishnah-morph/krauss-cards-1.json'),seenLexemes=new Set();
+ for(const r of firstCards){const a=r.analyses[0],lemma=M.headLemma(a);if(seenLexemes.has(lemma))continue;seenLexemes.add(lemma);
+  const [ch,m]=r.ref.split(':').map(Number);await meaningAt(r.title,ch,m,r.token,a.gloss.de);
+  assert(await js(`document.querySelector('#mishnahMorphPopup .mhm-loanword')?.textContent.includes(${JSON.stringify(a.loanword.form)})&&document.querySelector('#mishnahMorphPopup .mhm-loanword').textContent.includes('Krauss')`));
+  assert(await js("document.querySelector('#mishnahMorphPopup .mhm-dictionaries')?.textContent.includes('Krauss')"));
+ }
  await book('Mishnah Bikkurim');await waitFor("document.querySelector('#rOut .mhw')",'return from dictionary');
  // The independent Seder dataset also refuses changed source fingerprints.
  await js("window.zeraimSavedHash=window.MISHNAH_ZERAIM_DATA.sources['Mishnah Bikkurim'].textHash;window.MISHNAH_ZERAIM_DATA.sources['Mishnah Bikkurim'].textHash='changed';document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");

@@ -1,0 +1,1703 @@
+{
+  "Mishnah Berakhot": {
+    "file": "mishnah-vocalized/berakhot.js",
+    "rel": "own/Mishnah Berakhot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "eed07ea0084761b208e406d581924f88eca4379dbc6c720889a37a70ecb40337",
+    "chapters": 9,
+    "words": 2159,
+    "alignment": {
+      "P": {
+        "words": 2171,
+        "aligned": 2023,
+        "insertions": 28,
+        "open": 120,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2201,
+        "aligned": 1947,
+        "insertions": 27,
+        "open": 227,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Peah": {
+    "file": "mishnah-vocalized/mishnah-peah.js",
+    "rel": "own/Mishnah Peah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "chapters": 8,
+    "words": 2415,
+    "alignment": {
+      "P": {
+        "words": 2392,
+        "aligned": 2260,
+        "insertions": 35,
+        "open": 97,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2438,
+        "aligned": 2206,
+        "insertions": 42,
+        "open": 190,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Demai": {
+    "file": "mishnah-vocalized/mishnah-demai.js",
+    "rel": "own/Mishnah Demai/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "chapters": 7,
+    "words": 1863,
+    "alignment": {
+      "P": {
+        "words": 1878,
+        "aligned": 1774,
+        "insertions": 35,
+        "open": 69,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 0,
+        "aligned": 0,
+        "insertions": 0,
+        "open": 0,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Kilayim": {
+    "file": "mishnah-vocalized/mishnah-kilayim.js",
+    "rel": "own/Mishnah Kilayim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "chapters": 9,
+    "words": 2902,
+    "alignment": {
+      "P": {
+        "words": 2935,
+        "aligned": 2759,
+        "insertions": 79,
+        "open": 97,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2926,
+        "aligned": 2669,
+        "insertions": 29,
+        "open": 228,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Sheviit": {
+    "file": "mishnah-vocalized/mishnah-sheviit.js",
+    "rel": "own/Mishnah Sheviit/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "chapters": 10,
+    "words": 3154,
+    "alignment": {
+      "P": {
+        "words": 3228,
+        "aligned": 3040,
+        "insertions": 66,
+        "open": 122,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3184,
+        "aligned": 2927,
+        "insertions": 50,
+        "open": 207,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Terumot": {
+    "file": "mishnah-vocalized/mishnah-terumot.js",
+    "rel": "own/Mishnah Terumot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "chapters": 11,
+    "words": 3566,
+    "alignment": {
+      "P": {
+        "words": 3520,
+        "aligned": 3419,
+        "insertions": 11,
+        "open": 90,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3545,
+        "aligned": 3238,
+        "insertions": 25,
+        "open": 282,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Maasrot": {
+    "file": "mishnah-vocalized/mishnah-maasrot.js",
+    "rel": "own/Mishnah Maasrot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "chapters": 5,
+    "words": 1530,
+    "alignment": {
+      "P": {
+        "words": 1492,
+        "aligned": 1441,
+        "insertions": 3,
+        "open": 48,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1521,
+        "aligned": 1426,
+        "insertions": 12,
+        "open": 83,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Maaser Sheni": {
+    "file": "mishnah-vocalized/mishnah-maaser-sheni.js",
+    "rel": "own/Mishnah Maaser Sheni/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "chapters": 5,
+    "words": 2244,
+    "alignment": {
+      "P": {
+        "words": 2245,
+        "aligned": 2116,
+        "insertions": 9,
+        "open": 120,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2246,
+        "aligned": 2082,
+        "insertions": 29,
+        "open": 135,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Challah": {
+    "file": "mishnah-vocalized/mishnah-challah.js",
+    "rel": "own/Mishnah Challah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "chapters": 4,
+    "words": 1302,
+    "alignment": {
+      "P": {
+        "words": 1300,
+        "aligned": 1251,
+        "insertions": 8,
+        "open": 41,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1256,
+        "aligned": 1137,
+        "insertions": 12,
+        "open": 107,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Orlah": {
+    "file": "mishnah-vocalized/mishnah-orlah.js",
+    "rel": "own/Mishnah Orlah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "chapters": 3,
+    "words": 1002,
+    "alignment": {
+      "P": {
+        "words": 979,
+        "aligned": 939,
+        "insertions": 5,
+        "open": 35,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 986,
+        "aligned": 858,
+        "insertions": 10,
+        "open": 118,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Bikkurim": {
+    "file": "mishnah-vocalized/mishnah-bikkurim.js",
+    "rel": "own/Mishnah Bikkurim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "chapters": 4,
+    "words": 1310,
+    "alignment": {
+      "P": {
+        "words": 1306,
+        "aligned": 1193,
+        "insertions": 13,
+        "open": 100,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1114,
+        "aligned": 1019,
+        "insertions": 16,
+        "open": 79,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Shabbat": {
+    "file": "mishnah-vocalized/mishnah-shabbat.js",
+    "rel": "own/Mishnah Shabbat/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "54a331f8c968a17af7d4bd00e983cae618fe094386168bd9459ca831ebc59a3d",
+    "chapters": 24,
+    "words": 5342,
+    "alignment": {
+      "P": {
+        "words": 5552,
+        "aligned": 5067,
+        "insertions": 218,
+        "open": 267,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 5280,
+        "aligned": 4911,
+        "insertions": 18,
+        "open": 351,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Eruvin": {
+    "file": "mishnah-vocalized/mishnah-eruvin.js",
+    "rel": "own/Mishnah Eruvin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "80a93600d888b64e910bd07abc1500b6f35f2ae8cf2b4f24cbbdfe0f0d02b9a4",
+    "chapters": 10,
+    "words": 3784,
+    "alignment": {
+      "P": {
+        "words": 3831,
+        "aligned": 3636,
+        "insertions": 67,
+        "open": 128,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3746,
+        "aligned": 3532,
+        "insertions": 22,
+        "open": 192,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Pesachim": {
+    "file": "mishnah-vocalized/mishnah-pesachim.js",
+    "rel": "own/Mishnah Pesachim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "4624cf406da53674bf0bf16a7cd71ddc58a2389255b4751057a2f48491fcd883",
+    "chapters": 10,
+    "words": 3673,
+    "alignment": {
+      "P": {
+        "words": 4002,
+        "aligned": 3457,
+        "insertions": 336,
+        "open": 209,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3630,
+        "aligned": 3394,
+        "insertions": 29,
+        "open": 207,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Shekalim": {
+    "file": "mishnah-vocalized/mishnah-shekalim.js",
+    "rel": "own/Mishnah Shekalim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "f3a77ca9602920bf866d60edb9b1dceda9aead4621fbd98c7a2902fb5478a0df",
+    "chapters": 8,
+    "words": 2380,
+    "alignment": {
+      "P": {
+        "words": 2359,
+        "aligned": 2276,
+        "insertions": 8,
+        "open": 75,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2367,
+        "aligned": 2165,
+        "insertions": 14,
+        "open": 188,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Yoma": {
+    "file": "mishnah-vocalized/mishnah-yoma.js",
+    "rel": "own/Mishnah Yoma/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "3613e5417973d54795a82092444eb0192e69c4ce2966d696ed68b10a499b6b17",
+    "chapters": 8,
+    "words": 2722,
+    "alignment": {
+      "P": {
+        "words": 3092,
+        "aligned": 2583,
+        "insertions": 343,
+        "open": 166,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2835,
+        "aligned": 2484,
+        "insertions": 98,
+        "open": 253,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Sukkah": {
+    "file": "mishnah-vocalized/mishnah-sukkah.js",
+    "rel": "own/Mishnah Sukkah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "8e896ef61d8fbd0407557c4f73f63ef8b2864e24f9f70aa4320cb48ddf1cba3a",
+    "chapters": 5,
+    "words": 2092,
+    "alignment": {
+      "P": {
+        "words": 2689,
+        "aligned": 1964,
+        "insertions": 434,
+        "open": 291,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2079,
+        "aligned": 1857,
+        "insertions": 6,
+        "open": 216,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Beitzah": {
+    "file": "mishnah-vocalized/mishnah-beitzah.js",
+    "rel": "own/Mishnah Beitzah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "f728582245a5d0df7309f009c696848534e713d1544dfe42ab82c1b4ba2d08c7",
+    "chapters": 5,
+    "words": 1467,
+    "alignment": {
+      "P": {
+        "words": 1982,
+        "aligned": 1391,
+        "insertions": 438,
+        "open": 153,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1503,
+        "aligned": 1373,
+        "insertions": 53,
+        "open": 77,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Rosh Hashanah": {
+    "file": "mishnah-vocalized/mishnah-rosh-hashanah.js",
+    "rel": "own/Mishnah Rosh Hashanah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "ac2e97a1fce3bd704afa09c258625273905440c6e1a30bc8ffbc3051fe4e665b",
+    "chapters": 4,
+    "words": 1545,
+    "alignment": {
+      "P": {
+        "words": 1626,
+        "aligned": 1479,
+        "insertions": 75,
+        "open": 72,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1566,
+        "aligned": 1446,
+        "insertions": 21,
+        "open": 99,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Ta'anit": {
+    "file": "mishnah-vocalized/mishnah-ta-anit.js",
+    "rel": "own/Mishnah Ta'anit/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "46df0c78dd248fa5cd496608dbdcf12bbe3a7c9606a0b703189c508e3a084cfb",
+    "chapters": 4,
+    "words": 1782,
+    "alignment": {
+      "P": {
+        "words": 1707,
+        "aligned": 1629,
+        "insertions": 11,
+        "open": 67,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1723,
+        "aligned": 1608,
+        "insertions": 17,
+        "open": 98,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Megillah": {
+    "file": "mishnah-vocalized/mishnah-megillah.js",
+    "rel": "own/Mishnah Megillah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "d31524e85b81b5d38b008dbecc270b552515785fed6b910ffc7ba634a228e55a",
+    "chapters": 4,
+    "words": 1281,
+    "alignment": {
+      "P": {
+        "words": 1942,
+        "aligned": 1184,
+        "insertions": 545,
+        "open": 213,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1241,
+        "aligned": 1179,
+        "insertions": 4,
+        "open": 58,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Moed Katan": {
+    "file": "mishnah-vocalized/mishnah-moed-katan.js",
+    "rel": "own/Mishnah Moed Katan/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "d55b769dfe389bb9e537801fe67aa069265c8fbfdef3d1b1f0997b0994f82491",
+    "chapters": 3,
+    "words": 763,
+    "alignment": {
+      "P": {
+        "words": 775,
+        "aligned": 730,
+        "insertions": 5,
+        "open": 40,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 763,
+        "aligned": 714,
+        "insertions": 8,
+        "open": 41,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Chagigah": {
+    "file": "mishnah-vocalized/mishnah-chagigah.js",
+    "rel": "own/Mishnah Chagigah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "e36431242a699bd12cb6e522bbb81aa85f0a97542fc31894cc5649c8d944335d",
+    "chapters": 3,
+    "words": 869,
+    "alignment": {
+      "P": {
+        "words": 847,
+        "aligned": 823,
+        "insertions": 2,
+        "open": 22,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 837,
+        "aligned": 780,
+        "insertions": 5,
+        "open": 52,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Yevamot": {
+    "file": "mishnah-vocalized/mishnah-yevamot.js",
+    "rel": "own/Mishnah Yevamot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "3ce257c465d58be4964a1a1cee633420a61b9b80d7412466bdcf95808cc78890",
+    "chapters": 16,
+    "words": 6596,
+    "alignment": {
+      "P": {
+        "words": 6565,
+        "aligned": 6270,
+        "insertions": 35,
+        "open": 260,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 6524,
+        "aligned": 6028,
+        "insertions": 91,
+        "open": 405,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Ketubot": {
+    "file": "mishnah-vocalized/mishnah-ketubot.js",
+    "rel": "own/Mishnah Ketubot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "061bee75f4ba2efe3d0ca6b5a90b7f0e92b265343c0c6efac750caf3c87a350f",
+    "chapters": 13,
+    "words": 5040,
+    "alignment": {
+      "P": {
+        "words": 5009,
+        "aligned": 4813,
+        "insertions": 27,
+        "open": 169,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 5054,
+        "aligned": 4687,
+        "insertions": 65,
+        "open": 302,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Nedarim": {
+    "file": "mishnah-vocalized/mishnah-nedarim.js",
+    "rel": "own/Mishnah Nedarim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "b98015bf38cc8e711e77ab6e317fbaa8367de65d86c0eade4535b20e5a68552e",
+    "chapters": 11,
+    "words": 4439,
+    "alignment": {
+      "P": {
+        "words": 4350,
+        "aligned": 4048,
+        "insertions": 33,
+        "open": 269,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 4373,
+        "aligned": 4014,
+        "insertions": 61,
+        "open": 298,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Nazir": {
+    "file": "mishnah-vocalized/mishnah-nazir.js",
+    "rel": "own/Mishnah Nazir/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "372952dce43cd1a52998a4e3c6ff43522d3e6d7f6a39d02b2ea2165d4052ce7e",
+    "chapters": 9,
+    "words": 3191,
+    "alignment": {
+      "P": {
+        "words": 3120,
+        "aligned": 2937,
+        "insertions": 42,
+        "open": 141,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3153,
+        "aligned": 2907,
+        "insertions": 32,
+        "open": 214,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Sotah": {
+    "file": "mishnah-vocalized/mishnah-sotah.js",
+    "rel": "own/Mishnah Sotah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "96c2ca5f427a0e4cea57bce2ab5ab4d47b676bb82e8bf3d31c44ea72d75052b4",
+    "chapters": 9,
+    "words": 4056,
+    "alignment": {
+      "P": {
+        "words": 3954,
+        "aligned": 3318,
+        "insertions": 282,
+        "open": 354,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3895,
+        "aligned": 3491,
+        "insertions": 113,
+        "open": 291,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Gittin": {
+    "file": "mishnah-vocalized/mishnah-gittin.js",
+    "rel": "own/Mishnah Gittin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "a9c63682b8e378b021513908a754676727ed3f9425d94aca90f6a9f7a4282bf1",
+    "chapters": 9,
+    "words": 3758,
+    "alignment": {
+      "P": {
+        "words": 3980,
+        "aligned": 3525,
+        "insertions": 244,
+        "open": 211,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3679,
+        "aligned": 3476,
+        "insertions": 31,
+        "open": 172,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Kiddushin": {
+    "file": "mishnah-vocalized/mishnah-kiddushin.js",
+    "rel": "own/Mishnah Kiddushin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "786fc1731bbd2df9582877336885023cdb3b258c0d09bee1bb06e1e1fcd6d5a3",
+    "chapters": 4,
+    "words": 2417,
+    "alignment": {
+      "P": {
+        "words": 2254,
+        "aligned": 2026,
+        "insertions": 31,
+        "open": 197,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1511,
+        "aligned": 1409,
+        "insertions": 6,
+        "open": 96,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Bava Kamma": {
+    "file": "mishnah-vocalized/mishnah-bava-kamma.js",
+    "rel": "own/Mishnah Bava Kamma/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "ce6c3674a27f176245c07ced0d9e0606b48afe924994a11b894b2c2e515056ea",
+    "chapters": 10,
+    "words": 4260,
+    "alignment": {
+      "P": {
+        "words": 4044,
+        "aligned": 3839,
+        "insertions": 27,
+        "open": 178,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 4191,
+        "aligned": 3868,
+        "insertions": 46,
+        "open": 277,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Bava Metzia": {
+    "file": "mishnah-vocalized/mishnah-bava-metzia.js",
+    "rel": "own/Mishnah Bava Metzia/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "72485921f9868a3a4bc6c94d45b2abeed557d8d4222d967d96b94b4fcc737110",
+    "chapters": 10,
+    "words": 4800,
+    "alignment": {
+      "P": {
+        "words": 4617,
+        "aligned": 4324,
+        "insertions": 35,
+        "open": 258,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 4822,
+        "aligned": 4433,
+        "insertions": 107,
+        "open": 282,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Bava Batra": {
+    "file": "mishnah-vocalized/mishnah-bava-batra.js",
+    "rel": "own/Mishnah Bava Batra/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "94e8a353b94bb8ba7ed19d8dba1bd260554389b85a634476ac4ee35ad8aa01b0",
+    "chapters": 10,
+    "words": 4718,
+    "alignment": {
+      "P": {
+        "words": 4653,
+        "aligned": 4485,
+        "insertions": 33,
+        "open": 135,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 4625,
+        "aligned": 4354,
+        "insertions": 32,
+        "open": 239,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Sanhedrin": {
+    "file": "mishnah-vocalized/mishnah-sanhedrin.js",
+    "rel": "own/Mishnah Sanhedrin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "51a5dc89e0fbc93b99560abfeda26a49f14fcde79aa6cb4ef868ea3df1b885a2",
+    "chapters": 11,
+    "words": 5073,
+    "alignment": {
+      "P": {
+        "words": 5056,
+        "aligned": 4780,
+        "insertions": 66,
+        "open": 210,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 4994,
+        "aligned": 4516,
+        "insertions": 51,
+        "open": 427,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Makkot": {
+    "file": "mishnah-vocalized/mishnah-makkot.js",
+    "rel": "own/Mishnah Makkot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "6620f529bf7840c8057832fbaedf1e028001b2dd733b4e9a0798f44ae4cd6968",
+    "chapters": 3,
+    "words": 2108,
+    "alignment": {
+      "P": {
+        "words": 2025,
+        "aligned": 1943,
+        "insertions": 6,
+        "open": 76,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1989,
+        "aligned": 1801,
+        "insertions": 11,
+        "open": 177,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Shevuot": {
+    "file": "mishnah-vocalized/mishnah-shevuot.js",
+    "rel": "own/Mishnah Shevuot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "4eef1dbc41e6e536fdb288ef9b5214f4e3e4b0876cbb24f1e6117af6298653f2",
+    "chapters": 8,
+    "words": 3379,
+    "alignment": {
+      "P": {
+        "words": 3360,
+        "aligned": 3124,
+        "insertions": 26,
+        "open": 210,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3330,
+        "aligned": 3026,
+        "insertions": 21,
+        "open": 283,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Eduyot": {
+    "file": "mishnah-vocalized/mishnah-eduyot.js",
+    "rel": "own/Mishnah Eduyot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "1e68c4502870cecdc0ad38a70f9180c2b98634db780ba0785ea7fac01bfc915e",
+    "chapters": 8,
+    "words": 3826,
+    "alignment": {
+      "P": {
+        "words": 3759,
+        "aligned": 3613,
+        "insertions": 14,
+        "open": 132,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3732,
+        "aligned": 3369,
+        "insertions": 22,
+        "open": 341,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Avodah Zarah": {
+    "file": "mishnah-vocalized/mishnah-avodah-zarah.js",
+    "rel": "own/Mishnah Avodah Zarah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "0430f02436c5edb7409395b2e234c425609491e07f6e8dba21021388fc4650b3",
+    "chapters": 5,
+    "words": 2266,
+    "alignment": {
+      "P": {
+        "words": 2240,
+        "aligned": 2073,
+        "insertions": 43,
+        "open": 124,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2239,
+        "aligned": 1967,
+        "insertions": 18,
+        "open": 254,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Pirkei Avot": {
+    "file": "mishnah-vocalized/pirkei-avot.js",
+    "rel": "own/Pirkei Avot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "64ee3384431fcb1be00bcab50eabe2084f097bfd64228a2034d8f2f8795c2edd",
+    "chapters": 6,
+    "words": 4449,
+    "alignment": {
+      "P": {
+        "words": 3424,
+        "aligned": 3117,
+        "insertions": 99,
+        "open": 208,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3332,
+        "aligned": 2972,
+        "insertions": 49,
+        "open": 311,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Horayot": {
+    "file": "mishnah-vocalized/mishnah-horayot.js",
+    "rel": "own/Mishnah Horayot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "cd1bbf40f33a6f5e8b98b38423632ce3becf18ee8f1b1d15bca5a381443e5538",
+    "chapters": 3,
+    "words": 999,
+    "alignment": {
+      "P": {
+        "words": 992,
+        "aligned": 937,
+        "insertions": 12,
+        "open": 43,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 974,
+        "aligned": 890,
+        "insertions": 10,
+        "open": 74,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Zevachim": {
+    "file": "mishnah-vocalized/mishnah-zevachim.js",
+    "rel": "own/Mishnah Zevachim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "0ccca3ba2767dbc3938af8241ddc8d60adc405aaf026edb5c20539b951468fb3",
+    "chapters": 14,
+    "words": 4961,
+    "alignment": {
+      "P": {
+        "words": 4963,
+        "aligned": 4682,
+        "insertions": 70,
+        "open": 211,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 4886,
+        "aligned": 4487,
+        "insertions": 31,
+        "open": 368,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Menachot": {
+    "file": "mishnah-vocalized/mishnah-menachot.js",
+    "rel": "own/Mishnah Menachot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "eb75dac243e8dc350ffe90411a030a73b6982171ccb5cfb925de2eb33aaf8db4",
+    "chapters": 13,
+    "words": 5230,
+    "alignment": {
+      "P": {
+        "words": 5197,
+        "aligned": 4897,
+        "insertions": 44,
+        "open": 256,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 5232,
+        "aligned": 4627,
+        "insertions": 51,
+        "open": 554,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Chullin": {
+    "file": "mishnah-vocalized/mishnah-chullin.js",
+    "rel": "own/Mishnah Chullin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "c0a9150e6ff2ce1796864c5132f69aaff3850c5a9968e4a4622741fc1e86ce92",
+    "chapters": 12,
+    "words": 3749,
+    "alignment": {
+      "P": {
+        "words": 3709,
+        "aligned": 3485,
+        "insertions": 41,
+        "open": 183,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3700,
+        "aligned": 3398,
+        "insertions": 27,
+        "open": 275,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Bekhorot": {
+    "file": "mishnah-vocalized/mishnah-bekhorot.js",
+    "rel": "own/Mishnah Bekhorot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "be16113ca67ed8d30766d29ed819c6bc0395e2b77b04b92b541151707ada1678",
+    "chapters": 9,
+    "words": 3704,
+    "alignment": {
+      "P": {
+        "words": 3323,
+        "aligned": 3142,
+        "insertions": 34,
+        "open": 147,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3669,
+        "aligned": 3309,
+        "insertions": 33,
+        "open": 327,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Arakhin": {
+    "file": "mishnah-vocalized/mishnah-arakhin.js",
+    "rel": "own/Mishnah Arakhin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "338838d82b7881d1b28adcaf93e4619a6b4f546dd6a8368532652759e42dbf38",
+    "chapters": 9,
+    "words": 2576,
+    "alignment": {
+      "P": {
+        "words": 2542,
+        "aligned": 2433,
+        "insertions": 20,
+        "open": 89,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2528,
+        "aligned": 2285,
+        "insertions": 13,
+        "open": 230,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Temurah": {
+    "file": "mishnah-vocalized/mishnah-temurah.js",
+    "rel": "own/Mishnah Temurah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "1c031cf278aa14ee774c841b03142f8fd3fdc7bbf470f2c75c8c53db4b56154d",
+    "chapters": 7,
+    "words": 1851,
+    "alignment": {
+      "P": {
+        "words": 1820,
+        "aligned": 1724,
+        "insertions": 9,
+        "open": 87,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1889,
+        "aligned": 1617,
+        "insertions": 43,
+        "open": 229,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Keritot": {
+    "file": "mishnah-vocalized/mishnah-keritot.js",
+    "rel": "own/Mishnah Keritot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "b74e395f7506c7e0ec06ea0bf4809b4c91fe3f4239096b5743b9a47f53005804",
+    "chapters": 6,
+    "words": 2782,
+    "alignment": {
+      "P": {
+        "words": 2732,
+        "aligned": 2619,
+        "insertions": 14,
+        "open": 99,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2737,
+        "aligned": 2518,
+        "insertions": 14,
+        "open": 205,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Meilah": {
+    "file": "mishnah-vocalized/mishnah-meilah.js",
+    "rel": "own/Mishnah Meilah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "342d13f3d97db6f7ad8edcdc7be2e4b8920893c7ef46c51e60c16df928880406",
+    "chapters": 6,
+    "words": 1757,
+    "alignment": {
+      "P": {
+        "words": 1761,
+        "aligned": 1700,
+        "insertions": 19,
+        "open": 42,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1741,
+        "aligned": 1605,
+        "insertions": 14,
+        "open": 122,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Tamid": {
+    "file": "mishnah-vocalized/mishnah-tamid.js",
+    "rel": "own/Mishnah Tamid/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "974fc299eb75dbce929b7990985e9dd90eff66da0f59236cf8beb869be0dcb7b",
+    "chapters": 7,
+    "words": 2134,
+    "alignment": {
+      "P": {
+        "words": 2072,
+        "aligned": 1966,
+        "insertions": 13,
+        "open": 93,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2157,
+        "aligned": 1898,
+        "insertions": 62,
+        "open": 197,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Middot": {
+    "file": "mishnah-vocalized/mishnah-middot.js",
+    "rel": "own/Mishnah Middot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "99ad33cd8ba8b50bf28deaa494ee8ff204df51f3bf5fb127dc7b9883c23edd81",
+    "chapters": 5,
+    "words": 2270,
+    "alignment": {
+      "P": {
+        "words": 2261,
+        "aligned": 2157,
+        "insertions": 16,
+        "open": 88,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2249,
+        "aligned": 1923,
+        "insertions": 20,
+        "open": 306,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Kinnim": {
+    "file": "mishnah-vocalized/mishnah-kinnim.js",
+    "rel": "own/Mishnah Kinnim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "b3cfc2e748b1e7b711f752a45c8a87df38b429ba2c3d5b30f98724e3c30795c1",
+    "chapters": 3,
+    "words": 912,
+    "alignment": {
+      "P": {
+        "words": 916,
+        "aligned": 886,
+        "insertions": 7,
+        "open": 23,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 950,
+        "aligned": 861,
+        "insertions": 6,
+        "open": 83,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Kelim": {
+    "file": "mishnah-vocalized/mishnah-kelim.js",
+    "rel": "own/Mishnah Kelim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "2d25e1c658fcd0f203e1ec8df394348a8add9669e82b1cbab86e30c4b7180866",
+    "chapters": 30,
+    "words": 9792,
+    "alignment": {
+      "P": {
+        "words": 9854,
+        "aligned": 9277,
+        "insertions": 140,
+        "open": 437,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 10038,
+        "aligned": 8508,
+        "insertions": 67,
+        "open": 1463,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Oholot": {
+    "file": "mishnah-vocalized/mishnah-oholot.js",
+    "rel": "own/Mishnah Oholot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "96a31b99de5686a931059ce317a27dc7640c7aa7ad7d0d5fa4659d97d30dd4ff",
+    "chapters": 18,
+    "words": 6032,
+    "alignment": {
+      "P": {
+        "words": 6055,
+        "aligned": 5774,
+        "insertions": 65,
+        "open": 216,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 6023,
+        "aligned": 5560,
+        "insertions": 58,
+        "open": 405,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Negaim": {
+    "file": "mishnah-vocalized/mishnah-negaim.js",
+    "rel": "own/Mishnah Negaim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "016d3fe6115a204628d117edb1f19cad2cc14cb8fadc73f614a00f9fe6844e3a",
+    "chapters": 14,
+    "words": 5449,
+    "alignment": {
+      "P": {
+        "words": 5382,
+        "aligned": 5140,
+        "insertions": 34,
+        "open": 208,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 5326,
+        "aligned": 4779,
+        "insertions": 32,
+        "open": 515,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Parah": {
+    "file": "mishnah-vocalized/mishnah-parah.js",
+    "rel": "own/Mishnah Parah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "b45d2d001450eb9227e955af31ff84821ca211f958268a5f906f2c493c357bfd",
+    "chapters": 12,
+    "words": 3815,
+    "alignment": {
+      "P": {
+        "words": 3777,
+        "aligned": 3671,
+        "insertions": 16,
+        "open": 90,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3820,
+        "aligned": 3445,
+        "insertions": 15,
+        "open": 360,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Tahorot": {
+    "file": "mishnah-vocalized/mishnah-tahorot.js",
+    "rel": "own/Mishnah Tahorot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "19d4ebe3589b6fc31c60db3874495dac2af405c2afa3054378fd6fb874642af2",
+    "chapters": 10,
+    "words": 3745,
+    "alignment": {
+      "P": {
+        "words": 3711,
+        "aligned": 3548,
+        "insertions": 29,
+        "open": 134,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3754,
+        "aligned": 3520,
+        "insertions": 34,
+        "open": 200,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Mikvaot": {
+    "file": "mishnah-vocalized/mishnah-mikvaot.js",
+    "rel": "own/Mishnah Mikvaot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "b6ec123d4936187d718970678219145671e4d284a97237bda54747bae60a0163",
+    "chapters": 10,
+    "words": 3132,
+    "alignment": {
+      "P": {
+        "words": 3094,
+        "aligned": 2954,
+        "insertions": 35,
+        "open": 105,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3156,
+        "aligned": 2765,
+        "insertions": 82,
+        "open": 309,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Niddah": {
+    "file": "mishnah-vocalized/mishnah-niddah.js",
+    "rel": "own/Mishnah Niddah/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "3f0e2dea643d4c469d6428b03cfe6069a87f2e8799e2d0f93bf1130b4bb3ec48",
+    "chapters": 10,
+    "words": 3075,
+    "alignment": {
+      "P": {
+        "words": 3052,
+        "aligned": 2898,
+        "insertions": 31,
+        "open": 123,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 3046,
+        "aligned": 2799,
+        "insertions": 16,
+        "open": 231,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Makhshirin": {
+    "file": "mishnah-vocalized/mishnah-makhshirin.js",
+    "rel": "own/Mishnah Makhshirin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "56b2e1cf7ecefa14b0b62abfa28dff7a28fd440f0e208d4eb9f64e93ab67b0c2",
+    "chapters": 6,
+    "words": 2118,
+    "alignment": {
+      "P": {
+        "words": 2152,
+        "aligned": 1988,
+        "insertions": 26,
+        "open": 138,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 2143,
+        "aligned": 1876,
+        "insertions": 17,
+        "open": 250,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Zavim": {
+    "file": "mishnah-vocalized/mishnah-zavim.js",
+    "rel": "own/Mishnah Zavim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "79054702b3d50911a20a74e415a6e8a9c3fd1b97cb7062e142f7fb6947aeb80c",
+    "chapters": 5,
+    "words": 1558,
+    "alignment": {
+      "P": {
+        "words": 1554,
+        "aligned": 1439,
+        "insertions": 21,
+        "open": 94,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1541,
+        "aligned": 1363,
+        "insertions": 14,
+        "open": 164,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Tevul Yom": {
+    "file": "mishnah-vocalized/mishnah-tevul-yom.js",
+    "rel": "own/Mishnah Tevul Yom/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "6cf4544259499cf2fcad7d745baa8e3dee30f131bb0ed662a7233ce44d3ddfb5",
+    "chapters": 4,
+    "words": 1087,
+    "alignment": {
+      "P": {
+        "words": 1085,
+        "aligned": 1027,
+        "insertions": 8,
+        "open": 50,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1090,
+        "aligned": 929,
+        "insertions": 13,
+        "open": 148,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Yadayim": {
+    "file": "mishnah-vocalized/mishnah-yadayim.js",
+    "rel": "own/Mishnah Yadayim/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "7d684d08fe8b4e0d8231d542dde6a9d5d8407fc34e190929ee5be08a2b15d822",
+    "chapters": 4,
+    "words": 1581,
+    "alignment": {
+      "P": {
+        "words": 1579,
+        "aligned": 1359,
+        "insertions": 28,
+        "open": 192,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 1567,
+        "aligned": 1392,
+        "insertions": 20,
+        "open": 155,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  },
+  "Mishnah Oktzin": {
+    "file": "mishnah-vocalized/mishnah-oktzin.js",
+    "rel": "own/Mishnah Oktzin/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "textHash": "69fe112ba13adf8caa4a1c9b0f48034641d30edb7170482b049ddf8e221177de",
+    "chapters": 3,
+    "words": 1009,
+    "alignment": {
+      "P": {
+        "words": 993,
+        "aligned": 712,
+        "insertions": 14,
+        "open": 267,
+        "reviewed": 0
+      },
+      "C": {
+        "words": 973,
+        "aligned": 821,
+        "insertions": 12,
+        "open": 140,
+        "reviewed": 0
+      }
+    },
+    "outsideReadingChapters": {
+      "P": [],
+      "C": []
+    }
+  }
+}

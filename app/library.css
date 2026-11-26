@@ -2144,6 +2144,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .mci-labels{flex:0 0 auto}.mci-columns{display:flex;flex-wrap:wrap;gap:.5em 1em;flex:1;min-width:0;align-items:flex-start}
 .mci-column{display:grid;max-width:100%;border-bottom:1px solid var(--border,#444)}
 .mci-cell{min-height:2.2em;line-height:2.2em;white-space:normal;text-align:center}
+.mci-base-word{font-family:var(--he-font,'SBL Hebrew',serif);font-size:1.15em}
 .mci-word{font:inherit;font-family:var(--he-font,'SBL Hebrew',serif);font-size:1.15em;color:inherit;border:0;background:none;padding:0 .08em;cursor:pointer;line-height:inherit}
 .mci-word.mt-diff{color:var(--diff-color,#ff5555)}.mci-word.muted{color:var(--muted,#999)}
 .mci-word:hover,.mci-word:focus-visible{outline:1px solid var(--accent,#78aaff);border-radius:3px}

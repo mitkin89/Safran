@@ -165,7 +165,13 @@ function create(host){
     syncWitness();
     if(c?.isMishnah){
       body.innerHTML='<p class="muted">'+esc('Apparat wird geladen …')+'</p>';
-      try{await mishnah.load(c.book);if(token!==generation||panel.hidden)return;const refs=whole?mishnah.refs(c.chapter):[c.chapter+':'+c.row];body.innerHTML=mishnah.render(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])],$('#tcMishnahView').value);markCurrent(c);host.refreshFind?.();}
+      try{
+        const mode=$('#tcMishnahView').value,v=mode==='interlinear'?await mishnah.loadVocalized(c.book):null;
+        if(!v)await mishnah.load(c.book);if(token!==generation||panel.hidden)return;
+        const refs=whole?(v?Object.keys(v.base).filter(r=>r.startsWith(c.chapter+':')):mishnah.refs(c.chapter)):[c.chapter+':'+c.row];
+        $('#tcPlace').textContent=(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(v?'Vokalisierte Kaufmann-Lesefassung':'Digital-Mishnah-Zählung');
+        body.innerHTML=(v?mishnah.renderVocalized:mishnah.render)(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])],mode);markCurrent(c);host.refreshFind?.();
+      }
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }

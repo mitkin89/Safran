@@ -3,7 +3,10 @@
 Die Wortkarten sind für alle elf Traktate von Seder Seraim in der ausdrücklich
 benannten, vokalisierten Be’eri-Ausgabe nach Kaufmann A50 verfügbar.
 `zeraim-context-review-1.md` dokumentiert den anschließenden Satzkontextdurchgang
-mit 262 beleggebundenen Entscheidungen und den aktuellen Gesamtzahlen.
+mit 262 beleggebundenen Entscheidungen und den damaligen Gesamtzahlen.
+[`krauss-cards-1.md`](krauss-cards-1.md) dokumentiert den ersten ergänzenden
+Satz von acht Krauss-Lemmata an 16 konkreten Textstellen mit Kurzbedeutungen,
+Artikelverweisen und ausdrücklich Krauss zugeschriebenen Herkunftsangaben.
 `zeraim-dictionary-review.md` dokumentiert den systematischen Stichwortabgleich
 mit Jastrow, Levy und Krauss sowie die redaktionellen Einzelentscheidungen.
 `zeraim-review.md` dokumentiert Abdeckung und Grenzen des neuen Kandidatenbestands;

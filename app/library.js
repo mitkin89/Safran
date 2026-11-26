@@ -964,6 +964,7 @@
   }
   const mishnahReaderUI=window.LibraryMishnahReader.create({
     $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
+    refreshMorph:()=>mishnahMorphUI.refresh(),
     remember:()=>rememberKinds(),reload:async expected=>{if(view===expected)await loadView();},
   });
   const interlinearUI = window.LibraryInterlinear.create({

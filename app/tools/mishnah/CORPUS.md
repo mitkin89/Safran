@@ -1,5 +1,9 @@
 # Digital Mishnah: Interlinear für alle 63 Standardtraktate
 
+Die Hauptansicht verwendet inzwischen unsere vokalisierte Kaufmann-Lesefassung
+als Basis. Der direkte neue Abgleich ist in [VOCALIZED.md](VOCALIZED.md) dokumentiert.
+Die folgenden Angaben beschreiben den weiterhin erhaltenen diplomatischen Vergleich.
+
 Stand: 26. November 2026. Der bestehende Berakhot-Prüfstand bleibt erhalten;
 die übrigen 62 Traktate sind mit demselben konservativen Vergleichsverfahren
 hinzugekommen. Es handelt sich um einen **maschinellen Handschriftenvergleich,

@@ -2,9 +2,12 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 module.exports=async({docs,win,js,waitFor,book})=>{
  const root=path.resolve(__dirname,'../..'),manifest=require(path.join(root,'bundled/manifest.json')),entry=manifest.items.find(e=>e.title==='Mishnah Berakhot'&&e.kind==='de'),doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));docs.set(entry.rel,{...doc,entry:{...entry,own:false,bytes:10000}});
+ const vocalizedEntry=manifest.items.find(e=>e.title==='Mishnah Berakhot'&&e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"),vocalizedDoc=JSON.parse(fs.readFileSync(path.join(root,'bundled',vocalizedEntry.rel)));docs.set(vocalizedEntry.rel,{...vocalizedDoc,entry:{...vocalizedEntry,own:false,bytes:10000},textHash:require('../../tools/mishnah-morph/build.cjs').hash(vocalizedDoc.text)});
  await win.reload();await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Mishnah Berakhot'))",'Mischna verfügbar');await book('Mishnah Berakhot');
  await waitFor("document.querySelector('#rTitle').textContent.includes('Mishnah Berakhot')&&!document.querySelector('#tcBtn').hidden",'Mischna-Apparat verfügbar');
  await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .txt')",'Mischna-Lesetext geladen');
+ await js("{const c=document.querySelector('#verList input[data-rel=\"digital-mishnah/berakhot/K\"]');if(!c.checked)c.click();}");
+ await waitFor("!document.querySelector('#verList input[data-rel=\"digital-mishnah/berakhot/K\"]').checked&&document.querySelector('#rOut .mci-base-word')",'Gespeicherte diplomatische Auswahl auf vokalisierten Bezugstext umstellen');
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));if(document.querySelector('#textcritPanel').hidden)document.querySelector('#tcBtn').click();document.querySelector('#rOut .row[data-l=\"1\"] .txt').click()");
  await waitFor("document.querySelector('#tcBody .mci-column .mci-word')&&document.querySelector('#tcBody .mci-word.mt-diff')",'Mischna-Interlinear und rote Abweichungen');
  await js("document.querySelector('#tcBody [data-tc-mishnah=\"P|1:1\"][data-tc-mishnah-word=\"1:1|17\"]').click()");await waitFor("document.querySelector('#tcHover mark')?.textContent==='וחכמין'",'Wort im Quellenkontext markiert');
@@ -20,7 +23,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#tcBody .tc-mishnah-entry [data-tc-mishnah^=\"C|\"]')",'Cambridge-Filter');
  await js("document.querySelector('#tcNext').click()");await waitFor("document.querySelector('#tcBody .tc-verse-summary')?.textContent.includes('1:2')",'Mischna-Navigation');
  await js("document.querySelector('#tcWhole').click()");await waitFor("document.querySelectorAll('#tcBody .tc-reader-verse').length===5",'Ganzes Mischna-Kapitel');
- await js("document.querySelector('#tcMishnahView').value='interlinear';document.querySelector('#tcMishnahView').dispatchEvent(new Event('change',{bubbles:true}))");await waitFor("document.querySelector('#tcBody .mci-column')",'Interlinear Kapitel');
+ await js("document.querySelector('#tcMishnahView').value='interlinear';document.querySelector('#tcMishnahView').dispatchEvent(new Event('change',{bubbles:true}))");await waitFor("document.querySelector('#tcBody .mci-base-word')",'Vokalisierter Interlinear Kapitel');
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-mishnah-pilot.png',(await win.webContents.capturePage()).toPNG());
  // The same comparison also belongs to the main reader, independent of the apparatus.
  await js("document.querySelector('#tcClose').click()");
@@ -28,22 +31,26 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await waitFor("[...document.querySelectorAll('#rOut .mci-grid')].every(g=>g.querySelectorAll('.mci-label-set').length===new Set([...g.querySelector('.mci-columns').children].map(c=>Math.round(c.getBoundingClientRect().top))).size)",'Handschriftennamen an jedem Umbruch');
  assert(await js("document.querySelector('#rOut .mci-label-repeat')!==null"),'Lange Mischna hat wiederholte Handschriftennamen');
  assert(await js("document.querySelectorAll('#verList input[data-rel^=\"digital-mishnah/\"]').length===3"),'Alle drei Handschriften als Versionen verfügbar');
- assert(await js("['K','P','C'].every(sig=>{const words=[...document.querySelectorAll('#rOut .mci-word[data-tc-mishnah^=\"'+sig+'|\"]')].map(w=>w.dataset.tcMishnahWord);const expected=Object.entries(window.MISHNAH_TEXTCRIT.witnesses[sig].units).filter(([r])=>r.startsWith('1:')).reduce((n,[r,u])=>n+u.words.length,0);return words.length===expected&&new Set(words).size===expected})"),'Jedes Handschriftenwort einmal im Hauptfenster');
+ assert(await js("['P','C'].every(sig=>{const words=[...document.querySelectorAll('#rOut .mci-word[data-tc-mishnah^=\"'+sig+'|\"]')].map(w=>w.dataset.tcMishnahWord);const expected=Object.entries(window.MISHNAH_TEXTCRIT.witnesses[sig].units).filter(([r])=>r.startsWith('1:')).reduce((n,[r,u])=>n+u.words.length,0);return words.length===expected&&new Set(words).size===expected})"),'Jedes Handschriftenwort einmal im Hauptfenster');
  await js("document.querySelector('#rOut [data-tc-mishnah=\"P|1:1\"][data-tc-mishnah-word=\"1:1|17\"]').click()");
- await waitFor("document.querySelector('#mishnahReaderHover')?.textContent.includes('Reviewed alignment')&&!document.querySelector('#mishnahReaderHover .tc-mishnah-context')",'Quellenkarte im Hauptfenster');
+ await waitFor("document.querySelector('#mishnahReaderHover')?.textContent.includes('Parma')&&!document.querySelector('#mishnahReaderHover .tc-mishnah-context')",'Quellenkarte im Hauptfenster');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));document.querySelector('#ilBtn').click()");
  await waitFor("document.querySelector('#ilPop input[value=P]')&&document.querySelector('#ilPop input[value=C]')",'Handschriftenauswahl wie beim Tanach');
  await js("{const c=document.querySelector('#ilPop input[value=P]');c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("!document.querySelector('#rOut .mci-word[data-tc-mishnah^=\"P|\"]')&&document.querySelector('#rOut .mci-word[data-tc-mishnah^=\"C|\"]')",'Parma unabhängig ausgeblendet');
  await js("document.querySelector('#ilPop button[data-a=all]').click()");
  await waitFor("document.querySelector('#rOut .mci-word[data-tc-mishnah^=\"P|\"]')",'Alle Handschriften einblenden');
+ await js("document.querySelector('#ilPop button[data-a=none]').click()");
+ await waitFor("!document.querySelector('#rOut .mci-grid')&&document.querySelector('#rOut .mhw')",'Ohne Handschriften normaler Lesetext mit Wortkarten');
+ await js("document.querySelector('#ilPop button[data-a=all]').click()");
+ await waitFor("document.querySelector('#rOut .mci-base-word .mhw')&&document.querySelector('#rOut .mci-word[data-tc-mishnah^=\"P|\"]')",'Wortkarten nach erneutem Einblenden erhalten');
  await js("document.querySelector('#ilBtn').click();{const c=document.querySelector('#verList input[data-rel=\"digital-mishnah/berakhot/C\"]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("document.querySelector('#rOut .cell[data-rel=\"digital-mishnah/berakhot/C\"] .mci-source-ref')",'Cambridge separat mit eigener Zählung öffnen');
  assert(await js("document.querySelector('#rOut .cell[data-rel=\"digital-mishnah/berakhot/C\"]').textContent.includes('Manuscript numbering')"));
  await js("{const c=document.querySelector('#verList input[data-rel=\"digital-mishnah/berakhot/C\"]');c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#nextSec').click()");
- await waitFor("document.querySelector('#rOut .mci-word[data-tc-mishnah=\"K|2:1\"]')",'Handschriften folgen dem Kapitel');
- await win.reload();await waitFor("document.querySelector('#rOut .mci-word[data-tc-mishnah=\"K|2:1\"]')",'Handschriftenansicht nach Neustart wiederhergestellt');
- await js("document.querySelector('#prevSec').click()");await waitFor("document.querySelector('#rOut .mci-word[data-tc-mishnah=\"K|1:1\"]')",'Zurück zu Kapitel 1');
+ await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"2:1|\"]')",'Handschriften folgen dem Kapitel');
+ await win.reload();await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"2:1|\"]')",'Handschriftenansicht nach Neustart wiederhergestellt');
+ await js("document.querySelector('#prevSec').click()");await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"1:1|\"]')",'Zurück zu Kapitel 1');
  const previousSize=win.getSize();win.setSize(1100,800);
  await waitFor("[...document.querySelectorAll('#rOut .mci-grid')].every(g=>g.querySelectorAll('.mci-label-set').length===new Set([...g.querySelector('.mci-columns').children].map(c=>Math.round(c.getBoundingClientRect().top))).size)",'Handschriftennamen nach Fensterverkleinerung');
  win.setSize(...previousSize);

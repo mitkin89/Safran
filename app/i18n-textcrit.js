@@ -1,5 +1,9 @@
 // English UI terminology only; original edition readings and notes remain unchanged.
 (function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else window.I18N_TEXTCRIT_EN=d;})({
+  "Kaufmann · vokalisiert": "Kaufmann · vocalized",
+  "Vokalisierte Kaufmann-Lesefassung": "Vocalized Kaufmann reading edition",
+  "Bezugstext: vokalisierte Kaufmann-Lesefassung (Be’eri) · maschinelle Wort- und Gruppenzuordnung": "Base text: vocalized Kaufmann reading edition (Be’eri) · automated word and group alignment",
+  "Die verfügbaren Handschriften stehen wortweise unter der vokalisierten Kaufmann-Lesefassung. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.": "Available manuscripts appear word by word below the vocalized Kaufmann reading edition. Differences are red; unresolved alignments remain separate.",
   "⇣ Folgen": "⇣ Follow",
   "Apparatus": "Apparatus",
   "Apparatus-Einstellungen": "Apparatus settings",

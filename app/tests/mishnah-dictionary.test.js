@@ -32,3 +32,11 @@ test('new noun meanings do not overwrite verb or differently gendered homographs
  assert(gloss('סרק','HNcmsa').includes('Fruchtlosigkeit'));assert(gloss('סרק','HVqrmsa').includes('kämmen'));
  assert(gloss('לוף','HVqp3ms').includes('verbinden'));assert(/pflanze/i.test(gloss('לוף','HNcmsa')));
 });
+
+test('first Krauss cards preserve concrete source senses, gender and historical etymology attribution',()=>{
+ const cards=require('../tools/mishnah-morph/krauss-cards-1.json'),meanings=require('../mishnah-meanings');assert.equal(cards.length,16);assert.equal(new Set(cards.map(r=>M.headLemma(r.analyses[0]))).size,8);
+ for(const r of cards){const s=D.sources[r.title],[c,m]=r.ref.split(':').map(Number),f=D.forms[s.chapters[c-1][m-1][r.token-1]];assert.equal(s.textHash,r.sourceHash);assert.equal(f.key,M.normalize(r.word));assert.deepEqual(f.analyses,r.analyses);assert.equal(f.analyses[0].loanword.source,'Krauss');assert.equal(r.evidence[0].dictId,'d701423861c6');assert(meanings.lookup(f.analyses[0],{},'de').text);}
+ const get=word=>cards.find(r=>r.word===word),host=get('הָאַכְסַנְיָה');assert.equal(host.evidence[0].entry,687);assert(host.analyses[0].gloss.de.includes('Truppen'));assert(!E.forms[M.normalize(host.word)].some(h=>h.entry===686&&h.dictId==='d701423861c6'));
+ assert.equal(get('אִסָּרוֹת').analyses[0].morph,'HNcmpa');assert.equal(get('בַּקָּרוֹן').analyses[0].morph,'HRd/Ncfsa');
+ assert.equal(get('אַכְסָרָה').analyses[0].morph,'HD');assert.equal(get('אַכְסַדְרָה').analyses[0].morph,'HNcfsa');
+});

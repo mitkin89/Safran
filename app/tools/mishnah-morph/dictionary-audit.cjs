@@ -26,7 +26,7 @@ function build(){const D=require('../../mishnah-zeraim-data'),dicts=dictionaries
  const audit={version:1,scope:'Every unresolved/partial/ambiguous group in the current Seder Zeraim candidate corpus',method:'Dictionary head/alias lookup; candidates and possible proclitic remainders remain search targets, not confirmed analyses. No inferred POS or genus from a search hit.',dictionaries:dicts.map(({id,name,sha256})=>({id,name,sha256})),summary,rows};
  fs.writeFileSync(path.join(__dirname,'zeraim-dictionary-audit.json'),JSON.stringify(audit,null,2)+'\n');
  const forms={};for(const r of rows){const list=forms[r.key]||[];for(const q of r.queries)for(const h of q.matches){const hit={...h,query:q.text,queryKind:q.kind};if(!list.some(a=>a.dictId===h.dictId&&a.entry===h.entry&&a.query===q.text))list.push(hit);}forms[r.key]=list;}
- for(const r of [...require('./zeraim-dictionary-decisions.json'),...require('./zeraim-context-review-1.json')]){
+ for(const r of [...require('./zeraim-dictionary-decisions.json'),...require('./zeraim-context-review-1.json'),...require('./krauss-cards-1.json')]){
   const key=M.normalize(r.word),list=forms[key]||[];
   for(const e of r.evidence){const d=dicts.find(d=>d.id===e.dictId),head=d?.heads[e.entry]?.[0];if(!head)throw Error('Dictionary entry missing');
    if(!list.some(h=>h.dictId===e.dictId&&h.entry===e.entry))list.push({dictId:d.id,dict:d.name,entry:e.entry,head,query:r.word,queryKind:'reviewed-lexical-evidence',match:'reviewed-entry'});
