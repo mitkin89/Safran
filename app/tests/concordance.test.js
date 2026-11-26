@@ -279,3 +279,18 @@ test('lemma search excludes Bach and falsely labelled sources while word-form se
  const excluded = await C.search({dir:os.tmpdir(),entries:[{rel:'nonexistent-bach.json',title:'Bach',kind:'he',language:'Hebrew'}],params:{query:'מלאך',lemma:true}});
  assert.equal(excluded.total,0);assert.equal(excluded.excludedWithoutLemma,1);assert.equal(excluded.errors,0,'known unsupported editions are excluded before reading files');
 });
+
+test('unified family search resolves explicit root links from an entered lemma and keeps verse and occurrence counts separate', async t=>{
+ const w=(id,word)=>`<span class="w" data-l="${id}" data-m="HVqp3ms">${word}</span>`;
+ const find=await fixture(t,[{title:'Genesis',versionTitle:'Westminster fixture',text:[[
+  [w('7725','שָׁב'),w('7725','שָׁב'),w('4878','מְשׁוּבָה')].join(' '),w('8666','תְּשׁוּבָה')
+ ]]}]);
+ const lemma=await find({query:'שוב',lemma:true});
+ assert.equal(lemma.dist[0].o,2);assert.equal(lemma.dist[0].h,1);
+ const family=await find({query:'שוב',concordanceFamily:true});
+ assert.deepEqual(family.results.map(x=>x.matchedLemmaId),['7725','7725','4878','8666']);
+ assert.equal(family.dist[0].o,4);assert.equal(family.dist[0].h,2);
+ const derivative=await find({query:'משובה',concordanceFamily:true});
+ assert.equal(derivative.dist[0].o,4);
+ assert((await find({query:'לאקיים',concordanceFamily:true})).error);
+});

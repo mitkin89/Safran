@@ -5,6 +5,11 @@ module.exports=async({js,waitFor,win})=>{
  await waitFor("document.querySelector('#wpop .wcard')",'Wasser-Wortkarte');
  await js("document.querySelector('#wpop .wcard').click()");
  await waitFor("document.querySelector('#wcTr [data-src=Samaritan]')",'Wiedergaben geladen');
+ await waitFor("document.querySelector('#wcPsR')&&!document.querySelector('#wcPsR').hidden",'Eigener Abschnitt für Peschitta-Wiedergaben');
+ assert.equal(await js("[...document.querySelectorAll('#wcPsR .wcLxR')].reduce((n,r)=>n+Number(r.lastElementChild.textContent.replace(/[^0-9]/g,'')),0)"),535,'Peschitta-Abschnitt erhält alle Belege');
+ assert(await js("document.querySelector('#wcPsR .wcPsW small')"),'Unbestätigte Lemma-Zuordnungen sind gekennzeichnet');
+ await js("document.querySelector('#wcPsR [data-ps-group]').click()");
+ await waitFor("document.querySelector('#wcTr [data-src=Peshitta].on')&&document.querySelector('#wcTr .wcTrR.open')",'Peschitta-Balken öffnet Originalformen und Stellen');
  await js("document.querySelector('#wcTr [data-src=Samaritan]').click()");
  await waitFor("document.querySelector('#wcTr .wcTrSum').textContent.includes('1 Lemma')",'Samaritanische Grundform');
  assert.equal(await js("document.querySelectorAll('#wcTr .wcTrR').length"),1);

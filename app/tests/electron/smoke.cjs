@@ -44,6 +44,9 @@ if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_PESHITTA
 if(process.env.SAFRAN_SMOKE_MASORA==='1'){add('Psalms','he',/^Westminster/);add('Job','he',/^Westminster/);add('II Samuel','he',/^Westminster/);}
 if(process.env.SAFRAN_SMOKE_FIELD_SIGLA==='1')add('Ezekiel','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_PSAPP==='1'){add('Ezekiel','he',/^Westminster/);add('Ezekiel','other',/^ETCBC Peshitta/);}
+if(process.env.SAFRAN_SMOKE_VERSION_SESSION==='1'){
+ add('Genesis','de',/Philippson/);add('Genesis','other',/^Septuaginta \(CATSS\)/);add('Genesis','other',/^ETCBC Peshitta/);
+}
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -95,6 +98,19 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  const expectedTitles=require('../../library-works').groupEntries([...docs.values()].map(doc=>doc.entry)).length;
  await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_UNIFIED_SEARCH==='1'){
+  await require('./unified-search-flows.cjs')({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
+ if(process.env.SAFRAN_SMOKE_VERSION_SESSION==='1'){
+  await require('./version-session-flows.cjs')({js,waitFor,book,restart:async()=>{
+   await new Promise(resolve=>{win.once('closed',resolve);win.close();});
+   win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
+   await win.loadFile(path.join(root,'library.html'));
+   await waitFor("document.querySelector('#tree .lib-item')",'Sitzung nach Fensterschließen');
+  }});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1'){await require('./witness-renderings-flows.cjs')({win,js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){await require('./maccabees-alignment-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MACCABEES==='1'){await require('./maccabees-flows.cjs')({win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}

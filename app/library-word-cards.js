@@ -176,9 +176,6 @@ window.LibraryWordCards = (() => {
     const gloss = (sk, id = lemma) => { const g = ST && ST[id] && ST[id][sk]; return g ? { text: I18N.lang === 'de' ? g[0] : g[1], u: !!g[2] } : null; };
     body.innerHTML = window.Forms.render(mdl, { esc: host.esc, t: s => I18N.t(s), current: family && cur ? { ...cur, lemma } : cur, gloss, lemmaLabel: wcLemmaLabel });
     wcRender(token, cur);
-    info?.syntax?.then(context => {
-      if (!family && context && token === wcToken) card.prepend(host.syntaxSection(context));
-    });
     fmTrInit(token);
     p.scrollTop = 0;
     if (rest) fmRestBase(rest);
@@ -392,6 +389,7 @@ window.LibraryWordCards = (() => {
       <section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>
       <section class="wcSec" id="wcLxx" hidden></section>
       <section class="wcSec" id="wcTgR" hidden></section>
+      <section class="wcSec" id="wcPsR" hidden></section>
       <section class="wcSec" id="wcQum" hidden></section>
       <section class="wcSec" id="wcTg" hidden></section>
       <p class="fmNote">${host.esc(I18N.t(targum ? 'Belegte Wortformen und Bestimmungen aus dem ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 und Pseudo-Jonathan zum Pentateuch. Die Fassungen zählen getrennt; gleich geschriebene Lexeme bleiben getrennt.' : greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
@@ -412,7 +410,7 @@ window.LibraryWordCards = (() => {
     if (greek) wcHeb(token);
     else if (!targum) {
       wcTrans(token);
-      if (!family) { wcLxx(token); wcTgRen(token); wcQumran(token); wcTargum(token); }
+      if (!family) { wcLxx(token); wcTgRen(token); wcPeshittaRen(token); wcQumran(token); wcTargum(token); }
     }
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
@@ -946,6 +944,22 @@ window.LibraryWordCards = (() => {
       <p class="wcTgK">${TGN.map((t, i) => `<span><i class="t${i}"></i>${host.esc(t)} <small>${wcNum(ct[i])}</small></span>`).join('')}</p>
       <p class="muted wcLxN">${host.esc(I18N.t('Nach einer maschinellen Wort-für-Wort-Zuordnung der Targumim zum Westminster-Text (gleiche Wurzel, gleiche Bedeutung, feste Wiedergaben, Wortfolge); gezählt sind die aramäischen Lexeme ohne Vorsilben (ETCBC Targum Corpus, CC BY-NC 4.0). Klick auf ein Wort schlägt es im Wörterbuch nach.'))}</p>`;
   }
+  async function wcPeshittaRen(token) {
+    const card = fmCur, sources = await wcScopeSources(card);
+    if (token !== wcToken || card !== fmCur) return;
+    const D = sources.src.Peshitta, box = host.$('#wcPsR');
+    if (!D || !box) return;
+    const counts = new Map();
+    D.cells.forEach(c => counts.set(c.g, (counts.get(c.g) || 0) + c.n));
+    const rows = [...counts].map(([g, n]) => ({ g, n, ...D.labels[g] })).sort((a, b) => b.n - a.n);
+    if (!rows.length) return;
+    const max = rows[0].n, e = host.esc;
+    const row = x => `<div class="wcLxR"><span class="wcPsW"><button type="button" class="g" lang="syr" dir="rtl" data-ps-group="${x.g}">${e(x.forms[0])}</button>${x.type === 'form' ? `<small>${e(I18N.t('Wortform ohne sichere Lemma-Zuordnung'))}</small>` : x.type === 'phrase' ? `<small>${e(I18N.t('Wortgruppen'))}</small>` : ''}</span><span class="b"><i style="width:${(x.n / max * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`;
+    box.innerHTML = `<h4>${e(I18N.t('Wiedergabe in der Peschitta'))} <small>${e(I18N.t('{} Belege', wcNum(D.total)))}</small></h4>
+      <div class="wcLx wcPsX">${rows.slice(0, 10).map(row).join('')}</div>${rows.length > 10 ? `<details class="wcPsMore"><summary>${e(I18N.t('+ {} weitere', wcNum(rows.length - 10)))}</summary><div class="wcLx wcPsX">${rows.slice(10).map(row).join('')}</div></details>` : ''}
+      <p class="muted wcLxN">${e(I18N.t('Peschitta (ETCBC): belegte syrische Wortformen aus den Interlinear-Zuordnungen zum Westminster-Text.'))} ${e(I18N.t('Gruppiert nach belegten Lemmata; Formen ohne sichere Lemma-Zuordnung und Wortgruppen bleiben getrennt. Klick zeigt die Originalformen und Stellen.'))}</p>`;
+    box.hidden = false;
+  }
   // Qumran (nichtbiblische Rollen, Index qumran-lex.js): Vorkommen des Lemmas (nach Konsonanten) je Buch mit Sprung zur Zeile
   async function wcQumran(token) {
     const { lem } = fmCur;
@@ -1267,6 +1281,11 @@ window.LibraryWordCards = (() => {
     }
     if (e.target.closest('.wcAll')) { wcSearchAll(); return; }
     const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
+    const ps = e.target.closest('[data-ps-group]');
+    if (ps && wcTrState?.src.Peshitta) {
+      wcTrState.cur = 'Peshitta'; wcTrState.cmp = null; wcTrState.f = {}; wcTrState.open = ps.dataset.psGroup;
+      wcTrRender(); host.$('#wcTr').scrollIntoView({ block: 'start' }); return;
+    }
     const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { host.openDict(tq.dataset.q); return; }
     const same=e.target.closest('.wcSamePick');if(same){const S=wcTrLive();if(S){S.same=S.same===same.dataset.g?null:same.dataset.g;S.sameLimits={};wcTrRender();host.$('#wcTr .wcSame')?.scrollIntoView({block:'nearest'});}return;}
     if(e.target.closest('.wcSameClose')){if(wcTrState){wcTrState.same=null;wcTrRender();}return;}

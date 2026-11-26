@@ -16,3 +16,17 @@ test('first-available German option and interface language are respected',()=>{
  assert(B.select(reversed,[],{pvDe:'*'}).has('p'));
  assert.deepEqual([...B.select(versions,[],{},'en')],['w']);
 });
+
+test('exact remembered editions retain order and excluded languages instead of applying defaults',()=>{
+ const saved=B.snapshot(versions,new Set(['s','p','a']));
+ assert.deepEqual([...B.restore(versions,saved)],['s','p','a']);
+ assert.deepEqual([...B.restore(versions,['p','s'])],['p','s']);
+});
+test('moved files restore only by an unambiguous edition and language identity',()=>{
+ const saved=B.snapshot(versions,['p','s']);
+ const moved=versions.map(v=>({...v,rel:'new/'+v.rel}));
+ assert.deepEqual([...B.restore(moved,saved)],['new/p','new/s']);
+ assert.deepEqual([...B.restore(moved.filter(v=>v.kind!=='de'),saved)],['new/s']);
+ assert.deepEqual([...B.restore([...moved,{...moved.find(v=>v.rel==='new/p'),rel:'duplicate'}],saved)],['new/s']);
+ assert.deepEqual([...B.restore(versions,[null,{},4])],[]);
+});

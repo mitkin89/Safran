@@ -170,8 +170,15 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
   const empty = { results: [], stats: [], dist: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, concordance: true, coverage: { annotated: 0, surface: 0 }, hitsByBasis: { lemma: 0, surface: 0, root: 0 }, errors: 0 };
   if (!q || String(params.query).length > 100 || qt.length !== 1 || /[*?]/.test(params.query)) return { ...empty, error: 'Bitte ein einzelnes Wort ohne Platzhalter eingeben.' };
   const limit = Math.max(1, Math.min(5000, Number(params.limit) || 1000)), perFile = Math.max(1, Math.min(500, Number(params.perFile) || 25));
-  const roots = params.concordanceRoot ? require('./passage-stats-data').roots : null;
-  const family = roots?.[params.concordanceRoot];
+  const roots = params.concordanceRoot || params.concordanceFamily ? require('./passage-stats-data').roots : null;
+  let rootId = params.concordanceRoot;
+  if (params.concordanceFamily && !rootId) {
+    const candidates = Object.entries(roots).filter(([id, r]) => normalize(r.root) === q || normalize(data().OSHB_LEMMAS?.[id]?.[0]) === q);
+    const families = new Set(candidates.map(([, r]) => r.lang + ':' + r.id));
+    if (families.size > 1) return { ...empty, error: 'Mehrere Wortfamilien passen zur Eingabe. Bitte die gewünschte Wortfamilie in der Wortkarte auswählen.' };
+    rootId = candidates[0]?.[0];
+  }
+  const family = roots?.[rootId];
   if (roots && !family) return { ...empty, error: 'Keine Wurzelzuordnung für dieses Lemma.' };
   const exactLemma = family ? '' : params.concordanceLemma;
   const scan = family || exactLemma ? entries.filter(e => e.kind === 'he' && /^Westminster/.test(e.versionTitle || ''))
