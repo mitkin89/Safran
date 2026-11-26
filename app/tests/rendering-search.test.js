@@ -45,3 +45,18 @@ test('witness families preserve lexical identities even when displayed lemmas ar
  assert.equal(merged.grouped,true);assert.equal(merged.labels.length,2);assert.equal(merged.total,2);
  assert(merged.cells.every(c=>c.form==='ܡ̈ܝܐ'));
 });
+
+test('paradigm renderings count attested surface forms by morphology and verse, retaining repetitions',()=>{
+ const {surfaceIndex}=require('../rendering-search');
+ const aggregate=surfaceIndex([
+  {g:0,code:'perfect',refs:enc([1001,1001,1002]),targets:[[1,'εἶπα'],[3,'εἶπα'],[2,'εἶπον']]},
+  {g:0,code:'imperfect',refs:enc([1001]),targets:[[4,'λέγει']]},
+  {g:1,code:'perfect',refs:enc([1001]),form:'אמרית'},
+  {g:2,code:'perfect',refs:enc([1001])}
+ ]);
+ const entry=aggregate(new Set(['perfect']),new Set([1001]));
+ assert.equal(entry.n,3);
+ assert.deepEqual(entry.cores.map(x=>[x.t,x.c]),[['εἶπα',2],['אמרית',1]]);
+ assert.equal(aggregate(new Set(['perfect']),new Set([1002])).cores[0].t,'εἶπον');
+ assert.equal(aggregate(new Set(['absent']),null),null);
+});

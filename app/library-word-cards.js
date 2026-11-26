@@ -236,6 +236,10 @@ window.LibraryWordCards = (() => {
       const gs = [...new Set(tied.map(x => x.g))];
       l1 = `<i class="gf">${gs.slice(0, 2).map(g => `<bdi>${host.esc(lab(g))}</bdi>`).join(' / ')}${gs.length > 2 ? ' …' : ''}</i> <small>${host.esc(I18N.t('{} versch.', wcNum(E.k)))}</small>`;
       l2 = E.de ? tied.slice(0, 3).map(fmTrV).join(' · ') + (E.k > 3 ? ' …' : '') : '';
+      if (!E.de) {
+        l1 = tied.slice(0, 2).map(x => `${fmTrV(x)} ${pc(x.c)}`).join(' · ');
+        l2 = cs.slice(2, 4).map(x => `${fmTrV(x)} ${pc(x.c)}`).join(' · ') + (E.k > 4 ? ' …' : '');
+      }
     } else if (top.c / E.n < 0.4) { // schwache Mehrheit: Anteil dazu, die zweite Wiedergabe nur, wenn sie für sich steht
       const two = cs[1] && (!cs[2] || cs[1].c > cs[2].c);
       l1 = `${fmTrV(top)} ${pc(top.c)}` + (two ? ` · ${fmTrV(cs[1])} ${pc(cs[1].c)}` : ' …');
@@ -265,21 +269,12 @@ window.LibraryWordCards = (() => {
     const source = S.src[cur], forms = fmCur.mdl.forms, BK = S.IR?.books || [];
     const others = new Map();
     const otherFor = D => {
-      const byCode = new Map();
-      // Septuaginta/Targumim: Stellen der Wiedergaben, Vers-Nummer -> [[Gruppe, Bestimmung] …]
-      let atRef = null;
-      const refMap = () => { if (atRef) return atRef; atRef = new Map(); D.cells.forEach(c => { if (c.refs) unB36(c.refs).forEach(num => { (atRef.get(num) || atRef.set(num, []).get(num)).push([c.g, c.code]); }); }); return atRef; };
+      const aggregate = window.RenderingSearch.surfaceIndex(cur === 'Q' ? D.cells.map(c => ({ ...c, form: fmTrLab(D, c.g) })) : D.cells);
       const numOf = r => { const b = BK.indexOf(r.book); return b < 0 ? null : b * 1e6 + r.ch * 1000 + r.v; };
-      const hasRefs = D.cells.some(c => c.refs);
-      D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); });
-      return ch => { // nur die Verse, in denen diese Form steht (sonst zählten alle Wörter mit derselben Bestimmung mit)
-        const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean)), agg = new Map();
-        const rs = !fmCur.greek && hasRefs ? fmCur.F.refs(fmCur.D, fmCur.mdl, ch.dataset.i) : null;
-        if (rs) { const M = refMap(); rs.forEach(r => { const num = numOf(r); (M.get(num) || []).forEach(([g, code]) => { if (codes.has(code)) agg.set(g, (agg.get(g) || 0) + 1); }); }); }
-        else codes.forEach(c => { const m = byCode.get(c); if (m) m.forEach((n, g) => agg.set(g, (agg.get(g) || 0) + n)); });
-        if (!agg.size) return null;
-        const groups = [...agg].sort((a, b) => b[1] - a[1]);
-        return { n: groups.reduce((a, x) => a + x[1], 0), k: groups.length, cores: groups.map(([g, c]) => ({ t: fmTrLab(D, g), c, g, cj: '', cjn: 0 })), groups, col: null, de: false };
+      return ch => {
+        const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean));
+        const rs = !fmCur.greek ? fmCur.F.refs(fmCur.D, fmCur.mdl, ch.dataset.i) : null;
+        return aggregate(codes, rs ? new Set(rs.map(numOf)) : null);
       };
     };
     const name = I18N.t(WC_TR_LABEL[cur]);
@@ -290,7 +285,7 @@ window.LibraryWordCards = (() => {
       if (!D.para && !others.has(D)) others.set(D, otherFor(D));
       const E = D.para ? fmTrEntryDe(ch, D) : others.get(D)(ch); if (!E) return;
       const [l1, l2, tip] = fmTrLines(E, D, name);
-      const sp = document.createElement('span'); sp.className = 'fmTrL' + (E.de ? ' can' : ''); sp.lang = D.lang; sp.dir = RTL(D.lang) ? 'rtl' : 'ltr';
+      const sp = document.createElement('span'); sp.className = 'fmTrL' + (E.de ? ' can' : ''); sp.lang = D.lang; sp.dir = 'ltr'; // Wortformen sind durch bdi isoliert; Prozentangaben bleiben links-nach-rechts.
       sp.innerHTML = `<span class="l1">${l1}</span>${l2 ? `<span class="l2">${l2}</span>` : ''}`; sp.title = tip;
       ch.appendChild(sp);
     });
@@ -552,7 +547,7 @@ window.LibraryWordCards = (() => {
   // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne
   // Vers-Vorschau in der Wortkarte: Text aus der dort gewählten Fassung (Tabelle: „Übersetzung unter den Formen“, Überblick: Quell-Chip der Übersetzungsstatistik);
   // der Versionstitel wird wie in der Interlinear-Ansicht über IL_VT erkannt. „aus“ oder keine Auswahl: wie überall (null)
-  const WC_TR_VT = { O: host.IL_VT.Onkelos, PJ: host.IL_VT['Pseudo-Jonathan'], N: host.IL_VT.Neofiti, LXX: /^Septuaginta/, Q: /^Qumran-Rollen \(ETCBC DSS\)/, Peshitta:/^ETCBC Peshitta/, Samaritan:/^Samaritanischer Pentateuch/ };
+  const WC_TR_VT = { O: host.IL_VT.Onkelos, PJ: host.IL_VT['Pseudo-Jonathan'], N: host.IL_VT.Neofiti, LXX: /^Septuaginta \(CATSS(?:, Judges A \(Codex Alexandrinus\))?\)$/, Q: /^Qumran-Rollen \(ETCBC DSS\)/, Peshitta:/^ETCBC Peshitta/, Samaritan:/^Samaritanischer Pentateuch/ };
   function wcDefaultSource(keys){const title=host.getBibleTranslation?.()||'';return keys.find(k=>(host.IL_VT[k]||WC_TR_VT[k])?.test(title))||keys[0];}
   const RTL = l => l === 'arc' || l === 'he' || l === 'syr';
   function wcHovPick(a) {
@@ -570,7 +565,7 @@ window.LibraryWordCards = (() => {
     const re = WC_TR_VT[k] || host.IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     return { vt: re.source, rtl: RTL(WC_TR_WITNESSES[k]) || k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem, targetForm:a.dataset.targetForm || '', targetPosition:Number(a.dataset.targetPosition)||null };
   }
-  const WC_TR_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti', Q: 'Qumran' };
+  const WC_TR_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti', Q: 'Qumran', Samaritan: 'Samaritan Pentateuch', Peshitta: 'Peshitta', BuberRosenzweig: 'Martin Buber gemeinsam mit Franz Rosenzweig' };
   host.$('#formsPanel').addEventListener('error',e=>{if(e.target.matches?.('img.wcTrPic'))e.target.remove();},true);
   const wcTrPic = k => { const pic = WC_TR_PIC[k] && host.portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy">` : ''; };
   // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
@@ -598,7 +593,7 @@ window.LibraryWordCards = (() => {
     const src = {};
     if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })), para: x[2] || {} }; }
     const lx = LR && LR[lemma];
-    if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
+    if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs, forms]) => ({ g, code, n, refs, targets:forms?.map(form=>[null,form]) })) };
     const tg = TR && TR[lemma];
     if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i], refs: c[5 + i], targets:c[8+i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl, id]) => ({ forms: [l], gl, targumLex:id, other: l === '*' })), cells }; });
     // Qumran-Rollen: was die Rollen dort haben, wo der masoretische Text das Wort hat (gleich / andere Schreibweise / andere Lesart)

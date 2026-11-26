@@ -52,6 +52,32 @@
     }
     return sources;
   }
-  const api={find,familySources};if(typeof module==='object'&&module.exports)module.exports=api;
+  // Surface forms are occurrence metadata; dictionary labels must never substitute for them.
+  function surfaceIndex(cells) {
+    const rows = [];
+    for (const cell of cells) {
+      let ref = 0;
+      String(cell.refs || '').split('.').filter(Boolean).forEach((delta, i) => {
+        ref += parseInt(delta, 36);
+        const text = cell.targets?.[i]?.[1] || cell.form;
+        if (text) rows.push({ ref, code: cell.code, g: cell.g, t: text });
+      });
+    }
+    return (codes, refs) => {
+      const cores = new Map(), groups = new Map();
+      for (const row of rows) {
+        if (!codes.has(row.code) || (refs && !refs.has(row.ref))) continue;
+        const id = JSON.stringify([row.g, row.t]);
+        const core = cores.get(id) || { t: row.t, g: row.g, c: 0, cj: '', cjn: 0 };
+        core.c++; cores.set(id, core);
+        groups.set(row.g, (groups.get(row.g) || 0) + 1);
+      }
+      if (!cores.size) return null;
+      const sorted = [...cores.values()].sort((a, b) => b.c - a.c || a.t.localeCompare(b.t));
+      return { n: sorted.reduce((n, x) => n + x.c, 0), k: sorted.length,
+        cores: sorted, groups: [...groups].sort((a, b) => b[1] - a[1]), col: null, de: false };
+    };
+  }
+  const api={find,familySources,surfaceIndex};if(typeof module==='object'&&module.exports)module.exports=api;
   else root.RenderingSearch=api;
 })(typeof window==='object'?window:globalThis);
