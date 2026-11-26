@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "3:5",
+    "token": 18,
+    "word": "וְנוֹטֶה",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Zusätzlicher Satzteil unserer Quelle (ונוטה שיער לכאן ושיער לכאן); im geprüften Accordance-Bild nicht sicher positionsgleich vorhanden."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "3:5",
+    "token": 19,
+    "word": "שֵׂעָר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Zusätzlicher Satzteil unserer Quelle; שֵׂעָר kann nicht ohne Textentscheidung auf ein anderes Accordance-Wort übertragen werden."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "3:5",
+    "token": 22,
+    "word": "וְשֵׂעָר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Zusätzlicher Satzteil unserer Quelle; kein sicherer eigener positionsgleicher Roh-Tag im Vergleichsbild."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "3:7",
+    "token": 79,
+    "word": "אֶפְרָתִי",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Eigener Namenszusatz אֶפְרָתִי in der langen Schlussvariante; im geprüften Bildausschnitt nicht sicher positionsgleich belegt."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "3:7",
+    "token": 90,
+    "word": "יָבִיא",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Verb in der zusätzlichen Schlussüberlieferung unserer Quelle; zweites יביא im geprüften Accordance-Bild nicht positionsgleich bestätigt. Keine Übertragung vom ersten Vorkommen."
+  }
+]

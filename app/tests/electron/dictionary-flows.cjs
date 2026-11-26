@@ -15,7 +15,7 @@ module.exports=async function setup({profile}){
   handle('dict:heads',async(_e,id)=>({list:await service.headList(id)}));
   handle('dict:order',async(_e,ids)=>{await service.setOrder(ids);return {};});
 
-  return async function run({js,waitFor}){
+  const run=async function({js,waitFor}){
     const lookup=async q=>js(`document.querySelector('#dictQ').value=${JSON.stringify(q)};document.querySelector('#dictGo').click()`);
     const article=async (head,count=2)=>waitFor(`document.querySelectorAll('#dictOut .dentry').length===${count} && document.querySelector('#dictOut .dhead b')?.textContent===${JSON.stringify(head)}`,'Wörterbuchartikel '+head);
     await js("document.querySelector('nav [data-tab=dict]').click()");
@@ -75,4 +75,5 @@ module.exports=async function setup({profile}){
     await waitFor("document.documentElement.dataset.tab==='read' && document.querySelector('#rTitle').textContent.includes('Exodus') && document.querySelector('#rOut .row.hit[data-l=\"1\"]')",'Quellenangabe öffnet Vers');
     console.log('Electron: Wörterbuchauswahl, Volltext, Wortkarte in beiden Richtungen und Quellen-Navigation bestanden.');
   };
+  return Object.assign(run,{requests});
 };

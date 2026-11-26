@@ -1,0 +1,50 @@
+[
+  {
+    "ref": "1:4",
+    "token": 16,
+    "word": "עַצְמָן",
+    "reason": "Suffix -ן in עצמן: Genusbezug nicht sicher genug; Accordance zeigt keinen gesonderten Suffix-Tag."
+  },
+  {
+    "ref": "1:5",
+    "token": 72,
+    "word": "ואם",
+    "reason": "Unvokalisierte editorische Zusatz-/Alternativform; keine sichere separate Entsprechung im Bild."
+  },
+  {
+    "ref": "1:5",
+    "token": 73,
+    "word": "תרם",
+    "reason": "Unvokalisierte editorische Zusatz-/Alternativform; keine sichere separate Entsprechung im Bild."
+  },
+  {
+    "ref": "1:5",
+    "token": 75,
+    "word": "תרומתו",
+    "reason": "Unvokalisierte editorische Zusatz-/Alternativform; keine sichere separate Entsprechung im Bild."
+  },
+  {
+    "ref": "1:7",
+    "token": 28,
+    "word": "חֶצְיָן",
+    "reason": "Suffix -ן bei gemischtem Bezug סל / קופה; Genus wird nicht geraten."
+  },
+  {
+    "ref": "1:7",
+    "token": 30,
+    "word": "שְׁלִישָׁן",
+    "reason": "Suffix -ן bei gemischtem Bezug סל / קופה; Genus wird nicht geraten."
+  },
+  {
+    "ref": "1:9",
+    "token": 9,
+    "word": "לַעֲשׁוֹתָן",
+    "reason": "Suffix -ן nicht gesondert morphologisch ausgewiesen; Genus bleibt für diese Position offen."
+  },
+  {
+    "ref": "1:9",
+    "token": 30,
+    "word": "לְדָרְכָן",
+    "reason": "Suffix -ן nicht gesondert morphologisch ausgewiesen; Genus bleibt für diese Position offen."
+  }
+]

@@ -1,0 +1,2206 @@
+[
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:1",
+    "token": 7,
+    "word": "וְהַכֻּסְּמִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/כוסמים",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Dinkel/Emmer (כוסמין)",
+          "en": "spelt/emmer (kusmin)"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_855_reduced_high_compressed_compressed.jpg",
+          "driveId": "1A3glnYqpKPuIHevn9b3Jv61LJwbfX0Bu",
+          "sha256": "f15b79777e7139c373db43a5f0132a97e762819b294e1cdf4f8b369a854db76d",
+          "lex": "ו ה כוסמים",
+          "tags": "cnj; art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": " Botanische Benennung vorsichtig: traditionell Dinkel, auch als Emmer identifiziert."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:1",
+    "token": 8,
+    "word": "וְשִׁבֹּלֶת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/שבולת",
+        "morph": "HC/Ncfsc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Ähre des",
+          "en": "and the ear of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_855_reduced_high_compressed_compressed.jpg",
+          "driveId": "1A3glnYqpKPuIHevn9b3Jv61LJwbfX0Bu",
+          "sha256": "f15b79777e7139c373db43a5f0132a97e762819b294e1cdf4f8b369a854db76d",
+          "lex": "ו שבלת",
+          "tags": "cnj; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Constructus redaktionell aus שבולת שועל; im Bild nur feminin Singular."
+      }
+    ],
+    "note": "Constructus redaktionell aus שבולת שועל; im Bild nur feminin Singular."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:1",
+    "token": 10,
+    "word": "וְהַשִּׁיפִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/שיפון",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Roggenarten",
+          "en": "and the rye varieties"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_855_reduced_high_compressed_compressed.jpg",
+          "driveId": "1A3glnYqpKPuIHevn9b3Jv61LJwbfX0Bu",
+          "sha256": "f15b79777e7139c373db43a5f0132a97e762819b294e1cdf4f8b369a854db76d",
+          "lex": "ו ה שיפון",
+          "tags": "cnj; art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Numerus redaktionell nach der pluralischen Kaufmann-Oberfläche השיפין (-ין); Accordance zeigt Singular שיפון / cm ms sg. Keine ungeprüfte Übernahme des Singular-Tags."
+      }
+    ],
+    "note": "Numerus redaktionell nach der pluralischen Kaufmann-Oberfläche השיפין (-ין); Accordance zeigt Singular שיפון / cm ms sg. Keine ungeprüfte Übernahme des Singular-Tags."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:1",
+    "token": 24,
+    "word": "וּמִלִּקְצֹר",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מן/ל/קצר",
+        "morph": "HC/R/R/Vqc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und hinsichtlich des Erntens",
+          "en": "and regarding reaping"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_855_reduced_high_compressed_compressed.jpg",
+          "driveId": "1A3glnYqpKPuIHevn9b3Jv61LJwbfX0Bu",
+          "sha256": "f15b79777e7139c373db43a5f0132a97e762819b294e1cdf4f8b369a854db76d",
+          "lex": "ו מן ל קצר",
+          "tags": "cnj; prp; prp; qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:1",
+    "token": 28,
+    "word": "הִשְׁרִישׁוּ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שרש",
+        "morph": "HVhp3cp",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie haben Wurzeln geschlagen",
+          "en": "they took root"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_855_reduced_high_compressed_compressed.jpg",
+          "driveId": "1A3glnYqpKPuIHevn9b3Jv61LJwbfX0Bu",
+          "sha256": "f15b79777e7139c373db43a5f0132a97e762819b294e1cdf4f8b369a854db76d",
+          "lex": "שרש",
+          "tags": "hif prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:1",
+    "token": 29,
+    "word": "קֹדֶם",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קודם",
+        "morph": "HR",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "vor",
+          "en": "before"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_855_reduced_high_compressed_compressed.jpg",
+          "driveId": "1A3glnYqpKPuIHevn9b3Jv61LJwbfX0Bu",
+          "sha256": "f15b79777e7139c373db43a5f0132a97e762819b294e1cdf4f8b369a854db76d",
+          "lex": "קודם",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:2",
+    "token": 10,
+    "word": "חָמֵץ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חמץ",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gesäuertes",
+          "en": "leaven"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_856_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hGMJkCWcEZyj9LVgFnH-jZoY8qFruUYq",
+          "sha256": "af72e86df78966a239ad4aed4071c7b0b396213535e4bcf2588cc8de94012455",
+          "lex": "חמץ",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:2",
+    "token": 13,
+    "word": "נִתְעָרַב",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ערב",
+        "morph": "HVDp3ms",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "es wurde beigemischt",
+          "en": "it became mixed"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_856_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hGMJkCWcEZyj9LVgFnH-jZoY8qFruUYq",
+          "sha256": "af72e86df78966a239ad4aed4071c7b0b396213535e4bcf2588cc8de94012455",
+          "lex": "ערב",
+          "tags": "ntpal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:2",
+    "token": 22,
+    "word": "הַנּוֹדֵר",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נדר",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer gelobt",
+          "en": "one who vows"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_856_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hGMJkCWcEZyj9LVgFnH-jZoY8qFruUYq",
+          "sha256": "af72e86df78966a239ad4aed4071c7b0b396213535e4bcf2588cc8de94012455",
+          "lex": "ה נדר",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:2",
+    "token": 34,
+    "word": "הַנּוֹדֵר",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נדר",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer gelobt",
+          "en": "one who vows"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_856_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hGMJkCWcEZyj9LVgFnH-jZoY8qFruUYq",
+          "sha256": "af72e86df78966a239ad4aed4071c7b0b396213535e4bcf2588cc8de94012455",
+          "lex": "ה נדר",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:3",
+    "token": 4,
+    "word": "וּפְטוּרִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/פטר",
+        "morph": "HC/Vqsmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und befreit",
+          "en": "and exempt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_858_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NZFNcxP2RZnzjUy_0_d-MeX5lG69-CZe",
+          "sha256": "7881ceb19cd1e80607542d1f2a2f01d8af298a53c75df883c8ccd18155ecee73",
+          "lex": "ו פטר",
+          "tags": "cnj; qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:3",
+    "token": 24,
+    "word": "שָׁלִישׁ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שליש",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ein Drittel",
+          "en": "one third"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_858_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NZFNcxP2RZnzjUy_0_d-MeX5lG69-CZe",
+          "sha256": "7881ceb19cd1e80607542d1f2a2f01d8af298a53c75df883c8ccd18155ecee73",
+          "lex": "שליש",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nominaler Bruchteil, nicht ordinales Adjektiv."
+      }
+    ],
+    "note": "Nominaler Bruchteil, nicht ordinales Adjektiv."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:3",
+    "token": 31,
+    "word": "שָׁלִישׁ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שליש",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ein Drittel",
+          "en": "one third"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_858_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NZFNcxP2RZnzjUy_0_d-MeX5lG69-CZe",
+          "sha256": "7881ceb19cd1e80607542d1f2a2f01d8af298a53c75df883c8ccd18155ecee73",
+          "lex": "שליש",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nominaler Bruchteil, nicht ordinales Adjektiv."
+      }
+    ],
+    "note": "Nominaler Bruchteil, nicht ordinales Adjektiv."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 4,
+    "word": "וּפְטוּרִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/פטר",
+        "morph": "HC/Vqsmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und befreit",
+          "en": "and exempt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו פטר",
+          "tags": "cnj; qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 8,
+    "word": "וְהַדֹּחַן",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/דוחן",
+        "morph": "HC/Td/Ncmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Hirse",
+          "en": "and the millet"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו ה דוחן",
+          "tags": "cnj; art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 9,
+    "word": "הַפְּרָגִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/פרג",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Mohn",
+          "en": "the poppy seeds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ה פרגין",
+          "tags": "art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Singularlemma redaktionell aus dem pluralischen Zitierlemma פרגין."
+      }
+    ],
+    "note": "Singularlemma redaktionell aus dem pluralischen Zitierlemma פרגין."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 10,
+    "word": "וְהַשַּׁמְשְׁמִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/שמשם",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und der Sesam",
+          "en": "and the sesame"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו ה שמשם",
+          "tags": "cnj; art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 11,
+    "word": "וְהַסִּיפָגָנִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/סופגנים",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Schwammkuchen",
+          "en": "and the sponge cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו ה סופגנים",
+          "tags": "cnj; art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Pluralisches Zitierlemma erhalten."
+      }
+    ],
+    "note": "Pluralisches Zitierlemma erhalten."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 12,
+    "word": "וְהַדִּבְשָׁנִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/דובשן",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Honigkuchen",
+          "en": "and the honey cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו ה דובשן",
+          "tags": "cnj; art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 13,
+    "word": "וְהָאִסְקָרִיטִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/אסקריטין",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die dünnen Küchlein",
+          "en": "and the thin cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו ה אסקריטין",
+          "tags": "cnj; art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Pluralisches Zitierlemma erhalten; genaue Sachbedeutung redaktionell."
+      }
+    ],
+    "note": "Pluralisches Zitierlemma erhalten; genaue Sachbedeutung redaktionell."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 15,
+    "word": "מַסְרֵת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מסרת",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Pfanne",
+          "en": "pan"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "מסרת",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:4",
+    "token": 16,
+    "word": "וְהַמְדֻמָּע",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/דמע",
+        "morph": "HC/Td/VPrmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und das mit Teruma Vermischte",
+          "en": "and produce mixed with terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_860_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Xcmx7FJf5E_OmJTpNRh53qUM7EuVI4JG",
+          "sha256": "0cc4d69112fd0d23c56e75d90a7fd846381d039e5cbd17052719386664337fcd",
+          "lex": "ו ה דמע",
+          "tags": "cnj; art; pul prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 2,
+    "word": "שֶׁתְּחִלָּתָהּ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/תחלה",
+        "morph": "HTr/Ncfsc/Sp3fs",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "deren Anfang",
+          "en": "whose beginning"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "ש תחלה",
+          "tags": "rel; cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 3,
+    "word": "סִפְגָנִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סופגנים",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schwammkuchen",
+          "en": "sponge cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "סופגנים",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 5,
+    "word": "סִפְגָנִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סופגנים",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schwammkuchen",
+          "en": "sponge cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "סופגנים",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 7,
+    "word": "סִפְגָנִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סופגנים",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schwammkuchen",
+          "en": "sponge cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "סופגנים",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 4,
+    "word": "וְסוֹפָהּ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/סוף",
+        "morph": "HC/Ncmsc/Sp3fs",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und ihr Ende",
+          "en": "and its end"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "ו סוף",
+          "tags": "cnj; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 8,
+    "word": "וְסוֹפָהּ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/סוף",
+        "morph": "HC/Ncmsc/Sp3fs",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und ihr Ende",
+          "en": "and its end"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "ו סוף",
+          "tags": "cnj; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 6,
+    "word": "תְּחִלָּתָהּ",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תחלה",
+        "morph": "HNcfsc/Sp3fs",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihr Anfang",
+          "en": "its beginning"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "תחלה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 13,
+    "word": "הַקְּנוֹבְקָאוֹת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/קנובקאות",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Knobkuchen",
+          "en": "the knovka cakes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "ה קנובקאות",
+          "tags": "art; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Pluralisches Zitierlemma und vorsichtige Sachbezeichnung erhalten."
+      }
+    ],
+    "note": "Pluralisches Zitierlemma und vorsichtige Sachbezeichnung erhalten."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:5",
+    "token": 14,
+    "word": "חַיָּבוֹת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חייב",
+        "morph": "HAafpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "verpflichtet",
+          "en": "liable"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "חיב",
+          "tags": "fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:6",
+    "token": 1,
+    "word": "הַמְּעִסָּה",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/מעיסה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das mit heißem Wasser angerührte Mehl",
+          "en": "flour mixed with hot water"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "ה מעיסה",
+          "tags": "art; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:6",
+    "token": 4,
+    "word": "פּוֹטְרִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie befreien",
+          "en": "they exempt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "פטר",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:6",
+    "token": 14,
+    "word": "פּוֹטְרִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie befreien",
+          "en": "they exempt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "פטר",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:6",
+    "token": 8,
+    "word": "הֶחְלִיטָה",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/חליטה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das in heißes Wasser geschüttete Mehl",
+          "en": "flour poured into hot water"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "ה חליטה",
+          "tags": "art; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Eigene Oberfläche הֶחְלִיטָה weicht von sichtbarer Artikelvokalisierung ab; nominale Satzstellung und Artikel im Bild dokumentiert."
+      }
+    ],
+    "note": "Eigene Oberfläche הֶחְלִיטָה weicht von sichtbarer Artikelvokalisierung ab; nominale Satzstellung und Artikel im Bild dokumentiert."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:6",
+    "token": 21,
+    "word": "פָטוּר",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "befreit",
+          "en": "exempt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_862_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TFuea7evYp3fjNVFSsPVNlG2KsTQfsCz",
+          "sha256": "8718c8cb5c496be2c919349e06a8fddd11dd92b800555ffd558e6c120e8d5ed6",
+          "lex": "פטר",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:7",
+    "token": 1,
+    "word": "נַחְתּוֹם",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נחתום",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Bäcker",
+          "en": "baker"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_866_reduced_high_compressed_compressed.jpg",
+          "driveId": "14UxTFVpK4gyMtbQ2m2qnTyaQ8zEl5QHu",
+          "sha256": "e8ff60ae6ce55f293be0b388fae973a776fc015dc4cfb4e9c4905fcac08aee70",
+          "lex": "נחתום",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:7",
+    "token": 4,
+    "word": "לְחַלֵּק",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/חלק",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu verteilen",
+          "en": "to distribute"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_866_reduced_high_compressed_compressed.jpg",
+          "driveId": "14UxTFVpK4gyMtbQ2m2qnTyaQ8zEl5QHu",
+          "sha256": "e8ff60ae6ce55f293be0b388fae973a776fc015dc4cfb4e9c4905fcac08aee70",
+          "lex": "ל חלק",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:7",
+    "token": 10,
+    "word": "לַנַּחְתּוֹם",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/נחתום",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dem Bäcker",
+          "en": "to the baker"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_866_reduced_high_compressed_compressed.jpg",
+          "driveId": "14UxTFVpK4gyMtbQ2m2qnTyaQ8zEl5QHu",
+          "sha256": "e8ff60ae6ce55f293be0b388fae973a776fc015dc4cfb4e9c4905fcac08aee70",
+          "lex": "ל נחתום",
+          "tags": "prpArt; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 1,
+    "word": "עִסַּת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עיסה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Teig für",
+          "en": "dough for"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "עיסה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 4,
+    "word": "שֶׁהָרוֹעִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/ה/רעה",
+        "morph": "HTr/Td/Vqrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "den die Hirten",
+          "en": "which the shepherds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "ש ה רעה",
+          "tags": "rel; art; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 9,
+    "word": "וּמְעָרְבִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ערב",
+        "morph": "HC/Vprmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und man stellt einen Eruv her",
+          "en": "and one makes an eruv"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "ו ערב",
+          "tags": "cnj; pi prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 11,
+    "word": "וּמִשְׁתַּתְּפִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/שתף",
+        "morph": "HC/Vtrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und man beteiligt sich am Schituf",
+          "en": "and one participates in a shituf"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "ו שתף",
+          "tags": "cnj; htpl prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 17,
+    "word": "וְנֶעֱשֵׂית",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/עשה",
+        "morph": "HC/VNrfsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie wird zubereitet",
+          "en": "and it is prepared"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "ו עשה",
+          "tags": "cnj; nif prt fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 28,
+    "word": "הָרוֹעִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/רעה",
+        "morph": "HTd/Vqrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Hirten",
+          "en": "the shepherds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "ה רעה",
+          "tags": "art; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 35,
+    "word": "מְעָרְבִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ערב",
+        "morph": "HVprmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man stellt einen Eruv her",
+          "en": "one makes an eruv"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "ערב",
+          "tags": "pi prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 38,
+    "word": "מִשְׁתַּתְּפִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שתף",
+        "morph": "HVtrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man beteiligt sich am Schituf",
+          "en": "one participates in a shituf"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "שתף",
+          "tags": "htpl prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 47,
+    "word": "נֶעְשֵׂית",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVNrfsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wird zubereitet",
+          "en": "it is prepared"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "עשה",
+          "tags": "nif prt fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 62,
+    "word": "טֻמְאַת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טומאה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Unreinheit von",
+          "en": "impurity of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "טמאה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:8",
+    "token": 63,
+    "word": "אֳכָלִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אוכל",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Speisen",
+          "en": "foods"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_868_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DUhHdnzRCVqTxtsDQYzgah7sgO-9wxNm",
+          "sha256": "311fc687eb5900b48979063291a1304687b38ad8666a4cbcee5ec050a4ec9663",
+          "lex": "אכל",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nominallemma redaktionell plene geschrieben."
+      }
+    ],
+    "note": "Nominallemma redaktionell plene geschrieben."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 10,
+    "word": "נִכְסֵי",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נכסים",
+        "morph": "HNcmpc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Eigentum eines",
+          "en": "property of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "נכסים",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 12,
+    "word": "וְעוֹלִין",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/עלה",
+        "morph": "HC/Vqrmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie werden aufgehoben",
+          "en": "and they are neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "ו עלה",
+          "tags": "cnj; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 15,
+    "word": "וּטְעוּנִים",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/טען",
+        "morph": "HC/Vqsmpa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie erfordern",
+          "en": "and they require"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "ו טען",
+          "tags": "cnj; qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 16,
+    "word": "רְחִיצַת",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "רחיצה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Waschen von",
+          "en": "washing of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "רחיצה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 18,
+    "word": "וְהַעְרֵב",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/הערב",
+        "morph": "HC/Ncmsc",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Untergang der",
+          "en": "and setting of the"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "ו הערב",
+          "tags": "cnj; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nomen nach sichtbarem Tag; kein automatisch erschlossener Hifil-Infinitiv."
+      }
+    ],
+    "note": "Nomen nach sichtbarem Tag; kein automatisch erschlossener Hifil-Infinitiv."
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 28,
+    "word": "הַמֻּקָּף",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נקף",
+        "morph": "HTd/VHrmsa",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das räumlich Zusammenliegende",
+          "en": "that which is adjacent"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "ה נקף",
+          "tags": "art; hof prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 38,
+    "word": "עִסָּתִי",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עיסה",
+        "morph": "HNcfsc/Sp1cs",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mein Teig",
+          "en": "my dough"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "עיסה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Challah",
+    "ref": "1:9",
+    "token": 44,
+    "word": "שֶׁיְּשַׁיֵּר",
+    "sourceHash": "8a1e97b05f4b0a00428f2499d9734f267602c75117fc6199e2a1e82b7777734d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/שייר",
+        "morph": "HTr/Vpi3ms",
+        "rules": [
+          "accordance-challah-1"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass er übrig lässt",
+          "en": "that he leaves over"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Hal. 1:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_870_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mQfRh7HEdeX-4HKgaOEAiC8B6AV43gQk",
+          "sha256": "4b62110c23ceb2c334ec5deaa6fa561adb500f47c0f6ad777db6d8ad5192573b",
+          "lex": "ש שאר",
+          "tags": "rel; pi imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Rabbinisches Zitierlemma שייר redaktionell normalisiert."
+      }
+    ],
+    "note": "Rabbinisches Zitierlemma שייר redaktionell normalisiert."
+  }
+]

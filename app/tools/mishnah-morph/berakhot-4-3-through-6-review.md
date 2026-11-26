@@ -42,9 +42,8 @@ von den grammatischen Merkmalen getrennt.
 
 Die Wortkarten zeigen kurze lexikalische Bedeutungen zusätzlich zur
 Formenbestimmung. Eigene Mischna-Glossen sind als redaktionell bezeichnet.
-Für weitere Lemmata werden die vorhandenen OSHB-Lemmaglossen verwendet,
-sichtbar als biblisches Wörterbuch gekennzeichnet. Dabei bleiben alle
-passenden gleich geschriebenen Lemmata erhalten; es wird kein willkürliches
-Homonym als sichere Bedeutung der Stelle ausgewählt. שמע als Gebetsname
+Ein früherer biblischer Wörterbuch-Fallback ist nach der ausdrücklichen
+Nutzervorgabe entfernt. Weitere Nachschlageaktionen aus den Mischna-Wortkarten
+sind auf Jastrow, Levy und Krauss beschränkt. שמע als Gebetsname
 wird von שמע als Verb unterschieden. Unbelegte Lemmata erhalten keine
 erfundene Übersetzung, der Wörterbuchknopf bleibt verfügbar.

@@ -1556,6 +1556,8 @@
     'Kein Kaufmann-Referenztext für dieses Kapitel.': 'No Kaufmann reference text for this chapter.',
     'Für diesen Traktat sind keine geprüften Mischna–Tosefta-Verknüpfungen eingebunden.': 'No checked Mishnah–Tosefta links are included for this tractate.',
     'Für dieses Kapitel ist in keinem der eingebundenen Zeugen Text vorhanden.': 'No text is available in any included witness for this chapter.',
+    'Accordance-Bildbeleg': 'Accordance screenshot evidence',
+    'Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen.': 'Suffix features added editorially; not separately shown in the image.',
     'Herkunftsangabe bei Krauss': 'Etymology as given by Krauss',
     'Lateinisch / Griechisch': 'Latin / Greek',
     // ----- OSHB-Popup -----

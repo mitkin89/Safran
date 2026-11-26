@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-26",
+  "tractates": 63,
+  "diplomaticChapters": 524,
+  "vocalizedChapters": 525,
+  "originalUnitsPreserved": 12372,
+  "originalSourceWords": 564551,
+  "vocalizedSourceWords": 190841,
+  "totals": {
+    "diplomatic P": {
+      "words": 190836,
+      "aligned": 182183,
+      "insertions": 4443,
+      "positionedGaps": 51,
+      "sourceNotes": 3773,
+      "open": 386,
+      "reviewed": 2
+    },
+    "diplomatic C": {
+      "words": 185619,
+      "aligned": 179102,
+      "insertions": 6132,
+      "positionedGaps": 41,
+      "sourceNotes": 0,
+      "open": 344,
+      "reviewed": 0
+    },
+    "vocalized D": {
+      "words": 188096,
+      "aligned": 185948,
+      "insertions": 2001,
+      "positionedGaps": 125,
+      "sourceNotes": 16,
+      "open": 6,
+      "reviewed": 0
+    },
+    "vocalized P": {
+      "words": 190836,
+      "aligned": 183680,
+      "insertions": 3269,
+      "positionedGaps": 54,
+      "sourceNotes": 3773,
+      "open": 60,
+      "reviewed": 0
+    },
+    "vocalized C": {
+      "words": 185619,
+      "aligned": 180363,
+      "insertions": 5202,
+      "positionedGaps": 41,
+      "sourceNotes": 0,
+      "open": 13,
+      "reviewed": 0
+    }
+  },
+  "unresolvedVocalized": [
+    {
+      "title": "Mishnah Kilayim",
+      "witness": "P",
+      "open": 4
+    },
+    {
+      "title": "Mishnah Terumot",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Orlah",
+      "witness": "P",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Shabbat",
+      "witness": "P",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Shabbat",
+      "witness": "C",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Eruvin",
+      "witness": "P",
+      "open": 4
+    },
+    {
+      "title": "Mishnah Eruvin",
+      "witness": "C",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Pesachim",
+      "witness": "P",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Sukkah",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Megillah",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Nedarim",
+      "witness": "P",
+      "open": 9
+    },
+    {
+      "title": "Mishnah Nazir",
+      "witness": "D",
+      "open": 4
+    },
+    {
+      "title": "Mishnah Gittin",
+      "witness": "P",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Gittin",
+      "witness": "C",
+      "open": 7
+    },
+    {
+      "title": "Mishnah Bava Kamma",
+      "witness": "D",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Bava Kamma",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Bava Metzia",
+      "witness": "D",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Bava Batra",
+      "witness": "P",
+      "open": 4
+    },
+    {
+      "title": "Mishnah Sanhedrin",
+      "witness": "P",
+      "open": 3
+    },
+    {
+      "title": "Mishnah Shevuot",
+      "witness": "P",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Eduyot",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Pirkei Avot",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Zevachim",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Zevachim",
+      "witness": "C",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Menachot",
+      "witness": "P",
+      "open": 6
+    },
+    {
+      "title": "Mishnah Chullin",
+      "witness": "P",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Arakhin",
+      "witness": "P",
+      "open": 1
+    },
+    {
+      "title": "Mishnah Meilah",
+      "witness": "P",
+      "open": 3
+    },
+    {
+      "title": "Mishnah Middot",
+      "witness": "C",
+      "open": 2
+    },
+    {
+      "title": "Mishnah Kelim",
+      "witness": "P",
+      "open": 3
+    },
+    {
+      "title": "Mishnah Mikvaot",
+      "witness": "P",
+      "open": 2
+    }
+  ],
+  "scope": "All standard tractates; original source text and canonical reading text unchanged; automatic comparison, not a fully reviewed critical edition."
+}

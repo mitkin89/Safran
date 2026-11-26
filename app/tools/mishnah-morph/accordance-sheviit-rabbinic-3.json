@@ -1,0 +1,2510 @@
+[
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:1",
+    "token": 4,
+    "word": "לְאַשְׁפַּתּוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/אשפת",
+        "morph": "HR/Ncfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu Misthaufen",
+          "en": "to manure heaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_319_reduced_high_compressed_compressed.jpg",
+          "driveId": "19JTFvWpWNO6_jffEalv2Y26BQAYVRmKC",
+          "sha256": "356b7db0e4514c36a9cc329c36757dabe3e40735821ba2cb5055f9e6e9dfa4ed",
+          "lex": "ל אשפת",
+          "tags": "prp; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:1",
+    "token": 14,
+    "word": "מִשֶּׁיִּיבַשׁ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/ש/יבש",
+        "morph": "HR/Tr/Vqi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sobald austrocknet",
+          "en": "once it dries"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_319_reduced_high_compressed_compressed.jpg",
+          "driveId": "19JTFvWpWNO6_jffEalv2Y26BQAYVRmKC",
+          "sha256": "356b7db0e4514c36a9cc329c36757dabe3e40735821ba2cb5055f9e6e9dfa4ed",
+          "lex": "מן ש יבש",
+          "tags": "prp; rel; qal imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:1",
+    "token": 15,
+    "word": "הַמָּתוֹק",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/מתוק",
+        "morph": "HTd/Aamsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das Süße",
+          "en": "the sweet substance"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_319_reduced_high_compressed_compressed.jpg",
+          "driveId": "19JTFvWpWNO6_jffEalv2Y26BQAYVRmKC",
+          "sha256": "356b7db0e4514c36a9cc329c36757dabe3e40735821ba2cb5055f9e6e9dfa4ed",
+          "lex": "ה מתוק",
+          "tags": "art; ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Substantiviertes Adjektiv; genaue sachliche Bezeichnung hier nicht festgelegt."
+      }
+    ],
+    "note": "Substantiviertes Adjektiv; genaue sachliche Bezeichnung hier nicht festgelegt."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:2",
+    "token": 7,
+    "word": "אַשְׁפַּתּוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אשפת",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Misthaufen",
+          "en": "manure heaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "אשפת",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:2",
+    "token": 15,
+    "word": "מוֹסִיפִין",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יסף",
+        "morph": "HVhrmpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie fügen hinzu",
+          "en": "they add"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "יסף",
+          "tags": "hif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:2",
+    "token": 19,
+    "word": "מוֹסִיפִין",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יסף",
+        "morph": "HVhrmpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie fügen hinzu",
+          "en": "they add"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "יסף",
+          "tags": "hif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:2",
+    "token": 21,
+    "word": "הָאַשְׁפַּתּוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/אשפת",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Misthaufen",
+          "en": "the manure heaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "ה אשפת",
+          "tags": "art; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:2",
+    "token": 27,
+    "word": "הָאַשְׁפַּתּוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/אשפת",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Misthaufen",
+          "en": "the manure heaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "ה אשפת",
+          "tags": "art; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 7,
+    "word": "אַשְׁפַּתּוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אשפת",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Misthaufen",
+          "en": "manure heaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "אשפת",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 10,
+    "word": "יָתֵר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יתר",
+        "morph": "HD",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mehr",
+          "en": "more"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "יתר",
+          "tags": "ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adverbiale Mengenfunktion nach Satz mehr als."
+      }
+    ],
+    "note": "Adverbiale Mengenfunktion nach Satz mehr als."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 23,
+    "word": "שֶׁיַּגְבִּיהַּ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/גבה",
+        "morph": "HTr/Vhi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass er erhöht",
+          "en": "that he raises"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "ש גבה",
+          "tags": "rel; hif imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 38,
+    "word": "שֶׁיַּגְבִּיהַּ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/גבה",
+        "morph": "HTr/Vhi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass er erhöht",
+          "en": "that he raises"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_323_reduced_high_compressed_compressed.jpg",
+          "driveId": "1UD141quZj18UzZ86fEggxabFrQZLf-4K",
+          "sha256": "d38bfd5f100c47129eb042e2480097f3ad445d65e3e118e0d49c2ee11a87868e",
+          "lex": "ש גבה",
+          "tags": "rel; hif imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 57,
+    "word": "שֶׁיַּגְבִּיהַּ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/גבה",
+        "morph": "HTr/Vhi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass er erhöht",
+          "en": "that he raises"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_323_reduced_high_compressed_compressed.jpg",
+          "driveId": "1UD141quZj18UzZ86fEggxabFrQZLf-4K",
+          "sha256": "d38bfd5f100c47129eb042e2480097f3ad445d65e3e118e0d49c2ee11a87868e",
+          "lex": "ש גבה",
+          "tags": "rel; hif imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 29,
+    "word": "אוֹצָר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אוצר",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Vorratshaufen",
+          "en": "stockpile"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_321_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k_hgLKq3IxO0wtqVYIWfybKFXD3_kYk8",
+          "sha256": "613aeaf6d6e13bef3c02695ed9b114da87f06c4db74ec0bdb442e0005149af37",
+          "lex": "אוצר",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 42,
+    "word": "דָבָר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "דבר",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Sache",
+          "en": "matter"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_323_reduced_high_compressed_compressed.jpg",
+          "driveId": "1UD141quZj18UzZ86fEggxabFrQZLf-4K",
+          "sha256": "d38bfd5f100c47129eb042e2480097f3ad445d65e3e118e0d49c2ee11a87868e",
+          "lex": "דבר",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:3",
+    "token": 63,
+    "word": "הַסֶּלַע",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/סלע",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Fels",
+          "en": "the rock"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_323_reduced_high_compressed_compressed.jpg",
+          "driveId": "1UD141quZj18UzZ86fEggxabFrQZLf-4K",
+          "sha256": "d38bfd5f100c47129eb042e2480097f3ad445d65e3e118e0d49c2ee11a87868e",
+          "lex": "ה סלע",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 7,
+    "word": "סָאתַיִם",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סאה",
+        "morph": "HNcfda",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zwei Sea",
+          "en": "two seahs"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "סאה",
+          "tags": "cm fm du",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 10,
+    "word": "רוּחוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "רוח",
+        "morph": "HNcbpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Seiten",
+          "en": "sides"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "רוח",
+          "tags": "cm bth pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 14,
+    "word": "נִמְצָא",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מצא",
+        "morph": "HVNrmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "es ergibt sich",
+          "en": "it follows"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "מצא",
+          "tags": "nif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 17,
+    "word": "אַרְבַּעַת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ארבע",
+        "morph": "HAcmsc",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "vier",
+          "en": "four"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "ארבע",
+          "tags": "ms sg cnst crd",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 18,
+    "word": "סְאִים",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סאה",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Sea",
+          "en": "seahs"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "סאה",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Pluralformen סאים/סאין bei Beibehaltung des Genus des Maßnamens."
+      }
+    ],
+    "note": "Pluralformen סאים/סאין bei Beibehaltung des Genus des Maßnamens."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 26,
+    "word": "סְאִין",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סאה",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Sea",
+          "en": "seahs"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "סאה",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Pluralformen סאים/סאין bei Beibehaltung des Genus des Maßnamens."
+      }
+    ],
+    "note": "Pluralformen סאים/סאין bei Beibehaltung des Genus des Maßnamens."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 32,
+    "word": "סְאִים",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סאה",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Sea",
+          "en": "seahs"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "סאה",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Pluralformen סאים/סאין bei Beibehaltung des Genus des Maßnamens."
+      }
+    ],
+    "note": "Pluralformen סאים/סאין bei Beibehaltung des Genus des Maßnamens."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 31,
+    "word": "אַרְבַּעַת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ארבע",
+        "morph": "HAcmsc",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "vier",
+          "en": "four"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "ארבע",
+          "tags": "fm sg cnst crd",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Maskuline Constructus-Zahlform אַרְבַּעַת nach unserer Oberfläche; Bild nennt feminin."
+      }
+    ],
+    "note": "Maskuline Constructus-Zahlform אַרְבַּעַת nach unserer Oberfläche; Bild nennt feminin."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:4",
+    "token": 41,
+    "word": "הַסַּהַר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/סהר",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Hürde",
+          "en": "the enclosure"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_325_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bIoXQJI_sysGCWJ2CXJnJ36nbKpQZzko",
+          "sha256": "2243a7eb0e42c0ad97969ac0613e56dcab3fc6bc5189c3298699dedfa12ecbe2",
+          "lex": "ה סהר",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:5",
+    "token": 2,
+    "word": "יִפְתַּח",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פתח",
+        "morph": "HVpi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er soll eröffnen",
+          "en": "he shall open"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_327_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MlY0Dck90yHJmVOjUJk7C1yKFr8c_hIq",
+          "sha256": "8796d2f331ffbfe909897edf94e408c9796adae68a57a522a63905fcc8099ad1",
+          "lex": "פתח",
+          "tags": "pi imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:5",
+    "token": 4,
+    "word": "מַחְצֵב",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מחצב",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steinbruch",
+          "en": "quarry"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_327_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MlY0Dck90yHJmVOjUJk7C1yKFr8c_hIq",
+          "sha256": "8796d2f331ffbfe909897edf94e408c9796adae68a57a522a63905fcc8099ad1",
+          "lex": "מחצב",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:5",
+    "token": 18,
+    "word": "רוּם",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "רום",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Höhe",
+          "en": "height"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_327_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MlY0Dck90yHJmVOjUJk7C1yKFr8c_hIq",
+          "sha256": "8796d2f331ffbfe909897edf94e408c9796adae68a57a522a63905fcc8099ad1",
+          "lex": "רום",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:5",
+    "token": 23,
+    "word": "אֲבָנִים",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steine",
+          "en": "stones"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_327_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MlY0Dck90yHJmVOjUJk7C1yKFr8c_hIq",
+          "sha256": "8796d2f331ffbfe909897edf94e408c9796adae68a57a522a63905fcc8099ad1",
+          "lex": "אבן",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 1,
+    "word": "גָּדֵר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גדר",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steinmauer",
+          "en": "stone wall"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "גדר",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 13,
+    "word": "גָּדֵר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גדר",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steinmauer",
+          "en": "stone wall"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "גדר",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 5,
+    "word": "אֲבָנִים",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steine",
+          "en": "stones"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "אבן",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 18,
+    "word": "מַחְצֵב",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מחצב",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steinbruch",
+          "en": "quarry"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "חצב",
+          "tags": "hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Form מַחְצֵב nominal, gegenüber verbalem Hifʿil-Partizip im Bild."
+      }
+    ],
+    "note": "Unsere Form מַחְצֵב nominal, gegenüber verbalem Hifʿil-Partizip im Bild."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 23,
+    "word": "טֶפַח",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טפח",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Handbreite",
+          "en": "handbreadth"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "טפח",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 24,
+    "word": "בַּמֶּה",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/מה",
+        "morph": "HR/Pi",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wobei?",
+          "en": "in what case?"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "ב מה",
+          "tags": "prp; intr",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Interrogativ nach der Konstruktion במה דברים אמורים."
+      }
+    ],
+    "note": "Interrogativ nach der Konstruktion במה דברים אמורים."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:6",
+    "token": 36,
+    "word": "בַּמֶּה",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/מה",
+        "morph": "HR/Pi",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wobei?",
+          "en": "in what case?"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "ב מה",
+          "tags": "prp; intr",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Interrogativ nach der Konstruktion במה דברים אמורים."
+      }
+    ],
+    "note": "Interrogativ nach der Konstruktion במה דברים אמורים."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 1,
+    "word": "אֲבָנִים",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steine",
+          "en": "stones"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "אבן",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 6,
+    "word": "מְכֻסּוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כסה",
+        "morph": "HVPrfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "bedeckt",
+          "en": "covered"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_329_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BycKBn9999WN4QZj8yaeimR75oRWvZ2N",
+          "sha256": "1606f518f99f39c816bb8e6833028add539affa07b3d6340c447a2582d0da164",
+          "lex": "כסה",
+          "tags": "pul prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Femininplural nach unserer Form מְכֻסּוֹת und אבנים; Bild maskulin Plural."
+      }
+    ],
+    "note": "Femininplural nach unserer Form מְכֻסּוֹת und אבנים; Bild maskulin Plural."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 27,
+    "word": "בָּאָרֶץ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/ארץ",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Boden",
+          "en": "in the ground"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_331_reduced_high_compressed_compressed.jpg",
+          "driveId": "1p7clAbRak0sbRmTK3sKmUyAypdgbHw22",
+          "sha256": "86ba9cedc9839a7e7ec7ce48749174f81db7e088219752ab6a878bbd0821aead",
+          "lex": "ב ארץ",
+          "tags": "prpArt; cm bth sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 37,
+    "word": "בָּאָרֶץ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/ארץ",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Boden",
+          "en": "in the ground"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_331_reduced_high_compressed_compressed.jpg",
+          "driveId": "1p7clAbRak0sbRmTK3sKmUyAypdgbHw22",
+          "sha256": "86ba9cedc9839a7e7ec7ce48749174f81db7e088219752ab6a878bbd0821aead",
+          "lex": "ב ארץ",
+          "tags": "prpArt; cm bth sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 40,
+    "word": "תַּחְתֵּיהֶם",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תחת",
+        "morph": "HR/Sp3mp",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unter ihnen",
+          "en": "under them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_331_reduced_high_compressed_compressed.jpg",
+          "driveId": "1p7clAbRak0sbRmTK3sKmUyAypdgbHw22",
+          "sha256": "86ba9cedc9839a7e7ec7ce48749174f81db7e088219752ab6a878bbd0821aead",
+          "lex": "תחת",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 41,
+    "word": "סֶלַע",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "סלע",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Fels",
+          "en": "rock"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_331_reduced_high_compressed_compressed.jpg",
+          "driveId": "1p7clAbRak0sbRmTK3sKmUyAypdgbHw22",
+          "sha256": "86ba9cedc9839a7e7ec7ce48749174f81db7e088219752ab6a878bbd0821aead",
+          "lex": "סלע",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:7",
+    "token": 43,
+    "word": "קַשׁ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קש",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Stroh",
+          "en": "straw"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_331_reduced_high_compressed_compressed.jpg",
+          "driveId": "1p7clAbRak0sbRmTK3sKmUyAypdgbHw22",
+          "sha256": "86ba9cedc9839a7e7ec7ce48749174f81db7e088219752ab6a878bbd0821aead",
+          "lex": "קש",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:8",
+    "token": 2,
+    "word": "בּוֹנִים",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בנה",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie bauen",
+          "en": "they build"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_333_reduced_high_compressed_compressed.jpg",
+          "driveId": "1iVKnxykDkU-SBhWQYVA9eQirrROXKugh",
+          "sha256": "577fc0f25e789816ea783d6c1d59926c8465e32513bde9e6471a0de343ef29a8",
+          "lex": "בנה",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:8",
+    "token": 6,
+    "word": "הַגֵּאָיוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/גיא",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Täler",
+          "en": "the valleys"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_333_reduced_high_compressed_compressed.jpg",
+          "driveId": "1iVKnxykDkU-SBhWQYVA9eQirrROXKugh",
+          "sha256": "577fc0f25e789816ea783d6c1d59926c8465e32513bde9e6471a0de343ef29a8",
+          "lex": "ה גיא",
+          "tags": "art; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Plural nach unserer Form הַגֵּאָיוֹת; Bild hat Singular-Constructus."
+      }
+    ],
+    "note": "Plural nach unserer Form הַגֵּאָיוֹת; Bild hat Singular-Constructus."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:8",
+    "token": 28,
+    "word": "בֶּעָפָר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/עפר",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mit der Erde",
+          "en": "with the earth"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_333_reduced_high_compressed_compressed.jpg",
+          "driveId": "1iVKnxykDkU-SBhWQYVA9eQirrROXKugh",
+          "sha256": "577fc0f25e789816ea783d6c1d59926c8465e32513bde9e6471a0de343ef29a8",
+          "lex": "ב עפר",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Artikel redaktionell nach בֶּעָפָר vor עָ."
+      }
+    ],
+    "note": "Artikel redaktionell nach בֶּעָפָר vor עָ."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:8",
+    "token": 31,
+    "word": "חַיִץ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חיץ",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Trennwand",
+          "en": "partition"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_333_reduced_high_compressed_compressed.jpg",
+          "driveId": "1iVKnxykDkU-SBhWQYVA9eQirrROXKugh",
+          "sha256": "577fc0f25e789816ea783d6c1d59926c8465e32513bde9e6471a0de343ef29a8",
+          "lex": "חיץ",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Absolutes Prädikatsnomen עשהו חיץ; im Bild Constructus."
+      }
+    ],
+    "note": "Absolutes Prädikatsnomen עשהו חיץ; im Bild Constructus."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:8",
+    "token": 33,
+    "word": "אֶבֶן",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Stein",
+          "en": "stone"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_333_reduced_high_compressed_compressed.jpg",
+          "driveId": "1iVKnxykDkU-SBhWQYVA9eQirrROXKugh",
+          "sha256": "577fc0f25e789816ea783d6c1d59926c8465e32513bde9e6471a0de343ef29a8",
+          "lex": "אבן",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:8",
+    "token": 38,
+    "word": "יָדוֹ",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יד",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seine Hand",
+          "en": "his hand"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_333_reduced_high_compressed_compressed.jpg",
+          "driveId": "1iVKnxykDkU-SBhWQYVA9eQirrROXKugh",
+          "sha256": "577fc0f25e789816ea783d6c1d59926c8465e32513bde9e6471a0de343ef29a8",
+          "lex": "יד",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 1,
+    "word": "אַבְנֵי",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfpc",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steine von",
+          "en": "stones of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "אבן",
+          "tags": "cm fm pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 12,
+    "word": "אַבְנֵי",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfpc",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steine von",
+          "en": "stones of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "אבן",
+          "tags": "cm fm pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 26,
+    "word": "אַבְנֵי",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבן",
+        "morph": "HNcfpc",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Steine von",
+          "en": "stones of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "אבן",
+          "tags": "cm fm pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 2,
+    "word": "כָתֵף",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כתף",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schulter",
+          "en": "shoulder"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "כתף",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 3,
+    "word": "בָּאוֹת",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVqrfpa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie kommen",
+          "en": "they come"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "בוא",
+          "tags": "qal prt fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 13,
+    "word": "כָתֵף",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כתף",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schulter",
+          "en": "shoulder"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "כתף",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Absolut am Ende der Verbindung אבני כתף; Constructus im Bild nicht übernommen."
+      }
+    ],
+    "note": "Absolut am Ende der Verbindung אבני כתף; Constructus im Bild nicht übernommen."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 19,
+    "word": "יָד",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יד",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Hand",
+          "en": "hand"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "יד",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 27,
+    "word": "כָתֵף",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כתף",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schulter",
+          "en": "shoulder"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "כתף",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:9",
+    "token": 35,
+    "word": "הַכָּתֵף",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/כתף",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Schulter",
+          "en": "the shoulder"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_335_reduced_high_compressed_compressed.jpg",
+          "driveId": "1ZX24eF2OU9kr9POVzh9OV1EwNR2jeQ6R",
+          "sha256": "297eb7636214c30f06057a339bc6de923a29ad9b484664e7a621083e79b5fa0c",
+          "lex": "ה כתף",
+          "tags": "art; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 1,
+    "word": "הַבּוֹנֶה",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/בנה",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer baut",
+          "en": "one who builds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "ה בנה",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 2,
+    "word": "גָדֵר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גדר",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Mauer",
+          "en": "wall"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "גדר",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 9,
+    "word": "הַסֶּלַע",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/סלע",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Fels",
+          "en": "the rock"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "ה סלע",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 11,
+    "word": "יַּעֲשֶׂה",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVqi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er soll tun",
+          "en": "he shall do"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "עשה",
+          "tags": "qal imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 32,
+    "word": "יַּעֲשֶׂה",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVqi3ms",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er soll tun",
+          "en": "he shall do"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "עשה",
+          "tags": "qal imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 12,
+    "word": "בֶעָפָר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/עפר",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mit der Erde",
+          "en": "with the earth"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "ב עפר",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Artikel redaktionell nach בֶעָפָר vor עָ."
+      }
+    ],
+    "note": "Artikel redaktionell nach בֶעָפָר vor עָ."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 33,
+    "word": "בֶעָפָר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/עפר",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mit der Erde",
+          "en": "with the earth"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "ב עפר",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Artikel redaktionell nach בֶעָפָר vor עָ."
+      }
+    ],
+    "note": "Artikel redaktionell nach בֶעָפָר vor עָ."
+  },
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "3:10",
+    "token": 43,
+    "word": "וּמְעָרָה",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מערה",
+        "morph": "HC/Ncfsa",
+        "rules": [
+          "accordance-sheviit-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Höhle",
+          "en": "and cave"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 3:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_337_reduced_high_compressed_compressed.jpg",
+          "driveId": "18lSbrtyGnWkFuLc0y9rj33HAYTf-0sa4",
+          "sha256": "5c33b695b64dd790edce271902c84c823c460b906add65d0dc12f95a1e5e2103",
+          "lex": "ו מערה",
+          "tags": "cnj; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

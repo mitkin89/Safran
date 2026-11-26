@@ -26,3 +26,21 @@ test('all 63 manuscript datasets preserve each source token exactly once in the 
  }
  console.log(`Digital Mishnah: ${books} tractates, ${chapters} reference chapters, ${words} conserved source tokens.`);
 });
+
+test('Parma reference repairs retain original IDs and marginal commentary stays outside lexical alignment',async()=>{
+ const s={window:{MISHNAH_TEXTCRIT_CATALOG:catalog}};
+ const read=title=>{vm.runInNewContext(fs.readFileSync(path.join(root,catalog[title].file),'utf8'),s);return s.window.MISHNAH_TEXTCRIT_BOOKS[title];};
+ const b=read('Mishnah Bikkurim'),p=b.witnesses.P.units;
+ assert.equal(p['2:8'].id,'S00483.1.11.4.8');assert.equal(p['2:8'].referenceCorrection.encodedRef,'4:8');
+ assert.equal(p['2:9'].id,'S00483.1.11.2.8');assert.equal(p['2:10'].id,'S00483.1.11.2.9');assert.equal(p['2:11'].id,'S00483.1.11.2.10');
+ assert(p['2:8'].words.some(w=>w.text==='כוי'));
+ const d=read('Mishnah Megillah'),chapter=d.interlinear.chapters['3'].P;
+ const notes=chapter.notes.filter(n=>n.sourceRef==='3:4');assert(notes.length>=4);
+ const main=new Set(chapter.links.flatMap(l=>l.reading.map(p=>p.join('|'))));
+ assert(notes.some(n=>n.reading.some(([r,i])=>d.witnesses.P.units[r].words[i].text==='מאי')));
+ for(const n of notes){assert.equal(n.attrs.type,'comm');for(const pair of n.reading)assert(!main.has(pair.join('|')));}
+ vm.runInNewContext(fs.readFileSync(path.join(root,'library-mishnah-textcrit.js'),'utf8'),s);
+ const ui=s.window.LibraryMishnahTextCrit.create({esc:String,load:async()=>d});await ui.load('Mishnah Megillah');
+ const html=ui.render(3,['3:4'],['K','P','C']);assert(html.includes('class="mci-note"'));assert(html.includes('Randkommentar (Quelle)'));
+ assert(d.interlinear.counts.P.sourceNotes>0);
+});

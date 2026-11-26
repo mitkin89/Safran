@@ -1,0 +1,1788 @@
+[
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 1,
+    "word": "הַמַּבְרִיךְ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/ברך",
+        "morph": "HTd/Vhrmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer durch Absenken vermehrt",
+          "en": "one who layers a vine"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ה ברך",
+          "tags": "art; hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 9,
+    "word": "גַּבָּהּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גב",
+        "morph": "HNcmsc/Sp3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "über ihr",
+          "en": "over it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "גב",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 29,
+    "word": "גַּבָּהּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גב",
+        "morph": "HNcmsc/Sp3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "über ihr",
+          "en": "over it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "גב",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 17,
+    "word": "הִבְרִיכָהּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVhp3ms/Sp3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er senkte sie ab",
+          "en": "he layered it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ברך",
+          "tags": "hif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 21,
+    "word": "הִבְרִיכָהּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ברך",
+        "morph": "HVhp3ms/Sp3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er senkte sie ab",
+          "en": "he layered it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ברך",
+          "tags": "hif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 18,
+    "word": "בַּדַּלַּעַת",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/דלעת",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in dem Kürbis",
+          "en": "in the gourd"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ב דלעת",
+          "tags": "prpArt; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 20,
+    "word": "בַסִּילוֹן",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/סילון",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in dem Rohr",
+          "en": "in the pipe"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ב סילון",
+          "tags": "prpArt; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 32,
+    "word": "אֶצְבָּעוֹת",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אצבע",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Fingerbreiten",
+          "en": "fingerbreadths"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "אצבע",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 37,
+    "word": "הָאַרְכּוּבָה",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/ארכובה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der gebogene Rebstock",
+          "en": "the bent vine stock"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ה ארכובה",
+          "tags": "art; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:1",
+    "token": 40,
+    "word": "מוֹדְדִין",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מדד",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man misst",
+          "en": "one measures"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "מדד",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:2",
+    "token": 1,
+    "word": "הַמַּבְרִיךְ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/ברך",
+        "morph": "HTd/Vhrmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer durch Absenken vermehrt",
+          "en": "one who layers vines"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ה ברך",
+          "tags": "art; hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:2",
+    "token": 4,
+    "word": "וְעִקָּרֵיהֶן",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/עיקר",
+        "morph": "HC/Ncmpc/Sp3fp",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und ihre Stammfüße",
+          "en": "and their bases"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ו עיקר",
+          "tags": "cnj; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf גפנים. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": "Suffixbezug auf גפנים."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:2",
+    "token": 5,
+    "word": "נִרְאִין",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ראה",
+        "morph": "HVNrmpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sichtbar",
+          "en": "visible"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_240_reduced_high_compressed_compressed.jpg",
+          "driveId": "1e5FL-H9KzFCVRX7kauXucDUhspkKkT4-",
+          "sha256": "c1e26eeb61871da224384c0aecde59f70a5f7603a076ff8972550ca23500bc81",
+          "lex": "ראה",
+          "tags": "nif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:2",
+    "token": 29,
+    "word": "מְקַדֶּשֶׁת",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קדש",
+        "morph": "HVprfsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie macht verboten",
+          "en": "it renders forbidden"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_241_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rbWw_CfxCJf8ie1qt4rPDfi3h_6ddcQx",
+          "sha256": "de6afae4968e02b734a6d73f7c6665b5443ba2d2de62c585e7895d9f65b25c0c",
+          "lex": "קדש",
+          "tags": "pi prt fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:3",
+    "token": 4,
+    "word": "מְקַדְּשִׁין",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קדש",
+        "morph": "HVprmpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie machen verboten",
+          "en": "they render forbidden"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_242_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Cxj2IjK_aM0OWB-TYkpA4B5pqYpofpCU",
+          "sha256": "bad33745566abc72879b4ce93c1c8033bce030c45d07057ef7f891d5423c4bfd",
+          "lex": "קדש",
+          "tags": "pi prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:3",
+    "token": 6,
+    "word": "חָרְבָּן",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חורבן",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die verödete Fläche des",
+          "en": "the ruined area of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_242_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Cxj2IjK_aM0OWB-TYkpA4B5pqYpofpCU",
+          "sha256": "bad33745566abc72879b4ce93c1c8033bce030c45d07057ef7f891d5423c4bfd",
+          "lex": "חורבן",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:3",
+    "token": 10,
+    "word": "מְחוֹל",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מחול",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Randstreifen des",
+          "en": "border strip of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_242_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Cxj2IjK_aM0OWB-TYkpA4B5pqYpofpCU",
+          "sha256": "bad33745566abc72879b4ce93c1c8033bce030c45d07057ef7f891d5423c4bfd",
+          "lex": "מחול",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Constructus vor הכרם redaktionell ergänzt."
+      }
+    ],
+    "note": "Constructus vor הכרם redaktionell ergänzt."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:3",
+    "token": 13,
+    "word": "פִּסְקֵי",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פסק",
+        "morph": "HNcmpc",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Lücken des",
+          "en": "gaps of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_242_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Cxj2IjK_aM0OWB-TYkpA4B5pqYpofpCU",
+          "sha256": "bad33745566abc72879b4ce93c1c8033bce030c45d07057ef7f891d5423c4bfd",
+          "lex": "פסק",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:3",
+    "token": 16,
+    "word": "אַפִּיפְיָרוֹת",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אפיפירות",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Rankgerüste",
+          "en": "trellises"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_242_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Cxj2IjK_aM0OWB-TYkpA4B5pqYpofpCU",
+          "sha256": "bad33745566abc72879b4ce93c1c8033bce030c45d07057ef7f891d5423c4bfd",
+          "lex": "אפיפירות",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:3",
+    "token": 27,
+    "word": "מִתְקַדְּשִׁין",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קדש",
+        "morph": "HVtrmpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden verboten",
+          "en": "they become forbidden"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_242_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Cxj2IjK_aM0OWB-TYkpA4B5pqYpofpCU",
+          "sha256": "bad33745566abc72879b4ce93c1c8033bce030c45d07057ef7f891d5423c4bfd",
+          "lex": "קדש",
+          "tags": "pi prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Form מִתְקַדְּשִׁין ist Hitpael, nicht Piʿel."
+      }
+    ],
+    "note": "Unsere Form מִתְקַדְּשִׁין ist Hitpael, nicht Piʿel."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:4",
+    "token": 1,
+    "word": "הַמְסַכֵּךְ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/סכך",
+        "morph": "HTd/Vprmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer darüberleitet",
+          "en": "one who trains over"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_244_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MHe45Nj5zo9f1sLwq7-3WhdGpYN1l0gn",
+          "sha256": "60c5b0246d45f5d552c44cb93c9607a1460f323728c477c6482f3ac5a31b3dca",
+          "lex": "ה סכך",
+          "tags": "art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:4",
+    "token": 12,
+    "word": "בְּאַחְרָיוּתוֹ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/אחריות",
+        "morph": "HR/Ncfsc/Sp3ms",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu dessen Ersatz",
+          "en": "for its compensation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_244_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MHe45Nj5zo9f1sLwq7-3WhdGpYN1l0gn",
+          "sha256": "60c5b0246d45f5d552c44cb93c9607a1460f323728c477c6482f3ac5a31b3dca",
+          "lex": "ב אחריות",
+          "tags": "prp; cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 1,
+    "word": "הָאַנָּס",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/אנס",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Gewalttäter",
+          "en": "the usurper"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "ה אנס",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 7,
+    "word": "קוֹצְרוֹ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קצר",
+        "morph": "HVqrmsa/Sp3ms",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er erntet ihn ab",
+          "en": "he reaps it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "קצר",
+          "tags": "qal prt ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 14,
+    "word": "לַפּוֹעֲלִים",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/פעל",
+        "morph": "HRd/Vqrmpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "den Arbeitern",
+          "en": "to the workers"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "ל פעל",
+          "tags": "prpArt; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 16,
+    "word": "שָׁלִישׁ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שליש",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ein Drittel",
+          "en": "one third"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "שליש",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 19,
+    "word": "קוֹצֵר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קצר",
+        "morph": "HVqrmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er erntet",
+          "en": "he reaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "קצר",
+          "tags": "qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 25,
+    "word": "מֵאִמָּתַי",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מ/אימתי",
+        "morph": "HR/Ti",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "von wann an",
+          "en": "from when"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "מן אימתי",
+          "tags": "prp; intr",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 27,
+    "word": "אַנָּס",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אנס",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gewalttäter",
+          "en": "usurper"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "אנס",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:6",
+    "token": 28,
+    "word": "מִשֶּׁיִּשָּׁקַע",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מ/ש/שקע",
+        "morph": "HR/Tr/VNi3ms",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seit er sich festgesetzt hat",
+          "en": "once he has become established"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_246_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rFvnRmasTuaap5-WSdJqi066VXBWzeMr",
+          "sha256": "2ef2ecf75ce1093d88c244141bd6bb06cba57851250eb6474506ca2e8e47f4df",
+          "lex": "מן ש שקע",
+          "tags": "prp; rel; qal imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nifal nach unserer Vokalisierung יִשָּׁקַע; Qal-Tag im Bild erhalten."
+      }
+    ],
+    "note": "Nifal nach unserer Vokalisierung יִשָּׁקַע; Qal-Tag im Bild erhalten."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 2,
+    "word": "שֶׁעִלְעִילָה",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/עלעל",
+        "morph": "HTr/Vpp3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die verweht hat",
+          "en": "which blew over"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "ש עלעל",
+          "tags": "rel; pi prt 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Vokalisierung שֶׁעִלְעִילָה als Piʿel-Perfekt; sichtbarer prt-Tag mit Personenangabe erhalten."
+      }
+    ],
+    "note": "Unsere Vokalisierung שֶׁעִלְעִילָה als Piʿel-Perfekt; sichtbarer prt-Tag mit Personenangabe erhalten."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 8,
+    "word": "יִגְדֹּר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גדר",
+        "morph": "HVqi3ms",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er soll abtrennen",
+          "en": "he shall fence off"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "ל גדר",
+          "tags": "prp; qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Lesart יִגְדֹּר gegenüber lexikalisch als לגדור ausgewiesener Alternative im Bild."
+      }
+    ],
+    "note": "Unsere Lesart יִגְדֹּר gegenüber lexikalisch als לגדור ausgewiesener Alternative im Bild."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 12,
+    "word": "אֹנֶס",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אונס",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Hindernis durch höhere Gewalt",
+          "en": "unavoidable impediment"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "אונס",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 16,
+    "word": "נוֹטָה",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נטה",
+        "morph": "HVqrfsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sich neigend",
+          "en": "leaning"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "נטה",
+          "tags": "qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Feminin nach unserer Form נוֹטָה und תבואה; Bild maskulin."
+      }
+    ],
+    "note": "Feminin nach unserer Form נוֹטָה und תבואה; Bild maskulin."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 21,
+    "word": "מַחְזִיר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חזר",
+        "morph": "HVhrmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er führt zurück",
+          "en": "he turns back"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "חזר",
+          "tags": "hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 24,
+    "word": "מֵאֵמָתַי",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מ/אימתי",
+        "morph": "HR/Ti",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "von wann an",
+          "en": "from when"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "מן אימתי",
+          "tags": "prp; intr",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 27,
+    "word": "מִשֶּׁתַּשְׁרִישׁ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מ/ש/שרש",
+        "morph": "HR/Tr/Vhi3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sobald sie Wurzeln schlägt",
+          "en": "once it takes root"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "מן ש שרש",
+          "tags": "prp; rel; qal imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Hifil nach unserer Form תַשְׁרִישׁ, nicht Qal."
+      }
+    ],
+    "note": "Hifil nach unserer Form תַשְׁרִישׁ, nicht Qal."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 29,
+    "word": "מִשֶּׁיַּעֲשׁוּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מ/ש/עשה",
+        "morph": "HR/Tr/Vqi3mp",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sobald sie so groß werden",
+          "en": "once they grow to the size"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "מן ש עשה",
+          "tags": "prp; rel; hif imprf 3 ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Qal nach unserer Form יַעֲשׁוּ; Hifil-Tag nicht übernommen."
+      }
+    ],
+    "note": "Qal nach unserer Form יַעֲשׁוּ; Hifil-Tag nicht übernommen."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 35,
+    "word": "צָרְכָהּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "צורך",
+        "morph": "HNcmsc/Sp3fs",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihren vollen Bedarf",
+          "en": "its full requirement"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "צורך",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 37,
+    "word": "שֶׁבִּשֵּׁלוּ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/בשל",
+        "morph": "HTr/Vpp3cp",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die gereift sind",
+          "en": "which have ripened"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "ש בשל",
+          "tags": "rel; pi prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 39,
+    "word": "צָרְכָם",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "צורך",
+        "morph": "HNcmsc/Sp3mp",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihren vollen Bedarf",
+          "en": "their full requirement"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "צורך",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:7",
+    "token": 41,
+    "word": "מִתְקַדְּשׁוֹת",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קדש",
+        "morph": "HVtrfpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden verboten",
+          "en": "they become forbidden"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "קדש",
+          "tags": "htpl prt fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:8",
+    "token": 1,
+    "word": "עָצִיץ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עציץ",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Pflanztopf",
+          "en": "plant pot"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "עציץ",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:8",
+    "token": 18,
+    "word": "עָצִיץ",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עציץ",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Pflanztopf",
+          "en": "plant pot"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "עציץ",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:8",
+    "token": 16,
+    "word": "מִתְקַדְּשִׁים",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קדש",
+        "morph": "HVtrmpa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden verboten",
+          "en": "they become forbidden"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "קדש",
+          "tags": "htpl prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:8",
+    "token": 17,
+    "word": "הַמַּעֲבִיר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/עבר",
+        "morph": "HTd/Vhrmsa",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer hinüberträgt",
+          "en": "one who carries across"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_248_reduced_high_compressed_compressed.jpg",
+          "driveId": "1pBsS5CJb33uXZi5oAYQf4PY05UvOfai2",
+          "sha256": "29b3351170d1306c3476253c24b4a478c1a4960b0f9f8a15ec2bb168445a66f7",
+          "lex": "ה עבר",
+          "tags": "art; hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "7:8",
+    "token": 22,
+    "word": "הוֹסִיף",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יסף",
+        "morph": "HVhp3ms",
+        "rules": [
+          "accordance-kilayim-7"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "es nahm zu",
+          "en": "it increased"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Kil. 7:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_250_reduced_high_compressed_compressed.jpg",
+          "driveId": "1lVKps4di8uCBX9F9VYLb7ZfLlJbP-6zm",
+          "sha256": "ed9b411047ac8935e13ebb8846e2e3057f1994e20646f9a4b9cd1772042128fb",
+          "lex": "יסף",
+          "tags": "hif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

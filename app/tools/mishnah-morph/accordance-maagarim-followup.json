@@ -1,0 +1,175 @@
+{
+  "checkedAtUtc": "2026-11-26T20:34:58.353130+00:00",
+  "scope": "Six previously open Peah positions; lexical follow-up only",
+  "method": "Public web search located an actual Ma’agarim PMain text page. Opened page and followed its existing next-page link; then fetched those exact public HTML URLs and read word-bound erec0/srs0/yhd0/hera0 attributes. No guessed API, no browser session, no morphology mutations.",
+  "limitations": [
+    "No separately labelled genus, number or state fields were found among the quoted word attributes. Such features are not certified as Ma’agarim morphology.",
+    "The corpus text and word-specific lemma metadata come from the Kaufmann witness; this is not a comparison of independent manuscripts.",
+    "Vocalization or semantic peculiarities are preserved explicitly.",
+    "Quoted contexts are short evidence excerpts, not a corpus export."
+  ],
+  "records": [
+    {
+      "title": "Mishnah Peah",
+      "ref": "4:1",
+      "token": 16,
+      "word": "בַּחֲלִיקֵי",
+      "status": "lexical-evidence-found-no-morphology-import",
+      "evidence": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=2&mm15=000002005030+00",
+        "access": "HTTP 200; directly fetched public HTML, not a search snippet",
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "element": "span.tooltippedWord",
+        "attributes": {
+          "kodm0": "987681",
+          "erec0": "חָלִיק",
+          "srs0": "חלק 2 - לא מחוספס",
+          "yhd0": "",
+          "hera0": "",
+          "zura0": "בחליקי",
+          "mismila": "16"
+        },
+        "contextExcerpt": "אף בחליקי אגוזים",
+        "retrievedHtmlSha256": "84cf8d66b650bbe6efba3e54f69f287dbc5a1eab133235beb9f84aaae6ae090c"
+      },
+      "clarified": "Das an genau diese Textstelle gebundene Lemma ist חָלִיק, mit Stammzuordnung חלק 2 (nicht rau). Damit ist der Anschluss an ein gleichlautendes anderes Lexem nicht erforderlich.",
+      "remainingOpen": "Die Konstruktion vor אגוזים stützt redaktionell einen nominalen Plural im Status constructus. Genus, Artikelstatus des בַּ und die genaue botanisch-sachliche Übersetzung sind durch die ausgelesenen Attribute nicht ausdrücklich gesichert."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "4:5",
+      "token": 2,
+      "word": "הַבְעָיוֹת",
+      "status": "lexical-evidence-found-no-morphology-import",
+      "evidence": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=2&mm15=000002005030+00",
+        "access": "HTTP 200; directly fetched public HTML, not a search snippet",
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "element": "span.tooltippedWord",
+        "attributes": {
+          "kodm0": "987751",
+          "erec0": "הַבְעָיָה, אַבְעָיָה",
+          "srs0": "בעי 1 - בדיקה, בקשה",
+          "yhd0": "ייחוד בניקוד התיבה במסירה ",
+          "hera0": "ה קמץ.",
+          "zura0": "הבעיות",
+          "mismila": "2"
+        },
+        "contextExcerpt": "שלוש הבעיות ביום",
+        "retrievedHtmlSha256": "84cf8d66b650bbe6efba3e54f69f287dbc5a1eab133235beb9f84aaae6ae090c"
+      },
+      "clarified": "Ma’agarim ordnet das Token dem nominalen Lemmapaar הַבְעָיָה, אַבְעָיָה zu, nicht einem Hifil-Infinitiv. Das anlautende ה gehört damit zum angebotenen Nomen und darf nicht automatisch als Artikel von בעיה abgetrennt werden.",
+      "remainingOpen": "Zusätzlich verzeichnet Ma’agarim eine Besonderheit der Textvokalisierung: ה קמץ. Unsere Form beginnt הַ. Der Unterschied muss erhalten bleiben; genaue Bedeutung und morphologische Feinbestimmung benötigen eine eigene Entscheidung."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "4:11",
+      "token": 1,
+      "word": "חֹרָרֵי",
+      "status": "lexical-evidence-found-no-morphology-import",
+      "evidence": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=2&mm15=000002005030+00",
+        "access": "HTTP 200; directly fetched public HTML, not a search snippet",
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "element": "span.tooltippedWord",
+        "attributes": {
+          "kodm0": "987938",
+          "erec0": "חָרָר 1 (נקב)",
+          "srs0": "חרר 1 - עשיית נקבים",
+          "yhd0": "",
+          "hera0": "",
+          "zura0": "חוררי",
+          "mismila": "1"
+        },
+        "contextExcerpt": "חוררי נמלים",
+        "retrievedHtmlSha256": "84cf8d66b650bbe6efba3e54f69f287dbc5a1eab133235beb9f84aaae6ae090c"
+      },
+      "clarified": "Das konkrete Kaufmann-Token חוררי wird auf חָרָר 1 (נקב) bezogen. Ein Nomen für ein Loch ist somit direkt lexikalisch belegt; das sichtbare Accordance-Zitierlemma חורי braucht nicht als Lemma unserer Form übernommen zu werden.",
+      "remainingOpen": "Der Kontext vor נמלים stützt redaktionell einen Konstruktplural. Die Abweichung unserer Vokalisierung חֹרָרֵי vom zitierten Lemma חָרָר ist damit nicht als eigenständige Laut-/Flexionsanalyse geklärt; Genus wird nicht separat geliefert."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "5:8",
+      "token": 2,
+      "word": "לְכוֹבָעוֹת",
+      "status": "lexical-evidence-found-no-morphology-import",
+      "evidence": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=6",
+        "access": "HTTP 200; directly fetched public HTML, not a search snippet",
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "element": "span.tooltippedWord",
+        "attributes": {
+          "kodm0": "988219",
+          "erec0": "כּוֹבָעָה 1 (כינוי לעומר)",
+          "srs0": "כבע 1 - כּוֹבַע",
+          "yhd0": "",
+          "hera0": "",
+          "zura0": "לכובעות",
+          "mismila": "2"
+        },
+        "contextExcerpt": "המעמר לכובעות ולכומסות [ו]לחררה",
+        "retrievedHtmlSha256": "2aa00018c88c2ee4066f0e8a64bbbde2c92ce28ad46fc8bd7f7348c7e3fefd25"
+      },
+      "clarified": "Tokenbezogenes Lemma כּוֹבָעָה 1, ausdrücklich als כינוי לעומר erläutert. Die zuvor offene technische Bezeichnung ist damit als Bezeichnung für eine Garbe lexikalisch abgesichert.",
+      "remainingOpen": "Plural und Präposition ergeben sich redaktionell aus unserer Form; genauere Beschreibung von Größe, Form oder Anordnung einer solchen Garbe steht nicht in den ausgelesenen Feldern."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "5:8",
+      "token": 3,
+      "word": "וְלַכּוֹמָסוֹת",
+      "status": "lexical-evidence-found-no-morphology-import",
+      "evidence": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=6",
+        "access": "HTTP 200; directly fetched public HTML, not a search snippet",
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "element": "span.tooltippedWord",
+        "attributes": {
+          "kodm0": "988220",
+          "erec0": "כּוֹמָסָה",
+          "srs0": "כמס 2 - תבואה",
+          "yhd0": "",
+          "hera0": "",
+          "zura0": "ולכומסות",
+          "mismila": "3"
+        },
+        "contextExcerpt": "המעמר לכובעות ולכומסות [ו]לחררה",
+        "retrievedHtmlSha256": "2aa00018c88c2ee4066f0e8a64bbbde2c92ce28ad46fc8bd7f7348c7e3fefd25"
+      },
+      "clarified": "Tokenbezogenes Lemma כּוֹמָסָה; Stammzuordnung כמס 2 mit Sachbereich תבואה. Das Singularlemma ist direkt belegt und muss nicht aus dem Plural geraten werden.",
+      "remainingOpen": "Die abgerufenen Felder erklären keine präzise Bauart oder Größe. Eine spezifische deutsche Übersetzung der Garbenanhäufung bleibt deshalb offen. Artikel und Flexionsmerkmale wären redaktionell anhand unserer Form zu bestimmen."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "5:8",
+      "token": 4,
+      "word": "וְלַחֲרָרָה",
+      "status": "lexical-evidence-found-no-morphology-import",
+      "evidence": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=6",
+        "access": "HTTP 200; directly fetched public HTML, not a search snippet",
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "element": "span.tooltippedWord",
+        "attributes": {
+          "kodm0": "988221",
+          "erec0": "חֲרָרָה 1 (עוגה דקה)",
+          "srs0": "חרר 2 - חום, שׂרֵפה, [rest of attribute contains unescaped quotation marks; not parsed]",
+          "yhd0": "ייחוד בהוראת התיבה ובשימושה ",
+          "hera0": "",
+          "zura0": "ולחררה",
+          "mismila": "4"
+        },
+        "contextExcerpt": "המעמר לכובעות ולכומסות [ו]לחררה",
+        "retrievedHtmlSha256": "2aa00018c88c2ee4066f0e8a64bbbde2c92ce28ad46fc8bd7f7348c7e3fefd25"
+      },
+      "clarified": "Ma’agarim bindet dieses Token an חֲרָרָה 1 (עוגה דקה), markiert aber zugleich eine Besonderheit von Bedeutung und Gebrauch. Das ist ein Beleg für die Lemmaentscheidung des Projekts und für einen besonderen Gebrauch an dieser Stelle.",
+      "remainingOpen": "Aus der allgemeinen Lemmaerläuterung darf hier keine ungeprüfte Übersetzung als dünner Kuchen entstehen: der Kontext handelt vom Zusammenlegen der Ernte. Die konkrete agrarische Bedeutung und die Artikelanalyse von לַ vor חֲ bleiben gesondert zu klären."
+    }
+  ]
+}

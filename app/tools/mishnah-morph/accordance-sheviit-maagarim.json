@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Mishnah Sheviit",
+    "ref": "4:8",
+    "token": 14,
+    "word": "בִשְׁאָר",
+    "sourceHash": "8abeda5a43d9c89ae58e88aaa48db1beafb3385ccd0967ff8c5695ec26a6368e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/שאר",
+        "morph": "HR/Ncmsc",
+        "gloss": {
+          "de": "in den übrigen Jahren eines Siebenjahreszyklus",
+          "en": "in the remaining years of a seven-year cycle"
+        },
+        "method": "accordance-maagarim-context-review",
+        "rules": [
+          "accordance-sheviit-maagarim"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Shev. 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_353_reduced_high_compressed_compressed.jpg",
+          "driveId": "1KO44hYIqk8xmrUlXQff38ad7jlqbP-pa",
+          "sha256": "6012f68a70452d990bda11f7048259ca5ea467bc50f4d4ff2cdba4bce0523567",
+          "lex": "כ שאר",
+          "tags": "prp; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000005004080%2000&mismilla=14",
+          "wordId": "995424",
+          "lemma": "שְׁאָר",
+          "attributes": {
+            "mismila": "14",
+            "kodmilim": "995424",
+            "kodm0": "995424",
+            "erec0": "שְׁאָר",
+            "srs0": "שׁאר 1 - מה שנותר",
+            "kode0": "31815",
+            "kods0": "8564",
+            "yhd0": "",
+            "hera0": "",
+            "hpnimit0": "",
+            "rciv0": "0",
+            "zman0": "0",
+            "zura0": "בשאר"
+          },
+          "shibbur": "31000",
+          "passageId": "000005004080 00",
+          "manuscript": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+          "manuscriptId": "11722",
+          "retrievedAt": "2026-11-26T21:18:53.851Z",
+          "httpStatus": 200,
+          "htmlSha256": "046d61b366dd37d1725b72558b13afe3ef6b38a688ccac3025bbfab025560dd6",
+          "htmlExcerptFile": "accordance-sheviit-maagarim-4-8-evidence.html",
+          "htmlExcerptSha256": "3d0e71b80d3bc1d3917c0d603f67257243d00a3674e15f17bca8e2c37efbdb6a",
+          "wordHtml": "<span  mismila=14  cnt=1  class=\" tooltippedWord  highlight3 \"  kodmilim=\"995424\"  erec0=\"שְׁאָר\" srs0=\"שׁאר 1 - מה שנותר\" kode0=\"31815\" kods0=\"8564\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"995424\" zman0=\"0\" zura0=\"בשאר\"><nobr>בשאר</nobr></span>",
+          "context": "הבוסר. מש(?ביא?)[הביא] מים אוכל פיתו בשדה. הבאיש. כונס לתוך ביתו. וכן כיוצא בו בשאר שני שבוע חייב במעשרות."
+        },
+        "note": "Ma’agarim bindet בשאר in Sheviit 4:8 wortgenau an שְׁאָר (Wort-ID 995424, Lemma-ID 31815), ausdrücklich in der Kaufmann-Überlieferung A 50. Dies bestätigt initiales ב unserer Quelle gegenüber כ im Accordance-Bild. Präposition ב + nominaler Constructus Singular שאר in der Kette בשאר שני שבוע; Genus/Status und deutsche/englische Kontextglossen redaktionell, kein Ma’agarim-Morphologietag behauptet. Raw Accordance כ שאר / prp; cm ms sg cnst unverändert als abweichender Vergleichsbeleg erhalten. https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000005004080%2000&mismilla=14"
+      }
+    ],
+    "note": "Ma’agarim bindet בשאר in Sheviit 4:8 wortgenau an שְׁאָר (Wort-ID 995424, Lemma-ID 31815), ausdrücklich in der Kaufmann-Überlieferung A 50. Dies bestätigt initiales ב unserer Quelle gegenüber כ im Accordance-Bild. Präposition ב + nominaler Constructus Singular שאר in der Kette בשאר שני שבוע; Genus/Status und deutsche/englische Kontextglossen redaktionell, kein Ma’agarim-Morphologietag behauptet. Raw Accordance כ שאר / prp; cm ms sg cnst unverändert als abweichender Vergleichsbeleg erhalten. https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000005004080%2000&mismilla=14"
+  }
+]

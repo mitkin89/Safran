@@ -1,0 +1,1674 @@
+[
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:1",
+    "token": 1,
+    "word": "הָעוֹקֵר",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/עקר",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer ausreißt",
+          "en": "one who uproots"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "ה עקר",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:1",
+    "token": 2,
+    "word": "שְׁתָלִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שתל",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Setzlinge",
+          "en": "seedlings"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "שתל",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:1",
+    "token": 10,
+    "word": "בִּמְחֻבָּר",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/חבר",
+        "morph": "HR/VPrmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im angewachsenen Zustand",
+          "en": "while attached"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "ב חבר",
+          "tags": "prp; pul prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:1",
+    "token": 13,
+    "word": "לָקַט",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "לקט",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er pflückte",
+          "en": "he gathered"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "לקט",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:1",
+    "token": 26,
+    "word": "נִמְכָּרִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מכר",
+        "morph": "HVNrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "verkauft",
+          "en": "sold"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "מכר",
+          "tags": "nif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 1,
+    "word": "הָעוֹקֵר",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/עקר",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer ausreißt",
+          "en": "one who uproots"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "ה עקר",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 2,
+    "word": "לֶפֶת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "לפת",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Rübe",
+          "en": "turnip"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "לפת",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 3,
+    "word": "וּצְנוֹנוֹת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/צנון",
+        "morph": "HC/Ncmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Rettiche",
+          "en": "and radishes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "ו צנון",
+          "tags": "cnj; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 15,
+    "word": "שֶׁהִשְׁרִישׁוּ",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/שרש",
+        "morph": "HTr/Vhp3cp",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Wurzeln geschlagen haben",
+          "en": "which took root"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "ש שרש",
+          "tags": "rel; hif prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 16,
+    "word": "בָעֲלִיָּה",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/עלייה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "auf dem Dachboden",
+          "en": "in the loft"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "ב עליה",
+          "tags": "prp; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Artikel redaktionell nach בָעֲלִיָּה."
+      }
+    ],
+    "note": "Artikel redaktionell nach בָעֲלִיָּה."
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 17,
+    "word": "טָהֲרוּ",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טהר",
+        "morph": "HVqp3cp",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wurden rein",
+          "en": "they became clean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "טהר",
+          "tags": "qal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 18,
+    "word": "מִלְּטַמֵּא",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/ל/טמא",
+        "morph": "HR/R/Vpc",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "vom Verunreinigen",
+          "en": "from imparting impurity"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "מן ל טמא",
+          "tags": "prp; prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 21,
+    "word": "מַפֹּלֶת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מפולת",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Schutt",
+          "en": "rubble"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "מפולת",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:2",
+    "token": 23,
+    "word": "מְגֻלִּים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גלה",
+        "morph": "HVPrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "freiliegend",
+          "en": "uncovered"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_725_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-dwJ7MYiE-FfZnTiiWvnO-c23wbXyBKS",
+          "sha256": "488ab55dbd88afcf35ca64b3888b56f6a9e898886a95d7620950e5e9fcda7f60",
+          "lex": "גלה",
+          "tags": "pul prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:3",
+    "token": 4,
+    "word": "פֵּרוֹתָיו",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פרי",
+        "morph": "HNcmpc/Sp3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seine Früchte",
+          "en": "his produce"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_727_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NWu5NaQt-eQGgrFwMKyj3SN6PcOwdMNo",
+          "sha256": "57e78c3c3f794d02e97158a92e96129e26c0569824512ab28e72d63ab52678e7",
+          "lex": "פרי",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:3",
+    "token": 17,
+    "word": "חָשׁוּד",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חשד",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "verdächtig",
+          "en": "suspected"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_727_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NWu5NaQt-eQGgrFwMKyj3SN6PcOwdMNo",
+          "sha256": "57e78c3c3f794d02e97158a92e96129e26c0569824512ab28e72d63ab52678e7",
+          "lex": "חשד",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:3",
+    "token": 21,
+    "word": "בִּכֵּרוּ",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בכר",
+        "morph": "HVpp3cp",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie reiften zuerst",
+          "en": "they ripened first"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_727_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NWu5NaQt-eQGgrFwMKyj3SN6PcOwdMNo",
+          "sha256": "57e78c3c3f794d02e97158a92e96129e26c0569824512ab28e72d63ab52678e7",
+          "lex": "בכר",
+          "tags": "pi prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:3",
+    "token": 24,
+    "word": "הַבַּכּוֹרוֹת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/בכורה",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die frühreifen Früchte",
+          "en": "the early fruits"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_727_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NWu5NaQt-eQGgrFwMKyj3SN6PcOwdMNo",
+          "sha256": "57e78c3c3f794d02e97158a92e96129e26c0569824512ab28e72d63ab52678e7",
+          "lex": "ה בכורה",
+          "tags": "art; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:4",
+    "token": 5,
+    "word": "תַּבְנוֹ",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תבן",
+        "morph": "HNcmsc/Sp3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sein Stroh",
+          "en": "his straw"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_729_reduced_high_compressed_compressed.jpg",
+          "driveId": "16-jlfp4ruYfVqZt_40j0vXX446FyAW7i",
+          "sha256": "a1b9e15117b839755e5e6faecf899dd7d7a89355b2d34be6fb0fda9b53885474",
+          "lex": "תבן",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:4",
+    "token": 7,
+    "word": "גַּפְתּוֹ",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גפת",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seinen Oliventrester",
+          "en": "his olive pomace"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_729_reduced_high_compressed_compressed.jpg",
+          "driveId": "16-jlfp4ruYfVqZt_40j0vXX446FyAW7i",
+          "sha256": "a1b9e15117b839755e5e6faecf899dd7d7a89355b2d34be6fb0fda9b53885474",
+          "lex": "גפת",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:4",
+    "token": 9,
+    "word": "זוּגָיו",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "זג",
+        "morph": "HNcmpc/Sp3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seine Traubenschalen",
+          "en": "his grape skins"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_729_reduced_high_compressed_compressed.jpg",
+          "driveId": "16-jlfp4ruYfVqZt_40j0vXX446FyAW7i",
+          "sha256": "a1b9e15117b839755e5e6faecf899dd7d7a89355b2d34be6fb0fda9b53885474",
+          "lex": "זג",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Zitierlemma nach sichtbarem זג; unsere Schreibung זוגיו bleibt erhalten. Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": "Zitierlemma nach sichtbarem זג; unsere Schreibung זוגיו bleibt erhalten."
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:4",
+    "token": 17,
+    "word": "מַשְׁקִין",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "משקה",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Flüssigkeiten",
+          "en": "liquids"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_729_reduced_high_compressed_compressed.jpg",
+          "driveId": "16-jlfp4ruYfVqZt_40j0vXX446FyAW7i",
+          "sha256": "a1b9e15117b839755e5e6faecf899dd7d7a89355b2d34be6fb0fda9b53885474",
+          "lex": "משקה",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:4",
+    "token": 28,
+    "word": "הַקֻּטָּעִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/קוטע",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die abgetrennten Ährenstücke",
+          "en": "the broken ear pieces"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_729_reduced_high_compressed_compressed.jpg",
+          "driveId": "16-jlfp4ruYfVqZt_40j0vXX446FyAW7i",
+          "sha256": "a1b9e15117b839755e5e6faecf899dd7d7a89355b2d34be6fb0fda9b53885474",
+          "lex": "ה קוטע",
+          "tags": "art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:4",
+    "token": 30,
+    "word": "הַצְּדָדִין",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/צד",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Seiten",
+          "en": "the sides"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_729_reduced_high_compressed_compressed.jpg",
+          "driveId": "16-jlfp4ruYfVqZt_40j0vXX446FyAW7i",
+          "sha256": "a1b9e15117b839755e5e6faecf899dd7d7a89355b2d34be6fb0fda9b53885474",
+          "lex": "ה צד",
+          "tags": "art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:5",
+    "token": 4,
+    "word": "בְּסוּרְיָה",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/סוריה",
+        "morph": "HR/Np",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in Syrien",
+          "en": "in Syria"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_731_reduced_high_compressed_compressed.jpg",
+          "driveId": "1okPWi63uuL8s_3UupTVve41IWkOj2_oK",
+          "sha256": "a9aa1ee633e8027a0b438911e8f0f6815e901d96153529a2c41a8dae8c67e0c8",
+          "lex": "ב סוריא",
+          "tags": "prp; prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:5",
+    "token": 15,
+    "word": "וְלוֹקֵט",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/לקט",
+        "morph": "HC/Vqrmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und pflückt",
+          "en": "and gathers"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_731_reduced_high_compressed_compressed.jpg",
+          "driveId": "1okPWi63uuL8s_3UupTVve41IWkOj2_oK",
+          "sha256": "a9aa1ee633e8027a0b438911e8f0f6815e901d96153529a2c41a8dae8c67e0c8",
+          "lex": "ו לקט",
+          "tags": "cnj; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Bild zeigt editorisch geklammerte Schreibvariante וילקט, Tag qal prt; eigene Form ולוקט."
+      }
+    ],
+    "note": "Bild zeigt editorisch geklammerte Schreibvariante וילקט, Tag qal prt; eigene Form ולוקט."
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:5",
+    "token": 22,
+    "word": "יִשְׂכֹּר",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שכר",
+        "morph": "HVqi3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er darf mieten",
+          "en": "he may hire"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_731_reduced_high_compressed_compressed.jpg",
+          "driveId": "1okPWi63uuL8s_3UupTVve41IWkOj2_oK",
+          "sha256": "a9aa1ee633e8027a0b438911e8f0f6815e901d96153529a2c41a8dae8c67e0c8",
+          "lex": "שכר",
+          "tags": "qal imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:5",
+    "token": 23,
+    "word": "פּוֹעֲלִין",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פעל",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Arbeiter",
+          "en": "workers"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_731_reduced_high_compressed_compressed.jpg",
+          "driveId": "1okPWi63uuL8s_3UupTVve41IWkOj2_oK",
+          "sha256": "a9aa1ee633e8027a0b438911e8f0f6815e901d96153529a2c41a8dae8c67e0c8",
+          "lex": "פעל",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:5",
+    "token": 24,
+    "word": "וִילַקֵּט",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/לקט",
+        "morph": "HC/Vpi3ms",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und pflücken lassen",
+          "en": "and have gathered"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_731_reduced_high_compressed_compressed.jpg",
+          "driveId": "1okPWi63uuL8s_3UupTVve41IWkOj2_oK",
+          "sha256": "a9aa1ee633e8027a0b438911e8f0f6815e901d96153529a2c41a8dae8c67e0c8",
+          "lex": "ו לקט",
+          "tags": "cnj; pi imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:6",
+    "token": 1,
+    "word": "הַמְתַמֵּד",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/תמד",
+        "morph": "HTd/Vprmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer Tresterwein ansetzt",
+          "en": "one who makes pomace wine"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_733_reduced_high_compressed_compressed.jpg",
+          "driveId": "1-uPv3K3-hQV1imLpgmEBZL2HhywxB42G",
+          "sha256": "36f52cd6b1ee97c76ee30e75ad1586c084b29b87f72b137dcacbe891c4e86e7f",
+          "lex": "ה תמר",
+          "tags": "art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Schreibung מתמד bestimmt das redaktionelle Lemma תמד; Accordance zeigt תמר."
+      }
+    ],
+    "note": "Unsere Schreibung מתמד bestimmt das redaktionelle Lemma תמד; Accordance zeigt תמר."
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:7",
+    "token": 14,
+    "word": "גוֹרְרִין",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גרר",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie schleppen",
+          "en": "they drag"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_735_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MW68PtOII2Ga86n75Z0ExQQJ_w06HgRp",
+          "sha256": "f7d24a02a6318003ab1a4a8cdf0f55bfcd6255ff3e4e42e929df081eb94e0141",
+          "lex": "גרר",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 1,
+    "word": "שׁוּם",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שום",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Knoblauch",
+          "en": "garlic"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_735_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MW68PtOII2Ga86n75Z0ExQQJ_w06HgRp",
+          "sha256": "f7d24a02a6318003ab1a4a8cdf0f55bfcd6255ff3e4e42e929df081eb94e0141",
+          "lex": "שום",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 4,
+    "word": "וּבָצָל",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/בצל",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Zwiebel",
+          "en": "and onion"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_735_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MW68PtOII2Ga86n75Z0ExQQJ_w06HgRp",
+          "sha256": "f7d24a02a6318003ab1a4a8cdf0f55bfcd6255ff3e4e42e929df081eb94e0141",
+          "lex": "ו בצל",
+          "tags": "cnj; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 6,
+    "word": "וְהַגְּרִיסִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/גריס",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die gespaltenen Bohnen",
+          "en": "and the split beans"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_735_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MW68PtOII2Ga86n75Z0ExQQJ_w06HgRp",
+          "sha256": "f7d24a02a6318003ab1a4a8cdf0f55bfcd6255ff3e4e42e929df081eb94e0141",
+          "lex": "ו ה גריש",
+          "tags": "cnj; art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Zitierlemma גריס folgt unserer Schreibung; Accordance-Lexem גריש dokumentiert."
+      }
+    ],
+    "note": "Zitierlemma גריס folgt unserer Schreibung; Accordance-Lexem גריש dokumentiert."
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 7,
+    "word": "הַקִּלְקִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/קלקי",
+        "morph": "HTd/Agmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die kilikischen",
+          "en": "the Cilician"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_735_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MW68PtOII2Ga86n75Z0ExQQJ_w06HgRp",
+          "sha256": "f7d24a02a6318003ab1a4a8cdf0f55bfcd6255ff3e4e42e929df081eb94e0141",
+          "lex": "ה קלקי",
+          "tags": "art; gent ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 9,
+    "word": "הַמִּצְרִיּוֹת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/מצרי",
+        "morph": "HTd/Agfpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die ägyptischen",
+          "en": "the Egyptian"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_735_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MW68PtOII2Ga86n75Z0ExQQJ_w06HgRp",
+          "sha256": "f7d24a02a6318003ab1a4a8cdf0f55bfcd6255ff3e4e42e929df081eb94e0141",
+          "lex": "ה מצרי",
+          "tags": "art; gent fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 23,
+    "word": "וְנִלְקָחִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/לקח",
+        "morph": "HC/VNrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und werden gekauft",
+          "en": "and are bought"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "ו לקח",
+          "tags": "cnj; nif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 31,
+    "word": "כְּרֵשִׁים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כרשא",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Lauch",
+          "en": "leeks"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "כרשא",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 35,
+    "word": "לֶפֶת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "לפת",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Rübe",
+          "en": "turnip"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "לפת",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 36,
+    "word": "וּצְנוֹנוֹת",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/צנון",
+        "morph": "HC/Ncmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Rettiche",
+          "en": "and radishes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "ו צנון",
+          "tags": "cnj; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 38,
+    "word": "זֵרְעוֹנֵי",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "זרעון",
+        "morph": "HNcmpc",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Samen von",
+          "en": "seeds of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "זרעון",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 39,
+    "word": "גִנָּה",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גינה",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ein Garten",
+          "en": "a garden"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "גנה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 41,
+    "word": "נֶאֱכָלִים",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVNrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "essbar",
+          "en": "edible"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "אכל",
+          "tags": "nif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maasrot",
+    "ref": "5:8",
+    "token": 45,
+    "word": "וְנִלְקָחִין",
+    "sourceHash": "140124181e1459ab517e759bb16eb83691a4d90fa5b6b73f77d14ba53f56333e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/לקח",
+        "morph": "HC/VNrmpa",
+        "rules": [
+          "accordance-maasrot-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und werden gekauft",
+          "en": "and are bought"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maas. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_737_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hR5NL4WMZFQXb_zYBAIigJRL05TkQ4v7",
+          "sha256": "ad29f11f79e572fa08ba0f8303490a697ccffd0b71a22fa66862d91a8ca9f3b3",
+          "lex": "ו לקח",
+          "tags": "cnj; nif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

@@ -154,7 +154,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  }
  if(process.env.SAFRAN_SMOKE_MISHNAH_CORPUS==='1'){await require('./mishnah-corpus-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){await require('./mishnah-zeraim-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
- if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){await require('./mishnah-morph-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){await require('./mishnah-morph-flows.cjs')({docs,win,js,waitFor,book,dictionaryRequests:dictionaryFlows.requests});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
   await require('./kaufmann-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;

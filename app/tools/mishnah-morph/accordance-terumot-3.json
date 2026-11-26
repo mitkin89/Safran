@@ -1,0 +1,1560 @@
+[
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 2,
+    "word": "קִשּׁוּת",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קשות",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gurke",
+          "en": "cucumber"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "קישות",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Schreibweise קשות erhalten."
+      }
+    ],
+    "note": "Unsere Schreibweise קשות erhalten."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 5,
+    "word": "אֲבַטִּיחַ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבטיח",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Melone",
+          "en": "melon"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "אבטיח",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 22,
+    "word": "תְרָמָהּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תרם",
+        "morph": "HVqp3ms/Sp3fs",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er sonderte sie als Teruma ab",
+          "en": "he set it aside as terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "תרם",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf חבית. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf חבית."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 26,
+    "word": "מִשֶּׁתְּרָמָהּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/ש/תרם",
+        "morph": "HR/Tr/Vqp3ms/Sp3fs",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seit er sie als Teruma abgesondert hatte",
+          "en": "after he had set it aside as terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "מן ש תרם",
+          "tags": "prp; rel; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf חבית. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf חבית."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 27,
+    "word": "הֶחְמִיצָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חמץ",
+        "morph": "HVhp3fs",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wurde sauer",
+          "en": "it turned sour"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "חמץ",
+          "tags": "hif prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 32,
+    "word": "סָפֵק",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ספק",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Zweifel; ein Zweifelsfall",
+          "en": "doubt; a doubtful case"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "ספק",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:1",
+    "token": 40,
+    "word": "עַצְמָהּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עצם",
+        "morph": "HNcfsc/Sp3fs",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie selbst",
+          "en": "itself"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_493_reduced_high_compressed_compressed.jpg",
+          "driveId": "1gpq8bmrolDaSho6O7RD0FSywQj0YFDgr",
+          "sha256": "8cf34407414c7d7d29c594e16624f890bcd0380cfa063e9ec92b33c7726f8b7f",
+          "lex": "עצם",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Reflexiver Bezug auf Teruma. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Reflexiver Bezug auf Teruma."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:2",
+    "token": 7,
+    "word": "מְדַמְּעַתָּן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "דמע",
+        "morph": "HVprfsc/Sp3mp",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie macht sie zu einem Teruma-Gemisch",
+          "en": "it renders them a terumah mixture"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_495_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eg4rTzllLZP3DILjXE9cYR53xb3WntOD",
+          "sha256": "03faa2613ce62b78118ce8f982872637b4aec599b9118e32eaaf885fde0fc21a",
+          "lex": "דמע",
+          "tags": "pi prt fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf חולין; Akkusativsuffix, Status constructus in Accordance bezeichnet die angehängte Form. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf חולין; Akkusativsuffix, Status constructus in Accordance bezeichnet die angehängte Form."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:2",
+    "token": 13,
+    "word": "מְדַמְּעַתָּן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "דמע",
+        "morph": "HVprfsc/Sp3mp",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie macht sie zu einem Teruma-Gemisch",
+          "en": "it renders them a terumah mixture"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_495_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eg4rTzllLZP3DILjXE9cYR53xb3WntOD",
+          "sha256": "03faa2613ce62b78118ce8f982872637b4aec599b9118e32eaaf885fde0fc21a",
+          "lex": "דמע",
+          "tags": "pi prt fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf חולין; Akkusativsuffix, Status constructus in Accordance bezeichnet die angehängte Form. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf חולין; Akkusativsuffix, Status constructus in Accordance bezeichnet die angehängte Form."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:2",
+    "token": 18,
+    "word": "מְדַמְּעוֹת",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "דמע",
+        "morph": "HVprfpa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie machen zu einem Teruma-Gemisch",
+          "en": "they render a terumah mixture"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_495_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eg4rTzllLZP3DILjXE9cYR53xb3WntOD",
+          "sha256": "03faa2613ce62b78118ce8f982872637b4aec599b9118e32eaaf885fde0fc21a",
+          "lex": "דמע",
+          "tags": "pi prt fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:3",
+    "token": 1,
+    "word": "הַשּׁוּתָפִין",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/שותף",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Teilhaber",
+          "en": "the partners"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_495_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eg4rTzllLZP3DILjXE9cYR53xb3WntOD",
+          "sha256": "03faa2613ce62b78118ce8f982872637b4aec599b9118e32eaaf885fde0fc21a",
+          "lex": "ה שותף",
+          "tags": "art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:3",
+    "token": 2,
+    "word": "שֶׁתָּרְמוּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/תרם",
+        "morph": "HTr/Vqp3cp",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Teruma abgesondert haben",
+          "en": "who set aside terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_495_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eg4rTzllLZP3DILjXE9cYR53xb3WntOD",
+          "sha256": "03faa2613ce62b78118ce8f982872637b4aec599b9118e32eaaf885fde0fc21a",
+          "lex": "ש תרם",
+          "tags": "rel; qal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:3",
+    "token": 31,
+    "word": "תָרַם",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תרם",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er sonderte Teruma ab",
+          "en": "he set aside terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_495_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eg4rTzllLZP3DILjXE9cYR53xb3WntOD",
+          "sha256": "03faa2613ce62b78118ce8f982872637b4aec599b9118e32eaaf885fde0fc21a",
+          "lex": "תרם",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 7,
+    "word": "הִרְשָׁה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "רשה",
+        "morph": "HVhp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er ermächtigte",
+          "en": "he authorized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "רשה",
+          "tags": "hif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 17,
+    "word": "לִתְרֹם",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/תרם",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Teruma abzusondern",
+          "en": "to set aside terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "ל תרם",
+          "tags": "prp; qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 38,
+    "word": "לִתְרֹם",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/תרם",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Teruma abzusondern",
+          "en": "to set aside terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "ל תרם",
+          "tags": "prp; qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 20,
+    "word": "בִּטֵּל",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בטל",
+        "morph": "HVpp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er widerrief",
+          "en": "he revoked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "בטל",
+          "tags": "pi prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 25,
+    "word": "בִּטֵּל",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בטל",
+        "morph": "HVpp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er widerrief",
+          "en": "he revoked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "בטל",
+          "tags": "pi prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 31,
+    "word": "בִּטֵּל",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בטל",
+        "morph": "HVpp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er widerrief",
+          "en": "he revoked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "בטל",
+          "tags": "pi prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 24,
+    "word": "תָרַם",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תרם",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er sonderte Teruma ab",
+          "en": "he set aside terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "תרם",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 34,
+    "word": "הַפּוֹעֲלִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/פעל",
+        "morph": "HTd/Vqrmpa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Arbeiter",
+          "en": "the workers"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "ה פעל",
+          "tags": "art; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:4",
+    "token": 43,
+    "word": "מְטַמִּין",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HVprmpa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie verunreinigen",
+          "en": "they render impure"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "טמא",
+          "tags": "pi prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Defektive Schreibung מטמין bleibt erhalten."
+      }
+    ],
+    "note": "Defektive Schreibung מטמין bleibt erhalten."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 5,
+    "word": "בְתוֹכוֹ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/תוך",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in ihm",
+          "en": "within it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "ב תוך",
+          "tags": "prp; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Bezug auf den Erntehaufen. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Bezug auf den Erntehaufen."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 11,
+    "word": "בְתוֹכוֹ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/תוך",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in ihm",
+          "en": "within it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "ב תוך",
+          "tags": "prp; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Bezug auf den Erntehaufen. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Bezug auf den Erntehaufen."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 6,
+    "word": "וּמַעְשְׂרוֹתָיו",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מעשר",
+        "morph": "HC/Ncmpc/Sp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und seine Zehnten",
+          "en": "and its tithes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_499_reduced_high_compressed_compressed.jpg",
+          "driveId": "1jbr9iFr9SAuAQx6UbwaPZIN_XDnjp3_7",
+          "sha256": "5982c41e5f2a62dc553eab04dbd381c0c0233919f68ccb6ff025dc3061a6639a",
+          "lex": "ו מעשר",
+          "tags": "cnj; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 21,
+    "word": "בִּצְפוֹנוֹ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/צפון",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "an seiner Nordseite",
+          "en": "at its northern side"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_501_reduced_high_compressed_compressed.jpg",
+          "driveId": "1YL1kkTaL8vqRyI736AZEwvMvSljUC7pT",
+          "sha256": "29ed19b13e2fd5011486ab24b76406b70dcaba3afa6db749f7caf9e6d78864d5",
+          "lex": "ב צפון",
+          "tags": "prp; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 22,
+    "word": "וּבִדְרוֹמוֹ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/דרום",
+        "morph": "HC/R/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und an seiner Südseite",
+          "en": "and at its southern side"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_501_reduced_high_compressed_compressed.jpg",
+          "driveId": "1YL1kkTaL8vqRyI736AZEwvMvSljUC7pT",
+          "sha256": "29ed19b13e2fd5011486ab24b76406b70dcaba3afa6db749f7caf9e6d78864d5",
+          "lex": "ו ב דרום",
+          "tags": "cnj; prp; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 25,
+    "word": "חֲסָמָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חסמה",
+        "morph": "HNp",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Chasma",
+          "en": "Hasma"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_501_reduced_high_compressed_compressed.jpg",
+          "driveId": "1YL1kkTaL8vqRyI736AZEwvMvSljUC7pT",
+          "sha256": "29ed19b13e2fd5011486ab24b76406b70dcaba3afa6db749f7caf9e6d78864d5",
+          "lex": "חסמה",
+          "tags": "prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 29,
+    "word": "כָּרִי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כרי",
+        "morph": "HNcmsc/Sp1cs",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mein Getreidehaufen",
+          "en": "my grain heap"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_501_reduced_high_compressed_compressed.jpg",
+          "driveId": "1YL1kkTaL8vqRyI736AZEwvMvSljUC7pT",
+          "sha256": "29ed19b13e2fd5011486ab24b76406b70dcaba3afa6db749f7caf9e6d78864d5",
+          "lex": "כרי",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Possessivischer Bezug aus תרומת כרי redaktionell; das Bild zeigt keinen gesonderten Suffix-Tag. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Possessivischer Bezug aus תרומת כרי redaktionell; das Bild zeigt keinen gesonderten Suffix-Tag."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:5",
+    "token": 40,
+    "word": "עִשּׂוּר",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עישור",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ein Zehntel des",
+          "en": "a tenth of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_501_reduced_high_compressed_compressed.jpg",
+          "driveId": "1YL1kkTaL8vqRyI736AZEwvMvSljUC7pT",
+          "sha256": "29ed19b13e2fd5011486ab24b76406b70dcaba3afa6db749f7caf9e6d78864d5",
+          "lex": "עישור",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:6",
+    "token": 1,
+    "word": "הַמַּקְדִּים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/קדם",
+        "morph": "HTd/Vhrmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer voranstellt",
+          "en": "one who puts before"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_503_reduced_high_compressed_compressed.jpg",
+          "driveId": "1I8GA0jbASD54laWK2DHCIjibAr8r8bPj",
+          "sha256": "1c67a0bef6af944b44a02d52435638842047b8d5898c20a52a04cfcd6b65e542",
+          "lex": "ה קדם",
+          "tags": "art; hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:6",
+    "token": 16,
+    "word": "תַעֲשֶׂה'",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVqi2ms",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "du sollst tun",
+          "en": "you shall do"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_503_reduced_high_compressed_compressed.jpg",
+          "driveId": "1I8GA0jbASD54laWK2DHCIjibAr8r8bPj",
+          "sha256": "1c67a0bef6af944b44a02d52435638842047b8d5898c20a52a04cfcd6b65e542",
+          "lex": "עשה",
+          "tags": "qal imprf 2 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Bestandteil der zitierten Verbotsformel לא תעשה; Schlussapostroph ist editorisches Satzzeichen."
+      }
+    ],
+    "note": "Bestandteil der zitierten Verbotsformel לא תעשה; Schlussapostroph ist editorisches Satzzeichen."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:7",
+    "token": 3,
+    "word": "בִכּוּרִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ביכורים",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Erstlingsfrüchte",
+          "en": "first fruits"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_503_reduced_high_compressed_compressed.jpg",
+          "driveId": "1I8GA0jbASD54laWK2DHCIjibAr8r8bPj",
+          "sha256": "1c67a0bef6af944b44a02d52435638842047b8d5898c20a52a04cfcd6b65e542",
+          "lex": "ביכורים",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:7",
+    "token": 6,
+    "word": "קָרוּי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קרא",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "genannt",
+          "en": "called"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_503_reduced_high_compressed_compressed.jpg",
+          "driveId": "1I8GA0jbASD54laWK2DHCIjibAr8r8bPj",
+          "sha256": "1c67a0bef6af944b44a02d52435638842047b8d5898c20a52a04cfcd6b65e542",
+          "lex": "קרא",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:7",
+    "token": 10,
+    "word": "קָרוּי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קרא",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "genannt",
+          "en": "called"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_503_reduced_high_compressed_compressed.jpg",
+          "driveId": "1I8GA0jbASD54laWK2DHCIjibAr8r8bPj",
+          "sha256": "1c67a0bef6af944b44a02d52435638842047b8d5898c20a52a04cfcd6b65e542",
+          "lex": "קרא",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:8",
+    "token": 1,
+    "word": "הַמִּתְכַּוֵּן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/כון",
+        "morph": "HTd/Vtrmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer beabsichtigt",
+          "en": "one who intends"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_507_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WVB42jpgB388KuaiaOiAyOu7zb0NY0N5",
+          "sha256": "c1cc328edb8f5f08c4375787ec7cccb954991cbefee9c3cf936814deaa304ead",
+          "lex": "ה כון",
+          "tags": "art; htpl prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:8",
+    "token": 22,
+    "word": "נֶהְנֶה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "הנה",
+        "morph": "HVNrmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Nutzen habend",
+          "en": "benefiting"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_507_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WVB42jpgB388KuaiaOiAyOu7zb0NY0N5",
+          "sha256": "c1cc328edb8f5f08c4375787ec7cccb954991cbefee9c3cf936814deaa304ead",
+          "lex": "הנה",
+          "tags": "nif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:8",
+    "token": 33,
+    "word": "שָׁוִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שוה",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "übereinstimmend",
+          "en": "in agreement"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_507_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WVB42jpgB388KuaiaOiAyOu7zb0NY0N5",
+          "sha256": "c1cc328edb8f5f08c4375787ec7cccb954991cbefee9c3cf936814deaa304ead",
+          "lex": "שוה",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Einordnung redaktionell; Tag zeigt nur maskulin Plural."
+      }
+    ],
+    "note": "Adjektivische Einordnung redaktionell; Tag zeigt nur maskulin Plural."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:9",
+    "token": 5,
+    "word": "וּמַעְשְׂרוֹתֵיהֶן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מעשר",
+        "morph": "HC/Ncmpc/Sp3mp",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und ihre Zehnten",
+          "en": "and their tithes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_507_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WVB42jpgB388KuaiaOiAyOu7zb0NY0N5",
+          "sha256": "c1cc328edb8f5f08c4375787ec7cccb954991cbefee9c3cf936814deaa304ead",
+          "lex": "ו מעשר",
+          "tags": "cnj; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf נכרי וכותי; genusübergreifende Endung -הן redaktionell im maskulinen Satzbezug bestimmt. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf נכרי וכותי; genusübergreifende Endung -הן redaktionell im maskulinen Satzbezug bestimmt."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:9",
+    "token": 8,
+    "word": "וְהֶקְדֵּשָׁן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/הקדש",
+        "morph": "HC/Ncmsc/Sp3mp",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und ihre Weihung",
+          "en": "and their consecration"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_507_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WVB42jpgB388KuaiaOiAyOu7zb0NY0N5",
+          "sha256": "c1cc328edb8f5f08c4375787ec7cccb954991cbefee9c3cf936814deaa304ead",
+          "lex": "ו הקדש",
+          "tags": "cnj; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Nominaler הקדש, kein Hifʿil-Verb; Suffixbezug auf die beiden zuvor genannten Personen. Suffixmerkmale redaktionell aus Vokalisierung und Satzbezug ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Nominaler הקדש, kein Hifʿil-Verb; Suffixbezug auf die beiden zuvor genannten Personen."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "3:9",
+    "token": 9,
+    "word": "הֶקְדֵּשׁ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "הקדש",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Geweihtes",
+          "en": "consecrated property"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 3:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_507_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WVB42jpgB388KuaiaOiAyOu7zb0NY0N5",
+          "sha256": "c1cc328edb8f5f08c4375787ec7cccb954991cbefee9c3cf936814deaa304ead",
+          "lex": "הקדש",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

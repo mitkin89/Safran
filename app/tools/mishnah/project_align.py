@@ -8,11 +8,34 @@ import difflib
 import re
 
 HE = re.compile('[^א-ת]')
-ID = re.compile(r'^([SV]\d+)\.1\.1\.(\d+)\.(\d+)\.\d+')
+ID = re.compile(r'^([SV]\d+)\.(\d+)\.(\d+)\.(\d+)\.(\d+)\.\d+')
+
+
+def comparison_root(tid):
+    occurrence = re.search(r'-occurrence[0-9]+$', tid)
+    return ID.match(tid)[0] + (occurrence[0] if occurrence else '')
 
 
 def damaged(word):
     return '□' in word['text'] or bool(set(word['flags']) & {'gap', 'damage', 'unclear'})
+
+
+def source_notes(units, chapter=None):
+    notes = []
+    seen = set()
+    for ref, unit in units.items():
+        if chapter is not None and not ref.startswith(str(chapter) + ':'):
+            continue
+        for a in unit.get('annotations', []):
+            if a['tag'] != 'add' or a['attrs'].get('type') != 'comm':
+                continue
+            pairs = [[ref, i] for i, w in enumerate(unit['words'])
+                     if w['start'] >= a['start'] and w['end'] <= a['end'] and (ref, i) not in seen]
+            if pairs:
+                seen.update(map(tuple, pairs))
+                notes.append({'sourceRef': ref, 'reading': pairs, 'attrs': a['attrs'],
+                              'sourceRange': [a['start'], a['end']], 'kind': 'source-note'})
+    return notes
 
 
 def bridge(units, tokens):
@@ -28,13 +51,16 @@ def bridge(units, tokens):
         m = ID.match(t['id'])
         if not m:
             raise ValueError('Unknown project token ID: ' + t['id'])
-        by_ref[m[2] + ':' + m[3]].append(t)
+        by_ref[str(int(m[4])) + ':' + str(int(m[5]))].append(t)
     mapped = {}
+    commentary = {tuple(p) for note in source_notes(units) for p in note['reading']}
     for ref, group in by_ref.items():
         words = units[ref]['words']
         primary = [t for t in group if t['t'] != '--']
         a, a_owner, a_positions = '', [], defaultdict(set)
         for i, w in enumerate(words):
+            if (ref, i) in commentary:
+                continue
             text = HE.sub('', w['text'])
             a_positions[i].update(range(len(a), len(a) + len(text)))
             a += text
@@ -63,10 +89,10 @@ def bridge(units, tokens):
         # Extra normalized expansion tokens refer to the same original word.
         roots = defaultdict(list)
         for tid, pairs in local.items():
-            roots[ID.match(tid)[0]].extend(pairs)
+            roots[comparison_root(tid)].extend(pairs)
         for t in group:
             if t['t'] == '--':
-                local[t['id']] = [list(p) for p in dict.fromkeys(map(tuple, roots[ID.match(t['id'])[0]]))]
+                local[t['id']] = [list(p) for p in dict.fromkeys(map(tuple, roots[comparison_root(t['id'])]))]
         mapped.update(local)
     return mapped
 
@@ -239,11 +265,15 @@ def build(data, reviews, cache):
     for sig, sha in reviews.get('sourceSha256', {}).items():
         assert data['witnesses'][sig]['sha256'] == sha, 'Review source changed: ' + sig
     result = {'version': 2, 'method': cache['provenance']['method'] + '; chapter scope; original source tokens retained',
-              'provenance': cache['provenance'], 'chapters': {}, 'reviews': reviews.get('groups', [])}
-    counts = {s: dict(words=0, aligned=0, insertions=0, positionedGaps=0, open=0, reviewed=0) for s in ['P', 'C']}
-    bridge_counts = {s: dict(projectTokens=0, bridgedProjectTokens=0) for s in ['K', 'P', 'C']}
+              'provenance': cache['provenance'], 'chapters': {}, 'baseNotes': {}, 'reviews': reviews.get('groups', [])}
+    sigs = cache.get('witnessSigs', ['K', 'P', 'C'])
+    comparisons = [s for s in sigs if s != 'K']
+    counts = {s: dict(words=0, aligned=0, insertions=0, positionedGaps=0, sourceNotes=0, open=0, reviewed=0) for s in comparisons}
+    bridge_counts = {s: dict(projectTokens=0, bridgedProjectTokens=0) for s in sigs}
     for ch, chapter in cache['chapters'].items():
-        sigs = ['K', 'P', 'C']
+        result['baseNotes'][ch] = source_notes(data['witnesses']['K']['units'], ch)
+        for note in result['baseNotes'][ch]:
+            note['ref'] = note['sourceRef']
         mappings = {}
         for sig, witness in zip(sigs, chapter['witnesses']):
             assert witness['id'] == data['witnesses'][sig]['id']
@@ -293,10 +323,16 @@ def build(data, reviews, cache):
         base_stream = [(r, i) for r, u in data['witnesses']['K']['units'].items()
                        if r.startswith(ch + ':') for i in range(len(u['words']))]
         base_order = {p: i for i, p in enumerate(base_stream)}
-        for sig in ['P', 'C']:
+        for sig in comparisons:
             stream = [(r, i) for r, u in data['witnesses'][sig]['units'].items()
                       if r.startswith(ch + ':') for i in range(len(u['words']))]
             order = {p: i for i, p in enumerate(stream)}
+            if not base_stream or not stream:
+                opened = [{'nearRef': ch + ':1', 'reading': list(p), 'reason': 'missing-base'} for p in stream]
+                result['chapters'].setdefault(ch, {})[sig] = {'links': [], 'open': opened, **({'unavailable': True} if not stream else {})}
+                counts[sig]['words'] += len(stream)
+                counts[sig]['open'] += len(stream)
+                continue
             mapped = []
             previous = None
             for group in ordered:
@@ -351,6 +387,13 @@ def build(data, reviews, cache):
             assert sum(len(l['reading']) for l in mapped) == len(used)
             assert sum(len(l['base']) for l in mapped) == len({tuple(p) for l in mapped for p in l['base']})
             anchored = sorted(((order[tuple(p)], l['ref']) for l in mapped for p in l['reading']))
+            notes = source_notes(data['witnesses'][sig]['units'], ch)
+            for note in notes:
+                start = order[tuple(note['reading'][0])]
+                preceding = [(i, ref) for i, ref in anchored if i < start]
+                note['ref'] = preceding[-1][1] if preceding else anchored[0][1] if anchored else ch + ':1'
+                assert not used.intersection(map(tuple, note['reading']))
+                used.update(map(tuple, note['reading']))
             opened = []
             cursor = 0
             for j, pair in enumerate(stream):
@@ -362,15 +405,16 @@ def build(data, reviews, cache):
                 r, i = pair
                 opened.append({'nearRef': near, 'reading': [r, i],
                                'reason': 'damaged' if damaged(data['witnesses'][sig]['units'][r]['words'][i]) else 'source-bridge'})
-            result['chapters'].setdefault(ch, {})[sig] = {'links': mapped, 'open': opened}
+            result['chapters'].setdefault(ch, {})[sig] = {'links': mapped, 'open': opened, 'notes': notes}
             totals = counts[sig]
             totals['words'] += len(stream)
             totals['aligned'] += sum(len(l['reading']) for l in mapped if l['base'])
             totals['insertions'] += sum(len(l['reading']) for l in mapped if not l['base'] and l['kind'] != 'source-gap')
             totals['positionedGaps'] += sum(len(l['reading']) for l in mapped if l['kind'] == 'source-gap')
+            totals['sourceNotes'] += sum(len(n['reading']) for n in notes)
             totals['open'] += len(opened)
             totals['reviewed'] += sum(len(l['reading']) for l in mapped if l['checked'])
     for totals in counts.values():
-        assert totals['words'] == totals['aligned'] + totals['insertions'] + totals['positionedGaps'] + totals['open']
+        assert totals['words'] == totals['aligned'] + totals['insertions'] + totals['positionedGaps'] + totals['sourceNotes'] + totals['open']
     result.update(counts=counts, bridgeCounts=bridge_counts)
     return result

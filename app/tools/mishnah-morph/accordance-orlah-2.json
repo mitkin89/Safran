@@ -1,0 +1,1712 @@
+[
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:1",
+    "token": 6,
+    "word": "שֶׁלִּדְמַי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "של/דמאי",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "von Demai",
+          "en": "of demai"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_947_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mraL1kNpSnM5kc6q4jbP1maw13tLTcJs",
+          "sha256": "c09205934e1675e2810f5f24d1bd4913aa456bd9f583ada234b73b8359b24b67",
+          "lex": "של דמי",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Zitierlemma redaktionell plene."
+      }
+    ],
+    "note": "Zitierlemma redaktionell plene."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:1",
+    "token": 9,
+    "word": "עוֹלִים",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden aufgehoben",
+          "en": "they are neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_947_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mraL1kNpSnM5kc6q4jbP1maw13tLTcJs",
+          "sha256": "c09205934e1675e2810f5f24d1bd4913aa456bd9f583ada234b73b8359b24b67",
+          "lex": "עלה",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:1",
+    "token": 26,
+    "word": "עוֹלִים",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden aufgehoben",
+          "en": "they are neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_947_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mraL1kNpSnM5kc6q4jbP1maw13tLTcJs",
+          "sha256": "c09205934e1675e2810f5f24d1bd4913aa456bd9f583ada234b73b8359b24b67",
+          "lex": "עלה",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:1",
+    "token": 53,
+    "word": "לוֹסַר",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/אסר",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu verbieten",
+          "en": "to prohibit"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_947_reduced_high_compressed_compressed.jpg",
+          "driveId": "1mraL1kNpSnM5kc6q4jbP1maw13tLTcJs",
+          "sha256": "c09205934e1675e2810f5f24d1bd4913aa456bd9f583ada234b73b8359b24b67",
+          "lex": "ל אסר",
+          "tags": "prp; qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Kaufmann-Oberfläche לוסר nicht stillschweigend geändert."
+      }
+    ],
+    "note": "Kaufmann-Oberfläche לוסר nicht stillschweigend geändert."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:4",
+    "token": 2,
+    "word": "הַמְּחַמֵּץ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/חמץ",
+        "morph": "HTd/Vprmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "was säuert",
+          "en": "that which leavens"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_953_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IriAajw_CXCXBsPPC0Xbg6sWsC7-B7cv",
+          "sha256": "3c426651b85d1cbf40b8e4c6f370c6f1221efb798453c9e17004981701f21e37",
+          "lex": "ה חמץ",
+          "tags": "art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:4",
+    "token": 3,
+    "word": "וְהַמְּתַבֵּל",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/תבל",
+        "morph": "HC/Td/Vprmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und was würzt",
+          "en": "and that which seasons"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_953_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IriAajw_CXCXBsPPC0Xbg6sWsC7-B7cv",
+          "sha256": "3c426651b85d1cbf40b8e4c6f370c6f1221efb798453c9e17004981701f21e37",
+          "lex": "ו ה תבל",
+          "tags": "cnj; art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:4",
+    "token": 4,
+    "word": "וְהַמְּדַמֵּעַ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/דמע",
+        "morph": "HC/Td/Vprmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und was mit Teruma vermischt",
+          "en": "and that which mixes with terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_953_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IriAajw_CXCXBsPPC0Xbg6sWsC7-B7cv",
+          "sha256": "3c426651b85d1cbf40b8e4c6f370c6f1221efb798453c9e17004981701f21e37",
+          "lex": "דמע",
+          "tags": "pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Form enthält Konjunktion und Artikel; Accordance zeigt an der entsprechenden Stelle das einfache Partizip מדמע."
+      }
+    ],
+    "note": "Unsere Form enthält Konjunktion und Artikel; Accordance zeigt an der entsprechenden Stelle das einfache Partizip מדמע."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:4",
+    "token": 8,
+    "word": "וּבְכִלְאֵי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/כלאים",
+        "morph": "HC/R/Ncmdc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und bei Mischpflanzungen des",
+          "en": "and in mixed plantings of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_953_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IriAajw_CXCXBsPPC0Xbg6sWsC7-B7cv",
+          "sha256": "3c426651b85d1cbf40b8e4c6f370c6f1221efb798453c9e17004981701f21e37",
+          "lex": "ו ב כלאים",
+          "tags": "cnj; prp; cm ms du cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:5",
+    "token": 1,
+    "word": "דּוֹסְתַּי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "דוסתאי",
+        "morph": "HNp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Dostai",
+          "en": "Dostai"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_955_reduced_high_compressed_compressed.jpg",
+          "driveId": "1n0TKst6phLmtXBTPe-u2A8nZ5aV4LpzG",
+          "sha256": "82d3a6af077270ae4158a500e3b4f9e921e66018ba1f8079a819286e1418b1aa",
+          "lex": "דוסתאי",
+          "tags": "prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:5",
+    "token": 3,
+    "word": "כְּפַר",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כפר",
+        "morph": "HNp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Kefar",
+          "en": "Kefar"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_955_reduced_high_compressed_compressed.jpg",
+          "driveId": "1n0TKst6phLmtXBTPe-u2A8nZ5aV4LpzG",
+          "sha256": "82d3a6af077270ae4158a500e3b4f9e921e66018ba1f8079a819286e1418b1aa",
+          "lex": "כפר",
+          "tags": "prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Teil des Ortsnamens כפר יתמה."
+      }
+    ],
+    "note": "Teil des Ortsnamens כפר יתמה."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:5",
+    "token": 4,
+    "word": "יַתְמָה",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יתמה",
+        "morph": "HNp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Yitma",
+          "en": "Yitma"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_955_reduced_high_compressed_compressed.jpg",
+          "driveId": "1n0TKst6phLmtXBTPe-u2A8nZ5aV4LpzG",
+          "sha256": "82d3a6af077270ae4158a500e3b4f9e921e66018ba1f8079a819286e1418b1aa",
+          "lex": "יתמה",
+          "tags": "prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:5",
+    "token": 7,
+    "word": "מִתַּלְמִידֵי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/תלמיד",
+        "morph": "HR/Ncmpc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "von den Schülern des",
+          "en": "among the students of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_955_reduced_high_compressed_compressed.jpg",
+          "driveId": "1n0TKst6phLmtXBTPe-u2A8nZ5aV4LpzG",
+          "sha256": "82d3a6af077270ae4158a500e3b4f9e921e66018ba1f8079a819286e1418b1aa",
+          "lex": "מן תלמיד",
+          "tags": "prp; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:6",
+    "token": 4,
+    "word": "הַמְּחַמֵּץ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/חמץ",
+        "morph": "HTd/Vprmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "was säuert",
+          "en": "that which leavens"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_957_reduced_high_compressed_compressed.jpg",
+          "driveId": "1teXtXYftauu6shANmdgReV9t_xKqOVZo",
+          "sha256": "15e09711e415387eec8fb798361853eaec687a2ec5c28aa7664d0b32e778d1b5",
+          "lex": "ה חמץ",
+          "tags": "art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:6",
+    "token": 5,
+    "word": "וְהַמְתַבֵּל",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/תבל",
+        "morph": "HC/Td/Vprmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und was würzt",
+          "en": "and that which seasons"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_957_reduced_high_compressed_compressed.jpg",
+          "driveId": "1teXtXYftauu6shANmdgReV9t_xKqOVZo",
+          "sha256": "15e09711e415387eec8fb798361853eaec687a2ec5c28aa7664d0b32e778d1b5",
+          "lex": "ו ה תבל",
+          "tags": "cnj; art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:6",
+    "token": 6,
+    "word": "מְדַמֵּעַ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "דמע",
+        "morph": "HVprmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mit Teruma vermischend",
+          "en": "mixing with terumah"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_957_reduced_high_compressed_compressed.jpg",
+          "driveId": "1teXtXYftauu6shANmdgReV9t_xKqOVZo",
+          "sha256": "15e09711e415387eec8fb798361853eaec687a2ec5c28aa7664d0b32e778d1b5",
+          "lex": "ה דמע",
+          "tags": "art; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Eigene Grundtextform מדמע ohne Artikel; Accordance zeigt המדמע, Artikel nicht in unsere Oberfläche übertragen."
+      }
+    ],
+    "note": "Eigene Grundtextform מדמע ohne Artikel; Accordance zeigt המדמע, Artikel nicht in unsere Oberfläche übertragen."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:6",
+    "token": 9,
+    "word": "לְהַחְמִיר",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/חמר",
+        "morph": "HR/Vhc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu erschweren",
+          "en": "to rule stringently"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_957_reduced_high_compressed_compressed.jpg",
+          "driveId": "1teXtXYftauu6shANmdgReV9t_xKqOVZo",
+          "sha256": "15e09711e415387eec8fb798361853eaec687a2ec5c28aa7664d0b32e778d1b5",
+          "lex": "ל חמר",
+          "tags": "prp; hif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:6",
+    "token": 21,
+    "word": "עִסַּת",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עיסה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Teig aus",
+          "en": "dough of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_957_reduced_high_compressed_compressed.jpg",
+          "driveId": "1teXtXYftauu6shANmdgReV9t_xKqOVZo",
+          "sha256": "15e09711e415387eec8fb798361853eaec687a2ec5c28aa7664d0b32e778d1b5",
+          "lex": "עיסה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:7",
+    "token": 2,
+    "word": "וּלְהַחְמִיר",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ל/חמר",
+        "morph": "HC/R/Vhc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und zu erschweren",
+          "en": "and to rule stringently"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_959_reduced_high_compressed_compressed.jpg",
+          "driveId": "1FlTZOLD8Yi0k4eaC66RBqJJimdCIZ3l5",
+          "sha256": "ddf97e4593928943185a6140b52450bb4d6f7e6bfcb8500a1f0d70fcc785380c",
+          "lex": "ו ל חמר",
+          "tags": "cnj; prp; hif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:7",
+    "token": 7,
+    "word": "גְּרִיסִין",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גריס",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gespaltene Bohnen",
+          "en": "split beans"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_959_reduced_high_compressed_compressed.jpg",
+          "driveId": "1FlTZOLD8Yi0k4eaC66RBqJJimdCIZ3l5",
+          "sha256": "ddf97e4593928943185a6140b52450bb4d6f7e6bfcb8500a1f0d70fcc785380c",
+          "lex": "גריס",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:7",
+    "token": 8,
+    "word": "שֶׁנִּתְבַּשְּׁלוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/בשל",
+        "morph": "HTr/VDp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die gekocht wurden",
+          "en": "which were cooked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_959_reduced_high_compressed_compressed.jpg",
+          "driveId": "1FlTZOLD8Yi0k4eaC66RBqJJimdCIZ3l5",
+          "sha256": "ddf97e4593928943185a6140b52450bb4d6f7e6bfcb8500a1f0d70fcc785380c",
+          "lex": "ש בשל",
+          "tags": "rel; ntpal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:8",
+    "token": 5,
+    "word": "עִסַּת",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עיסה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Teig aus",
+          "en": "dough of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_961_reduced_high_compressed_compressed.jpg",
+          "driveId": "1SSchN4FtL39oovW7JOuB_U0pS_K_Q8X_",
+          "sha256": "dc60513003df93167c5507f32d32cd7d0c705090654f758edd005ce2038cb5d7",
+          "lex": "עיסה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:9",
+    "token": 6,
+    "word": "וְחִמְּצָהּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/חמץ",
+        "morph": "HC/Vpp3ms/Sp3fs",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und säuerte ihn",
+          "en": "and leavened it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_963_reduced_high_compressed_compressed.jpg",
+          "driveId": "1wna5VbJod5rH-g3gZeILAX6kkb_UZGGP",
+          "sha256": "88c3cc3e3dc6cfcfce3326573593469e31b6aa984beafbe16c157774bc34cc21",
+          "lex": "ו חמץ",
+          "tags": "cnj; pi prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:10",
+    "token": 1,
+    "word": "תַּבְלִים",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תבל",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gewürze",
+          "en": "spices"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_965_reduced_high_compressed_compressed.jpg",
+          "driveId": "12HP5OuOBL1ttyCCiCus7jUdjsHwjuHFO",
+          "sha256": "67195ade02f7b21092e153801a3091833f5e1617f69116fbe8a560c30dc7d932",
+          "lex": "תבל",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:11",
+    "token": 15,
+    "word": "וְנִצְטָרְפוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/צרף",
+        "morph": "HC/VDp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie verbanden sich",
+          "en": "and they combined"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_967_reduced_high_compressed_compressed.jpg",
+          "driveId": "1EOc1mfu3cPQXnok-PsCIbguO13hatAIb",
+          "sha256": "0b68fbf4ee26419fb3dacb1d73a3ecaa202bedfbec35c89bfc44910f4c8b826e",
+          "lex": "ו צרף",
+          "tags": "cnj; ntpal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:11",
+    "token": 16,
+    "word": "וְחִמֵּצוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/חמץ",
+        "morph": "HC/Vpp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie säuerten",
+          "en": "and they leavened"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_967_reduced_high_compressed_compressed.jpg",
+          "driveId": "1EOc1mfu3cPQXnok-PsCIbguO13hatAIb",
+          "sha256": "0b68fbf4ee26419fb3dacb1d73a3ecaa202bedfbec35c89bfc44910f4c8b826e",
+          "lex": "ו חמץ",
+          "tags": "cnj; pi prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:11",
+    "token": 28,
+    "word": "אִסּוּר",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "איסור",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "verbotener Stoff",
+          "en": "prohibited substance"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_967_reduced_high_compressed_compressed.jpg",
+          "driveId": "1EOc1mfu3cPQXnok-PsCIbguO13hatAIb",
+          "sha256": "0b68fbf4ee26419fb3dacb1d73a3ecaa202bedfbec35c89bfc44910f4c8b826e",
+          "lex": "אסר",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nominale Vokalisierung אִסּוּר unserer Ausgabe statt sichtbarem passiv-partizipialen Tag."
+      }
+    ],
+    "note": "Nominale Vokalisierung אִסּוּר unserer Ausgabe statt sichtbarem passiv-partizipialen Tag."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:12",
+    "token": 1,
+    "word": "יוֹעֶזֶר",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יועזר",
+        "morph": "HNp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Yoëzer",
+          "en": "Yoezer"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_969_reduced_high_compressed_compressed.jpg",
+          "driveId": "186sGCl7HvB4o4SXAoGhpX4M5Vuxy-cEI",
+          "sha256": "b7be6a9ade18f337a4ffdd7afe3a969792b69d83046ac20b258644fdae2e6a15",
+          "lex": "יועזר",
+          "tags": "prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:12",
+    "token": 5,
+    "word": "מִתַּלְמִידֵי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/תלמיד",
+        "morph": "HR/Ncmpc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "von den Schülern des",
+          "en": "among the students of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_969_reduced_high_compressed_compressed.jpg",
+          "driveId": "186sGCl7HvB4o4SXAoGhpX4M5Vuxy-cEI",
+          "sha256": "b7be6a9ade18f337a4ffdd7afe3a969792b69d83046ac20b258644fdae2e6a15",
+          "lex": "מן תלמיד",
+          "tags": "prp; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:13",
+    "token": 2,
+    "word": "שֶׁסָּכָן",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/סוך",
+        "morph": "HTr/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die er bestrichen hat",
+          "en": "which he anointed"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_971_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Y0hmbibAHdlEdHgto0odfkpSlXs03UDr",
+          "sha256": "79f03c736f915ba784cb4bdbd040dfbcfc4b11165f09f2a9fdca6ba3c6168da3",
+          "lex": "ש סכן",
+          "tags": "rel; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן für סכָן (Suffixtyp -ן). Suffixbezug auf כלים. Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן für סכָן (Suffixtyp -ן). Suffixbezug auf כלים."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:13",
+    "token": 10,
+    "word": "שֶׁסָּכָן",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/סוך",
+        "morph": "HTr/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die er bestrichen hat",
+          "en": "which he anointed"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_971_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Y0hmbibAHdlEdHgto0odfkpSlXs03UDr",
+          "sha256": "79f03c736f915ba784cb4bdbd040dfbcfc4b11165f09f2a9fdca6ba3c6168da3",
+          "lex": "ש סכן",
+          "tags": "rel; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן für סכָן (Suffixtyp -ן). Suffixbezug auf כלים. Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן für סכָן (Suffixtyp -ן). Suffixbezug auf כלים."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:13",
+    "token": 6,
+    "word": "וְסָכָן",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/סוך",
+        "morph": "HC/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und er bestrich sie",
+          "en": "and he anointed them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_971_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Y0hmbibAHdlEdHgto0odfkpSlXs03UDr",
+          "sha256": "79f03c736f915ba784cb4bdbd040dfbcfc4b11165f09f2a9fdca6ba3c6168da3",
+          "lex": "ו סכן",
+          "tags": "cnj; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן. Suffixbezug auf כלים. Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן. Suffixbezug auf כלים."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:13",
+    "token": 14,
+    "word": "וְסָכָן",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/סוך",
+        "morph": "HC/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und er bestrich sie",
+          "en": "and he anointed them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_971_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Y0hmbibAHdlEdHgto0odfkpSlXs03UDr",
+          "sha256": "79f03c736f915ba784cb4bdbd040dfbcfc4b11165f09f2a9fdca6ba3c6168da3",
+          "lex": "ו סכן",
+          "tags": "cnj; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן. Suffixbezug auf כלים. Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Zitierwurzel סוך redaktionell; Accordance führt סכן. Suffixbezug auf כלים."
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:14",
+    "token": 3,
+    "word": "וְשֶׁלְּכִלְאֵי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/של/כלאים",
+        "morph": "HC/R/Ncmdc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und von Mischpflanzungen des",
+          "en": "and of mixed plantings of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_973_reduced_high_compressed_compressed.jpg",
+          "driveId": "143i5KX0kjtKmaexFxKOgg7Zrn3bTG6IJ",
+          "sha256": "14594c921858f7390e5863e231983a59e653f5d23db8a35d54783a22ec9cd0c2",
+          "lex": "ו של כלאים",
+          "tags": "cnj; prp; cm ms du cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:14",
+    "token": 17,
+    "word": "וְנִצְטָרְפוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/צרף",
+        "morph": "HC/VDp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie verbanden sich",
+          "en": "and they combined"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_973_reduced_high_compressed_compressed.jpg",
+          "driveId": "143i5KX0kjtKmaexFxKOgg7Zrn3bTG6IJ",
+          "sha256": "14594c921858f7390e5863e231983a59e653f5d23db8a35d54783a22ec9cd0c2",
+          "lex": "ו צרף",
+          "tags": "cnj; ntpal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:14",
+    "token": 18,
+    "word": "וְחִמֵּצוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/חמץ",
+        "morph": "HC/Vpp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie säuerten",
+          "en": "and they leavened"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_973_reduced_high_compressed_compressed.jpg",
+          "driveId": "143i5KX0kjtKmaexFxKOgg7Zrn3bTG6IJ",
+          "sha256": "14594c921858f7390e5863e231983a59e653f5d23db8a35d54783a22ec9cd0c2",
+          "lex": "ו חמץ",
+          "tags": "cnj; pi prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:15",
+    "token": 1,
+    "word": "תַּבְלִים",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תבל",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gewürze",
+          "en": "spices"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_975_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eCjTKY7sgJYzPaMC4ix8E7mxGMqLOSYg",
+          "sha256": "98297bfe56a2128df48903e6fc450e4eace4db450aa6b99106f39707a8f51bbd",
+          "lex": "תבל",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:15",
+    "token": 3,
+    "word": "וְשֶׁלְּכִלְאֵי",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/של/כלאים",
+        "morph": "HC/R/Ncmdc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und von Mischpflanzungen des",
+          "en": "and of mixed plantings of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_975_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eCjTKY7sgJYzPaMC4ix8E7mxGMqLOSYg",
+          "sha256": "98297bfe56a2128df48903e6fc450e4eace4db450aa6b99106f39707a8f51bbd",
+          "lex": "ו של כלאים",
+          "tags": "cnj; prp; cm ms du cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:15",
+    "token": 11,
+    "word": "לְתַבֵּל",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/תבל",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu würzen",
+          "en": "to season"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_975_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eCjTKY7sgJYzPaMC4ix8E7mxGMqLOSYg",
+          "sha256": "98297bfe56a2128df48903e6fc450e4eace4db450aa6b99106f39707a8f51bbd",
+          "lex": "ל תבל",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:15",
+    "token": 15,
+    "word": "לְתַבֵּל",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/תבל",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu würzen",
+          "en": "to season"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_975_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eCjTKY7sgJYzPaMC4ix8E7mxGMqLOSYg",
+          "sha256": "98297bfe56a2128df48903e6fc450e4eace4db450aa6b99106f39707a8f51bbd",
+          "lex": "ל תבל",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:15",
+    "token": 16,
+    "word": "וְנִצְטָרְפוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/צרף",
+        "morph": "HC/VDp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie verbanden sich",
+          "en": "and they combined"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_975_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eCjTKY7sgJYzPaMC4ix8E7mxGMqLOSYg",
+          "sha256": "98297bfe56a2128df48903e6fc450e4eace4db450aa6b99106f39707a8f51bbd",
+          "lex": "ו צרף",
+          "tags": "cnj; ntpal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:15",
+    "token": 17,
+    "word": "וְתִבֵּלוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/תבל",
+        "morph": "HC/Vpp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie würzten",
+          "en": "and they seasoned"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_975_reduced_high_compressed_compressed.jpg",
+          "driveId": "1eCjTKY7sgJYzPaMC4ix8E7mxGMqLOSYg",
+          "sha256": "98297bfe56a2128df48903e6fc450e4eace4db450aa6b99106f39707a8f51bbd",
+          "lex": "ו תבל",
+          "tags": "cnj; pi prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:16",
+    "token": 1,
+    "word": "חֲתִכָּה",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חתיכה",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Fleischstück",
+          "en": "piece of meat"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:16",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_977_reduced_high_compressed_compressed.jpg",
+          "driveId": "1D2RUqdVSmHuY_9npN1jsX8dXJlHfFoiM",
+          "sha256": "11251907cdb474333f07c91aa77292523f41c7b26cd68c6b09438d118c8f7f29",
+          "lex": "חתיכה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:16",
+    "token": 6,
+    "word": "שֶׁנִּתְבַּשְּׁלוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/בשל",
+        "morph": "HTr/VDp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die gekocht wurden",
+          "en": "which were cooked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:16",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_977_reduced_high_compressed_compressed.jpg",
+          "driveId": "1D2RUqdVSmHuY_9npN1jsX8dXJlHfFoiM",
+          "sha256": "11251907cdb474333f07c91aa77292523f41c7b26cd68c6b09438d118c8f7f29",
+          "lex": "ש בשל",
+          "tags": "rel; ntpal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:16",
+    "token": 8,
+    "word": "הַחֲתִכּוֹת",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/חתיכה",
+        "morph": "HTd/Ncfpa",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Fleischstücke",
+          "en": "the pieces of meat"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:16",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_977_reduced_high_compressed_compressed.jpg",
+          "driveId": "1D2RUqdVSmHuY_9npN1jsX8dXJlHfFoiM",
+          "sha256": "11251907cdb474333f07c91aa77292523f41c7b26cd68c6b09438d118c8f7f29",
+          "lex": "ה חתיכה",
+          "tags": "art; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Orlah",
+    "ref": "2:17",
+    "token": 7,
+    "word": "שֶׁנִּתְבַּשְּׁלוּ",
+    "sourceHash": "502281d394ef462e9fd53b57f816e40b2b9aa1f6deb0884ef9b37073a748fc7a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/בשל",
+        "morph": "HTr/VDp3cp",
+        "rules": [
+          "accordance-orlah-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die gekocht wurden",
+          "en": "which were cooked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Orla 2:17",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_977_reduced_high_compressed_compressed.jpg",
+          "driveId": "1D2RUqdVSmHuY_9npN1jsX8dXJlHfFoiM",
+          "sha256": "11251907cdb474333f07c91aa77292523f41c7b26cd68c6b09438d118c8f7f29",
+          "lex": "ש בשל",
+          "tags": "rel; ntpal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

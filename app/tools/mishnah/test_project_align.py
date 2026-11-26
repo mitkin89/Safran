@@ -47,6 +47,31 @@ class SourceBridgeTests(unittest.TestCase):
         self.assertEqual(result[a['id']], [['1:1', 0]])
         self.assertEqual(result[b['id']], [['1:1', 1]])
 
+    def test_other_tractate_and_zero_padded_references_are_supported(self):
+        token = {'id': 'S00483.02.08.004.004.00010', 't': 'אמר'}
+        result = align.bridge({'4:4': {'words': [w('אמר')]}}, [token])
+        self.assertEqual(result[token['id']], [['4:4', 0]])
+
+    def test_repeated_project_ids_keep_independent_source_positions(self):
+        from collate_corpus import unique_comparison_ids
+        tokens = unique_comparison_ids([t(10, 'אמר'), t(10, 'אמר')])
+        self.assertEqual(tokens[1]['sourceId'], tokens[0]['id'])
+        self.assertNotEqual(tokens[1]['id'], tokens[0]['id'])
+        result = self.bridge([w('אמר'), w('אמר')], tokens)
+        self.assertEqual(result[tokens[0]['id']], [['1:1', 0]])
+        self.assertEqual(result[tokens[1]['id']], [['1:1', 1]])
+
+    def test_source_comment_cannot_match_an_identical_mishnah_word(self):
+        words = [dict(w('משה'), start=0, end=3), dict(w('משה'), start=4, end=7),
+                 dict(w('אמר'), start=8, end=11)]
+        units = {'1:1': {'words': words, 'annotations': [
+            {'tag': 'add', 'attrs': {'type': 'comm'}, 'start': 4, 'end': 7}]}}
+        a, b = t(10, 'משה'), t(20, 'אמר')
+        result = align.bridge(units, [a, b])
+        self.assertEqual(result[a['id']], [['1:1', 0]])
+        self.assertEqual(result[b['id']], [['1:1', 2]])
+        self.assertEqual(align.source_notes(units)[0]['reading'], [['1:1', 1]])
+
 
 class GapPositionTests(unittest.TestCase):
     def setUp(self):

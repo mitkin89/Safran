@@ -1,0 +1,610 @@
+[
+  {
+    "id": "1Xfcwb2KVOs2C6I3XgAT4FvS8m3U3vDur",
+    "name": "mischna_2026-11-26_17-33-06_8FF7A5E2_1_reduced_high_compressed_compressed.jpg",
+    "index": 0,
+    "refs": [
+      "Pea 1:3",
+      "Pea 1:4"
+    ],
+    "sha256": "2e0e9b207f867c219a457d2cdcc1e2979727eaa5148e0eccdd9da1ca8d41aff1",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": true
+  },
+  {
+    "id": "1QRPWPpCaTlTykVaeFiu9J6CV4ZL6MCkN",
+    "name": "mischna_2026-11-26_17-33-27_C281A83D_1_reduced_high_compressed_compressed.jpg",
+    "index": 1,
+    "refs": [
+      "Pea 1:2",
+      "Pea 1:3"
+    ],
+    "sha256": "6549da0ea72d9f3325e366f424a3bf4f8508c3081dd3476f5b4429e24aacb0df",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": true
+  },
+  {
+    "id": "1KdM28vzxgaFtavKSmTDw5mqrXRviFUnd",
+    "name": "mischna_2026-11-26_17-33-27_C281A83D_2_reduced_high_compressed_compressed.jpg",
+    "index": 2,
+    "refs": [
+      "Pea 1:3",
+      "Pea 1:4"
+    ],
+    "sha256": "6ffc8b3eea59b64069ac68c56303d1a27db1566eda96dc14d3dfec3a382ac211",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "10eXqeIyB83c4Xa4pHaRuqQv1Z2QWPS24",
+    "name": "mischna_2026-11-26_17-33-27_C281A83D_3_reduced_high_compressed_compressed.jpg",
+    "index": 3,
+    "refs": [
+      "Pea 1:4",
+      "Pea 1:5",
+      "Pea 1:6"
+    ],
+    "sha256": "135d18bc871b1e38191f55da2420617e2ec19c0f6bab282ae2d57079fd4b7b7d",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": true
+  },
+  {
+    "id": "1eDqs58z0JHfSu88GwdTJ0SqVJg3K_jJz",
+    "name": "mischna_2026-11-26_17-33-27_C281A83D_4_reduced_high_compressed_compressed.jpg",
+    "index": 4,
+    "refs": [
+      "Pea 1:5",
+      "Pea 1:6"
+    ],
+    "sha256": "44eb848fafd773fcd0ae86553d3ddda7b933cdd53e6a6b967d90d697168b2082",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": true
+  },
+  {
+    "id": "12iN1rheasdbBKd0vXRXFlPhk_AdgbxWe",
+    "name": "mischna_2026-11-26_17-33-27_C281A83D_5_reduced_high_compressed_compressed.jpg",
+    "index": 5,
+    "refs": [
+      "Pea 1:6",
+      "Pea 2:1"
+    ],
+    "sha256": "8d1dcaf8cb432cbff319a8b217357b2ff8fc5a33dd012c99f8f19a1e6c971d5d",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1u6niR1mDjNIkVeyqo8wiRhkOKya-ip9-",
+    "name": "mischna_2026-11-26_17-33-27_C281A83D_6_reduced_high_compressed_compressed.jpg",
+    "index": 6,
+    "refs": [
+      "Pea 2:1",
+      "Pea 2:2"
+    ],
+    "sha256": "fb7e6ea52fd40e4d4af2bb57401629dcfd37f40eb28cff48ca9c898f7173f734",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1fV0H9uzsSNfFh5YWl-L6lfcMB9aKZpQ0",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_1_reduced_high_compressed_compressed.jpg",
+    "index": 7,
+    "refs": [
+      "Pea 2:3",
+      "Pea 2:4",
+      "Pea 2:5"
+    ],
+    "sha256": "61df1e2190a635f7f706ffc2fdac6f32bc8148c6c0cf24612885700f509a3b61",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1hKxCq3M3xOMJMjIiD2cOrG3qwVy7Puuh",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_2_reduced_high_compressed_compressed.jpg",
+    "index": 8,
+    "refs": [
+      "Pea 2:4",
+      "Pea 2:5"
+    ],
+    "sha256": "5185a0a3e6998151332f0399be4da76c5a6e9655a79551b6855a24e46d53e1c5",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1ZuFeMv4IIvo2oGeqUbJ8UWMqAtwlpKv8",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_3_reduced_high_compressed_compressed.jpg",
+    "index": 9,
+    "refs": [
+      "Pea 2:5",
+      "Pea 2:6"
+    ],
+    "sha256": "d161008d05c0cdc1bab39870cfe4b2fddc8c571bb27b72b2e2848a5d755c47f8",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1ycr9LiNvGWoNHDrmg2XuHkNW6tXZRxYK",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_4_reduced_high_compressed_compressed.jpg",
+    "index": 10,
+    "refs": [
+      "Pea 2:6",
+      "Pea 2:7"
+    ],
+    "sha256": "5818a5f136baf8e996911da84b706755644a8f2f93f545aeca19a597fcecdc5c",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "19YkfqE4EmGIrNZsxacmx9oUR8bVbl6kF",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_5_reduced_high_compressed_compressed.jpg",
+    "index": 11,
+    "refs": [
+      "Pea 2:7",
+      "Pea 2:8"
+    ],
+    "sha256": "5631c48013ea81856cd1f7fba5c71bdf935285dadc62ab4b6eacf72fac22ed6e",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "10jlli1_MsC80xSrxFNW28eIYrYGJany1",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_6_reduced_high_compressed_compressed.jpg",
+    "index": 12,
+    "refs": [
+      "Pea 2:8",
+      "Pea 3:1"
+    ],
+    "sha256": "8df11ebf6b030609c7c3e77f3625998c38c7685b346cc544347ca622fe393dba",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1or2RElwpZvRvL9FT-ktia1C8J3wMMTPV",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_7_reduced_high_compressed_compressed.jpg",
+    "index": 13,
+    "refs": [
+      "Pea 3:2"
+    ],
+    "sha256": "c4fb86ae1697e6c538e705b4567030cf5506de53d5876e1bd48531c63efae6b0",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "142u9JdLIcGTovg5FZNHfqt5d1n1GpKei",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_8_reduced_high_compressed_compressed.jpg",
+    "index": 14,
+    "refs": [
+      "Pea 3:2",
+      "Pea 3:3"
+    ],
+    "sha256": "d3525fac4e1418227e8243c27399c79a9c70658242e0e05896562187421e34f4",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1pBSm6yDEHSgw88GsfB6ShsCg2zn_dhPI",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_9_reduced_high_compressed_compressed.jpg",
+    "index": 15,
+    "refs": [
+      "Pea 3:3",
+      "Pea 3:4"
+    ],
+    "sha256": "c814ad979701286a797e7fd37ab9f69f85387fb3d28a2a4c3bc6fa3df023602f",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1k3KU_byERyMZnWlNogPmM62uebQlqfhm",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_10_reduced_high_compressed_compressed.jpg",
+    "index": 16,
+    "refs": [
+      "Pea 3:4",
+      "Pea 3:5"
+    ],
+    "sha256": "a0dfc992bcf6b9375cccd87eeca06e714c71abedf029ca79e700e63ef60dc564",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1Pdw18TT7bA0d5QYGOudhxWq9GiMI3S3m",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_11_reduced_high_compressed_compressed.jpg",
+    "index": 17,
+    "refs": [
+      "Pea 3:5",
+      "Pea 3:6"
+    ],
+    "sha256": "44bd77bbc71d7cc9deb7cb93c7787ee567fdc7cb4fa12b1321f71009848b46f8",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1s3ERNob4Uu6LfwUMoeTrGswwPR_qPLmk",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_12_reduced_high_compressed_compressed.jpg",
+    "index": 18,
+    "refs": [
+      "Pea 3:5",
+      "Pea 3:6"
+    ],
+    "sha256": "f035e6520a7e0abe1f6c31f3bf22dfc93bf7c8f647ea750fc7a7e103bfa6aa94",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1akzzwgulWQev6gEUpN-iDC0tvfsh5sfg",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_13_reduced_high_compressed_compressed.jpg",
+    "index": 19,
+    "refs": [
+      "Pea 3:7",
+      "Pea 3:8"
+    ],
+    "sha256": "7e41fe5698f30e03c79731ad15bbbceecdb7ed467bfab9e639088c067a9f4c7d",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1M30Ts-nmJTbmOWB7tTFvYiBUMS7chXGo",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_14_reduced_high_compressed_compressed.jpg",
+    "index": 20,
+    "refs": [
+      "Pea 3:7",
+      "Pea 3:8"
+    ],
+    "sha256": "78d4a4b9829cc6fd1460dbc8057a24cff890ef16a4c2fe93cc4faa30896deab1",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1WgqHbeXigG9iewtcZXvcjts4gKf4Asae",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_15_reduced_high_compressed_compressed.jpg",
+    "index": 21,
+    "refs": [
+      "Pea 3:8",
+      "Pea 4:1"
+    ],
+    "sha256": "f878197753f558a61fe8d01326ce1af185193666f9ef6763fb57adee1af6f140",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+    "index": 22,
+    "refs": [
+      "Pea 4:1",
+      "Pea 4:2",
+      "Pea 4:3"
+    ],
+    "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1BxtRmWYdphcuBdwoidhOtRjLIEVCt62z",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_17_reduced_high_compressed_compressed.jpg",
+    "index": 23,
+    "refs": [
+      "Pea 4:2",
+      "Pea 4:3",
+      "Pea 4:4"
+    ],
+    "sha256": "eb06587b1807405a6300ff0f20876113b86e3e8bb76a60fe62e01bed064d7468",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1p06tgJEJAVKT3R_7haqvyRn1W1z4vpL3",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_18_reduced_high_compressed_compressed.jpg",
+    "index": 24,
+    "refs": [
+      "Pea 4:2",
+      "Pea 4:3",
+      "Pea 4:4"
+    ],
+    "sha256": "c47cb068c108761bf00b6debec623ff3d0229d73ad9fbb2aa3568f1bbe612479",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+    "index": 25,
+    "refs": [
+      "Pea 4:4",
+      "Pea 4:5",
+      "Pea 4:6"
+    ],
+    "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1HEmPStQWDB4f88Y8xav7G8K_Jp45p9tt",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_20_reduced_high_compressed_compressed.jpg",
+    "index": 26,
+    "refs": [
+      "Pea 4:5",
+      "Pea 4:6"
+    ],
+    "sha256": "351da5e702ae52ccad46facbb875bfed4aac7eb3921e79f674fabf3a926982e4",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "183SanO7Y3R268W9CYRhkyFhh-1HpmSWA",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_21_reduced_high_compressed_compressed.jpg",
+    "index": 27,
+    "refs": [
+      "Pea 4:6",
+      "Pea 4:7",
+      "Pea 4:8"
+    ],
+    "sha256": "7c7d7fbde332c08facaadf0fe13d942e85c30a05a0d79bf6c20183ee3456b91c",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+    "index": 28,
+    "refs": [
+      "Pea 4:7",
+      "Pea 4:8",
+      "Pea 4:9"
+    ],
+    "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1hhG45Eghf78W16cLAeJvJ6qNeVDeC0r7",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_23_reduced_high_compressed_compressed.jpg",
+    "index": 29,
+    "refs": [
+      "Pea 4:9"
+    ],
+    "sha256": "8601beb574920135c836c8473139cdf620bd314c658825ef3af59801d0e5d2ac",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+    "index": 30,
+    "refs": [
+      "Pea 4:9",
+      "Pea 4:10"
+    ],
+    "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1bTFBqCWPAh65ot-HByYNXF5yE1OnfB05",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_25_reduced_high_compressed_compressed.jpg",
+    "index": 31,
+    "refs": [
+      "Pea 4:10",
+      "Pea 4:11"
+    ],
+    "sha256": "65cbf12d7a1be3051d24f1bb26d6e595d312bcc30905953be4f7370175870260",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1utAa8l9ddGUAwTIpYzDgZput_t09BPLw",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_26_reduced_high_compressed_compressed.jpg",
+    "index": 32,
+    "refs": [
+      "Pea 4:11",
+      "Pea 5:1"
+    ],
+    "sha256": "5f855c3296472673308f6cbe27d3d8a07eb184e4696b117637748612993ecceb",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1bdoVQz_NHAxOTJ__E-yRJgze_mpeZcGC",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_27_reduced_high_compressed_compressed.jpg",
+    "index": 33,
+    "refs": [
+      "Pea 5:1",
+      "Pea 5:2"
+    ],
+    "sha256": "356ac918831675d6d679b5af2aa9d8c77a743f48145f3603876b616e06dd0f69",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1NstfhLzDAiIFElFebkrwKuS7Nbvh6s8V",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_28_reduced_high_compressed_compressed.jpg",
+    "index": 34,
+    "refs": [
+      "Pea 5:2",
+      "Pea 5:3"
+    ],
+    "sha256": "8597bc2d46f1a6e678c35b2d0f6842a643299df4b48e3eacff4613e4a5c72ae7",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1nYeoRhMfx1Q3kA02SYMfjVlLK65RIB-K",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_29_reduced_high_compressed_compressed.jpg",
+    "index": 35,
+    "refs": [
+      "Pea 5:3",
+      "Pea 5:4",
+      "Pea 5:5"
+    ],
+    "sha256": "45b75b68ab8a29ba223efb8460844884151ff12075f394cb1ef8bbb539e327d3",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1xcPGSMHj0kV8RFOR5QG8rH2e5A_yYqVw",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_30_reduced_high_compressed_compressed.jpg",
+    "index": 36,
+    "refs": [
+      "Pea 5:4",
+      "Pea 5:5"
+    ],
+    "sha256": "00ae9082b6793f6bc73372c071d78b2fd4b972daf723069789e56718358c1afd",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "12IjwDS0Kt7Zl3saqTIgh0bDXVdzyyru3",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_31_reduced_high_compressed_compressed.jpg",
+    "index": 37,
+    "refs": [
+      "Pea 5:5",
+      "Pea 5:6"
+    ],
+    "sha256": "c0edc25cb7017254186554bd9c1a6a8586aef42100505c3755558ef5f9b8ce5b",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1QScl78heLLGgJPZDAuVFAwsSNtmOtk7f",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_32_reduced_high_compressed_compressed.jpg",
+    "index": 38,
+    "refs": [
+      "Pea 5:6",
+      "Pea 5:7"
+    ],
+    "sha256": "9818990ca5a8e98bab098b5f2aab42f505b8bd72eddf0ff7d7a3a5dca6417b59",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "15Cu_xZjpfv0nm3FIrTu60w9ajF6sZGdf",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_33_reduced_high_compressed_compressed.jpg",
+    "index": 39,
+    "refs": [
+      "Pea 5:7",
+      "Pea 5:8"
+    ],
+    "sha256": "9b8900ac5cc1c478f4e5f745ade114c165123eab0e49b705fe3920b6f761fad0",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1Qo2LgnFAA2n1WI7nrxyb2S4jyfl5N77I",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_34_reduced_high_compressed_compressed.jpg",
+    "index": 40,
+    "refs": [
+      "Pea 5:7",
+      "Pea 5:8"
+    ],
+    "sha256": "0d92f75856e83928fd2f7cc0ccc2f3013bab9a6c9ee088acbbc56f1657e6f041",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "11f0v2bxPfqZX4XqXvGxAeyTcm7ss7Phk",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_35_reduced_high_compressed_compressed.jpg",
+    "index": 41,
+    "refs": [
+      "Pea 5:8",
+      "Pea 6:1"
+    ],
+    "sha256": "34bf7840709241a469f6b5463093940d3d19c22ef36372bff738717252c4aa0f",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "12hNYYDV5Ro_P3klVtSEB8X38wvakBOXS",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_36_reduced_high_compressed_compressed.jpg",
+    "index": 42,
+    "refs": [
+      "Pea 6:1",
+      "Pea 6:2",
+      "Pea 6:3"
+    ],
+    "sha256": "9bec5f95a28044b818a8ce30dccd3c6bf08176175a9db40927a4e0538b9886c4",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1G3GSqgqeLZKgcLkpMX9LWxR1zBGBSS2N",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_37_reduced_high_compressed_compressed.jpg",
+    "index": 43,
+    "refs": [
+      "Pea 6:2",
+      "Pea 6:3",
+      "Pea 6:4"
+    ],
+    "sha256": "914aa1a7495078fe89b9eddf2aa3111811169b4cb6d4201767effe32ff342287",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1MlkYIFrI0vMftIFATnMuAzHN6rS7EY5S",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_38_reduced_high_compressed_compressed.jpg",
+    "index": 44,
+    "refs": [
+      "Pea 6:3",
+      "Pea 6:4"
+    ],
+    "sha256": "ad429d2f3d88bf44266880b307fdb6a675e7952551c5b675c50e2f00be4e21af",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1huA2xGOMd7bqUMpRMtu5e72o6Tan-JKB",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_39_reduced_high_compressed_compressed.jpg",
+    "index": 45,
+    "refs": [
+      "Pea 6:4",
+      "Pea 6:5"
+    ],
+    "sha256": "1c1f3fea33a1bd6e366e28eab1e6f9c437027072c4759a7dd8495587e29a7a54",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1V_5jo5gzzbyhFkgZoC2SByHhVovQK6hO",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_40_reduced_high_compressed_compressed.jpg",
+    "index": 46,
+    "refs": [
+      "Pea 6:5",
+      "Pea 6:6"
+    ],
+    "sha256": "0871d4080c1337428c290538c695e9ecdcf621a359fd1eeb6d5482a23bbcc919",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "1S5KDLEPbjFBewtjajaUfF1aqrh4QuKCE",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_41_reduced_high_compressed_compressed.jpg",
+    "index": 47,
+    "refs": [
+      "Pea 6:6"
+    ],
+    "sha256": "f25eafa76fc6cfecedf54341c04eb5c0849e49ad9bf6a87b4840acdedfc94213",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "11G3e-41S9KIlNolpU2vzh99KYH6MK7n7",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_42_reduced_high_compressed_compressed.jpg",
+    "index": 48,
+    "refs": [
+      "Pea 6:7",
+      "Pea 6:8"
+    ],
+    "sha256": "d4a21335c78bba193b8aaaaef0613972ca43fce85d8bb74424af6b5eccb5b75c",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  },
+  {
+    "id": "15SiNTvvieU34DGjc4JCfSt3YArKdo_I-",
+    "name": "mischna_2026-11-26_17-34-04_BBCD1331_43_reduced_high_compressed_compressed.jpg",
+    "index": 49,
+    "refs": [
+      "Pea 6:8",
+      "Pea 6:9"
+    ],
+    "sha256": "e61c768bdb372d1f586d2f3ee81b636b5af3c7a5dab1c131f0339809ec21bbb6",
+    "referenceStatus": "OCR inventory only; not complete passage verification",
+    "usedForDecisions": false
+  }
+]

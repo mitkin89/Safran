@@ -1,7 +1,7 @@
 (function(root){
  'use strict';
  // Editorial lexical glosses, not translations assigned to individual tokens.
- // Biblical dictionary fallback is explicitly labelled: meanings may differ in RH.
+ // Mishnah meanings come only from editorial glosses; no biblical lexicon fallback.
  const own={
   "רבעי":["Früchte des vierten Pflanzjahrs; im vierten Jahr", "fourth-year produce; in its fourth year"],
   "עריס":["Weinspalier; auch: Pächter (anderes Lexem)", "vine espalier; also: tenant (homonym)"],
@@ -115,8 +115,9 @@
   'שליח':['Gesandter; Beauftragter','messenger; representative'],'שלוח':['Gesandter; Beauftragter','messenger; representative']
  };
  const key=s=>String(s||'').normalize('NFD').replace(/[^א-ת]/g,'');
- const indexes=new WeakMap();
- function lookup(analysis,dictionary={},lang='de'){
+ function lookup(analysis,language='de',legacyLanguage){
+  // Older callers may still pass a dictionary as argument two; never inspect it.
+  const lang=typeof language==='string'?language:(legacyLanguage||'de');
   const lemma=String(analysis?.lemma||'').split('/').at(-1),k=key(lemma),codes=String(analysis?.morph||'');
   if(!k)return null;
   const gloss=analysis?.gloss?.[lang==='de'?'de':'en'];
@@ -128,9 +129,7 @@
   if(k==='סרק'&&/V/.test(codes))return {text:lang==='de'?'kämmen; hecheln; auch färben (anderes Lexem)':'comb; card; also paint (homonym)',source:'editorial',alternatives:[]};
   if(k==='לוף'&&/V/.test(codes))return {text:lang==='de'?'verbinden; zusammenfügen':'join; connect',source:'editorial',alternatives:[]};
   if(own[k])return {text:own[k][lang==='de'?0:1],source:'editorial',alternatives:[]};
-  let index=indexes.get(dictionary);if(!index){index=new Map();for(const item of Object.values(dictionary)){if(!Array.isArray(item)||!item[0])continue;const head=key(item[0]);if(!index.has(head))index.set(head,[]);index.get(head).push(item);}indexes.set(dictionary,index);}
-  const entries=index.get(k)||[],texts=[...new Set(entries.map(x=>x[lang==='de'?2:1]).filter(Boolean))];
-  return texts.length?{text:texts.join('; '),source:'biblical',alternatives:texts}:null;
+  return null;
  }
  const api={lookup};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MishnahMeanings=api;
 })(typeof window==='undefined'?globalThis:window);

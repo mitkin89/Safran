@@ -4,15 +4,17 @@ Original IDs and TEI are retained; numbering coordinates allow leading zeros.
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import re,json,hashlib,gzip,difflib,concurrent.futures,subprocess
-import build as pilot,align,native
+import build as pilot,align,project_align
+from collate_corpus import cache_path
 ROOT=pilot.ROOT;HERE=pilot.HERE;OUT=ROOT/'mishnah-textcrit';OUT.mkdir(exist_ok=True)
 def task(job):
     title,coord,slug,witnesses=job
     path=OUT/(slug+'.js');data={'title':title,'coordinate':coord,'source':{'project':'Digital Mishnah','commit':pilot.COMMIT,'url':'https://github.com/umd-mith/mishnah-data','basis':'corrected diplomatic transcription; source numbering; not a mapping to Beeri'},'witnesses':witnesses,'verses':{},'records':[]}
     k=witnesses['K']['units'];data['verses']={ref:{'words':[w['text'] for w in u['words']],'witnessRefs':{}} for ref,u in k.items()}
     chapters=sorted({int(ref.split(':')[0]) for w in witnesses.values() for ref in w['units']})
+    commentary={sig:{tuple(p) for note in project_align.source_notes(w['units']) for p in note['reading']} for sig,w in witnesses.items()}
     for ch in chapters:
-        def stream(sig):return [(ref,i,w) for ref,u in witnesses[sig]['units'].items() if ref.startswith(str(ch)+':') for i,w in enumerate(u['words'])]
+        def stream(sig):return [(ref,i,w) for ref,u in witnesses[sig]['units'].items() if ref.startswith(str(ch)+':') for i,w in enumerate(u['words']) if (ref,i) not in commentary[sig]]
         base=stream('K')
         if not base:
             data['verses'][f'{ch}:1']={'words':[],'witnessRefs':{},'missingBase':True}
@@ -38,7 +40,9 @@ def task(job):
                 for near in [other[c-1] if c else None,other[d] if d<len(other) else None]:
                     if near and align.unsafe(near[2]):unsafe=True
                 data['records'].append({'ref':anchor,'witness':sig,'operation':op,'base':[[r,i] for r,i,_ in left],'reading':[[r,i] for r,i,_ in right],'sourceRefs':refs,'after':previous[1] if previous and previous[0]==anchor else -1,'uncertain':unsafe,'method':'chapter sequence comparison (automated)'})
-    data['interlinear']=align.build(data,{},chapters=chapters,aligner=native.align)
+    cache=json.loads(gzip.decompress(cache_path(slug).read_bytes()))
+    assert cache['provenance']['coordinate']==coord
+    data['interlinear']=project_align.build(data,{},cache)
     # An entirely unavailable witness/chapter must not yield apparent omissions.
     for ch in chapters:
         for sig in ['P','C']:
@@ -47,7 +51,6 @@ def task(job):
     path.write_text('// Digital Mishnah: source-preserving automated comparison.\nwindow.MISHNAH_TEXTCRIT_BOOKS=window.MISHNAH_TEXTCRIT_BOOKS||{};window.MISHNAH_TEXTCRIT_BOOKS['+json.dumps(title)+']='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
     return {'title':title,'coordinate':coord,'slug':slug,'file':'mishnah-textcrit/'+slug+'.js','chapters':max(chapters),'witnesses':{s:len(w['units']) for s,w in witnesses.items()},'words':{s:sum(len(u['words']) for u in w['units'].values()) for s,w in witnesses.items()},'alignment':data['interlinear']['counts'],'missingBaseChapters':[ch for ch in chapters if data['verses'].get(f'{ch}:1',{}).get('missingBase')]}
 def main():
-    subprocess.run(['g++','-O3','-std=c++17',str(HERE/'align_native.cpp'),'-o',str(native.BIN)],check=True)
     manifest=json.loads((ROOT/'bundled/manifest.json').read_text());titles=[e['title'] for e in manifest['items'] if e.get('versionTitle')=="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"]
     assert len(titles)==63 and len(set(titles))==63
     assigned=json.loads((HERE/'tractates.json').read_text());assert len(assigned)==63
@@ -66,8 +69,16 @@ def main():
                 ident=ab.get(pilot.XI,'');m=re.fullmatch(key+r'\.(\d+)\.(\d+)\.(\d+)\.(\d+)',ident)
                 if not m:excluded.append({'witness':sig,'id':ident,'reason':'Nonstandard source ID'});continue
                 order,tract,ch,unit=map(int,m.groups());assert (order,tract)==coord,(ident,coord)
+                encoded_ref=f'{ch}:{unit}'
+                correction=None
+                if sig=='P' and coord==(1,11) and ident in ['S00483.1.11.4.8','S00483.1.11.2.8','S00483.1.11.2.9','S00483.1.11.2.10']:
+                    milestone=ab.find('t:milestone[@unit="MSMishnah"]',pilot.NS)
+                    physical=ab in root.findall('.//t:div3[@xml:id="S00483.1.11.2"]/t:ab',{**pilot.NS,'xml':'http://www.w3.org/XML/1998/namespace'})
+                    assert physical and milestone is not None and milestone.get('n') in ['8','9','10','11']
+                    ch,unit=2,int(milestone.get('n'))
+                    correction={'encodedRef':encoded_ref,'reason':'Physical chapter and explicit MSMishnah numbering resolve shifted/duplicate IDs; original ID and TEI retained.'}
                 ref=f'{ch}:{unit}';assert ref not in units,(sig,coord,ref)
-                units[ref]={'id':ident,**pilot.extract(ab)}
+                units[ref]={'id':ident,**pilot.extract(ab),**({'referenceCorrection':correction} if correction else {})}
             allw[coord][sig]['units']=dict(sorted(units.items(),key=lambda x:tuple(map(int,x[0].split(':')))))
     jobs=[];catalog={}
     for coord,title in mapping.items():

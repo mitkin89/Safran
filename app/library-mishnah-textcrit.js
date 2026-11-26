@@ -18,16 +18,16 @@ function create(host){
   const base=await load(title),key='vocalized/'+title;
   if(!pending.has(key))pending.set(key,host.load(item.file,()=>window.MISHNAH_VOCALIZED?.[title]).catch(err=>{pending.delete(key);throw err;}));
   const v=await pending.get(key);
-  if(v.source.textHash!==item.textHash||v.source.rel!==item.rel||['P','C'].some(s=>v.witnessSha256?.[s]!==base.witnesses[s].sha256))throw Error('Vocalized Mishnah comparison source mismatch');
-  if(data===base)vocalized={...base,source:{...v.source,vocalized:true},witnesses:{...base.witnesses,K:{...base.witnesses.K,name:'Kaufmann · vokalisierte Lesefassung',units:v.base}},verses:Object.fromEntries(Object.keys(v.base).map(r=>[r,{}])),interlinear:v.interlinear};return v;
+  if(v.source.textHash!==item.textHash||v.source.rel!==item.rel||['D','P','C'].some(s=>v.witnessSha256?.[s]!==base.witnesses[s==='D'?'K':s].sha256))throw Error('Vocalized Mishnah comparison source mismatch');
+  if(data===base)vocalized={...base,source:{...v.source,vocalized:true},witnesses:{...base.witnesses,D:base.witnesses.K,K:{...base.witnesses.K,name:'Kaufmann · vokalisierte Lesefassung',units:v.base}},verses:Object.fromEntries(Object.keys(v.base).map(r=>[r,{}])),interlinear:v.interlinear};return v;
  }
  function withVocalized(fn){const old=data;data=vocalized;try{return fn();}finally{data=old;}}
  function renderVocalized(ch,refs,enabled){if(!vocalized)return '';return withVocalized(()=>render(ch,refs,enabled));}
  const title=()=>data?.title||'Mishnah Berakhot';
  const labels={add:'Nachtrag / Ergänzung',del:'Streichung',choice:'Abkürzung und Auflösung',surplus:'Füllzeichen',damage:'Beschädigung',unclear:'Unsichere Lesung',gap:'Lücke'};
- const annotationLabel=a=>a.tag==='add'&&a.attrs.place==='implied'?'Editorische Ergänzung':labels[a.tag]||a.tag;
+ const annotationLabel=a=>a.tag==='add'&&a.attrs.type==='comm'?'Randkommentar (Quelle)':a.tag==='add'&&a.attrs.place==='implied'?'Editorische Ergänzung':labels[a.tag]||a.tag;
  const words=(sig,pairs)=>pairs.map(([ref,i])=>data.witnesses[sig].units[ref].words[i].text).join(' ');
- const contextButton=(sig,refs)=>data.source?.vocalized&&sig==='K'?'<span class="tc-witness-label">'+esc('Kaufmann · vokalisiert')+'</span>':'<button type="button" class="tc-source tc-witness-label" data-tc-mishnah="'+esc(sig+'|'+refs.join(','))+'" aria-label="'+esc('Quellenbeleg und Kontext anzeigen')+'">'+esc(sig==='K'?'Kaufmann':sig==='P'?'Parma':'Cambridge')+'</button>';
+ const contextButton=(sig,refs)=>data.source?.vocalized&&sig==='K'?'<span class="tc-witness-label">'+esc('Kaufmann · vokalisiert')+'</span>':'<button type="button" class="tc-source tc-witness-label" data-tc-mishnah="'+esc(sig+'|'+refs.join(','))+'" aria-label="'+esc('Quellenbeleg und Kontext anzeigen')+'">'+esc(sig==='K'?'Kaufmann':sig==='D'?'Kaufmann · Digital Mishnah':sig==='P'?'Parma':'Cambridge')+'</button>';
  function apparatus(ch,refs,enabled){
   const head='<p class="tc-credit">'+esc('Bezugstext: Kaufmann A50 · maschineller Vergleich')+' <abbr class="ab" tabindex="0" title="'+esc('Lesestand mit Nachträgen und Ergänzungen; Abkürzungen bleiben erhalten. Referenzzählung der Transkriptionen, noch kein geprüfter Abgleich mit der Lesefassung. Keine vollständig geprüfte kritische Edition.')+'">ⓘ</abbr></p>';
   return head+refs.map(ref=>{
@@ -44,7 +44,7 @@ function create(host){
    return '<section class="tc-reader-verse" data-rows="'+ref.split(':')[1]+'"><div class="tc-verse-summary">'+esc(title()+' '+ref+' · Kaufmann')+' · '+rs.length+' '+esc('Vergleichshinweise')+'</div><div class="tc-mishnah-sources">'+sources+'</div>'+loci+annotations+'</section>';
   }).join('')+'<p class="tc-credit">Digital Mishnah · Hayim Lapin / Meyerhoff Center · CC BY 4.0. '+esc('Eigene Handschriftenzählungen und Original-TEI bleiben erhalten. Quellenkontext über den Zeugensiglen.')+'</p>';
  }
- const name=s=>s==='K'?'Kaufmann':s==='P'?'Parma':'Cambridge';
+ const name=s=>s==='K'?'Kaufmann':s==='D'?'Kaufmann · Digital Mishnah':s==='P'?'Parma':'Cambridge';
  const damagedReading=(sig,l)=>{
   if(!l.uncertain)return false;
   if(l.reading.some(([r,i])=>{const w=data.witnesses[sig].units[r].words[i];return w.text.includes('□')||w.flags.some(f=>['damage','gap','unclear'].includes(f));}))return true;
@@ -66,10 +66,11 @@ function create(host){
   return '<p class="tc-credit">'+esc(data.source?.vocalized?'Bezugstext: vokalisierte Kaufmann-Lesefassung (Be’eri) · maschinelle Wort- und Gruppenzuordnung':data.interlinear.version===2?'Bezugstext: Kaufmann A50 · automatische Wortzuordnung nach Digital Mishnah':'Bezugstext: Kaufmann A50 · maschinelle Wort- und Gruppenzuordnung')+' <abbr class="ab" title="'+esc('Rot: abweichende Lesart oder Zusatz. …: Zuordnung offen. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.')+'">ⓘ</abbr></p>'+refs.map(ref=>{
    const u=data.witnesses.K.units[ref];if(!u)return unbased(ch,ref,enabled);
    const witnesses=enabled.filter(s=>s!=='K'),links=Object.fromEntries(witnesses.map(sig=>[sig,(data.interlinear.chapters[ch]?.[sig]?.links||[]).filter(l=>l.ref===ref)]));
+   const baseNotes=(data.interlinear.baseNotes?.[ch]||[]).filter(n=>n.ref===ref),noteIndices=new Set(baseNotes.flatMap(n=>n.reading.map(p=>p[1])));
    const parent=u.words.map((_,i)=>i),find=i=>parent[i]===i?i:parent[i]=find(parent[i]);
    for(const sig of witnesses)for(const l of links[sig])for(let j=1;j<l.base.length;j++)parent[find(l.base[j][1])]=find(l.base[0][1]);
    // Render a shared group when any witness joins multiple base tokens.
-   const groups=[];for(let i=0;i<u.words.length;i++){const root=find(i),g=groups.find(g=>g.root===root);if(g)g.indices.push(i);else groups.push({root,indices:[i]});}
+   const groups=[];for(let i=0;i<u.words.length;i++){if(noteIndices.has(i))continue;const root=find(i),g=groups.find(g=>g.root===root);if(g)g.indices.push(i);else groups.push({root,indices:[i]});}
    const columns=[];
    const insertion=boundary=>{
     const ls=Object.fromEntries(witnesses.map(sig=>[sig,links[sig].filter(l=>!l.base.length&&(l.after?.[0]===ref?l.after[1]:-1)===boundary)]));
@@ -89,7 +90,8 @@ function create(host){
     const rows=(data.interlinear.chapters[ch]?.[sig]?.open||[]).filter(o=>o.nearRef===ref);if(!rows.length)return '';
     return '<div class="mci-open"><span class="tc-witness-label">'+esc(name(sig))+'</span> '+esc('Nicht sicher zugeordnet')+' <span dir="rtl">'+rows.map(o=>token(sig,o.reading)).join(' ')+'</span></div>';
    }).join('');
-   return '<section class="tc-reader-verse" '+(data.source?.vocalized?'data-mci-vocalized="1" ':'')+'data-rows="'+ref.split(':')[1]+'"><div class="tc-verse-summary">'+esc(title()+' '+ref)+'</div><div class="mci-grid"><div class="mci-labels">'+['K',...witnesses].map(sig=>'<div class="mci-cell">'+contextButton(sig,sig==='K'?[ref]:[...new Set(links[sig].flatMap(l=>l.reading.map(x=>x[0])))] )+'</div>').join('')+'</div><div class="mci-columns" dir="rtl">'+columns.join('')+'</div></div>'+open+'</section>';
+   const notes=[['K',baseNotes],...witnesses.map(sig=>[sig,(data.interlinear.chapters[ch]?.[sig]?.notes||[]).filter(n=>n.ref===ref)])].flatMap(([sig,rows])=>rows.map(n=>'<details class="mci-note"><summary>'+esc(name(sig))+' · '+esc('Randkommentar (Quelle)')+'</summary><div dir="rtl" lang="he">'+n.reading.map(pair=>token(sig,pair)).join(' ')+'</div></details>')).join('');
+   return '<section class="tc-reader-verse" '+(data.source?.vocalized?'data-mci-vocalized="1" ':'')+'data-rows="'+ref.split(':')[1]+'"><div class="tc-verse-summary">'+esc(title()+' '+ref)+'</div><div class="mci-grid"><div class="mci-labels">'+['K',...witnesses].map(sig=>'<div class="mci-cell">'+contextButton(sig,sig==='K'?[ref]:[...new Set(links[sig].flatMap(l=>l.reading.map(x=>x[0])))] )+'</div>').join('')+'</div><div class="mci-columns" dir="rtl">'+columns.join('')+'</div></div>'+notes+open+'</section>';
   }).join('')+'<p class="tc-credit">Digital Mishnah · CC BY 4.0 · '+esc(data.interlinear.version===2?'Wortgruppen nach Digital Mishnah; Lücken und Quellenzeichen bleiben erhalten. Automatisch zugeordnet, nicht vollständig philologisch geprüft.':'Gruppen statt erzwungener Einzelwortpaare; offene Wörter stehen getrennt. Nicht vollständig philologisch geprüft.')+'</p>';
  }
  function tosefta(ch,refs){
@@ -127,12 +129,14 @@ function create(host){
   return '<b>'+esc(source.name)+'</b>'+String(refs||'').split(',').map(ref=>{
    const u=source.units[ref];if(!u)return '';const w=wordRef===ref&&index!==undefined?u.words[i]:null;
    let h='<p>'+esc(title()+' '+ref)+'</p><small>'+esc(u.id)+'</small>';
+   if(u.referenceCorrection)h+='<p>'+esc('Abschnittsnummer nach Handschriftenmarkierung; ursprüngliche XML-ID erhalten.')+'</p>';
    if(w){
     h+='<p>'+esc('Transkriptionswort')+' '+(i+1)+'</p>';
     if(sig!=='K'){
      const chapter=data.interlinear.chapters[ref.split(':')[0]]?.[sig],link=chapter?.links.find(l=>l.reading.some(([r,n])=>r===ref&&n===i));
-     h+='<p>'+esc(status(link))+'</p>';
-    }else for(const other of ['P','C']){
+     const note=chapter?.notes?.find(n=>n.reading.some(([r,j])=>r===ref&&j===i));
+     h+='<p>'+esc(note?'Randkommentar (Quelle)':status(link))+'</p>';
+    }else for(const other of (data.source?.vocalized?['D','P','C']:['P','C'])){
      const link=data.interlinear.chapters[ref.split(':')[0]]?.[other]?.links.find(l=>l.base.some(([r,n])=>r===ref&&n===i));
      h+='<p>'+esc(name(other))+': '+esc(status(link))+'</p>';
     }

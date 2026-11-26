@@ -27,7 +27,7 @@ def generate(upstream, book):
         units=json.loads(out.read_text()); chapters={}
         for ch, original in source['chapters'].items():
             tokens=[t for u in units for w in u['witnesses'] for t in w['tokens'] if t['id'].startswith('V00001.1.1.'+ch+'.')]
-            witnesses=[{'id':'V00001','tokens':tokens},*original['witnesses'][1:]]
+            witnesses=[{'id':'V00001','tokens':tokens},*original['witnesses']]
             ids=[f'{i+1:03}-'+w['id'] for i,w in enumerate(witnesses)]
             inp, output=tmp/'input.json',tmp/'output.json'
             inp.write_text(json.dumps({'algorithm':'needleman-wunsch','joined':False,'witnesses':[{**w,'id':id} for w,id in zip(witnesses,ids)]},ensure_ascii=False));output.unlink(missing_ok=True)
@@ -39,7 +39,7 @@ def generate(upstream, book):
             print('vocalized chapter',ch,flush=True)
     reference={k:book[k] for k in ['rel','textHash','versionTitle']}
     provenance={**source['provenance'],'reference':{**reference,'id':'V00001','kind':'existing vocalized reading edition; synthetic comparison IDs'},'basePreparation':'Consonantal word projection; Digital Mishnah buildJSON normalization and grouping'}
-    (HERE/'sources/project-vocalized-collation.json.gz').write_bytes(gzip.compress(json.dumps({'provenance':provenance,'chapters':chapters},ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
+    (HERE/'sources/project-vocalized-collation.json.gz').write_bytes(gzip.compress(json.dumps({'provenance':provenance,'witnessSigs':['K','D','P','C'],'chapters':chapters},ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
 
 
 if __name__=='__main__':

@@ -1,0 +1,44 @@
+[
+  {
+    "ref": "2:1",
+    "token": 78,
+    "word": "הַשְּׁבָח",
+    "reason": "Schlusswort liegt außerhalb der lesbaren Tag-Abdeckung der geprüften Ausschnitte; keine visuelle Tag-Übernahme behauptet."
+  },
+  {
+    "ref": "2:3",
+    "token": 5,
+    "word": "צִמְחוֹנִים",
+    "reason": "Fachausdruck צמחונים: genaue Lemmaform und Verarbeitungsschritt noch unsicher."
+  },
+  {
+    "ref": "2:4",
+    "token": 5,
+    "word": "צִמְחוֹנִים",
+    "reason": "Fachausdruck צמחונים: genaue Lemmaform und Verarbeitungsschritt noch unsicher."
+  },
+  {
+    "ref": "2:4",
+    "token": 38,
+    "word": "צָרִיד",
+    "reason": "Fachausdruck צריד: Bedeutung und Lemmaabgrenzung noch unsicher."
+  },
+  {
+    "ref": "2:6",
+    "token": 38,
+    "word": "וּמְחַלְּלָן",
+    "reason": "Unsere suffigierte Singularform ומחללן gegenüber Bild ומחללין (Partizip Plural); keine sichere Übernahme."
+  },
+  {
+    "ref": "2:9",
+    "token": 34,
+    "word": "וּבְרִבְעַת",
+    "reason": "Vokalisiertes ברבעת gegenüber Roh-Tag Ordinalzahl feminin Singular: Segmentierung und Kasusstatus unsicher."
+  },
+  {
+    "ref": "2:9",
+    "token": 36,
+    "word": "וּבְרִבְעַת",
+    "reason": "Vokalisiertes ברבעת gegenüber Roh-Tag Ordinalzahl feminin Singular: Segmentierung und Kasusstatus unsicher."
+  }
+]

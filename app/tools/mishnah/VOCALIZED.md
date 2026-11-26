@@ -1,72 +1,68 @@
-# Interlinear auf der vokalisierten Kaufmann-Lesefassung
+# Vier Vergleichszeilen unter der vokalisierten Kaufmann-Lesefassung
 
-Die Hauptansicht verwendet jetzt die in Safran vorhandene Ausgabe
-„Mishnah based on the Kaufmann manuscript, edited by Dan Be’eri“ als Bezugstext.
-Parma und Cambridge werden **direkt gegen diese Ausgabe** verglichen; die
-Zuordnungen gegen die Digital-Mishnah-Kaufmann-Transkription werden nicht
-übertragen. Der alte diplomatische Quellenbestand bleibt unverändert für
-Quellenansicht, Apparat und Tosefta-Verknüpfungen erhalten.
+Die Reihenfolge lautet:
 
-## Umfang und Grenzen
+1. Vokalisierte Ausgabe: „Mishnah based on the Kaufmann manuscript, edited by Dan Be’eri“.
+2. Kaufmann A50: die eigenständige, weitgehend unvokalisierte Digital-Mishnah-Transkription.
+3. Parma, de Rossi 138.
+4. Cambridge Add. 470.1.
 
-Alle 63 Traktate, 525 Kapitel und 190.841 laufenden Wortpositionen der
-vokalisierten Lesefassung sind eingebunden. Wortprojektion und Tokenisierung
-verwenden dieselben Funktionen wie die bestehenden Wortkarten. Der gesamte
-Originaltext bleibt unverändert gespeichert. In der Interlinearzeile bleiben
-Vokalisierung und die Interpunktion der projizierten Haupttexte erhalten.
-Editorische Anmerkungen werden nicht als Mischna-Wörter gezählt.
+Die Kaufmann-Zeile stammt aus der Projektdatei `S07326.xml`, nicht aus einer
+Entfernung der Vokalzeichen der Be’eri-Ausgabe. Ihre gelegentlichen originalen
+Punktierungen, Korrekturen, Abkürzungen und Lücken bleiben erhalten.
 
-| Zeuge | Quellenwörter | an Basiswörter/-gruppen gebunden | Zusätze | offen |
-| --- | ---: | ---: | ---: | ---: |
-| Parma | 190.836 | 177.084 | 4.563 | 9.189 |
-| Cambridge | 185.619 | 168.445 | 2.007 | 15.167 |
+## Umfang und Verfahren
 
-Jedes Quellenwort wird einmal gezeigt. „Vollständig eingebunden“ bedeutet
-nicht, dass jedes Wort sicher zugeordnet ist. Nur Verbindungen, die in allen
-optimalen Vergleichspfaden vorkommen, werden übernommen; Wiederholungsambiguität
-und beschädigte oder unverbundene Lesarten bleiben offen. Der Vergleich erfolgt
-kapitelweise, ohne gleiche Mischnanummern als Wortgleichheit vorauszusetzen.
-Die zwei früheren Berakhot-Korrekturen gegen den diplomatischen Kaufmann-Text
-werden nicht auf die andere Ausgabe übertragen. Das Verfahren ist maschinell,
-keine vollständig philologisch geprüfte Edition.
+Alle 63 Traktate, 525 Kapitel und 190.841 Wortpositionen der vokalisierten Ausgabe
+sind eingebunden. Ihr vollständiger Text, die Vokalisierung, Interpunktion,
+Wortpositionen und die bestehenden Seraim-Wortkarten bleiben unverändert.
+Es werden keine morphologischen Analysen auf Handschriftenzeilen übertragen.
 
-Cambridge fehlt weiterhin in Demai. In Keritot 4 ist nun ein Bezugstext aus
-unserer vokalisierten Lesefassung vorhanden, obwohl die diplomatische
-Digital-Mishnah-Kaufmann-Quelle dort eine Abdeckungslücke hat. Avot 6 zeigt
-unseren vorhandenen Lesetext; die fehlenden Parma-/Cambridge-Texte werden als
-Abdeckungslücken gekennzeichnet, nicht als Auslassungen.
+Die Projektaufbereitung und CollateX vergleichen die vier Textstände gemeinsam,
+kapitelweise. Die Daten verwenden intern `K` für die vokalisierte Basis,
+`D` für Digital-Mishnah-Kaufmann, `P` für Parma und `C` für Cambridge.
+`V00001` bezeichnet synthetische Vergleichstokens der Lesefassung, keine
+Handschriften-Wort-IDs. Der Editionspfad und der Fingerprint werden vor dem
+Verwenden eines Vergleichs geprüft.
 
-Die vorhandenen Wortkarten bleiben auf die exakt passende Be’eri-Ausgabe und
-den bisher unterstützten Seder Seraim beschränkt. Handschriftenzeilen erhalten
-keine übertragenen morphologischen Analysen. Auch außerhalb Seraims erscheint
-jedes Basiswort interlinear, ohne damit bereits eine Wortbestimmung zu besitzen.
+| Zeuge | Quellenpositionen | an Basis gebunden | Zusätze | Lückenpositionen | Quellenkommentar | offen |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Digital-Mishnah-Kaufmann | 188.096 | 185.948 | 2.001 | 125 | 16 | 6 |
+| Parma | 190.836 | 183.680 | 3.269 | 54 | 3.773 | 60 |
+| Cambridge | 185.619 | 180.363 | 5.202 | 41 | 0 | 13 |
 
-## Bedienung und Herkunft
+Die Zahlen beschreiben automatische Platzierungen, keine philologische
+Gewissheit. Zusätze haben hier kein Gegenstück im automatischen Vergleich.
+Alle **79 offenen Positionen** bleiben gesondert sichtbar; sie werden nicht
+erraten oder verworfen. Quellenkommentare stehen aufklappbar unter dem
+betreffenden Abschnitt. Die Details und offenen Positionen je Traktat stehen
+in `project-corpus-audit.json`.
 
-Die Handschriftenauswahl verwendet die vokalisierte Lesefassung. Eine gespeicherte
-Auswahl der alten Digital-Mishnah-Kaufmann-Version wird bei verfügbarer
-Lesefassung darauf umgestellt. Parma und Cambridge sind einzeln schaltbar.
-„Keine“ zeigt wieder den normalen Lesetext mit seinen Wortkarten. Im
-Apparatfenster verwendet die Interlinearansicht ebenfalls die vokalisierte
-Basis; diplomatischer Apparat und Tosefta behalten ihre bezeichnete
-Digital-Mishnah-Zählung.
+## Bedienung und Abdeckung
 
-Die Quellen für Parma und Cambridge sowie deren Original-IDs und Original-TEI
-bleiben die in [CORPUS.md](CORPUS.md) dokumentierten, gepinnten Digital-Mishnah-Dateien
-unter CC BY 4.0. Die Lesefassung behält ihre bisherigen Metadaten und Rechte;
-sie wird nicht als Digital-Mishnah-Transkription umbenannt oder lizenziert.
-`vocalized-audit.json` dokumentiert Zahlen, Editionspfade und Text-Fingerprints.
+Die Handschriftenauswahl schaltet Digital-Mishnah-Kaufmann, Parma und Cambridge
+einzeln. Bestehende Einstellungen werden beim ersten Verwenden um die neue
+Kaufmann-Zeile ergänzt. „Keine“ zeigt den normalen Lesetext mit seinen bisherigen
+Wortkarten. Die neue Auswahl bleibt unabhängig von separat geöffneten Versionen.
+
+Cambridge fehlt in Demai. In Keritot 4 ist die vokalisierte Basis vorhanden,
+obwohl der diplomatische Kaufmann dort fehlt. Avot 6 zeigt die Lesefassung mit
+einem Hinweis auf die fehlenden Projektzeugen. Diese Quellenlücken werden
+nicht als textliche Auslassungen klassifiziert.
+
+Die Originaltranskriptionen behalten die Quellen- und Lizenzangaben aus
+[CORPUS.md](CORPUS.md). Die Lesefassung behält ihre bisherigen Metadaten und
+Rechte. Sie wird nicht als Digital-Mishnah-Transkription umbenannt.
 
 ## Reproduktion und Prüfung
 
+`build_vocalized.py` verwendet die vorbereiteten, editionsgebundenen
+Projektkollationen. [CORPUS.md](CORPUS.md) beschreibt den vollständigen Neubau.
+
 ```
-python app/tools/mishnah/build_vocalized.py
-node --test app/tests/mishnah-vocalized.test.js
+node --test app/tests/mishnah-vocalized.test.js app/tests/mishnah-textcrit-corpus.test.js
 ```
 
-Der Build benötigt Node, Python und g++ und arbeitet mit den bereits gebündelten
-Quellen ohne Netzwerk. Die Datensätze in `mishnah-vocalized/*.js` werden nur für
-den geöffneten Traktat geladen. Die Prüfung kontrolliert alle Wortpositionen,
-Quellfingerprints und vollständige, duplikatfreie Darstellung beider Handschriften
-in sämtlichen Kapiteln. Electron prüft alle 63 Traktate, die genannten Lückenfälle,
-alle 23.447 Seraim-Wortkartenpositionen sowie die Berakhot-Bedienabläufe.
+Die Prüfungen kontrollieren alle Wortpositionen und alle drei Quellenzeilen in
+sämtlichen Kapiteln. Electron öffnet alle 63 Traktate und prüft Reihenfolge,
+Worterhaltung, Randkommentare und die genannten Abdeckungslücken.

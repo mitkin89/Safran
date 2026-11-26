@@ -192,7 +192,7 @@ test('all 226 residual positions have explicit source-bound review decisions',()
  assert.deepEqual(at(9,5,134).map(a=>a.morph),['HNcmsc','HAamsc']);
 });
 
-test('short meanings distinguish editorial prayer glosses and all biblical homonym meanings',()=>{
+test('short meanings retain editorial glosses and reject biblical dictionary fallback',()=>{
  const G=require('../mishnah-meanings');
  assert.match(G.lookup({lemma:'קרא',morph:'HVqrmpa'}).text,/lesen/);
  assert.equal(G.lookup({lemma:'שמע',morph:'HNcmsa'}).text,'Schema-Gebet');
@@ -202,7 +202,11 @@ test('short meanings distinguish editorial prayer glosses and all biblical homon
  assert.match(G.lookup({lemma:'חיים',morph:'HNcmpc/Sp2ms'}).text,/Leben/);
  assert.match(G.lookup({lemma:'בראשית',morph:'HNcxsa'}).text,/Schöpfung/);
  const dictionary={a:['עֵין','spring','Quelle'],b:['עַיִן','eye','Auge']};
- const g=G.lookup({lemma:'מן/עין',morph:'HR/Ncbsc'},dictionary);assert.equal(g.source,'biblical');assert.deepEqual(g.alternatives,['Quelle','Auge']);
+ assert.equal(G.lookup({lemma:'מן/עין',morph:'HR/Ncbsc'},dictionary),null,'tempting biblical homonyms must not become Mishnah glosses');
+ const forbidden=new Proxy(dictionary,{ownKeys(){throw Error('biblical dictionary accessed');}});
+ assert.equal(G.lookup({lemma:'עין',morph:'HNcbsa'},forbidden,'en'),null);
+ assert.equal(G.lookup({lemma:'עין',morph:'HNcbsa',gloss:{de:'redaktioneller Kontext',en:'editorial context'}},forbidden,'en').text,'editorial context');
+ assert.equal(G.lookup({lemma:'קרא',morph:'HVqrmpa'},'en').text,'read; recite; call');
  assert.equal(G.lookup({lemma:'unmatched',morph:'HNcmsa'},dictionary),null);
  assert.equal(G.lookup({lemma:'קרא',morph:'HVqrmpa'},dictionary,'en').text,'read; recite; call');
 });

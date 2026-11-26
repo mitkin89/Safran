@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Mishnah Demai",
+    "ref": "7:4",
+    "token": 19,
+    "word": "מֵחֵל",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חלל",
+        "morph": "HVhrmsa",
+        "rules": [
+          "accordance-demai-maagarim"
+        ],
+        "method": "accordance-maagarim-context-review",
+        "gloss": {
+          "de": "er löst aus",
+          "en": "he redeems"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 7:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_134_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TWgf0DEMHs_f1AKJNJNzlE4JsPAFzsLP",
+          "sha256": "25faa1964e057ccc6847e041616845634dfee9258bbec601fbeadb4f1779fac2",
+          "lex": "חלל",
+          "tags": "tifl prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language (מפעל המילון ההיסטורי של האקדמיה ללשון העברית)",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=19&mm15=000003007040+00",
+          "pageUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=9",
+          "httpStatus": 200,
+          "shibbur": 31000,
+          "mm15": "000003007040 00",
+          "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+          "wordId": "991010",
+          "mismila": "19",
+          "attributes": {
+            "mismila": "19",
+            "cnt": "1",
+            "class": " tooltippedWord ",
+            "kodmilim": "991010",
+            "erec0": "חלל 1 (חולין, ביזוי; זרות) [הפעיל, בינוני]",
+            "srs0": "חלל 1 - חולין, ביזוי; זרות",
+            "kode0": "10612",
+            "kods0": "5050",
+            "yhd0": "",
+            "hera0": "",
+            "hpnimit0": "",
+            "rciv0": "0",
+            "kodm0": "991010",
+            "zman0": "4",
+            "zura0": "ומחל",
+            "hatkana": "[\"20\"]",
+            "hatkana_otiot": "[{\"kod\":20,\"text\":\"ו\"}]",
+            "hatkana_mila": "[]"
+          },
+          "rawHtml": "<span  mismila=19  cnt=1  class=\" tooltippedWord \"  kodmilim=\"991010\"  erec0=\"חלל 1 (חולין, ביזוי; זרות) [הפעיל, בינוני]\" srs0=\"חלל 1 - חולין, ביזוי; זרות\" kode0=\"10612\" kods0=\"5050\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"991010\" zman0=\"4\" zura0=\"ומחל\" hatkana=\"[&quot;20&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:20,&quot;text&quot;:&quot;ו&quot;}]\" hatkana_mila=\"[]\"><nobr>(ו)מחל</nobr></span>",
+          "context": "ועשרה מעשר. ותשעה מעשר שני. (ו)מחל ושותה.",
+          "pageHtmlSha256": "17028495cea00c7358bce4ed78e888f5c6a1f979ca8024390e76ca18df5ce273"
+        },
+        "note": "Ma’agarim belegt den exakten Kaufmann-Beleg ausdrücklich als חלל, Hifil-Partizip (Wort-ID 991010). Genus/Numerus redaktionell aus unserer Form und Satzfunktion. Der abweichende Accordance-Tifl-Tag bleibt als Rohvergleich erhalten; die unvokalisierte Ma’agarim-Seite bestätigt die eigenen Vokale nicht separat. https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=19&mm15=000003007040+00"
+      }
+    ],
+    "note": "Ma’agarim belegt den exakten Kaufmann-Beleg ausdrücklich als חלל, Hifil-Partizip (Wort-ID 991010). Genus/Numerus redaktionell aus unserer Form und Satzfunktion. Der abweichende Accordance-Tifl-Tag bleibt als Rohvergleich erhalten; die unvokalisierte Ma’agarim-Seite bestätigt die eigenen Vokale nicht separat. https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=19&mm15=000003007040+00"
+  }
+]

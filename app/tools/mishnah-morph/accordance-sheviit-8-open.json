@@ -1,0 +1,14 @@
+[
+  {
+    "ref": "8:4",
+    "token": 3,
+    "word": "הֵילָךְ",
+    "reason": "Erstarrte Übergabeformel הילך: Segmentierung von Partikel/Imperativ und Suffixfunktion ist durch die Bildetikettierung nicht eindeutig abgesichert."
+  },
+  {
+    "ref": "8:6",
+    "token": 23,
+    "word": "וּבַקָּטְכָא",
+    "reason": "Seltene Gefäßbezeichnung קטכא: Lemma, Genus und Bedeutung gegenüber Schreibvariante nicht ausreichend abgesichert."
+  }
+]
