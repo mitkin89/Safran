@@ -176,9 +176,12 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  assert(await js("!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"460\"]')"),'Andere Wörterbuchtreffer bleiben erreichbar');
  await js("document.querySelector('#dictClose').click();document.querySelector('#wpop .wx')?.click()");
  await js("{const w=document.querySelector('#rOut .syw[data-si=\"2\"]'),r=document.createRange();r.selectNodeContents(w);window.getSelection().removeAllRanges();window.getSelection().addRange(r);w.dispatchEvent(new MouseEvent('dblclick',{bubbles:true,cancelable:true,detail:2}));}");
+ await waitFor("document.querySelector('#wcBody .sc-card[data-sedra-id=\"470\"]')",'Doppelklick übernimmt die Morphologie des Peschitta-Worts');
+ // Exercise spelling-only lookup on the same surface form without a tagged source token.
+ await js("{const w=document.querySelector('#rOut .syw[data-si=\"2\"]'),plain=document.createElement('span');plain.id='testPlainSyriac';plain.textContent=w.textContent;w.after(plain);const r=document.createRange();r.selectNodeContents(plain);window.getSelection().removeAllRanges();window.getSelection().addRange(r);plain.dispatchEvent(new MouseEvent('dblclick',{bubbles:true,cancelable:true,detail:2}));}");
  await waitFor("document.querySelector('#wcBody [data-sid=\"467\"]')&&document.querySelector('#wcBody [data-sid=\"470\"]')",'Gleich geschriebene SEDRA-Lexeme bleiben zur Auswahl getrennt');
  assert(await js("!document.querySelector('#wcBody .sc-family')&&!document.querySelector('#fmBody [data-sedra-word]')"),'Keine stillschweigende Homonymbestimmung');
- await js("document.querySelector('#wcBody [data-sid=\"467\"]').click()");
+ await js("window.getSelection().removeAllRanges();document.querySelector('#testPlainSyriac').remove();document.querySelector('#wcBody [data-sid=\"467\"]').click()");
  await waitFor("document.querySelector('#wcBody .sc-card[data-sedra-id=\"467\"]')",'Gewähltes Homonym steuert Familie und Formen');
  // A selected homonym must survive the round trip into the shared dictionary.
  for(const id of ['470','467']){
