@@ -3138,23 +3138,3 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #wcBody .wcPsX .g[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 30px; line-height: 1.5; max-width: 100%; }
 #wcBody .wcPsW small { font: 11px/1.3 var(--ui-font, system-ui, sans-serif); color: var(--muted); text-align: start; }
 #wcBody .wcPsMore summary { cursor: pointer; color: var(--muted); margin: 6px 0; }
-
-/* Compact search: scope stays beside the query, results use the free space. */
-#tab-search:not([hidden]):has(#sSumPanel[hidden]):has(#sxExamples[hidden]) { grid-template-columns: minmax(0, 1fr); }
-#sText { max-width: 1100px; }
-#sScope { margin: 0 0 12px; }
-#sCatPanel { padding: 0; border: 0; }
-#sCatBtn { cursor: pointer; width: fit-content; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; }
-#sCatPanel[open] { padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
-#sCatPanel[open] > summary { margin-bottom: 10px; }
-#sCatTree { max-height: 320px; overflow: auto; }
-#sScopeChips { display: flex; flex-wrap: wrap; gap: 5px; }
-#sScopeChips:not(:empty) { margin-top: 8px; }
-#sScopeChips .chip { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
-#sWlcLabel { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 13px; color: var(--muted); }
-#sWlcLabel[hidden], #advBar label[hidden], #sSaved .dsv[hidden] { display: none; }
-#sSaved { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); max-width: 1100px; margin-top: 14px; }
-#sSaved .dchips { max-height: none; }
-#sRecentMore { margin-top: 6px; font-size: 12px; }
-#sSaved .dchip:focus-within button { opacity: 1; }
-#sInfo:empty, #sTools:not(:has(button:not([hidden]))) { display: none; }

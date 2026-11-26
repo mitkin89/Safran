@@ -14,21 +14,6 @@
   if (lang === 'de') return;
 
   const EN = {
-    "In: Gesamte Bibliothek": "In: Entire library",
-    "In: {} ausgewählt": "In: {} selected",
-    "Kategorien und Werke durchsuchen": "Search categories and works",
-    "Kategorien und Werke durchsuchen …": "Search categories and works …",
-    "Auswahl zurücksetzen": "Reset selection",
-    "Ohne Auswahl wird die gesamte Bibliothek durchsucht.": "Without a selection, the entire library is searched.",
-    "Ausgewählte Suchbereiche": "Selected search scope",
-    "Suchen nach": "Search for",
-    "Weitere Optionen": "More options",
-    "Übereinstimmung": "Matching",
-    "Alle anzeigen": "Show all",
-    "{} entfernen": "Remove {}",
-    "Gespeicherte Suche entfernen": "Remove saved search",
-    "Suche speichern": "Save search",
-
     "Quellen & Hinweise": "Sources & notes",
     "Quelle hinzufügen": "Add source",
     "＋ Quelle hinzufügen": "＋ Add source",

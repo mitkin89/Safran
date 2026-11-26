@@ -41,8 +41,8 @@ window.LibrarySearch = (() => {
       fullCache = lastSearch = null;
       $('#sOut').replaceChildren();
       $('#sLemmaCoverage').replaceChildren();
-      for (const id of ['sSumPanel', 'sChart', 'sGroupBtn', 'sReadBtn', 'sExport', 'sProgress', 'sResearchBtn']) $('#' + id).hidden = true;
-      $('#sInfo').textContent = '';
+      for (const id of ['sSumPanel', 'sChart', 'sGroupBtn', 'sReadBtn', 'sExport', 'sProgress']) $('#' + id).hidden = true;
+      $('#sInfo').textContent = mode === 'text' ? I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).') : '';
       sSetBusy();
       if (['syntax','clauses'].includes(mode)){loadBhsaStatus();$('#sxKinds [data-syntax-kind="'+(mode==='clauses'?'clause':'word')+'"]').click();}
       updateExamples();
@@ -98,13 +98,8 @@ window.LibrarySearch = (() => {
         ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).')
         : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma)
         : m === 'lemma' ? I18N.t('Lemma-Suche: nur Fassungen mit nutzbaren Lemma-Zuordnungen und nur belegte Lemmata. Für andere Werke die Wortformsuche verwenden.')
-        : '';
-      const multipleWords = $('#sq').value.trim().split(/\s+/u).filter(Boolean).length > 1;
-      $('#sDistLabel').hidden = $('#sOrdLabel').hidden = !multipleWords;
-      $('#sHint').hidden = !$('#sHint').textContent;
-      refreshScopeOptions();
-      const act = +(multipleWords && $('#sOrd').checked) + +$('#sFuzzy').checked
-        + +(multipleWords && +$('#sDist').value !== 10) + +($('#sWordMode').value !== 'exact');
+        : I18N.t('Wortformsuche in den rechts ausgewählten Werken. Erweiterte Optionen erlauben Vorsilben, Wortteile und Wortfolgen.');
+      const act = +$('#sOrd').checked + +$('#sFuzzy').checked + +!$('#sWlc').checked + +(+$('#sDist').value !== 10) + +($('#sWordMode').value !== 'exact');
       $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
     }
     O.onSearchProgress(p => {
@@ -119,25 +114,6 @@ window.LibrarySearch = (() => {
 
     // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
     const sCats = new Set(), sTitles = new Set();
-    function refreshScopeOptions() {
-      const hasTanakh = !sCats.size && !sTitles.size || getGroups().some(g => {
-        const path = window.SearchCategories.path(g.cats).join('/');
-        return path.split('/').includes('Tanakh') && (sTitles.has(g.title)
-          || [...sCats].some(c => path === c || path.startsWith(c + '/')));
-      });
-      $('#sWlcLabel').hidden = isConcordance() || !sKinds().includes('he') || !hasTanakh;
-    }
-    $('#sWlc').addEventListener('change', sRefresh);
-    $('#sCatReset').onclick = () => { sCats.clear(); sTitles.clear(); renderSCats(); };
-    $('#sScopeChips').addEventListener('click', e => {
-      const chip = e.target.closest('button[data-scope]');
-      if (!chip) return;
-      const index = [...$('#sScopeChips').children].indexOf(chip);
-      (chip.dataset.scope === 'category' ? sCats : sTitles).delete(chip.dataset.value);
-      renderSCats();
-      const remaining = [...$('#sScopeChips').children];
-      (remaining[Math.min(index, remaining.length - 1)] || $('#sCatBtn')).focus();
-    });
     function renderSCats() {
       renderSyntaxBooks();
       const f = $('#sCatFilter').value.trim().toLowerCase();
@@ -169,13 +145,8 @@ window.LibrarySearch = (() => {
       };
       $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Nichts gefunden.</p>';
       $$('#sCatTree input[data-part]').forEach(i => { i.indeterminate = true; });
-      const count = sCats.size + sTitles.size;
-      $('#sCatBtn').textContent = count ? I18N.t('In: {} ausgewählt', count) : I18N.t('In: Gesamte Bibliothek');
-      $('#sCatReset').hidden = !count;
-      $('#sScopeChips').innerHTML = [...sCats].map(c => [c, 'category', c.split('/').map(p => I18N.t(p)).join(' / ')])
-        .concat([...sTitles].map(t => [t, 'title', t])).map(([value, kind, label]) =>
-          `<button type="button" class="chip" data-scope="${kind}" data-value="${esc(value)}" aria-label="${esc(I18N.t('{} entfernen', label))}"><bdi>${esc(label)}</bdi> ×</button>`).join('');
-      refreshScopeOptions();
+      const parts = [sCats.size ? `${sCats.size} Kategorie${sCats.size === 1 ? '' : 'n'}` : '', sTitles.size ? (sTitles.size === 1 ? '1 Buch' : `${sTitles.size} Bücher`) : ''].filter(Boolean);
+      $('#sCatBtn').textContent = parts.length ? `Auswahl: ${parts.join(', ')}` : 'Kategorien: alle';
     }
     const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
     $('#sCatTree').addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.p != null && !$('#sCatFilter').value.trim()) { if (d.open) sOpen.add(d.dataset.p); else sOpen.delete(d.dataset.p); } }, true);
@@ -420,7 +391,6 @@ window.LibrarySearch = (() => {
       sSetBusy();
       $('#sProgress').hidden = false; $('#sProgressBar').removeAttribute('value'); $('#sProgressLabel').textContent = I18N.t('Suche läuft …');
       $('#sInfo').textContent = 'Suche läuft …';
-      $('#sResearchBtn').hidden = true;
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
       $('#sLemmaCoverage').innerHTML = '';
       $('#sSyntaxCoverage').innerHTML = '';
@@ -468,7 +438,6 @@ window.LibrarySearch = (() => {
       sSumState = { res, onlyTitle, n: 40 };
       renderSum();
       if (!onlyTitle) renderDist(res);
-      $('#sResearchBtn').hidden = !sResults.length;
       $('#sExport').hidden = !sResults.length;
       $('#sReadBtn').hidden = !sResults.length;
       $('#sGroupBtn').hidden = !sResults.length || !!res.concordance;
@@ -535,23 +504,14 @@ window.LibrarySearch = (() => {
       if (r && r.error) alert(r.error);
     };
     // Verlauf (nur selbst abgeschickte Suchen) und Favoriten der Volltextsuche
-    let sRecent = lsGet('searchRecent'), sFavs = lsGet('searchFavs'), showAllRecent = false;
-    $('#sRecentMore').onclick = () => { showAllRecent = !showAllRecent; renderSearchSaved(); };
+    let sRecent = lsGet('searchRecent'), sFavs = lsGet('searchFavs');
     const syncSS = () => { sRecent = lsGet('searchRecent'); sFavs = lsGet('searchFavs'); };
     function renderSearchSaved() {
       syncSS();
       const chips2 = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-i="${i}" dir="auto"${sEntTitle(w) ? ` title="${esc(sEntTitle(w))}"` : ''}>${esc(sEntQ(w))}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
-      $('#sRecentL').innerHTML = chips2(showAllRecent ? sRecent : sRecent.slice(0, 5), false);
-      $('#sRecentL').closest('.dsv').hidden = !sRecent.length;
-      $('#sFavL').closest('.dsv').hidden = !sFavs.length;
-      $('#sRecentMore').hidden = sRecent.length <= 5;
-      $('#sRecentMore').textContent = I18N.t(showAllRecent ? 'Weniger anzeigen' : 'Alle anzeigen');
-      $('#sRecentMore').setAttribute('aria-expanded', String(showAllRecent));
+      $('#sRecentL').innerHTML = chips2(sRecent, false);
       $('#sFavL').innerHTML = chips2(sFavs, true);
       const q = $('#sq').value.trim(), on = !!q && sFavs.some(x => sEntQ(x) === q);
-      $('#sStar').title = I18N.t(on ? 'Gespeicherte Suche entfernen' : 'Suche speichern');
-      $('#sStar').setAttribute('aria-label', $('#sStar').title);
-      $('#sStar').setAttribute('aria-pressed', String(on));
       $('#sStar').textContent = on ? '★' : '☆'; $('#sStar').classList.toggle('on', on);
     }
     // Ein Eintrag ist entweder nur der Suchtext (frühere Fassungen; heute: Sprache „Automatisch“ und die übliche Treffer-Art)
@@ -602,8 +562,9 @@ window.LibrarySearch = (() => {
       sRefresh(); renderSearchSaved();
     });
     $('#sAdv').addEventListener('change', sRefresh);
-    // Start compact; active options remain visible in the summary.
-    $('#sAdv').open = false;
+    // „Erweitert“: auf-/zugeklappt merken
+    try { $('#sAdv').open = localStorage.getItem('searchAdvOpen') === '1'; } catch { /* egal */ }
+    $('#sAdv').addEventListener('toggle', e => { if (e.target.id === 'sAdv') try { localStorage.setItem('searchAdvOpen', e.target.open ? '1' : '0'); } catch { /* egal */ } });
     sRefresh();
     renderSearchSaved();
     $('#sGo').onclick = () => (sBusy() ? O.cancelSearch() : manualFind()); // derselbe Knopf: während der Suche „Abbrechen“
@@ -627,7 +588,7 @@ window.LibrarySearch = (() => {
         sCats.clear(); sTitles.clear(); sTitles.add(g.title);
         let p = ''; for (const c of window.SearchCategories.path(g.cats).slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); }
         renderSCats();
-        const b = $('#sCatTree input[data-st]:checked'); if (b && $('#sCatPanel').open) b.scrollIntoView({ block: 'center' });
+        const b = $('#sCatTree input[data-st]:checked'); if (b) b.scrollIntoView({ block: 'center' });
         $('#sq').focus(); $('#sq').select();
         if ($('#sq').value.trim()) runSearch();
       },
