@@ -165,7 +165,7 @@ function analyses(e, d, html, p, ts, validHash, locate) {
   }
   return null;
 }
-async function search({ dir, entries, params, onProgress = () => {}, onOccurrence = null, onAnalysis = null, isCancelled = () => false }) {
+async function search({ dir, entries, params, cacheDir = null, onProgress = () => {}, onOccurrence = null, onAnalysis = null, isCancelled = () => false }) {
   const qt = tokens(String(params.query || '').trim()), q = qt[0]?.key;
   const empty = { results: [], stats: [], dist: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, concordance: true, coverage: { annotated: 0, surface: 0 }, hitsByBasis: { lemma: 0, surface: 0, root: 0 }, errors: 0 };
   if (!q || String(params.query).length > 100 || qt.length !== 1 || /[*?]/.test(params.query)) return { ...empty, error: 'Bitte ein einzelnes Wort ohne Platzhalter eingeben.' };
@@ -179,6 +179,14 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
   if (lemma) out.lemmaCoverage = { words: 0, withLemma: 0, editions: [] };
   for (const e of Order.sortTitles(scan, x => x.title)) {
     if (isCancelled()) break;
+    const surfaceCache = !lemma ? await require('./concordance-surface-cache').open(dir, e, cacheDir) : null;
+    if (surfaceCache?.words && !surfaceCache.words.has(q)) {
+      out.coverage.surface++;
+      out.scanned++; onProgress({ scanned: out.scanned, total: out.total, found: out.dist.reduce((n, x) => n + x.o, 0) });
+      continue;
+    }
+    const vocabulary = surfaceCache && !surfaceCache.words ? new Set() : null;
+    let complete = true;
     let d, sourceSha256;
     try {
       const raw = await fs.readFile(path.join(dir, e.rel), 'utf8');
@@ -194,8 +202,20 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
     const locate = p => (locator ||= R.makeLocator(d.text, d.sectionNames))(p);
     const rows = []; R.walkStrings(d.text, [], (html, p) => rows.push({ html, p }));
     for (let row = 0; row < rows.length; row++) {
-      if (isCancelled()) break;
-      const { html, p } = rows[row], text = textOf(html), ts = tokens(text);
+      if (isCancelled()) { complete = false; break; }
+      const { html, p } = rows[row], text = textOf(html);
+      if (!lemma) {
+        const normalized = normalize(text);
+        if (vocabulary) for (const word of normalized.match(/[\p{L}\p{M}\p{N}]+/gu) || []) {
+          if (/[\p{L}\p{N}]/u.test(word)) vocabulary.add(word);
+        }
+        // A necessary substring check avoids allocating/normalizing every word in non-matching passages.
+        if (!normalized.includes(q)) {
+          if (row % 100 === 0) await new Promise(r => setImmediate(r));
+          continue;
+        }
+      }
+      const ts = tokens(text);
       const a = lemma && ts.length ? analyses(e, d, html, p, ts, validHash, locate) : null;
       let passage = false;
       for (let i = 0; i < ts.length; i++) {
@@ -226,9 +246,10 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
       }
       if (passage) h++;
       // Lemma coverage is reported only for complete editions.
-      if (!lemma && params.concordancePreview && out.results.length >= limit) break;
+      if (!lemma && params.concordancePreview && out.results.length >= limit) { complete = false; break; }
       if (row % 100 === 0) await new Promise(r => setImmediate(r));
     }
+    if (vocabulary && complete && !isCancelled()) await surfaceCache.save(vocabulary);
     if (lemma && !isCancelled()) {
       out.lemmaCoverage.words += words;
       out.lemmaCoverage.withLemma += withLemma;
