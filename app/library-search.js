@@ -76,7 +76,7 @@ window.LibrarySearch = (() => {
     // Für welche Texte gilt die Treffer-Art? 'he' = hebräisch, 'gr' = griechische Eingabe in „Andere“/„Alle“ (Lemma-Suche in der Septuaginta), 'ot' = alles Übrige
     const sSlot = () => { const k = sKinds(); return k.includes('he') ? 'he' : k.includes('other') && S_GREEK.test($('#sq').value) ? 'gr' : 'ot'; };
     // Treffer-Art, getrennt gemerkt für hebräische, griechische und andere Suche („Alle Formen“ gibt es hebräisch und griechisch, „Wort mit Vorsilben“ nur hebräisch)
-    const sModeSel = { he: 'lemma', gr: 'lemma', ot: 'exact' };
+    const sModeSel = { he: 'exact', gr: 'exact', ot: 'exact' };
     const sModeOk = (m, slot) => S_MODES.includes(m) && (m !== 'root' || slot === 'he');
     const sMatchParams = () => {
       const m = $('#sWordMode').value;
@@ -85,7 +85,7 @@ window.LibrarySearch = (() => {
     function sRefresh() {
       const slot = sSlot();
       for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
-      if (!sModeOk(sModeSel[slot], slot)) sModeSel[slot] = slot === 'he' || slot === 'gr' ? 'lemma' : 'exact';
+      if (!sModeOk(sModeSel[slot], slot)) sModeSel[slot] = 'exact';
       $('#sMode').value = sModeSel[slot];
       const m = $('#sMode').value, cc = isConcordance();
       $('#sMode').disabled = false; $('#sMode').closest('label').hidden = false;
@@ -95,7 +95,7 @@ window.LibrarySearch = (() => {
       if (slot !== 'he' && $('#sWordMode').value === 'prefix') $('#sWordMode').value = 'exact';
       const exactLemma = m === 'lemma' && concordanceLemma;
       $('#sHint').textContent = m === 'root'
-        ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).')
+        ? I18N.t('Wurzelsuche nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).')
         : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma)
         : m === 'lemma' ? I18N.t('Lemma-Suche: nur Fassungen mit nutzbaren Lemma-Zuordnungen und nur belegte Lemmata. Für andere Werke die Wortformsuche verwenden.')
         : I18N.t('Wortformsuche in den rechts ausgewählten Werken. Erweiterte Optionen erlauben Vorsilben, Wortteile und Wortfolgen.');
@@ -447,7 +447,7 @@ window.LibrarySearch = (() => {
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
-      if (r.concordance) return `<div class="sres ccRow" tabindex="0" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wortfamilie' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" tabindex="0" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
+      if (r.concordance) return `<div class="sres ccRow" tabindex="0" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wurzel' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" tabindex="0" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
       const roles = (r.syntax || []).map(pair => {
         const parts = [[I18N.t('Verb'), pair.verb ? [{ text: pair.verb }] : []], [I18N.t('Subjekt'), pair.subjects],
           [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
@@ -532,7 +532,7 @@ window.LibrarySearch = (() => {
       const previous = typeof e === 'object' && e ? e : {};
       const m = previous.cc ? previous.cm === 'root' ? 'root' : previous.cm === 'lemma' ? 'lemma' : 'exact'
         : ['part', 'prefix'].includes(previous.m) ? 'exact' : previous.m;
-      sModeSel[slot] = sModeOk(m, slot) ? m : slot === 'he' || slot === 'gr' ? 'lemma' : 'exact';
+      sModeSel[slot] = sModeOk(m, slot) ? m : 'exact';
       $('#sWordMode').value = ['part', 'prefix'].includes(previous.m) ? previous.m : ['exact', 'prefix', 'part'].includes(previous.wm) ? previous.wm : 'exact';
       $('#sConcordanceCross').checked = previous.unified ? !!previous.cx : previous.cc ? previous.cx !== false : false;
       sRefresh();

@@ -463,7 +463,7 @@
     "Die Wortfamilie umfasst mehrere Lemmata mit derselben Lexikonwurzel. Unter „Grundform“ siehst du nur das ausgewählte Lemma.": "The word family includes lemmas linked to the same root. Select Lemma for occurrences of the selected entry.",
     "Suchumfang": "Search scope",
     "Keine Wurzelzuordnung für dieses Lemma.": "No root mapping for this lemma.",
-    "Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).": "Word family based on explicit root links in the Open Scriptures lexicon (Westminster).",
+    "Wurzelsuche nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).": "Root search based on explicit root links in the Open Scriptures lexicon (Westminster).",
     "Konkordanz": "Concordance",
     "Keine Belege gefunden.": "No occurrences found.",
     "Erneut versuchen": "Retry",

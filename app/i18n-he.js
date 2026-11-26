@@ -1,6 +1,8 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+    "Wurzel": "שורש",
+    "Wurzelsuche nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).": "חיפוש שורש לפי הפניות מפורשות לשורשים במילון Open Scriptures (Westminster).",
     "Wortzuordnung nicht angewendet: {}": "שיוך המילים לא הוחל: {}",
     "Quellstand der Wortzuordnung fehlt": "חסרה חתימת המקור של שיוך המילים",
     "Hebräische Fassung weicht vom Quellstand der Wortzuordnung ab": "הנוסח העברי שונה ממקור שיוך המילים",

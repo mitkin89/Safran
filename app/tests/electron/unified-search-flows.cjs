@@ -6,6 +6,12 @@ module.exports=async({win,js,waitFor})=>{
  assert.equal(await js("document.querySelector('#sConcordanceMode')"),null);
  assert.deepEqual(await js("[...document.querySelector('#sMode').options].map(o=>o.value)"),['exact','lemma','root']);
  assert(await js("!document.querySelector('#sMode').disabled&&!document.querySelector('#sMode').closest('label').hidden&&!document.querySelector('#sLang').closest('label').hidden&&!document.querySelector('#sCatPanel').hidden"));
+ for(const query of ['שוב','καταβαίνω','Himmel']) {
+  await js(`document.querySelector('#sq').value=${JSON.stringify(query)};document.querySelector('#sq').dispatchEvent(new Event('input'))`);
+  assert.equal(await js("document.querySelector('#sMode').value"),'exact','Word form is the default across scripts');
+ }
+ assert.equal(await js("document.querySelector('#sMode option[value=root]').textContent"),'Wurzel');
+ await js("document.querySelector('#sq').value='שוב';document.querySelector('#sq').dispatchEvent(new Event('input'))");
  const search=async mode=>{
   await js(`document.querySelector('#sMode').value=${JSON.stringify(mode)};document.querySelector('#sMode').dispatchEvent(new Event('change'));document.querySelector('#sGo').click()`);
   await waitFor("document.querySelector('#sGo').textContent==='Suchen'&&document.querySelector('#sOut mark')",mode+' Suche');
