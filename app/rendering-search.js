@@ -32,7 +32,7 @@
         merged.total += entry.total;
         const indices = entry.labels.map(label => {
           // Preserve distinct labels for different kinds of variants or lexemes.
-          const group = JSON.stringify([key(label.forms[0]), label.key, label.type, label.gl, !!label.same, !!label.other]);
+          const group = JSON.stringify([key(label.forms[0]), label.key, label.type, label.targumLex, label.gl, !!label.same, !!label.other]);
           if (!merged.groups.has(group)) {
             merged.groups.set(group, merged.labels.length);
             merged.labels.push({ ...label, forms: [label.forms[0]], variants: new Map() });

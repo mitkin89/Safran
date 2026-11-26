@@ -506,6 +506,7 @@
     "{} Wortformen ohne Lemma": "{} forms without a lemma",
     "{} Wortgruppe": "{} phrase",
     "{} Wortgruppen": "{} phrases",
+    "{} belegte Originalformen": "{} attested original forms",
     "Bitte ein einzelnes Wort ohne Platzhalter eingeben.": "Enter a single word without wildcards.",
     "Anzeige begrenzt; Häufigkeiten zählen alle durchsuchten Stellen. Werk auswählen, um weitere Belege zu sehen.": "Display limited; frequencies include all searched passages. Select a work to see more results.",
     "{} von {} Wortstellen mit Lemma": "{} of {} word occurrences with a lemma",

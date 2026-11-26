@@ -34,6 +34,7 @@ if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
  add('Mishnah Berakhot','de',/Goldschmidt/);
 }
 if(process.env.SAFRAN_SMOKE_BIBLE_DEFAULTS==='1'){add('Genesis','de',/Philippson/);add('Exodus','de',/Philippson/);add('Genesis','he',/^Aleppo/);add('Genesis','other',/^Septuaginta/);add('Psalms','he',/^Westminster/);add('Psalms','de',/Zunz/);add('Psalms','de',/Philippson/);}
+if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1'){add('Genesis','other',/^ETCBC Peshitta/);add('Exodus','other',/^Targum Onkelos/);}
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_NOTES_WORKSPACE==='1')add('Job','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_PSALMNOTES==='1')add('Psalms','he',/^Westminster/);
@@ -62,7 +63,14 @@ const handlers={
  },
  'off:summary':()=>[], 'notes:list':()=>[], 'dict:list':()=>({list:[]}), 'dict:suggest':()=>({list:[]}), 'dict:syriacMentions':()=>({results:[]}),
  'interlinear:read':()=>({data:{},renderings:null}), 'links:status':()=>({ready:false,complete:false,done:[],total:0}), 'topics:status':()=>({ready:false}),
- 'links:section':()=>[], 'links:texts':()=>({}), 'links:preview':(_e,ref)=>{if(process.env.SAFRAN_SMOKE_MASORA!=='1')return {missing:true};const links=require(path.join(root,'links')),parsed=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===parsed.book&&d.entry.kind==='he');return doc?{parts:[{he:true,versionTitle:doc.entry.versionTitle,items:links.resolveText(doc,parsed.tail)}]}:{missing:true};}, 'topics:section':()=>[],
+ 'links:section':()=>[], 'links:texts':(_e,refs)=>{
+   if(process.env.SAFRAN_SMOKE_WITNESS_REN!=='1')return {};
+   const links=require(path.join(root,'links')),result={};
+   for(const ref of refs){const {book,tail}=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===book&&d.entry.kind==='he'&&/^Westminster/.test(d.versionTitle));if(doc)result[ref]={versionTitle:doc.versionTitle,items:links.resolveText(doc,tail)};}
+   return result;
+ }, 'links:preview':async(_e,ref,langs,pick,pref)=>{
+   if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1')return require('../production-preview-handler.cjs')({getLibrary:async()=>({list:()=>[...docs.values()].map(d=>d.entry),read:async rel=>docs.get(rel)})})(_e,ref,langs,pick,pref);
+   if(process.env.SAFRAN_SMOKE_MASORA!=='1')return {missing:true};const links=require(path.join(root,'links')),parsed=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===parsed.book&&d.entry.kind==='he');return doc?{parts:[{he:true,versionTitle:doc.entry.versionTitle,items:links.resolveText(doc,parsed.tail)}]}:{missing:true};}, 'topics:section':()=>[],
  'links:versification':()=>require(path.join(root,'bundled/versification.json')),
  'links:mishnahTalmud':()=>require(path.join(root,'bundled/mishnah_talmud.json')),
  'outline:get':()=>null,'dict:cites':()=>({list:[]}), 'audio:index':()=>({dir:'',files:[]}), 'audio:list':()=>({items:[]}),

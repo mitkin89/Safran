@@ -2,6 +2,18 @@
 (function(){
 'use strict';
 const tokens=text=>[...String(text||'').matchAll(/[\p{L}\p{M}\p{N}]+/gu)].filter(m=>/[\p{L}\p{N}]/u.test(m[0]));
+function targetRange(text,form,position){
+ const trim=s=>{const letters=[...s.matchAll(/[\p{L}\p{M}\p{N}]/gu)];return letters.length?[letters[0].index,letters.at(-1).index+letters.at(-1)[0].length]:[0,0];};
+ const words=[...String(text).matchAll(/\S+/gu)].map(m=>{const [start,end]=trim(m[0]);return {text:m[0].slice(start,end),start:m.index+start,end:m.index+end};});
+ const wanted=String(form||'').trim().split(/\s+/u).map(word=>{const [start,end]=trim(word);return word.slice(start,end);});
+ if(!form||!wanted.length)return null;
+ const fold=s=>s.normalize('NFC').replace(/[\u0591-\u05bd\u05bf-\u05c7]/gu,'');
+ const matches=i=>i>=0&&i+wanted.length<=words.length&&wanted.every((word,j)=>word&&fold(word)===fold(words[i+j].text));
+ let index;
+ if(position!=null){if(!Number.isInteger(position)||position<1||!matches(position-1))return null;index=position-1;}
+ else{const found=words.flatMap((_,i)=>matches(i)?[i]:[]);if(found.length!==1)return null;index=found[0];}
+ return [words[index].start,words[index+wanted.length-1].end];
+}
 function render(hit,esc){
  if(typeof hit?.context!=='string'||!Array.isArray(hit.positions)||!hit.positions.length)return null;
  const ts=tokens(hit.context),at=[...new Set(hit.positions)].sort((a,b)=>a-b);
@@ -47,5 +59,5 @@ function attach(root,{getHit,getHover}){
  root.ownerDocument.addEventListener('scroll',hide,true);
  if(typeof MutationObserver!=='undefined')new MutationObserver(hide).observe(root,{childList:true});
 }
-const api={render,statusHtml,attach};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.ConcordancePreview=api;
+const api={render,statusHtml,attach,targetRange};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.ConcordancePreview=api;
 })();

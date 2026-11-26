@@ -307,7 +307,7 @@ window.LibraryLinks = (() => {
     // Wortkarte: in der Vorschau das Wort markieren – im Hebräischen (Westminster, über das Lemma) und, wo die Fassung wortgenau
     // zugeordnet ist (interlin.js), die zugehörigen deutschen Wörter
     const pvLemOk = (dl, lem) => String(dl || '').split('/').some(x => { x = x.trim(); return x === lem || (/^\d+$/.test(lem) && x.replace(/\D.*$/, '') === lem); });
-    const pvMark = (box, ref, lem) => {
+    const pvMark = (box, ref, lem, pick) => {
       const m = /^(.*) (\d+):(\d+)$/.exec(ref), parts = [...box.querySelectorAll('.pvp')];
       const he = parts.find(p => p.dataset.he && p.querySelector('.w')) || parts.find(p => p.dataset.he); if (!he) return;
       const ix = [], hc = new Set(); he.querySelectorAll('.w').forEach((w, i) => { if (pvLemOk(w.dataset.l, lem)) { w.classList.add('pvhl'); ix.push(i + 1); hc.add(host.consOf(w.textContent)); } });
@@ -323,6 +323,7 @@ window.LibraryLinks = (() => {
       if (tgParts.length) host.loadTgIL().then(TG => {
         if (!TG || !box.isConnected || hovRef !== ref) return;
         tgParts.forEach(p => {
+          if(pick?.targetForm&&new RegExp(pick.vt).test(p.dataset.vt||''))return;
           const nm = Object.keys(host.IL_TG).find(n => String(p.dataset.vt || '').startsWith(host.IL_TG[n])), d = p.firstElementChild; if (!d || p.children.length !== 1) return;
           const segs = host.tgSegs(TG, nm, m[1], m[2], +m[3], d.textContent); if (!segs) return;
           d.textContent = ''; segs.forEach(([idx, w], k) => { if (k) d.append(' '); const sp = document.createElement('span'); sp.textContent = w; if (idx.some(i => set.has(i))) sp.className = 'pvhl'; d.append(sp); });
@@ -416,8 +417,9 @@ window.LibraryLinks = (() => {
         const none = !r.previewHtml && !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
-        const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${host.R.cleanHtml(host.R.splitFootnotes(p.he ? host.stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
-        const html = r.previewHtml || (r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + host.pvVer(p.versionTitle) + `<div class="pvp" data-vt="${host.esc(p.versionTitle || '')}"${p.he ? ' data-he="1"' : ''}>${partHtml(p)}</div>`).join('') : r.items && r.items.length ? host.pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${host.esc(I18N.t('Keine Vorschau möglich.'))}</i>`);
+        const partLang=p=>/^ETCBC Peshitta/.test(p.versionTitle||'')?'syr':p.he?'he':'';
+        const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${partLang(p) ? ` lang="${partLang(p)}"${partLang(p)==='he'?' class="phe"':''}` : ''}>${host.R.cleanHtml(host.R.splitFootnotes(p.he ? host.stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
+        const html = r.previewHtml || (r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + host.pvVer(p.versionTitle) + `<div class="pvp" data-vt="${host.esc(p.versionTitle || '')}"${partLang(p)?` lang="${partLang(p)}"`:''}${p.he ? ' data-he="1"' : ''}>${partHtml(p)}</div>`).join('') : r.items && r.items.length ? host.pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${host.esc(I18N.t('Keine Vorschau möglich.'))}</i>`);
         // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
         const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${host.esc(versNote(a))}</div>` : '')
           // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen
@@ -426,7 +428,15 @@ window.LibraryLinks = (() => {
         if (pick?.exact && !markExact(hov, pick.exact)) return;
         if(pick?.masoraPhrase)markMasoraPhrase(hov,pick.masoraPhrase);
         hov.hidden = false;
-        if (pick && pick.lem) pvMark(hov, ref, pick.lem);
+        if(pick?.targetForm&&pick.vt)for(const part of hov.querySelectorAll('.pvp[data-vt]')){
+          if(!new RegExp(pick.vt).test(part.dataset.vt||''))continue;
+          const child=part.firstElementChild;if(!child||part.children.length!==1)continue;
+          const text=child.textContent,range=window.ConcordancePreview.targetRange(text,pick.targetForm,pick.targetPosition);
+          if(!range)continue;
+          const mark=document.createElement('span');mark.className='pvhl';mark.textContent=text.slice(...range);
+          child.replaceChildren(document.createTextNode(text.slice(0,range[0])),mark,document.createTextNode(text.slice(range[1])));
+        }
+        if (pick && pick.lem) pvMark(hov, ref, pick.lem, pick);
         if (pick && pick.greek) pvMarkGreek(hov, ref, pick.greek);
         if (pick && pick.targum) hov.querySelectorAll('.wt[data-l]').forEach(w => { if (w.dataset.l === pick.targum) w.classList.add('pvhl'); });
         const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;

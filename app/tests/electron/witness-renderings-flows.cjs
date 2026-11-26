@@ -10,6 +10,7 @@ module.exports=async({js,waitFor,win})=>{
  assert.equal(await js("document.querySelectorAll('#wcTr .wcTrR').length"),1);
  await js("document.querySelector('#wcTr .wcTrR.can').click()");
  await waitFor("document.querySelectorAll('#wcTr .wcTrFm .fm').length===19",'Alle 19 Originalformen');
+ assert(await js("document.querySelector('#wcTr .wcTrForms')?.open===false"),'Originalformen zunächst eingeklappt');
  await js("document.querySelector('#wcTr [data-src=O]').click();document.querySelector('#wcTr .wcTrR.can').click()");
  await waitFor("document.querySelector('#wcTr .wcTrCx .ln .de')",'Onkelos-Belege');
  assert(await js("(()=>{const row=document.querySelector('#wcTr .wcTrCx .ln'),he=row.querySelector('.he').getBoundingClientRect(),ar=row.querySelector('.de').getBoundingClientRect();return ar.width<150&&Math.abs(ar.left-he.right)<30})()"),'Onkelos steht direkt neben dem Hebräischen');
@@ -20,6 +21,10 @@ module.exports=async({js,waitFor,win})=>{
  await waitFor("document.querySelector('#wcTr .wcTrCx .de[lang=syr]')",'Syrische Originalformen');
  assert(await js("document.querySelector('#wcTr .wcTrCx .de[lang=syr]').textContent.trim()!=='ܡܝ'"),'Fundstelle zeigt die Originalform statt des Gruppenlemmas');
  assert(await js("parseFloat(getComputedStyle(document.querySelector('#wcTr .wcTrR .f [lang=syr]')).fontSize)>=30"));
+ await js("document.querySelector('#wcTr .wcTrCx a[data-ref=\"Genesis 1:2\"]').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+ await waitFor("!document.querySelector('#lkHover')?.hidden&&document.querySelector('#lkHover .pvp[data-vt^=\"ETCBC Peshitta\"]')",'Gewählte Peschitta in der Vorschau');
+ assert(await js("document.querySelector('#lkHover .pvp[lang=syr] .pvhl')?.textContent.includes('ܡ')"),'Syrische Originalform markiert');
+
  await js("document.querySelector('#wcTr .wcTrR.open').click();document.querySelector('#wcTr .wcTrSum').scrollIntoView({block:'start'})");
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
  await win.webContents.capturePage().then(image=>require('fs').writeFileSync('/tmp/safran-witness-renderings.png',image.toPNG()));
@@ -32,5 +37,17 @@ module.exports=async({js,waitFor,win})=>{
  win.setSize(900,900);
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
  assert(await js("[...document.querySelectorAll('#wcTr .ln2:not(.hd) .de')].every(e=>e.getBoundingClientRect().width>0)"));
+
+ await js("document.querySelector('#fmClose').click();[...document.querySelectorAll('#rOut .w')].find(w=>w.dataset.l?.split('/').includes('2233')).click()");
+ await waitFor("document.querySelector('#wpop .wcard')",'Samen-Wortkarte');
+ await js("document.querySelector('#wpop .wcard').click()");
+ await waitFor("document.querySelector('#wcTr [data-src=O]')",'Onkelos-Statistik für Samen');
+ await js("document.querySelector('#wcTr [data-src=O]').click();document.querySelector('#wcTr .wcTrR[data-tg-lexeme=\"1c9\"]').click()");
+ await waitFor("document.querySelector('#wcTr .wcTrCx a[data-ref=\"Exodus 16:31\"]')",'Exodus 16:31 im belegten Lexem');
+ assert(await js("document.querySelector('#wcTr .wcTrCx a[data-ref=\"Exodus 16:31\"]').nextElementSibling.nextElementSibling.textContent.includes('כבַר')"),'Tabellenzeile enthält Originalform');
+ await waitFor("document.querySelector('#wcTr .wcTrCx a[data-ref=\"Exodus 16:31\"]').nextElementSibling.textContent.includes('ז')",'Hebräischer Kontext vollständig geladen');
+ await js("document.querySelector('#wcTr .wcTrCx a[data-ref=\"Exodus 16:31\"]').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+ await waitFor("!document.querySelector('#lkHover')?.hidden&&document.querySelector('#lkHover .pvp[data-vt^=\"Targum Onkelos\"] .pvhl')",'Markierung der gewählten Onkelos-Originalform');
+ assert(await js("document.querySelector('#lkHover .pvp[data-vt^=\"Targum Onkelos\"] .pvhl').textContent.replace(/[\\u0591-\\u05bd\\u05bf-\\u05c7]/g,'')==='כבר'"));
  console.log('Electron: witness lemma groups, original forms, Syriac size and adjacent Onkelos columns passed.');
 };

@@ -2,6 +2,16 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const Preview=require('../concordance-preview'),{searchFiles}=require('../searchcore');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+test('source word previews validate the selected position and never guess among repeated forms',()=>{
+ assert.deepEqual(Preview.targetRange('בר זרע לבן','זרע',2),[3,6]);
+ assert.equal(Preview.targetRange('בר זרע לבן','זרע',1),null);
+ assert.equal(Preview.targetRange('זרע זרע','זרע'),null);
+ assert.deepEqual(Preview.targetRange('זרע זרע','זרע',2),[4,7]);
+ assert.deepEqual(Preview.targetRange('ܒܪܐ ܙܪܥܐ ܐܚܪܢܐ','ܙܪܥܐ'),[4,8]);
+ assert.equal(Preview.targetRange('ܒܪܐ ܙܪܥܐ','ܙܪܥܐ',1),null);
+ assert.deepEqual(Preview.targetRange('כבר זרע','כבַר',1),[0,3]);
+ assert.deepEqual(Preview.targetRange('ܡ̈ܝܐ.','ܡ̈ܝܐ'),[0,4]);
+});
 test('Preview marks the exact occurrence in a full verse, including repeated words',()=>{
  const hit={context:'λόγος καὶ λόγος',positions:[3],words:['λόγος'],language:'Greek'};
  const html=Preview.render(hit,esc);assert(html.includes('λόγος καὶ <span class="pvhl">λόγος</span>'));

@@ -9,7 +9,8 @@ Westminster-Textes zuordnen. Maschinell, ohne Handarbeit:
      (bis 3); ein aramäisches Wort -> alle hebräischen Wörter dazwischen (bis 3); sonst bleibt die Lücke ohne Zuordnung (Zusätze).
 Ausgabe: targum-il.js (window.TARGUM_IL = {Targum: {Buch: [[Vers, …] je Kapitel]}}); je Vers ein String mit einem Eintrag je
 aramäischem Wort (Leerzeichen getrennt, wie im Lesetext): Nummern der Westminster-Wörter mit Komma, „-“ = ohne Gegenstück.
-Aufruf: python3 -I tools/targum/align.py [Projektordner]"""
+Aufruf: python3 -I tools/targum/align.py [Projektordner] [--reuse-alignment]
+--reuse-alignment: vorhandene Zuordnungen unverändert behalten, nur die Statistik neu aufbauen."""
 import json, re, os, sys, glob
 proj = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
 def jsobj(f):
@@ -151,6 +152,7 @@ def b36(refs):
     return '.'.join(out)
 def main():
     out, stat = {}, {}
+    reuse = jsobj('targum-il.js') if '--reuse-alignment' in sys.argv else None
     for tg, pat in TG.items():
         out[tg] = {}; tot = cov = hw = hcov = 0
         for book in BOOKS:
@@ -164,7 +166,13 @@ def main():
                     words, A = ara_words(html or '')
                     H = heb_words(hh)
                     if not html or not H or A is None: vs.append(''); continue
-                    res, _ = align(H, A)
+                    if reuse is not None:
+                        encoded = reuse[tg][book][c][v].split()
+                        assert len(encoded) == len(words), (tg, book, c, v)
+                        res = [[] if part == '-' else list(map(int, part.split(','))) for part in encoded]
+                        assert all(1 <= i <= len(H) for indices in res for i in indices)
+                    else:
+                        res, _ = align(H, A)
                     vs.append(' '.join(','.join(map(str, r)) if r else '-' for r in res))
                     for j, r in enumerate(res):  # Wiedergaben je hebräischem Lemma zählen (nur Wortkörper, keine Vorsilben)
                         if not r: continue
@@ -177,9 +185,13 @@ def main():
                             lk = mm['lex'] or mm['txt']
                             if lk in ('ייי', 'יהוה'): lk = 'יוי'  # Gottesname: eine Zeile
                             if len(lk) < 2: continue
-                            e = REN.setdefault(h['key'], {}).setdefault(lk, [0, 0, 0, {}, mm['gl0']])
-                            e[TGI[tg]] += 1; c3 = e[3].setdefault(h['m'], [0, 0, 0, [], [], []]); c3[TGI[tg]] += 1
-                            c3[3 + TGI[tg]].append(RB.index(book) * 1000000 + (c + 1) * 1000 + v + 1)
+                            lexical_id = mm['id'] if mm['lex'] else ''
+                            group_key = ('lex:' + lexical_id) if lexical_id else ('form:' + lk)
+                            e = REN.setdefault(h['key'], {}).setdefault(group_key, [0, 0, 0, {}, mm['gl0'] if lexical_id else '', lk, lexical_id])
+                            e[TGI[tg]] += 1; c3 = e[3].setdefault(h['m'], [0, 0, 0, [], [], [], [], [], []]); c3[TGI[tg]] += 1
+                            number = RB.index(book) * 1000000 + (c + 1) * 1000 + v + 1
+                            c3[3 + TGI[tg]].append(number)
+                            c3[6 + TGI[tg]].append((number, j + 1, words[j]))
                     tot += len(res); cov += sum(1 for r in res if r); hw += len(H); hcov += len({i for r in res for i in r})
                 chs.append(vs)
             out[tg][book] = chs
@@ -189,10 +201,12 @@ def main():
         items = sorted(d.items(), key=lambda x: -(x[1][0] + x[1][1] + x[1][2]))
         tot = sum(x[1][0] + x[1][1] + x[1][2] for x in items)
         labels, cells = [], []
-        for gi, (lk, e) in enumerate(items):
+        for gi, (_, e) in enumerate(items):
+            lk = e[5]
             g = min(gi, 30)  # ab dem 31. Lexem: „Andere“
-            if gi <= 30: labels.append(['*', ''] if gi == 30 else [lk[:-1] + lk[-1].translate(FINAL), re.sub(r'^[A-Z][a-z]?\s+', '', (e[4] or '').split(',')[0].split('|')[0].strip())])
-            for code, n in sorted(e[3].items()): cells.append([g, code] + n[:3] + [b36(r) for r in n[3:]])
+            if gi <= 30: labels.append(['*', '', ''] if gi == 30 else [lk[:-1] + lk[-1].translate(FINAL), re.sub(r'^[A-Z][a-z]?\s+', '', (e[4] or '').split(',')[0].split('|')[0].strip()), e[6]])
+            for code, n in sorted(e[3].items()):
+                cells.append([g, code] + n[:3] + [b36(r) for r in n[3:6]] + [[[position, form] for _, position, form in sorted(rows, key=lambda row: row[0])] for rows in n[6:]])
         ren[k] = [labels, cells]
     p = os.path.join(proj, 'targum-ren.js')
     open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe eines hebräischen Lemmas (Strong-Nummer wie in der OSHB) in den Targumim -> [[[Lexem, Bedeutung] …], [[Gruppe, Bestimmung des hebräischen Worts (OSHB-Code), Onkelos, Pseudo-Jonathan, Neofiti, Stellen Onkelos, Stellen Pseudo-Jonathan, Stellen Neofiti] …]] (Stellen wie interlin-ren.js: Buch*1000000+Kapitel*1000+Vers, Differenzen Basis 36) (Gruppe 30 = alle weiteren Lexeme); maschinell aus tools/targum/align.py; ETCBC Targum Corpus (CC BY-NC 4.0)\nwindow.TARGUM_REN=' + json.dumps(ren, ensure_ascii=False, separators=(',', ':')) + ';\n')

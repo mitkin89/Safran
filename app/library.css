@@ -1640,6 +1640,8 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #wcBody .wcTrFm { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin: 0 0 6px; font-size: 12.5px; }
 #wcBody .wcTrFm .fm { white-space: nowrap; }
 #wcBody .wcTrFm .fm[lang="syr"] { font-size: 2.5em; line-height: 1.6; white-space: normal; overflow-wrap: anywhere; }
+#wcBody .wcTrFm .fm[lang="syr"] small { font:12px/1.4 var(--ui-font,system-ui,sans-serif); }
+#wcBody .wcTrForms > summary { cursor:pointer; color:var(--muted); padding:4px 0 8px; }
 #wcBody .wcTrCx { max-height: none; overflow: visible; line-height: 1.45; }
 #wcBody .wcTrCx > div { padding-left: 0; text-indent: 0; }
 #wcBody .wcTrCx .bk { margin-top: 5px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; color: var(--muted, #888); }
@@ -2574,6 +2576,7 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 
 #lkHover .concordancePreview { font-size: 1.25em; line-height: 1.65; }
 #lkHover .concordancePreview[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.6em; }
+#lkHover .pvp[lang="syr"] { font-family:"Safran Syriac",sans-serif; font-size:1.6em; line-height:1.7; }
 
 #lkHover .concordancePreview[lang="he"] { font-family: var(--he-font); }
 
