@@ -18,10 +18,10 @@ Der Pilot bewahrt Wortlaut und Vokalisation; mehrere mögliche Bestimmungen
 bleiben sichtbar. Die Abdeckung ist keine Genauigkeitsangabe. Lesbare Accordance-Screenshots
 MISH-T 4.3 wurden über alle 57 Mischnajot von Berakhot (Kapitel 1–9) verglichen:
 2.159 Quellwortpositionen untersucht, 2.153 grammatisch vergleichbar,
-1.877 mit sichtbaren Angaben vereinbare Kandidaten, 276 offene Merkmals- oder
+1.885 mit sichtbaren Angaben vereinbare Kandidaten, 268 strenge Merkmals- oder
 Konventionsunterschiede, fünf Wortlautvarianten und ein nur bei Be’eri
 vorhandenes Wort. Dies ist keine Genauigkeitsquote; die Unterschiede sind
-nicht automatisch Fehler. Vier Suffixpositionen sind durch Wortdetails
+nicht automatisch Fehler. Eine gesonderte Bewertung erklärt davon 47 durch belegte Wortart- oder Lemmakonventionen; Der anschließende Durchgang prüft alle 226 Reststellen: 167 Konventionen, 42 beleggestützt beibehaltene Analysen, sieben Korrekturen und zehn unentscheidbare Stellen. Vier Suffixpositionen sind durch Wortdetails
 bestätigt; 205 haben keinen separat sichtbaren Suffix-Tag, darunter drei
 מצותן-Vorkommen mit Formnachweis (3mp). Accordance-Modul und private
 Referenztranskription werden nicht verteilt. Kurzbedeutungen in Wortkarten

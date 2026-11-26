@@ -1,0 +1,5840 @@
+{
+  "reviewedAt": "2026-11-26",
+  "title": "Mishnah Berakhot",
+  "sourceTextHash": "eed07ea0084761b208e406d581924f88eca4379dbc6c720889a37a70ecb40337",
+  "scope": "All 226 positions left outside the preceding 47-position convention assessment; every position explicitly adjudicated in this pass.",
+  "baseline": {
+    "strictDifferences": 273,
+    "previouslyAssessedConventions": 47,
+    "positions": 226,
+    "groups": 135
+  },
+  "reviewedPositions": 226,
+  "counts": {
+    "convention": 167,
+    "retain-supported": 42,
+    "corrected": 7,
+    "unresolved": 10
+  },
+  "limitations": [
+    "A completed review is not a claim that all ambiguities are resolved.",
+    "Unreadable reference suffix/features remain unconfirmed in every decision.",
+    "Support for one candidate does not invalidate all alternatives or confer fully reviewed token status.",
+    "Reference source data and book texts are not distributed; the report contains original source-bound analyses and review decisions."
+  ],
+  "dictionaryIdentity": [
+    {
+      "id": "d895bc1c727b",
+      "name": "Jastrow",
+      "hash": "c1b20bc21a43cec7c7dd1346dee152a13ac4d5b4"
+    },
+    {
+      "id": "e8d290b744f6",
+      "name": "Levy, Wörterbuch (Bd. 1–4)",
+      "hash": "2c7c48a4bc823c8d90e54f1012031340ee1f27c2"
+    },
+    {
+      "id": "d701423861c6",
+      "name": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
+      "hash": "c00676a7c6fb089d15fba53b5f3e348dfbb390fe"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "B226-001",
+      "decision": "convention",
+      "note": "בלבד wird als lexikalisiertes „nur“ behandelt. Die alternative Zerlegung ב/ל/בד ist eine Segmentierungsebene, kein anderer Wortlaut.",
+      "sources": [
+        "Segal §298, p.138; Pérez Fernández Unit 23.3–8, pp.172–173: lexicalized adverbs and adverbial expressions."
+      ],
+      "positions": [
+        {
+          "ref": "1:1",
+          "token": 52,
+          "word": "בִלְבַד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בלבד",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בלבד",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-002",
+      "decision": "convention",
+      "note": "שלוש und שלש sind Voll-/Defektivschreibung desselben femininen Zahlworts. Die gelesenen Numeralmerkmale stimmen überein; kein Austausch der Textvokale.",
+      "sources": [
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens.",
+        "Jastrow 31434, 31450: שלש / שלשה; Ma’agarim heads שלוש with female-number label."
+      ],
+      "positions": [
+        {
+          "ref": "1:2",
+          "token": 30,
+          "word": "בְּשָׁלוֹשׁ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/שלוש",
+              "morph": "HR/Acfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/שלוש",
+              "morph": "HR/Acfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-003",
+      "decision": "convention",
+      "note": "לסטים / ליסטים: Lemmaschreibung des griechischen Lehnworts; die gelesenen nominalen Merkmale stimmen überein.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Ma’agarim Berakhot 1:3, לסטים / לסתס, robber; source הלסטים."
+      ],
+      "positions": [
+        {
+          "ref": "1:3",
+          "token": 56,
+          "word": "הַלֵּסְטִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/לסטים",
+              "morph": "HTd/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/לסטים",
+              "morph": "HTd/Ncmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-004",
+      "decision": "convention",
+      "note": "כדַי im Sinn „würdig/verdient“ ist adjektivisch belegt; ein funktionaler Adverb-Tag ist eine andere Klassifikation. Nicht mit jedem כדי zur Zweckangabe gleichsetzen.",
+      "sources": [
+        "Jastrow 25997, כדאי: adequate / worthy / deserving.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "1:3",
+          "token": 59,
+          "word": "כְּדַי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כדי",
+              "morph": "HAamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כדי",
+              "morph": "HAamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-005",
+      "decision": "convention",
+      "note": "פנים als Wörterbuchlemma gegenüber פנה als Zitierbasis; maskuliner und femininer Gebrauch sind belegt. Die lokale Präpositionsverbindung bleibt erhalten, fehlende Suffix-Tags werden nicht bestätigt.",
+      "sources": [
+        "Jastrow 20360, פנים, common plural; Levy 14796, masculine plural, often feminine.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state."
+      ],
+      "positions": [
+        {
+          "ref": "1:4",
+          "token": 4,
+          "word": "לְפָנֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3fs"
+            },
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncbpc/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3fs"
+            },
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncbpc/Sp3fs"
+            }
+          ]
+        },
+        {
+          "ref": "1:4",
+          "token": 9,
+          "word": "לְפָנֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3fs"
+            },
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncbpc/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3fs"
+            },
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncbpc/Sp3fs"
+            }
+          ]
+        },
+        {
+          "ref": "3:4",
+          "token": 8,
+          "word": "לְפָנֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3fs"
+            },
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncbpc/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3fs"
+            },
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncbpc/Sp3fs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-006",
+      "decision": "convention",
+      "note": "אחר und אחרי werden als verschiedene Zitierformen derselben Positions-/Zeitangabe geführt. Jastrow nennt die suffigierten Gebetsformeln ausdrücklich unter אחר.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, with לאחריו / לאחריה and prayer context."
+      ],
+      "positions": [
+        {
+          "ref": "1:4",
+          "token": 6,
+          "word": "לְאַחֲרֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3fs"
+            }
+          ]
+        },
+        {
+          "ref": "1:4",
+          "token": 11,
+          "word": "לְאַחֲרֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3fs"
+            }
+          ]
+        },
+        {
+          "ref": "3:4",
+          "token": 10,
+          "word": "לְאַחֲרֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3fs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-007",
+      "decision": "convention",
+      "note": "בן bleibt als genealogischer Constructus „Sohn von“ analysiert. Ein Namensbestandteil kann in der Referenz als Eigenname markiert werden; das zwingt keine andere Flexion.",
+      "sources": [
+        "Jastrow 1396, בן, construct בן.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "1:5",
+          "token": 8,
+          "word": "בֶּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ]
+        },
+        {
+          "ref": "1:5",
+          "token": 23,
+          "word": "בֶּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ]
+        },
+        {
+          "ref": "2:2",
+          "token": 43,
+          "word": "בֶּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ]
+        },
+        {
+          "ref": "2:8",
+          "token": 12,
+          "word": "בֶּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ]
+        },
+        {
+          "ref": "4:7",
+          "token": 3,
+          "word": "בֶּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ]
+        },
+        {
+          "ref": "9:4",
+          "token": 9,
+          "word": "בֶּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "בֵּן",
+              "morph": "HNcmsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-008",
+      "decision": "convention",
+      "note": "הרי ist hier ein hinweisender Einleiter („siehe/nun“), keine Frage. Modalpartikel gegenüber Interjektion ist eine Kategorienfrage.",
+      "sources": [
+        "Jastrow 30756, הרי II: behold / here is."
+      ],
+      "positions": [
+        {
+          "ref": "1:5",
+          "token": 10,
+          "word": "הֲרֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-009",
+      "decision": "retain-supported",
+      "note": "Die Zehnerform unterscheidet im vorliegenden Wortbild nicht zwischen maskulinem und femininem Bezugswort. Der gemeinsame Genuskandidat wird beibehalten; die referenzseitige maskuline Festlegung wird nicht als Formbeweis behandelt.",
+      "sources": [
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens."
+      ],
+      "positions": [
+        {
+          "ref": "1:5",
+          "token": 13,
+          "word": "שִׁבְעִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "שבעים",
+              "morph": "HAcbpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "שבעים",
+              "morph": "HAcbpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-010",
+      "decision": "corrected",
+      "note": "חייך bezeichnet „dein Leben“, nicht die Eigenschaft „lebend“. An allen fünf Positionen wurde das nominale Plurallemma von חי auf חיים korrigiert; die Flexion und das Suffix wurden nicht aus der Referenz neu ergänzt.",
+      "sources": [
+        "Jastrow 8609, חיים, masculine plural life, including חייך; contrast 9076, חי, living."
+      ],
+      "positions": [
+        {
+          "ref": "1:5",
+          "token": 35,
+          "word": "חַיֶּיךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "חי",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חיים",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "1:5",
+          "token": 37,
+          "word": "חַיֶּיךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "חי",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חיים",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "1:5",
+          "token": 41,
+          "word": "חַיֶּיךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "חי",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חיים",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "1:5",
+          "token": 46,
+          "word": "חַיֶּיךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "חי",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חיים",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "1:5",
+          "token": 51,
+          "word": "חַיֶּיךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "חי",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חיים",
+              "morph": "HNcmpc/Sp2ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-011",
+      "decision": "convention",
+      "note": "אמת ויציב ist eine benannte Gebetsformel mit dem Adjektiv יציב „fest/wahr“. Adjektivform und nominaler Gebrauch als Formelbestandteil sind getrennte Beschreibungsebenen.",
+      "sources": [
+        "Jastrow 19637, יציב, directly cites Berakhot 2:2.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "2:2",
+          "token": 29,
+          "word": "וְיַצִּיב",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/יציב",
+              "morph": "HC/Aamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/יציב",
+              "morph": "HC/Aamsa"
+            }
+          ]
+        },
+        {
+          "ref": "2:2",
+          "token": 37,
+          "word": "וְיַצִּיב",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/יציב",
+              "morph": "HC/Aamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/יציב",
+              "morph": "HC/Aamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-012",
+      "decision": "convention",
+      "note": "כך wird unter seinem eigenen belegten Lemma geführt, nicht unter dem synonymen כן. Der Adverbstatus bleibt gleich; die Synonymie macht die Lemmata nicht allgemein austauschbar.",
+      "sources": [
+        "Jastrow 26429, כך: thus / so; Ma’agarim כך gloss includes כן."
+      ],
+      "positions": [
+        {
+          "ref": "2:2",
+          "token": 59,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 59,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:1",
+          "token": 16,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:1",
+          "token": 27,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:2",
+          "token": 7,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:2",
+          "token": 18,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:3",
+          "token": 8,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:3",
+          "token": 17,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 18,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 29,
+          "word": "כָּךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כך",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-013",
+      "decision": "convention",
+      "note": "Redupliziertes Lemma דקדק bzw. קלקל gegenüber verkürzter Wurzelbasis דקק bzw. קלל. Pilpel und Flexion sind bereits kompatibel; die Wurzelkonvention wird separat bewahrt.",
+      "sources": [
+        "Segal §195, p.88: Pilpel דקדק / הרהר / קלקל and lexical/root conventions."
+      ],
+      "positions": [
+        {
+          "ref": "2:3",
+          "token": 15,
+          "word": "דִקְדֵּק",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "דקדק",
+              "morph": "HVlp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "דקדק",
+              "morph": "HVlp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-014",
+      "decision": "retain-supported",
+      "note": "Feminines אות ist grammatisch belegt; Jastrows breitere Common-Gender-Klasse widerlegt diesen Kandidaten nicht. Das Suffix bleibt mangels separat sichtbarem Tag unbestätigt.",
+      "sources": [
+        "Segal §370, p.179, includes אות among feminine nouns; Jastrow 18598 gives common gender."
+      ],
+      "positions": [
+        {
+          "ref": "2:3",
+          "token": 16,
+          "word": "בְּאוֹתוֹתֶיהָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ב/אות",
+              "morph": "HR/Ncfpc/Sp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/אות",
+              "morph": "HR/Ncfpc/Sp3fs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-015",
+      "decision": "convention",
+      "note": "למפרע ist als Adverb „rückwärts/außer Reihenfolge“ belegt. Die historische Präposition-plus-Nomen-Zerlegung bleibt als Unterschied dokumentiert.",
+      "sources": [
+        "Jastrow 22600, מפרע with למפרע explicitly adv.",
+        "Segal §298, p.138; Pérez Fernández Unit 23.3–8, pp.172–173: lexicalized adverbs and adverbial expressions."
+      ],
+      "positions": [
+        {
+          "ref": "2:3",
+          "token": 27,
+          "word": "לְמַפְרֵעַ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "למפרע",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "למפרע",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-016",
+      "decision": "convention",
+      "note": "אומן / אמן ist die Zitier-/Stammschreibung des Handwerkers. Die Handwerkerbedeutung ist vom Ackerstreifen-/Furchen-Homonym getrennt.",
+      "sources": [
+        "Jastrow 8379, אומן, artisan; Levy 1148, אומן, skilled / artisan; Ma’agarim אמן."
+      ],
+      "positions": [
+        {
+          "ref": "2:4",
+          "token": 1,
+          "word": "הָאֻמָּנִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/אומן",
+              "morph": "HTd/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/אומן",
+              "morph": "HTd/Ncmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-017",
+      "decision": "convention",
+      "note": "אבל bezeichnet hier den Trauernden. Adjektivischer Zustand, substantivierter Gebrauch und stativer Partizipbezug sind unterschiedliche Klassifikationsebenen.",
+      "sources": [
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "2:6",
+          "token": 10,
+          "word": "שֶׁאָבֵל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/אבל",
+              "morph": "HTr/Aamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/אבל",
+              "morph": "HTr/Aamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-018",
+      "decision": "convention",
+      "note": "אסטנס / איסטניס bezeichnet denselben empfindlichen/kränklichen Menschen. Die adjektivische Form ist lexikalisch belegt; das Nomen-Tag beschreibt den substantivierten Gebrauch.",
+      "sources": [
+        "Jastrow 22870, 23475, 29943, איסטניס / אסתניס: delicate / fastidious.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "2:6",
+          "token": 19,
+          "word": "אַסְטְנֵס",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אסטנס",
+              "morph": "HAamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אסטנס",
+              "morph": "HAamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-019",
+      "decision": "convention",
+      "note": "תנחומים wird konsistent auf das Singularlemma תנחום bezogen. Die Referenz nutzt an dieser Stelle den Plural als Lemma, beim anderen Vorkommen den Singular; diese Inkonsistenz wird nicht übernommen.",
+      "sources": [
+        "Levy 19255, תנחום, lists תנחומים / תנחומין and cites the Tabi passage."
+      ],
+      "positions": [
+        {
+          "ref": "2:7",
+          "token": 6,
+          "word": "תַּנְחוּמִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "תנחום",
+              "morph": "HNcmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "תנחום",
+              "morph": "HNcmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-020",
+      "decision": "convention",
+      "note": "„Sein Verstorbener“ ist nominalisierter מת; die Referenz zitiert die Verbalwurzel מות. Nominale Flexion bleibt erhalten, kein Wechsel zum Abstraktum „Tod“.",
+      "sources": [
+        "Levy 9970, מות, explicitly refers participle מת to its own entry.",
+        "Pérez Fernández Unit 19.8, p.133; Segal §§337–338, p.162: nominal/verbal participles and construct use."
+      ],
+      "positions": [
+        {
+          "ref": "3:1",
+          "token": 2,
+          "word": "שֶׁמֵּתוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ש/מת",
+              "morph": "HTr/Ncmsc/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/מת",
+              "morph": "HTr/Ncmsc/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-021",
+      "decision": "retain-supported",
+      "note": "טול wird beibehalten: Ma’agarim belegt hier Hofal-Partizip bzw. Hifil-Futur ausdrücklich unter טול. Die alternative lexikalische Zuordnung נטל wird nicht mechanisch übertragen.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Unit 19.7B, p.132, Hofal participle."
+      ],
+      "positions": [
+        {
+          "ref": "3:1",
+          "token": 3,
+          "word": "מֻטָּל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "טול",
+              "morph": "HVHsmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "טול",
+              "morph": "HVHsmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-022",
+      "decision": "convention",
+      "note": "של gegenüber analytischem ש/ל ist eine dokumentierte Segmentierungsentscheidung. Artikelverschmelzung und positionsbezogene Restwörter bleiben an die Quellvokale gebunden; daraus folgt keine Bestätigung ausgelassener Referenzmerkmale.",
+      "sources": [
+        "Pérez Fernández Unit 4.5–9, pp.30–31; Segal §§79 and 384–385: של and its historical/analytic segmentation.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "3:1",
+          "token": 16,
+          "word": "שֶׁלִּפְנֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ]
+        },
+        {
+          "ref": "6:5",
+          "token": 4,
+          "word": "שֶׁלִּפְנֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ]
+        },
+        {
+          "ref": "6:5",
+          "token": 14,
+          "word": "שֶׁלִּפְנֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ]
+        },
+        {
+          "ref": "8:6",
+          "token": 23,
+          "word": "שֶׁלִּפְנֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/פנים",
+              "morph": "HTr/R/Ncmpc"
+            },
+            {
+              "lemma": "ש/לפנים",
+              "morph": "HTr/R"
+            },
+            {
+              "lemma": "ש/לפני",
+              "morph": "HTr/R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-023",
+      "decision": "convention",
+      "note": "של gegenüber analytischem ש/ל ist eine dokumentierte Segmentierungsentscheidung. Artikelverschmelzung und positionsbezogene Restwörter bleiben an die Quellvokale gebunden; daraus folgt keine Bestätigung ausgelassener Referenzmerkmale.",
+      "sources": [
+        "Pérez Fernández Unit 4.5–9, pp.30–31; Segal §§79 and 384–385: של and its historical/analytic segmentation.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "3:1",
+          "token": 19,
+          "word": "שֶׁלְּאַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/אחר",
+              "morph": "HTr/R/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/אחר",
+              "morph": "HTr/R/R"
+            }
+          ]
+        },
+        {
+          "ref": "6:5",
+          "token": 9,
+          "word": "שֶׁלְּאַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/אחר",
+              "morph": "HTr/R/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/אחר",
+              "morph": "HTr/R/R"
+            }
+          ]
+        },
+        {
+          "ref": "6:5",
+          "token": 19,
+          "word": "שֶׁלְּאַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/אחר",
+              "morph": "HTr/R/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/אחר",
+              "morph": "HTr/R/R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-024",
+      "decision": "convention",
+      "note": "של gegenüber analytischem ש/ל ist eine dokumentierte Segmentierungsentscheidung. Artikelverschmelzung und positionsbezogene Restwörter bleiben an die Quellvokale gebunden; daraus folgt keine Bestätigung ausgelassener Referenzmerkmale.",
+      "sources": [
+        "Pérez Fernández Unit 4.5–9, pp.30–31; Segal §§79 and 384–385: של and its historical/analytic segmentation.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "3:1",
+          "token": 22,
+          "word": "שֶׁלַּמִּטָּה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/מטה",
+              "morph": "HTr/Rd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/מטה",
+              "morph": "HTr/Rd/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-025",
+      "decision": "convention",
+      "note": "לאו bleibt eigenes negatives Lemma. Die Referenz ordnet diese Form dem Lemma לא zu; an der verneinenden Funktion besteht kein Unterschied.",
+      "sources": [
+        "Jastrow 32039, לאו: no / not; Ma’agarim לאו, negative/prohibition word."
+      ],
+      "positions": [
+        {
+          "ref": "3:2",
+          "token": 15,
+          "word": "לָאו",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ]
+        },
+        {
+          "ref": "3:5",
+          "token": 27,
+          "word": "לָאו",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ]
+        },
+        {
+          "ref": "4:3",
+          "token": 27,
+          "word": "לָאו",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ]
+        },
+        {
+          "ref": "5:5",
+          "token": 49,
+          "word": "לָאו",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ]
+        },
+        {
+          "ref": "7:5",
+          "token": 18,
+          "word": "לָאו",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "לאו",
+              "morph": "HTn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-026",
+      "decision": "convention",
+      "note": "Pilpel ist die feinere Stammbezeichnung für הרהר; die Referenz verwendet den gröberen Piʿel-Tag. Die Partizipform wird beibehalten.",
+      "sources": [
+        "Segal §195, p.88: Pilpel דקדק / הרהר / קלקל and lexical/root conventions.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "3:4",
+          "token": 3,
+          "word": "מְהַרְהֵר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "הרהר",
+              "morph": "HVlrmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "הרהר",
+              "morph": "HVlrmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-027",
+      "decision": "convention",
+      "note": "אחר und אחרי werden als verschiedene Zitierformen derselben Positions-/Zeitangabe geführt. Jastrow nennt die suffigierten Gebetsformeln ausdrücklich unter אחר.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, with לאחריו / לאחריה and prayer context."
+      ],
+      "positions": [
+        {
+          "ref": "3:4",
+          "token": 14,
+          "word": "לְאַחֲרָיו",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/D/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-028",
+      "decision": "convention",
+      "note": "פנים als Wörterbuchlemma gegenüber פנה als Zitierbasis; maskuliner und femininer Gebrauch sind belegt. Die lokale Präpositionsverbindung bleibt erhalten, fehlende Suffix-Tags werden nicht bestätigt.",
+      "sources": [
+        "Jastrow 20360, פנים, common plural; Levy 14796, masculine plural, often feminine.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state."
+      ],
+      "positions": [
+        {
+          "ref": "3:4",
+          "token": 22,
+          "word": "לִפְנֵיהֶם",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3mp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc/Sp3mp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-029",
+      "decision": "convention",
+      "note": "אחר und אחרי werden als verschiedene Zitierformen derselben Positions-/Zeitangabe geführt. Jastrow nennt die suffigierten Gebetsformeln ausdrücklich unter אחר.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, with לאחריו / לאחריה and prayer context."
+      ],
+      "positions": [
+        {
+          "ref": "3:4",
+          "token": 23,
+          "word": "וּלְאַחֲרֵיהֶם",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ו/ל/אחר",
+              "morph": "HC/R/D/Sp3mp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/ל/אחר",
+              "morph": "HC/R/D/Sp3mp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-030",
+      "decision": "convention",
+      "note": "יכל als verbale Zitierbasis und יכול als lexikalisierter Kopf beschreiben dieselbe Fähigkeitsform. Ma’agarim nennt ausdrücklich Qal-Partizip; die Referenz gibt nur Geschlecht und Zahl an.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Unit 19.3A, p.130, יכול and stative participle."
+      ],
+      "positions": [
+        {
+          "ref": "3:5",
+          "token": 15,
+          "word": "יָכוֹל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יכל",
+              "morph": "HVqrmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יכל",
+              "morph": "HVqrmsa"
+            }
+          ]
+        },
+        {
+          "ref": "4:5",
+          "token": 8,
+          "word": "יָכוֹל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יכל",
+              "morph": "HVqrmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יכל",
+              "morph": "HVqrmsa"
+            }
+          ]
+        },
+        {
+          "ref": "4:5",
+          "token": 15,
+          "word": "יָכוֹל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יכל",
+              "morph": "HVqrmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יכל",
+              "morph": "HVqrmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-031",
+      "decision": "convention",
+      "note": "אבל verbindet hier gegensätzliche Aussagen („aber“). Konjunktions- gegenüber Adverbklassifikation erklärt den Unterschied; keine Verwechslung mit אבל „trauernd“.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Unit 31: coordinating conjunctions."
+      ],
+      "positions": [
+        {
+          "ref": "3:5",
+          "token": 31,
+          "word": "אֲבָל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אבל",
+              "morph": "HC"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אבל",
+              "morph": "HC"
+            }
+          ]
+        },
+        {
+          "ref": "7:1",
+          "token": 22,
+          "word": "אֲבָל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אבל",
+              "morph": "HC"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אבל",
+              "morph": "HC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-032",
+      "decision": "retain-supported",
+      "note": "טול wird beibehalten: Ma’agarim belegt hier Hofal-Partizip bzw. Hifil-Futur ausdrücklich unter טול. Die alternative lexikalische Zuordnung נטל wird nicht mechanisch übertragen.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Unit 19.7B, p.132, Hofal participle."
+      ],
+      "positions": [
+        {
+          "ref": "3:5",
+          "token": 41,
+          "word": "שֶׁיָּטִיל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/טול",
+              "morph": "HTr/Vhi3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/טול",
+              "morph": "HTr/Vhi3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-033",
+      "decision": "retain-supported",
+      "note": "המשמשת wird durch Artikel und nachfolgende ש-Relativklausel nominalisiert. Kein folgendes Genitivnomen erzwingt Constructus; Absolute bleibt erhalten.",
+      "sources": [
+        "Segal §383, p.188: construct before relative clause normally absent, with stereotyped exceptions.",
+        "Pérez Fernández Unit 19.8, p.133; Segal §§337–338, p.162: nominal/verbal participles and construct use."
+      ],
+      "positions": [
+        {
+          "ref": "3:6",
+          "token": 8,
+          "word": "וְהַמְשַׁמֶּשֶׁת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/ה/שמש",
+              "morph": "HC/Td/Vprfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/ה/שמש",
+              "morph": "HC/Td/Vprfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-034",
+      "decision": "convention",
+      "note": "צריך / חייב werden als prädikative Adjektive geführt; das Referenznomen ist eine andere Einordnung der substantivisch verwendbaren Eigenschaft.",
+      "sources": [
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage.",
+        "Jastrow 9040, חייב, includes (he is) bound / guilty; Ma’agarim צריך."
+      ],
+      "positions": [
+        {
+          "ref": "3:6",
+          "token": 11,
+          "word": "צְרִיכִין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "צריך",
+              "morph": "HAampa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "צריך",
+              "morph": "HAampa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-035",
+      "decision": "convention",
+      "note": "של gegenüber analytischem ש/ל ist eine dokumentierte Segmentierungsentscheidung. Artikelverschmelzung und positionsbezogene Restwörter bleiben an die Quellvokale gebunden; daraus folgt keine Bestätigung ausgelassener Referenzmerkmale.",
+      "sources": [
+        "Pérez Fernández Unit 4.5–9, pp.30–31; Segal §§79 and 384–385: של and its historical/analytic segmentation.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "4:1",
+          "token": 26,
+          "word": "וְשֶׁלַּמּוּסָפִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/ש/ל/ה/מוסף",
+              "morph": "HC/Tr/R/Td/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/ש/ל/ה/מוסף",
+              "morph": "HC/Tr/R/Td/Ncmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-036",
+      "decision": "convention",
+      "note": "בן bleibt als genealogischer Constructus „Sohn von“ analysiert. Ein Namensbestandteil kann in der Referenz als Eigenname markiert werden; das zwingt keine andere Flexion.",
+      "sources": [
+        "Jastrow 1396, בן, construct בן.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "4:2",
+          "token": 3,
+          "word": "בֶן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            }
+          ]
+        },
+        {
+          "ref": "5:5",
+          "token": 21,
+          "word": "בֶן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בן",
+              "morph": "HNcmsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-037",
+      "decision": "convention",
+      "note": "הקנה als ganzer Namensbestandteil gegenüber Artikel ה plus Name קנה. Die Namensidentität bleibt dieselbe; kein Austausch des Textworts.",
+      "sources": [
+        "Segal §374(ii), p.180: article with titles; Ma’agarim Berakhot 4:2 indexes הקנה under proper name קנה."
+      ],
+      "positions": [
+        {
+          "ref": "4:2",
+          "token": 4,
+          "word": "הַקָּנָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/קנה",
+              "morph": "HTd/Np"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/קנה",
+              "morph": "HTd/Np"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-038",
+      "decision": "convention",
+      "note": "עשר / עשרה sind Zitierformen desselben Zehnerlexems, einschließlich der Kompositform עשרה/עשרה. Die tatsächlichen maskulinen/femininen Wortmerkmale bleiben unangetastet.",
+      "sources": [
+        "Jastrow 20805 and 20816 list עשר / עשרה and compound עשר / עשרה.",
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens."
+      ],
+      "positions": [
+        {
+          "ref": "4:3",
+          "token": 9,
+          "word": "עֶשְׂרֵה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ]
+        },
+        {
+          "ref": "4:3",
+          "token": 15,
+          "word": "עֶשְׂרֵה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ]
+        },
+        {
+          "ref": "4:3",
+          "token": 25,
+          "word": "עֶשְׂרֵה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ]
+        },
+        {
+          "ref": "4:3",
+          "token": 30,
+          "word": "עֶשְׂרֵה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ]
+        },
+        {
+          "ref": "4:4",
+          "token": 21,
+          "word": "עֶשְׂרֵה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-039",
+      "decision": "convention",
+      "note": "מעין wird funktional als lexikalisierte Vergleichspräposition geführt, während die Referenz מן + עין zerlegt. Ma’agarim bestätigt die besondere עין-Bedeutung „Art/Erscheinung“; kein Bezug zum Organ Auge erforderlich.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Unit 22: prepositional combinations."
+      ],
+      "positions": [
+        {
+          "ref": "4:3",
+          "token": 13,
+          "word": "מֵעֵין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "4:3",
+          "token": 28,
+          "word": "מֵעֵין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-040",
+      "decision": "unresolved",
+      "note": "Die Quelle vokalisiert שָׁגְרָה, Ma’agarim klassifiziert Vergangenheit; Jastrow/Levy zitieren die Gebetsformel auch mit שגורה als passivem Partizip. Die Referenztags unterscheiden sich zudem zwischen den beiden Stellen. Die lokale Perfektanalyse bleibt Kandidat, die Lesartenfrage ist nicht entschieden.",
+      "sources": [
+        "Jastrow 2168, שגר, directly cites Berakhot 5:5 and Tosefta שגרה / שגורה variant; Levy 17891 quotes שגורה.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "4:3",
+          "token": 20,
+          "word": "שָׁגְרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "שגר",
+              "morph": "HVqp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "שגר",
+              "morph": "HVqp3fs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-041",
+      "decision": "convention",
+      "note": "מעין wird funktional als lexikalisierte Vergleichspräposition geführt, während die Referenz מן + עין zerlegt. Ma’agarim bestätigt die besondere עין-Bedeutung „Art/Erscheinung“; kein Bezug zum Organ Auge erforderlich.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Unit 22: prepositional combinations."
+      ],
+      "positions": [
+        {
+          "ref": "4:4",
+          "token": 19,
+          "word": "מֵעֵין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 15,
+          "word": "מֵעֵין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 20,
+          "word": "מֵעֵין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מעין",
+              "morph": "HR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-042",
+      "decision": "retain-supported",
+      "note": "עם „Volk“ ist bei Levy maskulin. Der engere maskuline Kandidat bleibt gegenüber dem breiteren Referenzgenus erhalten, ohne den unsichtbaren Suffix-Tag als bestätigt auszugeben.",
+      "sources": [
+        "Levy 13842, עם, masculine people."
+      ],
+      "positions": [
+        {
+          "ref": "4:4",
+          "token": 26,
+          "word": "עַמְּךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "עם",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עם",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-043",
+      "decision": "convention",
+      "note": "יי ist die traditionelle Schreibung/Abkürzung des Gottesnamens. Die Referenz normalisiert das Lemma zu יהוה; die Quellschreibung und die eigenständige Zitierform bleiben erhalten.",
+      "sources": [
+        "Levy 7860, יי, abbreviation of the Tetragrammaton."
+      ],
+      "positions": [
+        {
+          "ref": "4:4",
+          "token": 36,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 63,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 104,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 110,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 13,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 125,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 130,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 132,
+          "word": "יי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יי",
+              "morph": "HNp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-044",
+      "decision": "retain-supported",
+      "note": "Der Genusfehler wurde bereits mit Krauss korrigiert. Der hier noch strittige Artikel wird aus בְקָרוֹן nicht ergänzt: die Quelle hat keinen Artikelvokal, die Referenz einen verschmolzenen Artikel.",
+      "sources": [
+        "Krauss, Lehnwörter II 5947, קרון I, feminine.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "4:6",
+          "token": 5,
+          "word": "בְקָרוֹן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/קרון",
+              "morph": "HR/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/קרון",
+              "morph": "HR/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-045",
+      "decision": "retain-supported",
+      "note": "מקום steht vor einer ש-Relativklausel, nicht vor einem Genitivnomen. Absolute bleibt grammatisch begründet; eine pauschale Constructus-Zuweisung wegen des Folgesatzes wäre nicht gerechtfertigt.",
+      "sources": [
+        "Segal §383, p.188: construct before relative clause normally absent, with stereotyped exceptions."
+      ],
+      "positions": [
+        {
+          "ref": "4:7",
+          "token": 24,
+          "word": "מָקוֹם",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מקום",
+              "morph": "HNcmsa"
+            },
+            {
+              "lemma": "מָקוֹם",
+              "morph": "HNcmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מקום",
+              "morph": "HNcmsa"
+            },
+            {
+              "lemma": "מָקוֹם",
+              "morph": "HNcmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-046",
+      "decision": "convention",
+      "note": "יש ist die Existenz-/Affirmationspartikel. Ein Adverb-Tag ist eine abweichende Wortartkonvention, keine veränderte Existenzbehauptung.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "4:7",
+          "token": 25,
+          "word": "שֶׁיֶּשׁ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/יש",
+              "morph": "HTr/Ta"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/יש",
+              "morph": "HTr/Ta"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-047",
+      "decision": "convention",
+      "note": "כדי kann lexikalisiert oder als כ + די „Genüge/Maß“ beschrieben werden. Beide Stellen behalten ihre konkrete Zweck-/Maßlesart; historische Nominalbasis und funktionale Präpositionsklassifikation sind getrennte Ebenen.",
+      "sources": [
+        "Jastrow 2086, די, sufficiency / construct די; 26042 כדי refers to די.",
+        "Pérez Fernández Unit 30.8, pp.233–234: כדי as indeclinable sufficient/enough."
+      ],
+      "positions": [
+        {
+          "ref": "5:1",
+          "token": 15,
+          "word": "כְּדֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כ/די",
+              "morph": "HR/Ncmsc"
+            },
+            {
+              "lemma": "כדי",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כ/די",
+              "morph": "HR/Ncmsc"
+            },
+            {
+              "lemma": "כדי",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "8:7",
+          "token": 23,
+          "word": "כְּדֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כ/די",
+              "morph": "HR/Ncmsc"
+            },
+            {
+              "lemma": "כדי",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כ/די",
+              "morph": "HR/Ncmsc"
+            },
+            {
+              "lemma": "כדי",
+              "morph": "HR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-048",
+      "decision": "convention",
+      "note": "אפילו verbindet einen hervorhebenden/einschränkenden Fall („sogar/selbst wenn“). Konjunktion und Adverb sind funktionale Tagkonventionen; Ma’agarim nennt es Bindewort.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Segal §298, p.138; Pérez Fernández Unit 23.3–8, pp.172–173: lexicalized adverbs and adverbial expressions."
+      ],
+      "positions": [
+        {
+          "ref": "5:1",
+          "token": 20,
+          "word": "וַאֲפִלּוּ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/אפילו",
+              "morph": "HC/C"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/אפילו",
+              "morph": "HC/C"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-049",
+      "decision": "convention",
+      "note": "אפילו verbindet einen hervorhebenden/einschränkenden Fall („sogar/selbst wenn“). Konjunktion und Adverb sind funktionale Tagkonventionen; Ma’agarim nennt es Bindewort.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Segal §298, p.138; Pérez Fernández Unit 23.3–8, pp.172–173: lexicalized adverbs and adverbial expressions."
+      ],
+      "positions": [
+        {
+          "ref": "5:1",
+          "token": 26,
+          "word": "אֲפִלּוּ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אפילו",
+              "morph": "HC"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אפילו",
+              "morph": "HC"
+            }
+          ]
+        },
+        {
+          "ref": "6:8",
+          "token": 19,
+          "word": "אֲפִלּוּ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אפילו",
+              "morph": "HC"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אפילו",
+              "morph": "HC"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 31,
+          "word": "אֲפִלּוּ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אפילו",
+              "morph": "HC"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אפילו",
+              "morph": "HC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-050",
+      "decision": "convention",
+      "note": "פנים als Wörterbuchlemma gegenüber פנה als Zitierbasis; maskuliner und femininer Gebrauch sind belegt. Die lokale Präpositionsverbindung bleibt erhalten, fehlende Suffix-Tags werden nicht bestätigt.",
+      "sources": [
+        "Jastrow 20360, פנים, common plural; Levy 14796, masculine plural, often feminine.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state."
+      ],
+      "positions": [
+        {
+          "ref": "5:3",
+          "token": 17,
+          "word": "לִפְנֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc"
+            },
+            {
+              "lemma": "לפנים",
+              "morph": "HR"
+            },
+            {
+              "lemma": "לפני",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc"
+            },
+            {
+              "lemma": "לפנים",
+              "morph": "HR"
+            },
+            {
+              "lemma": "לפני",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "5:4",
+          "token": 2,
+          "word": "לִפְנֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc"
+            },
+            {
+              "lemma": "לפנים",
+              "morph": "HR"
+            },
+            {
+              "lemma": "לפני",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/פנים",
+              "morph": "HR/Ncmpc"
+            },
+            {
+              "lemma": "לפנים",
+              "morph": "HR"
+            },
+            {
+              "lemma": "לפני",
+              "morph": "HR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-051",
+      "decision": "retain-supported",
+      "note": "את mit Suffix kann demonstrativ gebraucht werden. באותה שעה und אותו הכוס sind hier Bestimmungen eines Nomens, keine vom transitiven Verb geforderten Objekte; die demonstrative Analyse bleibt erhalten.",
+      "sources": [
+        "Segal §75, p.42: demonstrative את, including forms with pronominal suffixes.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "5:3",
+          "token": 26,
+          "word": "בְּאוֹתָהּ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ב/אותה",
+              "morph": "HR/Pdxfs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/אותה",
+              "morph": "HR/Pdxfs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-052",
+      "decision": "convention",
+      "note": "מנין ist eine Frage nach Herkunft/Grund. Interrogativ- gegenüber Adverbklasse bei der zerlegten Restform erklärt die Abweichung; es wird keine weitere Negation אין behauptet.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández Units 6–7: interrogatives."
+      ],
+      "positions": [
+        {
+          "ref": "5:3",
+          "token": 28,
+          "word": "מְנַיִן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מן/אין",
+              "morph": "HR/Pi"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מן/אין",
+              "morph": "HR/Pi"
+            }
+          ]
+        },
+        {
+          "ref": "5:5",
+          "token": 35,
+          "word": "מְנַיִן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מן/אין",
+              "morph": "HR/Pi"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מן/אין",
+              "morph": "HR/Pi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-053",
+      "decision": "convention",
+      "note": "אחר mit nominaler Ergänzung/Suffix bzw. לאחר ist funktional präpositional, kann aber als adverbialer Positionsausdruck indexiert werden. Die zeitliche Relation bleibt dieselbe; Referenzlemma אחרי ist zusätzlich eine Zitierform.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, after / behind and suffixed forms."
+      ],
+      "positions": [
+        {
+          "ref": "5:4",
+          "token": 6,
+          "word": "אַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אחר",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אחר",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 35,
+          "word": "אַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אחר",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אחר",
+              "morph": "HR"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 41,
+          "word": "אַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אחר",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אחר",
+              "morph": "HR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-054",
+      "decision": "convention",
+      "note": "אמן wird als bekräftigende Antwortpartikel geführt. Der Referenz-Adverbtag bezeichnet keine andere Flexionsform.",
+      "sources": [
+        "Jastrow 11043, אמן II, Amen / true / so may it be."
+      ],
+      "positions": [
+        {
+          "ref": "5:4",
+          "token": 8,
+          "word": "אָמֵן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אמן",
+              "morph": "HTa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אמן",
+              "morph": "HTa"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 34,
+          "word": "אָמֵן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אמן",
+              "morph": "HTa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אמן",
+              "morph": "HTa"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 40,
+          "word": "אָמֵן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אמן",
+              "morph": "HTa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אמן",
+              "morph": "HTa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-055",
+      "decision": "convention",
+      "note": "של gegenüber analytischem ש/ל ist eine dokumentierte Segmentierungsentscheidung. Artikelverschmelzung und positionsbezogene Restwörter bleiben an die Quellvokale gebunden; daraus folgt keine Bestätigung ausgelassener Referenzmerkmale.",
+      "sources": [
+        "Pérez Fernández Unit 4.5–9, pp.30–31; Segal §§79 and 384–385: של and its historical/analytic segmentation.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "5:5",
+          "token": 14,
+          "word": "שֶׁלָּאָדָם",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/אדם",
+              "morph": "HTr/R/Ncmsa"
+            },
+            {
+              "lemma": "ש/ל/אדם",
+              "morph": "HTr/Rd/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/אדם",
+              "morph": "HTr/R/Ncmsa"
+            },
+            {
+              "lemma": "ש/ל/אדם",
+              "morph": "HTr/Rd/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-056",
+      "decision": "retain-supported",
+      "note": "כמותו ist „wie er/ihm gleich“, eine suffigierte Präposition. Die Zerlegung mit einem nominalen מות wird nicht als eigenständige Todesbedeutung übernommen.",
+      "sources": [
+        "Jastrow 7119, כמו and suffixes; Ma’agarim כמות as preposition."
+      ],
+      "positions": [
+        {
+          "ref": "5:5",
+          "token": 15,
+          "word": "כְּמוֹתוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "כמו",
+              "morph": "HR/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כמו",
+              "morph": "HR/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-057",
+      "decision": "convention",
+      "note": "חולה/חולין ist „krank/die Kranken“. Adjektiv, substantivierter Patient und Partizip von חלה sind lexikalisch/grammatisch miteinander verbunden; Quellenlemma und verbale Wurzel sind verschiedene Zitierkonventionen.",
+      "sources": [
+        "Jastrow 8746, חולה, sick / patient, plurals חולים / חולין.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "5:5",
+          "token": 26,
+          "word": "הַחוֹלִין",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/חולה",
+              "morph": "HTd/Aampa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/חולה",
+              "morph": "HTd/Aampa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-058",
+      "decision": "unresolved",
+      "note": "Die Quelle vokalisiert שָׁגְרָה, Ma’agarim klassifiziert Vergangenheit; Jastrow/Levy zitieren die Gebetsformel auch mit שגורה als passivem Partizip. Die Referenztags unterscheiden sich zudem zwischen den beiden Stellen. Die lokale Perfektanalyse bleibt Kandidat, die Lesartenfrage ist nicht entschieden.",
+      "sources": [
+        "Jastrow 2168, שגר, directly cites Berakhot 5:5 and Tosefta שגרה / שגורה variant; Levy 17891 quotes שגורה.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "5:5",
+          "token": 41,
+          "word": "שָׁגְרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "שגר",
+              "morph": "HVqp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "שגר",
+              "morph": "HVqp3fs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-059",
+      "decision": "convention",
+      "note": "כיצד / אימתי sind interrogative Adverbien. Adverb versus Interrogativkategorie ist die maßgebliche Konvention; אמתי / אימתי ist zusätzlich belegte Schreibvariation.",
+      "sources": [
+        "Jastrow 25863, כיצד, how / in what manner; 23986–23987, אימתי, when."
+      ],
+      "positions": [
+        {
+          "ref": "6:1",
+          "token": 1,
+          "word": "כֵּיצַד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כיצד",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כיצד",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 1,
+          "word": "כֵּיצַד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כיצד",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כיצד",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 29,
+          "word": "כֵּיצַד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כיצד",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כיצד",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-060",
+      "decision": "retain-supported",
+      "note": "Feminines פת ist bei Segal belegt und in 6:7 durch das feminine Prädikat טפלה gestützt. Jastrow nennt gemeinsames, Levy maskulines Genus; der feminine Kandidat bleibt begründet, kein Anspruch auf ausschließlich femininen Lexikoneintrag.",
+      "sources": [
+        "Segal §370, p.179, explicitly cites Berakhot 6:7; Jastrow 18202 common; Levy 15412 masculine."
+      ],
+      "positions": [
+        {
+          "ref": "6:1",
+          "token": 33,
+          "word": "הַפַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        },
+        {
+          "ref": "6:1",
+          "token": 35,
+          "word": "הַפַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        },
+        {
+          "ref": "6:5",
+          "token": 23,
+          "word": "הַפַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        },
+        {
+          "ref": "6:5",
+          "token": 32,
+          "word": "הַפַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        },
+        {
+          "ref": "6:7",
+          "token": 12,
+          "word": "הַפַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/פת",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-061",
+      "decision": "convention",
+      "note": "חמץ / חומץ sind hier Defektiv-/Vollschreibung des Essiglemmas, nicht ein Austausch von Essig gegen Gesäuertes. Die Quellvokale entscheiden die konkrete Lesung.",
+      "sources": [
+        "Levy 6532, חומץ (= biblical חֹמֶץ), vinegar; Ma’agarim head חֹמֶץ."
+      ],
+      "positions": [
+        {
+          "ref": "6:3",
+          "token": 12,
+          "word": "הַחֹמֶץ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/חומץ",
+              "morph": "HTd/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/חומץ",
+              "morph": "HTd/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-062",
+      "decision": "convention",
+      "note": "יש ist die Existenz-/Affirmationspartikel. Ein Adverb-Tag ist eine abweichende Wortartkonvention, keine veränderte Existenzbehauptung.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "6:4",
+          "token": 9,
+          "word": "יֵשׁ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "יש",
+              "morph": "HTa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "יש",
+              "morph": "HTa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-063",
+      "decision": "convention",
+      "note": "איזה ist lexikalisiert gegenüber der älteren Fragebasis אי. Es bleibt dieselbe Frage nach welcher Art/welchem Gegenstand.",
+      "sources": [
+        "Jastrow 9231, אי III, explicitly lists אי זה / איזה; 12978 איזה."
+      ],
+      "positions": [
+        {
+          "ref": "6:4",
+          "token": 20,
+          "word": "אֵיזֶה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "איזה",
+              "morph": "HPi"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "איזה",
+              "morph": "HPi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-064",
+      "decision": "convention",
+      "note": "אף bedeutet „auch/sogar“. Verknüpfende Funktion gegenüber affirmativem/adverbialem Wortarttag ist eine Konvention; kein Nasen-/Zornhomonym.",
+      "sources": [
+        "Jastrow 5126, אף I, also / too; Pérez Fernández Unit 1.7, p.19, אף with adverbial/adjectival force."
+      ],
+      "positions": [
+        {
+          "ref": "6:5",
+          "token": 36,
+          "word": "אַף",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אף",
+              "morph": "HTa"
+            },
+            {
+              "lemma": "אף",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אף",
+              "morph": "HTa"
+            },
+            {
+              "lemma": "אף",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "6:6",
+          "token": 30,
+          "word": "אַף",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אף",
+              "morph": "HTa"
+            },
+            {
+              "lemma": "אף",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אף",
+              "morph": "HTa"
+            },
+            {
+              "lemma": "אף",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-065",
+      "decision": "retain-supported",
+      "note": "עצם in reflexivem Gebrauch „selbst/für sich“ wird von Levy maskulin geführt. Die Referenzklasse feminin wird nicht aus der Körperteilbedeutung übertragen; unsichtbare Suffixmerkmale bleiben unbestätigt.",
+      "sources": [
+        "Levy 14029, עצם, masculine, sense 2 self / reflexive use."
+      ],
+      "positions": [
+        {
+          "ref": "6:6",
+          "token": 7,
+          "word": "לְעַצְמוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3ms"
+            }
+          ]
+        },
+        {
+          "ref": "6:6",
+          "token": 21,
+          "word": "לְעַצְמוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-066",
+      "decision": "convention",
+      "note": "אחר mit nominaler Ergänzung/Suffix bzw. לאחר ist funktional präpositional, kann aber als adverbialer Positionsausdruck indexiert werden. Die zeitliche Relation bleibt dieselbe; Referenzlemma אחרי ist zusätzlich eine Zitierform.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, after / behind and suffixed forms."
+      ],
+      "positions": [
+        {
+          "ref": "6:6",
+          "token": 22,
+          "word": "לְאַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/R"
+            }
+          ]
+        },
+        {
+          "ref": "6:6",
+          "token": 38,
+          "word": "לְאַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/R"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 4,
+          "word": "לְאַחַר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/R"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אחר",
+              "morph": "HR/R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-067",
+      "decision": "retain-supported",
+      "note": "מליח ist die männliche gesalzene Speise/Beilage, nicht das feminine Abstraktlemma מליחה. Wörterbücher zitieren die konkrete Berakhot-Stelle; die vorhandene Adjektiv-/Partiziplesart bleibt gestützt.",
+      "sources": [
+        "Jastrow 25953, מליח, salted relish, directly cites Berakhot 6:7; Levy 10433 masculine salted fish."
+      ],
+      "positions": [
+        {
+          "ref": "6:7",
+          "token": 3,
+          "word": "מָלִיחַ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מליח",
+              "morph": "HAamsa"
+            },
+            {
+              "lemma": "מלח",
+              "morph": "HVqsmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מליח",
+              "morph": "HAamsa"
+            },
+            {
+              "lemma": "מלח",
+              "morph": "HVqsmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-068",
+      "decision": "retain-supported",
+      "note": "Feminines פת ist bei Segal belegt und in 6:7 durch das feminine Prädikat טפלה gestützt. Jastrow nennt gemeinsames, Levy maskulines Genus; der feminine Kandidat bleibt begründet, kein Anspruch auf ausschließlich femininen Lexikoneintrag.",
+      "sources": [
+        "Segal §370, p.179, explicitly cites Berakhot 6:7; Jastrow 18202 common; Levy 15412 masculine."
+      ],
+      "positions": [
+        {
+          "ref": "6:7",
+          "token": 5,
+          "word": "וּפַת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/פת",
+              "morph": "HC/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/פת",
+              "morph": "HC/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-069",
+      "decision": "retain-supported",
+      "note": "מליח ist die männliche gesalzene Speise/Beilage, nicht das feminine Abstraktlemma מליחה. Wörterbücher zitieren die konkrete Berakhot-Stelle; die vorhandene Adjektiv-/Partiziplesart bleibt gestützt.",
+      "sources": [
+        "Jastrow 25953, מליח, salted relish, directly cites Berakhot 6:7; Levy 10433 masculine salted fish."
+      ],
+      "positions": [
+        {
+          "ref": "6:7",
+          "token": 9,
+          "word": "הַמָּלִיחַ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/מליח",
+              "morph": "HTd/Aamsa"
+            },
+            {
+              "lemma": "ה/מלח",
+              "morph": "HTd/Vqsmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/מליח",
+              "morph": "HTd/Aamsa"
+            },
+            {
+              "lemma": "ה/מלח",
+              "morph": "HTd/Vqsmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-070",
+      "decision": "retain-supported",
+      "note": "Feminines פת ist bei Segal belegt und in 6:7 durch das feminine Prädikat טפלה gestützt. Jastrow nennt gemeinsames, Levy maskulines Genus; der feminine Kandidat bleibt begründet, kein Anspruch auf ausschließlich femininen Lexikoneintrag.",
+      "sources": [
+        "Segal §370, p.179, explicitly cites Berakhot 6:7; Jastrow 18202 common; Levy 15412 masculine."
+      ],
+      "positions": [
+        {
+          "ref": "6:7",
+          "token": 13,
+          "word": "שֶׁהַפַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ה/פת",
+              "morph": "HTr/Td/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ה/פת",
+              "morph": "HTr/Td/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-071",
+      "decision": "convention",
+      "note": "טפלה stimmt mit פת feminin überein und bezeichnet das untergeordnete Lebensmittel. Adjektivlemma טפל gegenüber nominalisierter femininer Zitierform טפלה ist eine Klassifikationsentscheidung.",
+      "sources": [
+        "Jastrow 24444, טפל, attachment / secondary, opposed to עיקר.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "6:7",
+          "token": 14,
+          "word": "טְפֵלָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "טפל",
+              "morph": "HAafsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "טפל",
+              "morph": "HAafsa"
+            }
+          ]
+        },
+        {
+          "ref": "6:7",
+          "token": 22,
+          "word": "טְפֵלָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "טפל",
+              "morph": "HAafsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "טפל",
+              "morph": "HAafsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-072",
+      "decision": "convention",
+      "note": "טפלה stimmt mit פת feminin überein und bezeichnet das untergeordnete Lebensmittel. Adjektivlemma טפל gegenüber nominalisierter femininer Zitierform טפלה ist eine Klassifikationsentscheidung.",
+      "sources": [
+        "Jastrow 24444, טפל, attachment / secondary, opposed to עיקר.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "6:7",
+          "token": 28,
+          "word": "הַטְּפֵלָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/טפל",
+              "morph": "HTd/Aafsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/טפל",
+              "morph": "HTd/Aafsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-073",
+      "decision": "convention",
+      "note": "שלוש und שלש sind Voll-/Defektivschreibung desselben femininen Zahlworts. Die gelesenen Numeralmerkmale stimmen überein; kein Austausch der Textvokale.",
+      "sources": [
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens.",
+        "Jastrow 31434, 31450: שלש / שלשה; Ma’agarim heads שלוש with female-number label."
+      ],
+      "positions": [
+        {
+          "ref": "6:8",
+          "token": 7,
+          "word": "שָׁלוֹשׁ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "שלוש",
+              "morph": "HAcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "שלוש",
+              "morph": "HAcfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-074",
+      "decision": "convention",
+      "note": "אחר mit nominaler Ergänzung/Suffix bzw. לאחר ist funktional präpositional, kann aber als adverbialer Positionsausdruck indexiert werden. Die zeitliche Relation bleibt dieselbe; Referenzlemma אחרי ist zusätzlich eine Zitierform.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, after / behind and suffixed forms."
+      ],
+      "positions": [
+        {
+          "ref": "6:8",
+          "token": 25,
+          "word": "אַחֲרָיו",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "אחר",
+              "morph": "HR/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אחר",
+              "morph": "HR/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-075",
+      "decision": "retain-supported",
+      "note": "נפש ist als feminin lexikalisch belegt. Der Referenz-Common-Gender-Tag ist breiter; die feminin kodierte Quelle bleibt als Kandidat gestützt. Kein nachträglicher Suffixbeweis.",
+      "sources": [
+        "Levy 12206, נפש, feminine soul / person."
+      ],
+      "positions": [
+        {
+          "ref": "6:8",
+          "token": 39,
+          "word": "נְפָשׁוֹת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-076",
+      "decision": "retain-supported",
+      "note": "חֶסְרוֹנָן hat den Singularstamm חסרון plus Suffix, nicht die reguläre feminine Pluralform. Beide Wörterbücher nennen חסרון maskulin; der separat unsichtbare Suffix-Tag wird dennoch nicht als extern bestätigt ausgegeben.",
+      "sources": [
+        "Jastrow 9729 and Levy 6681, חסרון, masculine want / loss.",
+        "Pérez Fernández Unit 10.4–10, pp.63–65; Segal §§367–370, pp.178–179: lexical gender and variation.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state."
+      ],
+      "positions": [
+        {
+          "ref": "6:8",
+          "token": 41,
+          "word": "וְחֶסְרוֹנָן",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ו/חסרון",
+              "morph": "HC/Ncmsc/Sp3fp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/חסרון",
+              "morph": "HC/Ncmsc/Sp3fp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-077",
+      "decision": "convention",
+      "note": "עשר / עשרה sind Zitierformen desselben Zehnerlexems, einschließlich der Kompositform עשרה/עשרה. Die tatsächlichen maskulinen/femininen Wortmerkmale bleiben unangetastet.",
+      "sources": [
+        "Jastrow 20805 and 20816 list עשר / עשרה and compound עשר / עשרה.",
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 10,
+          "word": "בַּעֲשָׂרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/ה/עשר",
+              "morph": "HR/Td/Acmsa"
+            },
+            {
+              "lemma": "ב/עשר",
+              "morph": "HR/Acmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/ה/עשר",
+              "morph": "HR/Td/Acmsa"
+            },
+            {
+              "lemma": "ב/עשר",
+              "morph": "HR/Acmsa"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 14,
+          "word": "בַּעֲשָׂרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/ה/עשר",
+              "morph": "HR/Td/Acmsa"
+            },
+            {
+              "lemma": "ב/עשר",
+              "morph": "HR/Acmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/ה/עשר",
+              "morph": "HR/Td/Acmsa"
+            },
+            {
+              "lemma": "ב/עשר",
+              "morph": "HR/Acmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-078",
+      "decision": "convention",
+      "note": "עשר / עשרה sind Zitierformen desselben Zehnerlexems, einschließlich der Kompositform עשרה/עשרה. Die tatsächlichen maskulinen/femininen Wortmerkmale bleiben unangetastet.",
+      "sources": [
+        "Jastrow 20805 and 20816 list עשר / עשרה and compound עשר / עשרה.",
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 19,
+          "word": "עֲשָׂרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcmsa"
+            }
+          ]
+        },
+        {
+          "ref": "7:4",
+          "token": 14,
+          "word": "עֲשָׂרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשר",
+              "morph": "HAcmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-079",
+      "decision": "retain-supported",
+      "note": "רבוא ist bei Jastrow maskulin. Die Pluralendung רבואות erzwingt kein feminines Singularlemma; die Quellform mit Artikel bleibt erhalten.",
+      "sources": [
+        "Jastrow 16471, רבוא, masculine myriad.",
+        "Pérez Fernández Unit 10.4–10, pp.63–65; Segal §§367–370, pp.178–179: lexical gender and variation."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 43,
+          "word": "בָּרִבּוֹא",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/רבוא",
+              "morph": "HRd/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/רבוא",
+              "morph": "HRd/Ncmsa"
+            }
+          ]
+        },
+        {
+          "ref": "7:3",
+          "token": 52,
+          "word": "בָּרִבּוֹא",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/רבוא",
+              "morph": "HRd/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/רבוא",
+              "morph": "HRd/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-080",
+      "decision": "unresolved",
+      "note": "ענין / עניין ist dieselbe Zitierform, doch der Status vor שהוא ist nicht sicher entschieden: gewöhnlich kein Constructus vor Relativsatz, aber stereotypisierte Konjunktionsausdrücke sind ausdrücklich ausgenommen. Constructus bleibt Kandidat; keine pauschale Statuskorrektur.",
+      "sources": [
+        "Jastrow 19894, ענין / עניין.",
+        "Segal §383, p.188: construct before relative clause normally absent, with stereotyped exceptions."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 56,
+          "word": "כְּעִנְיָן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "כ/עניין",
+              "morph": "HR/Ncmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "כ/עניין",
+              "morph": "HR/Ncmsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-081",
+      "decision": "convention",
+      "note": "אחר mit nominaler Ergänzung/Suffix bzw. לאחר ist funktional präpositional, kann aber als adverbialer Positionsausdruck indexiert werden. Die zeitliche Relation bleibt dieselbe; Referenzlemma אחרי ist zusätzlich eine Zitierform.",
+      "sources": [
+        "Jastrow 13151, אחר / אחרי, after / behind and suffixed forms."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 61,
+          "word": "אַחֲרָיו",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "אחר",
+              "morph": "HR/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אחר",
+              "morph": "HR/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-082",
+      "decision": "convention",
+      "note": "לפי ist funktional „gemäß/nach“. Das Wörterbuch führt zugleich auf פה zurück; die nominale historische Zerlegung gegenüber lexikalisierter Präposition ist eine Segmentierungskonvention.",
+      "sources": [
+        "Jastrow 32420, לפי, according to / because, refers to פה.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 78,
+          "word": "לְפִי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "לפי",
+              "morph": "HR"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "לפי",
+              "morph": "HR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-083",
+      "decision": "convention",
+      "note": "אדני als Gottesappellation bleibt eigenes Lemma. Eine referenzseitige Normalisierung auf יהוה beschreibt den göttlichen Referenten, nicht die Buchstaben oder Flexion des vorliegenden Titels.",
+      "sources": [
+        "Levy 328, אדני, plural of excellence, the Lord, exclusively God."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 87,
+          "word": "אֲדֹנָי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אדני",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אדני",
+              "morph": "HNp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-084",
+      "decision": "convention",
+      "note": "Die lexikalisierten Eigenschaftsköpfe מרובה / ממועט stehen den verbalen Basen רבה / מעט gegenüber. Die Quelle bleibt als passives Puʿal-Partizip analysiert; gelesene Genus-/Numerusangaben widersprechen dem nicht.",
+      "sources": [
+        "Jastrow 3875, מרובה, numerous; 20399 מעט; Ma’agarim: Puʿal participles.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage.",
+        "Pérez Fernández Unit 19.8, p.133; Segal §§337–338, p.162: nominal/verbal participles and construct use."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 98,
+          "word": "מְרֻבִּים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "רבה",
+              "morph": "HVPsmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "רבה",
+              "morph": "HVPsmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-085",
+      "decision": "convention",
+      "note": "Die lexikalisierten Eigenschaftsköpfe מרובה / ממועט stehen den verbalen Basen רבה / מעט gegenüber. Die Quelle bleibt als passives Puʿal-Partizip analysiert; gelesene Genus-/Numerusangaben widersprechen dem nicht.",
+      "sources": [
+        "Jastrow 3875, מרובה, numerous; 20399 מעט; Ma’agarim: Puʿal participles.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage.",
+        "Pérez Fernández Unit 19.8, p.133; Segal §§337–338, p.162: nominal/verbal participles and construct use."
+      ],
+      "positions": [
+        {
+          "ref": "7:3",
+          "token": 100,
+          "word": "מְמֻעָטִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מעט",
+              "morph": "HVPsmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מעט",
+              "morph": "HVPsmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-086",
+      "decision": "retain-supported",
+      "note": "לֵחָלֵק wird als reduzierter Nifal-Infinitiv beibehalten. Ma’agarim bestätigt explizit Nifal מקור; die Auslassung von ה nach ל ist grammatisch belegt.",
+      "sources": [
+        "Segal §§115–117, pp.58–59; Pérez Fernández Unit 19.4, p.131: Nifal forms and reduced infinitive.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "7:4",
+          "token": 6,
+          "word": "לֵחָלֵק",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/חלק",
+              "morph": "HR/VNc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/חלק",
+              "morph": "HR/VNc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-087",
+      "decision": "convention",
+      "note": "עשר / עשרה sind Zitierformen desselben Zehnerlexems, einschließlich der Kompositform עשרה/עשרה. Die tatsächlichen maskulinen/femininen Wortmerkmale bleiben unangetastet.",
+      "sources": [
+        "Jastrow 20805 and 20816 list עשר / עשרה and compound עשר / עשרה.",
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens."
+      ],
+      "positions": [
+        {
+          "ref": "7:4",
+          "token": 15,
+          "word": "וַעֲשָׂרָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/עשר",
+              "morph": "HC/Acmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/עשר",
+              "morph": "HC/Acmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-088",
+      "decision": "retain-supported",
+      "note": "Die Zehnerform unterscheidet im vorliegenden Wortbild nicht zwischen maskulinem und femininem Bezugswort. Der gemeinsame Genuskandidat wird beibehalten; die referenzseitige maskuline Festlegung wird nicht als Formbeweis behandelt.",
+      "sources": [
+        "Pérez Fernández Unit 14.2–5, pp.86–87; Segal §397, p.195: numerals, inflection and tens."
+      ],
+      "positions": [
+        {
+          "ref": "7:4",
+          "token": 20,
+          "word": "עֶשְׂרִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עשרים",
+              "morph": "HAcbpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עשרים",
+              "morph": "HAcbpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-089",
+      "decision": "convention",
+      "note": "מקצת ist ein lexikalisch belegtes feminines Nomen „ein Teil“. Die Referenz segmentiert historisch מן + קצת; daraus entsteht kein anderer Numerus/Genus der gelesenen Form.",
+      "sources": [
+        "Jastrow 18969, מקצת, feminine a part; adverbial use also listed."
+      ],
+      "positions": [
+        {
+          "ref": "7:5",
+          "token": 8,
+          "word": "שֶׁמִּקְצָתָן",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ש/מקצת",
+              "morph": "HTr/Ncfsc/Sp3fp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/מקצת",
+              "morph": "HTr/Ncfsc/Sp3fp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-090",
+      "decision": "convention",
+      "note": "הרי ist hier ein hinweisender Einleiter („siehe/nun“), keine Frage. Modalpartikel gegenüber Interjektion ist eine Kategorienfrage.",
+      "sources": [
+        "Jastrow 30756, הרי II: behold / here is."
+      ],
+      "positions": [
+        {
+          "ref": "7:5",
+          "token": 13,
+          "word": "הֲרֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 25,
+          "word": "הֲרֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 39,
+          "word": "הֲרֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 58,
+          "word": "הֲרֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "הרי",
+              "morph": "HTm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-091",
+      "decision": "convention",
+      "note": "זמון / זימון sind Defektiv-/Vollschreibung des Gebetslemmas. Artikelverschmelzung ist bereits beiderseits berücksichtigt.",
+      "sources": [
+        "Jastrow 23183 and 23282, זימון / זמון, meal-grace invitation."
+      ],
+      "positions": [
+        {
+          "ref": "7:5",
+          "token": 16,
+          "word": "לַזִּמּוּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/ה/זימון",
+              "morph": "HR/Td/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/ה/זימון",
+              "morph": "HR/Td/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-092",
+      "decision": "retain-supported",
+      "note": "עצם in reflexivem Gebrauch „selbst/für sich“ wird von Levy maskulin geführt. Die Referenzklasse feminin wird nicht aus der Körperteilbedeutung übertragen; unsichtbare Suffixmerkmale bleiben unbestätigt.",
+      "sources": [
+        "Levy 14029, עצם, masculine, sense 2 self / reflexive use."
+      ],
+      "positions": [
+        {
+          "ref": "7:5",
+          "token": 21,
+          "word": "לְעַצְמָן",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3fp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3fp"
+            }
+          ]
+        },
+        {
+          "ref": "7:5",
+          "token": 24,
+          "word": "לְעַצְמָן",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3fp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/עצם",
+              "morph": "HR/Ncmsc/Sp3fp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-093",
+      "decision": "unresolved",
+      "note": "כוס ist bei Jastrow gemeinsamen Genus; Pérez Fernández beschreibt maskulinen RH-Gebrauch gegenüber femininem BH-Gebrauch. אותו הכוס in 8:8 stützt den maskulinen Bezug, aber die Lexikontraditionen und die beiden anderen Belege erlauben keine einheitliche engere Genusfestlegung. Common-Gender-Kandidat bleibt erhalten.",
+      "sources": [
+        "Jastrow 8139, כוס I, common gender; Pérez Fernández Unit 10.9, pp.64–65."
+      ],
+      "positions": [
+        {
+          "ref": "8:2",
+          "token": 10,
+          "word": "הַכּוֹס",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/כוס",
+              "morph": "HTd/Ncbsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/כוס",
+              "morph": "HTd/Ncbsa"
+            }
+          ]
+        },
+        {
+          "ref": "8:2",
+          "token": 16,
+          "word": "הַכּוֹס",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/כוס",
+              "morph": "HTd/Ncbsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/כוס",
+              "morph": "HTd/Ncbsa"
+            }
+          ]
+        },
+        {
+          "ref": "8:8",
+          "token": 10,
+          "word": "הַכּוֹס",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/כוס",
+              "morph": "HTd/Ncbsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/כוס",
+              "morph": "HTd/Ncbsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-094",
+      "decision": "retain-supported",
+      "note": "השלחן steht nach על ohne folgendes Genitivnomen. Der bestimmte absolute Kandidat bleibt erhalten; שולחן / שלחן ist zugleich Voll-/Defektivschreibung.",
+      "sources": [
+        "Jastrow 1944 and 3118, שולחן / שלחן, table.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained."
+      ],
+      "positions": [
+        {
+          "ref": "8:4",
+          "token": 10,
+          "word": "הַשֻּׁלְחָן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/שולחן",
+              "morph": "HTd/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/שולחן",
+              "morph": "HTd/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-095",
+      "decision": "convention",
+      "note": "בשם / בושם ist Zitier-/Vollschreibung des Duftstoffnomens; nicht mit בשם „im Namen“ oder dem Gewürzhändler verwechseln. Plural und Genus sind gleich.",
+      "sources": [
+        "Jastrow 8399, בֹּשֶׂם, masculine spices/perfumes, cites Berakhot 8:5; Ma’agarim same pointed head."
+      ],
+      "positions": [
+        {
+          "ref": "8:5",
+          "token": 6,
+          "word": "וּבְשָׂמִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/בושם",
+              "morph": "HC/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/בושם",
+              "morph": "HC/Ncmpa"
+            }
+          ]
+        },
+        {
+          "ref": "8:5",
+          "token": 12,
+          "word": "וּבְשָׂמִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/בושם",
+              "morph": "HC/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/בושם",
+              "morph": "HC/Ncmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-096",
+      "decision": "convention",
+      "note": "בשם / בושם ist Zitier-/Vollschreibung des Duftstoffnomens; nicht mit בשם „im Namen“ oder dem Gewürzhändler verwechseln. Plural und Genus sind gleich.",
+      "sources": [
+        "Jastrow 8399, בֹּשֶׂם, masculine spices/perfumes, cites Berakhot 8:5; Ma’agarim same pointed head."
+      ],
+      "positions": [
+        {
+          "ref": "8:6",
+          "token": 8,
+          "word": "הַבְּשָׂמִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/בושם",
+              "morph": "HTd/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/בושם",
+              "morph": "HTd/Ncmpa"
+            }
+          ]
+        },
+        {
+          "ref": "8:6",
+          "token": 15,
+          "word": "הַבְּשָׂמִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/בושם",
+              "morph": "HTd/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/בושם",
+              "morph": "HTd/Ncmpa"
+            }
+          ]
+        },
+        {
+          "ref": "8:6",
+          "token": 22,
+          "word": "הַבְּשָׂמִים",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/בושם",
+              "morph": "HTd/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/בושם",
+              "morph": "HTd/Ncmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-097",
+      "decision": "convention",
+      "note": "של gegenüber analytischem ש/ל ist eine dokumentierte Segmentierungsentscheidung. Artikelverschmelzung und positionsbezogene Restwörter bleiben an die Quellvokale gebunden; daraus folgt keine Bestätigung ausgelassener Referenzmerkmale.",
+      "sources": [
+        "Pérez Fernández Unit 4.5–9, pp.30–31; Segal §§79 and 384–385: של and its historical/analytic segmentation.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "8:6",
+          "token": 9,
+          "word": "שֶׁלַּגּוֹיִם",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/ל/גוי",
+              "morph": "HTr/Rd/Ncmpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/ל/גוי",
+              "morph": "HTr/Rd/Ncmpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-098",
+      "decision": "retain-supported",
+      "note": "אור „Licht“ wird bei Jastrow maskulin geführt. Diese Bedeutung ist vom Verb אור und vom Homonym אור „Spreu“ getrennt; der maskuline Kandidat bleibt lexikalisch gestützt.",
+      "sources": [
+        "Jastrow 14419, אור II, masculine light; contrast 14417 verb and 14428 chaff."
+      ],
+      "positions": [
+        {
+          "ref": "8:6",
+          "token": 32,
+          "word": "לְאוֹרוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ל/אור",
+              "morph": "HR/Ncmsc/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/אור",
+              "morph": "HR/Ncmsc/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-099",
+      "decision": "retain-supported",
+      "note": "Die Quelle נִזְכַּר unterscheidet sich vokalisch vom Nifal-Partizip נִזְכָּר. Ma’agarim nennt hier Vergangenheit. Die Perfektanalyse bleibt erhalten; die Vokale werden nicht der Referenz angepasst.",
+      "sources": [
+        "Segal §§115–117, pp.58–59; Pérez Fernández Unit 19.4, p.131: Nifal forms and reduced infinitive.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "8:7",
+          "token": 17,
+          "word": "שֶׁנִּזְכַּר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ש/זכר",
+              "morph": "HTr/VNp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/זכר",
+              "morph": "HTr/VNp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-100",
+      "decision": "convention",
+      "note": "כיצד / אימתי sind interrogative Adverbien. Adverb versus Interrogativkategorie ist die maßgebliche Konvention; אמתי / אימתי ist zusätzlich belegte Schreibvariation.",
+      "sources": [
+        "Jastrow 25863, כיצד, how / in what manner; 23986–23987, אימתי, when."
+      ],
+      "positions": [
+        {
+          "ref": "8:7",
+          "token": 19,
+          "word": "אֶמָּתַי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אימתי",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אימתי",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-101",
+      "decision": "convention",
+      "note": "מעה / מעי sind gemeinsam belegte Wörterbuchköpfe für Eingeweide. Plural Constructus bleibt erhalten; Suffix nicht separat bestätigt.",
+      "sources": [
+        "Jastrow 20273, מעה / מעי, masculine bowels, lists מעיו; 20364 cross-reference."
+      ],
+      "positions": [
+        {
+          "ref": "8:7",
+          "token": 26,
+          "word": "בְּמֵעָיו",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ב/מעי",
+              "morph": "HR/Ncmpc/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/מעי",
+              "morph": "HR/Ncmpc/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-102",
+      "decision": "retain-supported",
+      "note": "את mit Suffix kann demonstrativ gebraucht werden. באותה שעה und אותו הכוס sind hier Bestimmungen eines Nomens, keine vom transitiven Verb geforderten Objekte; die demonstrative Analyse bleibt erhalten.",
+      "sources": [
+        "Segal §75, p.42: demonstrative את, including forms with pronominal suffixes.",
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "8:8",
+          "token": 9,
+          "word": "אוֹתוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "אותו",
+              "morph": "HPdxms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אותו",
+              "morph": "HPdxms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-103",
+      "decision": "retain-supported",
+      "note": "ישראל bezeichnet den israelitischen Sprecher/Angehörigen, keine adverbiale Art und Weise. Der nominale/Eigenname-Kandidat bleibt; Ma’agarim markiert an dieser Stelle ausdrücklich שם ייחוס.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "8:8",
+          "token": 36,
+          "word": "יִשְׂרָאֵל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ישראל",
+              "morph": "HNp"
+            },
+            {
+              "lemma": "יִשְׂרָאֵל",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ישראל",
+              "morph": "HNp"
+            },
+            {
+              "lemma": "יִשְׂרָאֵל",
+              "morph": "HNp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-104",
+      "decision": "unresolved",
+      "note": "ארץ wird bei Levy als Common Gender geführt; Segal beschreibt Ländernamen als feminin. „Unser Land“ liefert hier keinen sichtbaren Kongruenzbeweis für eine engere lexikalische Genusklasse. Der feminine Kandidat bleibt vorläufig, die Generalisierung gegenüber der Referenz ist nicht entschieden.",
+      "sources": [
+        "Levy 2132, ארץ, common gender.",
+        "Segal §367(iii), p.178, countries/towns feminine."
+      ],
+      "positions": [
+        {
+          "ref": "9:1",
+          "token": 24,
+          "word": "מֵאַרְצֵנוּ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "מן/ארץ",
+              "morph": "HR/Ncfsc/Sp1cp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מן/ארץ",
+              "morph": "HR/Ncfsc/Sp1cp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-105",
+      "decision": "convention",
+      "note": "כח / כוח ist Defektiv-/Vollschreibung von Kraft. Nominalstamm und gelesene Flexion sind gleich; der nicht gezeigte Suffix-Tag wird nicht ergänzt.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass).",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "9:2",
+          "token": 14,
+          "word": "שֶׁכּחוֹ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ש/כוח",
+              "morph": "HTr/Ncmsc/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ש/כוח",
+              "morph": "HTr/Ncmsc/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-106",
+      "decision": "convention",
+      "note": "מלא „voll“ kann als statives Partizip oder Adjektiv beschrieben werden. Die Formenklasse ist überlappend; die maskuline Singularform bleibt dieselbe.",
+      "sources": [
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "9:2",
+          "token": 15,
+          "word": "מָלֵא",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מלא",
+              "morph": "HAamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מלא",
+              "morph": "HAamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-107",
+      "decision": "corrected",
+      "note": "In עושה בראשית ist בראשית das lexikalisierte kosmologische Nomen „Schöpfung“. Die freie Präpositionszerlegung ב/ראשית wurde entfernt. Ein Common-Noun-Kandidat mit unbestimmtem Genus ersetzt die falsche Präpositionskette; Referenz-Eigenname bleibt eine eigene Klassifikation.",
+      "sources": [
+        "Jastrow 28318, בראשית, cosmological term creation / primeval period / Nature / Universe."
+      ],
+      "positions": [
+        {
+          "ref": "9:2",
+          "token": 31,
+          "word": "בְרֵאשִׁית",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/ראשית",
+              "morph": "HR/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "בראשית",
+              "morph": "HNcxsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-108",
+      "decision": "unresolved",
+      "note": "Das Suffix an רואהו ist semantisch Objekt eines Partizips. Grammatiken belegen dessen nominalen und verbalen Charakter, aber keine eindeutige Statusentscheidung speziell für diese Form im geprüften Material. Absolute bleibt Kandidat; die referenzseitige Constructus-Konvention und der unsichtbare Suffix-Tag bleiben offen.",
+      "sources": [
+        "Pérez Fernández Unit 19.8, p.133; Segal §§337–338, p.162: nominal/verbal participles and construct use.",
+        "Pérez Fernández Unit 1.5, pp.18–19: personal object suffixes and participles."
+      ],
+      "positions": [
+        {
+          "ref": "9:2",
+          "token": 47,
+          "word": "רוֹאֶהוּ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "ראה",
+              "morph": "HVqrmsa/Sp3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ראה",
+              "morph": "HVqrmsa/Sp3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-109",
+      "decision": "convention",
+      "note": "דיין gegenüber דין ist die Plene-/Defektivzitierung des durch die Quellvokale דַּיַּן erkennbaren Richters. Kein Wechsel zum anders vokalisierten Abstraktum דין „Recht“. Constructus „Richter der Wahrheit“ bleibt erhalten.",
+      "sources": [
+        "Jastrow 4347, דיין / דיין, judge; contrast 4390 דין, law."
+      ],
+      "positions": [
+        {
+          "ref": "9:2",
+          "token": 65,
+          "word": "דַּיַּן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "דיין",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "דיין",
+              "morph": "HNcmsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-110",
+      "decision": "retain-supported",
+      "note": "In לזמן הזה ist הזה ein attributives Demonstrativum. Es gibt kein Genitivnomen; deshalb bleibt זמן absolut, auch wenn die Vokalform keinen eigenen Statusunterschied zeigt.",
+      "sources": [
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state.",
+        "Pérez Fernández Unit 2, demonstratives, and Unit 13.3, adjective agreement."
+      ],
+      "positions": [
+        {
+          "ref": "9:3",
+          "token": 10,
+          "word": "לִזְמַן",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/זמן",
+              "morph": "HR/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/זמן",
+              "morph": "HR/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-111",
+      "decision": "convention",
+      "note": "הרעה ist substantivierte Eigenschaft bzw. abstraktes Nomen. רע als Basis und רעה als feminines Nomen sind belegbare Beschreibungsebenen; vorhandene Alternativen bleiben sichtbar.",
+      "sources": [
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "9:3",
+          "token": 14,
+          "word": "הָרָעָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/רע",
+              "morph": "HTd/Aafsa"
+            },
+            {
+              "lemma": "ה/רָעָה",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/רע",
+              "morph": "HTd/Aafsa"
+            },
+            {
+              "lemma": "ה/רָעָה",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 22,
+          "word": "הָרָעָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/רע",
+              "morph": "HTd/Aafsa"
+            },
+            {
+              "lemma": "ה/רָעָה",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/רע",
+              "morph": "HTd/Aafsa"
+            },
+            {
+              "lemma": "ה/רָעָה",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 4,
+          "word": "הָרָעָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ה/רע",
+              "morph": "HTd/Aafsa"
+            },
+            {
+              "lemma": "ה/רָעָה",
+              "morph": "HTd/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ה/רע",
+              "morph": "HTd/Aafsa"
+            },
+            {
+              "lemma": "ה/רָעָה",
+              "morph": "HTd/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-112",
+      "decision": "convention",
+      "note": "תפלה / תפילה ist Voll-/Defektivschreibung von Gebet; der feminine Singular Constructus תפילת ist unverändert.",
+      "sources": [
+        "Jastrow 24281, תפלה I, feminine prayer; Ma’agarim תפלה."
+      ],
+      "positions": [
+        {
+          "ref": "9:3",
+          "token": 27,
+          "word": "תְפִלַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "תפילה",
+              "morph": "HNcfsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "תפילה",
+              "morph": "HNcfsc"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 41,
+          "word": "תְפִלַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "תפילה",
+              "morph": "HNcfsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "תפילה",
+              "morph": "HNcfsc"
+            }
+          ]
+        },
+        {
+          "ref": "9:3",
+          "token": 60,
+          "word": "תְפִלַּת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "תפילה",
+              "morph": "HNcfsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "תפילה",
+              "morph": "HNcfsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-113",
+      "decision": "convention",
+      "note": "צוחה / צווחה ist Schreibvariation des Ruf-/Schreinomens. Jastrow führt volle und gekürzte Pluralschreibung; kein Unterschied im Genus/Numerus.",
+      "sources": [
+        "Jastrow 17635, צווחה / ציחה, feminine cry, plurals צווחות / צוח׳; 17588 cross-reference."
+      ],
+      "positions": [
+        {
+          "ref": "9:3",
+          "token": 48,
+          "word": "צְוָחוֹת",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "צווחה",
+              "morph": "HNcfpa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "צווחה",
+              "morph": "HNcfpa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-114",
+      "decision": "unresolved",
+      "note": "כרך ist bei Jastrow gemeinsamen Genus und auch maskulin mit גדול belegt. Der Präpositionsbeleg לכרך selbst hat keinen Kongruenzindikator. Der maskuline Kandidat bleibt vorläufig, ohne den Common-Gender-Unterschied als erledigt auszugeben.",
+      "sources": [
+        "Jastrow 16294, כרך, common gender city, with כרך גדול."
+      ],
+      "positions": [
+        {
+          "ref": "9:4",
+          "token": 2,
+          "word": "לִכְרַךְ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/כרך",
+              "morph": "HR/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/כרך",
+              "morph": "HR/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-115",
+      "decision": "convention",
+      "note": "עזי / עזאי sind hier die Schreibvarianten desselben Personennamens. Ma’agarim führt die Quelle עזי unter עזאי; keine Textkorrektur.",
+      "sources": [
+        "Ma’agarim, Historical Dictionary Project, Kaufmann A50, live word-details inspection 2026-11-26; see maagarim-review.md (not a fresh lookup in this pass)."
+      ],
+      "positions": [
+        {
+          "ref": "9:4",
+          "token": 10,
+          "word": "עַזַּי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "עזי",
+              "morph": "HNp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "עזי",
+              "morph": "HNp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-116",
+      "decision": "convention",
+      "note": "לעתיד לבא ist eine substantivierte adjektivische Zukunftsbezeichnung. Jastrow belegt ausdrücklich העתיד לבא. Der Artikel ist mit der Quellvokalisation vereinbar; Nomen-/Adjektivtag beschreibt unterschiedliche Ebenen.",
+      "sources": [
+        "Jastrow 21013, עתיד, explicitly העתיד לבא the future.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained."
+      ],
+      "positions": [
+        {
+          "ref": "9:4",
+          "token": 21,
+          "word": "לֶעָתִיד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ל/עתיד",
+              "morph": "HRd/Aamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ל/עתיד",
+              "morph": "HRd/Aamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-117",
+      "decision": "convention",
+      "note": "צריך / חייב werden als prädikative Adjektive geführt; das Referenznomen ist eine andere Einordnung der substantivisch verwendbaren Eigenschaft.",
+      "sources": [
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage.",
+        "Jastrow 9040, חייב, includes (he is) bound / guilty; Ma’agarim צריך."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 1,
+          "word": "חַיָּב",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "חייב",
+              "morph": "HAamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חייב",
+              "morph": "HAamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-118",
+      "decision": "retain-supported",
+      "note": "נפש ist als feminin lexikalisch belegt. Der Referenz-Common-Gender-Tag ist breiter; die feminin kodierte Quelle bleibt als Kandidat gestützt. Kein nachträglicher Suffixbeweis.",
+      "sources": [
+        "Levy 12206, נפש, feminine soul / person."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 18,
+          "word": "נַפְשְׁךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfsc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 30,
+          "word": "נַפְשְׁךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfsc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 35,
+          "word": "נַפְשֶׁךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "נפש",
+              "morph": "HNcfsc/Sp2ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-119",
+      "decision": "convention",
+      "note": "מאדך wird im Verszitat und der folgenden Auslegung nominalisiert („deine Kraft/dein Vermögen“). Lexikalisch adverbiales מאד kann nominal mit Suffix verwendet werden; dadurch kein anderes Textwort. Suffix nicht separat bestätigt.",
+      "sources": [
+        "Jastrow 32036, מאד, m. much and adverb very, directly cites Berakhot 9:5.",
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 20,
+          "word": "מְאֹדֶךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "מאוד",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מאוד",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 37,
+          "word": "מְאֹדֶךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "מאוד",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מאוד",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 43,
+          "word": "מְאֹדֶךָ",
+          "unreadableReferenceFeatures": true,
+          "analysesBefore": [
+            {
+              "lemma": "מאוד",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מאוד",
+              "morph": "HNcmsc/Sp2ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-120",
+      "decision": "convention",
+      "note": "מדה / מידה ist ausdrücklich belegte Voll-/Defektivschreibung desselben femininen Maßnomens.",
+      "sources": [
+        "Jastrow 5226 and 6143, מדה / מידה."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 45,
+          "word": "מִדָּה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מידה",
+              "morph": "HNcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מידה",
+              "morph": "HNcfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-121",
+      "decision": "convention",
+      "note": "מדה / מידה ist ausdrücklich belegte Voll-/Defektivschreibung desselben femininen Maßnomens.",
+      "sources": [
+        "Jastrow 5226 and 6143, מדה / מידה."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 46,
+          "word": "וּמִדָּה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/מידה",
+              "morph": "HC/Ncfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/מידה",
+              "morph": "HC/Ncfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-122",
+      "decision": "retain-supported",
+      "note": "בכל ist hier selbständig („bei allem“), gefolgt von הוי מודה, nicht von einem genitivischen Nomen. Der bestimmte absolute Kandidat bleibt grammatisch begründet.",
+      "sources": [
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 50,
+          "word": "בַּכֹּל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/ה/כל",
+              "morph": "HR/Td/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/ה/כל",
+              "morph": "HR/Td/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-123",
+      "decision": "retain-supported",
+      "note": "הוי ist der erhaltene Imperativ „sei“ von היה/הוה; das anlautende ה wird nicht allein deshalb als Hifil-Präfix klassifiziert.",
+      "sources": [
+        "Pérez Fernández Unit 21.4–8, pp.151–152; Jastrow 30177, הוי / הוה / היה: imperative be."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 51,
+          "word": "הֱוֵי",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "היה",
+              "morph": "HVqv2ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "היה",
+              "morph": "HVqv2ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-124",
+      "decision": "convention",
+      "note": "מאד / מאוד ist Schreibvariation des Adverbs „sehr“. Diese beiden selbständigen Adverbvorkommen werden von den suffigierten Nominalverwendungen getrennt gehalten.",
+      "sources": [
+        "Jastrow 32036, מאד, directly cites repeated מאד in Berakhot 9:5."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 55,
+          "word": "מְאֹד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מאוד",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מאוד",
+              "morph": "HD"
+            }
+          ]
+        },
+        {
+          "ref": "9:5",
+          "token": 56,
+          "word": "מְאֹד",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מאוד",
+              "morph": "HD"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מאוד",
+              "morph": "HD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-125",
+      "decision": "convention",
+      "note": "קפנדריא / קפנדריה sind Alef-/He-Schreibungen desselben femininen lateinischen Lehnworts für Abkürzungsweg. Jastrow zitiert die konkrete Tempelberg-Stelle.",
+      "sources": [
+        "Jastrow 14780, קפנדריא, feminine, directly cites Berakhot 9:5."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 83,
+          "word": "קַפַּנְדַּרְיָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "קפנדריה",
+              "morph": "HNcfsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "קפנדריה",
+              "morph": "HNcfsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-126",
+      "decision": "convention",
+      "note": "קל in קל וחומר ist substantiviertes „das Leichtere“. Adjektivform gegenüber nominalem Gebrauch ist eine Kategorienkonvention.",
+      "sources": [
+        "Jastrow 17773, קל II, light / minor, explicitly refers קל וחומר.",
+        "Pérez Fernández Unit 13.2–4, pp.80–81; Unit 19.3A, p.130; Segal §374(viii), p.181: adjective, stative participle and substantive usage."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 85,
+          "word": "מִקַּל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מן/קל",
+              "morph": "HR/Aamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מן/קל",
+              "morph": "HR/Aamsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-127",
+      "decision": "unresolved",
+      "note": "Die Quelle vokalisiert חוֹתַם, passend zum Constructus des Nomens חותם. Segal zitiert für Berakhot 9:5 dagegen das partizipiale Pluralbild חותמי. Diese Lesarten-/Vokalisierungsfrage wird nicht durch Austausch zum Referenz-Partizip verdeckt; der nominale Kandidat bleibt vorläufig.",
+      "sources": [
+        "Jastrow 411, חותם, masculine seal; Segal §338, p.162, cites חותמי הברכות.",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 88,
+          "word": "חוֹתַם",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "חותם",
+              "morph": "HNcmsc"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "חותם",
+              "morph": "HNcmsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-128",
+      "decision": "convention",
+      "note": "Redupliziertes Lemma דקדק bzw. קלקל gegenüber verkürzter Wurzelbasis דקק bzw. קלל. Pilpel und Flexion sind bereits kompatibel; die Wurzelkonvention wird separat bewahrt.",
+      "sources": [
+        "Segal §195, p.88: Pilpel דקדק / הרהר / קלקל and lexical/root conventions."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 95,
+          "word": "מִשֶּׁקִּלְקְלוּ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "מן/ש/קלקל",
+              "morph": "HR/Tr/Vlp3cp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "מן/ש/קלקל",
+              "morph": "HR/Tr/Vlp3cp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-129",
+      "decision": "retain-supported",
+      "note": "בשם ist hier „im Namen“ mit Artikel, vor einem anschließenden Belegzitat. Kein direktes Genitivnomen steht hinter שם; Absolute bleibt erhalten.",
+      "sources": [
+        "Pérez Fernández Unit 11.2–5, pp.69–70; Segal §§379–383, pp.185–188: noun relations and construct state.",
+        "Segal §383, p.188: construct before relative clause normally absent, with stereotyped exceptions.",
+        "Pérez Fernández Unit 3.2–7, pp.26–27: article and prepositional fusion; pointed source retained."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 116,
+          "word": "בַשֵּׁם",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ב/שם",
+              "morph": "HRd/Ncmsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ב/שם",
+              "morph": "HRd/Ncmsa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-130",
+      "decision": "convention",
+      "note": "הנה ist hinweisend („siehe“). Interjektion gegenüber deiktischer Partikel ist eine Wortartkonvention; die Konjunktion ו bleibt separat.",
+      "sources": [
+        "Jastrow 30266, הנה: behold / here is."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 118,
+          "word": "וְהִנֵּה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/הִנֵּה",
+              "morph": "HC/Tm"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/הִנֵּה",
+              "morph": "HC/Tm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-131",
+      "decision": "convention",
+      "note": "Die Quelle zitiert biblisches וַיֹּאמֶר/וַיֹּאמְרוּ. Safran unterscheidet Wayyiqtol von einfachem Imperfekt; die Referenz verwendet die gröbere Imperfektbezeichnung. Stamm, Person, Genus und Numerus passen.",
+      "sources": [
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage.",
+        "Pérez Fernández Units 16–18: verbal forms and temporal use; biblical quotation retained."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 123,
+          "word": "וַיֹּאמֶר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/אמר",
+              "morph": "HC/Vqw3ms"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/אמר",
+              "morph": "HC/Vqw3ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-132",
+      "decision": "convention",
+      "note": "Die Quelle zitiert biblisches וַיֹּאמֶר/וַיֹּאמְרוּ. Safran unterscheidet Wayyiqtol von einfachem Imperfekt; die Referenz verwendet die gröbere Imperfektbezeichnung. Stamm, Person, Genus und Numerus passen.",
+      "sources": [
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage.",
+        "Pérez Fernández Units 16–18: verbal forms and temporal use; biblical quotation retained."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 127,
+          "word": "וַיֹּאמְרוּ",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "ו/אמר",
+              "morph": "HC/Vqw3mp"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "ו/אמר",
+              "morph": "HC/Vqw3mp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-133",
+      "decision": "corrected",
+      "note": "גיבור החיל benötigt eine nominale Ergänzungsanalyse. Der bisher alleinige absolute Adjektivkandidat wurde durch zwei begründete Constructus-Lesarten ersetzt: Nomen „Held“ und adjektivischer Kopf „mächtig an“. Die Lemmaschreibung גיבור bleibt erhalten.",
+      "sources": [
+        "Jastrow 21754, גיבור, strong / mighty / hero; Segal §380(ii), pp.186–187, adjective/nominal heads in construct."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 134,
+          "word": "גִּבּוֹר",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "גיבור",
+              "morph": "HAamsa"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "גיבור",
+              "morph": "HNcmsc"
+            },
+            {
+              "lemma": "גיבור",
+              "morph": "HAamsc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-134",
+      "decision": "convention",
+      "note": "אַל ist die verneinende/prohibitive Partikel. Ein Referenz-Adverbtag ändert diese Funktion nicht; Gottesname אֵל und Präposition אֶל sind durch die Vokale ausgeschlossen.",
+      "sources": [
+        "Jastrow 12312, אל, not / no; Levy 936 describes adverbial not/no."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 137,
+          "word": "אַל",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "אַל",
+              "morph": "HTn"
+            },
+            {
+              "lemma": "אל",
+              "morph": "HTn"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "אַל",
+              "morph": "HTn"
+            },
+            {
+              "lemma": "אל",
+              "morph": "HTn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B226-135",
+      "decision": "retain-supported",
+      "note": "זָקְנָה ist in כי זקנה אמך die finite feminine Vergangenheitsform „deine Mutter ist alt geworden“. Die nominale Referenzlesung wird der Quellvokalisation und dem Satzbau nicht aufgezwungen.",
+      "sources": [
+        "Jastrow 22914, זקן I, to be old.",
+        "Pérez Fernández, Introduction 8.1–5, pp.10–11; Segal §77, pp.42–43: textual/vocalization witnesses and retained biblical/liturgical usage."
+      ],
+      "positions": [
+        {
+          "ref": "9:5",
+          "token": 140,
+          "word": "זָקְנָה",
+          "unreadableReferenceFeatures": false,
+          "analysesBefore": [
+            {
+              "lemma": "זקן",
+              "morph": "HVqp3fs"
+            }
+          ],
+          "analysesAfter": [
+            {
+              "lemma": "זקן",
+              "morph": "HVqp3fs"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

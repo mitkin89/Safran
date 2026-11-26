@@ -142,11 +142,65 @@ test('rabbinic dictionary gender is not inferred from the plural ending',()=>{
  }
 });
 
+test('rabbinic citation lemmas preserve plural forms and masculine bread',()=>{
+ const at=(c,m,t)=>D.forms[source.chapters[c-1][m-1][t-1]].analyses;
+ for(const t of [6,14])assert.deepEqual(at(2,7,t).map(a=>[a.lemma,a.morph]),[['תנחום','HNcmpa']]);
+ assert.deepEqual(at(4,4,9).map(a=>[a.lemma,a.morph]),[['תחנון','HNcmpa']]);
+ for(const [c,m,t]of [[6,1,39],[9,5,122]])assert.deepEqual(at(c,m,t).map(a=>[a.lemma,a.morph]),[['לחם','HNcmsa']]);
+ const summary=require('../tools/mishnah-morph/comparison-summary.json');
+ assert.equal(summary.remainingDifferences.reduce((n,g)=>n+g.tokens.length,0),summary.remainingFeatureOrConventionDifferences);
+ assert.equal(summary.perMishnah.reduce((n,m)=>n+m.compatible,0),summary.readableFeatureCompatible);
+});
+
+test('convention assessment keeps strict results and all other supplied features intact',()=>{
+ const {assess}=require('../tools/mishnah-morph/adjudicate-conventions.cjs');
+ const ref={module:'MISH-T',version:'4.3',title:D.title,rows:[
+  {ref:'1:4',token:19,word:'אֵינוּ',parts:[{type:'D',lemma:'אין'},{unreadable:true}]},
+  {ref:'5:1',token:8,word:'חֲסִידִים',parts:[{type:'N',subtype:'c',lemma:'חסיד',gender:'m',number:'p'}]}
+ ]};
+ const before=JSON.stringify(ref),out=assess(D,ref);
+ assert.equal(out.conventionAccounted,2);assert.equal(out.items[0].unreadableReferenceFeatures,true);
+ assert(compare(D,ref).every(r=>r.status==='different-or-unresolved'));assert.equal(JSON.stringify(ref),before);
+ const wrong=structuredClone(ref);wrong.rows[0].parts[1]={type:'S',subtype:'p',person:'1',gender:'c',number:'s'};wrong.rows[1].parts[0].gender='f';
+ assert.equal(assess(D,wrong).conventionAccounted,0);
+ const spelling={module:'MISH-T',version:'4.3',title:D.title,rows:[{ref:'6:7',token:4,word:'כַּתְּחִלָּה',parts:[{type:'R',lemma:'כ',article:true},{type:'N',subtype:'c',lemma:'תחלה',gender:'f',number:'s'}]}]};
+ assert.equal(assess(D,spelling).items[0].rule,'citation-lemma-variant');
+ spelling.rows[0].parts[1].lemma='unrelated';assert.equal(assess(D,spelling).conventionAccounted,0);
+});
+
+test('all 226 residual positions have explicit source-bound review decisions',()=>{
+ const review=require('../tools/mishnah-morph/full-review-226.json'),keys=new Set(),counts={};
+ assert.equal(review.sourceTextHash,source.textHash);assert.equal(review.baseline.positions,226);
+ assert.equal(review.decisions.length,135);
+ for(const d of review.decisions){
+  assert(['convention','retain-supported','corrected','unresolved'].includes(d.decision));
+  assert(d.note.length>40);assert(d.sources.length);assert(d.sources.every(s=>s.length>20));
+  for(const p of d.positions){
+   const key=`${p.ref}:${p.token}`;assert(!keys.has(key));keys.add(key);
+   const[c,m]=p.ref.split(':').map(Number),f=D.forms[source.chapters[c-1][m-1][p.token-1]];
+   assert.equal(p.word,f.word,key);assert.deepEqual(p.analysesAfter,f.analyses.map(({lemma,morph})=>({lemma,morph})),key);
+   counts[d.decision]=(counts[d.decision]||0)+1;
+  }
+ }
+ assert.equal(keys.size,226);assert.deepEqual(counts,review.counts);assert.equal(counts.unresolved,10);
+ const conventions=require('../tools/mishnah-morph/convention-assessment.json');
+ for(const p of conventions.items)assert(!keys.has(`${p.ref}:${p.token}`),'previous convention positions must not be double-counted');
+ assert.equal(keys.size+conventions.items.length,review.baseline.strictDifferences);
+ const at=(c,m,t)=>D.forms[source.chapters[c-1][m-1][t-1]].analyses;
+ for(const t of [35,37,41,46,51])assert.deepEqual(at(1,5,t).map(a=>[a.lemma,a.morph]),[['חיים','HNcmpc/Sp2ms']]);
+ assert.deepEqual(at(9,2,31).map(a=>[a.lemma,a.morph]),[['בראשית','HNcxsa']]);
+ assert.deepEqual(at(9,5,134).map(a=>a.morph),['HNcmsc','HAamsc']);
+});
+
 test('short meanings distinguish editorial prayer glosses and all biblical homonym meanings',()=>{
  const G=require('../mishnah-meanings');
  assert.match(G.lookup({lemma:'קרא',morph:'HVqrmpa'}).text,/lesen/);
  assert.equal(G.lookup({lemma:'שמע',morph:'HNcmsa'}).text,'Schema-Gebet');
  assert.match(G.lookup({lemma:'שמע',morph:'HVqv2ms'}).text,/hören/);
+ assert.match(G.lookup({lemma:'תנחום',morph:'HNcmpa'}).text,/Trost/);
+ assert.match(G.lookup({lemma:'תחנון',morph:'HNcmpa'}).text,/Bittgebet/);
+ assert.match(G.lookup({lemma:'חיים',morph:'HNcmpc/Sp2ms'}).text,/Leben/);
+ assert.match(G.lookup({lemma:'בראשית',morph:'HNcxsa'}).text,/Schöpfung/);
  const dictionary={a:['עֵין','spring','Quelle'],b:['עַיִן','eye','Auge']};
  const g=G.lookup({lemma:'מן/עין',morph:'HR/Ncbsc'},dictionary);assert.equal(g.source,'biblical');assert.deepEqual(g.alternatives,['Quelle','Auge']);
  assert.equal(G.lookup({lemma:'unmatched',morph:'HNcmsa'},dictionary),null);

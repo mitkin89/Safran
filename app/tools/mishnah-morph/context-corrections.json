@@ -2399,5 +2399,180 @@
         "note": "בית steht im Ortsnamen בית לחם im Constructus."
       }
     ]
+  },
+  {
+    "ref": "6:1",
+    "token": 39,
+    "word": "לֶחֶם",
+    "analyses": [
+      {
+        "lemma": "לחם",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "bread-gender"
+        ],
+        "method": "context",
+        "note": "לֶחֶם „Brot/Speise“: maskulin nach Jastrow Artikel 5467 und Levy Artikel 9327; nicht mit dem aramäischen לחם oder dem Verb לחם vermischen."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 122,
+    "word": "לֶחֶם",
+    "analyses": [
+      {
+        "lemma": "לחם",
+        "morph": "HNcmsa",
+        "rules": [
+          "nominal",
+          "bread-gender"
+        ],
+        "method": "context",
+        "note": "לֶחֶם „Brot/Speise“: maskulin nach Jastrow Artikel 5467 und Levy Artikel 9327; nicht mit dem aramäischen לחם oder dem Verb לחם vermischen."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 35,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 37,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 41,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 46,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "1:5",
+    "token": 51,
+    "word": "חַיֶּיךָ",
+    "analyses": [
+      {
+        "lemma": "חיים",
+        "morph": "HNcmpc/Sp2ms",
+        "rules": [
+          "nominal",
+          "construct",
+          "suffix",
+          "life-lemma"
+        ],
+        "method": "context",
+        "note": "Hier „dein Leben“: nominales Plurallemma חיים nach Jastrow 8609; von חי „lebend“ als Eigenschaft unterscheiden. Suffixform bleibt quellgebunden."
+      }
+    ]
+  },
+  {
+    "ref": "9:2",
+    "token": 31,
+    "word": "בְרֵאשִׁית",
+    "analyses": [
+      {
+        "lemma": "בראשית",
+        "morph": "HNcxsa",
+        "rules": [
+          "nominal",
+          "creation-noun"
+        ],
+        "method": "context",
+        "note": "In עושה בראשית ist בראשית das lexikalisierte kosmologische Nomen „Schöpfung“ (Jastrow 28318), keine freie Präposition ב plus ראשית. Genus bleibt unspezifiziert."
+      }
+    ]
+  },
+  {
+    "ref": "9:5",
+    "token": 134,
+    "word": "גִּבּוֹר",
+    "analyses": [
+      {
+        "lemma": "גיבור",
+        "morph": "HNcmsc",
+        "rules": [
+          "nominal",
+          "construct",
+          "hero-construct"
+        ],
+        "method": "context",
+        "note": "גיבור החיל als nominales „Held/Krieger von Tapferkeit“: Jastrow 21754; Genitivverbindung nach Segal §380."
+      },
+      {
+        "lemma": "גיבור",
+        "morph": "HAamsc",
+        "rules": [
+          "nominal",
+          "construct",
+          "hero-construct"
+        ],
+        "method": "context",
+        "note": "Alternativ adjektivischer Kopf mit nominaler Ergänzung („mächtig an Tapferkeit“); Segal §380(ii) belegt Adjektive im Constructus. Beide Lesarten bleiben sichtbar."
+      }
+    ]
   }
 ]

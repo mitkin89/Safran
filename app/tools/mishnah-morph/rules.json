@@ -106,5 +106,40 @@
       "Krauss, Griechische und lateinische Lehnwörter Teil II, Artikel קרון I und אסדא (Safran-Wörterbuch d701423861c6, Artikel 5947 und 1048)",
       "Pérez Fernández, Unit 10.8–10, S.64–65: Genuswandel und lexikalische Bedeutung"
     ]
+  },
+  "rabbinic-lemma": {
+    "label": "Rabbinisches Wörterbuchlemma",
+    "refs": [
+      "Levy, Wörterbuch Bd.1–4, Artikel תנחום (Safran e8d290b744f6, Artikel 19255)",
+      "Jastrow, Artikel תחנון / תחנונים (Safran d895bc1c727b, Artikel 745)",
+      "Pérez Fernández, Unit 10.5A, S.63: Pluralvarianten ־ים und ־ין"
+    ]
+  },
+  "bread-gender": {
+    "label": "Genus von לֶחֶם",
+    "refs": [
+      "Jastrow, Artikel לֶחֶם, m. (Safran d895bc1c727b, Artikel 5467)",
+      "Levy, Wörterbuch Bd.1–4, Artikel לֶחֶם, m. (Safran e8d290b744f6, Artikel 9327)"
+    ]
+  },
+  "life-lemma": {
+    "label": "Nominales Plurallemma חיים",
+    "refs": [
+      "Jastrow, חיים, m. pl. life, mit חייך (Safran d895bc1c727b, Artikel 8609)",
+      "Pérez Fernández, Unit 11.2–5, S.69–70: Constructus und Suffixe"
+    ]
+  },
+  "creation-noun": {
+    "label": "Lexikalisiertes Schöpfungsnomen",
+    "refs": [
+      "Jastrow, בראשית: cosmological term, creation / primeval period / Nature (Safran d895bc1c727b, Artikel 28318)"
+    ]
+  },
+  "hero-construct": {
+    "label": "Nominaler oder adjektivischer Constructus",
+    "refs": [
+      "Jastrow, גיבור: strong / mighty / hero (Safran d895bc1c727b, Artikel 21754)",
+      "Segal §380(ii), S.186–187: substantivierte Partizipien und Adjektive im Constructus"
+    ]
   }
 }

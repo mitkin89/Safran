@@ -1,7 +1,7 @@
 {
   "scope": "All user-provided readable Accordance MISH-T 4.3 screenshots of Mishnah Berakhot chapters 1–9; supplied features compared at all source positions",
   "wordPositions": 2159,
-  "readableFeatureCompatible": 1877,
+  "readableFeatureCompatible": 1885,
   "positionsWithUnreadableSuffixTags": 205,
   "isAccuracyScore": false,
   "referenceFileDistributed": false,
@@ -55,8 +55,8 @@
       "ref": "1:5",
       "wordPositions": 55,
       "referenceRows": 55,
-      "compatible": 45,
-      "featureOrConventionDifferences": 9,
+      "compatible": 50,
+      "featureOrConventionDifferences": 4,
       "textVariants": 1,
       "sourceOnlyPositions": 0,
       "positionsWithUnreadableSuffixTags": 7,
@@ -253,8 +253,8 @@
       "ref": "4:4",
       "wordPositions": 38,
       "referenceRows": 38,
-      "compatible": 31,
-      "featureOrConventionDifferences": 6,
+      "compatible": 32,
+      "featureOrConventionDifferences": 5,
       "textVariants": 1,
       "sourceOnlyPositions": 0,
       "positionsWithUnreadableSuffixTags": 5,
@@ -352,8 +352,8 @@
       "ref": "6:1",
       "wordPositions": 54,
       "referenceRows": 54,
-      "compatible": 50,
-      "featureOrConventionDifferences": 4,
+      "compatible": 51,
+      "featureOrConventionDifferences": 3,
       "textVariants": 0,
       "sourceOnlyPositions": 0,
       "positionsWithUnreadableSuffixTags": 0,
@@ -627,8 +627,8 @@
       "ref": "9:5",
       "wordPositions": 154,
       "referenceRows": 154,
-      "compatible": 122,
-      "featureOrConventionDifferences": 32,
+      "compatible": 123,
+      "featureOrConventionDifferences": 31,
       "textVariants": 0,
       "sourceOnlyPositions": 0,
       "positionsWithUnreadableSuffixTags": 27,
@@ -768,25 +768,6 @@
       ],
       "type": "numeral-gender-convention",
       "note": "שבעים as common gender versus reference masculine; no unsupported gender restriction introduced."
-    },
-    {
-      "ref": "1:5",
-      "tokens": [
-        35,
-        37,
-        41,
-        46,
-        51
-      ],
-      "words": [
-        "חַיֶּיךָ",
-        "חַיֶּיךָ",
-        "חַיֶּיךָ",
-        "חַיֶּיךָ",
-        "חַיֶּיךָ"
-      ],
-      "type": "lemma-convention",
-      "note": "חי versus חיים; plural construct nominal features agree, suffix not separately shown."
     },
     {
       "ref": "2:2",
@@ -969,17 +950,6 @@
       ],
       "type": "word-class-convention",
       "note": "אין: negation particle versus adverb."
-    },
-    {
-      "ref": "2:7",
-      "tokens": [
-        14
-      ],
-      "words": [
-        "תַּנְחוּמִין"
-      ],
-      "type": "lemma-convention",
-      "note": "תנחומים versus תנחום."
     },
     {
       "ref": "2:8",
@@ -1299,17 +1269,6 @@
       ],
       "type": "word-class-convention",
       "note": "אין: negation particle versus adverb."
-    },
-    {
-      "ref": "4:4",
-      "tokens": [
-        9
-      ],
-      "words": [
-        "תַחֲנוּנִים"
-      ],
-      "type": "lemma-convention",
-      "note": "תחנונים versus תחנון."
     },
     {
       "ref": "4:4",
@@ -1703,17 +1662,6 @@
       ],
       "type": "nominal-gender-convention",
       "note": "פת feminine versus reference common gender."
-    },
-    {
-      "ref": "6:1",
-      "tokens": [
-        39
-      ],
-      "words": [
-        "לֶחֶם"
-      ],
-      "type": "nominal-gender-convention",
-      "note": "לחם common gender versus reference masculine."
     },
     {
       "ref": "6:3",
@@ -2373,7 +2321,6 @@
         98,
         116,
         118,
-        122,
         123,
         125,
         127,
@@ -2405,7 +2352,6 @@
         "אֵין",
         "בַשֵּׁם",
         "וְהִנֵּה",
-        "לֶחֶם",
         "וַיֹּאמֶר",
         "יי",
         "וַיֹּאמְרוּ",
@@ -2438,13 +2384,24 @@
       ],
       "type": "vocalization-versus-reference-classification",
       "note": "זקנה is retained as Qal perfect 3fs from pointed זָקְנָה and subject אמך, versus a nominal reference reading."
+    },
+    {
+      "ref": "2:7",
+      "tokens": [
+        6
+      ],
+      "words": [
+        "תַּנְחוּמִים"
+      ],
+      "type": "lemma-convention",
+      "note": "Both ־ים/־ין forms now use dictionary citation lemma תנחום (Levy 19255). Reference uses תנחומים here but תנחום at token 14; reference convention is not copied inconsistently."
     }
   ],
-  "corrections": "140 exact context-bound refinements plus lexical Pilpel דקדק, nominal מים lemma normalization and a known pointed cardinal שש that blocks false prefix splitting. Full comparison still retains candidates and unresolved alternatives.",
+  "corrections": "149 exact context-bound refinements plus lexical Pilpel דקדק, nominal מים lemma normalization and a known pointed cardinal שש that blocks false prefix splitting. Full comparison still retains candidates and unresolved alternatives. Local rabbinic dictionary review supplies feminine תפילין/קרון/אסדא, masculine לחם, and singular citation lemmas תנחום/תחנון. Full residual review corrects חיים, lexicalized בראשית and the construct alternatives for גיבור החיל.",
   "limitations": [
     "All source positions are examined against the supplied screenshots, but only visible supplied features are compared; this is not a full accuracy measure.",
     "205 positions lack separately visible reference suffix tags; these suffixes are not individually externally confirmed. The three מצותן occurrences retain form-level 3mp evidence only.",
-    "276 differences include lemma/root conventions, word-class and segmentation policies, vocalization conflicts and unresolved questions; they are not 276 demonstrated errors.",
+    "268 differences include lemma/root conventions, word-class and segmentation policies, vocalization conflicts and unresolved questions; they are not 276 demonstrated errors.",
     "One source-only word and five wording variants are tracked separately from morphology. Duplicated screenshot 8:8 is counted once.",
     "The commercial reference transcription is kept outside the repository; public files contain only findings and independently authored analyses."
   ],
@@ -2487,7 +2444,7 @@
   },
   "grammaticallyComparablePositions": 2153,
   "textVariantPositions": 5,
-  "remainingFeatureOrConventionDifferences": 276,
+  "remainingFeatureOrConventionDifferences": 268,
   "textDifferences": [
     {
       "ref": "1:5",
@@ -2543,5 +2500,31 @@
   "referenceRows": 2158,
   "sourceOnlyPositions": 1,
   "completeUnits": 57,
-  "partialUnits": []
+  "partialUnits": [],
+  "previousComparison": {
+    "commit": "46455e5",
+    "compatible": 1877,
+    "differences": 276,
+    "note": "Original full screenshot pass; current figures include subsequent dictionary adjudication. No new external tags were inferred."
+  },
+  "conventionAssessment": {
+    "report": "convention-assessment.json",
+    "strictDifferencesUnchanged": 268,
+    "accountedForBySelectedConventions": 47,
+    "otherStrictDifferences": 221,
+    "scope": "Specified readable features only; absent suffix features remain unconfirmed; not an accuracy score"
+  },
+  "residualReview": {
+    "report": "full-review-226.json",
+    "humanReadableReport": "full-review-226.md",
+    "baselineStrictDifferences": 273,
+    "previousConventions": 47,
+    "reviewedPositions": 226,
+    "conventions": 167,
+    "retainedWithSupport": 42,
+    "correctedPositions": 7,
+    "unresolvedPositions": 10,
+    "allBaselinePositionsAccountedFor": true,
+    "note": "Five corrected positions now pass strict comparison; two corrected positions still differ by annotation convention. Other strict differences are reviewed, not automatically errors."
+  }
 }

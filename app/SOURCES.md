@@ -16,10 +16,10 @@ additional lexical hints, not transferred contextually reviewed Mishnah tags.
 Source text and vowels remain unchanged, with alternative candidates retained.
 Coverage is not an accuracy measure. Readable user-provided Accordance MISH-T
 4.3 screenshots were compared across all 57 Berakhot units (chapters 1–9):
-2,159 source positions examined, 2,153 grammatically comparable, 1,877
-compatible candidates, 276 unresolved feature or convention differences,
+2,159 source positions examined, 2,153 grammatically comparable, 1,885
+compatible candidates, 268 strict feature or convention differences,
 five wording variants and one source-only word. This is not an accuracy score
-and the differences are not automatically errors. Four suffix positions were
+and the differences are not automatically errors. A separate assessment accounts for 47 through documented class/headword conventions; The subsequent review covers all 226 residual positions: 167 conventions, 42 retained with support, seven corrected and ten unresolved. Four suffix positions were
 confirmed by word details; 205 lack separately visible suffix tags, including
 three מצותן occurrences with form-level 3mp evidence. No Accordance module or
 private reference transcription is distributed. Card meanings are original

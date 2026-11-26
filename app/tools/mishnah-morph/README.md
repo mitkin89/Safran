@@ -5,7 +5,7 @@ Mischna Berakhot** in der ausdrücklich benannten, vokalisierten Be’eri-Ausgab
 nach Kaufmann A50. Die übrigen Kaufmann-Traktate erhalten keine Morphologie.
 
 2.159 laufende Wortpositionen sind an 941 normalisierte Wortformen gebunden.
-1.644 Positionen haben einen Analysekandidaten, 515 mehrere Alternativen.
+1.643 Positionen haben einen Analysekandidaten, 516 mehrere Alternativen.
 Die 941 Schriftformen verweisen auf 968 mögliche Analysebestände, da einzelne
 Vorkommen inzwischen kontextbezogen unterschieden werden.
 Diese Zahlen bezeichnen **Abdeckung, keine Genauigkeit**. Kein Datensatz wird
@@ -72,9 +72,9 @@ Be’eri-Lesefassung. Eine gemeinsame Stellenzahl allein genügt daher nicht.
 Die lesbaren Screenshots decken **Berakhot Kapitel 1–9 vollständig** ab:
 57 Mischnajot und alle 2.159 Quellwortpositionen sind untersucht. Ein בין
 steht nur bei Be’eri, fünf Stellen haben abweichenden Wortlaut. Von den 2.153
-grammatisch vergleichbaren Positionen besitzen 1.877 einen Kandidaten, der zu
-den sichtbaren Referenzmerkmalen passt. 276 Unterschiede bleiben zur Klärung
-verzeichnet. Dies sind weder eine Genauigkeitsquote noch 276 nachgewiesene
+grammatisch vergleichbaren Positionen besitzen 1.885 einen Kandidaten, der zu
+den sichtbaren Referenzmerkmalen passt. 268 strenge Unterschiede sind
+verzeichnet. Dies sind weder eine Genauigkeitsquote noch 268 nachgewiesene
 Fehler: Lemma-, Wurzel-, Wortart- und Segmentierungskonventionen sowie
 widersprechende Vokalisationen müssen gesondert bewertet werden.
 
@@ -85,7 +85,7 @@ sind nicht einzeln extern bestätigt. Wie vereinbart bleiben die drei
 8:8 zählen einmal. `comparison-summary.json` dokumentiert alle 57 Einheiten
 und die offenen Unterschiede; der kommerzielle Referenzexport bleibt privat.
 
-Die eigenen Review-Dateien erklären die Änderungen. Es gibt 140 genau
+Die eigenen Review-Dateien erklären die Änderungen. Es gibt 149 genau
 positions- und quellwortgebundene Kontextverfeinerungen. Lexikalische Regeln
 korrigieren Pilpel דקדק, das Plurallemma מים und die bekannte Zahl שִׁשָּׁה
 (statt falscher ש/ש/יהוה-Zerlegung). Bei gleichen Vokalen und eindeutigen
@@ -106,6 +106,31 @@ bei פת und verschiedene Vokalisierungen von שגרה bleiben ausdrücklich erf
 `maagarim-review.md` dokumentiert auch abweichende Abschnittsreihenfolge und
 Grenzen der dort sichtbaren Merkmale. Der ursprüngliche Accordance-Vergleich
 bleibt als eigener Prüfstand erhalten.
+
+## Bewertung von Konventionsunterschieden
+
+`convention-assessment.json` bewertet **47 der 268 aktuellen strengen Unterschiede**
+gesondert: 33 Negationspartikel-/Adverb-Tags bei אין, sechs ausgewählte
+Adjektiv-/Substantiv-Klassifikationen und acht belegte Lemma-/Schreibvarianten.
+Dieser begrenzte Konventionstest erklärt 221 der aktuellen strengen Unterschiede
+nicht. Deren vollständige Prüfung ist im folgenden Reststellen-Review dokumentiert.
+Die Bewertung ändert weder die strenge Vergleichszahl noch die Wortanalyse.
+Sie bestätigt nur die angegebenen lesbaren Merkmale: fehlende Suffix-Tags
+bleiben unbestätigt, und ein passender Kandidat macht Alternativen nicht falsch.
+
+Die Negationspartikel ist bei Pérez Fernández 1.6, S.19, ausdrücklich belegt;
+Segal §374(viii), S.181, erklärt substantivierte Adjektive/Partizipien.
+Lemma-Aliasse gelten nur an den einzeln benannten, lexikalisch geprüften
+Positionen. Es gibt keine pauschale Gleichsetzung aller Nomina und Adjektive
+und keine globale Entfernung von Matres lectionis. Genus, Numerus, Status,
+Stamm und lesbare Suffixmerkmale müssen nach der begrenzten Zuordnung
+weiterhin passen. Die Regressionstests prüfen auch widersprechende Merkmale.
+
+Reproduzieren mit der privaten, ausgerichteten Referenz:
+
+```sh
+node tools/mishnah-morph/adjudicate-conventions.cjs /path/to/private-aligned-reference.json
+```
 
 Die Wortkarten zeigen zusätzliche kurze Bedeutungen. Eigene Glossen sind
 redaktionell gekennzeichnet; weitere Bedeutungen stammen aus den vorhandenen
@@ -154,3 +179,22 @@ Die Tests prüfen Textfingerprint, alle 57 Abschnitte und 2.159 Positionen,
 Vokalisation, unveränderte Quelltexte, Wörterbuch-Lemmata, beobachtete Formen,
 Alternativen, den offenen Analysefall, Verweislinks und Quellenabweichungen.
 Diese technischen Prüfungen ersetzen keine philologische Tag-für-Tag-Prüfung.
+
+## Vollständige Prüfung der 226 Reststellen
+
+`full-review-226.json` und `full-review-226.md` dokumentieren jede der 226
+Ausgangspositionen nach dem vorherigen 47-Stellen-Durchgang, gruppiert in
+135 explizit begründete Fälle: 167 Konventionsunterschiede, 42 beleggestützt
+beibehaltene Analysen, sieben korrigierte Positionen und zehn unentscheidbare
+Positionen. Kein Eintrag bekommt eine pauschale Standardentscheidung.
+
+Korrigiert sind fünf חיים-Lemmata, בראשית als lexikalisiertes Schöpfungsnomen
+und die nominale/adjektivische Constructus-Alternative bei גיבור החיל.
+Fünf Positionen passen dadurch zusätzlich zum strengen Referenzvergleich;
+dieser steht jetzt bei 1.885 kompatiblen Kandidaten und 268 Unterschieden.
+Die restlichen strengen Unterschiede sind damit geprüft, aber nicht automatisch
+Fehler oder vollständig extern bestätigte Wörter. Besonders die zehn offenen
+Lesarten-/Genus-/Statusfragen und fehlende Suffixangaben bleiben sichtbar.
+
+Die Regressionstests prüfen alle 226 eindeutigen Stellen, den Textfingerprint,
+die Vorher-/Nachher-Zuordnung und die Vollständigkeit der Entscheidungen.

@@ -1678,16 +1678,17 @@
     "word": "תַּנְחוּמִים",
     "analyses": [
       {
-        "lemma": "תנחומים",
+        "lemma": "תנחום",
         "morph": "HNcmpa",
         "rules": [
           "nominal",
-          "plural"
+          "plural",
+          "rabbinic-lemma"
         ],
         "method": "lexicon"
       }
     ],
-    "note": "Lexikalischer Plural „Trostbezeugungen“."
+    "note": "Plural zum Wörterbuchlemma תנחום; Levy Artikel 19255 zitiert Berakhot über Tabi. ־ים/־ין sind Pluralvarianten, keine verschiedenen Lemmata."
   },
   {
     "word": "תַלְמִידָיו",
@@ -1724,16 +1725,17 @@
     "word": "תַּנְחוּמִין",
     "analyses": [
       {
-        "lemma": "תנחומים",
+        "lemma": "תנחום",
         "morph": "HNcmpa",
         "rules": [
           "nominal",
-          "plural"
+          "plural",
+          "rabbinic-lemma"
         ],
         "method": "lexicon"
       }
     ],
-    "note": "ין-Variante desselben pluralischen Lexems."
+    "note": "Plural zum Wörterbuchlemma תנחום; Levy Artikel 19255 zitiert Berakhot über Tabi. ־ים/־ין sind Pluralvarianten, keine verschiedenen Lemmata."
   },
   {
     "word": "הָעֲבָדִים",
@@ -3105,16 +3107,17 @@
     "word": "תַחֲנוּנִים",
     "analyses": [
       {
-        "lemma": "תחנונים",
+        "lemma": "תחנון",
         "morph": "HNcmpa",
         "rules": [
           "nominal",
-          "plural"
+          "plural",
+          "rabbinic-lemma"
         ],
         "method": "lexicon"
       }
     ],
-    "note": "Lexikalischer Plural."
+    "note": "Plural zum Wörterbuchlemma תחנון; Jastrow Artikel 745 führt תחנון und תחנונים gemeinsam. Numerus des Textworts bleibt Plural."
   },
   {
     "word": "הוֹשַׁע",

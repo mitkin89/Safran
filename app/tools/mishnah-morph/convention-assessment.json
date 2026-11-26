@@ -1,0 +1,414 @@
+{
+  "scope": "Selected grammar-supported classification conventions in the strict differences",
+  "strictDifferences": 268,
+  "conventionAccounted": 47,
+  "otherStrictDifferences": 221,
+  "isAccuracyScore": false,
+  "referenceFileDistributed": false,
+  "rules": {
+    "negative-particle-class": {
+      "reason": "אין is retained as a negative particle rather than the reference adverb label.",
+      "sources": [
+        "Pérez Fernández, Unit 1.6, p.19 (PDF39)"
+      ]
+    },
+    "adjective-noun-class": {
+      "reason": "Adjectival/ordinal form versus noun use is an annotation-level distinction at the explicitly selected positions; other supplied features must still match.",
+      "sources": [
+        "Segal §374(viii), p.181 (PDF224)",
+        "Pérez Fernández, Unit 13.2–4, pp.80–81 (PDF100–101)",
+        "Jastrow, חסיד, entry 9536; Levy, סרבן, entry 13322"
+      ]
+    },
+    "citation-lemma-variant": {
+      "reason": "A specifically documented headword or spelling variant at an explicitly selected position; all other supplied features still have to match.",
+      "sources": [
+        "Jastrow 3641: אשמורה / אשמורת; directly cites Berakhot 1:1",
+        "Jastrow 24200, 24302, 24310: full/defective spellings and Hebrew adaptation of the same phylactery term",
+        "Jastrow 817 and 876: תחלה / תחילה",
+        "Jastrow 16173: pomegranate; plene source spelling retained",
+        "Ma’agarim, Berakhot 5:4, displayed combined entry הבטחה, אבטחה; live inspection 2026-11-26",
+        "Ma’agarim, Berakhot 5:5, surface דוסה under proper-name entry דוסא; live inspection 2026-11-26",
+        "Krauss, Lehnwörter II, entry 1048: אסדא; Kaufmann אסדה variant explicitly cited"
+      ]
+    }
+  },
+  "items": [
+    {
+      "ref": "1:1",
+      "token": 13,
+      "word": "הָאַשְׁמֹרֶת",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "1:4",
+      "token": 19,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "1:4",
+      "token": 23,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "1:4",
+      "token": 27,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "1:4",
+      "token": 33,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "2:2",
+      "token": 77,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "2:4",
+      "token": 9,
+      "word": "שֶּׁאֵינָן",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "2:5",
+      "token": 6,
+      "word": "הָרִאשׁוֹן",
+      "rule": "adjective-noun-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "2:5",
+      "token": 29,
+      "word": "הָרִאשׁוֹן",
+      "rule": "adjective-noun-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "2:5",
+      "token": 32,
+      "word": "אֵינִי",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "2:6",
+      "token": 3,
+      "word": "הָרִאשׁוֹן",
+      "rule": "adjective-noun-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "2:6",
+      "token": 15,
+      "word": "אֵינִי",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "2:7",
+      "token": 12,
+      "word": "שֶׁאֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "2:7",
+      "token": 19,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "2:8",
+      "token": 8,
+      "word": "הָרִאשׁוֹן",
+      "rule": "adjective-noun-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "3:1",
+      "token": 9,
+      "word": "הַתְּפִלִּין",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "3:1",
+      "token": 27,
+      "word": "שֶׁאֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "3:3",
+      "token": 8,
+      "word": "הַתְּפִלִּין",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "3:4",
+      "token": 5,
+      "word": "וְאֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "3:4",
+      "token": 15,
+      "word": "וְאֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "4:1",
+      "token": 23,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "4:4",
+      "token": 7,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "4:5",
+      "token": 7,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "4:5",
+      "token": 14,
+      "word": "אֵינוּ",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "4:6",
+      "token": 7,
+      "word": "בְאַסְדָּא",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "4:7",
+      "token": 6,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "5:1",
+      "token": 1,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "5:1",
+      "token": 8,
+      "word": "חֲסִידִים",
+      "rule": "adjective-noun-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "5:3",
+      "token": 25,
+      "word": "סָרְבָן",
+      "rule": "adjective-noun-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "5:4",
+      "token": 12,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "5:4",
+      "token": 22,
+      "word": "אַבְטָחָתוֹ",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "5:5",
+      "token": 22,
+      "word": "דּוֹסָה",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "6:3",
+      "token": 3,
+      "word": "שֶׁאֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "6:3",
+      "token": 29,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "6:6",
+      "token": 33,
+      "word": "שֶׁאֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "6:7",
+      "token": 4,
+      "word": "כַּתְּחִלָּה",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "6:8",
+      "token": 4,
+      "word": "וְרִמּוֹנִים",
+      "rule": "citation-lemma-variant",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "7:1",
+      "token": 40,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "7:2",
+      "token": 4,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "7:4",
+      "token": 4,
+      "word": "אֵינָן",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "7:4",
+      "token": 16,
+      "word": "אֵינָן",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": true
+    },
+    {
+      "ref": "7:5",
+      "token": 25,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "8:6",
+      "token": 1,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "8:6",
+      "token": 26,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "8:8",
+      "token": 6,
+      "word": "וְאֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "8:8",
+      "token": 38,
+      "word": "וְאֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    },
+    {
+      "ref": "9:5",
+      "token": 98,
+      "word": "אֵין",
+      "rule": "negative-particle-class",
+      "scope": "Specified readable features only; no suffix confirmation or fully reviewed token status",
+      "unreadableReferenceFeatures": false
+    }
+  ]
+}
