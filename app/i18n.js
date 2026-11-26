@@ -1248,6 +1248,8 @@
     "{} liest hier wohl „{}“": "{} probably reads “{}” here",
     "diese Wiedergabe ist bei dem gleich geschriebenen Wort deutlich häufiger.": "this rendering is far more common for the identically spelled word.",
     "Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.": "Counted are the places where the translation is aligned to this word alone (no other content word); the forms are grouped by their German base form, leading “und” and articles are dropped. Click a row to see the forms and the passages.",
+    "Samaritanus (Tal–Florentin): belegte Wortformen aus den eindeutigen Interlinear-Zuordnungen zum Westminster-Text.": "Samaritan Pentateuch (Tal–Florentin): attested word forms from Interlinear links to a single Westminster word.",
+    "Peschitta (ETCBC): belegte syrische Wortformen aus den Interlinear-Zuordnungen zum Westminster-Text.": "Peshitta (ETCBC): attested Syriac word forms from Interlinear links to the Westminster text.",
     "Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).": "Septuagint after the CATSS word-by-word alignment, Greek words as lemma (lxx-morph).",
     "Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0); nur die zwölf häufigsten Lexeme.": "Targum after the machine word alignment with the Westminster text (ETCBC Targum Corpus, CC BY-NC 4.0); only the twelve most frequent lexemes.",
     'Wiedergabe in den Targumim': 'Rendering in the Targumim',
