@@ -1,8 +1,18 @@
-# Mischna-Morphologie: Berakhot-Pilot
+# Mischna-Morphologie: Seder Seraim und Berakhot-Prüfstand
 
-Der Pilot gilt ausschließlich für die **neun Kapitel / 57 Mischnajot von
-Mischna Berakhot** in der ausdrücklich benannten, vokalisierten Be’eri-Ausgabe
-nach Kaufmann A50. Die übrigen Kaufmann-Traktate erhalten keine Morphologie.
+Die Wortkarten sind für alle elf Traktate von Seder Seraim in der ausdrücklich
+benannten, vokalisierten Be’eri-Ausgabe nach Kaufmann A50 verfügbar.
+`zeraim-context-review-1.md` dokumentiert den anschließenden Satzkontextdurchgang
+mit 262 beleggebundenen Entscheidungen und den aktuellen Gesamtzahlen.
+`zeraim-dictionary-review.md` dokumentiert den systematischen Stichwortabgleich
+mit Jastrow, Levy und Krauss sowie die redaktionellen Einzelentscheidungen.
+`zeraim-review.md` dokumentiert Abdeckung und Grenzen des neuen Kandidatenbestands;
+`zeraim-maagarim-review.json` hält die gezielten Ma’agarim-Prüfungen fest.
+Andere Seder und andere Editionen erhalten daraus keine Bestimmungen.
+
+Der folgende ausführliche Prüfstand betrifft weiterhin ausschließlich die
+**neun Kapitel / 57 Mischnajot von Mischna Berakhot**. Seine kontextbezogenen
+Korrekturen werden nicht auf gleich geschriebene Wörter anderer Traktate übertragen.
 
 2.159 laufende Wortpositionen sind an 941 normalisierte Wortformen gebunden.
 1.643 Positionen haben einen Analysekandidaten, 516 mehrere Alternativen.
@@ -52,7 +62,9 @@ Anmerkungen werden **nicht** als geprüfte Mischna-Tags übernommen.
    keine erzeugten Paradigmen und keine gesicherte Lemmafrequenz.
 
 Die Codes nutzen das vorhandene H/OSHB-Merkmalsinventar als technische
-Darstellung; dies ist **keine Übernahme der OSHB-Annotation für die Mischna**.
+Darstellung; dies ist **keine kontextuelle OSHB-Annotation der Mischna**. Der separate
+Seraim-Bestand verwendet zusätzlich exakt gleich vokalisierte OSHB-Wörter als
+ausdrücklich gekennzeichnete Kandidaten, siehe `zeraim-review.md`.
 
 ## Bindung an den Text
 

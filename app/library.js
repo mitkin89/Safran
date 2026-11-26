@@ -528,7 +528,7 @@
       return !!doc&&annotated(doc.text);
     };
     const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):kaufmannLabel(v.versionTitle)||window.LibraryWorks.versionLabel(v);
-    const mishnahCandidate=v=>v.title==='Mishnah Berakhot'&&v.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
+    const mishnahCandidate=v=>window.LibraryMishnahMorph?.supports(v.title,v.versionTitle);
     const localEditions = new Set(entries.map(e => e.rel));
     const itemH = v => `<div class="version-row"><label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}${mishnahCandidate(v)?`<span class="vmorph mhm-version-candidate">${esc(I18N.t('Wortbestimmung · maschinell'))}</span>`:''}</span></span></label>${localEditions.has(v.rel)?`<button type="button" class="version-remove" data-remove-edition="${esc(v.rel)}" aria-label="${esc(I18N.t('Ausgabe entfernen: {}',versionName(v)))}">${esc(I18N.t('Entfernen …'))}</button>` : ''}</div>`;
 
@@ -722,7 +722,7 @@
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    const mh = d.entry.title === 'Mishnah Berakhot' && (d.entry.versionTitle || d.versionTitle) === "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri" ? ' data-mishnah-morph="1"' : '';
+    const mh = window.LibraryMishnahMorph?.supports(d.entry.title,d.entry.versionTitle || d.versionTitle) ? ' data-mishnah-morph="1"' : '';
     return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv}${mh} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
   }
 

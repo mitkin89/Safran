@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "groups": 3835,
+    "positions": 11395,
+    "withHit": 2114,
+    "withoutHit": 1721,
+    "byDictionary": {
+      "Jastrow": 2078,
+      "Levy, Wörterbuch (Bd. 1–4)": 1877,
+      "Krauss, Griechische und lateinische Lehnwörter (Teil II)": 277
+    }
+  },
+  "dictionaries": [
+    {
+      "id": "d895bc1c727b",
+      "name": "Jastrow",
+      "sha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268"
+    },
+    {
+      "id": "e8d290b744f6",
+      "name": "Levy, Wörterbuch (Bd. 1–4)",
+      "sha256": "caac370b0f8f95463fee20c86158393a3a56af9f3eba5f8cf2fb4a31b36c113c"
+    },
+    {
+      "id": "d701423861c6",
+      "name": "Krauss, Griechische und lateinische Lehnwörter (Teil II)",
+      "sha256": "a821d2e749fed83f2a5991deeb445fb9365c19b40637962109fcea7cb2d88516"
+    }
+  ]
+}

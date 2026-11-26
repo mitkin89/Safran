@@ -1,6 +1,7 @@
 // Corpus-bound Mishnaic Hebrew candidate analysis. No inferred token is marked reviewed.
 (function(root){
  'use strict';
+ const titles=['Mishnah Berakhot','Mishnah Peah','Mishnah Demai','Mishnah Kilayim','Mishnah Sheviit','Mishnah Terumot','Mishnah Maasrot','Mishnah Maaser Sheni','Mishnah Challah','Mishnah Orlah','Mishnah Bikkurim'];
  const normalize=w=>String(w||'').normalize('NFD').replace(/[’']/g,'׳').replace(/[^א-ת\u05b0-\u05bc\u05c1\u05c2\u05c7׳״]/gu,'');
  function tokens(text){
   text=String(text);
@@ -25,5 +26,5 @@
   }
   return [...groups.values()].sort((a,b)=>b.count-a.count||a.word.localeCompare(b.word,'he'));
  }
- const api={normalize,tokens,form,match,headLemma,forms};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MishnahMorph=api;
+ const api={titles,normalize,tokens,form,match,headLemma,forms};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MishnahMorph=api;
 })(typeof window==='undefined'?globalThis:window);

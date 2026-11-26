@@ -1,12 +1,13 @@
-# Digital Mishnah: Berakhot pilot
+# Digital Mishnah: corpus interlinear and Berakhot review
 
 Pinned source commit: `39389be30e93032d722e8dd3b7bcdfe15e76a421`,
 https://github.com/umd-mith/mishnah-data .
 
 Kaufmann `S07326`, Parma `S00483`, Cambridge `S01520` explicitly name
 CC BY 4.0 in their individual TEI headers. Full original XML snapshots are in
-`sources/*.xml.gz`, with SHA-256 recorded in the runtime data. Only Berakhot is
-exposed in Safran. `python3 tools/mishnah/build.py` rebuilds offline.
+`sources/*.xml.gz`, with SHA-256 recorded in the runtime data. All 63 standard tractates are exposed in Safran; see `CORPUS.md` for
+coverage, gaps, the corpus build, and validation. The following detailed pilot
+figures describe the preserved Berakhot review. `python3 tools/mishnah/build.py` rebuilds offline.
 
 The reference uses the source's encoded `ab` references (57 Kaufmann, 57 Parma,
 59 Cambridge), not the manuscripts' internal `MSMishnah` milestones and not a
