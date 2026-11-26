@@ -1,6 +1,22 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+    "In: Gesamte Bibliothek": "בתוך: כל הספרייה",
+    "In: {} ausgewählt": "בתוך: {} נבחרו",
+    "Kategorien und Werke durchsuchen": "חיפוש קטגוריות וחיבורים",
+    "Kategorien und Werke durchsuchen …": "חיפוש קטגוריות וחיבורים …",
+    "Auswahl zurücksetzen": "איפוס הבחירה",
+    "Ohne Auswahl wird die gesamte Bibliothek durchsucht.": "ללא בחירה, החיפוש מתבצע בכל הספרייה.",
+    "Ausgewählte Suchbereiche": "תחומי החיפוש שנבחרו",
+    "Suchen nach": "חיפוש לפי",
+    "Weitere Optionen": "אפשרויות נוספות",
+    "Übereinstimmung": "התאמה",
+    "Alle anzeigen": "הצגת הכול",
+    "Weniger anzeigen": "הצגת פחות",
+    "{} entfernen": "הסרת {}",
+    "Gespeicherte Suche entfernen": "הסרת חיפוש שמור",
+    "Suche speichern": "שמירת החיפוש",
+
     "Wortzuordnung nicht angewendet: {}": "שיוך המילים לא הוחל: {}",
     "Quellstand der Wortzuordnung fehlt": "חסרה חתימת המקור של שיוך המילים",
     "Hebräische Fassung weicht vom Quellstand der Wortzuordnung ab": "הנוסח העברי שונה ממקור שיוך המילים",
