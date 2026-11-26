@@ -1033,8 +1033,8 @@
       "words": [
         "הַתְּפִלִּין"
       ],
-      "type": "open-nominal-gender-and-lemma",
-      "note": "תפילין/תפלין spelling and masculine versus reference feminine plural remain open."
+      "type": "lemma-orthography",
+      "note": "תפילין/תפלין citation spelling differs. The former masculine candidate was corrected to feminine plural from local Jastrow entry 24302; see lexical-adjudication.md."
     },
     {
       "ref": "3:1",
@@ -1081,8 +1081,8 @@
       "words": [
         "הַתְּפִלִּין"
       ],
-      "type": "open-nominal-gender-and-lemma",
-      "note": "תפילין/תפלין spelling and masculine versus reference feminine plural remain open."
+      "type": "lemma-orthography",
+      "note": "תפילין/תפלין citation spelling differs. The former masculine candidate was corrected to feminine plural from local Jastrow entry 24302; see lexical-adjudication.md."
     },
     {
       "ref": "3:4",
@@ -1389,8 +1389,8 @@
       "words": [
         "בְקָרוֹן"
       ],
-      "type": "open-loanword-gender-and-article",
-      "note": "קרון masculine with source בְ versus reference feminine with fused article in bracketed reading; not mechanically harmonized."
+      "type": "source-vocalization-article",
+      "note": "Krauss entry 5947 supports feminine קרון, now supplied in Safran. Source בְ has no article, versus the reference fused article in a bracketed reading."
     },
     {
       "ref": "4:6",
@@ -1400,8 +1400,8 @@
       "words": [
         "בְאַסְדָּא"
       ],
-      "type": "loanword-lemma-and-gender",
-      "note": "אסדא versus אסדה; source gender unspecified versus reference feminine."
+      "type": "loanword-lemma-orthography",
+      "note": "אסדא/אסדה citation spelling differs. Krauss entry 1048 supports feminine gender and directly cites Berakhot 4:6; gender corrected in Safran."
     },
     {
       "ref": "4:7",

@@ -128,6 +128,20 @@ test('chapters 7–9 retain demonstratives, periphrastic verbs and reduplicated 
  assert(six);assert.deepEqual(six.analyses.map(a=>[a.lemma,a.morph]),[['שש','HAcmsa']]);
 });
 
+test('rabbinic dictionary gender is not inferred from the plural ending',()=>{
+ for(const [c,m,t]of [[3,1,9],[3,3,8]]){
+  const f=D.forms[source.chapters[c-1][m-1][t-1]];
+  assert.deepEqual(f.analyses.map(a=>[a.lemma,a.morph]),[['ה/תפילין','HTd/Ncfpa']]);
+  assert(f.analyses[0].rules.includes('lexical-gender'));
+  assert.match(f.analyses[0].note,/Jastrow/);
+ }
+ for(const t of [5,7]){
+  const f=D.forms[source.chapters[3][5][t-1]];
+  assert.deepEqual(f.analyses.map(a=>a.morph),['HR/Ncfsa']);
+  assert.match(f.analyses[0].note,/Krauss/);
+ }
+});
+
 test('short meanings distinguish editorial prayer glosses and all biblical homonym meanings',()=>{
  const G=require('../mishnah-meanings');
  assert.match(G.lookup({lemma:'קרא',morph:'HVqrmpa'}).text,/lesen/);

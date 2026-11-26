@@ -1,4 +1,4 @@
-# Ma’agarim: initial Berakhot cross-check
+# Ma’agarim: Berakhot cross-check
 
 Checked 2026-11-26 against the Academy of the Hebrew Language's Historical
 Dictionary Project, Ma’agarim. This is a separate, limited check, not a completed
@@ -27,3 +27,31 @@ Sources:
 
 Further work should prioritize unresolved Accordance differences, recording
 Ma’agarim's actual supplied features and leaving unexposed features unspecified.
+
+## Follow-up across chapters 1–9
+
+The live word details on text pages 1–4 were consulted for selected open
+differences throughout Berakhot. Important results and their combined grammar
+and local-dictionary assessment are in `lexical-adjudication.md`. This was
+targeted inspection, not an automatic alignment of all source tokens.
+
+- מוטל: טול, Hofal participle; שיטיל: טול, Hifil future.
+- יכול: יכל, Qal participle; לחלק: חלק, Nifal infinitive.
+- שנזכר: זכר, Nifal past.
+- דקדק, הרהר, קלקל: Ma’agarim uses Piʿel where Safran retains Segal's Pilpel.
+- באותה and אותו: indexed under את; dictionary headword and contextual
+  demonstrative function must be kept distinct.
+- Bible quotations such as זקנה are marked ציטוט without a grammatical
+  analysis. Nominal headwords generally lack occurrence gender/number/state
+  details; these absent features are not counted as confirmed.
+
+**Alignment warning:** Ma’agarim's 8:3 is the wiping/cloth/table passage,
+corresponding to Safran's 8:4. Its 8:4 is the sweeping/handwashing passage,
+corresponding to Safran's 8:3. Berakhot 9:5 continues on page 4. Ref numbers and
+page boundaries must therefore not substitute for matching the actual text.
+
+Additional verified text views:
+
+- [Page 1: Berakhot 1–3](https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=1)
+- [Page 3: Berakhot 7–9, first part](https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=3)
+- [Page 4: Berakhot 9:5, continuation](https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=4)

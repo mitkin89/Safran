@@ -92,5 +92,19 @@
       "Segal §195, S.88 (דקדק, Berakhot 2:3)",
       "Pérez Fernández, Unit 15.4G, S.97"
     ]
+  },
+  "lexical-gender": {
+    "label": "Lexikalisch belegtes Genus",
+    "refs": [
+      "Jastrow, Artikel תְּפִלֵּי / תְּפִלִּין: f. pl. (Safran-Wörterbuch d895bc1c727b, Artikel 24302)",
+      "Pérez Fernández, Unit 10.5A–C, S.63–64: Pluralendung und Genus getrennt bestimmen"
+    ]
+  },
+  "loanword-gender": {
+    "label": "Lexikalisch belegtes Genus eines Lehnworts",
+    "refs": [
+      "Krauss, Griechische und lateinische Lehnwörter Teil II, Artikel קרון I und אסדא (Safran-Wörterbuch d701423861c6, Artikel 5947 und 1048)",
+      "Pérez Fernández, Unit 10.8–10, S.64–65: Genuswandel und lexikalische Bedeutung"
+    ]
   }
 }

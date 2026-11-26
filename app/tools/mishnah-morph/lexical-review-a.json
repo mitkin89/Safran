@@ -1843,16 +1843,17 @@
     "analyses": [
       {
         "lemma": "ה/תפילין",
-        "morph": "HTd/Ncmpa",
+        "morph": "HTd/Ncfpa",
         "rules": [
           "nominal",
           "article",
-          "plural"
+          "plural",
+          "lexical-gender"
         ],
         "method": "lexicon"
       }
     ],
-    "note": "Lexikalischer Plural."
+    "note": "Lexikalischer femininer Plural: Jastrow, תְּפִלֵּי / תְּפִלִּין, ausdrücklich f. pl.; ־ין allein entscheidet das Genus nicht (Pérez Fernández, Unit 10.5A–C)."
   },
   {
     "word": "נוֹשְׂאֵי",
@@ -3309,29 +3310,34 @@
     "analyses": [
       {
         "lemma": "ב/קרון",
-        "morph": "HR/Ncmsa",
+        "morph": "HR/Ncfsa",
         "rules": [
           "nominal",
-          "prefix"
+          "prefix",
+          "loanword-gender"
         ],
-        "method": "lexicon"
+        "method": "lexicon",
+        "note": "Krauss, Lehnwörter Teil II, Artikel קרון I: feminin (Safran-Artikel 5947). Präposition ohne Artikel gemäß Quellvokalisation בְ."
       }
-    ]
+    ],
+    "note": "Krauss, Lehnwörter Teil II, Artikel קרון I: feminin (Safran-Artikel 5947). Präposition ohne Artikel gemäß Quellvokalisation בְ."
   },
   {
     "word": "בְאַסְדָּא",
     "analyses": [
       {
         "lemma": "ב/אסדא",
-        "morph": "HR/Ncxsa",
+        "morph": "HR/Ncfsa",
         "rules": [
           "nominal",
-          "prefix"
+          "prefix",
+          "loanword-gender"
         ],
-        "method": "lexicon"
+        "method": "lexicon",
+        "note": "Krauss, Lehnwörter Teil II, Artikel אסדא: feminin; zitiert ausdrücklich Mischna Berakhot 4:6 (Safran-Artikel 1048)."
       }
     ],
-    "note": "Entlehnte Fahrzeug-/Floßbezeichnung; Genus hier offen."
+    "note": "Krauss, Lehnwörter Teil II, Artikel אסדא: feminin; zitiert ausdrücklich Mischna Berakhot 4:6 (Safran-Artikel 1048)."
   },
   {
     "word": "הַמּוּסָפִים",

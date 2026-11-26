@@ -99,6 +99,14 @@ Kontexten vom Akkusativzeichen mit Objektsuffix getrennt. Bei שגרה,
 Analyse; abweichende Referenztags werden nicht blind übernommen.
 Die übrigen offenen Genus-, Wurzel- und Segmentierungsfragen bleiben sichtbar.
 
+`lexical-adjudication.md` führt die anschließende Bewertung durch Grammatiken,
+die lokalen Jastrow-/Levy-Artikel und Ma’agarim zusammen. Jastrows ausdrücklicher
+femininer Plural korrigiert התפילין an zwei Positionen; konkurrierende Angaben
+bei פת und verschiedene Vokalisierungen von שגרה bleiben ausdrücklich erfasst.
+`maagarim-review.md` dokumentiert auch abweichende Abschnittsreihenfolge und
+Grenzen der dort sichtbaren Merkmale. Der ursprüngliche Accordance-Vergleich
+bleibt als eigener Prüfstand erhalten.
+
 Die Wortkarten zeigen zusätzliche kurze Bedeutungen. Eigene Glossen sind
 redaktionell gekennzeichnet; weitere Bedeutungen stammen aus den vorhandenen
 OSHB-Lemmaglossen und sind sichtbar als biblisches Wörterbuch bezeichnet.
