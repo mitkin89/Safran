@@ -96,5 +96,46 @@ class GapPositionTests(unittest.TestCase):
         self.assertEqual(self.links[-1]['reading'], [['1:1', 1], ['1:1', 2]])
 
 
+class DamageRefinementTests(unittest.TestCase):
+    def setUp(self):
+        source = [dict(w('מ'), start=0, end=1), dict(w('□', ['gap']), start=1, end=2),
+                  dict(w('ראה'), start=2, end=5)]
+        self.gap = {'tag': 'gap', 'start': 1, 'end': 2, 'attrs': {'extent': '6', 'unit': 'chars'}}
+        self.data = {'witnesses': {'K': {'units': {'1:1': {'words': [w('מפני'), w('היראה')]}}},
+                                   'C': {'units': {'1:1': {'words': source, 'annotations': [self.gap]}}}}}
+        self.links = [{'ref': '1:1', 'base': [['1:1', 0]], 'reading': [['1:1', i] for i in range(3)],
+                       'projectWords': {'K': ['k0'], 'C': ['c0']}},
+                      {'ref': '1:1', 'base': [['1:1', 1]], 'reading': [],
+                       'projectWords': {'K': ['k1'], 'C': []}}]
+        self.base = [('1:1', 0), ('1:1', 1)]
+
+    def refine(self):
+        align.refine_damage_boundaries(self.data, 'C', self.links, self.base, {p: i for i, p in enumerate(self.base)})
+
+    def test_matching_fragments_and_physical_gap_allow_a_split(self):
+        self.refine()
+        self.assertEqual(self.links[0]['reading'], [['1:1', 0]])
+        self.assertEqual(self.links[1]['reading'], [['1:1', 2]])
+        self.assertEqual(self.links[1]['base'], [['1:1', 1]])
+        self.assertFalse(self.links[1]['checked'])
+        self.assertEqual(self.data['witnesses']['C']['units']['1:1']['words'][1]['text'], '□')
+
+    def test_incompatible_gap_length_prevents_a_split(self):
+        self.gap['attrs']['extent'] = '2'
+        self.refine()
+        self.assertEqual(len(self.links[0]['reading']), 3)
+        self.assertEqual(self.links[1]['reading'], [])
+
+    def test_missing_gap_measurement_prevents_a_split(self):
+        self.gap['attrs']['extent'] = 'unknown'
+        self.refine()
+        self.assertEqual(len(self.links[0]['reading']), 3)
+
+    def test_an_existing_reading_cannot_be_overwritten(self):
+        self.links[1]['reading'] = [['1:1', 3]]
+        self.refine()
+        self.assertEqual(len(self.links[0]['reading']), 3)
+
+
 if __name__ == '__main__':
     unittest.main()

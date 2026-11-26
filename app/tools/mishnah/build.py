@@ -86,7 +86,9 @@ def build(folder=None):
                 out['records'].append({'ref':anchor,'witness':sig,'operation':op,'base':[[r,i] for r,i,_ in left],'reading':[[r,i] for r,i,_ in right],'sourceRefs':sourceRefs,'after':previous[1] if previous and previous[0]==anchor else -1,'uncertain':unsafe,'method':'chapter sequence comparison (automated)'})
     project_cache=json.loads(gzip.decompress((HERE/'sources/project-collation.json.gz').read_bytes()))
     assert project_cache['provenance']['dataCommit']==COMMIT
-    out['interlinear']=project_align.build(out,json.loads((HERE/'alignment-review.json').read_text()),project_cache)
+    reviews=json.loads((HERE/'alignment-review.json').read_text())
+    reviews['boundaries']=json.loads((HERE/'source-boundary-review.json').read_text())['boundaries']
+    out['interlinear']=project_align.build(out,reviews,project_cache)
     links=json.loads((HERE/'tosefta-links.json').read_text());pd_raw=gzip.decompress((HERE/'sources/tosefta-public-domain.json.gz').read_bytes())
     assert links['kaufmannSha256']==out['witnesses']['K']['sha256']
     assert hashlib.sha256(pd_raw).hexdigest()==links['publicDomainSha256']

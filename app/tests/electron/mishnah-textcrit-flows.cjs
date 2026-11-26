@@ -38,6 +38,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert(await js("document.querySelectorAll('#verList input[data-rel^=\"digital-mishnah/\"]').length===3"),'Alle drei Handschriften als Versionen verfügbar');
  assert(await js("['P','C'].every(sig=>{const words=[...document.querySelectorAll('#rOut .mci-word[data-tc-mishnah^=\"'+sig+'|\"]')].map(w=>w.dataset.tcMishnahWord);const expected=Object.entries(window.MISHNAH_TEXTCRIT.witnesses[sig].units).filter(([r])=>r.startsWith('1:')).reduce((n,[r,u])=>n+u.words.length,0);return words.length===expected&&new Set(words).size===expected})"),'Jedes Handschriftenwort einmal im Hauptfenster');
  assert(await js("(()=>{const gap=document.querySelector('#rOut [data-tc-mishnah=\"C|1:1\"][data-tc-mishnah-word=\"1:1|22\"]'),column=gap.closest('.mci-column');return column.classList.contains('mci-source-gap')&&column.querySelector('.mci-cell').textContent==='⋯'&&gap.textContent.includes('□')&&!gap.classList.contains('mt-diff')&&!document.querySelector('#rOut .mci-open')})()"),'Lücken auch unter dem vokalisierten Bezugstext positioniert');
+ assert(await js("[[19,18],[47,44]].every(([source,base])=>{const word=document.querySelector('#rOut [data-tc-mishnah=\"C|1:3\"][data-tc-mishnah-word=\"1:3|'+source+'\"]');return !!word.closest('.mci-column').querySelector('[data-vocalized-word=\"1:3|'+base+'\"]')})"),'Cambridge ורין und הייתי unter den entsprechenden Wörtern');
  await js("document.querySelector('#rOut [data-tc-mishnah=\"P|1:1\"][data-tc-mishnah-word=\"1:1|17\"]').click()");
  await waitFor("document.querySelector('#mishnahReaderHover')?.textContent.includes('Parma')&&!document.querySelector('#mishnahReaderHover .tc-mishnah-context')",'Quellenkarte im Hauptfenster');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));document.querySelector('#ilBtn').click()");
@@ -55,6 +56,13 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert(await js("document.querySelector('#rOut .cell[data-rel=\"digital-mishnah/berakhot/C\"]').textContent.includes('Manuscript numbering')"));
  await js("{const c=document.querySelector('#verList input[data-rel=\"digital-mishnah/berakhot/C\"]');c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#nextSec').click()");
  await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"2:1|\"]')",'Handschriften folgen dem Kapitel');
+ const baselineRows=await js("[8,9].map(i=>{const word=document.querySelector('#rOut [data-tc-mishnah=\"C|2:1\"][data-tc-mishnah-word=\"2:1|'+i+'\"]'),column=word.closest('.mci-column'),cells=column.querySelectorAll('.mci-cell');return {word:word.textContent,offset:cells[2].getBoundingClientRect().top-column.getBoundingClientRect().top,heights:[...cells].map(c=>c.getBoundingClientRect().height)}})");
+ assert(Math.abs(baselineRows[0].offset-baselineRows[1].offset)<1,'Cambridge-Zeilen bleiben auch bei leerer Parma-Zelle bündig: '+JSON.stringify(baselineRows));
+ assert(await js("(()=>{const w=document.querySelector('#rOut [data-tc-mishnah=\"C|2:1\"][data-tc-mishnah-word=\"2:1|36\"]');return !!w.closest('.mci-column').querySelector('[data-vocalized-word=\"2:1|34\"]')})()"),'ראה unter היראה statt מפני');
+ await js("document.querySelector('#nextSec').click()");await waitFor("document.querySelector('#rOut [data-tc-mishnah=\"C|3:1\"][data-tc-mishnah-word=\"3:1|3\"]')",'Kapitel 3 für Farbprüfung');
+ assert(await js("(()=>{const w=document.querySelector('#rOut [data-tc-mishnah=\"C|3:1\"][data-tc-mishnah-word=\"3:1|3\"]');return w.textContent==='מוטל'&&!w.classList.contains('muted')&&w.classList.contains('mt-diff')})()"),'Vollständig erhaltenes מוטל bleibt eine rote Schreibvariante, nicht grau');
+ await js("document.querySelector('#prevSec').click()");await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"2:1|\"]')",'Zurück zu Kapitel 2');
+
  await win.reload();await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"2:1|\"]')",'Handschriftenansicht nach Neustart wiederhergestellt');
  await js("document.querySelector('#prevSec').click()");await waitFor("document.querySelector('#rOut .mci-base-word[data-vocalized-word^=\"1:1|\"]')",'Zurück zu Kapitel 1');
  const previousSize=win.getSize();win.setSize(1100,800);

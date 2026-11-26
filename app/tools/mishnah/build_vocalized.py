@@ -17,7 +17,7 @@ def task(job):
         for key in ['rel','textHash','versionTitle']:
             assert cache['provenance']['reference'][key]==book[key], 'Vocalized project cache source changed: '+key
         data['witnesses']['K']['id']='V00001'
-        result=project_align.build(data,{},cache)
+        result=project_align.build(data,json.loads((HERE/'source-boundary-review.json').read_text()),cache)
     else:
         result=align.build(data,{},chapters=chapters,aligner=native.align)
     for ch in chapters:

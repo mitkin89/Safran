@@ -45,6 +45,14 @@ function create(host){
   }).join('')+'<p class="tc-credit">Digital Mishnah · Hayim Lapin / Meyerhoff Center · CC BY 4.0. '+esc('Eigene Handschriftenzählungen und Original-TEI bleiben erhalten. Quellenkontext über den Zeugensiglen.')+'</p>';
  }
  const name=s=>s==='K'?'Kaufmann':s==='P'?'Parma':'Cambridge';
+ const damagedReading=(sig,l)=>{
+  if(!l.uncertain)return false;
+  if(l.reading.some(([r,i])=>{const w=data.witnesses[sig].units[r].words[i];return w.text.includes('□')||w.flags.some(f=>['damage','gap','unclear'].includes(f));}))return true;
+  if(l.reading.length!==1||!l.base.length)return false;
+  const source=words(sig,l.reading).replace(/[^א-ת]/g,''),base=words('K',l.base).replace(/[^א-ת]/g,''),forms=[base,...(base.startsWith('ה')?[base.slice(1)]:[])];
+  if(forms.includes(source))return false;
+  return forms.some(b=>b.length>source.length&&(b.startsWith(source)||b.endsWith(source)));
+ };
  const token=(sig,pair,diff=false,sourceUncertain=false)=>{
   const [ref,i]=pair,w=data.witnesses[sig].units[ref].words[i];
   if(data.source?.vocalized&&sig==='K'){
@@ -68,13 +76,13 @@ function create(host){
     if(!witnesses.some(sig=>ls[sig].length))return;
     const gapOnly=witnesses.every(sig=>ls[sig].every(l=>l.kind==='source-gap'));
     const comparePairs=(a,b)=>{const x=a.pair[0].split(':').map(Number),y=b.pair[0].split(':').map(Number);return x[0]-y[0]||x[1]-y[1]||a.pair[1]-b.pair[1];};
-    columns.push('<div class="mci-column mci-insertion'+(gapOnly?' mci-source-gap':'')+'"><div class="mci-cell muted"'+(gapOnly?' title="'+esc('Lücke zwischen belegten Nachbarwörtern')+'"':'')+'>'+(gapOnly?'⋯':'+')+'</div>'+witnesses.map(sig=>'<div class="mci-cell mci-witness">'+ls[sig].flatMap(l=>l.reading.map(pair=>({pair,link:l}))).sort(comparePairs).map(({pair,link:l})=>token(sig,pair,l.kind!=='source-gap',l.uncertain)).join(' ')+'</div>').join('')+'</div>');
+    columns.push('<div class="mci-column mci-insertion'+(gapOnly?' mci-source-gap':'')+'"><div class="mci-cell muted"'+(gapOnly?' title="'+esc('Lücke zwischen belegten Nachbarwörtern')+'"':'')+'>'+(gapOnly?'⋯':'+')+'</div>'+witnesses.map(sig=>'<div class="mci-cell mci-witness">'+ls[sig].flatMap(l=>l.reading.map(pair=>({pair,link:l}))).sort(comparePairs).map(({pair,link:l})=>token(sig,pair,l.kind!=='source-gap',damagedReading(sig,l))).join(' ')+'</div>').join('')+'</div>');
    };
    insertion(-1);
    for(const g of groups){
     columns.push('<div class="mci-column"><div class="mci-cell">'+g.indices.map(i=>token('K',[ref,i])).join(' ')+'</div>'+witnesses.map(sig=>{
      const ls=links[sig].filter(l=>l.base.some(([r,i])=>g.indices.includes(i))),covered=new Set(ls.flatMap(l=>l.base.map(x=>x[1]))),pairs=ls.flatMap(l=>l.reading),diff=ls.some(l=>l.kind!=='exact'&&l.kind!=='joined');
-     return '<div class="mci-cell mci-witness">'+ls.flatMap(l=>l.reading.map(pair=>token(sig,pair,l.kind==='form'||l.kind==='reviewed'||words(sig,l.reading).replace(/[^א-ת]/g,'')!==words('K',l.base).replace(/[^א-ת]/g,''),l.uncertain))).join(' ')+(covered.size<g.indices.length||ls.some(l=>!l.reading.length&&l.uncertain)?' <span class="muted" title="'+esc('Zuordnung offen')+'">…</span>':!pairs.length?'<span class="mt-diff" title="'+esc('Kein Gegenstück im maschinellen Vergleich')+'">—</span>':'')+'</div>';
+     return '<div class="mci-cell mci-witness">'+ls.flatMap(l=>l.reading.map(pair=>token(sig,pair,l.kind==='form'||l.kind==='reviewed'||words(sig,l.reading).replace(/[^א-ת]/g,'')!==words('K',l.base).replace(/[^א-ת]/g,''),damagedReading(sig,l)))).join(' ')+(covered.size<g.indices.length||ls.some(l=>!l.reading.length&&l.uncertain)?' <span class="muted" title="'+esc('Zuordnung offen')+'">…</span>':!pairs.length?'<span class="mt-diff" title="'+esc('Kein Gegenstück im maschinellen Vergleich')+'">—</span>':'')+'</div>';
     }).join('')+'</div>');for(const i of g.indices)insertion(i);
    }
    const open=witnesses.map(sig=>{

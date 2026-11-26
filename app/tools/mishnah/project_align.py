@@ -131,6 +131,110 @@ def position_gaps(units, stream, links, base_order):
     links.extend(additions)
 
 
+def apply_boundary_reviews(data, sig, ch, mapped, reviews, base_stream, base_order):
+    """Split explicitly reviewed multiword damage groups, never the source text."""
+    edition = 'vocalized' if data['witnesses']['K']['id'] == 'V00001' else 'diplomatic'
+    for review in reviews.get('boundaries', []):
+        if review['witness'] != sig or not review['source'][0][0].startswith(ch + ':'):
+            continue
+        actual = [data['witnesses'][sig]['units'][r]['words'][i]['text'] for r, i in review['source']]
+        assert actual == review['expectedSource'], 'Boundary review source changed: ' + review['id']
+        targets = review['targets'][edition]
+        source_pairs = set(map(tuple, review['source']))
+        base_pairs = {tuple(p) for t in targets for p in t['base']}
+        touched = [l for l in mapped if source_pairs.intersection(map(tuple, l['reading']))
+                   or base_pairs.intersection(map(tuple, l['base']))]
+        assert review['projectWord'] in {id for l in touched for id in l['projectWords'][sig]}, review['id']
+        assert {tuple(p) for l in touched for p in l['reading']} == source_pairs, review['id']
+        assert {tuple(p) for l in touched for p in l['base']} == base_pairs, review['id']
+        replacements = []
+        for target in targets:
+            text = ''.join(data['witnesses']['K']['units'][r]['words'][i]['text'] for r, i in target['base'])
+            assert HE.sub('', text) == target['expectedBaseConsonants'], review['id']
+            first = base_order[tuple(target['base'][0])]
+            replacements.append({'ref': target['base'][0][0], 'base': target['base'], 'reading': target['reading'],
+                                 'after': list(base_stream[first - 1]) if first else None,
+                                 'kind': 'project', 'checked': False, 'boundaryChecked': True, 'uncertain': True,
+                                 'boundaryReview': review['id'], 'reason': review['reason'],
+                                 'projectWords': {s: sorted({id for l in touched for id in l['projectWords'][s]}) for s in ['K', sig]},
+                                 'method': 'Digital Mishnah / CollateX (automated)'})
+        # Gap-only tokens are deliberately left for position_gaps, which gives
+        # them their own source boundary rather than a lexical counterpart.
+        start = min(mapped.index(l) for l in touched)
+        mapped[:] = [l for l in mapped if l not in touched]
+        mapped[start:start] = replacements
+
+
+def refine_damage_boundaries(data, sig, mapped, base_stream, base_order):
+    """Split a damaged comparison word only with unique physical support.
+
+    Require two surviving prefix/suffix fragments, an adjacent empty reference
+    cell, and exactly the encoded number of missing characters (including one
+    word boundary). This places fragments; it does not fill the source gap.
+    """
+    for link in list(mapped):
+        pairs = link['reading']
+        if len(pairs) < 3 or not link['base'] or len({r for r, i in pairs}) != 1:
+            continue
+        ref = pairs[0][0]
+        unit = data['witnesses'][sig]['units'][ref]
+        ws = [unit['words'][i] for r, i in pairs]
+        gap_positions = [j for j, w in enumerate(ws) if not HE.sub('', w['text']) and 'gap' in w['flags']]
+        if len(gap_positions) != 1 or gap_positions[0] in [0, len(ws) - 1]:
+            continue
+        g = gap_positions[0]
+        # Do not infer lexical boundaries across discontinuous source groups.
+        if [i for r, i in pairs] != list(range(pairs[0][1], pairs[-1][1] + 1)):
+            continue
+        gaps = [a for a in unit['annotations'] if a['tag'] == 'gap'
+                and a['start'] <= ws[g]['start'] and a['end'] >= ws[g]['end']]
+        if len(gaps) != 1 or gaps[0]['attrs'].get('unit') != 'chars':
+            continue
+        extent = gaps[0]['attrs'].get('extent', '')
+        if not extent.isdigit():
+            continue
+        left = ''.join(HE.sub('', w['text']) for w in ws[:g])
+        right = ''.join(HE.sub('', w['text']) for w in ws[g + 1:])
+        if min(len(left), len(right)) < 1 or max(len(left), len(right)) < 3 or len(left) + len(right) < 4:
+            continue
+        index = mapped.index(link)
+        start = end = index
+        while start > 0 and not mapped[start - 1]['reading'] and mapped[start - 1]['base']:
+            start -= 1
+        while end + 1 < len(mapped) and not mapped[end + 1]['reading'] and mapped[end + 1]['base']:
+            end += 1
+        region = mapped[start:end + 1]
+        candidates = []
+        for a, b in zip(region, region[1:]):
+            if link is not a and link is not b:
+                continue
+            if len({r for r, i in a['base'] + b['base']}) != 1:
+                continue
+            def key(entry):
+                return ''.join(HE.sub('', data['witnesses']['K']['units'][r]['words'][i]['text']) for r, i in entry['base'])
+            ka, kb = key(a), key(b)
+            # A definite article in the reading edition may be absent from a
+            # manuscript. It is a variant outside this physical gap.
+            forms = [ka] + ([ka[1:]] if ka.startswith('ה') else [])
+            if any(x.startswith(left) and kb.endswith(right)
+                   and len(x) - len(left) + len(kb) - len(right) + 1 == int(extent) for x in forms):
+                candidates.append((a, b))
+        if len(candidates) != 1:
+            continue
+        a, b = candidates[0]
+        replacements = []
+        for target, reading in [(a, pairs[:g]), (b, pairs[g + 1:])]:
+            first = base_order[tuple(target['base'][0])]
+            replacements.append({**target, 'reading': reading,
+                                 'after': list(base_stream[first - 1]) if first else None,
+                                 'kind': 'project', 'checked': False, 'uncertain': True,
+                                 'boundaryMethod': 'unique fragments and encoded gap extent',
+                                 'gapExtent': int(extent),
+                                 'projectWords': {s: sorted(set(a['projectWords'][s] + b['projectWords'][s])) for s in ['K', sig]}})
+        pos = mapped.index(a)
+        mapped[pos:pos + 2] = replacements
+
+
 def build(data, reviews, cache):
     for sig, sha in reviews.get('sourceSha256', {}).items():
         assert data['witnesses'][sig]['sha256'] == sha, 'Review source changed: ' + sig
@@ -240,6 +344,8 @@ def build(data, reviews, cache):
                 for link in mapped:
                     if link['base'] == review['base'] and link['reading'] == review['reading']:
                         link.update(kind='reviewed', checked=True, reason=review['reason'])
+            apply_boundary_reviews(data, sig, ch, mapped, reviews, base_stream, base_order)
+            refine_damage_boundaries(data, sig, mapped, base_stream, base_order)
             position_gaps(data['witnesses'][sig]['units'], stream, mapped, base_order)
             used = {tuple(p) for link in mapped for p in link['reading']}
             assert sum(len(l['reading']) for l in mapped) == len(used)

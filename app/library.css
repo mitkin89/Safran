@@ -2155,6 +2155,9 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #rOut .mishnah-reader-text{direction:ltr;text-align:start}
 #rOut .mishnah-reader-text .mci-grid{margin:0}
 #rOut .mishnah-reader-text .mci-cell{line-height:1.9;min-height:1.9em}
+/* Keep the parent line box authoritative: larger word buttons must not make
+   text rows taller than rows containing only an omission mark or a gap. */
+#rOut .mishnah-reader-text :is(.mci-word,.mci-base-word){line-height:1}
 #rOut .mishnah-reader-text .tc-source{font: .55em/1.6 system-ui,sans-serif;padding:.12em .35em;cursor:pointer;color:var(--muted);background:var(--chip);border:0;border-radius:4px}
 #rOut .mishnah-reader-text .mci-open{font-size:.75em}
 #rOut .mishnah-reader-text .mci-source-ref{font: .55em/1.6 system-ui,sans-serif;color:var(--muted);display:block}

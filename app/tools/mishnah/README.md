@@ -50,14 +50,15 @@ classified as additions. Missing or reversed anchors still leave material open. 
 
 All 2,171 Parma tokens and 2,201 Cambridge tokens occur exactly once in linked
 or unresolved material. Parma: 2,124 linked to base words, 47 insertions, 0 open.
-Cambridge: 2,116 linked, 49 insertions, 36 positioned gap tokens, 0 open.
+Cambridge: 2,111 linked, 49 insertions, 41 positioned gap tokens, 0 open.
 A positioned gap is not a reconstructed reading or a manually verified word
 match. These counts describe automatic placement, not
 philological certainty. Two hash-bound, previously reviewed Parma pairs retain
 their reviewed status; new automatic placements do not acquire it.
 
-Damaged/uncertain words and words adjacent to gaps stay muted even when placed
-in a column. An uncertain empty counterpart is shown as an ellipsis rather
+Damaged/uncertain source words and identifiable truncated fragments stay muted
+even when placed in a column. Complete words next to a gap keep their normal
+variant colour; uncertain context does not imply damage to the word itself. An uncertain empty counterpart is shown as an ellipsis rather
 than a secure omission. Original gap extents, additions and deletions remain
 available in the source context. All 57 Kaufmann reference units remain visible.
 
@@ -149,3 +150,24 @@ comparisons retain their existing data and build path.
 Regenerate the additional cache with `python3 tools/mishnah/collate_vocalized.py
 --upstream-dir /path/to/build-inputs`, then build the vocalized comparison.
 The reference edition path and text hash must match before it can be used.
+
+
+Two source-hash-bound boundary reviews in `source-boundary-review.json` split
+Cambridge Berakhot 1:3 `אד □ ורין` and `א □ הייתי` across the corresponding
+base words. The project word file encodes each as one word spanning a gap;
+its comparison column must not determine the lexical boundary. `ורין` is
+placed under `קורין` and `הייתי` under `הייתי`, in both diplomatic and
+vocalized comparisons. The gaps remain independent source boundaries. These
+reviews certify the placement only; missing letters are never supplied and
+full-reading philological review is not implied. Exact source tokens, project
+IDs, source hashes and reference consonants are checked on rebuild.
+
+
+Gap-aware refinement also checks damaged groups against adjacent empty base
+cells. A split needs a unique prefix/suffix correspondence, sufficient surviving
+letters and an exact match to the encoded gap length, including a word boundary.
+A definite article present only in the reading edition can be treated as a
+variant outside the gap. Ambiguous or physically unsupported matches retain
+the original uncertain grouping. This places `מ □ ראה` at `מפני / היראה`,
+`בתרו □ ד` at `בתרומתן / עד`, and `שפ □ כבת` at `שפלטה / שכבת` without
+supplying missing letters. Such refinements stay automatic and uncertain.

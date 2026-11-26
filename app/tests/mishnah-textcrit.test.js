@@ -70,7 +70,7 @@ test('Source gaps are positioned between actual neighbours and the nested Cambri
    for(const [r,i]of l.reading){assert.equal(d.witnesses.C.units[r].words[i].text,'□');gaps++;}
   }
  }
- assert.equal(gaps,36);assert.equal(d.interlinear.counts.C.positionedGaps,36);assert.equal(d.interlinear.counts.C.open,0);
+ assert.equal(gaps,41);assert.equal(d.interlinear.counts.C.positionedGaps,41);assert.equal(d.interlinear.counts.C.open,0);
  for(const totals of Object.values(d.interlinear.counts))assert.equal(totals.words,totals.aligned+totals.insertions+totals.positionedGaps+totals.open);
 });
 
@@ -78,10 +78,10 @@ test('Project CollateX links preserve Cambridge gaps and Parma spelling variants
  const d=fixture();assert.equal(d.interlinear.version,2);assert(d.interlinear.method.includes('CollateX'));
  const link=(sig,i)=>d.interlinear.chapters['1'][sig].links.find(l=>l.reading.some(([r,n])=>r==='1:1'&&n===i));
  const parma=link('P',71);assert.deepEqual(Array.from(parma.base,p=>Array.from(p)),[['1:1',71]]);assert.equal(parma.checked,false);
- const cambridge=link('C',9);assert.deepEqual(Array.from(cambridge.reading,p=>Array.from(p)),[['1:1',9],['1:1',10],['1:1',11]]);
+ const cambridge=link('C',9);assert.deepEqual(Array.from(cambridge.reading,p=>Array.from(p)),[['1:1',9]]);
  assert.equal(cambridge.uncertain,true);assert.equal(cambridge.checked,false);assert(cambridge.projectWords.C.includes('S01520.1.1.1.1.00100'));
  const besideGap=d.interlinear.chapters['1'].C.links.find(l=>l.base.some(([r,i])=>r==='1:1'&&i===10));
- assert.equal(besideGap.reading.length,0);assert.equal(besideGap.uncertain,true);
+ assert.equal(besideGap.reading.length,1);assert.equal(besideGap.uncertain,true);
  assert.equal(d.witnesses.C.units['1:1'].words[10].text,'□');
  const s={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../library-mishnah-textcrit.js'),'utf8'),s);
  const ui=s.window.LibraryMishnahTextCrit.create({esc:String,load:async()=>d});await ui.load();const html=ui.render(1,['1:1'],['K','C']);
@@ -90,4 +90,33 @@ test('Project CollateX links preserve Cambridge gaps and Parma spelling variants
  for(const chapter of Object.values(d.interlinear.chapters))for(const sig of ['P','C'])for(const l of chapter[sig].links){
   if(l.checked)assert.equal(l.kind,'reviewed');else assert.equal(l.method,'Digital Mishnah / CollateX (automated)');
  }
+});
+
+test('Reviewed cross-word damage keeps Cambridge ורין and הייתי under their own base words',()=>{
+ for(const vocalized of [false,true]){
+  let d=fixture();if(vocalized){const s={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../mishnah-vocalized/berakhot.js'),'utf8'),s);d=s.window.MISHNAH_VOCALIZED['Mishnah Berakhot'];}
+  const links=d.interlinear.chapters['1'].C.links;
+  for(const [reading,base,gap]of [[19,vocalized?18:19,18],[47,vocalized?44:45,46]]){
+   const l=links.find(l=>l.reading.some(([r,i])=>r==='1:3'&&i===reading));
+   assert.deepEqual(Array.from(l.base,p=>Array.from(p)),[['1:3',base]]);assert.equal(l.boundaryChecked,true);assert.equal(l.checked,false);assert.equal(l.uncertain,true);
+   const g=links.find(l=>l.reading.some(([r,i])=>r==='1:3'&&i===gap));assert.equal(g.kind,'source-gap');assert.equal(g.base.length,0);assert.deepEqual(Array.from(g.before),['1:3',base]);
+  }
+ }
+});
+
+test('Gap-aware refinement separates fragments spanning two reference words without reconstructing text',()=>{
+ const d=fixture();
+ for(const [chapter,ref,source,base,extent]of [['1','1:1',11,10,5],['2','2:1',36,34,6],['3','3:6',5,5,5]]){
+  const l=d.interlinear.chapters[chapter].C.links.find(l=>l.reading.some(([r,i])=>r===ref&&i===source));
+  assert.deepEqual(Array.from(l.base,p=>Array.from(p)),[[ref,base]]);assert.equal(l.boundaryMethod,'unique fragments and encoded gap extent');assert.equal(l.gapExtent,extent);assert.equal(l.checked,false);assert.equal(l.uncertain,true);
+ }
+ assert.equal(d.witnesses.C.units['2:1'].words[36].text,'ראה');
+});
+
+test('An intact word beside a gap keeps its normal variant colour',async()=>{
+ const d=fixture(),s={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../library-mishnah-textcrit.js'),'utf8'),s);
+ const ui=s.window.LibraryMishnahTextCrit.create({esc:String,load:async()=>d});await ui.load();const html=ui.render(3,['3:1'],['K','C']);
+ const words=[...html.matchAll(/<button[^>]*class="([^"]+)"[^>]*data-tc-mishnah="C\|3:1" data-tc-mishnah-word="3:1\|([0-9]+)"[^>]*>([^<]*)/g)];
+ const intact=words.find(m=>m[3]==='מוטל');assert(intact);assert(!intact[1].includes('muted'));
+ const fragment=words.find(m=>m[3]==='שמ');assert(fragment);assert(fragment[1].includes('muted'));
 });
