@@ -269,6 +269,8 @@
   "Bezugstext: Kaufmann A50 · automatische Wortzuordnung nach Digital Mishnah": "Reference text: Kaufmann A50 · automated alignment using Digital Mishnah",
   "Rot: abweichende Lesart oder Zusatz. Beschädigte Wörter behalten ihre Lücken. …: Zuordnung offen oder unsicher. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.": "Red: different reading or addition. Damaged words retain their gaps. …: unresolved or uncertain alignment. —: no counterpart in the automated comparison. Source annotations remain available in context.",
   "Wortgruppen nach Digital Mishnah; Lücken und Quellenzeichen bleiben erhalten. Automatisch zugeordnet, nicht vollständig philologisch geprüft.": "Word groups using Digital Mishnah; gaps and source annotations are retained. Automatically aligned, not fully reviewed philologically.",
+  "Abschnittsnummer nach Handschriftenmarkierung; ursprüngliche XML-ID erhalten.": "Section number follows the manuscript marker; original XML ID retained.",
+  "Randkommentar (Quelle)": "Marginal commentary (source)",
   "Lücke zwischen belegten Nachbarwörtern": "Gap between attested neighbouring words",
   "Zuordnung (maschinell) · beschädigt / unsicher": "Automated alignment · damaged / uncertain",
   "Bezugstext: Kaufmann A50 · maschinelle Wort- und Gruppenzuordnung": "Reference text: Kaufmann A50 · automated word and group alignment",

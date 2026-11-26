@@ -71,7 +71,7 @@ test('Source gaps are positioned between actual neighbours and the nested Cambri
   }
  }
  assert.equal(gaps,41);assert.equal(d.interlinear.counts.C.positionedGaps,41);assert.equal(d.interlinear.counts.C.open,0);
- for(const totals of Object.values(d.interlinear.counts))assert.equal(totals.words,totals.aligned+totals.insertions+totals.positionedGaps+totals.open);
+ for(const totals of Object.values(d.interlinear.counts))assert.equal(totals.words,totals.aligned+totals.insertions+totals.positionedGaps+(totals.sourceNotes||0)+totals.open);
 });
 
 test('Project CollateX links preserve Cambridge gaps and Parma spelling variants without claiming review',async()=>{

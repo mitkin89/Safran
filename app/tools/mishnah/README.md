@@ -119,15 +119,15 @@ The build checks the reading payload hash and Kaufmann bridge source hash.
 
 `library-mishnah-reader.js` exposes the three licensed transcriptions as local
 reading versions without modifying the library files or source payload. Kaufmann
-is the preferred reference. The normal Interlinear chooser controls Parma and
-Cambridge beneath Kaufmann, reusing the apparatus renderer and its original
+is the preferred reference. The normal Interlinear chooser controls Digital-Mishnah Kaufmann, Parma and
+Cambridge beneath the vocalized reading edition, reusing the apparatus renderer and its original
 source-token previews. Independently opened Parma/Cambridge versions retain
 their own unit numbering (explicitly labelled), rather than pretending that
 equal row numbers imply identical passages. The separate interlinear preference
 is saved per reader frame/session; the apparatus filters remain independent.
 
 Main-reader comparison lines repeat their witness names at each visual wrap,
-recalculated when the grid is resized. The main-reader hover shows only source
+recalculated when the grid is resized. Details opened by click or keyboard focus show only source
 metadata, the mechanical transcription token number, alignment status and
 annotations overlapping that token (including explicit source expansions). It
 does not repeat the paragraph or invent morphology, manuscript dates, folio
@@ -135,21 +135,23 @@ locations or certainty percentages. The apparatus retains its separate full
 source-context preview.
 
 
-## Compatibility with the expanded manuscript and vocalized corpora
+## Complete corpus and vocalized comparison
 
-Berakhot uses the project CollateX cache through `project_align.py`. The
-existing `align.py`/native implementation and the other tractates remain
-available without an API change. `build_vocalized.py` uses a separate source-
-bound project cache for the existing Be'eri Berakhot reading edition; its
-vowels, punctuation, word-card offsets and full text remain untouched.
-`V00001` IDs identify synthetic comparison tokens of that edition, never
-manuscript word IDs. Its consonantal projection is passed through the same
-project `buildJSON` normalization and grouping rules. The other 62 vocalized
-comparisons retain their existing data and build path.
+All 63 tractates use `project_align.py` with source-bound project caches.
+`collate_corpus.py` prepares the pinned source words and the existing vocalized
+reading projection, then runs chapter CollateX jobs in a local JVM batch.
+It saves diplomatic caches in `sources/project-collation/` and four-witness
+reading caches in `sources/project-vocalized-collation/`; Berakhot retains its
+two established cache paths. `collate_project.py` and `collate_vocalized.py`
+remain single-tractate rebuild helpers.
 
-Regenerate the additional cache with `python3 tools/mishnah/collate_vocalized.py
---upstream-dir /path/to/build-inputs`, then build the vocalized comparison.
-The reference edition path and text hash must match before it can be used.
+The vocalized view adds the actual Digital-Mishnah Kaufmann source as `D`
+below the unchanged Be'eri reference `K`, followed by `P` and `C`. Comparison
+IDs beginning `V00001` are synthetic reading-edition IDs; repeated source IDs
+retain their original `sourceId` and receive an occurrence suffix only for
+comparison. Source comments are separately preserved, not forced into a
+Mishnah word column. See CORPUS.md for reference repairs and VOCALIZED.md
+for complete counts and coverage. No Java binaries are shipped with the app.
 
 
 Two source-hash-bound boundary reviews in `source-boundary-review.json` split

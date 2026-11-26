@@ -9,14 +9,15 @@ function entries(group){
 }
 function create(host){
  const {$,esc,getView}=host,adapter=window.LibraryMishnahTextCrit.create(host),tr=s=>window.I18N?.textCrit?.(s)??s;
- let picks=['P','C'],generation=0,hover=null,anchor=null,timer=null;
- try{const p=JSON.parse(localStorage.getItem('mishnahReaderWitnesses')||'null');if(Array.isArray(p))picks=['P','C'].filter(s=>p.includes(s));}catch{}
+ let picks=['D','P','C'],generation=0,hover=null,anchor=null,timer=null;
+ try{const saved=localStorage.getItem('mishnahReaderWitnessesV2'),p=JSON.parse(saved||localStorage.getItem('mishnahReaderWitnesses')||'null');if(Array.isArray(p))picks=['D','P','C'].filter(s=>p.includes(s)||s==='D'&&!saved);}catch{}
+ const comparisonAvailable=title=>[...(available(title).includes('K')?['D']:[]),...available(title).filter(s=>s!=='K')];
  const active=()=>window.LibraryMishnahTextCrit.supports(getView()?.group?.title);
  const VERSION="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
  const reading=()=>getView()?.group?.versions.find(e=>e.versionTitle===VERSION);
  const hasReading=()=>{const e=reading();return e&&getView()?.selected.has(e.rel);};
  const hasK=()=>getView()?.selected.has(prefix(getView()?.group?.title)+'K');
- const name=s=>s==='K'?'Kaufmann':s==='P'?'Parma':'Cambridge';
+ const name=s=>s==='K'?'Kaufmann':s==='D'?'Kaufmann · Digital Mishnah':s==='P'?'Parma':'Cambridge';
  async function read(entry){
   if(!entry?.mishnahWitness)return null;
   const data=await adapter.load(entry.title),sig=entry.mishnahWitness,w=data.witnesses[sig],text=Array.from({length:window.MISHNAH_TEXTCRIT_CATALOG?.[entry.title]?.chapters||9},()=>[]);
@@ -64,9 +65,9 @@ function create(host){
    if(isReading&&!picks.length)continue;
    txt.classList.add('mishnah-reader-text');
    if(sig==='K'){
-    const template=document.createElement('template');template.innerHTML=(isReading?adapter.renderVocalized:adapter.render)(chapter+1,[ref],['K',...picks.filter(s=>available(view.group.title).includes(s))]);
+    const template=document.createElement('template');template.innerHTML=(isReading?adapter.renderVocalized:adapter.render)(chapter+1,[ref],['K',...picks.filter(s=>(isReading?comparisonAvailable(view.group.title):available(view.group.title).filter(s=>s!=='K')).includes(s))]);
     const source=template.content.querySelector('.tc-reader-verse');if(isReading){delete cell.dataset.mishnahMorphReady;cell.dataset.mishnahMorphState='pending';cell.dataset.mciVocalized='1';}
-    txt.replaceChildren(...template.content.querySelectorAll('.mci-coverage-notice'),...(source?.querySelectorAll('.mci-grid,.mci-open,.mci-unbased-notice')||[]));
+    txt.replaceChildren(...template.content.querySelectorAll('.mci-coverage-notice'),...(source?.querySelectorAll('.mci-grid,.mci-note,.mci-open,.mci-unbased-notice')||[]));
    }else{
     txt.innerHTML=adapter.sourceUnit(sig,ref);
    }
@@ -76,13 +77,13 @@ function create(host){
   labelLines();for(const grid of $('#rOut').querySelectorAll('.mci-grid'))observer?.observe(grid);
  }
  function menu(){
-  return '<div class="ilpH">'+esc(tr('Handschriften'))+'</div><label class="ilpR"><input type="checkbox" value="K" '+((hasReading()||hasK())?'checked':'')+'> Kaufmann · vokalisierte Lesefassung</label>'+available(getView()?.group?.title).filter(s=>s!=='K').map(s=>'<label class="ilpR"><input type="checkbox" value="'+s+'" '+(picks.includes(s)?'checked':'')+'> '+name(s)+'</label>').join('')+'<div class="ilpB"><button type="button" data-a="all">'+esc(tr('Alle'))+'</button> <button type="button" data-a="none">'+esc(tr('Keine'))+'</button></div><p class="muted">'+esc(tr('Die verfügbaren Handschriften stehen wortweise unter der vokalisierten Kaufmann-Lesefassung. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.'))+'</p>';
+  return '<div class="ilpH">'+esc(tr('Handschriften'))+'</div><label class="ilpR"><input type="checkbox" value="K" '+((hasReading()||hasK())?'checked':'')+'> Kaufmann · vokalisierte Lesefassung</label>'+comparisonAvailable(getView()?.group?.title).map(s=>'<label class="ilpR"><input type="checkbox" value="'+s+'" '+(picks.includes(s)?'checked':'')+'> '+name(s)+'</label>').join('')+'<div class="ilpB"><button type="button" data-a="all">'+esc(tr('Alle'))+'</button> <button type="button" data-a="none">'+esc(tr('Keine'))+'</button></div><p class="muted">'+esc(tr('Die verfügbaren Handschriften stehen wortweise unter der vokalisierten Kaufmann-Lesefassung. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.'))+'</p>';
  }
  async function choose(value,on){
   if(!active())return;const view=getView();
   if(value==='K'){const e=reading(),rel=e?.rel||prefix(view.group.title)+'K';if(on){view.selected.add(rel);if(e)view.selected.delete(prefix(view.group.title)+'K');}else if(view.selected.size>1)view.selected.delete(rel);}
-  else{if(value==='all')picks=available(view.group.title).filter(s=>s!=='K');else if(value==='none')picks=[];else picks=on?[...new Set([...picks,value])]:picks.filter(s=>s!==value);if(picks.length){const e=reading();view.selected.add(e?.rel||prefix(view.group.title)+'K');if(e)view.selected.delete(prefix(view.group.title)+'K');}}
-  try{localStorage.setItem('mishnahReaderWitnesses',JSON.stringify(picks));}catch{}
+  else{if(value==='all')picks=comparisonAvailable(view.group.title);else if(value==='none')picks=[];else picks=on?[...new Set([...picks,value])]:picks.filter(s=>s!==value);if(picks.length){const e=reading();view.selected.add(e?.rel||prefix(view.group.title)+'K');if(e)view.selected.delete(prefix(view.group.title)+'K');}}
+  try{localStorage.setItem('mishnahReaderWitnessesV2',JSON.stringify(picks));}catch{}
   host.remember();await host.reload(view);
   if(getView()===view&&!$('#ilPop').hidden)$('#ilPop').innerHTML=menu();
  }

@@ -32,6 +32,9 @@ def prepare_query(source, data_uri):
          'declare variable $config:data-root := "' + data_uri + '";\ndeclare function functx:pad-integer-to-length'),
         ('$w/text(),', "string-join($w/text(), ''),"),
         ('matches($this,', "matches(string-join($this, ''),"),
+        # Some Parma abbreviations encode an empty expansion. Preserve their
+        # actual surface form rather than indexing an empty array.
+        ('$rText?1', '(if (array:size($rText) > 0) then $rText?1 else $tText)'),
         # Upstream descends into choice/orig but then discards an inner orig
         # as an unknown element. Retain its actual diplomatic text; no reg
         # reading or reconstructed characters are substituted.

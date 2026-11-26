@@ -58,10 +58,11 @@ def build(folder=None):
             ref=':'.join(match.groups());meta['units'][ref]={'id':ident,**extract(ab)}
         out['witnesses'][sig]=meta
     k=out['witnesses']['K']['units'];out['verses']={ref:{'words':[w['text'] for w in u['words']],'witnessRefs':{}} for ref,u in k.items()}
+    commentary={sig:{tuple(p) for note in project_align.source_notes(w['units']) for p in note['reading']} for sig,w in out['witnesses'].items()}
     # Compare full chapters, not coordinate numbers: Cambridge has two additional units.
     for ch in range(1,10):
         def stream(sig):
-            return [(ref,i,w) for ref,u in out['witnesses'][sig]['units'].items() if ref.startswith(str(ch)+':') for i,w in enumerate(u['words'])]
+            return [(ref,i,w) for ref,u in out['witnesses'][sig]['units'].items() if ref.startswith(str(ch)+':') for i,w in enumerate(u['words']) if (ref,i) not in commentary[sig]]
         base=stream('K')
         for sig in ['P','C']:
             other=stream(sig)

@@ -6,24 +6,36 @@
     "chapters": 9,
     "words": 2159,
     "alignment": {
+      "D": {
+        "words": 2170,
+        "aligned": 2131,
+        "insertions": 39,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2171,
         "aligned": 2119,
         "insertions": 52,
         "positionedGaps": 0,
+        "sourceNotes": 0,
         "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2201,
-        "aligned": 2098,
-        "insertions": 62,
+        "aligned": 2096,
+        "insertions": 64,
         "positionedGaps": 41,
+        "sourceNotes": 0,
         "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -35,22 +47,36 @@
     "chapters": 8,
     "words": 2415,
     "alignment": {
+      "D": {
+        "words": 2432,
+        "aligned": 2356,
+        "insertions": 76,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2392,
-        "aligned": 2260,
-        "insertions": 35,
-        "open": 97,
+        "aligned": 2311,
+        "insertions": 80,
+        "positionedGaps": 1,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2438,
-        "aligned": 2206,
-        "insertions": 42,
-        "open": 190,
+        "aligned": 2302,
+        "insertions": 136,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -62,22 +88,36 @@
     "chapters": 7,
     "words": 1863,
     "alignment": {
+      "D": {
+        "words": 1858,
+        "aligned": 1840,
+        "insertions": 18,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1878,
-        "aligned": 1774,
-        "insertions": 35,
-        "open": 69,
+        "aligned": 1823,
+        "insertions": 31,
+        "positionedGaps": 0,
+        "sourceNotes": 24,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 0,
         "aligned": 0,
         "insertions": 0,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
         "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -89,22 +129,36 @@
     "chapters": 9,
     "words": 2902,
     "alignment": {
+      "D": {
+        "words": 2924,
+        "aligned": 2905,
+        "insertions": 19,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2935,
-        "aligned": 2759,
-        "insertions": 79,
-        "open": 97,
+        "aligned": 2833,
+        "insertions": 26,
+        "positionedGaps": 0,
+        "sourceNotes": 72,
+        "open": 4,
         "reviewed": 0
       },
       "C": {
         "words": 2926,
-        "aligned": 2669,
-        "insertions": 29,
-        "open": 228,
+        "aligned": 2851,
+        "insertions": 75,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -116,22 +170,36 @@
     "chapters": 10,
     "words": 3154,
     "alignment": {
+      "D": {
+        "words": 3209,
+        "aligned": 3160,
+        "insertions": 36,
+        "positionedGaps": 13,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3228,
-        "aligned": 3040,
-        "insertions": 66,
-        "open": 122,
+        "aligned": 3112,
+        "insertions": 57,
+        "positionedGaps": 0,
+        "sourceNotes": 59,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3184,
-        "aligned": 2927,
-        "insertions": 50,
-        "open": 207,
+        "aligned": 3071,
+        "insertions": 113,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -143,22 +211,36 @@
     "chapters": 11,
     "words": 3566,
     "alignment": {
+      "D": {
+        "words": 3582,
+        "aligned": 3552,
+        "insertions": 30,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3520,
-        "aligned": 3419,
-        "insertions": 11,
-        "open": 90,
+        "aligned": 3499,
+        "insertions": 18,
+        "positionedGaps": 1,
+        "sourceNotes": 0,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 3545,
-        "aligned": 3238,
-        "insertions": 25,
-        "open": 282,
+        "aligned": 3460,
+        "insertions": 85,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -170,22 +252,36 @@
     "chapters": 5,
     "words": 1530,
     "alignment": {
+      "D": {
+        "words": 1511,
+        "aligned": 1494,
+        "insertions": 17,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1492,
-        "aligned": 1441,
-        "insertions": 3,
-        "open": 48,
+        "aligned": 1480,
+        "insertions": 12,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1521,
-        "aligned": 1426,
-        "insertions": 12,
-        "open": 83,
+        "aligned": 1489,
+        "insertions": 32,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -197,22 +293,36 @@
     "chapters": 5,
     "words": 2244,
     "alignment": {
+      "D": {
+        "words": 2241,
+        "aligned": 2224,
+        "insertions": 17,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2245,
-        "aligned": 2116,
-        "insertions": 9,
-        "open": 120,
+        "aligned": 2207,
+        "insertions": 38,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2246,
-        "aligned": 2082,
-        "insertions": 29,
-        "open": 135,
+        "aligned": 2173,
+        "insertions": 73,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -224,22 +334,36 @@
     "chapters": 4,
     "words": 1302,
     "alignment": {
+      "D": {
+        "words": 1305,
+        "aligned": 1297,
+        "insertions": 8,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1300,
-        "aligned": 1251,
-        "insertions": 8,
-        "open": 41,
+        "aligned": 1206,
+        "insertions": 17,
+        "positionedGaps": 0,
+        "sourceNotes": 77,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1256,
-        "aligned": 1137,
-        "insertions": 12,
-        "open": 107,
+        "aligned": 1208,
+        "insertions": 48,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -251,22 +375,36 @@
     "chapters": 3,
     "words": 1002,
     "alignment": {
+      "D": {
+        "words": 987,
+        "aligned": 982,
+        "insertions": 5,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 979,
-        "aligned": 939,
-        "insertions": 5,
-        "open": 35,
+        "aligned": 966,
+        "insertions": 12,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 1,
         "reviewed": 0
       },
       "C": {
         "words": 986,
-        "aligned": 858,
-        "insertions": 10,
-        "open": 118,
+        "aligned": 947,
+        "insertions": 39,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -278,22 +416,36 @@
     "chapters": 4,
     "words": 1310,
     "alignment": {
+      "D": {
+        "words": 1308,
+        "aligned": 1294,
+        "insertions": 14,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1306,
-        "aligned": 1193,
-        "insertions": 13,
-        "open": 100,
+        "aligned": 1273,
+        "insertions": 23,
+        "positionedGaps": 7,
+        "sourceNotes": 3,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1114,
-        "aligned": 1019,
-        "insertions": 16,
-        "open": 79,
+        "aligned": 1083,
+        "insertions": 31,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -305,22 +457,36 @@
     "chapters": 24,
     "words": 5342,
     "alignment": {
+      "D": {
+        "words": 5348,
+        "aligned": 5284,
+        "insertions": 64,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 5552,
-        "aligned": 5067,
-        "insertions": 218,
-        "open": 267,
+        "aligned": 5224,
+        "insertions": 85,
+        "positionedGaps": 0,
+        "sourceNotes": 242,
+        "open": 1,
         "reviewed": 0
       },
       "C": {
         "words": 5280,
-        "aligned": 4911,
-        "insertions": 18,
-        "open": 351,
+        "aligned": 5165,
+        "insertions": 113,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 2,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -332,22 +498,36 @@
     "chapters": 10,
     "words": 3784,
     "alignment": {
+      "D": {
+        "words": 3806,
+        "aligned": 3771,
+        "insertions": 35,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3831,
-        "aligned": 3636,
-        "insertions": 67,
-        "open": 128,
+        "aligned": 3724,
+        "insertions": 55,
+        "positionedGaps": 3,
+        "sourceNotes": 45,
+        "open": 4,
         "reviewed": 0
       },
       "C": {
         "words": 3746,
-        "aligned": 3532,
-        "insertions": 22,
-        "open": 192,
+        "aligned": 3687,
+        "insertions": 58,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 1,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -359,22 +539,36 @@
     "chapters": 10,
     "words": 3673,
     "alignment": {
+      "D": {
+        "words": 3720,
+        "aligned": 3634,
+        "insertions": 77,
+        "positionedGaps": 0,
+        "sourceNotes": 9,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 4002,
-        "aligned": 3457,
-        "insertions": 336,
-        "open": 209,
+        "aligned": 3538,
+        "insertions": 103,
+        "positionedGaps": 13,
+        "sourceNotes": 347,
+        "open": 1,
         "reviewed": 0
       },
       "C": {
         "words": 3630,
-        "aligned": 3394,
-        "insertions": 29,
-        "open": 207,
+        "aligned": 3552,
+        "insertions": 78,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -386,22 +580,36 @@
     "chapters": 8,
     "words": 2380,
     "alignment": {
+      "D": {
+        "words": 2396,
+        "aligned": 2376,
+        "insertions": 20,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2359,
-        "aligned": 2276,
-        "insertions": 8,
-        "open": 75,
+        "aligned": 2343,
+        "insertions": 16,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2367,
-        "aligned": 2165,
-        "insertions": 14,
-        "open": 188,
+        "aligned": 2315,
+        "insertions": 52,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -413,22 +621,36 @@
     "chapters": 8,
     "words": 2722,
     "alignment": {
+      "D": {
+        "words": 2707,
+        "aligned": 2672,
+        "insertions": 28,
+        "positionedGaps": 7,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3092,
-        "aligned": 2583,
-        "insertions": 343,
-        "open": 166,
+        "aligned": 2652,
+        "insertions": 62,
+        "positionedGaps": 0,
+        "sourceNotes": 378,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2835,
-        "aligned": 2484,
-        "insertions": 98,
-        "open": 253,
+        "aligned": 2656,
+        "insertions": 179,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -440,22 +662,36 @@
     "chapters": 5,
     "words": 2092,
     "alignment": {
+      "D": {
+        "words": 2077,
+        "aligned": 2060,
+        "insertions": 17,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2689,
-        "aligned": 1964,
-        "insertions": 434,
-        "open": 291,
+        "aligned": 2027,
+        "insertions": 54,
+        "positionedGaps": 0,
+        "sourceNotes": 606,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 2079,
-        "aligned": 1857,
-        "insertions": 6,
-        "open": 216,
+        "aligned": 2020,
+        "insertions": 59,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -467,22 +703,36 @@
     "chapters": 5,
     "words": 1467,
     "alignment": {
+      "D": {
+        "words": 1491,
+        "aligned": 1469,
+        "insertions": 22,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1982,
-        "aligned": 1391,
-        "insertions": 438,
-        "open": 153,
+        "aligned": 1441,
+        "insertions": 45,
+        "positionedGaps": 0,
+        "sourceNotes": 496,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1503,
-        "aligned": 1373,
-        "insertions": 53,
-        "open": 77,
+        "aligned": 1438,
+        "insertions": 65,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -494,22 +744,36 @@
     "chapters": 4,
     "words": 1545,
     "alignment": {
+      "D": {
+        "words": 1555,
+        "aligned": 1533,
+        "insertions": 20,
+        "positionedGaps": 2,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1626,
-        "aligned": 1479,
-        "insertions": 75,
-        "open": 72,
+        "aligned": 1524,
+        "insertions": 44,
+        "positionedGaps": 0,
+        "sourceNotes": 58,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1566,
-        "aligned": 1446,
-        "insertions": 21,
-        "open": 99,
+        "aligned": 1519,
+        "insertions": 47,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -521,22 +785,36 @@
     "chapters": 4,
     "words": 1782,
     "alignment": {
+      "D": {
+        "words": 1736,
+        "aligned": 1721,
+        "insertions": 13,
+        "positionedGaps": 2,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1707,
-        "aligned": 1629,
-        "insertions": 11,
-        "open": 67,
+        "aligned": 1690,
+        "insertions": 17,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1723,
-        "aligned": 1608,
-        "insertions": 17,
-        "open": 98,
+        "aligned": 1677,
+        "insertions": 46,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -548,22 +826,36 @@
     "chapters": 4,
     "words": 1281,
     "alignment": {
+      "D": {
+        "words": 1281,
+        "aligned": 1278,
+        "insertions": 3,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1942,
-        "aligned": 1184,
-        "insertions": 545,
-        "open": 213,
+        "aligned": 1251,
+        "insertions": 40,
+        "positionedGaps": 0,
+        "sourceNotes": 649,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 1241,
-        "aligned": 1179,
-        "insertions": 4,
-        "open": 58,
+        "aligned": 1233,
+        "insertions": 8,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -575,22 +867,36 @@
     "chapters": 3,
     "words": 763,
     "alignment": {
+      "D": {
+        "words": 764,
+        "aligned": 760,
+        "insertions": 4,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 775,
-        "aligned": 730,
-        "insertions": 5,
-        "open": 40,
+        "aligned": 757,
+        "insertions": 18,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 763,
-        "aligned": 714,
-        "insertions": 8,
-        "open": 41,
+        "aligned": 741,
+        "insertions": 22,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -602,22 +908,36 @@
     "chapters": 3,
     "words": 869,
     "alignment": {
+      "D": {
+        "words": 866,
+        "aligned": 856,
+        "insertions": 10,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 847,
-        "aligned": 823,
-        "insertions": 2,
-        "open": 22,
+        "aligned": 842,
+        "insertions": 5,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 837,
-        "aligned": 780,
-        "insertions": 5,
-        "open": 52,
+        "aligned": 823,
+        "insertions": 14,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -629,22 +949,36 @@
     "chapters": 16,
     "words": 6596,
     "alignment": {
+      "D": {
+        "words": 6625,
+        "aligned": 6568,
+        "insertions": 57,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 6565,
-        "aligned": 6270,
-        "insertions": 35,
-        "open": 260,
+        "aligned": 6478,
+        "insertions": 87,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 6524,
-        "aligned": 6028,
-        "insertions": 91,
-        "open": 405,
+        "aligned": 6340,
+        "insertions": 184,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -656,22 +990,36 @@
     "chapters": 13,
     "words": 5040,
     "alignment": {
+      "D": {
+        "words": 5081,
+        "aligned": 5020,
+        "insertions": 50,
+        "positionedGaps": 11,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 5009,
-        "aligned": 4813,
-        "insertions": 27,
-        "open": 169,
+        "aligned": 4959,
+        "insertions": 50,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 5054,
-        "aligned": 4687,
-        "insertions": 65,
-        "open": 302,
+        "aligned": 4925,
+        "insertions": 129,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -683,22 +1031,36 @@
     "chapters": 11,
     "words": 4439,
     "alignment": {
+      "D": {
+        "words": 4459,
+        "aligned": 4353,
+        "insertions": 106,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 4350,
-        "aligned": 4048,
-        "insertions": 33,
-        "open": 269,
+        "aligned": 4286,
+        "insertions": 55,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 9,
         "reviewed": 0
       },
       "C": {
         "words": 4373,
-        "aligned": 4014,
-        "insertions": 61,
-        "open": 298,
+        "aligned": 4260,
+        "insertions": 113,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -710,22 +1072,36 @@
     "chapters": 9,
     "words": 3191,
     "alignment": {
+      "D": {
+        "words": 3139,
+        "aligned": 3090,
+        "insertions": 38,
+        "positionedGaps": 7,
+        "sourceNotes": 0,
+        "open": 4,
+        "reviewed": 0
+      },
       "P": {
         "words": 3120,
-        "aligned": 2937,
-        "insertions": 42,
-        "open": 141,
+        "aligned": 3064,
+        "insertions": 47,
+        "positionedGaps": 0,
+        "sourceNotes": 9,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3153,
-        "aligned": 2907,
-        "insertions": 32,
-        "open": 214,
+        "aligned": 3065,
+        "insertions": 88,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -737,22 +1113,36 @@
     "chapters": 9,
     "words": 4056,
     "alignment": {
+      "D": {
+        "words": 3865,
+        "aligned": 3814,
+        "insertions": 46,
+        "positionedGaps": 5,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3954,
-        "aligned": 3318,
-        "insertions": 282,
-        "open": 354,
+        "aligned": 3509,
+        "insertions": 169,
+        "positionedGaps": 0,
+        "sourceNotes": 276,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3895,
-        "aligned": 3491,
-        "insertions": 113,
-        "open": 291,
+        "aligned": 3707,
+        "insertions": 188,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -764,22 +1154,36 @@
     "chapters": 9,
     "words": 3758,
     "alignment": {
+      "D": {
+        "words": 3743,
+        "aligned": 3699,
+        "insertions": 44,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3980,
-        "aligned": 3525,
-        "insertions": 244,
-        "open": 211,
+        "aligned": 3635,
+        "insertions": 44,
+        "positionedGaps": 0,
+        "sourceNotes": 300,
+        "open": 1,
         "reviewed": 0
       },
       "C": {
         "words": 3679,
-        "aligned": 3476,
-        "insertions": 31,
-        "open": 172,
+        "aligned": 3620,
+        "insertions": 52,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 7,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -791,22 +1195,36 @@
     "chapters": 4,
     "words": 2417,
     "alignment": {
+      "D": {
+        "words": 2246,
+        "aligned": 2224,
+        "insertions": 22,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2254,
-        "aligned": 2026,
-        "insertions": 31,
-        "open": 197,
+        "aligned": 2164,
+        "insertions": 87,
+        "positionedGaps": 0,
+        "sourceNotes": 3,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1511,
-        "aligned": 1409,
-        "insertions": 6,
-        "open": 96,
+        "aligned": 1490,
+        "insertions": 21,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -818,22 +1236,36 @@
     "chapters": 10,
     "words": 4260,
     "alignment": {
+      "D": {
+        "words": 4182,
+        "aligned": 4153,
+        "insertions": 21,
+        "positionedGaps": 0,
+        "sourceNotes": 7,
+        "open": 1,
+        "reviewed": 0
+      },
       "P": {
         "words": 4044,
-        "aligned": 3839,
-        "insertions": 27,
-        "open": 178,
+        "aligned": 3992,
+        "insertions": 47,
+        "positionedGaps": 0,
+        "sourceNotes": 3,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 4191,
-        "aligned": 3868,
-        "insertions": 46,
-        "open": 277,
+        "aligned": 4095,
+        "insertions": 96,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -845,22 +1277,36 @@
     "chapters": 10,
     "words": 4800,
     "alignment": {
+      "D": {
+        "words": 4744,
+        "aligned": 4716,
+        "insertions": 27,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 1,
+        "reviewed": 0
+      },
       "P": {
         "words": 4617,
-        "aligned": 4324,
-        "insertions": 35,
-        "open": 258,
+        "aligned": 4527,
+        "insertions": 90,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 4822,
-        "aligned": 4433,
-        "insertions": 107,
-        "open": 282,
+        "aligned": 4654,
+        "insertions": 168,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -872,22 +1318,36 @@
     "chapters": 10,
     "words": 4718,
     "alignment": {
+      "D": {
+        "words": 4597,
+        "aligned": 4583,
+        "insertions": 14,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 4653,
-        "aligned": 4485,
-        "insertions": 33,
-        "open": 135,
+        "aligned": 4595,
+        "insertions": 54,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 4,
         "reviewed": 0
       },
       "C": {
         "words": 4625,
-        "aligned": 4354,
-        "insertions": 32,
-        "open": 239,
+        "aligned": 4538,
+        "insertions": 87,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -899,22 +1359,36 @@
     "chapters": 11,
     "words": 5073,
     "alignment": {
+      "D": {
+        "words": 4973,
+        "aligned": 4928,
+        "insertions": 45,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 5056,
-        "aligned": 4780,
-        "insertions": 66,
-        "open": 210,
+        "aligned": 4929,
+        "insertions": 113,
+        "positionedGaps": 0,
+        "sourceNotes": 11,
+        "open": 3,
         "reviewed": 0
       },
       "C": {
         "words": 4994,
-        "aligned": 4516,
-        "insertions": 51,
-        "open": 427,
+        "aligned": 4864,
+        "insertions": 130,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -926,22 +1400,36 @@
     "chapters": 3,
     "words": 2108,
     "alignment": {
+      "D": {
+        "words": 2034,
+        "aligned": 2020,
+        "insertions": 14,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2025,
-        "aligned": 1943,
-        "insertions": 6,
-        "open": 76,
+        "aligned": 2010,
+        "insertions": 13,
+        "positionedGaps": 2,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1989,
-        "aligned": 1801,
-        "insertions": 11,
-        "open": 177,
+        "aligned": 1959,
+        "insertions": 30,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -953,22 +1441,36 @@
     "chapters": 8,
     "words": 3379,
     "alignment": {
+      "D": {
+        "words": 3333,
+        "aligned": 3303,
+        "insertions": 30,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3360,
-        "aligned": 3124,
-        "insertions": 26,
-        "open": 210,
+        "aligned": 3285,
+        "insertions": 63,
+        "positionedGaps": 11,
+        "sourceNotes": 0,
+        "open": 1,
         "reviewed": 0
       },
       "C": {
         "words": 3330,
-        "aligned": 3026,
-        "insertions": 21,
-        "open": 283,
+        "aligned": 3258,
+        "insertions": 72,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -980,22 +1482,36 @@
     "chapters": 8,
     "words": 3826,
     "alignment": {
+      "D": {
+        "words": 3769,
+        "aligned": 3750,
+        "insertions": 17,
+        "positionedGaps": 2,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3759,
-        "aligned": 3613,
-        "insertions": 14,
-        "open": 132,
+        "aligned": 3721,
+        "insertions": 36,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 3732,
-        "aligned": 3369,
-        "insertions": 22,
-        "open": 341,
+        "aligned": 3658,
+        "insertions": 74,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1007,22 +1523,36 @@
     "chapters": 5,
     "words": 2266,
     "alignment": {
+      "D": {
+        "words": 2262,
+        "aligned": 2216,
+        "insertions": 46,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2240,
-        "aligned": 2073,
-        "insertions": 43,
-        "open": 124,
+        "aligned": 2187,
+        "insertions": 38,
+        "positionedGaps": 0,
+        "sourceNotes": 15,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2239,
-        "aligned": 1967,
-        "insertions": 18,
-        "open": 254,
+        "aligned": 2168,
+        "insertions": 71,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1034,22 +1564,36 @@
     "chapters": 6,
     "words": 4449,
     "alignment": {
+      "D": {
+        "words": 3361,
+        "aligned": 3309,
+        "insertions": 44,
+        "positionedGaps": 8,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3424,
-        "aligned": 3117,
-        "insertions": 99,
-        "open": 208,
+        "aligned": 3258,
+        "insertions": 148,
+        "positionedGaps": 0,
+        "sourceNotes": 16,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 3332,
-        "aligned": 2972,
-        "insertions": 49,
-        "open": 311,
+        "aligned": 3215,
+        "insertions": 117,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1061,22 +1605,36 @@
     "chapters": 3,
     "words": 999,
     "alignment": {
+      "D": {
+        "words": 990,
+        "aligned": 983,
+        "insertions": 7,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 992,
-        "aligned": 937,
-        "insertions": 12,
-        "open": 43,
+        "aligned": 974,
+        "insertions": 18,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 974,
-        "aligned": 890,
-        "insertions": 10,
-        "open": 74,
+        "aligned": 959,
+        "insertions": 15,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1088,22 +1646,36 @@
     "chapters": 14,
     "words": 4961,
     "alignment": {
+      "D": {
+        "words": 5013,
+        "aligned": 4932,
+        "insertions": 73,
+        "positionedGaps": 8,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 4963,
-        "aligned": 4682,
-        "insertions": 70,
-        "open": 211,
+        "aligned": 4853,
+        "insertions": 103,
+        "positionedGaps": 5,
+        "sourceNotes": 0,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 4886,
-        "aligned": 4487,
-        "insertions": 31,
-        "open": 368,
+        "aligned": 4786,
+        "insertions": 99,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 1,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1115,22 +1687,36 @@
     "chapters": 13,
     "words": 5230,
     "alignment": {
+      "D": {
+        "words": 5216,
+        "aligned": 5182,
+        "insertions": 34,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 5197,
-        "aligned": 4897,
-        "insertions": 44,
-        "open": 256,
+        "aligned": 5092,
+        "insertions": 91,
+        "positionedGaps": 0,
+        "sourceNotes": 8,
+        "open": 6,
         "reviewed": 0
       },
       "C": {
         "words": 5232,
-        "aligned": 4627,
-        "insertions": 51,
-        "open": 554,
+        "aligned": 5086,
+        "insertions": 146,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1142,22 +1728,36 @@
     "chapters": 12,
     "words": 3749,
     "alignment": {
+      "D": {
+        "words": 3734,
+        "aligned": 3704,
+        "insertions": 27,
+        "positionedGaps": 3,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3709,
-        "aligned": 3485,
-        "insertions": 41,
-        "open": 183,
+        "aligned": 3650,
+        "insertions": 53,
+        "positionedGaps": 0,
+        "sourceNotes": 4,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 3700,
-        "aligned": 3398,
-        "insertions": 27,
-        "open": 275,
+        "aligned": 3640,
+        "insertions": 60,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1169,22 +1769,36 @@
     "chapters": 9,
     "words": 3704,
     "alignment": {
+      "D": {
+        "words": 3708,
+        "aligned": 3656,
+        "insertions": 46,
+        "positionedGaps": 6,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3323,
-        "aligned": 3142,
-        "insertions": 34,
-        "open": 147,
+        "aligned": 3270,
+        "insertions": 49,
+        "positionedGaps": 4,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3669,
-        "aligned": 3309,
-        "insertions": 33,
-        "open": 327,
+        "aligned": 3591,
+        "insertions": 78,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1196,22 +1810,36 @@
     "chapters": 9,
     "words": 2576,
     "alignment": {
+      "D": {
+        "words": 2577,
+        "aligned": 2561,
+        "insertions": 13,
+        "positionedGaps": 3,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2542,
-        "aligned": 2433,
-        "insertions": 20,
-        "open": 89,
+        "aligned": 2515,
+        "insertions": 26,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 1,
         "reviewed": 0
       },
       "C": {
         "words": 2528,
-        "aligned": 2285,
-        "insertions": 13,
-        "open": 230,
+        "aligned": 2479,
+        "insertions": 49,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1223,22 +1851,36 @@
     "chapters": 7,
     "words": 1851,
     "alignment": {
+      "D": {
+        "words": 1798,
+        "aligned": 1776,
+        "insertions": 22,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1820,
-        "aligned": 1724,
-        "insertions": 9,
-        "open": 87,
+        "aligned": 1799,
+        "insertions": 20,
+        "positionedGaps": 1,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1889,
-        "aligned": 1617,
-        "insertions": 43,
-        "open": 229,
+        "aligned": 1794,
+        "insertions": 95,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1250,22 +1892,36 @@
     "chapters": 6,
     "words": 2782,
     "alignment": {
+      "D": {
+        "words": 1993,
+        "aligned": 1982,
+        "insertions": 11,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2732,
-        "aligned": 2619,
-        "insertions": 14,
-        "open": 99,
+        "aligned": 2711,
+        "insertions": 21,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2737,
-        "aligned": 2518,
-        "insertions": 14,
-        "open": 205,
+        "aligned": 2693,
+        "insertions": 44,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1277,22 +1933,36 @@
     "chapters": 6,
     "words": 1757,
     "alignment": {
+      "D": {
+        "words": 1750,
+        "aligned": 1742,
+        "insertions": 8,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1761,
-        "aligned": 1700,
-        "insertions": 19,
-        "open": 42,
+        "aligned": 1729,
+        "insertions": 29,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 3,
         "reviewed": 0
       },
       "C": {
         "words": 1741,
-        "aligned": 1605,
-        "insertions": 14,
-        "open": 122,
+        "aligned": 1710,
+        "insertions": 31,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1304,22 +1974,36 @@
     "chapters": 7,
     "words": 2134,
     "alignment": {
+      "D": {
+        "words": 2115,
+        "aligned": 2094,
+        "insertions": 17,
+        "positionedGaps": 4,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2072,
-        "aligned": 1966,
-        "insertions": 13,
-        "open": 93,
+        "aligned": 2049,
+        "insertions": 23,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2157,
-        "aligned": 1898,
-        "insertions": 62,
-        "open": 197,
+        "aligned": 2056,
+        "insertions": 101,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1331,22 +2015,36 @@
     "chapters": 5,
     "words": 2270,
     "alignment": {
+      "D": {
+        "words": 2260,
+        "aligned": 2227,
+        "insertions": 33,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2261,
-        "aligned": 2157,
-        "insertions": 16,
-        "open": 88,
+        "aligned": 2211,
+        "insertions": 50,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2249,
-        "aligned": 1923,
-        "insertions": 20,
-        "open": 306,
+        "aligned": 2141,
+        "insertions": 106,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 2,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1358,22 +2056,36 @@
     "chapters": 3,
     "words": 912,
     "alignment": {
+      "D": {
+        "words": 901,
+        "aligned": 895,
+        "insertions": 6,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 916,
-        "aligned": 886,
-        "insertions": 7,
-        "open": 23,
+        "aligned": 902,
+        "insertions": 14,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 950,
-        "aligned": 861,
-        "insertions": 6,
-        "open": 83,
+        "aligned": 905,
+        "insertions": 45,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1385,22 +2097,36 @@
     "chapters": 30,
     "words": 9792,
     "alignment": {
+      "D": {
+        "words": 9808,
+        "aligned": 9700,
+        "insertions": 99,
+        "positionedGaps": 9,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 9854,
-        "aligned": 9277,
-        "insertions": 140,
-        "open": 437,
+        "aligned": 9602,
+        "insertions": 203,
+        "positionedGaps": 0,
+        "sourceNotes": 46,
+        "open": 3,
         "reviewed": 0
       },
       "C": {
         "words": 10038,
-        "aligned": 8508,
-        "insertions": 67,
-        "open": 1463,
+        "aligned": 9590,
+        "insertions": 448,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1412,22 +2138,36 @@
     "chapters": 18,
     "words": 6032,
     "alignment": {
+      "D": {
+        "words": 6019,
+        "aligned": 5978,
+        "insertions": 39,
+        "positionedGaps": 2,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 6055,
-        "aligned": 5774,
-        "insertions": 65,
-        "open": 216,
+        "aligned": 5938,
+        "insertions": 96,
+        "positionedGaps": 1,
+        "sourceNotes": 20,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 6023,
-        "aligned": 5560,
-        "insertions": 58,
-        "open": 405,
+        "aligned": 5899,
+        "insertions": 124,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1439,22 +2179,36 @@
     "chapters": 14,
     "words": 5449,
     "alignment": {
+      "D": {
+        "words": 5390,
+        "aligned": 5329,
+        "insertions": 53,
+        "positionedGaps": 8,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 5382,
-        "aligned": 5140,
-        "insertions": 34,
-        "open": 208,
+        "aligned": 5304,
+        "insertions": 78,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 5326,
-        "aligned": 4779,
-        "insertions": 32,
-        "open": 515,
+        "aligned": 5204,
+        "insertions": 122,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1466,22 +2220,36 @@
     "chapters": 12,
     "words": 3815,
     "alignment": {
+      "D": {
+        "words": 3788,
+        "aligned": 3751,
+        "insertions": 33,
+        "positionedGaps": 4,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3777,
-        "aligned": 3671,
-        "insertions": 16,
-        "open": 90,
+        "aligned": 3747,
+        "insertions": 30,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3820,
-        "aligned": 3445,
-        "insertions": 15,
-        "open": 360,
+        "aligned": 3738,
+        "insertions": 82,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1493,22 +2261,36 @@
     "chapters": 10,
     "words": 3745,
     "alignment": {
+      "D": {
+        "words": 3742,
+        "aligned": 3710,
+        "insertions": 11,
+        "positionedGaps": 21,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3711,
-        "aligned": 3548,
-        "insertions": 29,
-        "open": 134,
+        "aligned": 3671,
+        "insertions": 40,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3754,
-        "aligned": 3520,
-        "insertions": 34,
-        "open": 200,
+        "aligned": 3684,
+        "insertions": 70,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1520,22 +2302,36 @@
     "chapters": 10,
     "words": 3132,
     "alignment": {
+      "D": {
+        "words": 3134,
+        "aligned": 3056,
+        "insertions": 78,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3094,
-        "aligned": 2954,
-        "insertions": 35,
-        "open": 105,
+        "aligned": 3044,
+        "insertions": 48,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 2,
         "reviewed": 0
       },
       "C": {
         "words": 3156,
-        "aligned": 2765,
-        "insertions": 82,
-        "open": 309,
+        "aligned": 3013,
+        "insertions": 143,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1547,22 +2343,36 @@
     "chapters": 10,
     "words": 3075,
     "alignment": {
+      "D": {
+        "words": 3063,
+        "aligned": 3044,
+        "insertions": 19,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 3052,
-        "aligned": 2898,
-        "insertions": 31,
-        "open": 123,
+        "aligned": 3012,
+        "insertions": 40,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 3046,
-        "aligned": 2799,
-        "insertions": 16,
-        "open": 231,
+        "aligned": 3009,
+        "insertions": 37,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1574,22 +2384,36 @@
     "chapters": 6,
     "words": 2118,
     "alignment": {
+      "D": {
+        "words": 2205,
+        "aligned": 2109,
+        "insertions": 96,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 2152,
-        "aligned": 1988,
-        "insertions": 26,
-        "open": 138,
+        "aligned": 2096,
+        "insertions": 56,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 2143,
-        "aligned": 1876,
-        "insertions": 17,
-        "open": 250,
+        "aligned": 2079,
+        "insertions": 64,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1601,22 +2425,36 @@
     "chapters": 5,
     "words": 1558,
     "alignment": {
+      "D": {
+        "words": 1563,
+        "aligned": 1542,
+        "insertions": 21,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1554,
-        "aligned": 1439,
-        "insertions": 21,
-        "open": 94,
+        "aligned": 1508,
+        "insertions": 42,
+        "positionedGaps": 4,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1541,
-        "aligned": 1363,
-        "insertions": 14,
-        "open": 164,
+        "aligned": 1497,
+        "insertions": 44,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1628,22 +2466,36 @@
     "chapters": 4,
     "words": 1087,
     "alignment": {
+      "D": {
+        "words": 1081,
+        "aligned": 1078,
+        "insertions": 3,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1085,
-        "aligned": 1027,
-        "insertions": 8,
-        "open": 50,
+        "aligned": 1067,
+        "insertions": 18,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1090,
-        "aligned": 929,
-        "insertions": 13,
-        "open": 148,
+        "aligned": 1046,
+        "insertions": 44,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1655,22 +2507,36 @@
     "chapters": 4,
     "words": 1581,
     "alignment": {
+      "D": {
+        "words": 1574,
+        "aligned": 1547,
+        "insertions": 27,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 1579,
-        "aligned": 1359,
-        "insertions": 28,
-        "open": 192,
+        "aligned": 1526,
+        "insertions": 46,
+        "positionedGaps": 1,
+        "sourceNotes": 6,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 1567,
-        "aligned": 1392,
-        "insertions": 20,
-        "open": 155,
+        "aligned": 1502,
+        "insertions": 65,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }
@@ -1682,22 +2548,36 @@
     "chapters": 3,
     "words": 1009,
     "alignment": {
+      "D": {
+        "words": 987,
+        "aligned": 975,
+        "insertions": 12,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
+        "reviewed": 0
+      },
       "P": {
         "words": 993,
-        "aligned": 712,
-        "insertions": 14,
-        "open": 267,
+        "aligned": 969,
+        "insertions": 24,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       },
       "C": {
         "words": 973,
-        "aligned": 821,
-        "insertions": 12,
-        "open": 140,
+        "aligned": 940,
+        "insertions": 33,
+        "positionedGaps": 0,
+        "sourceNotes": 0,
+        "open": 0,
         "reviewed": 0
       }
     },
     "outsideReadingChapters": {
+      "D": [],
       "P": [],
       "C": []
     }

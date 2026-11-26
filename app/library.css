@@ -3117,3 +3117,6 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #mishnahMorphForms table { border-collapse:collapse; width:100%; text-align:left; }
 #mishnahMorphForms :is(th,td) { border-bottom:1px solid var(--line); padding:7px; vertical-align:top; }
 #mishnahMorphForms td:first-child { font-family:"HeDict",serif; font-size:21px; }
+
+.mci-note{margin:.6em 0;padding:.4em .6em;border-inline-start:2px solid var(--border,#444);font-size:.8em}
+.mci-note>summary{cursor:pointer;color:var(--muted,#999);font:14px/1.6 system-ui,sans-serif}
