@@ -1,0 +1,48 @@
+{
+  "title": "Sheviit 4:8#14: Ma’agarim follow-up",
+  "status": "exact-primary-attestation-found; separate proposal ready; original open list unchanged",
+  "sourceWord": "בִשְׁאָר",
+  "comparisonWord": "כִשְׁאָר",
+  "decision": {
+    "lemma": "ב/שאר",
+    "morph": "HR/Ncmsc",
+    "sourceReadingSupported": true,
+    "syntax": "Präpositionalgruppe ב + שאר im nominalen Constructus vor שני שבוע; Zeitangabe."
+  },
+  "lexicalEvidence": {
+    "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+    "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000005004080%2000&mismilla=14",
+    "wordId": "995424",
+    "lemma": "שְׁאָר",
+    "attributes": {
+      "mismila": "14",
+      "kodmilim": "995424",
+      "kodm0": "995424",
+      "erec0": "שְׁאָר",
+      "srs0": "שׁאר 1 - מה שנותר",
+      "kode0": "31815",
+      "kods0": "8564",
+      "yhd0": "",
+      "hera0": "",
+      "hpnimit0": "",
+      "rciv0": "0",
+      "zman0": "0",
+      "zura0": "בשאר"
+    },
+    "shibbur": "31000",
+    "passageId": "000005004080 00",
+    "manuscript": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+    "manuscriptId": "11722",
+    "retrievedAt": "2026-11-26T21:18:53.851Z",
+    "httpStatus": 200,
+    "htmlSha256": "046d61b366dd37d1725b72558b13afe3ef6b38a688ccac3025bbfab025560dd6",
+    "htmlExcerptFile": "accordance-sheviit-maagarim-4-8-evidence.html",
+    "htmlExcerptSha256": "3d0e71b80d3bc1d3917c0d603f67257243d00a3674e15f17bca8e2c37efbdb6a",
+    "wordHtml": "<span  mismila=14  cnt=1  class=\" tooltippedWord  highlight3 \"  kodmilim=\"995424\"  erec0=\"שְׁאָר\" srs0=\"שׁאר 1 - מה שנותר\" kode0=\"31815\" kods0=\"8564\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"995424\" zman0=\"0\" zura0=\"בשאר\"><nobr>בשאר</nobr></span>",
+    "context": "הבוסר. מש(?ביא?)[הביא] מים אוכל פיתו בשדה. הבאיש. כונס לתוך ביתו. וכן כיוצא בו בשאר שני שבוע חייב במעשרות."
+  },
+  "limitations": [
+    "Ma’agarim HTML liefert das Lemma und die unvokalisierte konkrete Form, keinen vollständigen Genus-/Numerus-/Status-Tag.",
+    "Keine Aussage über den Grund der abweichenden Accordance-Lesart כ; keine Änderung unserer Vokalisierung."
+  ]
+}

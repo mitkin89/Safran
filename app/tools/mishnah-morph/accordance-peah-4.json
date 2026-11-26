@@ -1,0 +1,1864 @@
+[
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 2,
+    "word": "נִתֶּנֶת",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVNrfsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wird gegeben",
+          "en": "is given"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "נתן",
+          "tags": "nif prt fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 3,
+    "word": "בִּמְחֻבָּר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/חבר",
+        "morph": "HR/VPrmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im angewachsenen Zustand",
+          "en": "while attached"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ב חבר",
+          "tags": "prp; pul prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 5,
+    "word": "בַּדָּלִית",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/דלית",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "beim hochgezogenen Weinstock",
+          "en": "for the trellised vine"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ב דלית",
+          "tags": "prpArt; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 6,
+    "word": "וּבַדָּקָל",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/דקל",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und bei der Dattelpalme",
+          "en": "and for the date palm"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ו ב דקל",
+          "tags": "cnj; prpArt; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 10,
+    "word": "וּמְחַלֵּק",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/חלק",
+        "morph": "HC/Vprmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und verteilt",
+          "en": "and distributes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ו חלק",
+          "tags": "cnj; pi prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 17,
+    "word": "אֱגוֹזִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אגוז",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Walnüsse",
+          "en": "walnuts"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "אגוז",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 19,
+    "word": "תִשְׁעִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תשעים",
+        "morph": "HAcmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "neunzig",
+          "en": "ninety"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "תשעים",
+          "tags": "ms pl abs crd",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 22,
+    "word": "לְחַלֵּק",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/חלק",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu verteilen",
+          "en": "to distribute"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ל חלק",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:1",
+    "token": 27,
+    "word": "שׁוֹמְעִין",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man hört auf",
+          "en": "one listens to"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "שמע",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:2",
+    "token": 1,
+    "word": "וּבַדָּלִית",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/דלית",
+        "morph": "HC/Rd/Ncfsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und beim hochgezogenen Weinstock",
+          "en": "and for the trellised vine"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ו ב דלית",
+          "tags": "cnj; prpArt; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:2",
+    "token": 2,
+    "word": "וּבַדָּקָל",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/דקל",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und bei der Dattelpalme",
+          "en": "and for the date palm"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ו ב דקל",
+          "tags": "cnj; prpArt; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:2",
+    "token": 6,
+    "word": "תִשְׁעִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תשעים",
+        "morph": "HAcmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "neunzig",
+          "en": "ninety"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "תשעים",
+          "tags": "ms pl abs crd",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:2",
+    "token": 12,
+    "word": "לְחַלֵּק",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/חלק",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu verteilen",
+          "en": "to distribute"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ל חלק",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:2",
+    "token": 14,
+    "word": "שׁוֹמְעִין",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שמע",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man hört auf",
+          "en": "one listens to"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "שמע",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:3",
+    "token": 15,
+    "word": "טַלֵּיתוֹ",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טלית",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sein Gewand",
+          "en": "his garment"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_17_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BxtRmWYdphcuBdwoidhOtRjLIEVCt62z",
+          "sha256": "eb06587b1807405a6300ff0f20876113b86e3e8bb76a60fe62e01bed064d7468",
+          "lex": "טלית",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:3",
+    "token": 17,
+    "word": "מַעֲבִירִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עבר",
+        "morph": "HVhrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man entfernt",
+          "en": "one removes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_17_reduced_high_compressed_compressed.jpg",
+          "driveId": "1BxtRmWYdphcuBdwoidhOtRjLIEVCt62z",
+          "sha256": "eb06587b1807405a6300ff0f20876113b86e3e8bb76a60fe62e01bed064d7468",
+          "lex": "עבר",
+          "tags": "hif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:4",
+    "token": 3,
+    "word": "קוֹצְרִין",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קצר",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man schneidet",
+          "en": "one reaps"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "קצר",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:4",
+    "token": 5,
+    "word": "בַּמַּגָּלוֹת",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/מגל",
+        "morph": "HRd/Ncmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mit den Sicheln",
+          "en": "with the sickles"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "ב מגל",
+          "tags": "prpArt; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Maskulines Genus trotz Pluralendung -ות."
+      }
+    ],
+    "note": "Maskulines Genus trotz Pluralendung -ות."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:4",
+    "token": 7,
+    "word": "עוֹקְרִין",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עקר",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man reißt aus",
+          "en": "one uproots"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "עקר",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:5",
+    "token": 15,
+    "word": "יִפְחֹתוּ",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פחת",
+        "morph": "HVqi3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie sollen verringern",
+          "en": "they shall reduce"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "פחת",
+          "tags": "qal imprf 3 ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:5",
+    "token": 28,
+    "word": "מַלְקִיטִין",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "לקט",
+        "morph": "HVhrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie lassen Nachlese halten",
+          "en": "they allow gleaning"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "לקט",
+          "tags": "hif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:5",
+    "token": 30,
+    "word": "הַחֶבֶל",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/חבל",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Messschnur",
+          "en": "the measuring rope"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "ה חבל",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:6",
+    "token": 2,
+    "word": "שֶׁקָּצַר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/קצר",
+        "morph": "HTr/Vqp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der geerntet hat",
+          "en": "who harvested"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_21_reduced_high_compressed_compressed.jpg",
+          "driveId": "183SanO7Y3R268W9CYRhkyFhh-1HpmSWA",
+          "sha256": "7c7d7fbde332c08facaadf0fe13d942e85c30a05a0d79bf6c20183ee3456b91c",
+          "lex": "ש קצר",
+          "tags": "rel; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:6",
+    "token": 7,
+    "word": "נִתְגַּיַּר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גיר",
+        "morph": "HVDp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er trat zum Judentum über",
+          "en": "he converted to Judaism"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_21_reduced_high_compressed_compressed.jpg",
+          "driveId": "183SanO7Y3R268W9CYRhkyFhh-1HpmSWA",
+          "sha256": "7c7d7fbde332c08facaadf0fe13d942e85c30a05a0d79bf6c20183ee3456b91c",
+          "lex": "גור",
+          "tags": "ntpal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Grundform גיר redaktionell normalisiert; Accordance-Lexem גור bleibt im Beleg erhalten."
+      }
+    ],
+    "note": "Grundform גיר redaktionell normalisiert; Accordance-Lexem גור bleibt im Beleg erhalten."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:6",
+    "token": 22,
+    "word": "בְּשָׁעַת",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/שעה",
+        "morph": "HR/Ncfsc",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zur Zeit des",
+          "en": "at the time of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_21_reduced_high_compressed_compressed.jpg",
+          "driveId": "183SanO7Y3R268W9CYRhkyFhh-1HpmSWA",
+          "sha256": "7c7d7fbde332c08facaadf0fe13d942e85c30a05a0d79bf6c20183ee3456b91c",
+          "lex": "ב שעה",
+          "tags": "prp; cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:6",
+    "token": 23,
+    "word": "הָעִמּוּר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/עימור",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das Bündeln der Garben",
+          "en": "the binding of sheaves"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_21_reduced_high_compressed_compressed.jpg",
+          "driveId": "183SanO7Y3R268W9CYRhkyFhh-1HpmSWA",
+          "sha256": "7c7d7fbde332c08facaadf0fe13d942e85c30a05a0d79bf6c20183ee3456b91c",
+          "lex": "ה עימור",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:7",
+    "token": 15,
+    "word": "חוֹבָתָהּ",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חובה",
+        "morph": "HNcfsc/Sp3fs",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihre Verpflichtung",
+          "en": "its obligation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_21_reduced_high_compressed_compressed.jpg",
+          "driveId": "183SanO7Y3R268W9CYRhkyFhh-1HpmSWA",
+          "sha256": "7c7d7fbde332c08facaadf0fe13d942e85c30a05a0d79bf6c20183ee3456b91c",
+          "lex": "חובה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 4,
+    "word": "פֵּרוֹתָיו",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פרי",
+        "morph": "HNcmpc/Sp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seine Früchte",
+          "en": "his produce"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "פרי",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 10,
+    "word": "וּפְדָיָן",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/פדה",
+        "morph": "HC/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und löste sie aus",
+          "en": "and redeemed them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "ו פדה",
+          "tags": "cnj; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf פירות, im selben Bild maskulin Plural. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf פירות, im selben Bild maskulin Plural."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 15,
+    "word": "וּפְדָיָן",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/פדה",
+        "morph": "HC/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und löste sie aus",
+          "en": "and redeemed them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "ו פדה",
+          "tags": "cnj; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf פירות, im selben Bild maskulin Plural. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf פירות, im selben Bild maskulin Plural."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 17,
+    "word": "הִקְדִּישָׁן",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קדש",
+        "morph": "HVhp3ms/Sp3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er weihte sie",
+          "en": "he consecrated them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "קדש",
+          "tags": "hif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf die Früchte. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf die Früchte."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 20,
+    "word": "נִגְמָרוּ",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גמר",
+        "morph": "HVNp3cp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wurden fertig bearbeitet",
+          "en": "they were fully processed"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "גמר",
+          "tags": "nif prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 21,
+    "word": "וּגְמָרָן",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/גמר",
+        "morph": "HC/Vqp3ms/Sp3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und er bearbeitete sie fertig",
+          "en": "and he finished processing them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "ו גמר",
+          "tags": "cnj; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf die Früchte. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf die Früchte."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 25,
+    "word": "פְּדָיָן",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פדה",
+        "morph": "HVqp3ms/Sp3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er löste sie aus",
+          "en": "he redeemed them"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "פדה",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf die Früchte. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf die Früchte."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 28,
+    "word": "חוֹבָתָן",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חובה",
+        "morph": "HNcfsc/Sp3mp",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihre Verpflichtung",
+          "en": "their obligation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "חובה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffixbezug auf die Früchte. Suffixmerkmale redaktionell aus der vokalisierten Form ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffixbezug auf die Früchte."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:8",
+    "token": 30,
+    "word": "פְטוּרִין",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HVqsmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "befreit",
+          "en": "exempt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_22_reduced_high_compressed_compressed.jpg",
+          "driveId": "1E_PLgGWlM33iSxkpTpUl97-EZTog586S",
+          "sha256": "e42d2148a74213485d00245ac740a4bb3dc13d2abaad97f4ce66f3d7489d4b95",
+          "lex": "פטר",
+          "tags": "qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:9",
+    "token": 2,
+    "word": "שֶׁלִּקֵּט",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/לקט",
+        "morph": "HTr/Vpp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der gesammelt hat",
+          "en": "who gathered"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "ש לקט",
+          "tags": "rel; pi prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:9",
+    "token": 31,
+    "word": "הִבְקִיר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בקר",
+        "morph": "HVhp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er erklärte für herrenlos",
+          "en": "he declared ownerless"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "בקר",
+          "tags": "hif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Kaufmann-Schreibweise mit ב erhalten, nicht stillschweigend zu הפקיר geändert."
+      }
+    ],
+    "note": "Kaufmann-Schreibweise mit ב erhalten, nicht stillschweigend zu הפקיר geändert."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:10",
+    "token": 5,
+    "word": "הַנּוֹשֵׁר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נשר",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "was herabfällt",
+          "en": "what falls"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "ה נשר",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:10",
+    "token": 6,
+    "word": "בְּשָׁעַת",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/שעה",
+        "morph": "HR/Ncfsc",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zur Zeit der",
+          "en": "at the time of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "ב שעה",
+          "tags": "prp; cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:10",
+    "token": 7,
+    "word": "הַקְּצִירָה",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/קצירה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Ernte",
+          "en": "the harvest"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "ה קצירה",
+          "tags": "art; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:10",
+    "token": 9,
+    "word": "קוֹצֵר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קצר",
+        "morph": "HVqrmsa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "erntend",
+          "en": "reaping"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "קצר",
+          "tags": "qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:10",
+    "token": 10,
+    "word": "קָצַר",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קצר",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er erntete",
+          "en": "he reaped"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "קצר",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:10",
+    "token": 13,
+    "word": "תָּלַשׁ",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "תלש",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er riss ab",
+          "en": "he plucked"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_24_reduced_high_compressed_compressed.jpg",
+          "driveId": "1aZmubkoEfCsQaZJl9cbz-JqUGIHcwzj-",
+          "sha256": "ea160ddf63119f444f877f8601cfab35a29f405c267f7744f10ffc2b05b6c4e9",
+          "lex": "תלש",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:11",
+    "token": 2,
+    "word": "נְמָלִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נמלה",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Ameisen",
+          "en": "ants"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_26_reduced_high_compressed_compressed.jpg",
+          "driveId": "1utAa8l9ddGUAwTIpYzDgZput_t09BPLw",
+          "sha256": "5f855c3296472673308f6cbe27d3d8a07eb184e4696b117637748612993ecceb",
+          "lex": "נמלה",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:11",
+    "token": 10,
+    "word": "הַקּוֹצְרִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/קצר",
+        "morph": "HTd/Vqrmpa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Schnitter",
+          "en": "the reapers"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_26_reduced_high_compressed_compressed.jpg",
+          "driveId": "1utAa8l9ddGUAwTIpYzDgZput_t09BPLw",
+          "sha256": "5f855c3296472673308f6cbe27d3d8a07eb184e4696b117637748612993ecceb",
+          "lex": "ה קצר",
+          "tags": "art; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:11",
+    "token": 11,
+    "word": "הָעֶלְיוֹנִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/עליון",
+        "morph": "HTd/Aampa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die oberen",
+          "en": "the upper ones"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_26_reduced_high_compressed_compressed.jpg",
+          "driveId": "1utAa8l9ddGUAwTIpYzDgZput_t09BPLw",
+          "sha256": "5f855c3296472673308f6cbe27d3d8a07eb184e4696b117637748612993ecceb",
+          "lex": "ה עליון",
+          "tags": "art; ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell aus dem Gegensatz zu תחתונים."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell aus dem Gegensatz zu תחתונים."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:11",
+    "token": 13,
+    "word": "וְהַתַּחְתּוֹנִים",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/תחתון",
+        "morph": "HC/Td/Aampa",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die unteren",
+          "en": "and the lower ones"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_26_reduced_high_compressed_compressed.jpg",
+          "driveId": "1utAa8l9ddGUAwTIpYzDgZput_t09BPLw",
+          "sha256": "5f855c3296472673308f6cbe27d3d8a07eb184e4696b117637748612993ecceb",
+          "lex": "ו ה תחתון",
+          "tags": "cnj; art; ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Peah",
+    "ref": "4:11",
+    "token": 21,
+    "word": "שֶׁסְּפֵק",
+    "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/ספק",
+        "morph": "HTr/Ncmsc",
+        "rules": [
+          "accordance-peah-4"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "denn bei zweifelhafter",
+          "en": "for doubtful"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_26_reduced_high_compressed_compressed.jpg",
+          "driveId": "1utAa8l9ddGUAwTIpYzDgZput_t09BPLw",
+          "sha256": "5f855c3296472673308f6cbe27d3d8a07eb184e4696b117637748612993ecceb",
+          "lex": "ש ספק",
+          "tags": "rel; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Constructus redaktionell aus ספק לקט; Accordance weist hier keinen Constructus aus."
+      }
+    ],
+    "note": "Constructus redaktionell aus ספק לקט; Accordance weist hier keinen Constructus aus."
+  }
+]

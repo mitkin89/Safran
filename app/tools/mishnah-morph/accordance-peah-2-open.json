@@ -1,0 +1,20 @@
+[
+  {
+    "ref": "2:2",
+    "token": 10,
+    "word": "יודה",
+    "reason": "Unvokalisierte editorische Zusatzform יודה ist im Vergleichstext nicht an derselben Position vorhanden."
+  },
+  {
+    "ref": "2:5",
+    "token": 36,
+    "word": "עֲשָׂאָן",
+    "reason": "Suffixgenus von עשאן ohne gesonderten Suffix-Tag nicht eindeutig; keine Entscheidung aus bloßer Schriftähnlichkeit."
+  },
+  {
+    "ref": "2:6",
+    "token": 39,
+    "word": "עֲשָׂאָן",
+    "reason": "Suffixgenus von עשאן ohne gesonderten Suffix-Tag nicht eindeutig; keine Entscheidung aus bloßer Schriftähnlichkeit."
+  }
+]

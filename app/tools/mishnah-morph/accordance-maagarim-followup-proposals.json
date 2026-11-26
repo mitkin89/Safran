@@ -1,0 +1,320 @@
+{
+  "proposalOnly": true,
+  "notRegisteredInPipeline": true,
+  "scope": "Six previously unresolved Peah positions; parent review required before import",
+  "morphologySource": "Editorial from own vocalization and visually checked Accordance tags/congruence. Ma’agarim supplies token-bound lemma evidence only; not claimed as source of morphology codes.",
+  "records": [
+    {
+      "title": "Mishnah Peah",
+      "ref": "4:1",
+      "token": 16,
+      "word": "בַּחֲלִיקֵי",
+      "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+      "before": {
+        "status": "unresolved",
+        "analyses": []
+      },
+      "proposalOnly": true,
+      "reviewStatus": "awaiting-parent-review",
+      "proposedAnalysis": {
+        "lemma": "ב/חליק",
+        "morph": "HR/Ncmpc",
+        "gloss": {
+          "de": "bei glatten [Nussbäumen]",
+          "en": "among smooth [nut trees]"
+        },
+        "method": "maagarim-lemma-plus-accordance-context-proposal",
+        "rules": [
+          "accordance-maagarim-followup-proposal"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_16_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K-PFN1XzrqQANxOUyse8zXZ8sIq4aMC4",
+          "sha256": "789bdc6e324ebeaa0a205e550f48b288e764ed3881832997bc6b83ab5cffc976",
+          "lex": "ב חילק",
+          "tags": "prp; cm ms pl cnst",
+          "status": "visually-checked"
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=2&mm15=000002005030+00",
+          "wordId": "987681",
+          "lemma": "חָלִיק",
+          "attributes": {
+            "kodm0": "987681",
+            "erec0": "חָלִיק",
+            "srs0": "חלק 2 - לא מחוספס",
+            "yhd0": "",
+            "hera0": "",
+            "zura0": "בחליקי",
+            "mismila": "16"
+          }
+        },
+        "note": "Ma’agarim lemma חָלִיק; own construct plural before אגוזים and visually checked Accordance ms pl cnst. Prefix R: בַּ before חֲ need not imply an article, and Accordance explicitly has prp, not prpArt. German/English gloss is a tentative contextual interpretation, not an imported Ma’agarim definition."
+      },
+      "limitations": "Die Konstruktion vor אגוזים stützt redaktionell einen nominalen Plural im Status constructus. Genus, Artikelstatus des בַּ und die genaue botanisch-sachliche Übersetzung sind durch die ausgelesenen Attribute nicht ausdrücklich gesichert."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "4:5",
+      "token": 2,
+      "word": "הַבְעָיוֹת",
+      "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+      "before": {
+        "status": "unresolved",
+        "analyses": []
+      },
+      "proposalOnly": true,
+      "reviewStatus": "awaiting-parent-review",
+      "proposedAnalysis": {
+        "lemma": "הבעיה",
+        "morph": "HNcfpa",
+        "gloss": {
+          "de": "Freigabezeiten",
+          "en": "times of access"
+        },
+        "method": "maagarim-lemma-plus-accordance-context-proposal",
+        "rules": [
+          "accordance-maagarim-followup-proposal"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_19_reduced_high_compressed_compressed.jpg",
+          "driveId": "1a-5cDPqQz5GglQNCsCnbDiyC0JzWYbYm",
+          "sha256": "ed83d59e98da08d261a6b0311f2c37f9ac517ddf8898fc39f5a1710f51937c16",
+          "lex": "בעה",
+          "tags": "hif infC",
+          "status": "visually-checked"
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=2&mm15=000002005030+00",
+          "wordId": "987751",
+          "lemma": "הַבְעָיָה, אַבְעָיָה",
+          "attributes": {
+            "kodm0": "987751",
+            "erec0": "הַבְעָיָה, אַבְעָיָה",
+            "srs0": "בעי 1 - בדיקה, בקשה",
+            "yhd0": "ייחוד בניקוד התיבה במסירה ",
+            "hera0": "ה קמץ.",
+            "zura0": "הבעיות",
+            "mismila": "2"
+          }
+        },
+        "note": "Ma’agarim nominal lemma הַבְעָיָה, אַבְעָיָה supports lexical initial ה, without article segment. Feminine plural is editorial from our nominal -יוֹת form and preceding שלוש. Accordance Hifil infinitive is explicitly not copied. Ma’agarim notes ה קמץ for its witness, whereas our surface has הַ; surface remains unchanged. Gloss is tentative interpretation of the three daily times, not a Ma’agarim translation."
+      },
+      "limitations": "Zusätzlich verzeichnet Ma’agarim eine Besonderheit der Textvokalisierung: ה קמץ. Unsere Form beginnt הַ. Der Unterschied muss erhalten bleiben; genaue Bedeutung und morphologische Feinbestimmung benötigen eine eigene Entscheidung."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "4:11",
+      "token": 1,
+      "word": "חֹרָרֵי",
+      "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+      "before": {
+        "status": "unresolved",
+        "analyses": []
+      },
+      "proposalOnly": true,
+      "reviewStatus": "awaiting-parent-review",
+      "proposedAnalysis": {
+        "lemma": "חרר",
+        "morph": "HNcmpc",
+        "gloss": {
+          "de": "Höhlungen von",
+          "en": "holes of"
+        },
+        "method": "maagarim-lemma-plus-accordance-context-proposal",
+        "rules": [
+          "accordance-maagarim-followup-proposal"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 4:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_25_reduced_high_compressed_compressed.jpg",
+          "driveId": "1bTFBqCWPAh65ot-HByYNXF5yE1OnfB05",
+          "sha256": "65cbf12d7a1be3051d24f1bb26d6e595d312bcc30905953be4f7370175870260",
+          "lex": "חורי",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked"
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=2&mm15=000002005030+00",
+          "wordId": "987938",
+          "lemma": "חָרָר 1 (נקב)",
+          "attributes": {
+            "kodm0": "987938",
+            "erec0": "חָרָר 1 (נקב)",
+            "srs0": "חרר 1 - עשיית נקבים",
+            "yhd0": "",
+            "hera0": "",
+            "zura0": "חוררי",
+            "mismila": "1"
+          }
+        },
+        "note": "Ma’agarim חָרָר 1 (נקב) supplies the noun lemma at the exact locus. Masculine plural construct follows visually checked Accordance and the following נמלים. Our חֹרָרֵי remains unchanged; no new vocalization is inferred."
+      },
+      "limitations": "Der Kontext vor נמלים stützt redaktionell einen Konstruktplural. Die Abweichung unserer Vokalisierung חֹרָרֵי vom zitierten Lemma חָרָר ist damit nicht als eigenständige Laut-/Flexionsanalyse geklärt; Genus wird nicht separat geliefert."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "5:8",
+      "token": 2,
+      "word": "לְכוֹבָעוֹת",
+      "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+      "before": {
+        "status": "unresolved",
+        "analyses": []
+      },
+      "proposalOnly": true,
+      "reviewStatus": "awaiting-parent-review",
+      "proposedAnalysis": {
+        "lemma": "ל/כובעה",
+        "morph": "HR/Ncfpa",
+        "gloss": {
+          "de": "zu Garbenhaufen",
+          "en": "into sheaf piles"
+        },
+        "method": "maagarim-lemma-plus-accordance-context-proposal",
+        "rules": [
+          "accordance-maagarim-followup-proposal"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_34_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Qo2LgnFAA2n1WI7nrxyb2S4jyfl5N77I",
+          "sha256": "0d92f75856e83928fd2f7cc0ccc2f3013bab9a6c9ee088acbbc56f1657e6f041",
+          "lex": "ל כובעה",
+          "tags": "prp; cm fm pl",
+          "status": "visually-checked"
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=6",
+          "wordId": "988219",
+          "lemma": "כּוֹבָעָה 1 (כינוי לעומר)",
+          "attributes": {
+            "kodm0": "988219",
+            "erec0": "כּוֹבָעָה 1 (כינוי לעומר)",
+            "srs0": "כבע 1 - כּוֹבַע",
+            "yhd0": "",
+            "hera0": "",
+            "zura0": "לכובעות",
+            "mismila": "2"
+          }
+        },
+        "note": "Ma’agarim כּוֹבָעָה 1 (כינוי לעומר) provides exact noun lemma; feminine plural and plain preposition follow visually checked Accordance and our לְכוֹבָעוֹת. Pile interpretation is contextual and does not assert precise shape or size."
+      },
+      "limitations": "Plural und Präposition ergeben sich redaktionell aus unserer Form; genauere Beschreibung von Größe, Form oder Anordnung einer solchen Garbe steht nicht in den ausgelesenen Feldern."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "5:8",
+      "token": 3,
+      "word": "וְלַכּוֹמָסוֹת",
+      "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+      "before": {
+        "status": "unresolved",
+        "analyses": []
+      },
+      "proposalOnly": true,
+      "reviewStatus": "awaiting-parent-review",
+      "proposedAnalysis": {
+        "lemma": "ו/ל/כומסה",
+        "morph": "HC/Rd/Ncfpa",
+        "gloss": {
+          "de": "und zu den Garbenhaufen",
+          "en": "and into the sheaf piles"
+        },
+        "method": "maagarim-lemma-plus-accordance-context-proposal",
+        "rules": [
+          "accordance-maagarim-followup-proposal"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_34_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Qo2LgnFAA2n1WI7nrxyb2S4jyfl5N77I",
+          "sha256": "0d92f75856e83928fd2f7cc0ccc2f3013bab9a6c9ee088acbbc56f1657e6f041",
+          "lex": "ו ל כומסה",
+          "tags": "cnj; prp; cm fm pl",
+          "status": "visually-checked"
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=6",
+          "wordId": "988220",
+          "lemma": "כּוֹמָסָה",
+          "attributes": {
+            "kodm0": "988220",
+            "erec0": "כּוֹמָסָה",
+            "srs0": "כמס 2 - תבואה",
+            "yhd0": "",
+            "hera0": "",
+            "zura0": "ולכומסות",
+            "mismila": "3"
+          }
+        },
+        "note": "Ma’agarim כּוֹמָסָה provides exact singular lemma; feminine plural follows visually checked Accordance and our -וֹת. Article is an editorial addition from our לַכּ with dagesh after prefix ל, distinct from visible Accordance prp. Exact agrarian arrangement remains unknown; gloss stays generic."
+      },
+      "limitations": "Die abgerufenen Felder erklären keine präzise Bauart oder Größe. Eine spezifische deutsche Übersetzung der Garbenanhäufung bleibt deshalb offen. Artikel und Flexionsmerkmale wären redaktionell anhand unserer Form zu bestimmen."
+    },
+    {
+      "title": "Mishnah Peah",
+      "ref": "5:8",
+      "token": 4,
+      "word": "וְלַחֲרָרָה",
+      "sourceHash": "6389efaa0e632b10ca24a3c0b354fbd63b585da4b9f6be46b123241cbc682fb5",
+      "before": {
+        "status": "unresolved",
+        "analyses": []
+      },
+      "proposalOnly": true,
+      "reviewStatus": "awaiting-parent-review",
+      "proposedAnalysis": {
+        "lemma": "ו/ל/חררה",
+        "morph": "HC/R/Ncfsa",
+        "gloss": {
+          "de": "und zu einer Garbenlage",
+          "en": "and into a sheaf arrangement"
+        },
+        "method": "maagarim-lemma-plus-accordance-context-proposal",
+        "rules": [
+          "accordance-maagarim-followup-proposal"
+        ],
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Pea 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_34_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Qo2LgnFAA2n1WI7nrxyb2S4jyfl5N77I",
+          "sha256": "0d92f75856e83928fd2f7cc0ccc2f3013bab9a6c9ee088acbbc56f1657e6f041",
+          "lex": "ל חררה",
+          "tags": "prp; cm fm sg",
+          "status": "visually-checked"
+        },
+        "lexicalEvidence": {
+          "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+          "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=6",
+          "wordId": "988221",
+          "lemma": "חֲרָרָה 1 (עוגה דקה)",
+          "attributes": {
+            "kodm0": "988221",
+            "erec0": "חֲרָרָה 1 (עוגה דקה)",
+            "srs0": "חרר 2 - חום, שׂרֵפה, [rest of attribute contains unescaped quotation marks; not parsed]",
+            "yhd0": "ייחוד בהוראת התיבה ובשימושה ",
+            "hera0": "",
+            "zura0": "ולחררה",
+            "mismila": "4"
+          }
+        },
+        "note": "Ma’agarim חֲרָרָה 1 (עוגה דקה) is explicitly marked as a special semantic/use case at this locus; do not translate here as literal thin cake. Generic agrarian gloss is editorial and provisional. Feminine singular follows visually checked Accordance. Our initial ו is retained though Accordance marks it editorially and lexical line omits it. Plain R follows the visible prp tag: לַ before חֲ alone does not establish an article."
+      },
+      "limitations": "Aus der allgemeinen Lemmaerläuterung darf hier keine ungeprüfte Übersetzung als dünner Kuchen entstehen: der Kontext handelt vom Zusammenlegen der Ernte. Die konkrete agrarische Bedeutung und die Artikelanalyse von לַ vor חֲ bleiben gesondert zu klären."
+    }
+  ]
+}

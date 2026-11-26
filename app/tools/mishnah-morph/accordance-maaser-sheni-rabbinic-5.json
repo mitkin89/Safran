@@ -1,0 +1,3916 @@
+[
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:1",
+    "token": 6,
+    "word": "אֲדָמָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אדמה",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Erde",
+          "en": "earth"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_823_reduced_high_compressed_compressed.jpg",
+          "driveId": "1VEE13llvys5zphpJqnHpFMFDsA0frnB-",
+          "sha256": "0dee0e99b76721544654762a5de85c925fb978a798bf3b67a4b7dfad866b56a6",
+          "lex": "אדמה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:1",
+    "token": 9,
+    "word": "וְשֶׁלִּקְבָרוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/של/קבר",
+        "morph": "HC/R/Ncmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und von Gräbern",
+          "en": "and of graves"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_823_reduced_high_compressed_compressed.jpg",
+          "driveId": "1VEE13llvys5zphpJqnHpFMFDsA0frnB-",
+          "sha256": "0dee0e99b76721544654762a5de85c925fb978a798bf3b67a4b7dfad866b56a6",
+          "lex": "ו של קבר",
+          "tags": "cnj;prp;cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:1",
+    "token": 12,
+    "word": "וְשׁוֹפֵךְ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/שפך",
+        "morph": "HC/Vqrmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und gießt aus",
+          "en": "and pours out"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_823_reduced_high_compressed_compressed.jpg",
+          "driveId": "1VEE13llvys5zphpJqnHpFMFDsA0frnB-",
+          "sha256": "0dee0e99b76721544654762a5de85c925fb978a798bf3b67a4b7dfad866b56a6",
+          "lex": "ו שפך",
+          "tags": "cnj;qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 3,
+    "word": "עוֹלֶה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVqrmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "geht hinauf",
+          "en": "goes up"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "עלה",
+          "tags": "qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 5,
+    "word": "מַהֲלַךְ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מהלך",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Weg von",
+          "en": "journey of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "מהלך",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 9,
+    "word": "צַד",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "צד",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Seite",
+          "en": "side"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "צד",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 10,
+    "word": "וְאֵי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/אי",
+        "morph": "HC/Ti",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und welche",
+          "en": "and which"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "ו אי",
+          "tags": "cnj;intr",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 16,
+    "word": "הַדָּרוֹם",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/דרום",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Süden",
+          "en": "the south"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "ה דרום",
+          "tags": "art;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 22,
+    "word": "הַמַּעֲרָב",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/מערב",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Westen",
+          "en": "the west"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "ה מערב",
+          "tags": "art;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 23,
+    "word": "וְהַיַּרְדֵּן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/ירדן",
+        "morph": "HC/Td/Np",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und der Jordan",
+          "en": "and the Jordan"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "ו ה ירדן",
+          "tags": "cnj;art;prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 32,
+    "word": "לַחוֹמָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/חומה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "an der Mauer",
+          "en": "to the wall"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "ל חומה",
+          "tags": "prpArt;cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 37,
+    "word": "שֶׁיִּרְצוּ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/רצה",
+        "morph": "HTr/Vqi3mp",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wenn sie wollen",
+          "en": "when they wish"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_825_reduced_high_compressed_compressed.jpg",
+          "driveId": "14-w8_7nMJOnOub9xqpxYWnWj-Gcpu1OX",
+          "sha256": "8de0659a5492c3ea815a88548924406b4e86a5790278f218d9ff55d104e2fbb0",
+          "lex": "ש רצה",
+          "tags": "rel;qal imprf 3 ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 40,
+    "word": "לִכְמוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/כמות",
+        "morph": "HR/R",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in seinen früheren Zustand",
+          "en": "to its former state"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_827_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DqLh0B48ntQEuXcvP0WlflSK2uw55xaq",
+          "sha256": "9e6325d425d461a969c5fa0779ffb08fa8e49519ca09d3bbf521c12a41e19826",
+          "lex": "ל כמות",
+          "tags": "prp;prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 58,
+    "word": "לִכְמוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/כמות",
+        "morph": "HR/R",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in seinen früheren Zustand",
+          "en": "to its former state"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_827_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DqLh0B48ntQEuXcvP0WlflSK2uw55xaq",
+          "sha256": "9e6325d425d461a969c5fa0779ffb08fa8e49519ca09d3bbf521c12a41e19826",
+          "lex": "ל כמות",
+          "tags": "prp;prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:2",
+    "token": 53,
+    "word": "שֶׁיִּבָּנֶה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/בנה",
+        "morph": "HTr/VNi3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wenn erbaut wird",
+          "en": "when it is rebuilt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_827_reduced_high_compressed_compressed.jpg",
+          "driveId": "1DqLh0B48ntQEuXcvP0WlflSK2uw55xaq",
+          "sha256": "9e6325d425d461a969c5fa0779ffb08fa8e49519ca09d3bbf521c12a41e19826",
+          "lex": "ש בנה",
+          "tags": "rel;nif imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:3",
+    "token": 25,
+    "word": "עוֹלֵלוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עוללת",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Nachlesetrauben",
+          "en": "gleanings"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "עוללת",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:3",
+    "token": 26,
+    "word": "וְהָעֲנִיִּים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/עני",
+        "morph": "HC/Td/Aampa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Armen",
+          "en": "and the poor"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ו ה עני",
+          "tags": "cnj;art;ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:3",
+    "token": 33,
+    "word": "לַגַּת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/גת",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zur Kelter",
+          "en": "to the winepress"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ל גת",
+          "tags": "prpArt;cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:4",
+    "token": 7,
+    "word": "הַסַּל",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/סל",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Korb",
+          "en": "the basket"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ה סל",
+          "tags": "art;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:4",
+    "token": 15,
+    "word": "לִפְדּוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/פדה",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "auszulösen",
+          "en": "to redeem"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ל פדה",
+          "tags": "prp;qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:4",
+    "token": 17,
+    "word": "בְסֶלַע",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/סלע",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegen eine Sela-Münze",
+          "en": "for a sela coin"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ב סלע",
+          "tags": "prp;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:4",
+    "token": 19,
+    "word": "מְנָת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מנה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unter der Bedingung",
+          "en": "on condition"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "מנת",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Lemma מנה und Status constructus nach Wendung על מנת redaktionell normalisiert."
+      }
+    ],
+    "note": "Lemma מנה und Status constructus nach Wendung על מנת redaktionell normalisiert."
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:4",
+    "token": 20,
+    "word": "לְהוֹצִיא",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/יצא",
+        "morph": "HR/Vhc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "herauszubringen",
+          "en": "to bring out"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ל יצא",
+          "tags": "prp;hif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:4",
+    "token": 37,
+    "word": "בְּסֶלַע",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/סלע",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegen eine Sela-Münze",
+          "en": "for a sela coin"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_829_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TIckNCuhGCssCDfTWNJK1cnLwZteEAWs",
+          "sha256": "e1d4eb3b8423527238c68816ee929cc9fde73cab7eeb1c14590017b37a5dd0ba",
+          "lex": "ב סלע",
+          "tags": "prp;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:5",
+    "token": 11,
+    "word": "שְׂכַר",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שכר",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Lohn für",
+          "en": "wages for"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_831_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WJrUjqxvxAf3OKo_-x8FVg-5uB05JOmm",
+          "sha256": "c4e3138adf543674c9b5418fdf9b86982ddcfb45dae49f600245563a2c8af163",
+          "lex": "שכר",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:5",
+    "token": 13,
+    "word": "הַפּוֹדֶה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/פדה",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Auslösende",
+          "en": "the one redeeming"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_831_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WJrUjqxvxAf3OKo_-x8FVg-5uB05JOmm",
+          "sha256": "c4e3138adf543674c9b5418fdf9b86982ddcfb45dae49f600245563a2c8af163",
+          "lex": "ה פדה",
+          "tags": "art;qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:5",
+    "token": 24,
+    "word": "שֶׁנִּתַּן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נתן",
+        "morph": "HTr/VNp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das gegeben wurde",
+          "en": "which was given"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_831_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WJrUjqxvxAf3OKo_-x8FVg-5uB05JOmm",
+          "sha256": "c4e3138adf543674c9b5418fdf9b86982ddcfb45dae49f600245563a2c8af163",
+          "lex": "ש נתן",
+          "tags": "rel;nif prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:5",
+    "token": 26,
+    "word": "מַתָּנָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מתנה",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Geschenk",
+          "en": "gift"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_831_reduced_high_compressed_compressed.jpg",
+          "driveId": "1WJrUjqxvxAf3OKo_-x8FVg-5uB05JOmm",
+          "sha256": "c4e3138adf543674c9b5418fdf9b86982ddcfb45dae49f600245563a2c8af163",
+          "lex": "מתנה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:6",
+    "token": 21,
+    "word": "וּמַעְשַׂר",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מעשר",
+        "morph": "HC/Ncmsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Zehnt von",
+          "en": "and tithe of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_833_reduced_high_compressed_compressed.jpg",
+          "driveId": "1vGieJUsRYGt6mTVJT-LLfPJQHNbrq66_",
+          "sha256": "c7a68e7af5955f5a979544b1a4871300b1920d692272c91d2bfb94f0923aa11f",
+          "lex": "ו מעשר",
+          "tags": "cnj;cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:6",
+    "token": 43,
+    "word": "לְבַעֵר",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/בער",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu beseitigen",
+          "en": "to remove"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_835_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oNT3YPil_xrFmiQyId0LFaQw0j7PRnEv",
+          "sha256": "a85c4f3024083068b4b10d6163c5bd59c4faf1259c20ea7b809886dd495c1ab3",
+          "lex": "ל בער",
+          "tags": "prp;pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:7",
+    "token": 22,
+    "word": "כֶּסֶף",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כסף",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Geld",
+          "en": "money"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_835_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oNT3YPil_xrFmiQyId0LFaQw0j7PRnEv",
+          "sha256": "a85c4f3024083068b4b10d6163c5bd59c4faf1259c20ea7b809886dd495c1ab3",
+          "lex": "כסף",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:8",
+    "token": 7,
+    "word": "אֵצֶל",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אצל",
+        "morph": "HR",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "bei",
+          "en": "at"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_837_reduced_high_compressed_compressed.jpg",
+          "driveId": "15jWqT3TLcJu4bpRcRrI-mYHJCrBvu62l",
+          "sha256": "10b402f38637cdd863086e3c8af0d7ca6896ebe9a7b1b7fdfd93c35fef3e627e",
+          "lex": "אצל",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:8",
+    "token": 8,
+    "word": "בַּעֲלֵי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בעל",
+        "morph": "HNcmpc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Besitzer von",
+          "en": "owners of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_837_reduced_high_compressed_compressed.jpg",
+          "driveId": "15jWqT3TLcJu4bpRcRrI-mYHJCrBvu62l",
+          "sha256": "10b402f38637cdd863086e3c8af0d7ca6896ebe9a7b1b7fdfd93c35fef3e627e",
+          "lex": "בעל",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:8",
+    "token": 10,
+    "word": "שֶׁבַּמְּדִינוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/ב/מדינה",
+        "morph": "HTr/Rd/Ncfpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die in den Provinzen",
+          "en": "which are in the provinces"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_837_reduced_high_compressed_compressed.jpg",
+          "driveId": "15jWqT3TLcJu4bpRcRrI-mYHJCrBvu62l",
+          "sha256": "10b402f38637cdd863086e3c8af0d7ca6896ebe9a7b1b7fdfd93c35fef3e627e",
+          "lex": "ש ב מדינה",
+          "tags": "rel;prpArt;cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:8",
+    "token": 28,
+    "word": "בָאוּ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVqp3cp",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie erreichten",
+          "en": "they reached"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_837_reduced_high_compressed_compressed.jpg",
+          "driveId": "15jWqT3TLcJu4bpRcRrI-mYHJCrBvu62l",
+          "sha256": "10b402f38637cdd863086e3c8af0d7ca6896ebe9a7b1b7fdfd93c35fef3e627e",
+          "lex": "בוא",
+          "tags": "qal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 4,
+    "word": "רְחוֹקִים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "רחוק",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "fern",
+          "en": "far away"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "רחוק",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 14,
+    "word": "וְהַזְּקֵנִים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ה/זקן",
+        "morph": "HC/Td/Ncmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und die Ältesten",
+          "en": "and the elders"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "ו ה זקן",
+          "tags": "cnj;art;ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 16,
+    "word": "בָאִים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בוא",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "kommen",
+          "en": "come"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "בוא",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 23,
+    "word": "עָתִיד",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עתיד",
+        "morph": "HAamsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Begriff",
+          "en": "about to"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "עתיד",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivischer Gebrauch עתיד nach Satzkontext redaktionell; Roh-Nominaltag bewahrt."
+      }
+    ],
+    "note": "Adjektivischer Gebrauch עתיד nach Satzkontext redaktionell; Roh-Nominaltag bewahrt."
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 25,
+    "word": "נָתוּן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegeben",
+          "en": "given"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "נתן",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 26,
+    "word": "לִיהוֹשֻׁעַ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/יהושע",
+        "morph": "HR/Np",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "an Josua",
+          "en": "to Joshua"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "ל יהושע",
+          "tags": "prp;prop",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 28,
+    "word": "וּמְקוֹמוֹ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מקום",
+        "morph": "HC/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sein Platz",
+          "en": "and its place"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "ו מקום",
+          "tags": "cnj;cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 35,
+    "word": "עָתִיד",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עתיד",
+        "morph": "HAamsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Begriff",
+          "en": "about to"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "עתיד",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivischer Gebrauch עתיד nach Satzkontext redaktionell; Roh-Nominaltag bewahrt."
+      }
+    ],
+    "note": "Adjektivischer Gebrauch עתיד nach Satzkontext redaktionell; Roh-Nominaltag bewahrt."
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 38,
+    "word": "נָתוּן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegeben",
+          "en": "given"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_839_reduced_high_compressed_compressed.jpg",
+          "driveId": "1IcPpOodb0AplW5RBranaebOu2pzKtdSu",
+          "sha256": "a067713a9b8bce99a09389d3e1efd3a629aabe43482cc522bd05caaee7e2366b",
+          "lex": "נתן",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 42,
+    "word": "לָעֲנִיִּים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/עני",
+        "morph": "HRd/Aampa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "an die Armen",
+          "en": "to the poor"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_841_reduced_high_compressed_compressed.jpg",
+          "driveId": "1XGtQFs2ppH2l51aq-0yZUmkvR1jA42NY",
+          "sha256": "849191413b0ccbf68f4f38860bc1f1ffba593e69b12e0f5ebcba26a5b9f97301",
+          "lex": "ל עני",
+          "tags": "prpArt;ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 43,
+    "word": "וּמְקוֹמוֹ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מקום",
+        "morph": "HC/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sein Platz",
+          "en": "and its place"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_841_reduced_high_compressed_compressed.jpg",
+          "driveId": "1XGtQFs2ppH2l51aq-0yZUmkvR1jA42NY",
+          "sha256": "849191413b0ccbf68f4f38860bc1f1ffba593e69b12e0f5ebcba26a5b9f97301",
+          "lex": "ו מקום",
+          "tags": "cnj;cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 52,
+    "word": "עָתִיד",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עתיד",
+        "morph": "HAamsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Begriff",
+          "en": "about to"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_841_reduced_high_compressed_compressed.jpg",
+          "driveId": "1XGtQFs2ppH2l51aq-0yZUmkvR1jA42NY",
+          "sha256": "849191413b0ccbf68f4f38860bc1f1ffba593e69b12e0f5ebcba26a5b9f97301",
+          "lex": "עתיד",
+          "tags": "ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 54,
+    "word": "נָתוּן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegeben",
+          "en": "given"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_841_reduced_high_compressed_compressed.jpg",
+          "driveId": "1XGtQFs2ppH2l51aq-0yZUmkvR1jA42NY",
+          "sha256": "849191413b0ccbf68f4f38860bc1f1ffba593e69b12e0f5ebcba26a5b9f97301",
+          "lex": "נתן",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:9",
+    "token": 59,
+    "word": "וּמְקוֹמוֹ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מקום",
+        "morph": "HC/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sein Platz",
+          "en": "and its place"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_841_reduced_high_compressed_compressed.jpg",
+          "driveId": "1XGtQFs2ppH2l51aq-0yZUmkvR1jA42NY",
+          "sha256": "849191413b0ccbf68f4f38860bc1f1ffba593e69b12e0f5ebcba26a5b9f97301",
+          "lex": "ו מקום",
+          "tags": "cnj;cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 1,
+    "word": "בַּמִּנְחָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/מנחה",
+        "morph": "HRd/Ncfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "beim Nachmittagsgebet",
+          "en": "at the afternoon prayer"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "ב מנחה",
+          "tags": "prpArt;cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 5,
+    "word": "מִתְוַדִּים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ידה",
+        "morph": "HVtrmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "legen das Bekenntnis ab",
+          "en": "make the declaration"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "ידה",
+          "tags": "htpl prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 18,
+    "word": "נְתַתִּיו",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqp1cs/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe es gegeben",
+          "en": "I have given it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "נתן",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 24,
+    "word": "נְתַתִּיו",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqp1cs/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe es gegeben",
+          "en": "I have given it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "נתן",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 28,
+    "word": "לַגֵּר",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/גר",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dem Fremden",
+          "en": "to the stranger"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "ל גר",
+          "tags": "prpArt;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 29,
+    "word": "לַיָּתוֹם",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/יתום",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Waise",
+          "en": "to the orphan"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "ל יתום",
+          "tags": "prpArt;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:10",
+    "token": 30,
+    "word": "וְלָאַלְמָנָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ל/אלמנה",
+        "morph": "HC/Rd/Ncfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und der Witwe",
+          "en": "and to the widow"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "ו ל אלמנה",
+          "tags": "cnj;prpArt;cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 2,
+    "word": "מִצְוָתְךָ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מצוה",
+        "morph": "HNcfsc/Sp2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dein Gebot",
+          "en": "your commandment"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "מצוה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 4,
+    "word": "צִוִּיתָנִי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "צוה",
+        "morph": "HVpp2ms/Sp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "du hast mir geboten",
+          "en": "you commanded me"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_843_reduced_high_compressed_compressed.jpg",
+          "driveId": "1cQ-8bF15sVliUFU8qwcPAwETAD-LprIR",
+          "sha256": "b60adf98055fefac73c4fb62c0d0d4aaf56459c80b4604e2cfe8de5d128b7601",
+          "lex": "צוה",
+          "tags": "pi prf 2 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 36,
+    "word": "הַיָּשָׁן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/ישן",
+        "morph": "HTd/Aamsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das alte",
+          "en": "the old"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "ה ישן",
+          "tags": "art;ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 39,
+    "word": "הַיָּשָׁן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/ישן",
+        "morph": "HTd/Aamsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das alte",
+          "en": "the old"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "ה ישן",
+          "tags": "art;ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 43,
+    "word": "שָׁכָחְתִּי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שכח",
+        "morph": "HVqp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe vergessen",
+          "en": "I have forgotten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "שכח",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 45,
+    "word": "שָׁכַחְתִּי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שכח",
+        "morph": "HVqp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe vergessen",
+          "en": "I have forgotten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "שכח",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:11",
+    "token": 47,
+    "word": "וּמִלְּהַזְכִּיר",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/מן/ל/זכר",
+        "morph": "HC/R/R/Vhc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und das Erwähnen",
+          "en": "and mentioning"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "ו מן ל זכר",
+          "tags": "cnj;prp;prp;hif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 2,
+    "word": "אָכַלְתִּי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVqp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe gegessen",
+          "en": "I have eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "אכל",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 3,
+    "word": "בְאֹנִי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/און",
+        "morph": "HR/Ncmsc/Sp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in meiner Trauer",
+          "en": "in my mourning"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "ב אנן",
+          "tags": "prp;qal prt ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Substantiv און nach eigener Form בְאֹנִי redaktionell; Quelllex אנן und Partizip-Tag werden nicht ungeprüft übernommen. Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": "Substantiv און nach eigener Form בְאֹנִי redaktionell; Quelllex אנן und Partizip-Tag werden nicht ungeprüft übernommen."
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 7,
+    "word": "אֲכָלוֹ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVqp3ms/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er aß es",
+          "en": "he ate it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "אכל",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 15,
+    "word": "בְטָמֵא",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/טמא",
+        "morph": "HR/Aamsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in Unreinheit",
+          "en": "in an unclean state"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_845_reduced_high_compressed_compressed.jpg",
+          "driveId": "1Zw-ogJJ_KHflxPsGP8But2JwQ7M7dEWJ",
+          "sha256": "6c87f5a4fcd46e79b72f2b4c47c804445e03f4fa8fb16e5008c65f03d591d31b",
+          "lex": "ב טמא",
+          "tags": "prp;ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 19,
+    "word": "בְטֻמְאָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/טומאה",
+        "morph": "HR/Ncfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "in Unreinheit",
+          "en": "in impurity"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "ב טמאה",
+          "tags": "prp;cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 28,
+    "word": "לָקַחְתִּי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "לקח",
+        "morph": "HVqp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe genommen",
+          "en": "I have taken"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "לקח",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 34,
+    "word": "נְתַתִּיו",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqp1cs/Sp3ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe es gegeben",
+          "en": "I have given it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "נתן",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 43,
+    "word": "הַבְּחִירָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/בחירה",
+        "morph": "HTd/Ncfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Erwählung",
+          "en": "the chosen place"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "ה בחירה",
+          "tags": "art;cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 47,
+    "word": "צִוִּיתָנִי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "צוה",
+        "morph": "HVpp2ms/Sp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "du hast mir geboten",
+          "en": "you commanded me"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "צוה",
+          "tags": "pi prf 2 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:12",
+    "token": 48,
+    "word": "שָׂמַחְתִּי",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שמח",
+        "morph": "HVqp1cs",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ich habe mich gefreut",
+          "en": "I rejoiced"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:12",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "שמח",
+          "tags": "qal prf 1 com sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 1,
+    "word": "הַשְׁקִיפָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שקף",
+        "morph": "HVhv2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "blicke herab",
+          "en": "look down"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "שקף",
+          "tags": "hif impv ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 2,
+    "word": "מִמְּעוֹן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/מעון",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "aus der Wohnung von",
+          "en": "from the dwelling of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "מן מעון",
+          "tags": "prp;cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 3,
+    "word": "קָדְשְׁךָ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קודש",
+        "morph": "HNcmsc/Sp2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "deine Heiligkeit",
+          "en": "your holiness"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "קדש",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 6,
+    "word": "עָשִׂינוּ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVqp1cp",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wir haben getan",
+          "en": "we have done"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "עשה",
+          "tags": "qal prf 1 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 12,
+    "word": "עֲשֵׂה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עשה",
+        "morph": "HVqv2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "tue",
+          "en": "do"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "עשה",
+          "tags": "qal impv ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 15,
+    "word": "הַשְׁקִיפָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שקף",
+        "morph": "HVhv2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "blicke herab",
+          "en": "look down"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "שקף",
+          "tags": "hif impv ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 16,
+    "word": "מִמְּעוֹן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/מעון",
+        "morph": "HR/Ncmsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "aus der Wohnung von",
+          "en": "from the dwelling of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "מן מעון",
+          "tags": "prp;cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 17,
+    "word": "קָדְשְׁךָ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קודש",
+        "morph": "HNcmsc/Sp2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "deine Heiligkeit",
+          "en": "your holiness"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_847_reduced_high_compressed_compressed.jpg",
+          "driveId": "1k1cn-DxajCBWplVxJV78RtamekkApKT5",
+          "sha256": "5607869b9d6e79db5338b9311a3c9ce62543ca87e80f26d5004ea1185591f085",
+          "lex": "קדש",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell aus vokalisierter Form und Kontext; im Bild nicht separat getaggt."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 20,
+    "word": "וּבָרֵךְ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ברך",
+        "morph": "HC/Vpv2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und segne",
+          "en": "and bless"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ו ברך",
+          "tags": "cnj;pi impv ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 26,
+    "word": "וּבְבָנוֹת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/בת",
+        "morph": "HC/R/Ncfpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und mit Töchtern",
+          "en": "and with daughters"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ו ב בת",
+          "tags": "cnj;prp;cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 30,
+    "word": "נָתַתָּה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נתן",
+        "morph": "HVqp2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "du hast gegeben",
+          "en": "you have given"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "נתן",
+          "tags": "qal prf 2 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 32,
+    "word": "בְּטַל",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/טל",
+        "morph": "HR/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "mit Tau",
+          "en": "with dew"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ב טל",
+          "tags": "prp;cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Eigene Singularform טל im Plural des Quelltags: redaktionell Singular normalisiert."
+      }
+    ],
+    "note": "Eigene Singularform טל im Plural des Quelltags: redaktionell Singular normalisiert."
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 33,
+    "word": "וּבְמָטָר",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/מטר",
+        "morph": "HC/R/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und mit Regen",
+          "en": "and with rain"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ו ב מטר",
+          "tags": "cnj;prp;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 35,
+    "word": "בְּהֵמָה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בהמה",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Vieh",
+          "en": "livestock"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "בהמה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 37,
+    "word": "נִשְׁבַּעְתָּ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שבע",
+        "morph": "HVNp2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "du hast geschworen",
+          "en": "you swore"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "שבע",
+          "tags": "nif prf 2 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 40,
+    "word": "זָבַת",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "זוב",
+        "morph": "HVqrfsc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "fließend von",
+          "en": "flowing with"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "זב",
+          "tags": "qal prt fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Verblemma זוב redaktionell zur Partizipform זבת normalisiert; Rohlex זב bewahrt."
+      }
+    ],
+    "note": "Verblemma זוב redaktionell zur Partizipform זבת normalisiert; Rohlex זב bewahrt."
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 41,
+    "word": "חָלָב",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חלב",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Milch",
+          "en": "milk"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "חלב",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 42,
+    "word": "וּדְבָשׁ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/דבש",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Honig",
+          "en": "and honey"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ו דבש",
+          "tags": "cnj;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 44,
+    "word": "שֶׁתִּתֵּן",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נתן",
+        "morph": "HTr/Vqi2ms",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass du gibst",
+          "en": "that you give"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ש נתן",
+          "tags": "rel;qal imprf 2 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:13",
+    "token": 45,
+    "word": "טַעַם",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טעם",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Geschmack",
+          "en": "flavor"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:13",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "טעם",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 5,
+    "word": "מִתְוַדִּים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ידה",
+        "morph": "HVtrmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "legen das Bekenntnis ab",
+          "en": "make the declaration"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ידה",
+          "tags": "htpl prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 8,
+    "word": "גֵרִים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "גר",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Konvertiten",
+          "en": "converts"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "גר",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 10,
+    "word": "עֲבָדִים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עבד",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Sklaven",
+          "en": "slaves"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "עבד",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 15,
+    "word": "בָּאָרֶץ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/ארץ",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Land",
+          "en": "in the land"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_849_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hkZo3j6doDH6nQDAoAYuBBWNVnK8QsAs",
+          "sha256": "3361af71a8698b1597ad313a49f9b30c09d86730b222c20f15f81201930b5262",
+          "lex": "ב ארץ",
+          "tags": "prpArt;cm bth sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 21,
+    "word": "כֹהֲנִים",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כהן",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Priester",
+          "en": "priests"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_851_reduced_high_compressed_compressed.jpg",
+          "driveId": "1J9bTbPImUxp2Uq-Hi3Ye1PWEkoCYicsY",
+          "sha256": "e3312a8ecf2fb344c6c76efb9d6d7fc4dbdfcf5dea0712ae76801b8d4085d728",
+          "lex": "כהן",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 26,
+    "word": "בָּאָרֶץ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/ארץ",
+        "morph": "HRd/Ncbsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im Land",
+          "en": "in the land"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_851_reduced_high_compressed_compressed.jpg",
+          "driveId": "1J9bTbPImUxp2Uq-Hi3Ye1PWEkoCYicsY",
+          "sha256": "e3312a8ecf2fb344c6c76efb9d6d7fc4dbdfcf5dea0712ae76801b8d4085d728",
+          "lex": "ב ארץ",
+          "tags": "prpArt;cm bth sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:14",
+    "token": 33,
+    "word": "מִגְרָשׁ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מגרש",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Weideland",
+          "en": "pasture land"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:14",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_851_reduced_high_compressed_compressed.jpg",
+          "driveId": "1J9bTbPImUxp2Uq-Hi3Ye1PWEkoCYicsY",
+          "sha256": "e3312a8ecf2fb344c6c76efb9d6d7fc4dbdfcf5dea0712ae76801b8d4085d728",
+          "lex": "מגרש",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:15",
+    "token": 17,
+    "word": "הַפַּטִּישׁ",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/פטיש",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Hammer",
+          "en": "the hammer"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_851_reduced_high_compressed_compressed.jpg",
+          "driveId": "1J9bTbPImUxp2Uq-Hi3Ye1PWEkoCYicsY",
+          "sha256": "e3312a8ecf2fb344c6c76efb9d6d7fc4dbdfcf5dea0712ae76801b8d4085d728",
+          "lex": "ה פטיש",
+          "tags": "art;cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:15",
+    "token": 18,
+    "word": "מַכֶּה",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נכה",
+        "morph": "HVhrmsa",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "schlägt",
+          "en": "strikes"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_851_reduced_high_compressed_compressed.jpg",
+          "driveId": "1J9bTbPImUxp2Uq-Hi3Ye1PWEkoCYicsY",
+          "sha256": "e3312a8ecf2fb344c6c76efb9d6d7fc4dbdfcf5dea0712ae76801b8d4085d728",
+          "lex": "נכה",
+          "tags": "hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Maaser Sheni",
+    "ref": "5:15",
+    "token": 24,
+    "word": "לִשְׁאוֹל",
+    "sourceHash": "36fb7543ee826444f32bc14fd76abd72a13230fa271ea8b57f5bebc0244ad62a",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/שאל",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-maaser-sheni-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zu fragen",
+          "en": "to ask"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Maaser2 5:15",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_851_reduced_high_compressed_compressed.jpg",
+          "driveId": "1J9bTbPImUxp2Uq-Hi3Ye1PWEkoCYicsY",
+          "sha256": "e3312a8ecf2fb344c6c76efb9d6d7fc4dbdfcf5dea0712ae76801b8d4085d728",
+          "lex": "ל שאל",
+          "tags": "prp;qal infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),D=require('../../mishnah-morph-data'),M=require('../../mishnah-morph');
-module.exports=async({docs,win,js,waitFor,book})=>{
+module.exports=async({docs,win,js,waitFor,book,dictionaryRequests})=>{
  const title='Mishnah Berakhot',source=[...docs.values()].find(d=>d.entry.title===title&&d.entry.versionTitle===D.edition);
  assert(source,'actual Kaufmann source fixture');
  async function chapter(ch){await js(`document.querySelector('#rSection').value=${ch-1};document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph][data-mishnah-morph-ready]').length===${D.sources[title].chapters[ch-1].length}`,'source-bound word decoration '+ch);}
@@ -22,7 +22,13 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   assert(await js("!document.querySelector('#rOut .cell[data-k=de] .mhw')"),'translation never inherits Hebrew analyses');
  }
  assert.equal(total,D.coverage.words);
- const known={ch:1,m:1,i:1};await word(known);
+ const known={ch:1,m:1,i:1};
+ // A tempting biblical gloss in a globally loaded lexicon must remain unavailable here.
+ await js("{const id=window.MISHNAH_MORPH_DATA.sources['Mishnah Berakhot'].chapters[0][0][1];window.mhmMeaningFixture={id,form:window.MISHNAH_MORPH_DATA.forms[id],lexicon:window.OSHB_LEMMAS};window.OSHB_LEMMAS={tempting:['עַיִן','BIBLICAL ONLY GLOSS','NUR BIBLISCHER GLOSS']};window.MISHNAH_MORPH_DATA.forms[id]={...window.mhmMeaningFixture.form,analyses:[{lemma:'עין',morph:'HNcbsa',rules:[]}]};}");
+ await word(known);
+ assert(await js("document.querySelector('#mishnahMorphPopup .mhm-meaning')?.textContent.includes('Noch keine Kurzbedeutung')&&!document.querySelector('#mishnahMorphPopup').textContent.includes('BIBLISCH')"),'no biblical fallback even when that lexicon is globally loaded');
+ await js("window.MISHNAH_MORPH_DATA.forms[window.mhmMeaningFixture.id]=window.mhmMeaningFixture.form;window.OSHB_LEMMAS=window.mhmMeaningFixture.lexicon");
+ await word(known);
  assert(await js("document.querySelector('#mishnahMorphPopup .mhm-meaning')?.textContent.includes('lesen')"),'word card includes a short meaning');
  assert(await js("document.querySelector('#mishnahMorphPopup .mhm-meaning small')?.textContent.includes('Redaktionelle')"),'editorial meaning source is explicit');
  assert(await js("document.querySelector('#mishnahMorphPopup').textContent.includes('Maschineller Vorschlag')&&document.querySelector('#mishnahMorphPopup').textContent.includes('Partizip aktiv')&&document.querySelector('#mishnahMorphPopup').textContent.includes('Pl.')"),'קורין candidate is a participle, not a guessed perfect');
@@ -48,12 +54,16 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await word(known);await js("document.body.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true}))");assert(await js("!document.querySelector('#mishnahMorphPopup')"),'outside click closes popup');
  await word(known);await js("document.querySelector('#mishnahMorphPopup [data-mhm-dict]').click()");
  await waitFor("!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictQ').value==='קרא'",'dictionary opens the unprefixed lemma');
+ assert.deepEqual(dictionaryRequests.at(-1).only,['d895bc1c727b','e8d290b744f6','d701423861c6'],'Mishnah dictionary lookup is restricted to Jastrow, Levy and Krauss even without matching entries');
  await book(title);await waitFor("document.querySelector('#rOut .mhw')",'return to the Mishnah');
  // A changed source fingerprint cannot keep the previously loaded candidate index.
  await js("window.mishnahMorphSavedHash=window.MISHNAH_MORPH_DATA.sources['Mishnah Berakhot'].textHash;window.MISHNAH_MORPH_DATA.sources['Mishnah Berakhot'].textHash='changed';document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('.cell[data-mishnah-morph][data-mishnah-morph-state=source-mismatch]')&&!document.querySelector('#rOut .mhw')",'changed source is not analysed');
  await js("window.MISHNAH_MORPH_DATA.sources['Mishnah Berakhot'].textHash=window.mishnahMorphSavedHash");
  await chapter(1);
+ // Compare the original reading view, without the separately rendered witness labels.
+ await js("document.querySelector('#ilBtn').click()");await waitFor("!document.querySelector('#ilPop').hidden&&document.querySelector('#ilPop [data-a=none]')",'Mishnah witness controls');
+ await js("document.querySelector('#ilPop [data-a=none]').click()");await waitFor("!document.querySelector('#rOut .mci-grid')&&document.querySelector('.cell[data-mishnah-morph-state=matched]')",'original reading without witness rows');
  const first=await js("document.querySelector('#rOut .cell[data-mishnah-morph] .txt').textContent");
  const expected=await js(`(()=>{const t=document.createElement('template');t.innerHTML=${JSON.stringify(source.text[0][0])};return t.content.textContent;})()`);
  assert.equal(first,expected,'source text including original editorial labels stays unchanged');

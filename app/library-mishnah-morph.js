@@ -2,7 +2,8 @@
 window.LibraryMishnahMorph=(()=>{
  'use strict';
  const TITLES=['Mishnah Berakhot','Mishnah Peah','Mishnah Demai','Mishnah Kilayim','Mishnah Sheviit','Mishnah Terumot','Mishnah Maasrot','Mishnah Maaser Sheni','Mishnah Challah','Mishnah Orlah','Mishnah Bikkurim'],VERSION="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
- const IGNORE='small,sup,.note,.footnote,a.aref,.aref,.mci-labels,.mci-witness,.mci-open,.mci-insertion';
+ const RABBINIC_DICTIONARIES=['d895bc1c727b','e8d290b744f6','d701423861c6']; // Jastrow, Levy, Krauss
+ const IGNORE='small,sup,.note,.footnote,a.aref,.aref,.mci-labels,.mci-witness,.mci-open,.mci-insertion,.mci-note';
  function create({$,esc,getView,load,openDict,closeOther}){
   let data=null,generation=0,popup=null,anchor=null,formsDialog=null,formsAnchor=null;
   const pending=new Map(),records=new WeakMap(),t=(s,...args)=>window.I18N?.t(s,...args)??s;
@@ -17,8 +18,7 @@ window.LibraryMishnahMorph=(()=>{
     load('mishnah-morph.js',()=>window.MishnahMorph),
     berakhot?load('mishnah-morph-data.js',()=>window.MISHNAH_MORPH_DATA):load('mishnah-zeraim-data.js',()=>window.MISHNAH_ZERAIM_DATA),
     load('mishnah-meanings.js',()=>window.MishnahMeanings),
-    load('mishnah-dictionary-data.js',()=>window.MISHNAH_DICTIONARY_DATA),
-    load('oshb-lemmas.js',()=>window.OSHB_LEMMAS).catch(()=>null)
+    load('mishnah-dictionary-data.js',()=>window.MISHNAH_DICTIONARY_DATA)
    ]).then(([,d])=>d).catch(err=>{pending.delete(key);throw err;});
    pending.set(key,promise);return promise;
   }
@@ -68,22 +68,30 @@ window.LibraryMishnahMorph=(()=>{
   }
   function headLemma(a){return api().headLemma?api().headLemma(a):String(a.lemma||'').split('/').at(-1);}
   function meaning(a){
-   const result=window.MishnahMeanings?.lookup(a,window.OSHB_LEMMAS||{},window.I18N?.lang||'de');
-   if(!result)return `<p class="mhm-meaning muted">${esc(t('Noch keine Kurzbedeutung hinterlegt.'))}</p>`;
-   const source=result.source==='editorial'?'Redaktionelle Kurzbedeutung':'Biblisches Wörterbuch';
+   const result=window.MishnahMeanings?.lookup(a,window.I18N?.lang||'de');
+   if(!result||result.source!=='editorial')return `<p class="mhm-meaning muted">${esc(t('Noch keine Kurzbedeutung hinterlegt.'))}</p>`;
+   const source='Redaktionelle Kurzbedeutung';
    return `<p class="mhm-meaning"><span class="muted">${esc(t('Bedeutung'))}</span> ${esc(result.text)} <small class="muted">${esc(t(source))}</small></p>`;
   }
   function loanword(a){
    const l=a.loanword;if(!l?.form||l.source!=='Krauss')return '';
    return `<p class="mhm-loanword"><small class="muted">${esc(t('Herkunftsangabe bei Krauss'))}</small><br>${esc(t(l.language))} · <bdi dir="ltr">${esc(l.form)}</bdi></p>`;
   }
+  function comparison(a){
+   const c=a.comparison;if(c?.status!=='visually-checked'||c.module!=='Mishna-Tagged (Kaufmann)')return '';
+   return `<details class="mhm-grammar mhm-comparison"><summary>${esc(t('Accordance-Bildbeleg'))}</summary><p>${esc(c.module)} · ${esc(c.ref)}</p><p><span class="muted">Lex</span> <bdi lang="he" dir="rtl">${esc(c.lex)}</bdi><br><span class="muted">Tag</span> ${esc(c.tags)}</p>${c.suffixFeatures?`<p>${esc(t('Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen.'))}</p>`:''}<small>${esc(c.file)}<br>Drive-ID: ${esc(c.driveId)}</small></details>`;
+  }
   function grammar(analyses){
    const ids=[...new Set(analyses.flatMap(a=>a.rules||[]))],rules=ids.map(id=>data.rules?.[id]).filter(r=>r?.label);
    if(!rules.length)return '';
    return `<details class="mhm-grammar"><summary>${esc(t('Grammatik und Belege'))}</summary><ul>${rules.map(r=>`<li>${esc(r.label)}${r.refs?.length?`<small>${r.refs.map(ref=>esc(typeof ref==='string'?ref:ref.label||ref.citation||'')).filter(Boolean).join(' · ')}</small>`:''}</li>`).join('')}</ul></details>`;
   }
+  function openRabbinicDictionary(query,only){
+   if(only&&!RABBINIC_DICTIONARIES.includes(only.id))return;
+   openDict(query,only||{id:[...RABBINIC_DICTIONARIES],name:'Jastrow · Levy · Krauss'});
+  }
   function dictionaryHits(record){
-   return window.MISHNAH_DICTIONARY_DATA?.forms?.[record.key]||[];
+   return (window.MISHNAH_DICTIONARY_DATA?.forms?.[record.key]||[]).filter(h=>RABBINIC_DICTIONARIES.includes(h.dictId));
   }
   function dictionaryEvidence(record){
    const hits=dictionaryHits(record);if(!hits.length)return '';
@@ -103,8 +111,8 @@ window.LibraryMishnahMorph=(()=>{
    const form=api().form(data,record.id)||{status:'unresolved',analyses:[],hints:[]},analyses=form.analyses||[],labels={candidate:'Maschineller Vorschlag',ambiguous:'Mehrere mögliche Bestimmungen',partial:'Teilweise bestimmbar',unresolved:'Keine Bestimmung'};
    anchor=word;word.classList.add('mhw-selected');word.setAttribute('aria-expanded','true');popup=document.createElement('div');popup.id='mishnahMorphPopup';popup.setAttribute('role','dialog');popup.setAttribute('aria-label',t('Wortbestimmung'));
    const unique=[...new Set(analyses.map(headLemma).filter(Boolean))];
-   popup.innerHTML=`<div class="mhm-top"><bdi class="mhm-word" dir="rtl" lang="he">${esc(record.word)}</bdi><button type="button" class="mhm-close" aria-label="${esc(t('Schließen'))}">✕</button></div><div class="mhm-badge">${form.status==='candidate'?'':esc(t('Maschinell'))+' · '}${esc(t(labels[form.status]||labels.unresolved))}</div>${analyses.length?analyses.map(a=>`<div class="mhm-analysis"><div><span class="muted">${esc(t('Grundform'))}</span> <bdi dir="rtl" lang="he">${esc(headLemma(a))}</bdi>${a.root?` <span class="muted">· ${esc(t('Wurzel'))}</span> <bdi dir="rtl" lang="he">${esc(a.root)}</bdi>`:''}</div>${meaning(a)}${loanword(a)}<p>${esc(description(a))}</p>${a.note?`<p class="mhm-analysis-note muted">${esc(a.note)}</p>`:''}</div>`).join(''):`<p class="mhm-unknown">${esc(t('Für dieses Wort liegt keine zugeordnete Bestimmung vor.'))}</p>`}${(form.hints||[]).length?`<p class="mhm-hints">${form.hints.map(h=>esc(typeof h==='string'?h:h.label||h.text||'')).filter(Boolean).join(' · ')}</p>`:''}${grammar(analyses)}${dictionaryEvidence(record)}<div class="mhm-actions">${unique.length?unique.map((lemma,i)=>`<div><button type="button" data-mhm-dict="${i}">${esc(t('Wörterbuch'))}${unique.length>1?` · <bdi lang="he" dir="rtl">${esc(lemma)}</bdi>`:''}</button><button type="button" data-mhm-forms="${i}">${esc(t('Belegte Formen'))} (${api().forms(data,lemma).length})</button></div>`).join(''):`<button type="button" data-mhm-word>${esc(t('Im Wörterbuch nachschlagen'))}</button>`}</div>`;
-   popup.onclick=e=>{if(e.target.closest('.mhm-close')){closePopup();return;}const evidence=e.target.closest('[data-mhm-evidence]');if(evidence){const h=dictionaryHits(record)[Number(evidence.dataset.mhmEvidence)];if(h){close();openDict(h.head.normalize('NFD').replace(/[^א-ת]/g,''),{id:h.dictId,name:h.dict});}return;}const dict=e.target.closest('[data-mhm-dict]'),forms=e.target.closest('[data-mhm-forms]');if(dict){const q=unique[Number(dict.dataset.mhmDict)];close();openDict(q);return;}if(forms){showForms(unique[Number(forms.dataset.mhmForms)]);return;}if(e.target.closest('[data-mhm-word]')){close();openDict(record.word);}};
+   popup.innerHTML=`<div class="mhm-top"><bdi class="mhm-word" dir="rtl" lang="he">${esc(record.word)}</bdi><button type="button" class="mhm-close" aria-label="${esc(t('Schließen'))}">✕</button></div><div class="mhm-badge">${form.status==='candidate'?'':esc(t('Maschinell'))+' · '}${esc(t(labels[form.status]||labels.unresolved))}</div>${analyses.length?analyses.map(a=>`<div class="mhm-analysis"><div><span class="muted">${esc(t('Grundform'))}</span> <bdi dir="rtl" lang="he">${esc(headLemma(a))}</bdi>${a.root?` <span class="muted">· ${esc(t('Wurzel'))}</span> <bdi dir="rtl" lang="he">${esc(a.root)}</bdi>`:''}</div>${meaning(a)}${loanword(a)}${comparison(a)}<p>${esc(description(a))}</p>${a.note?`<p class="mhm-analysis-note muted">${esc(a.note)}</p>`:''}</div>`).join(''):`<p class="mhm-unknown">${esc(t('Für dieses Wort liegt keine zugeordnete Bestimmung vor.'))}</p>`}${(form.hints||[]).length?`<p class="mhm-hints">${form.hints.map(h=>esc(typeof h==='string'?h:h.label||h.text||'')).filter(Boolean).join(' · ')}</p>`:''}${grammar(analyses)}${dictionaryEvidence(record)}<div class="mhm-actions">${unique.length?unique.map((lemma,i)=>`<div><button type="button" data-mhm-dict="${i}">${esc(t('Wörterbuch'))}${unique.length>1?` · <bdi lang="he" dir="rtl">${esc(lemma)}</bdi>`:''}</button><button type="button" data-mhm-forms="${i}">${esc(t('Belegte Formen'))} (${api().forms(data,lemma).length})</button></div>`).join(''):`<button type="button" data-mhm-word>${esc(t('Im Wörterbuch nachschlagen'))}</button>`}</div>`;
+   popup.onclick=e=>{if(e.target.closest('.mhm-close')){closePopup();return;}const evidence=e.target.closest('[data-mhm-evidence]');if(evidence){const h=dictionaryHits(record)[Number(evidence.dataset.mhmEvidence)];if(h){close();openRabbinicDictionary(h.head.normalize('NFD').replace(/[^א-ת]/g,''),{id:h.dictId,name:h.dict});}return;}const dict=e.target.closest('[data-mhm-dict]'),forms=e.target.closest('[data-mhm-forms]');if(dict){const q=unique[Number(dict.dataset.mhmDict)];close();openRabbinicDictionary(q);return;}if(forms){showForms(unique[Number(forms.dataset.mhmForms)]);return;}if(e.target.closest('[data-mhm-word]')){close();openRabbinicDictionary(record.word);}};
    document.body.append(popup);position();
   }
   $('#rOut').addEventListener('click',e=>{const word=e.target.closest('.mhw');if(!word||e.detail>1||String(window.getSelection()||'').trim())return;show(word);});

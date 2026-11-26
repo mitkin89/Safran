@@ -1,0 +1,19 @@
+[
+  {
+    "ref": "4:8",
+    "token": 14,
+    "word": "בִשְׁאָר",
+    "reason": "Unsere Form בִשְׁאָר hat Präposition ב und das Constructus-Nomen שאר. Accordance Shev. 4:8 zeigt stattdessen כִשְׁאָר, Raw-Lex כ שאר, Tags prp; cm ms sg cnst (Bild 353). Grammatische Einordnung unserer Form als ב/שאר HR/Ncmsc ist plausibel; ein exakt übereinstimmender Accordance-Beleg für ihre Präposition fehlt. Präpositionslesart ב gegenüber כ anhand Kaufmann-Faksimile und Ma’agarim gezielt prüfen; bis dahin keine bildbestätigte Übernahme.",
+    "comparison": {
+      "module": "Mishna-Tagged (Kaufmann)",
+      "ref": "Shev. 4:8",
+      "file": "mischna_2026-11-26_17-34-04_BBCD1331_353_reduced_high_compressed_compressed.jpg",
+      "driveId": "1KO44hYIqk8xmrUlXQff38ad7jlqbP-pa",
+      "sha256": "6012f68a70452d990bda11f7048259ca5ea467bc50f4d4ff2cdba4bce0523567",
+      "lex": "כ שאר",
+      "tags": "prp; cm ms sg cnst",
+      "status": "visually-checked",
+      "suffixFeatures": null
+    }
+  }
+]

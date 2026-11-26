@@ -1,0 +1,2092 @@
+[
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 3,
+    "word": "טְמֵאָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unrein",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "טמא",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 4,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 17,
+    "word": "טְמֵאִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unreine",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "טמא",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 51,
+    "word": "טְמֵאִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unreine",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "טמא",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 19,
+    "word": "טְהוֹרִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טהר",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "reine",
+          "en": "clean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "טהר",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 26,
+    "word": "יִמָּכְרוּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מכר",
+        "morph": "HVNi3mp",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden verkauft",
+          "en": "they shall be sold"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "מכר",
+          "tags": "nif imprf 3 ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 28,
+    "word": "בִּדְמֵי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/דמים",
+        "morph": "HR/Ncmpc",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zum Preis von",
+          "en": "at the price of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "ב דמים",
+          "tags": "prp; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 31,
+    "word": "מִדְּמֵי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/דמים",
+        "morph": "HR/Ncmpc",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "vom Preis von",
+          "en": "from the price of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "מן דמים",
+          "tags": "prp; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 37,
+    "word": "נָפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נפל",
+        "morph": "HVqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie fiel",
+          "en": "it fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "נפל",
+          "tags": "qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 46,
+    "word": "נָפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נפל",
+        "morph": "HVqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie fiel",
+          "en": "it fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "נפל",
+          "tags": "qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:1",
+    "token": 55,
+    "word": "יֵאָכֵלוּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVNi3mp",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden gegessen",
+          "en": "they shall be eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_537_reduced_high_compressed_compressed.jpg",
+          "driveId": "1oD2xdA8BbMEtAO3nGBAsUG896wZEY5mb",
+          "sha256": "cfedfc20737035693eaf6ad7a0107ae8bfe7b9a9af5271b3883e1d564d78cff6",
+          "lex": "אכל",
+          "tags": "nif imprf 3 ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 3,
+    "word": "טְמֵאָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unrein",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "טמא",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 4,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 18,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 7,
+    "word": "טְהוֹרִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טהר",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "reine",
+          "en": "clean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "טהר",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 13,
+    "word": "וְתִשָּׂרֵף",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/שרף",
+        "morph": "HC/VNi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie wird verbrannt",
+          "en": "and it shall be burnt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "ו שרף",
+          "tags": "cnj; nif imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 24,
+    "word": "תַּעֲלֶה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVhi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wird aufgehoben",
+          "en": "it is neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "עלה",
+          "tags": "hif imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:2",
+    "token": 25,
+    "word": "וְתֵאָכֵל",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/אכל",
+        "morph": "HC/VNi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie wird gegessen",
+          "en": "and it shall be eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "ו אכל",
+          "tags": "cnj; nif imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:3",
+    "token": 4,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:3",
+    "token": 7,
+    "word": "טְמֵאִים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unreine",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "טמא",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:3",
+    "token": 8,
+    "word": "תַּעֲלֶה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVhi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wird aufgehoben",
+          "en": "it is neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "עלה",
+          "tags": "hif imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:3",
+    "token": 9,
+    "word": "וְתֵאָכֵל",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/אכל",
+        "morph": "HC/VNi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie wird gegessen",
+          "en": "and it shall be eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_539_reduced_high_compressed_compressed.jpg",
+          "driveId": "16U5Vq1sZuStn675ug4c5MLmCevsKEoc9",
+          "sha256": "9382cd86f9f72296717c8eda5a2bf519d4170ec51ce2c7eda2ac05bb2fa1ac78",
+          "lex": "ו אכל",
+          "tags": "cnj; nif imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 3,
+    "word": "טְמֵאָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unrein",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "טמא",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 25,
+    "word": "טְמֵאָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unrein",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "טמא",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 32,
+    "word": "טְמֵאָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טמא",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "unrein",
+          "en": "unclean"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "טמא",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 4,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 40,
+    "word": "הֶעֱלוּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVhp3cp",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie hoben auf",
+          "en": "they neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "עלה",
+          "tags": "hif prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 47,
+    "word": "תַּעֲלֶה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HVhi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wird aufgehoben",
+          "en": "it is neutralized"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "עלה",
+          "tags": "hof imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": " Das Originalbild weist hier Hofal aus; der Roh-Tag wird unverändert dokumentiert. Unsere aktive Hifil-Analyse folgt der eigenen Vokalisierung תַּעֲלֶה und der Satzfunktion, nicht einer Übernahme des abweichenden Bild-Tags."
+      }
+    ],
+    "note": " Das Originalbild weist hier Hofal aus; der Roh-Tag wird unverändert dokumentiert. Unsere aktive Hifil-Analyse folgt der eigenen Vokalisierung תַּעֲלֶה und der Satzfunktion, nicht einer Übernahme des abweichenden Bild-Tags."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 53,
+    "word": "הַטְּמֵאָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/טמא",
+        "morph": "HTd/Aafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die unreine",
+          "en": "the unclean one"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "ה טמא",
+          "tags": "art; fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 60,
+    "word": "וְתִשָּׂרֵף",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/שרף",
+        "morph": "HC/VNi3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie wird verbrannt",
+          "en": "and it shall be burnt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "ו שרף",
+          "tags": "cnj; nif imprf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:4",
+    "token": 63,
+    "word": "אָבְדָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבד",
+        "morph": "HVqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie ging verloren",
+          "en": "it was lost"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_543_reduced_high_compressed_compressed.jpg",
+          "driveId": "1l7eClRk-LZOwj_cJt4lddxjBP8JrCAnx",
+          "sha256": "51183c6417c8221c69288774b6526c1d2d78b8dc5e172b233ed7086cfa7fc6da",
+          "lex": "אבד",
+          "tags": "qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:5",
+    "token": 3,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:5",
+    "token": 6,
+    "word": "וְנָפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/נפל",
+        "morph": "HC/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie fiel",
+          "en": "and it fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "ו נפל",
+          "tags": "cnj; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:5",
+    "token": 14,
+    "word": "וַדַּי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ודאי",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gewissheit",
+          "en": "certainty"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "ודאי",
+          "tags": "ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Substantivische Funktion redaktionell."
+      }
+    ],
+    "note": "Substantivische Funktion redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:5",
+    "token": 21,
+    "word": "חֶשְׁבּוֹן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חשבון",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Berechnung",
+          "en": "calculation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "חשבון",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:6",
+    "token": 3,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:6",
+    "token": 7,
+    "word": "וְנָפַל",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/נפל",
+        "morph": "HC/Vqp3ms",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und es fiel",
+          "en": "and it fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "ו נפל",
+          "tags": "cnj; qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:6",
+    "token": 17,
+    "word": "וַדַּי",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ודאי",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Gewissheit",
+          "en": "certainty"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "ודאי",
+          "tags": "ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Substantivische Funktion redaktionell."
+      }
+    ],
+    "note": "Substantivische Funktion redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:6",
+    "token": 25,
+    "word": "חֶשְׁבּוֹן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חשבון",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Berechnung",
+          "en": "calculation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "חשבון",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:6",
+    "token": 31,
+    "word": "חֶשְׁבּוֹן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חשבון",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Berechnung",
+          "en": "calculation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "חשבון",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:6",
+    "token": 41,
+    "word": "חֶשְׁבּוֹן",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חשבון",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Berechnung",
+          "en": "calculation"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_545_reduced_high_compressed_compressed.jpg",
+          "driveId": "13RxfznE2_IQwYGeYjgfrC_Rm7LYqNhc3",
+          "sha256": "351f617d9fbfe41585d722b1dc4e871e4ce1b336977751ebe0c1f7c715a8f62e",
+          "lex": "חשבון",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:7",
+    "token": 3,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:7",
+    "token": 6,
+    "word": "וְנָפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/נפל",
+        "morph": "HC/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und eine fiel",
+          "en": "and one fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ו נפל",
+          "tags": "cnj; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:7",
+    "token": 9,
+    "word": "וְנָפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/נפל",
+        "morph": "HC/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und eine fiel",
+          "en": "and one fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ו נפל",
+          "tags": "cnj; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:7",
+    "token": 7,
+    "word": "אַחֶרֶת",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אחר",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "eine andere",
+          "en": "another"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "אחר",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:7",
+    "token": 10,
+    "word": "אַחֶרֶת",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אחר",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "eine andere",
+          "en": "another"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "אחר",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:8",
+    "token": 3,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:8",
+    "token": 9,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:8",
+    "token": 10,
+    "word": "אַחֶרֶת",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אחר",
+        "morph": "HAafsa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "eine andere",
+          "en": "another"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "אחר",
+          "tags": "fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:9",
+    "token": 3,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:9",
+    "token": 16,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:9",
+    "token": 30,
+    "word": "שֶׁחִטִּים",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/חטה",
+        "morph": "HTr/Ncfpa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass Weizenkörner",
+          "en": "that wheat grains"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "ש חטה",
+          "tags": "rel; cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:9",
+    "token": 32,
+    "word": "יָפוֹת",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "יפה",
+        "morph": "HAafpa",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "besser",
+          "en": "better"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_549_reduced_high_compressed_compressed.jpg",
+          "driveId": "1NwEf7FVGiFXC4RM8JTGEw70k9m8ao_F2",
+          "sha256": "4a94cb497f878c1b9b5ba474b2c5c0c3f40c2720af97132d15f0ae6611f94fde",
+          "lex": "יפה",
+          "tags": "fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:9",
+    "token": 37,
+    "word": "שֶׁנָּפְלָה",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/נפל",
+        "morph": "HTr/Vqp3fs",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die hineinfiel",
+          "en": "which fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_551_reduced_high_compressed_compressed.jpg",
+          "driveId": "1O6e37Xni7MYuUw0UTO3uEcvx5narea4x",
+          "sha256": "4f11ceebbe825d4faf6e62959ac5aef6abe4232bb6f561e30adad1e1d82c8751",
+          "lex": "ש נפל",
+          "tags": "rel; qal prf 3 fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Terumot",
+    "ref": "5:9",
+    "token": 42,
+    "word": "נָפְלוּ",
+    "sourceHash": "89b5634ded436d082bbe20b7d34011b942e727e413b4531b2341d9906c859ed1",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נפל",
+        "morph": "HVqp3cp",
+        "rules": [
+          "accordance-terumot-rabbinic-5"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie fielen",
+          "en": "they fell"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Ter. 5:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_551_reduced_high_compressed_compressed.jpg",
+          "driveId": "1O6e37Xni7MYuUw0UTO3uEcvx5narea4x",
+          "sha256": "4f11ceebbe825d4faf6e62959ac5aef6abe4232bb6f561e30adad1e1d82c8751",
+          "lex": "נפל",
+          "tags": "qal prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

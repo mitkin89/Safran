@@ -1,0 +1,990 @@
+[
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:1",
+    "token": 3,
+    "word": "הָעֲנִיִּים",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/עני",
+        "morph": "HTd/Aampa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Armen",
+          "en": "the poor"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "ה עני",
+          "tags": "art; ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Substantiviertes Adjektiv redaktionell."
+      }
+    ],
+    "note": "Substantiviertes Adjektiv redaktionell."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:1",
+    "token": 12,
+    "word": "מַאֲכִיל",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אכל",
+        "morph": "HVhrmsa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er speist",
+          "en": "he feeds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "אכל",
+          "tags": "hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:1",
+    "token": 31,
+    "word": "נִמְצְאוּ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מצא",
+        "morph": "HVNp3cp",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "es ergab sich",
+          "en": "it turned out"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "מצא",
+          "tags": "nif prf 3 com pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:1",
+    "token": 43,
+    "word": "לְתַקֵּן",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/תקן",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ordnungsgemäß zu verzehnten",
+          "en": "to tithe properly"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "ל תקן",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:2",
+    "token": 3,
+    "word": "עֲלֵי",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עלה",
+        "morph": "HNcmpc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Blätter von",
+          "en": "leaves of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "עלה",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:2",
+    "token": 5,
+    "word": "לְהָקֵל",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/קלל",
+        "morph": "HR/Vhc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "leichter zu machen",
+          "en": "to lighten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "ל קלל",
+          "tags": "prp; hif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:2",
+    "token": 8,
+    "word": "יַשְׁלִיךְ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שלך",
+        "morph": "HVhi3ms",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er soll wegwerfen",
+          "en": "he shall throw away"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_84_reduced_high_compressed_compressed.jpg",
+          "driveId": "1hCYiNJoPtxTRTppkULtKugsVJSszTAkw",
+          "sha256": "80ac18a67bd3688363fcca508b01b3f687f421265e548bfa81962523a8333653",
+          "lex": "שלך",
+          "tags": "hif imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:2",
+    "token": 37,
+    "word": "מָשַׁךְ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "משך",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er nahm in Besitz",
+          "en": "he took possession"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_85_reduced_high_compressed_compressed.jpg",
+          "driveId": "1nlD85f6iD3-y-gwCYX59U6QeXVPFl_J5",
+          "sha256": "b15c5565c3e75affdab19f08c601bac5b08fbc02331cf72f312666008e859513",
+          "lex": "משך",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:3",
+    "token": 1,
+    "word": "הַמּוֹצֵא",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/מצא",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer findet",
+          "en": "one who finds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_85_reduced_high_compressed_compressed.jpg",
+          "driveId": "1nlD85f6iD3-y-gwCYX59U6QeXVPFl_J5",
+          "sha256": "b15c5565c3e75affdab19f08c601bac5b08fbc02331cf72f312666008e859513",
+          "lex": "ה מצא",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:3",
+    "token": 17,
+    "word": "יֹאבֵדוּ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אבד",
+        "morph": "HVqi3mp",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie sollen zugrunde gehen",
+          "en": "they shall perish"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_85_reduced_high_compressed_compressed.jpg",
+          "driveId": "1nlD85f6iD3-y-gwCYX59U6QeXVPFl_J5",
+          "sha256": "b15c5565c3e75affdab19f08c601bac5b08fbc02331cf72f312666008e859513",
+          "lex": "אבד",
+          "tags": "qal imprf 3 ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:3",
+    "token": 30,
+    "word": "יִשְׁלַח",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שלח",
+        "morph": "HVqi3ms",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er soll senden",
+          "en": "he shall send"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_85_reduced_high_compressed_compressed.jpg",
+          "driveId": "1nlD85f6iD3-y-gwCYX59U6QeXVPFl_J5",
+          "sha256": "b15c5565c3e75affdab19f08c601bac5b08fbc02331cf72f312666008e859513",
+          "lex": "שלח",
+          "tags": "qal imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:3",
+    "token": 36,
+    "word": "בַּוַּדַּי",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/ודאי",
+        "morph": "HRd/Ncmsa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "beim sicher Unverzehnteten",
+          "en": "for certainly untithed produce"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_85_reduced_high_compressed_compressed.jpg",
+          "driveId": "1nlD85f6iD3-y-gwCYX59U6QeXVPFl_J5",
+          "sha256": "b15c5565c3e75affdab19f08c601bac5b08fbc02331cf72f312666008e859513",
+          "lex": "ב וודי",
+          "tags": "prpArt; ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Nominale Sachbezeichnung im rabbinischen Zehntrecht redaktionell; Zitierlemma orthographisch normalisiert."
+      }
+    ],
+    "note": "Nominale Sachbezeichnung im rabbinischen Zehntrecht redaktionell; Zitierlemma orthographisch normalisiert."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:3",
+    "token": 38,
+    "word": "שֶׁיּוֹדִיעֶנּוּ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ש/ידע",
+        "morph": "HTr/Vhi3ms/Sp3ms",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "dass er ihn benachrichtigt",
+          "en": "that he informs him"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_85_reduced_high_compressed_compressed.jpg",
+          "driveId": "1nlD85f6iD3-y-gwCYX59U6QeXVPFl_J5",
+          "sha256": "b15c5565c3e75affdab19f08c601bac5b08fbc02331cf72f312666008e859513",
+          "lex": "ש ידע",
+          "tags": "rel; hif imprf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell; im Bild nicht separat ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 1,
+    "word": "הַמּוֹלִיךְ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/הלך",
+        "morph": "HTd/Vhrmsa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer hinbringt",
+          "en": "one who brings"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "ה הלך",
+          "tags": "art; hif prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 2,
+    "word": "חִטִּין",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חיטה",
+        "morph": "HNcfpa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Weizenkörner",
+          "en": "wheat"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "חטה",
+          "tags": "cm fm pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 3,
+    "word": "לְטָחוֹן",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/טחן",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zum Mahlen",
+          "en": "for grinding"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "ל טחון",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Vokalisierung לְטָחוֹן redaktionell Qal-Infinitiv; Accordance nominales טחון mit cm ms sg ausdrücklich nicht übernommen."
+      }
+    ],
+    "note": "Unsere Vokalisierung לְטָחוֹן redaktionell Qal-Infinitiv; Accordance nominales טחון mit cm ms sg ausdrücklich nicht übernommen."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 6,
+    "word": "לְטָחוֹן",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/טחן",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zum Mahlen",
+          "en": "for grinding"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "ל טחון",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Vokalisierung לְטָחוֹן redaktionell Qal-Infinitiv; Accordance nominales טחון mit cm ms sg ausdrücklich nicht übernommen."
+      }
+    ],
+    "note": "Unsere Vokalisierung לְטָחוֹן redaktionell Qal-Infinitiv; Accordance nominales טחון mit cm ms sg ausdrücklich nicht übernommen."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 12,
+    "word": "לְטָחוֹן",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/טחן",
+        "morph": "HR/Vqc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "zum Mahlen",
+          "en": "for grinding"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "ל טחון",
+          "tags": "prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Vokalisierung לְטָחוֹן redaktionell Qal-Infinitiv; Accordance nominales טחון mit cm ms sg ausdrücklich nicht übernommen."
+      }
+    ],
+    "note": "Unsere Vokalisierung לְטָחוֹן redaktionell Qal-Infinitiv; Accordance nominales טחון mit cm ms sg ausdrücklich nicht übernommen."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 13,
+    "word": "הַנָּכְרִי",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נכרי",
+        "morph": "HTd/Agmsa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Nichtjude",
+          "en": "the gentile"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "ה כותי",
+          "tags": "art; gent ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere Oberfläche הנכרי gegenüber Accordance הכותי bleibt erhalten; lexikalische Zuordnung redaktionell nach eigener Form."
+      }
+    ],
+    "note": "Unsere Oberfläche הנכרי gegenüber Accordance הכותי bleibt erhalten; lexikalische Zuordnung redaktionell nach eigener Form."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 17,
+    "word": "אֵצֶל",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אצל",
+        "morph": "HR",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "bei",
+          "en": "with"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "אצל",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 19,
+    "word": "אֵצֶל",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אצל",
+        "morph": "HR",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "bei",
+          "en": "with"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "אצל",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 25,
+    "word": "אֵצֶל",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אצל",
+        "morph": "HR",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "bei",
+          "en": "with"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "אצל",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:4",
+    "token": 26,
+    "word": "הַנָּכְרִי",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נכרי",
+        "morph": "HTd/Agmsa",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "der Nichtjude",
+          "en": "the gentile"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_88_reduced_high_compressed_compressed.jpg",
+          "driveId": "1j1VOVgINoOaHX087Nfw43QjLt32JAyTe",
+          "sha256": "da5009f20ee848cf8d600e246df6d96c653f0d3bfd3f457cfdae3321489a1050",
+          "lex": "ה נכרי",
+          "tags": "art; ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Gentilizische Wortart redaktionell."
+      }
+    ],
+    "note": "Gentilizische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:6",
+    "token": 22,
+    "word": "לְתַקֵּן",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/תקן",
+        "morph": "HR/Vpc",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ordnungsgemäß zu verzehnten",
+          "en": "to tithe properly"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_90_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MXRIsQowAruOixY1dKvrJJzECqYZpDjp",
+          "sha256": "6fc4b23f84159e9df15590be5cfbbd3a536d635477049b07ed26a44558242963",
+          "lex": "ל תקן",
+          "tags": "prp; pi infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:6",
+    "token": 24,
+    "word": "בִּתָּהּ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בת",
+        "morph": "HNcfsc/Sp3fs",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihre Tochter",
+          "en": "her daughter"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_90_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MXRIsQowAruOixY1dKvrJJzECqYZpDjp",
+          "sha256": "6fc4b23f84159e9df15590be5cfbbd3a536d635477049b07ed26a44558242963",
+          "lex": "בת",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell; im Bild nicht separat ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Demai",
+    "ref": "3:6",
+    "token": 37,
+    "word": "בִּתָּהּ",
+    "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "בת",
+        "morph": "HNcfsc/Sp3fs",
+        "rules": [
+          "accordance-demai-rabbinic-3"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "ihre Tochter",
+          "en": "her daughter"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Dem. 3:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_90_reduced_high_compressed_compressed.jpg",
+          "driveId": "1MXRIsQowAruOixY1dKvrJJzECqYZpDjp",
+          "sha256": "6fc4b23f84159e9df15590be5cfbbd3a536d635477049b07ed26a44558242963",
+          "lex": "בת",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell; im Bild nicht separat ausgewiesen."
+      }
+    ],
+    "note": ""
+  }
+]

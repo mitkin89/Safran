@@ -20,13 +20,15 @@ Alle elf Traktate, 75 Kapitel, 655 Texteinheiten und 23.447 laufende Wortpositio
 
 **Gesamt:** 12.052 Positionen mit einem Kandidaten, 7.029 mit Alternativen und 4.366 ohne zugeordnete Bestimmung. Diese Kategorien messen Verfügbarkeit, nicht Genauigkeit. Auch ein einzelner Kandidat kann falsch sein. Die zehn offenen Berakhot-Vergleichspositionen bleiben zusätzlich in `full-review-226.json` dokumentiert; sie werden nicht durch die Kategorie „candidate“ erledigt.
 
+Die obigen älteren Zahlen sind ein historischer Zwischenstand. Den aktuellen Stand nach Entfernung biblischer Quellen und dem laufenden Bildabgleich enthält `accordance-zeraim-progress.md`.
+
 ## Daten und Verfahren
 
 - `mishnah-morph-data.js` und seine 149 Berakhot-Korrekturen bleiben unverändert. Der separate Seraim-Bestand enthält eine identische Kopie dieses Prüfstands; er überträgt dessen Kontextkorrekturen nicht nach Schreibgleichheit auf andere Traktate.
 - `build.cjs` stellt nur den bestehenden Formanalysator als Modul bereit. `node app/tools/mishnah-morph/build-zeraim.cjs` erzeugt den zusätzlichen Bestand reproduzierbar aus den gebündelten Texten.
 - `zeraim-lexicon.json` ergänzt eigene vokalisierte Flexionskandidaten, gestützt auf die bereits dokumentierten Grammatiken und ausgewählte rabbinische Wörterbucheinträge. Das ist keine durchgehend geprüfte Annotation aller Belegstellen.
-- Exakt gleich vokalisierte OSHB-Wörter liefern zusätzliche biblische Kandidaten mit vollständiger Segmentierung. Konsekutivformen werden ausgeschlossen. Diese Hinweise sind in der Karte ausdrücklich als biblische Formhinweise gekennzeichnet und bestätigen weder die RH-Bedeutung noch den Satzkontext. Quelle: Open Scriptures Hebrew Bible, CC BY 4.0, https://github.com/openscriptures/morphhb.
-- Kurzbedeutungen für landwirtschaftliche Fachwörter und häufige Funktionswörter wurden auf Deutsch und Englisch ergänzt. Wo kein redaktioneller Eintrag besteht, bleibt der vorhandene, ausdrücklich bezeichnete biblische Wörterbuchhinweis bzw. die Meldung einer fehlenden Kurzbedeutung erhalten.
+- Nach der ausdrücklichen Quellenvorgabe des Nutzers werden keine biblischen Wörterbücher, OSHB-Lemmaglossen oder biblischen Formkandidaten mehr verwendet. Frühere entsprechende Hinweise sind aus dem aktuellen Bestand entfernt. Das technische Morphcode-Format bleibt davon unabhängig.
+- Kurzbedeutungen sind redaktionell und rabbinisch begründet. Ohne entsprechende Glosse bleibt die Bedeutungszeile offen; sie wird nicht aus einem biblischen Wörterbuch gefüllt.
 - `zeraim-uncertain.json` gruppiert alle fehlenden und konkurrierenden Bestimmungen nach Form und Analysebestand, zählt ihre Vorkommen und enthält genaue Traktat-/Vers-/Wortpositionen. Die Liste bleibt offen, auch wenn ein Ma’agarim-Beleg nur das Lemma, nicht alle Merkmale bestätigt.
 
 ## Wörterbuchkontrollen

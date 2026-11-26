@@ -1,0 +1,26 @@
+[
+  {
+    "ref": "4:2",
+    "token": 7,
+    "word": "מִיטַמֵּא",
+    "reason": "Mitame-Partizip: Vergleichsbild taggt hier pi, die Wiederholung 4:3 dagegen htpl. Stammkonflikt bleibt an dieser Position ausdrücklich offen."
+  },
+  {
+    "ref": "4:4",
+    "token": 19,
+    "word": "וְחוֹלֵץ",
+    "reason": "Unsere Lesart וְחוֹלֵץ entspricht nicht dem sichtbaren וחולק; keine automatische Gleichsetzung verschiedener Lexeme."
+  },
+  {
+    "ref": "4:5",
+    "token": 69,
+    "word": "סדר",
+    "reason": "Nachfolgende Sederüberschrift סדר außerhalb des Mischna-Satzes; kein entsprechender Worttag im Bild."
+  },
+  {
+    "ref": "4:5",
+    "token": 70,
+    "word": "מועד",
+    "reason": "Nachfolgende Sederüberschrift מועד außerhalb des Mischna-Satzes; kein entsprechender Worttag im Bild."
+  }
+]

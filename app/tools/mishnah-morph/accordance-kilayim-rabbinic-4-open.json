@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "4:3",
+    "token": 7,
+    "word": "גְדוֹר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Eigene Form גְדוֹר gegenüber Accordance גדור als Qal-Infinitiv. Abweichende Schreibung und syntaktische Zuordnung (Infinitiv/Imperativ) nicht ohne Textentscheidung aufgelöst."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "4:3",
+    "token": 9,
+    "word": "וְאֵי",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Unsere Frageform וְאֵי gegenüber Accordance ואין mit negierender Analyse. Keine Übernahme der Vergleichsmorphologie auf die abweichende Wortform."
+  },
+  {
+    "title": "Mishnah Kilayim",
+    "ref": "4:9",
+    "token": 44,
+    "word": "הַשֵּׂעָר",
+    "sourceHash": "0e9fd5b32088d6756c32cd89dcad86391bc9bc0a6a656cf5383e654a3fd04b7e",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "reason": "Eigene Form הַשֵּׂעָר gegenüber Accordance בשנה. Lexikalische Abweichung verhindert eine sichere morphologische Übernahme."
+  }
+]

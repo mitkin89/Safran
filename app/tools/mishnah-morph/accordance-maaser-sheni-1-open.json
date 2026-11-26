@@ -1,0 +1,26 @@
+[
+  {
+    "ref": "1:6",
+    "token": 6,
+    "word": "לִמְקוֹמָן",
+    "reason": "Textvariante: Bild hat למקומה, unsere Ausgabe למקומן; Suffix nicht übertragen."
+  },
+  {
+    "ref": "1:7",
+    "token": 13,
+    "word": "כְּנֶגְדָּן",
+    "reason": "Suffix ־ן bei gemischtem Bezugsbereich; Genus/Bezug durch sichtbare Tags nicht eindeutig."
+  },
+  {
+    "ref": "1:7",
+    "token": 30,
+    "word": "כְּנֶגְדָּן",
+    "reason": "Suffix ־ן bei gemischtem Bezugsbereich; Genus/Bezug durch sichtbare Tags nicht eindeutig."
+  },
+  {
+    "ref": "1:7",
+    "token": 39,
+    "word": "וְלִיסִיכָה",
+    "reason": "Zusätzliche Schreibvariante וליסיכה neben bereits analysiertem ולסיכה; keine zweite sichere selbständige Bildstelle."
+  }
+]

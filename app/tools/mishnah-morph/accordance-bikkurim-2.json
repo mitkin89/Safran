@@ -1,0 +1,2092 @@
+[
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:1",
+    "token": 10,
+    "word": "נִכְסֵי",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נכס",
+        "morph": "HNcmpc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Eigentum von",
+          "en": "property of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "נכס",
+          "tags": "cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:1",
+    "token": 12,
+    "word": "וְעוֹלִין",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/עלה",
+        "morph": "HC/Vqrmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie gehen auf",
+          "en": "and they count toward"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ו עלה",
+          "tags": "cnj; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:1",
+    "token": 15,
+    "word": "וּטְעוּנִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/טען",
+        "morph": "HC/Vqsmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie erfordern",
+          "en": "and they require"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ו טען",
+          "tags": "cnj; qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 13,
+    "word": "וּטְעוּנִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/טען",
+        "morph": "HC/Vqsmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie erfordern",
+          "en": "and they require"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ו טען",
+          "tags": "cnj; qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 18,
+    "word": "וּטְעוּנִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/טען",
+        "morph": "HC/Vqsmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie erfordern",
+          "en": "and they require"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ו טען",
+          "tags": "cnj; qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:1",
+    "token": 16,
+    "word": "רְחִיצַת",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "רחיצה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Waschung von",
+          "en": "washing of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "רחיצה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:1",
+    "token": 18,
+    "word": "וְהַעְרֵב",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/הערב",
+        "morph": "HC/Ncmsc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Sonnenuntergang",
+          "en": "and sunset"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:1",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ו הערב",
+          "tags": "cnj; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 10,
+    "word": "טְעוּנִין",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טען",
+        "morph": "HVqsmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie erfordern",
+          "en": "they require"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "טען",
+          "tags": "qal pasP ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 11,
+    "word": "הֲבָאַת",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "הבאה",
+        "morph": "HNcfsc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das Bringen an",
+          "en": "bringing to"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "הבאה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 14,
+    "word": "וִדּוּי",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "וידוי",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Bekenntnis",
+          "en": "confession"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "וידוי",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 16,
+    "word": "לָאוֹנֵן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/אונן",
+        "morph": "HRd/Vqrmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "für den Trauernden",
+          "en": "for the mourner"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ל אונן",
+          "tags": "prpArt; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 28,
+    "word": "לֵאָכֵל",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/אכל",
+        "morph": "HR/VNc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegessen zu werden",
+          "en": "to be eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ל אכל",
+          "tags": "prp; nif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 32,
+    "word": "מִלֵּאָכֵל",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "מן/ל/אכל",
+        "morph": "HR/R/VNc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegessen zu werden",
+          "en": "to be eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "מן ל אכל",
+          "tags": "prp; prp; nif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:10",
+    "token": 16,
+    "word": "לֵאָכֵל",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/אכל",
+        "morph": "HR/VNc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gegessen zu werden",
+          "en": "to be eaten"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1037_reduced_high_compressed_compressed.jpg",
+          "driveId": "1JV_17X1UWkMFTXVEPOqd4Z4Hfu_j3pgw",
+          "sha256": "efbb1be5ea5d555a678ef4d163cd11984f9f3f3b9ca6d0c147be5e7a051c0a27",
+          "lex": "ל אכל",
+          "tags": "prp; nif infC",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:2",
+    "token": 30,
+    "word": "וְגִדּוּלֵיהֶן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/גידול",
+        "morph": "HC/Ncmpc/Sp3mp",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und ihre Nachzucht",
+          "en": "and their growth"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:2",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1019_reduced_high_compressed_compressed.jpg",
+          "driveId": "1TxKkBGOvZ7BLgw4kMm-y4z3JNLrKRQNj",
+          "sha256": "4b54dba3f718a966339e817c5fed80a3f8a26a4d85b8f1ee11728acf1fbe1f95",
+          "lex": "ו גידול",
+          "tags": "cnj; cm ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": "Suffix auf die maskulinen Früchte bezogen. Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": "Suffix auf die maskulinen Früchte bezogen."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:3",
+    "token": 15,
+    "word": "וְנוֹהֲגִין",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/נהג",
+        "morph": "HC/Vqrmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie gelten",
+          "en": "and they apply"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1023_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rDiJ3yt1uYKNS6L-TcWX9SCQGSn2enPq",
+          "sha256": "8a13720f2b89485358c4e371f8736fab1826df97db335e823dbb49a199958267",
+          "lex": "ו נהג",
+          "tags": "cnj; qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:3",
+    "token": 23,
+    "word": "וּבָאֲרִיסִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/אריס",
+        "morph": "HC/Rd/Ncmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und bei Teilpächtern",
+          "en": "and with sharecroppers"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1023_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rDiJ3yt1uYKNS6L-TcWX9SCQGSn2enPq",
+          "sha256": "8a13720f2b89485358c4e371f8736fab1826df97db335e823dbb49a199958267",
+          "lex": "ו ב אריס",
+          "tags": "cnj; prp; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Artikelverschmelzung nach unserer Vokalisierung בָאֲ, im Bild nur prp."
+      }
+    ],
+    "note": "Artikelverschmelzung nach unserer Vokalisierung בָאֲ, im Bild nur prp."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:3",
+    "token": 24,
+    "word": "וּבֶחָכוֹרוֹת",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/חכירות",
+        "morph": "HC/Rd/Ncfpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und bei Pachtverhältnissen",
+          "en": "and with leaseholds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1023_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rDiJ3yt1uYKNS6L-TcWX9SCQGSn2enPq",
+          "sha256": "8a13720f2b89485358c4e371f8736fab1826df97db335e823dbb49a199958267",
+          "lex": "ו ב חכורות",
+          "tags": "cnj; prp; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Plural nach unserer Oberfläche statt sichtbarem fm sg; verschmolzener Artikel nach בֶ vor חָ, abweichend vom sichtbaren prp."
+      }
+    ],
+    "note": "Plural nach unserer Oberfläche statt sichtbarem fm sg; verschmolzener Artikel nach בֶ vor חָ, abweichend vom sichtbaren prp."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:3",
+    "token": 25,
+    "word": "וּבַסִּקְרִיקוֹן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/סיקריקון",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und beim gewaltsamen Besitzer",
+          "en": "and with a possessor by force"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1023_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rDiJ3yt1uYKNS6L-TcWX9SCQGSn2enPq",
+          "sha256": "8a13720f2b89485358c4e371f8736fab1826df97db335e823dbb49a199958267",
+          "lex": "ו ב סיקריקון",
+          "tags": "cnj; prp; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Artikelverschmelzung nach unserer Vokalisierung בַסּ, im Bild nur prp."
+      }
+    ],
+    "note": "Artikelverschmelzung nach unserer Vokalisierung בַסּ, im Bild nur prp."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:3",
+    "token": 26,
+    "word": "וּבַגּוֹזְלָן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/גזלן",
+        "morph": "HC/Rd/Ncmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und beim Räuber",
+          "en": "and with a robber"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:3",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1023_reduced_high_compressed_compressed.jpg",
+          "driveId": "1rDiJ3yt1uYKNS6L-TcWX9SCQGSn2enPq",
+          "sha256": "8a13720f2b89485358c4e371f8736fab1826df97db335e823dbb49a199958267",
+          "lex": "ו ב גזלן",
+          "tags": "cnj; prpArt; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Verschmolzener Artikel nach unserer Vokalisierung."
+      }
+    ],
+    "note": "Verschmolzener Artikel nach unserer Vokalisierung."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 8,
+    "word": "נִקְנִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קנה",
+        "morph": "HVNrmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie werden erworben",
+          "en": "they are acquired"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "קנה",
+          "tags": "nif prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 9,
+    "word": "בִּמְחֻבָּר",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/חבר",
+        "morph": "HR/VPrmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "im verbundenen Zustand",
+          "en": "while attached"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ב חבר",
+          "tags": "prp; pul prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 15,
+    "word": "בִכּוּרִין",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ביכורים",
+        "morph": "HNcmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Erstlingsfrüchte",
+          "en": "first fruits"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "בכורים",
+          "tags": "cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 17,
+    "word": "בְּאַחְרָיוּתָן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ב/אחריות",
+        "morph": "HR/Ncfsc/Sp3mp",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "für ihre Unversehrtheit",
+          "en": "for their safekeeping"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ב אחריות",
+          "tags": "prp; cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 19,
+    "word": "קָרְבָּן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "קרבן",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Opfer",
+          "en": "offering"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "קרבן",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 20,
+    "word": "וְשִׁיר",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/שיר",
+        "morph": "HC/Ncmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Gesang",
+          "en": "and song"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ו שיר",
+          "tags": "cnj; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:4",
+    "token": 22,
+    "word": "וְלִינָה",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/לינה",
+        "morph": "HC/Ncfsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und Übernachtung",
+          "en": "and an overnight stay"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:4",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ו לינה",
+          "tags": "cnj; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:5",
+    "token": 11,
+    "word": "נִטֶּלֶת",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "נטל",
+        "morph": "HVNrfsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sie wird entnommen",
+          "en": "it is taken"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "נטל",
+          "tags": "nif prt fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:5",
+    "token": 18,
+    "word": "הַמֻּקָּף",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/נקף",
+        "morph": "HTd/VHrmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das Beieinanderliegende",
+          "en": "that which is adjacent"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ה נקף",
+          "tags": "art; hof prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:5",
+    "token": 20,
+    "word": "וְאוֹסֶרֶת",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/אסר",
+        "morph": "HC/Vqrfsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sie verbietet",
+          "en": "and it prohibits"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:5",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1025_reduced_high_compressed_compressed.jpg",
+          "driveId": "1kYfZMuKBylMViPDO1NLuGazm1edPiEsd",
+          "sha256": "97c99ee5c05efa3a3835b7e9f858f49ea4ecff7007acfd75a87684d1893fe33f",
+          "lex": "ו אסר",
+          "tags": "cnj; qal prt fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:6",
+    "token": 1,
+    "word": "אֶתְרוֹג",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "אתרוג",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Etrog; Zitronatzitrone",
+          "en": "citron"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1029_reduced_high_compressed_compressed.jpg",
+          "driveId": "1142Lf8TKn3S9uhXojgxED8-cpYMhUjtc",
+          "sha256": "f0a6f72b547805b4b09d2cb3c10c64b6227f6c8ee51cf2e978c533b761dad103",
+          "lex": "אתרוג",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:6",
+    "token": 16,
+    "word": "לְקִיטָתוֹ",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "לקיטה",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sein Pflücken",
+          "en": "its picking"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1029_reduced_high_compressed_compressed.jpg",
+          "driveId": "1142Lf8TKn3S9uhXojgxED8-cpYMhUjtc",
+          "sha256": "f0a6f72b547805b4b09d2cb3c10c64b6227f6c8ee51cf2e978c533b761dad103",
+          "lex": "לקיטה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:6",
+    "token": 17,
+    "word": "עִשּׂוּרוֹ",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "עישור",
+        "morph": "HNcmsc/Sp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seine Verzehntung",
+          "en": "its tithing"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:6",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1029_reduced_high_compressed_compressed.jpg",
+          "driveId": "1142Lf8TKn3S9uhXojgxED8-cpYMhUjtc",
+          "sha256": "f0a6f72b547805b4b09d2cb3c10c64b6227f6c8ee51cf2e978c533b761dad103",
+          "lex": "עישור",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:7",
+    "token": 2,
+    "word": "מְהַלְּכֵי",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "הלך",
+        "morph": "HVprmpc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die gehen",
+          "en": "those who walk"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1029_reduced_high_compressed_compressed.jpg",
+          "driveId": "1142Lf8TKn3S9uhXojgxED8-cpYMhUjtc",
+          "sha256": "f0a6f72b547805b4b09d2cb3c10c64b6227f6c8ee51cf2e978c533b761dad103",
+          "lex": "הלך",
+          "tags": "pi prt ms pl cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:7",
+    "token": 9,
+    "word": "הַזְּרָעִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/זרע",
+        "morph": "HTd/Ncmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "die Samen",
+          "en": "the seeds"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:7",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1029_reduced_high_compressed_compressed.jpg",
+          "driveId": "1142Lf8TKn3S9uhXojgxED8-cpYMhUjtc",
+          "sha256": "f0a6f72b547805b4b09d2cb3c10c64b6227f6c8ee51cf2e978c533b761dad103",
+          "lex": "ה זרע",
+          "tags": "art; cm ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:8",
+    "token": 1,
+    "word": "כּוֹי",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כוי",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Koi (Tier unklarer Kategorie)",
+          "en": "koy (animal of uncertain category)"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:8",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "כוי",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 5,
+    "word": "טָעוּן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "טען",
+        "morph": "HVqsmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "es erfordert",
+          "en": "it requires"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "טען",
+          "tags": "qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 6,
+    "word": "כִּסּוּי",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כיסוי",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Bedeckung",
+          "en": "covering"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "כסה",
+          "tags": "prp",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Unsere nominale Vokalisierung כִּסּוּי wird redaktionell erhalten; der sichtbare Lex-/Tag-Eintrag כסה/prp ist abweichend."
+      }
+    ],
+    "note": "Unsere nominale Vokalisierung כִּסּוּי wird redaktionell erhalten; der sichtbare Lex-/Tag-Eintrag כסה/prp ist abweichend."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 10,
+    "word": "שׁוֹחֲטִין",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שחט",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man schlachtet",
+          "en": "they slaughter"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "שחט",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 15,
+    "word": "שְׁחָטוֹ",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שחט",
+        "morph": "HVqp3ms/Sp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er schlachtete es",
+          "en": "he slaughtered it"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "שחט",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 26,
+    "word": "סָפֵק",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ספק",
+        "morph": "HNcmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Zweifelsfall",
+          "en": "doubt"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "ספק",
+          "tags": "cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 28,
+    "word": "פּוֹדִין",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פדה",
+        "morph": "HVqrmpa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "man löst aus",
+          "en": "they redeem"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "פדה",
+          "tags": "qal prt ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:9",
+    "token": 30,
+    "word": "פֶטֶר",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "פטר",
+        "morph": "HNcmsc",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Erstgeborenes des",
+          "en": "firstborn of"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:9",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1033_reduced_high_compressed_compressed.jpg",
+          "driveId": "1N_f_vhxDDNSWmxU9uqG-E8AJ1TzeOtP1",
+          "sha256": "9e818c8d48e7ec03b1208a62df68c3833f96aa31fb1498f8b2df608a11680412",
+          "lex": "פטר",
+          "tags": "cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:10",
+    "token": 11,
+    "word": "כָּרֵת",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כרת",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "Ausrottungsstrafe",
+          "en": "karet penalty"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1037_reduced_high_compressed_compressed.jpg",
+          "driveId": "1JV_17X1UWkMFTXVEPOqd4Z4Hfu_j3pgw",
+          "sha256": "efbb1be5ea5d555a678ef4d163cd11984f9f3f3b9ca6d0c147be5e7a051c0a27",
+          "lex": "כרת",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:10",
+    "token": 20,
+    "word": "וּבַלְּחָיַיִם",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/לחי",
+        "morph": "HC/Rd/Ncfda",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und hinsichtlich der Kinnbacken",
+          "en": "and regarding the cheeks"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1037_reduced_high_compressed_compressed.jpg",
+          "driveId": "1JV_17X1UWkMFTXVEPOqd4Z4Hfu_j3pgw",
+          "sha256": "efbb1be5ea5d555a678ef4d163cd11984f9f3f3b9ca6d0c147be5e7a051c0a27",
+          "lex": "ו ב לחי",
+          "tags": "cnj; prpArt; cm fm du",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:10",
+    "token": 21,
+    "word": "וּבַקֵּבָה",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/ב/קבה",
+        "morph": "HC/Rd/Ncfsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und hinsichtlich des Magens",
+          "en": "and regarding the stomach"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:10",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1037_reduced_high_compressed_compressed.jpg",
+          "driveId": "1JV_17X1UWkMFTXVEPOqd4Z4Hfu_j3pgw",
+          "sha256": "efbb1be5ea5d555a678ef4d163cd11984f9f3f3b9ca6d0c147be5e7a051c0a27",
+          "lex": "ו ב קבה",
+          "tags": "cnj; prpArt; cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 15,
+    "word": "הַכּוֹתֵב",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/כתב",
+        "morph": "HTd/Vqrmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "wer überschreibt",
+          "en": "one who bequeaths"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "ה כתב",
+          "tags": "art; qal prt ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 16,
+    "word": "חַיָּתוֹ",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "חיה",
+        "morph": "HNcfsc/Sp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "sein Wildtier",
+          "en": "his wild animal"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "חיה",
+          "tags": "cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 17,
+    "word": "וּבְהֶמְתּוֹ",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/בהמה",
+        "morph": "HC/Ncfsc/Sp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und sein Vieh",
+          "en": "and his livestock"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "ו בהמה",
+          "tags": "cnj; cm fm sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 18,
+    "word": "לִבְנוֹ",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ל/בן",
+        "morph": "HR/Ncmsc/Sp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "seinem Sohn",
+          "en": "to his son"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "ל בן",
+          "tags": "prp; cm ms sg cnst",
+          "status": "visually-checked",
+          "suffixFeatures": "editorial from vocalized surface and sentence context; suffix features not separately shown in screenshot"
+        },
+        "note": " Suffixmerkmale redaktionell ergänzt; im Bild nicht gesondert ausgewiesen."
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 20,
+    "word": "כָתַב",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "כתב",
+        "morph": "HVqp3ms",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "er überschrieb",
+          "en": "he bequeathed"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "כתב",
+          "tags": "qal prf 3 ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 23,
+    "word": "הַכּוֹי",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ה/כוי",
+        "morph": "HTd/Ncmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "das Koi-Tier",
+          "en": "the koy"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "ה כוי",
+          "tags": "art; cm ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 39,
+    "word": "שָׁוִים",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שווה",
+        "morph": "HAampa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "gleich",
+          "en": "equal"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "שוה",
+          "tags": "ms pl",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": "Adjektivische Wortart redaktionell."
+      }
+    ],
+    "note": "Adjektivische Wortart redaktionell."
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 42,
+    "word": "וְטָעוּן",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "ו/טען",
+        "morph": "HC/Vqsmsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "und es erfordert",
+          "en": "and it requires"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "ו טען",
+          "tags": "cnj; qal pasP ms sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  },
+  {
+    "title": "Mishnah Bikkurim",
+    "ref": "2:11",
+    "token": 43,
+    "word": "שְׁחִיטָה",
+    "sourceHash": "913e8335f10d76dacd921782f15a1ebb1fb41e779888eebe1c3a5a4dcc2ca173",
+    "before": {
+      "status": "unresolved",
+      "analyses": []
+    },
+    "analyses": [
+      {
+        "lemma": "שחיטה",
+        "morph": "HNcfsa",
+        "rules": [
+          "accordance-bikkurim-2"
+        ],
+        "method": "accordance-context-review",
+        "gloss": {
+          "de": "rituelle Schlachtung",
+          "en": "ritual slaughter"
+        },
+        "comparison": {
+          "module": "Mishna-Tagged (Kaufmann)",
+          "ref": "Bik. 2:11",
+          "file": "mischna_2026-11-26_17-34-04_BBCD1331_1039_reduced_high_compressed_compressed.jpg",
+          "driveId": "1K5WEDYPOVjBPJAeNwZQyTJPCo13YTsRr",
+          "sha256": "d8221ade1997fef2171a955697a5b2035be843092c7aecde1de0180c4f6a0d7b",
+          "lex": "שחיטה",
+          "tags": "cm fm sg",
+          "status": "visually-checked",
+          "suffixFeatures": null
+        },
+        "note": ""
+      }
+    ],
+    "note": ""
+  }
+]

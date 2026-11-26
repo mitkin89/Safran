@@ -11,6 +11,20 @@ Artikelverweisen und ausdrücklich Krauss zugeschriebenen Herkunftsangaben.
 mit Jastrow, Levy und Krauss sowie die redaktionellen Einzelentscheidungen.
 `zeraim-review.md` dokumentiert Abdeckung und Grenzen des neuen Kandidatenbestands;
 `zeraim-maagarim-review.json` hält die gezielten Ma’agarim-Prüfungen fest.
+[`accordance-peah-1.md`](accordance-peah-1.md) dokumentiert den ersten gezielten
+Accordance-Bildabgleich: 19 Wortpositionen in Peah 1:2–6, darunter 16 zuvor
+unbestimmte Positionen. Das 50-Bilder-Inventar ist kein vollständiger Wortvergleich.
+[`accordance-zeraim-progress.md`](accordance-zeraim-progress.md) hält das noch
+offene Gesamtziel bis Ende Seraim fest: vollständiges Inventar von 1.080 Bildern,
+der laufende Stand der kapitelweisen Einzelentscheidungen steht im verlinkten Bericht.
+[`accordance-rabbinic-review.md`](accordance-rabbinic-review.md) dokumentiert die
+Quellenbeschränkung auf rabbinische Lexika und die unabhängigen Nachkontrollen.
+`accordance-reviews.json` registriert ausschließlich fertig geprüfte Belegdateien.
+Nach Ergänzungen werden `build-zeraim.cjs`, `dictionary-audit.cjs` und
+`build-accordance-state.cjs` in dieser Reihenfolge ausgeführt. Der letzte Schritt
+aktualisiert Bildverweise, Fortschrittsdatei und Bericht ohne private Bilddateien
+oder erneute Netzabfragen. Rohreferenzen aus OCR sind Suchkandidaten; bei
+abweichender Zählung nennt jede Entscheidung ihre tatsächliche Bildreferenz.
 Andere Seder und andere Editionen erhalten daraus keine Bestimmungen.
 
 Der folgende ausführliche Prüfstand betrifft weiterhin ausschließlich die
@@ -65,9 +79,9 @@ Anmerkungen werden **nicht** als geprüfte Mischna-Tags übernommen.
    keine erzeugten Paradigmen und keine gesicherte Lemmafrequenz.
 
 Die Codes nutzen das vorhandene H/OSHB-Merkmalsinventar als technische
-Darstellung; dies ist **keine kontextuelle OSHB-Annotation der Mischna**. Der separate
-Seraim-Bestand verwendet zusätzlich exakt gleich vokalisierte OSHB-Wörter als
-ausdrücklich gekennzeichnete Kandidaten, siehe `zeraim-review.md`.
+Darstellung; es ist keine Wörterbuchquelle. Für die Mischna werden keine
+biblischen Wörterbücher, OSHB-Lemmaglossen oder biblischen Formkandidaten verwendet.
+Lexikalische Quellen sind Jastrow, Levy, Krauss und Ma’agarim.
 
 ## Bindung an den Text
 
@@ -148,10 +162,9 @@ node tools/mishnah-morph/adjudicate-conventions.cjs /path/to/private-aligned-ref
 ```
 
 Die Wortkarten zeigen zusätzliche kurze Bedeutungen. Eigene Glossen sind
-redaktionell gekennzeichnet; weitere Bedeutungen stammen aus den vorhandenen
-OSHB-Lemmaglossen und sind sichtbar als biblisches Wörterbuch bezeichnet.
-Mehrere gleich geschriebene Wörterbuchlemmata werden nicht willkürlich auf
-eine Bedeutung reduziert. Fehlende Einträge erhalten keine erfundene
+redaktionell gekennzeichnet. Ein biblischer Wörterbuch-Fallback ist ausdrücklich
+ausgeschlossen. Weitere Nachschlageaktionen sind auf die rabbinischen
+Wörterbücher Jastrow, Levy und Krauss beschränkt. Fehlende Einträge erhalten keine erfundene
 Übersetzung. Diese Bedeutungen sind keine geprüfte Kontextübersetzung.
 
 Das Vergleichswerkzeug akzeptiert eine **private**, zuvor ausdrücklich

@@ -1,0 +1,53 @@
+{
+  "title": "Mishnah Demai",
+  "ref": "7:4",
+  "token": 19,
+  "word": "מֵחֵל",
+  "sourceHash": "cc5cc710501d397cec23a8ce1bc3d7bbcfeeb00ad21144548896fea87320576d",
+  "status": "primary-html-checked-not-integrated",
+  "accessed": "2026-11-26",
+  "credit": "Historical Dictionary Project of the Academy of the Hebrew Language (מפעל המילון ההיסטורי של האקדמיה ללשון העברית)",
+  "source": {
+    "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mismilla=19&mm15=000003007040+00",
+    "pageUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&page=9",
+    "httpStatus": 200,
+    "shibbur": 31000,
+    "mm15": "000003007040 00",
+    "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+    "wordId": "991010",
+    "mismila": "19",
+    "attributes": {
+      "mismila": "19",
+      "cnt": "1",
+      "class": " tooltippedWord ",
+      "kodmilim": "991010",
+      "erec0": "חלל 1 (חולין, ביזוי; זרות) [הפעיל, בינוני]",
+      "srs0": "חלל 1 - חולין, ביזוי; זרות",
+      "kode0": "10612",
+      "kods0": "5050",
+      "yhd0": "",
+      "hera0": "",
+      "hpnimit0": "",
+      "rciv0": "0",
+      "kodm0": "991010",
+      "zman0": "4",
+      "zura0": "ומחל",
+      "hatkana": "[\"20\"]",
+      "hatkana_otiot": "[{\"kod\":20,\"text\":\"ו\"}]",
+      "hatkana_mila": "[]"
+    },
+    "rawHtml": "<span  mismila=19  cnt=1  class=\" tooltippedWord \"  kodmilim=\"991010\"  erec0=\"חלל 1 (חולין, ביזוי; זרות) [הפעיל, בינוני]\" srs0=\"חלל 1 - חולין, ביזוי; זרות\" kode0=\"10612\" kods0=\"5050\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"991010\" zman0=\"4\" zura0=\"ומחל\" hatkana=\"[&quot;20&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:20,&quot;text&quot;:&quot;ו&quot;}]\" hatkana_mila=\"[]\"><nobr>(ו)מחל</nobr></span>",
+    "context": "ועשרה מעשר. ותשעה מעשר שני. (ו)מחל ושותה.",
+    "pageHtmlSha256": "17028495cea00c7358bce4ed78e888f5c6a1f979ca8024390e76ca18df5ce273"
+  },
+  "findings": {
+    "lemma": "חלל 1 (חולין, ביזוי; זרות)",
+    "stem": "הפעיל",
+    "formClass": "בינוני",
+    "visibleReading": "(ו)מחל",
+    "note": "Ma’agarim ordnet diesen exakten Kaufmann-Beleg ausdrücklich חלל 1, Hifil, Partizip zu. Die Vokale der eigenen Form מֵחֵל werden durch dieses unvokalisierte HTML nicht unabhängig belegt. Genus/Numerus stehen hier nicht separat; zman0=4 wird nur roh gesichert, nicht unabhängig dekodiert.",
+    "accordanceConflict": "Im bereits angesehenen Accordance-Originalbild 134/136: חלל; tifl prt ms sg. Ma’agarim nennt stattdessen ausdrücklich Hifil.",
+    "possibleResolution": "Lemma חלל, Morph HVhrmsa und Kontextglosse „er löst aus / he redeems“ sind jetzt als Vorschlag belegbar: Hifil/Partizip aus Ma’agarim, ms sg aus Accordance-Kontext und eigener Form; keine Wortgleichheitspropagation. Aufnahme bleibt Root-Review.",
+    "unchanged": "Keine bestehenden Morphologie-/Open-Dateien oder Pipeline verändert."
+  }
+}

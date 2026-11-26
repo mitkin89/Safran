@@ -1,0 +1,32 @@
+[
+  {
+    "ref": "5:4",
+    "token": 7,
+    "word": "שהיא",
+    "reason": "Editorischer Zusatz שהיא ohne separaten sicheren Bildtag."
+  },
+  {
+    "ref": "5:5",
+    "token": 40,
+    "word": "בשוליים",
+    "reason": "Editorische Variantenangabe בשוליים ohne sicheren laufenden Bildtag."
+  },
+  {
+    "ref": "5:5",
+    "token": 41,
+    "word": "נ",
+    "reason": "Editorische Sigle נ; kein laufendes lexikalisches Token des Bildtextes bestätigt."
+  },
+  {
+    "ref": "5:5",
+    "token": 42,
+    "word": "א",
+    "reason": "Editorische Sigle א; kein laufendes lexikalisches Token des Bildtextes bestätigt."
+  },
+  {
+    "ref": "5:7",
+    "token": 27,
+    "word": "יוֹפַךְ",
+    "reason": "יוֹפַךְ: eigene Vokalisierung und Accordance-Qalzuordnung bedürfen derselben Stammklärung wie 2:3."
+  }
+]
