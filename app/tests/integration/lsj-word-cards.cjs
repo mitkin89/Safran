@@ -8,7 +8,11 @@ const ctx = vm.createContext({ window: { GMorph: GM, OSHB_LEMMAS: { '1': ['אָ�
 ctx.host = ctx;
 vm.runInContext(fs.readFileSync(path.join(repoRoot, 'lxx-morph.js'), 'utf8'), ctx);
 const D = ctx.window.LXX_MORPH;
-const part = (from, to) => ui.slice(ui.indexOf(from), ui.indexOf(to, ui.indexOf(from)));
+const part = (from, to) => {
+  const start = ui.indexOf(from), end = ui.indexOf(to, start);
+  assert(start >= 0 && end > start, 'Produktionsabschnitt vorhanden: ' + from);
+  return ui.slice(start, end);
+};
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const nodes = new Map(), handlers = new Map(), calls = [];
 const $ = sel => {
@@ -23,7 +27,7 @@ Object.assign(ctx, { $, esc, I18N: { t: s => s }, portraitOf: () => null, heFix:
 vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
 const dictionaryUI = fs.readFileSync(path.join(repoRoot, 'library-dictionary.js'), 'utf8');
 // The real factory receives this optional host callback even when absent.
-ctx.beforeLookup = undefined;
+ctx.beforeLookup = undefined; ctx.beforeCard = undefined;
 ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
 ctx.lsGet = () => []; ctx.lsSet = () => {};
 vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('    let dictSedraId='), dictionaryUI.indexOf('    let dictOnly =')), ctx);
@@ -58,20 +62,33 @@ vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButt
     assert.strictEqual(ctx.dictCardButtons('ἀβγδεζηθικλμνξοπρστυφχψω', D), '', 'keine unbelegte Karte');
 
     // Der tatsächliche Wortkarten-Abschnitt lädt denselben Artikel zurück.
-    ctx.fmCur = { lem: ['λόγος', 'word'], greek: true }; ctx.wcToken = 1;
+    ctx.fmCur = { lem: ['λόγος', 'word'], greek: true }; ctx.wcToken = 1; ctx.dictToken = -1; ctx.fmTab = 'card';
     vm.runInContext(part('  async function wcDicts(token)', '  // Septuaginta: häufigste griechische Lemmata'), ctx);
     await ctx.wcDicts(1);
     assert($('#wcDict').innerHTML.includes('Liddell&amp;Scott') && $('#wcDict').innerHTML.includes('reckoning'));
     assert($('#wcDict').innerHTML.includes('class="wcDGo"') && !$('#fmHead .wdict').hidden);
-    ctx.closeForms = () => {}; ctx.showTab = tab => calls.push(['tab', tab]);
-    vm.runInContext(part("  host.$('#wcBody').addEventListener('click', e => {", "  host.$('#wcBody').addEventListener('keydown'"), ctx);
+    ctx.closeForms = () => calls.push(['close-card']); ctx.showTab = tab => calls.push(['tab', tab]);
+    // Der delegierte Klickhandler sitzt inzwischen auf formsPanel: Auch der
+    // ausgelagerte Wörterbuchabschnitt wcDict muss von dort aus erreichbar sein.
+    vm.runInContext(part("  host.$('#formsPanel').addEventListener('click', e => {", "  host.$('#wcBody').addEventListener('keydown'"), ctx);
+    const cardClick = handlers.get('#formsPanel:click');
+    assert.strictEqual(typeof cardClick, 'function', 'Wortkarten-Delegation registriert');
     const lookup = ctx.dictLookup; let navigation;
     ctx.dictLookup = (...args) => (navigation = lookup(...args));
-    handlers.get('#wcBody:click')({ target: { closest: s => s === '.wcDGo' ? { dataset: { id, name: source.name } } : null } });
+    const dictionaryButton = { dataset: { q: 'λόγος', id, name: source.name } };
+    cardClick({ target: { closest: s => s === '#wcBody,#wcDict,#wcHebrew' ? $('#wcDict') : s === '.wcDGo' ? dictionaryButton : null } });
+    assert(navigation && typeof navigation.then === 'function', 'Delegierter Wörterbuchknopf startet die echte Suche');
     // Der Handler startet den echten asynchronen dictLookup.
     await navigation;
-    ctx.dictLookup = lookup;
+    assert(calls.some(x => x[0] === 'close-card'), 'Navigation schließt die Wortkarte');
     assert(calls.some(x => x[0] === 'tab' && x[1] === 'dict'));
+    assert.strictEqual(ctx.dictOnly.id, id, 'Navigation behält das gewählte Wörterbuch');
+    assert.strictEqual($('#dictQ').value, 'λόγος', 'Navigation behält die Knopfsuche');
+    const callsBeforeOutsideClick = calls.length; navigation = null;
+    cardClick({ target: { closest: s => s === '.wcDGo' ? dictionaryButton : null } });
+    assert.strictEqual(navigation, null, 'Klick außerhalb des Wortkarteninhalts wird ignoriert');
+    assert.strictEqual(calls.length, callsBeforeOutsideClick);
+    ctx.dictLookup = lookup;
     assert($('#dictOut').innerHTML.includes('data-gl="λόγος"'), 'Rundweg wieder im Lexikon');
 
     // Ein später geladener Formenindex darf eine neuere Suche nicht überschreiben.
