@@ -2653,6 +2653,7 @@
     getSource: () => dictSrc, setDictSrc,
     cardSearch:q=>{if(!dictionaryCardsUI?.active())return false;void dictionaryCardsUI.search(q);return true;},
     beforeLookup:()=>dictionaryCardsUI?.beforeLookup(),
+    beforeCard:q=>dictionaryCardsUI?.prepareOpen(q),
   });
   dictionaryCardsUI=window.LibraryDictionaryCards.create({$,esc,cards:wordCardsUI,submit:dictionaryUI.search,loadRoots:()=>loadPassageStats(),loadGreek:loadGM});
   function dictLookup(q, only, fromHist, sedraId) { return dictionaryUI.lookup(q, only, fromHist, sedraId); }

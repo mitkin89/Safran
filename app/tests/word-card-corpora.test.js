@@ -38,3 +38,22 @@ test('All three Field witnesses are searchable with original fragments and citat
  }
  assert(model.suggest('ὀρθρίζω',true,false)[0].source.includes('Aquila'));
 });
+test('All Greek corpora use the same grammatical paradigm and preserve occurrence identities',()=>{
+ const rows=model.extra('δοκέω',true);
+ for(const source of ['all','Josephus','Philo']){
+  const selected=model.filter(rows,source,{}),table=model.greekModel(selected,'δοκέω');
+  assert.equal(table.total,model.count(selected));assert(table.sections.some(s=>s.title==='Präsens'));
+  const rendered=GM.render(table,{note:'Combined sources'});assert(rendered.includes('fmGrid'));assert(rendered.includes('fmG'));assert(!rendered.includes('Nur in der Septuaginta'));
+  const indices=new Set();for(const section of table.sections)for(const block of section.blocks)for(const table of block.tables)for(const row of table.rows)for(const cell of row.cells)for(const form of cell)form.i.split(',').forEach(i=>indices.add(+i));
+  assert.equal(model.count([...indices].map(i=>table.forms[i])),table.total,'Every attested form has an accessible table cell');
+ }
+ for(const source of ['Aquila','Symmachus','Theodotion']){
+  const selected=model.filter(model.extra('ὀρθρίζω',true),source,{}),table=model.greekModel(selected,'ὀρθρίζω');
+  assert.equal(table.total,model.count(selected));assert(table.sections.some(s=>s.title==='Aorist'));
+ }
+});
+test('Alternative analyses do not inflate paradigm totals or same-form cells',()=>{
+ const row=(voice)=>({form:'f',features:{pos:['V'],tense:['pres'],mood:['ind'],voice:[voice],person:['3'],number:['sg']},hits:[{id:'shared',n:1}]});
+ const table=model.greekModel([row('act'),row('mid')],'x');assert.equal(table.total,1);assert.equal(table.sections[0].n,1);
+ assert.equal(table.sections[0].blocks[0].tables[0].rows[0].cells[0][0].n,1);
+});

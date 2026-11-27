@@ -25,8 +25,21 @@ function create(D,{GM,Forms,Morph}){
  const count=rows=>unique(rows).reduce((n,h)=>n+h.n,0);
  function filter(rows,scope,filters,except){return rows.filter(r=>(scope==='all'||r.corpus===scope)&&Object.entries(filters).every(([k,v])=>k===except||r.features[k]?.includes(v)));}
  function facets(rows,scope,filters){const keys=[...new Set(rows.flatMap(r=>Object.keys(r.features)))],out={};for(const k of keys){const pool=filter(rows,scope,filters,k),values=[...new Set(pool.flatMap(r=>r.features[k]||[]))].filter(Boolean);if(values.length)out[k]=values.map(v=>[v,count(pool.filter(r=>r.features[k]?.includes(v)))]);}return out;}
+ function greekModel(rows,head,t){
+  const grouped=new Map();
+  for(const row of rows){
+   let alternatives=[{...GM.feat(''),case:row.features.case||[],gender:row.features.gender||[]}];
+   for(const key of ['pos','tense','mood','voice','person','number','degree']){
+    const values=row.features[key]?.length?row.features[key]:[''];
+    alternatives=alternatives.flatMap(ft=>values.map(v=>({...ft,[key]:v})));
+   }
+   for(const ft of alternatives){const key=JSON.stringify([row.form,ft]);const entry=grouped.get(key)||{f:row.form,key,ft,hits:[]};entry.hits.push(...row.hits);grouped.set(key,entry);}
+  }
+  const forms=[...grouped.values()].map(f=>({...f,n:count([f])}));
+  return GM.modelFromForms(head,forms,t,items=>count(items));
+ }
  function suggest(q,greek,live){const key=fold(q);if(!key)return [];const heads=Object.keys(greek?D.greek:D.hebrew).filter(s=>live?fold(s).startsWith(key):fold(s)===key);const seen=new Set();return heads.filter(s=>{const k=greek?s:fold(s);if(seen.has(k))return false;seen.add(k);return true;}).slice(0,60).map(label=>({key:'corpus:'+label,id:label,label,kind:'corpus',greek,count:count(extra(label,greek)),language:greek?'Griechisch':'Hebräisch',source:[...new Set(extra(label,greek).map(r=>r.corpus==='Samaritan'?'Samaritanus':r.corpus==='Mishnah'?'Mischna':r.corpus))].join(' / ')}));}
- return {features,extra,base,unique,count,filter,facets,suggest,coverage:D.coverage};
+ return {features,extra,base,unique,count,filter,facets,greekModel,suggest,coverage:D.coverage};
 }
 const api={create,fold};if(typeof module==='object'&&module.exports)module.exports=api;else global.WordCardCorpora=api;
 })(typeof window==='object'?window:globalThis);

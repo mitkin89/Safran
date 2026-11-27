@@ -108,12 +108,55 @@ module.exports=async({win,js,waitFor})=>{
  for(const source of ['all','Josephus','Philo','LXX']){
   await js(`document.querySelector('#fmCorpusControls [data-corpus=${source}]').click()`);
   assert(await js("!document.querySelector('#wcDict').hidden&&!document.querySelector('#wcHebrew').hidden"),'Lexicon and Hebrew equivalents stay visible for '+source);
-  assert.equal(await js("document.querySelectorAll('#wcHebrew .wcHebEntry').length"),4,'All four aligned Hebrew lemmas are shown');
+  assert.equal(await js("document.querySelectorAll('#wcHebrew .wcHebEntry').length"),6,'All six aligned Hebrew lemmas are shown, including rare renderings');
  }
+ for(const source of ['all','Josephus','Philo']){
+  await js(`document.querySelector('#fmCorpusControls [data-corpus=${source}]').click();document.querySelector('#fmTabs [data-t=forms]').click()`);
+  await waitFor("document.querySelector('#fmCorpusBody .fmSec .fmGrid .fmG .fmF')",source+' grammatical paradigm');
+  await js("document.querySelector('#fmCorpusBody .fmF').click()");
+  assert(await js("document.querySelector('#fmCorpusBody [data-form-refs] [data-hit]')!==null"),'Form opens source-specific occurrences');
+ }
+ await js("document.querySelector('#fmTabs [data-t=card]').click()");
+ assert(await js("document.querySelector('#wcHebrew .wcHebCoverage').textContent.includes('61')&&document.querySelector('#wcHebrew .wcHebCoverage').textContent.includes('7')"),'Total and alignment coverage are distinguished');
+ await js("document.querySelector('#wcHebrew .wcHebWord').click()");
+ await waitFor("document.querySelector('#wcHebrew .wcHebReverse:not([hidden]) [data-greek-rendering]')",'Greek reverse renderings');
+ assert(await js("document.querySelectorAll('#wcHebrew .wcHebReverse:not([hidden]) [data-greek-rendering]').length>1"),'Reverse lookup shows other Greek words for the Hebrew lemma');
  await js("document.querySelector('#wcHebrew .wcHebEntry').open=true");
- assert(await js("document.querySelector('#wcHebrew .wcHebEntry[open] [data-same-lemma]')!==null"),'Hebrew equivalents include linked occurrences');
+ await waitFor("document.querySelector('#wcHebrew .wcHebEntry[open] .wcHebOccurrence [data-same-lemma]')",'Hebrew equivalents include paired occurrences');
  await js("document.querySelector('#fmTabs [data-t=forms]').click()");
  assert(await js("document.querySelector('#wcDict').hidden&&document.querySelector('#wcHebrew').hidden"),'Supplementary sections are confined to overview');
+ await js("document.querySelector('#fmCorpusControls [data-corpus=Philo]').click();document.querySelector('#fmTabs [data-t=forms]').click();document.querySelector('#wordCardTabs [data-card-new]').click()");
+ assert(await js("document.querySelector('#dictQ').value===''&&document.querySelector('#formsPanel').hidden"),'New word-card tab is empty');
+ await js("document.querySelector('#dictQ').value='אמר';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('אמר')",'Second word-card tab');
+ await js("document.querySelector('#wordCardTabs [data-card-tab=\"0\"] .dtt').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('δοκέω')&&document.querySelector('#fmCorpusControls [data-corpus=Philo][aria-pressed=true]')",'First tab restores Greek card and source');
+ await waitFor("document.querySelector('#fmCorpusBody .fmG')",'First tab restores forms table');
+ await js("document.querySelector('#wordCardTabs [data-card-tab=\"1\"] .dtt').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('אמר')",'Second tab retained');
+ await js("document.querySelector('#wordCardTabs [data-card-tab=\"1\"] [data-card-close]').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('δοκέω')",'Closing active tab restores neighbor');
+ await js("document.querySelector('#dictRecentL [data-w=\"אמר\"]').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('אמר')",'Shared history opens word card in card mode');
+ assert(await js("document.querySelector('#formsPanel').dataset.embedded==='dictionary'"),'History keeps full card workspace');
+ await js("document.querySelector('#dictViewDictionary').click();document.querySelector('#dictRecentL [data-w=\"δοκέω\"]').click()");
+ await waitFor("document.querySelector('#dictOut .dwk[data-gl]')",'Shared history opens dictionary in dictionary mode');
+ await js("document.querySelector('#dictOut .dwk[data-gl]').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('δοκέω')&&!document.querySelector('#dictCardWorkspace').hidden",'Dictionary article opens full word-card workspace');
+ assert(await js("document.querySelector('#formsPanel').dataset.embedded==='dictionary'"),'Dictionary card button does not open side pane');
+ await js("document.querySelector('#dictQ').value='δύναμαι';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#wcHebrew [data-hebrew-lemma=\"3201\"]')",'MT alignment entry');
+ await js("document.querySelector('#wcHebrew [data-hebrew-lemma=\"3201\"]').open=true");
+ await waitFor("document.querySelector('#wcHebrew [data-hebrew-more]')",'Paired passages loaded');
+ await js("document.querySelector('#wcHebrew [data-hebrew-more]').click()");
+ await waitFor("document.querySelector('#wcHebrew [data-ref=\"Exodus 15:23\"]')",'MT alignment reference');
+ assert(await js("(()=>{const row=document.querySelector('#wcHebrew [data-ref=\"Exodus 15:23\"]').closest('.wcHebOccurrence');return row.querySelector('[lang=he]').textContent.includes('יָכְלוּ')&&row.querySelector('[lang=grc]').textContent.includes('ἠδύναντο')})()"),'Attested Hebrew and Greek forms are paired');
+ await new Promise(resolve=>setTimeout(resolve,350));
+ await js("document.querySelector('#wcHebrew [data-ref=\"Exodus 15:23\"]').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+ await waitFor("document.querySelector('#lkHover:not([hidden]) .pvp[data-he] .pvhl')",'Marked MT in Greek alignment preview');
+ assert(await js("document.querySelector('#lkHover .pvp[data-he]').dataset.vt.startsWith('Westminster')"),'Alignment preview uses the annotated MT');
+ await waitFor("document.querySelector('#lkHover .pvp:not([data-he]) .pvhl')",'Greek equivalent remains marked');
+ await js("document.querySelector('#wcHebrew [data-ref=\"Exodus 15:23\"]').dispatchEvent(new MouseEvent('mouseout',{bubbles:true}))");
  await js("document.querySelector('#dictQ').value='ὀρθρίζω';document.querySelector('#dictCardSearch').click()");
  await waitFor("Number(document.querySelector('#wcHebrew [data-hebrew-source=Aquila] small')?.textContent)>0",'Field reverse alignments');
  assert(await js("document.querySelector('#wcHebrew [data-hebrew-source=all]').getAttribute('aria-pressed')==='true'"),'Hebrew equivalents are combined by default');

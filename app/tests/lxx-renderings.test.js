@@ -22,3 +22,20 @@ test('surface metadata preserves source spelling while the existing lemma-pair A
  assert.deepEqual(Lxx.pairs(he,gr,['εἰκών'],true),[['6754','εἰκών','HNcmsa']]);
  assert.deepEqual(Lxx.pairs(he,gr,['εἰκών'],true,true),[['6754','εἰκών','HNcmsa','εἰκόνα']]);
 });
+test('Rare Greek lemmas remain searchable instead of disappearing in an Other bucket',()=>{
+ const H=require('../word-card-hebrew'),R=require('../rendering-search');
+ assert(Object.values(D).every(([labels])=>!labels.includes('*')));
+ const result=H.collect({LXX:D},'δοκέω',x=>x.normalize('NFC'),R.findAncient).LXX;
+ assert.equal(result.reduce((n,r)=>n+r.count,0),7);assert.equal(result.length,6);
+ assert(result.some(r=>r.lemma==='1961'));assert(result.some(r=>r.lemma==='5375'));
+ const alternatives=H.renderings({LXX:D},'5068','LXX');
+ assert(alternatives.some(r=>r.label==='δοκέω'));assert(alternatives.length>1);
+ assert(alternatives.every(r=>r.sources[0].source==='LXX'&&r.sources[0].refs.length));
+});
+test('Reverse occurrence rows retain attested forms, morphology and edition',()=>{
+ const H=require('../word-card-hebrew');
+ const rows=H.occurrences({LXX:D},'3201','δύναμαι',x=>x.normalize('NFC'));
+ assert.equal(rows.length,165);
+ const exodus=rows.find(r=>r.ref===1015023);
+ assert.equal(exodus.source,'LXX');assert.equal(exodus.form.normalize('NFC'),'ἠδύναντο');assert(exodus.code.startsWith('HV'));
+});

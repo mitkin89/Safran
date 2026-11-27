@@ -415,15 +415,15 @@ window.LibraryLinks = (() => {
       hideHov(); hovRef = ref; hovAnchor = a;
       const request = hovRequest;
       hovT = setTimeout(async () => {
-        const pref = { he: host.disp.pvHe || '', de: host.disp.pvDe || '', x: host.disp.pvX || '' };
-        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? '\u0003original' : '');
+        const pref = { he: pick?.mt ? 'Westminster Leningrad Codex (OSHB, mit Morphologie)' : host.disp.pvHe || '', de: host.disp.pvDe || '', x: host.disp.pvX || '' };
+        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? (pick.mt ? '\u0003mt-original' : '\u0003original') : '');
         let r;
         if(pick?.concordance){const html=window.ConcordancePreview.render(pick.concordance,host.esc);if(!html)return;r={previewHtml:host.pvVer(pick.concordance.versionTitle)+html};}
         else if(pick?.source&&(pick.source.path||pick.source.field)){try{r=await sourcePreview(pick.source);}catch{r={};}}
         else if (pick?.exact) {
           try { r = await exactVerse(pick.exact); } catch { r = {}; }
         } else r = pvCache.get(ck);
-        if (!r) { try { r = await LK.preview(ref, pick && (pick.greek || pick.targum) ? ['other'] : ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        if (!r) { try { r = await LK.preview(ref, pick && (pick.greek || pick.targum) ? (pick.mt ? ['he', 'other'] : ['other']) : ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (request !== hovRequest || !a.isConnected) return; // Maus ist inzwischen woanders
         const none = !r.previewHtml && !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase

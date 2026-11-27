@@ -4,7 +4,7 @@ window.LibraryDictionary = (() => {
   'use strict';
   function create({ $, esc, heFix, lemIdsFor, portraitOf, loadGM, loadTForms, loadForms,
     openTForms, openGForms, openSForms, openForms, panelScrollTo, lsGet, lsSet,
-    getSelection, setSelection, getSource, setDictSrc, cardSearch, beforeLookup }) {
+    getSelection, setSelection, getSource, setDictSrc, cardSearch, beforeLookup, beforeCard }) {
     const O = window.offline;
     let dictSedraId=null;
     let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
@@ -84,6 +84,7 @@ window.LibraryDictionary = (() => {
     }
     $('#dictOut').addEventListener('click', async e => {
       const b = e.target.closest('.dwk'); if (!b) return;
+      beforeCard?.(b.closest('.dentry')?.querySelector('.dhead > b')?.textContent||$('#dictQ').value);
       if(b.dataset.syQ){openSForms(b.dataset.syQ,{id:b.dataset.syId},'card');return;}
       if (b.dataset.tl) { openTForms(b.dataset.tl, null, 'card'); return; }
       if (b.dataset.gl) { openGForms(b.dataset.gl, null, 'card'); return; }
@@ -216,7 +217,7 @@ window.LibraryDictionary = (() => {
     $('#dictSaved').addEventListener('click', e => {
       const rm = e.target.closest('button[data-rm]');
       if (rm) { syncSaved(); const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
-      const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w);
+      const a = e.target.closest('a[data-w]'); if (a) { $('#dictQ').value=a.dataset.w;manualSearch(a.dataset.w); }
     });
     $('#dictQ').addEventListener('input', renderSaved);
     renderSaved();

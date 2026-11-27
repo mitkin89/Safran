@@ -3,6 +3,23 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  let mode='dictionary',serial=0,selected=false,timer=null;
  const panel=$('#formsPanel'),home=document.createComment('word-card-panel-home');panel.before(home);
  const input=$('#dictQ'),placeholder=input.getAttribute('placeholder');
+ const tabs=document.createElement('div');tabs.id='wordCardTabs';$('#dictTabs').after(tabs);
+ let cardTabs=[{query:'',state:null,title:''}],currentTab=0;
+ function renderTabs(){
+  tabs.innerHTML=cardTabs.map((t,i)=>`<span class="dtab${i===currentTab?' active':''}" data-card-tab="${i}"><button type="button" class="dtt" aria-pressed="${i===currentTab}">${esc(t.title||I18N.t('Neu'))}</button>${cardTabs.length>1?'<button type="button" data-card-close title="'+esc(I18N.t('Tab schließen'))+'">×</button>':''}</span>`).join('')+'<button type="button" data-card-new title="'+esc(I18N.t('Neue Wortkarte'))+'">+</button>';
+ }
+ function saveTab(){const t=cardTabs[currentTab];t.query=input.value;t.state=selected?cards.snapshot():null;t.title=selected?cards.title:t.query;t.scroll=$('#dictCardWorkspace').scrollTop;}
+ function loadTab(){clearTimeout(timer);serial++;hideSuggestions();out.replaceChildren();sources.replaceChildren();const t=cardTabs[currentTab];input.value=t.query;selected=!!t.state;cards.restore(t.state);$('#dictCardWorkspace').scrollTop=t.scroll||0;renderTabs();}
+ tabs.addEventListener('click',e=>{
+  const item=e.target.closest('[data-card-tab]');
+  if(e.target.closest('[data-card-new]')){saveTab();cardTabs.splice(++currentTab,0,{query:'',title:'',state:null});loadTab();input.focus();return;}
+  if(!item)return;const i=+item.dataset.cardTab;
+  if(e.target.closest('[data-card-close]')){if(cardTabs.length<2)return;saveTab();cardTabs.splice(i,1);if(i<currentTab)currentTab--;else if(i===currentTab)currentTab=Math.min(i,cardTabs.length-1);loadTab();return;}
+  if(i!==currentTab){saveTab();currentTab=i;loadTab();}
+ });
+ new MutationObserver(()=>{if(active()&&selected&&cards.title){cardTabs[currentTab].title=cards.title;renderTabs();}}).observe($('#fmHead'),{childList:true,subtree:true});
+ renderTabs();
+
  // Keep the fixed popup outside the dictionary header's container/stacking context.
  const out=$('#dictCardMatches');document.body.append(out);out.hidden=true;out.setAttribute('role','listbox');
  const sources=document.createElement('div');sources.id='dictCardSources';$('#dictCardMount').before(sources);
@@ -18,7 +35,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
   hideSuggestions();
   const on=active();$('#dictPanel').classList.toggle('word-card-mode',on);
   $('#dictCardWorkspace').hidden=!on;$('#dictOut').hidden=on;
-  $('#dictCardSearch').hidden=!on;
+  $('#dictCardSearch').hidden=!on;tabs.hidden=!on;
   $('#dictViewDictionary').setAttribute('aria-pressed',String(mode==='dictionary'));
   $('#dictViewCard').setAttribute('aria-pressed',String(mode==='card'));
   input.placeholder=on?I18N.t('Lemma oder Wurzel eingeben …'):placeholder;
@@ -30,7 +47,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
    clearTimeout(timer);serial++;panel.hidden=true;home.after(panel);delete panel.dataset.embedded;
   }
  }
- function setMode(next){mode=next;sync();if(active()&&input.value.trim())search(input.value);}
+ function setMode(next){if(mode==='card'&&next!=='card')saveTab();mode=next;sync();if(active()&&input.value.trim())search(input.value);}
  async function open(item,token){
   if(token!==serial||!active())return;selected=true;hideSuggestions();
   if(item.kind==='aramaic'){sources.replaceChildren();await cards.openAramaicRoot(item);return;}
@@ -130,5 +147,5 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  });
  $('#dictViewDictionary').onclick=()=>setMode('dictionary');$('#dictViewCard').onclick=()=>setMode('card');
  $('#dictCardSearch').onclick=()=>submit(input.value);
- return {sync,active,search,beforeLookup:()=>{if(mode==='card'){mode='dictionary';sync();}}};
+ return {sync,active,search,prepareOpen(query){mode='card';sync();selected=true;if(query)input.value=query;hideSuggestions();},beforeLookup:()=>{if(mode==='card'){saveTab();mode='dictionary';sync();}}};
 }};
