@@ -396,9 +396,15 @@ Publikationsgenerator prüft die vollständige diplomatische HTML-Projektion
 gegen den Quellhash. Die Morphologiekandidaten sind keine bestätigte
 Kontextanalyse und kein abgeschlossener Accordance-/Ma’agarim-Abgleich.
 
-Accordance-Bilder liegen derzeit für Zevachim und einen Teil von Menachot vor.
-Fehlende Aufnahmen und die übrigen neun Traktate werden nicht als geprüft
-gezählt. Die unabhängigen Bildlesungen bleiben separate
+Der ursprüngliche Bildbestand enthielt Zevachim und nur einen Teil von
+Menachot. Eine erneute Drive-Abfrage ergab inzwischen 2.044 vollständig geladene
+Dateien: darunter 589 Kodaschim-Originale1266–1854, mit allen elf Traktaten.
+`kodashim-accordance-expanded-image-inventory.json` hält die tatsächlich
+angesehenen Traktatgrenzen und die unabhängig geprüften Bildbytes fest.
+Die Wortlesung der Nachlieferung läuft getrennt; verfügbare Dateien zählen
+nicht automatisch als gelesene oder geprüfte Wortpositionen. Historische
+Einzelberichte über sechs damals fehlende Menachot-Bildnummern bleiben
+Snapshots; neue Nachtragsledger bearbeiten die inzwischen vorhandenen Bilder. Die unabhängigen Bildlesungen bleiben separate
 `accordance-kodashim-current-*-observations.json` mit eigenem Prüfstand.
 
 Die Keritot-Grundlage hat eine bereits im Primärtranskript erklärte Quellenlücke:

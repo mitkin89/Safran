@@ -1,0 +1,3803 @@
+{
+  "version": 1,
+  "kind": "original-boundary-inventory-not-word-level-comparison",
+  "humanValidated": false,
+  "fullIndexSha256": "8c36be1ff673d49fc8345556b2842c2c8dca4af79b8f580ca95d5cf3e94ea0bd",
+  "indexCount": 2044,
+  "minimumImageNumber": 1,
+  "maximumImageNumber": 2044,
+  "missingIndexedNumbers": [],
+  "missingDownloadedNumbers": [],
+  "newKodashimScopes": [
+    {
+      "title": "Menachot continuation",
+      "first": 1401,
+      "last": 1459
+    },
+    {
+      "title": "Hullin",
+      "first": 1460,
+      "last": 1533
+    },
+    {
+      "title": "Bekhorot",
+      "first": 1533,
+      "last": 1606
+    },
+    {
+      "title": "Arakhin",
+      "first": 1607,
+      "last": 1656
+    },
+    {
+      "title": "Temurah",
+      "first": 1657,
+      "last": 1690
+    },
+    {
+      "title": "Keritot",
+      "first": 1691,
+      "last": 1733
+    },
+    {
+      "title": "Meilah",
+      "first": 1734,
+      "last": 1771
+    },
+    {
+      "title": "Middot",
+      "first": 1772,
+      "last": 1805
+    },
+    {
+      "title": "Tamid",
+      "first": 1806,
+      "last": 1839
+    },
+    {
+      "title": "Qinnim",
+      "first": 1840,
+      "last": 1854
+    }
+  ],
+  "boundaryEvidence": [
+    {
+      "number": 1459,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1459.png",
+      "driveId": "1evWGUT57XoBRV_0YGQVaRj5HOqUy_1it",
+      "sha256": "52f1042af8e09a114d578b3fb4dcd3d4229186a37e731ba09ad178f7bc987867",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1460,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1460.png",
+      "driveId": "16jedRkml5wG6Ep7WQ0aTolPjk6XE8OJl",
+      "sha256": "36f5d370948b1d2f962d7d52e45a002eeaeb0dfa54b319a3881ad931c0e5266e",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1533,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1533.png",
+      "driveId": "1O9rvqSq-aKb8LGiRMpwmkWyGrCDn98ti",
+      "sha256": "bce5c9cc73750f7d65d4cc3261316bd8f28c7b1ae96877e2e0ed39e5862b5955",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1534,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1534.png",
+      "driveId": "1y86cS_Hqbnar-0sjyUV2fz_bYKAeEdtH",
+      "sha256": "fdef24f4e0a9f00518760ef45b25cc803614231dc1483d2041db6ece42a54c24",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1606,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1606.png",
+      "driveId": "1VaBQRRYQv23_6tXDpJCzBrATiqIErb4A",
+      "sha256": "69f493c56c08854b8ddf294f8ecb5b98dea068282f82eb49d057ec57d72890f8",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1607,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1607.png",
+      "driveId": "1mVsTTboul5H5lydvH8Q6X0LjWWTkvJtT",
+      "sha256": "928e651eb52f742a37b6317b5599f283ac15aca7f92774a4ae69a4477a7a420d",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1656,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1656.png",
+      "driveId": "1zEVt10LmD-CJpunga7WTNyaR2jAnxh-t",
+      "sha256": "37a48d2e6f01ba30e3fa1dbe8e253d1a11c5dba5e0caacd2fc6cbfa07137ad5d",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1657,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1657.png",
+      "driveId": "1C9ZMD7ju6m13vgmkjnAgLf8yYXeFKUA-",
+      "sha256": "7cf072661f4460a21b9733384ee2cbf93de41dc272867176388934bc08202ca6",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1690,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1690.png",
+      "driveId": "1p8KLNfvgflzHP1JhOfQDnAjDSxyeG0SV",
+      "sha256": "7f5be1534d326a5f5aa84e7e5166a5a3d778d8f92dc6ff1eda1df6d77e4f22a8",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1691,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1691.png",
+      "driveId": "1pVhfHUZLCNPwzoknKEuSTBfl0ffgBMAK",
+      "sha256": "1446c9b78a2b3e9d043cbff93ca0446e1e1f35177afe628cc687a13dc7ad6b83",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1733,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1733.png",
+      "driveId": "122PqrkdJczYkjH6pfZyhnWJYA8vUG2GR",
+      "sha256": "b0845e5599b21fa51b69e699979e5c20e97fd33774e73b94572adbf1461bebca",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1734,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1734.png",
+      "driveId": "1-IEUuMH7IJNoeJCSjd8ZjktHsz7nLABX",
+      "sha256": "d8c8da02862802dde3c96abb3a32304e7c29861b403d53efb3503d755c33e8c4",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1771,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1771.png",
+      "driveId": "1Kkg0cS74Vm0Ay_F4Z_qf6NnRaA9dguB1",
+      "sha256": "22d16dd19568d52a6823581e172c2ec140cc61c3d50aa6897cdc6a3948b5eb1e",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1772,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1772.png",
+      "driveId": "1yaWMqhqMye6xFnArj7EtVSiG2otoEM7P",
+      "sha256": "da124fd63c865f23c9901abc1f808280220d37606d5481b3240c7c46ad1270fe",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1805,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1805.png",
+      "driveId": "1n3dk2ssLflDRULJu74iXv-JGeyRU4-En",
+      "sha256": "d65958458a4e06f75defa60701aae4c3c5b36091ff1257f579a99d4bda82d617",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1806,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1806.png",
+      "driveId": "1T73Dct9zrlUR-Ag3CehPd4C2sSUahcdt",
+      "sha256": "95c3ef777502325d058d39740f9af886995e65d6e23dca7ab824ddfc6433b5c7",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1839,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1839.png",
+      "driveId": "1pVVxSOcha0sAhHgtCeaKuq71qfil3Om7",
+      "sha256": "879adb119f5204169ae4edd5dab79c9ea42d2963d8b050b926031ca0525f4467",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1840,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1840.png",
+      "driveId": "14PsZxJ5DS1xRH08qd7FPe4dofsWi2qgj",
+      "sha256": "5033127da98cd5156b1439c64c199604ffa4ccbc8c8abaacdaa6e6bc85c41a39",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1854,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1854.png",
+      "driveId": "1Xfmu_OxdSD12eTJcwsdfFMnhDXpD4stG",
+      "sha256": "d1c0a8e551905d41428bcb9d921e7e90a939b2bccb5c06bc58966b4a75bad72e",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 1855,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1855.png",
+      "driveId": "1Qp3T4KNGdWI1L4ESzC3uO5CCIlE-cQBB",
+      "sha256": "0267fecf7306cc1150ead5121cbfb48e7c58ac92cce74e9583d10431aa5ac2c7",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    },
+    {
+      "number": 2044,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_2044.png",
+      "driveId": "1eR55fJymeoKOtgKTQRYSp5MtHLCQSkj1",
+      "sha256": "d7547b9d7a3bbe7f60f933e659a473820c086e253605d1c50550b6b2f76feea5",
+      "visuallyInspected": true,
+      "method": "fresh original right-reference-gutter inspection;1854/1855/2044 additionally full image",
+      "humanValidated": false
+    }
+  ],
+  "kodashimLastImage": 1854,
+  "nextSederFirstImage": 1855,
+  "nextTitle": "Kelim1:1",
+  "limitations": [
+    "OCR used only for navigation; named boundaries visually inspected from originals.",
+    "Qinnim3:6 in1854 is clipped at bottom;1855 beginsKelim. The final Mishnah is not fully captured despite reaching the last tractate.",
+    "No image-number gaps in index does not mean continuous word-level screenshot coverage."
+  ],
+  "fullDownloadIndexSha256": "21c6732d716311c0c56bb0ae099341d54e2dcb306591b64f7dc8a3f5b5aba3d7",
+  "boundaryInventorySha256": "870c4ea72b0afed2f2fbd3ec7ddfe8b2a28ec45b929296f89806fc5abccdae68",
+  "kodashimImageCount": 589,
+  "allKodashimImageBytesVerified": true,
+  "wordReadingStatus": "In progress in separate source-bound ledgers; boundary and byte checks are not word-level verification",
+  "kodashimImages": [
+    {
+      "number": 1266,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1266.png",
+      "driveId": "1EO6aMJ8wERPespVD25UTs3dL0GkYkf2w",
+      "sha256": "93a40be1bc4dc616c86ba93481f194059cdefa1d4e5aca6b26f783b3a7a219c6"
+    },
+    {
+      "number": 1267,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1267.png",
+      "driveId": "1AN6lspydCKE-Mvs7ESyfIQymF4-5zOq7",
+      "sha256": "e56d972d08b7f07579dac6aca836f629c24827297856cf469dd924a667f3c246"
+    },
+    {
+      "number": 1268,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1268.png",
+      "driveId": "1Ly_txfyZXhPtzrCVgWXCvCGC-c8hMssA",
+      "sha256": "cb3374aa24f7f57b258ab17bf2bcbd09bae7655534ea0223482f43cb318100d1"
+    },
+    {
+      "number": 1269,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1269.png",
+      "driveId": "1EFITigFpl28VnCkQ8RaF6CQW1A5NtEss",
+      "sha256": "e82a90029d1575ae3bcfd29ddbe0e3504c88b80efbf979ed93311208424357b2"
+    },
+    {
+      "number": 1270,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1270.png",
+      "driveId": "1RzLRJXqOwO3DNYiJc5bPzeCzYKCa5es0",
+      "sha256": "7b903caad7b9a8582332e918fd5fc2d7d19a3d84992fc6695e3cb39dbe2d9ec8"
+    },
+    {
+      "number": 1271,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1271.png",
+      "driveId": "1nIevgUXr9kruOnks6EJKRYRddNM5fSJ3",
+      "sha256": "4488599ecd2c930a5afdaf94e1388149710cd97b09814bf6062534c14770c5c7"
+    },
+    {
+      "number": 1272,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1272.png",
+      "driveId": "1oUMXWqgELQcnI-RlLFuiVnShtmWPaXBy",
+      "sha256": "0e2c7c2bb34f847adf10ac17a9033af84ac8979d34ec8e86dabd64018699bc8e"
+    },
+    {
+      "number": 1273,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1273.png",
+      "driveId": "1jM7cP8-bXDmwyd408m6YXqeWR-JjIFD4",
+      "sha256": "7d6336d6524b788f6ed552eb77e3426c2b29158b62959c558c016b92fdd0fc0d"
+    },
+    {
+      "number": 1274,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1274.png",
+      "driveId": "1DAEDWnmfcGxIhaynruJoJvvT-faBSCTK",
+      "sha256": "09f502e09dfb850237f03aee40971079babe80218061b1b31ba45ab6243c4022"
+    },
+    {
+      "number": 1275,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1275.png",
+      "driveId": "159lF1uYxo47fIgTvYBtidyUGgHiFhFFj",
+      "sha256": "811b748606782deb0d9539d467b45c8337c91a9cb813d4f093c4ae23a17d9b42"
+    },
+    {
+      "number": 1276,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1276.png",
+      "driveId": "11NNSWNba4vMpbCBhAoK--DzlrAUiylP0",
+      "sha256": "4eb666363927db356cf4fc49a5e00e9b59394d31c6dddf92a2b1a0c6fa846f3f"
+    },
+    {
+      "number": 1277,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1277.png",
+      "driveId": "1MhPUj8O8uywZP_FrOPKw_5ZSMUYZFJSE",
+      "sha256": "ef901d273bf40ed3a31f20d6b1662fa8a4be933f281bc6226edb8ab9539f75a6"
+    },
+    {
+      "number": 1278,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1278.png",
+      "driveId": "1tNX-Pr7dKEzjCbYTNel2DHRFHDSERJKH",
+      "sha256": "73af6e95272db9ac1679ab14b79f9d9b2edc7b7b6ca61b16a43084da911f1806"
+    },
+    {
+      "number": 1279,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1279.png",
+      "driveId": "1eyhZgGTgEBAg0BKN1I6IE_Z8tG7hmNcM",
+      "sha256": "0ca092e993db0b1cd1167a8a4ab7117435e968a389d82b89b484d63f6cddf5c6"
+    },
+    {
+      "number": 1280,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1280.png",
+      "driveId": "1lXXMg8ZVqUDK3RQqCz-WFQBRp0GZf0Zt",
+      "sha256": "8e31946172cfc020122ccddc046dddcf5597868cfe0fbc46ddffdd370bc7d5a8"
+    },
+    {
+      "number": 1281,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1281.png",
+      "driveId": "1jAPkjVrsGC9Ba0n1otczISXaZWly4d4t",
+      "sha256": "0f810698c90275763d6cbb93dbb4bbd1ec65ca9f9f484fc6daa4f2eeb0b10be5"
+    },
+    {
+      "number": 1282,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1282.png",
+      "driveId": "1ygu5YaKGBo6XtRZ2W-9aZX4oKLxz5K_P",
+      "sha256": "8a9994de7693f6c6e2f9dbef6aa19b35d8a0bbb15b111c677730801680e895fb"
+    },
+    {
+      "number": 1283,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1283.png",
+      "driveId": "1UxfzfwzAEcPBxMk6iloSW7jKH_LzaZf6",
+      "sha256": "485d613b9339d1006de053fe55f56678b7aa3286a6ad3e33b4f22891307473ae"
+    },
+    {
+      "number": 1284,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1284.png",
+      "driveId": "1yAi3rdlIvF_G0lgRXVXX-YleUUwQvUMO",
+      "sha256": "077ed84b7c427c666a29f90f0200209acfb511ddf2b582eb854ec07d6485f52c"
+    },
+    {
+      "number": 1285,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1285.png",
+      "driveId": "1g-BSX3KVXCtIER1jlYr0JFhjAW-qZj7l",
+      "sha256": "27f3f62bad5aee916ec2ae448a27e1d3ae7af137b6eac929691c66359418473f"
+    },
+    {
+      "number": 1286,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1286.png",
+      "driveId": "1stLAo6l5JevrfGaoc9WCL9UYVCIq9GBc",
+      "sha256": "ab797157c96bcfde0a80e32513ee066bb56ffee0e1b6ab6be0e29ee5cecc06e8"
+    },
+    {
+      "number": 1287,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1287.png",
+      "driveId": "1piL9UfyPpYcq-FB3tVRu-f608IOoenz1",
+      "sha256": "c2b14cf090043cba73e302cecbe6eae3e34d0d50061e72a2ce5c2ca164d846d6"
+    },
+    {
+      "number": 1288,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1288.png",
+      "driveId": "1KtgIr4zMcXG-0PMf2emx_jZpjraeLqpa",
+      "sha256": "a54d99c7a8e0bac3796debee73f17f8d4c60d68173b33b0d7114d474f382c0ca"
+    },
+    {
+      "number": 1289,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1289.png",
+      "driveId": "1c1z647UToJJUDmFAkYrl4Js8Ag1ekr9a",
+      "sha256": "f958d481121dbf5b47fce8d94b89bf851871bdf237246173a72f849302bda285"
+    },
+    {
+      "number": 1290,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1290.png",
+      "driveId": "1W5NfYOaUhMuZgWUHuZe0sefndLCXsKI6",
+      "sha256": "3ccf2dbe78fe27659b3140066a0dc448051cbfe11ce21fe0f22aa09cc61fcf1c"
+    },
+    {
+      "number": 1291,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1291.png",
+      "driveId": "1yprLepClQiTVaXl7bx9XMvPOuOnw3RYz",
+      "sha256": "8424511f41d506472a696fdcf749c48d5a8ef864e9ed85765fd45cccc78ad077"
+    },
+    {
+      "number": 1292,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1292.png",
+      "driveId": "1gdXMW37-5xQw02eyc_6dFqcp4sIhs4LJ",
+      "sha256": "59b0ae0ea49dca683f7554412c1074af52b7089c41aa7e048dee460bd82e7a17"
+    },
+    {
+      "number": 1293,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1293.png",
+      "driveId": "1sombEMoZhOixfH7l8jYgnc6XGlUO1dDI",
+      "sha256": "5117624e5ebc18a975cabb1895f80bbf72627da5effe706c693e3c7a197afee9"
+    },
+    {
+      "number": 1294,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1294.png",
+      "driveId": "1bjXJyuzclvyDuzAy7LpBYYLJ5tS7LMgr",
+      "sha256": "0dcbac4fd1fb210080f5dd9a0223226ad16ba9e22a7d1265852eb7c06a5af4e9"
+    },
+    {
+      "number": 1295,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1295.png",
+      "driveId": "1SCfMe3868CtE5NtW0ldjme5gYuU6LzIq",
+      "sha256": "37a84936916b7fcbd7a3d0fce97d010ac0991206cdac9f7c9b0a23b1cd46ca4f"
+    },
+    {
+      "number": 1296,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1296.png",
+      "driveId": "1DHPNK7aQw9HG7bH4tP55XC9ZXJJD4uoW",
+      "sha256": "b27075ac58e3fd4aff2ff20af6b4cd3fe4568392a09523df2f5a87d1fb456ec2"
+    },
+    {
+      "number": 1297,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1297.png",
+      "driveId": "1ZDb2ZO17RYmiwwWfEdT0Zn8Bduz0jzG8",
+      "sha256": "562c240543bd559610cbb0c04e15fc40a23e3240538ef39a6d49f511578d5c44"
+    },
+    {
+      "number": 1298,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1298.png",
+      "driveId": "19ypUEK6nJJmasVPFxJX48u0EywqUqF85",
+      "sha256": "d48249d4dd019dc63096da18b7b6ae2e20b278b986f11fa1ff72d7a769fa7259"
+    },
+    {
+      "number": 1299,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1299.png",
+      "driveId": "1ob44_ME_B175WXtw0jU7c-rOxA3g5hdO",
+      "sha256": "6c97db7a20e62d5a6e0e73d31aa08b90931724b9605c80c6b0fe339fbae07f94"
+    },
+    {
+      "number": 1300,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1300.png",
+      "driveId": "1ky0Z-QUEjj51J4Px-BZ5oVqkLL1jFthh",
+      "sha256": "62eaadc50f01e99c9896885f1224211f7a4896b85ecd29e4beaafe65832fc4c0"
+    },
+    {
+      "number": 1301,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1301.png",
+      "driveId": "1IeJSwvE5wdmiQDxIIqs5GN5mafSc_R8o",
+      "sha256": "53490f9d29f19626b07be61f3d1a61ac83835073bb1b2d757a99cecde0df3448"
+    },
+    {
+      "number": 1302,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1302.png",
+      "driveId": "1JJLB8hndXDDSyT9m6mQIkevgwrmT7OH6",
+      "sha256": "1b1541674e52eb60ca633f6271e709aaadecbaf3bdbd2fdbc47f3bed3ed6f3e3"
+    },
+    {
+      "number": 1303,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1303.png",
+      "driveId": "1y5Cy0uPiAVydJ7cHcX3PBYu1JzMY24ST",
+      "sha256": "6258834c8d025f7af9d4444ff5db534c0621f2ecf4b30c7b30323387572cf56d"
+    },
+    {
+      "number": 1304,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1304.png",
+      "driveId": "1BxLkGYGfjysnjbVpYOZrGUtj4Wz5uvkU",
+      "sha256": "5577ee14b09f1f7ee9e87557058ae65d917e554ee2123ada72355b8b977f6755"
+    },
+    {
+      "number": 1305,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1305.png",
+      "driveId": "1YDxfdTlfQyhOvzNZ1Cu43P63u2ZUBegs",
+      "sha256": "dd94425757e5cf269e9917e8a43d1408f96b8b95676a2a50c319b12cf2608b56"
+    },
+    {
+      "number": 1306,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1306.png",
+      "driveId": "1Kg1WXp6w3C53hoxx6k7Q6oTLRtX7_uRB",
+      "sha256": "9cf2e73ef1c4dfdd10601df3431207e34d542f3bc771cf084f8d177b3d528fbe"
+    },
+    {
+      "number": 1307,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1307.png",
+      "driveId": "1jC0nQEmqqAemUc04jr8uxJsOZ1DSZ87o",
+      "sha256": "a79091321986fe5ec2c25e23ed28eca310bdf582926ef2d8ab6a909e306cbcb2"
+    },
+    {
+      "number": 1308,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1308.png",
+      "driveId": "10_N8WYYDBP-5RhfpIcvZt_jx4LFwAVY3",
+      "sha256": "bd5ee9db072ea0ab388c4acb64783af21510c3647ab4aa6a49ab69a321abd1bd"
+    },
+    {
+      "number": 1309,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1309.png",
+      "driveId": "1FAZ8HTIHWjpbvL4uIUncqHD-nSL2pRGr",
+      "sha256": "ffa93c175e21bfff7756923094d6bdb51ae1ba9651a2f1160ca35bdd4808651d"
+    },
+    {
+      "number": 1310,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1310.png",
+      "driveId": "18wjb_SBSaKep0SsgtHeePv_5RoxkZ4Ml",
+      "sha256": "2cff262f0087f813fc0691b036d54877e0d830251cb11b8078c13f15f73db2dd"
+    },
+    {
+      "number": 1311,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1311.png",
+      "driveId": "1iwoCFHuYTs9gsqeay5doe1msrxXfcgbl",
+      "sha256": "e9a21ae22d3273b75aad29d1ce5b5e57957ea5b8af01c6a06dc8c641fc5beb40"
+    },
+    {
+      "number": 1312,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1312.png",
+      "driveId": "1uARjZWn9-eBUVHiE07g6ZGWchHTg9Kvu",
+      "sha256": "1ef8dbb119c114cfdb6df8888d6e1905d5bb99294523d9f37e31c1cea193f7bd"
+    },
+    {
+      "number": 1313,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1313.png",
+      "driveId": "1PJIMoR2_2eYpLMwJOJZbTtRPRfNVWndo",
+      "sha256": "887e3f2368f38a9383c50cb82645c8c5079c35a1c8b056d86f28fbdaf0169e2d"
+    },
+    {
+      "number": 1314,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1314.png",
+      "driveId": "1YUBHbbp8GmAY2kJv0F4pTGGszjb5hv56",
+      "sha256": "1953bbfabb826ee333ba8942d05e03b80ace8b6888858aba6ab5d5df512fce52"
+    },
+    {
+      "number": 1315,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1315.png",
+      "driveId": "1uy_rCAJ0c1Ty2CZAomWWfkFcWfo9yPfE",
+      "sha256": "23c183c9a426355de2b86eca81599f75996f3e906e434c012a5d7fef3a68a26f"
+    },
+    {
+      "number": 1316,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1316.png",
+      "driveId": "1gvhXyJUZUOASuPPnyK1JiM5irLJ2PrIB",
+      "sha256": "c5e502aff1af2933f1c284e316197a5d5e81beb562f489bd5d3879fbdbadcfc9"
+    },
+    {
+      "number": 1317,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1317.png",
+      "driveId": "1_R0wMSAgukHesHIivSin0edCQ8NBQCfP",
+      "sha256": "4e4615bba63c25a6238f9adc3ee378299762def15314f4062e3ecdb783a48339"
+    },
+    {
+      "number": 1318,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1318.png",
+      "driveId": "1fHc6yQMvw1ZkmE8i7N9iY3iDfowZhBox",
+      "sha256": "615b642799ece7896304093574b4d6900b5a956cc089159b83af9250c101c4ce"
+    },
+    {
+      "number": 1319,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1319.png",
+      "driveId": "1yhKTfEApEEnLnWLVf3bS1VLLR1akrulz",
+      "sha256": "50cbf3d93d81dbcded359f4e9dd11d2264862fa5f3384a56a9cd088863dfc6d4"
+    },
+    {
+      "number": 1320,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1320.png",
+      "driveId": "1VlJCOxvXs1krMe2FjlADGwVu3UjDVm4T",
+      "sha256": "d849f50af6b37fbb490258dd2c771aa79dce2e48aeeb2d8744b280d70d457101"
+    },
+    {
+      "number": 1321,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1321.png",
+      "driveId": "1vwyA541kyk7CMzSb4yZu8tZ6W_6E1K6Q",
+      "sha256": "9799a2c42cbd8811cbfdf5f63f969d1b724b445d61737d505d97fb75c0b23815"
+    },
+    {
+      "number": 1322,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1322.png",
+      "driveId": "1F1zYuA1CraJ-8QF0MNVA874YHRoaHTnK",
+      "sha256": "d9cf432c0db3d7c8db12d2ac34b642104eb17a092bcb475e05f0d639948ebdc2"
+    },
+    {
+      "number": 1323,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1323.png",
+      "driveId": "1QEXJQkOSRo2aJUJnejxBSRN-KU_wRtKX",
+      "sha256": "e2f7c7a6ace54dc00b558fc088501f64f0553a5e19085a8f45ab8d16ef80f1f0"
+    },
+    {
+      "number": 1324,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1324.png",
+      "driveId": "1WG-EO602KPlCPd-BUGr4Vm2fzIDdKHRw",
+      "sha256": "e6b959aaa513c09cecd3bc795cf287dfcc8f3920d5cacdbea247125c399d74b1"
+    },
+    {
+      "number": 1325,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1325.png",
+      "driveId": "16RyuwBN4vln_Ig0q15AtkiUaTLM4FeUY",
+      "sha256": "479e94af7b7cb57a6a1317cf3cd240a48ee773becc2da7c404f4a55681326a2f"
+    },
+    {
+      "number": 1326,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1326.png",
+      "driveId": "1iLv347jElfIUK3xR9Su4HzEM91G4K8Po",
+      "sha256": "05d377e4e5b15a991ea89d708e65554adfb0fb730060a5d0b8b92843ace61bc0"
+    },
+    {
+      "number": 1327,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1327.png",
+      "driveId": "1YSBZgvXAmQqQFGfyxNfd4gBrVCFH9mLt",
+      "sha256": "d7b8b2cccdf3d195f823ffdb2ac4f55ae452afc3e8d844e34e70616211bcee49"
+    },
+    {
+      "number": 1328,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1328.png",
+      "driveId": "1a0gCk78V2eo30Wg8wcRjtq6IAxCgz61u",
+      "sha256": "cf67e28c2128ffdd21a3ee9d438a5f9acf24156ac4479315d9980f1a7cf6baa1"
+    },
+    {
+      "number": 1329,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1329.png",
+      "driveId": "1jcPPrB4Mt3Urc94m9fm740Qo-OVFmN3l",
+      "sha256": "03a0fe3aace9da1c1f7022cece5602e72e7da076d3309e03f3d397adccd177ab"
+    },
+    {
+      "number": 1330,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1330.png",
+      "driveId": "1OW0AVVSfBYf5doDSbImcfLoY-cZHsjKZ",
+      "sha256": "a4f7b7d8a170ebd57b2a33180b226dbe9a64a06acdc6a4f07bdc8759d5e0221c"
+    },
+    {
+      "number": 1331,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1331.png",
+      "driveId": "12bKpIkPAzLEWSPuXJcgSm4AF8JoKXELy",
+      "sha256": "4c2f35e9f2fb9e85169409ba7ebed79fde48ccc1751dafd20f8bfef94db2a436"
+    },
+    {
+      "number": 1332,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1332.png",
+      "driveId": "1KgROTL7Z9p5_culFKHowH3N-F6GL7yl5",
+      "sha256": "5eee55dc261d6b3bcad0865e517b799c3814d45346cce7bd4fe45a8fe9979f7d"
+    },
+    {
+      "number": 1333,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1333.png",
+      "driveId": "1wVcG4LySmYJISoT97L8q4XJDIeDmKcSl",
+      "sha256": "ff8112e6f59fca961a07c9524bc22e2048cb2867f62f6d21bdc2c279ae5e80ce"
+    },
+    {
+      "number": 1334,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1334.png",
+      "driveId": "1MIi86pwVrgzXv06P7kjiN75YJyf7yz29",
+      "sha256": "97c69983db8b8124cce48f93f532f88aa7109ac462ce84548752af161e10c141"
+    },
+    {
+      "number": 1335,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1335.png",
+      "driveId": "1XSVnqtMdE2QplcZ8JNEusQUs72q9-Rb5",
+      "sha256": "c26f523c14659f701755e0da3c654ba1dc3e604cfd0c5551ec726718a32068f5"
+    },
+    {
+      "number": 1336,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1336.png",
+      "driveId": "191INtj45Z_SnUGQdQ8sOvTOtYZ1XWgOv",
+      "sha256": "6df6fc79b5174c4e86fefd8f4ce7de53a2b51ab146fa19c0fadd087ae9cddf6c"
+    },
+    {
+      "number": 1337,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1337.png",
+      "driveId": "1hJBqBLw3SOBBXz7x0o0_wLKWlIzluE45",
+      "sha256": "a647cbafaf31bef7160a496b6c7cb982a5b46fc068dd40c20c64258366a0007a"
+    },
+    {
+      "number": 1338,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1338.png",
+      "driveId": "10Y8eDdAV7d1JL4b23KyVqsjb_h_x7T52",
+      "sha256": "197ce789deb5691881362af49404f21e1f9c65e3faf56b463ac7c93a364f1ad4"
+    },
+    {
+      "number": 1339,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1339.png",
+      "driveId": "162VwkvMft9NSHj-ZK8NJ_ApYx4L9jfoE",
+      "sha256": "d0f439c913cea90fdcf14e3326489ec8042d44f3d97cad5246c324f2275eb1ff"
+    },
+    {
+      "number": 1340,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1340.png",
+      "driveId": "1yYxpRpN68LgdZok5rJazSaBKwYxERzNG",
+      "sha256": "66fc52005a8dcafa3c461f500322c8910d9598694564d73d24f4ebb484f990d2"
+    },
+    {
+      "number": 1341,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1341.png",
+      "driveId": "1YqsmX_rO9XZrYpvyTOQXkoR5a0b8IGUN",
+      "sha256": "5b6773bb3d80be191114d138bde75bb710cb78e641fdaac417fd5d63e1c78dba"
+    },
+    {
+      "number": 1342,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1342.png",
+      "driveId": "1aofr1FhJ7R-G75HAu3sGGz24qwvo4pSo",
+      "sha256": "b89e7fba66bcd82f85918b2e32eeb2225cf2def880a21f15498687ebe7368b12"
+    },
+    {
+      "number": 1343,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1343.png",
+      "driveId": "1M8OSVOkBkRqb45M3Wgxp2L6TxkPc8ADk",
+      "sha256": "c20202fab5acd9461287543dc63828e0c0af405badc6015700152871043138c8"
+    },
+    {
+      "number": 1344,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1344.png",
+      "driveId": "1xvrB8iPKLRgUxI8bK0kr6nKWXmOpZnCG",
+      "sha256": "d3001e63ab6ad69b64109751ca3e9be436b03c419618d33c462f06e0aa983744"
+    },
+    {
+      "number": 1345,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1345.png",
+      "driveId": "1tottCfiIi8rCY1CljROJohsH63nVbMqf",
+      "sha256": "eea695fba99868e8c9d546cce7517e046637992280da3fa88266115cfe7b6e9a"
+    },
+    {
+      "number": 1346,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1346.png",
+      "driveId": "14c_iYhffGuJD0rJajFkMmIQmTPO8cA6V",
+      "sha256": "ed18dc10359538ba22ebd0965a3919616467e80a672b74297f8c08924c16f94b"
+    },
+    {
+      "number": 1347,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1347.png",
+      "driveId": "1c1bI3pLNRg_hWRHBwfrJQPDJIa0WFObc",
+      "sha256": "91662b90a8d6abb3c9a8001b9821a7e2b948cd2dd4dac49d51823d7a7972c4bb"
+    },
+    {
+      "number": 1348,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1348.png",
+      "driveId": "16UdtIQidLFCXGARhrMnjlX_MBNQAXE7t",
+      "sha256": "e1c5ede99919f7ddfc3e9096bb5543ad47f25eddd8e287e34b7bdd3822e6d378"
+    },
+    {
+      "number": 1349,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1349.png",
+      "driveId": "1wwFqth-Ne246KDpG2CEx3to6vgWqdl7b",
+      "sha256": "f06f6744108867c15cf5b88665309f6191faae60990987ca4ba0e8b9e3647787"
+    },
+    {
+      "number": 1350,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1350.png",
+      "driveId": "1DVIE5ev-pNhIkoQmiwHLFiu3nC5y-mE1",
+      "sha256": "1f6ca51b04765169c747317846b5b3a4f7455aa41296ca793344109f4d4fc77d"
+    },
+    {
+      "number": 1351,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1351.png",
+      "driveId": "1gWa_olxqvJHCwg9h0Lz-JMZjyfIbx55v",
+      "sha256": "9ee5f6b0b83577a4c6b2e2b3a3d3313efc907961f6ee903fe64de0daaa260a03"
+    },
+    {
+      "number": 1352,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1352.png",
+      "driveId": "1aw89gJ1ub5PB2vNjSmeeuOAmbtZXXZG3",
+      "sha256": "ca64f8d988f44c379046b06c84506a599b84a70070519629522e79763f18f21a"
+    },
+    {
+      "number": 1353,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1353.png",
+      "driveId": "1rbkXW5SoMdWoD6GEOYSoMxx4tS_BpX8D",
+      "sha256": "c48fe9e1f09a1ec2c06d841e60f3c063ef5dc90a483fdd648058240aad26690a"
+    },
+    {
+      "number": 1354,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1354.png",
+      "driveId": "1AUkyvW7djaEIuzjVUgXRFZn3utpoTvII",
+      "sha256": "b6d7fafd03a4c16dca1150169273f3b81009b27d061d09c63892a9f7cdd54352"
+    },
+    {
+      "number": 1355,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1355.png",
+      "driveId": "1XxyTFKXBYII8TxetQLRlP19yqigRcaif",
+      "sha256": "cfc4d65e726157006fc64a8204fe3467dda45d4abed31b24d7eaaaf616e50dd6"
+    },
+    {
+      "number": 1356,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1356.png",
+      "driveId": "1Tm8mjOMr-dpHCGkCcaNWCvykB5aE24NG",
+      "sha256": "c03eb6de11ce1d3743dd778c2d58705ceef5cca2ceca7aa3eafa2254b2434637"
+    },
+    {
+      "number": 1357,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1357.png",
+      "driveId": "189Qsgx81mHHfbtuPiuO6gw0Q3IvZFf-S",
+      "sha256": "9e4c508724287ad4d2dcce594336861321644d893b4b463fc7abc3daa1bd1511"
+    },
+    {
+      "number": 1358,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1358.png",
+      "driveId": "1wudJi5qs3e-L9tR5S3HOzD60lAud7WpW",
+      "sha256": "e27100586fcf3116fe39e0ccd191c7d7c7329d409967c066c6d781e9b43b5cdd"
+    },
+    {
+      "number": 1359,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1359.png",
+      "driveId": "1pC7doAMVOiQWqb_gPOgEcBgbFLAXaLZt",
+      "sha256": "38a111d692e007a2ac407adb47277f611d5540cf9b7b6ffb178131f3d30180c3"
+    },
+    {
+      "number": 1360,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1360.png",
+      "driveId": "1OFpIh8PaIx3JFCSmmZUzFzKHBC0YW_FE",
+      "sha256": "cbf6f3baa4ea50ebafbfcce511e865f5d3a14fede09f7245c3bc193daf1a35ee"
+    },
+    {
+      "number": 1361,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1361.png",
+      "driveId": "1U8th_J0xzMCCIk_YyaamebzrxD3xk-yO",
+      "sha256": "c53be723839632b3585204ad3ca8c55ff0b384a8e49fa977634af4fc721ad2f3"
+    },
+    {
+      "number": 1362,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1362.png",
+      "driveId": "1gAwWxXtLo05oHCYv2N0e9oIAesDIB29O",
+      "sha256": "f44eb33ee13e9246f42b140b2f30e112c058a6876736d082272eba2742292ccc"
+    },
+    {
+      "number": 1363,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1363.png",
+      "driveId": "1P_6fZZhncrCnDHClDPx5IVDPDvVkkCBy",
+      "sha256": "a195f3cc0dc3acb100357bf1a0ccee65807bb7634af7c17d0ece0026377edd63"
+    },
+    {
+      "number": 1364,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1364.png",
+      "driveId": "1KXsCiV0fkvhCYxe8HeOUBy5QdKughgBj",
+      "sha256": "76436cc84b35bf3ebe3ac31e5426258a3f4b8ae9ab80d0771305a3a496f47b42"
+    },
+    {
+      "number": 1365,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1365.png",
+      "driveId": "1a9T2A5xvtW5YDYIf5HvQ4jO-VKq2Y_aD",
+      "sha256": "29f5d4e4fe3fa3c2ce64b0a46f688ae53e8a765f07e37f9cd831bb4056f2f57d"
+    },
+    {
+      "number": 1366,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1366.png",
+      "driveId": "1hoLTzFCs2R7VGFwp38QU2GFbh-bcbuan",
+      "sha256": "d34077f7f78d98af8bb2628afdd9153a0a8c5d0dd7793bb7b25c3af86579324f"
+    },
+    {
+      "number": 1367,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1367.png",
+      "driveId": "1taJT9P55-flBkMotbt9W-129MrGtSeHK",
+      "sha256": "afca4c087ea882e43a0095acbc2946a413e81a9b7592f470a520e9e50d7390c7"
+    },
+    {
+      "number": 1368,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1368.png",
+      "driveId": "1YUGeIXm9LYlPwjfH1_NZ_3_XHwpyU-FB",
+      "sha256": "8a1c0d4648d5f7dcfeccd7cd97fa891d3b80cc6027be2171be328071ae2cb7f0"
+    },
+    {
+      "number": 1369,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1369.png",
+      "driveId": "1t9lXYKfhd2OS4pcOiovbF9wvhEbphIer",
+      "sha256": "9bdd4fe888b89e1206b878dfae60e1f9b454f0a86acf386728a117b847e71c86"
+    },
+    {
+      "number": 1370,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1370.png",
+      "driveId": "1ea2ETDm6bTPGLV8Ubr3G37z4adG-KPBW",
+      "sha256": "58999e7dbafff6208516ef358b185e8f61f7394b57b27c8daa85251c3be7eda1"
+    },
+    {
+      "number": 1371,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1371.png",
+      "driveId": "1BlvmK4R2BBD0mjfHttXXzh7TTVzv3nzj",
+      "sha256": "66b0e13a655645acfb05a022e1572a6f2e1693060d82e67fd759a0cbd11ca298"
+    },
+    {
+      "number": 1372,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1372.png",
+      "driveId": "1htNPGw5aMnnJ6pTzCxywdVenTI3_f9V1",
+      "sha256": "8321fe8bb5c80fa6e90218c112dd75c4f95edf982fff1cb01bf8045e73dcf0fd"
+    },
+    {
+      "number": 1373,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1373.png",
+      "driveId": "1AvRzyxfKw1lFsqLpCotRDE1JZOa4v3Jd",
+      "sha256": "f195db7e8286993b1fdd2150e7b24a60fdfb4bcba0bb2c6b86a2ec8fc3821eae"
+    },
+    {
+      "number": 1374,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1374.png",
+      "driveId": "1uXBRRLzUFHqRiXE93SAW6t0jawi5Cv9x",
+      "sha256": "9df1649dc4c689a44bac1cbde694f45660863dc4cbd621c977b5c66aa9b86ce7"
+    },
+    {
+      "number": 1375,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1375.png",
+      "driveId": "12ZK-qbRue1TCr51I9EPKBg6zAO54gFK5",
+      "sha256": "fdff1e1dccc8b38e3d04d38904c5742e83d6e14002220933de593283275e5346"
+    },
+    {
+      "number": 1376,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1376.png",
+      "driveId": "1I6zu_H1tWClQxVwjeRUw6qGcq3XN_uNI",
+      "sha256": "7a3f7d0ab6ab22b2897d719d07b751ec3d1ce6fd572c29efd0f1b8e11a1203af"
+    },
+    {
+      "number": 1377,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1377.png",
+      "driveId": "1GqjcXbF5tCAgcuhPJC3libdAju-Qz-93",
+      "sha256": "19b62b933138df0b0e86f2422ae9e9c9f46d473db76a02f902918412e49c3581"
+    },
+    {
+      "number": 1378,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1378.png",
+      "driveId": "1rCueD3W_LVOm5oMNufqGtAEUjJxzb20d",
+      "sha256": "ea2416250b43cba464cbb6b50f67dbc82d2b162689ae399ead5f4967cb717070"
+    },
+    {
+      "number": 1379,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1379.png",
+      "driveId": "11nFo1dZmS6QASTCI46Qd568denmsLhri",
+      "sha256": "827c4b1ad9589cb0fe5c31f4ab1a3037fe1909f12266c1218937eb61949abd02"
+    },
+    {
+      "number": 1380,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1380.png",
+      "driveId": "1MpvllXPXYJlxkfwAtxVtTKNbPa9roq0E",
+      "sha256": "708068223072c2a38a98265e6e1f20e168695959ddbac74dd6c991f9d97eccd7"
+    },
+    {
+      "number": 1381,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1381.png",
+      "driveId": "1FrNDWRYvAMch_fUh2iJWw0W7KE7ykJwY",
+      "sha256": "7f2f59f018dfbdf5175a82eeff1ccb44ab99dc7b2fdbf65b19e21fea4e9b1db3"
+    },
+    {
+      "number": 1382,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1382.png",
+      "driveId": "14iiuHqxmz1QqgkD4XMQ_suRwh3femGhE",
+      "sha256": "9d409f6661f72084d02146c4893f5488f842a5c9e188ff9d70af2b4eb096e852"
+    },
+    {
+      "number": 1383,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1383.png",
+      "driveId": "1svwAwZeNRWGQt1aI-uRGpWtG1qi92bTi",
+      "sha256": "bf9214c7121016ea094851540ce2d85571d61dece352ab5d2417aa0da1ede433"
+    },
+    {
+      "number": 1384,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1384.png",
+      "driveId": "183Jl0Ao99kIOEgCnOf0sCkusxNPni7Nv",
+      "sha256": "83d239817bb95b5fae27575d03f1060a579a493f3b3989ee4f5b0fe4d5703244"
+    },
+    {
+      "number": 1385,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1385.png",
+      "driveId": "1rk7VscRTl6DLtTEM_pat0tvQB2VKcHt_",
+      "sha256": "56b7d3b7b03d4ef48af59251ba4e2eea76c0b0a9ae468a4682f87d9dffcbf406"
+    },
+    {
+      "number": 1386,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1386.png",
+      "driveId": "1vAyjSc9jAXnO0ZUYaouq5iS1f4TJub1Z",
+      "sha256": "923d95a9d618213d18f97fec539dfd573f2c4af90f59a7a9892a0f6da4bb23ea"
+    },
+    {
+      "number": 1387,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1387.png",
+      "driveId": "1kgd2URykkGcbm9YnPH7wSP93L5DSzI03",
+      "sha256": "a2dbd55705bd6f4e245cd4349a80367db707634b5d6c3410066e357c04d51023"
+    },
+    {
+      "number": 1388,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1388.png",
+      "driveId": "12lPtcmD7y3iQfnuZ9BDXy0EhtAtxj9ny",
+      "sha256": "037cb1c76db92d810ebfb9121d631c697e6b94101b49a8d789316ec5b375a6d7"
+    },
+    {
+      "number": 1389,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1389.png",
+      "driveId": "18AkaXUVOaqQGCveQ6X5nGLk_EsuuETcP",
+      "sha256": "0cb3fc7b45c89c305263cae0489b8330b6db75e8cfd82b75703e7166bfa3383f"
+    },
+    {
+      "number": 1390,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1390.png",
+      "driveId": "1-ftays-S6OWkDjJZBYk6gvW5PwOL97i7",
+      "sha256": "d5003aa156f991a77f1e0ddca9f754d1ac66e868a029ef185e2c067f50c9c984"
+    },
+    {
+      "number": 1391,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1391.png",
+      "driveId": "1cRIhAriwYOHrszVmd0kz7sTbNVgSMiT8",
+      "sha256": "676252fe4e987f9eeecb6e1acea1d746ca44c280bbed3ee16528f3886ed4eeb4"
+    },
+    {
+      "number": 1392,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1392.png",
+      "driveId": "1GDJ-R8HSR1M0lQkelTkBA1xgH7LVUp_H",
+      "sha256": "302dc090c82a21ff956f11a43d570db1a51c10d8a633367a119c944b1e26a623"
+    },
+    {
+      "number": 1393,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1393.png",
+      "driveId": "1carnyeBZqshD9JAAQToZDqfNPyQzD6iG",
+      "sha256": "c836ae64c4bad36047bbbe7e12e17af68cc8a398dc0e0be5ec791dde612b36e2"
+    },
+    {
+      "number": 1394,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1394.png",
+      "driveId": "1iA9hDBjKg1R3M2Rj-3iiFr6AfNj6J6JF",
+      "sha256": "b2a92f2049312604c685aef1bc913544b2f409cf160a36e6830396e2abab4148"
+    },
+    {
+      "number": 1395,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1395.png",
+      "driveId": "10OKmO5l1EidN52b9J29dkwj1pVYPLiqB",
+      "sha256": "aedf9cf0c1f62f5fcfc297f310bd941e8d61050dcb4f4d97a7a58bec6e17dcad"
+    },
+    {
+      "number": 1396,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1396.png",
+      "driveId": "1ZldDIV-Xp05SmIiqtpd_-4roP-oS8ztP",
+      "sha256": "ecb7f7be623e03fd353bb7f1a6a617786f1ce4a72bfc72528b7a07797180653a"
+    },
+    {
+      "number": 1397,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1397.png",
+      "driveId": "1-YAoG0u3Xu_S7X0LqV9rL9ccKfDRGD0L",
+      "sha256": "4c8ac00b52b6dd1800c553ef38f2e44f01bf024e247b42ddab6235a97030bfb7"
+    },
+    {
+      "number": 1398,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1398.png",
+      "driveId": "1KVFKpX4VtPsFYMVR8Bu9AbR3W-xj23mt",
+      "sha256": "144f3dd5f9dce99237bff21eab0cd97ce2e10213b0479ef378bc6f20559019c6"
+    },
+    {
+      "number": 1399,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1399.png",
+      "driveId": "1LCn-PQED5Jqu-NaPcLhcoIzElZw1Ij_P",
+      "sha256": "46d439871be3376030da3034edca11bc33fc061328517c5c262fdc3123d55dc3"
+    },
+    {
+      "number": 1400,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1400.png",
+      "driveId": "1mjk-CXtv8rbIyGus0ZvzKGEjPAU7KPlS",
+      "sha256": "1b9c464f1728489cc0bb458190ac901e617126d17e6b12868fd23471087f504b"
+    },
+    {
+      "number": 1401,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1401.png",
+      "driveId": "151_WFv7htxT1S3FzPIzN6QPnNaA5lL_6",
+      "sha256": "68456eb53ee7344f1fd294c3bf24ecaa11a70fdf755a814e95e4107945829b44"
+    },
+    {
+      "number": 1402,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1402.png",
+      "driveId": "1sULJudRCdJxTWW3d7kNWvoGLCrYn1ETW",
+      "sha256": "ce329c003b9f8c8c17854da284847253f7052df0d36e8cf731554ea98ed5d9f6"
+    },
+    {
+      "number": 1403,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1403.png",
+      "driveId": "1_fu5_XKM5m3VUMj-G9sh3nzb9RXs1Aop",
+      "sha256": "2e665210a499a2bcc31e6d850a66ea4ada469ec7e651d931f43e2fe1cc1d5ff0"
+    },
+    {
+      "number": 1404,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1404.png",
+      "driveId": "1yjNDkSE5mfsMVK7hg-ehmEZu02IVot5-",
+      "sha256": "6556e6fde7ca5daec71f21f0cb84c0a1448aef3608ba55d05c547a6aa1cdff1a"
+    },
+    {
+      "number": 1405,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1405.png",
+      "driveId": "1orNLl9dluW7ZnCVwduajoApaTYwVZ3Mf",
+      "sha256": "4666cab09f62aa36caa5f65a5c11b701ecab2ae97ead81fde17117932d959760"
+    },
+    {
+      "number": 1406,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1406.png",
+      "driveId": "104CtYl3wxs3gBJXkDu1swbNAx2LO7U70",
+      "sha256": "c94b04e2068dcaa0ed6a9ddd0bc31b6425f5afc50b0a03093ab929d1666ee990"
+    },
+    {
+      "number": 1407,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1407.png",
+      "driveId": "1DaSuO3qeLUH-0uKmHtxUa8KEccNM01vx",
+      "sha256": "0b5eeebd97d2ac07689d4a2a86848d32cacab6db5c8fbae64171f6e7d01453d0"
+    },
+    {
+      "number": 1408,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1408.png",
+      "driveId": "1BR9r8o0CA350wOhFpmRA8WZzvqv4eN8r",
+      "sha256": "e145a894895851535013de1016a59fe964c5de75ff688d34058692f0cb5f49ce"
+    },
+    {
+      "number": 1409,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1409.png",
+      "driveId": "14WrcedYsKce08XKWq5ZjZV0C8Hom3kAP",
+      "sha256": "71a34ac0ae8e5a30732aa3a26ab024481ba52b714b7fede81e3d6a5eb85c5920"
+    },
+    {
+      "number": 1410,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1410.png",
+      "driveId": "1SB6RM408oi48_2oz-JRdk_71nolNjSIB",
+      "sha256": "2f40187262d97eef2969d0a655764b32ab6791d6245667dd0320fe8f13073bc5"
+    },
+    {
+      "number": 1411,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1411.png",
+      "driveId": "1KYyxIK-zZCmIYuwGT31Bc8N52PgnI0In",
+      "sha256": "b16773eab5f058425f68e664480d1a3c7d68f6337cc9966bc83a394f03a370c4"
+    },
+    {
+      "number": 1412,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1412.png",
+      "driveId": "1Oz3_A0R0YtTjxVyncBXZseJY15WuMtil",
+      "sha256": "675873b9a9806bdbe163842087e407c854a57274ad68bca4f27d18cfd7e31ee2"
+    },
+    {
+      "number": 1413,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1413.png",
+      "driveId": "1MkhoyhtBMwucGGumLjg3m93oNxcG2FKA",
+      "sha256": "64b319fa0ba7be269e4f0df454be4a18dd9fa999ef67fa8ca15eb554b0a5a75a"
+    },
+    {
+      "number": 1414,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1414.png",
+      "driveId": "1CIqYD3cPN44L4wB86wz8Sv1Xvyyjs_Xg",
+      "sha256": "31d3c8236b6a0e4af4b45d1ebba7847d1a82fdc3c935ed6994fad3340787ba06"
+    },
+    {
+      "number": 1415,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1415.png",
+      "driveId": "1AKDG5oaAgEJBKX6SF-vcPhIYg5FSs7ca",
+      "sha256": "6d7e0271a1bb0eff58cc5d3950cbcd15496afba7fb3514f3c1685c58be7ffbcd"
+    },
+    {
+      "number": 1416,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1416.png",
+      "driveId": "1128eCX5dZk3iUEi61Klzre6JH_Ppin0c",
+      "sha256": "4d92b3aa98fe086fb47137af5a819e08c7f701a995758cccb33d49a747d625a5"
+    },
+    {
+      "number": 1417,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1417.png",
+      "driveId": "1QqbEPiCOFFiF-kAKemj8_n0C7LwfZUTh",
+      "sha256": "b931b73392b8010a390d244a2ca08b85598ececfd9268150279e7083b5e14548"
+    },
+    {
+      "number": 1418,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1418.png",
+      "driveId": "1_RqpNuKrYsHuOlG0kBjvyilEncAbJf5T",
+      "sha256": "3546da8e81082e165f04af6d211806b4edb730346e1fc7e54f2cdfff461411f3"
+    },
+    {
+      "number": 1419,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1419.png",
+      "driveId": "1xYJlVF0vEO2DYDwje73BwK7aSDpsgMT8",
+      "sha256": "32deb0f5914b7543b8315ffd1c827e433e3ddf73f4c80f1a7b0dc6c5ef421779"
+    },
+    {
+      "number": 1420,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1420.png",
+      "driveId": "1fB4RxUILL6M-3DI1xv7JwTki0ul1u2EU",
+      "sha256": "c039106f2614567032429ddd90e87b0d6492a0eaa5c17c5e3c17d40b686475d8"
+    },
+    {
+      "number": 1421,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1421.png",
+      "driveId": "1hwWnbOuO9sOBQbeBy3mTn-OI0qxWIaIJ",
+      "sha256": "4d76b9f4667ef25d09b214d3fb232cc3acec76ab2448490b372a06f75c687c24"
+    },
+    {
+      "number": 1422,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1422.png",
+      "driveId": "1V-bFeH9KOywmCak1DvkqqmUS5FYgykl4",
+      "sha256": "9a4408b471a7440de8e5400278ad50cc51fb943dff5c5887d602143d57a4144b"
+    },
+    {
+      "number": 1423,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1423.png",
+      "driveId": "1iWCToyCPPR_kZyTg1xqh-GKa1uUBB1mb",
+      "sha256": "1f931d0f9ee4c4aab983cf508e9fe1d52f5f85e91e24806bfbdbe005dfd711d6"
+    },
+    {
+      "number": 1424,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1424.png",
+      "driveId": "1WQRmzEBqkp_AIXYQuYeQSLZft2IVTn1L",
+      "sha256": "b0921c40d6929bee55ff7ff8fb53cd3a77598d89f27ce9cbdb05c4f02b25aa98"
+    },
+    {
+      "number": 1425,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1425.png",
+      "driveId": "1eAgsySMkwZpvm13fg42l-WaspR19YYYG",
+      "sha256": "dbede74d48b95f98af27b86754706169a0e9989577c967ba0d57593ea2e53be6"
+    },
+    {
+      "number": 1426,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1426.png",
+      "driveId": "1--JFPukN2VVN9Os31Zuc0mG05NCObyKC",
+      "sha256": "7d2b93c429947475254c04e6b231c24094ca5d5d1e42d643938653dab14857ba"
+    },
+    {
+      "number": 1427,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1427.png",
+      "driveId": "1PHu5XgrqyIrUaQXNx_S1dUeuXAD7cE-x",
+      "sha256": "e783e3e6c86aa6c46b445da9f335a9016185496bcd944e195f3bfa9aaaf4f8f7"
+    },
+    {
+      "number": 1428,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1428.png",
+      "driveId": "1aaOkEk-KsnmSiXcfUSAZvI8T1Peke88O",
+      "sha256": "595c41d1d9508164d0cbc48d43fc6bec983e818937c61162b3934c28df860ce9"
+    },
+    {
+      "number": 1429,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1429.png",
+      "driveId": "1W_3v2a4Mo-XwU0wV0r-FJI4pzzs_X4y8",
+      "sha256": "cfa99a3adc5c7daf4af1bb16d08c0e61bc8f26fe530f1efaa71e54085692e956"
+    },
+    {
+      "number": 1430,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1430.png",
+      "driveId": "1gev2rzQHWN3k2kUcZTX2AvWGYpgqwSD0",
+      "sha256": "d92529ecf738426857bc39726e9d9af7a6137026cb9ed4a94bd3abf91ee43a58"
+    },
+    {
+      "number": 1431,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1431.png",
+      "driveId": "1AQl8cVFmsLD7z5cfV5i7CvOJhl76aFnq",
+      "sha256": "8827896139ce8c4b72643f9c4064a174276b97974c88967c6d568a7469cc68dd"
+    },
+    {
+      "number": 1432,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1432.png",
+      "driveId": "1S4OdSSEjwsrfegoJ_LqRac6ly0hW3Yl1",
+      "sha256": "cb5a33ff6a00a1c889cb74449e631714360a4bd7710240eecaf112f774293178"
+    },
+    {
+      "number": 1433,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1433.png",
+      "driveId": "1OqDIUgurrlPh2hFX_HpDprg3Ef_Ue1_E",
+      "sha256": "f8fb0ec87fb05c89a083d3b90137220f2e3534681bda096db8ad0aac841430e3"
+    },
+    {
+      "number": 1434,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1434.png",
+      "driveId": "1BQdXRdyhjNgFiTQnE8auW5nvD99-Vozq",
+      "sha256": "a6789da708764b58635ffa7c521df3335ffa3e2cea9aa2a8023e56f5ed1f23bb"
+    },
+    {
+      "number": 1435,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1435.png",
+      "driveId": "1jBuNN2I6aSHTgw3IHt_ofweglW_xzmQv",
+      "sha256": "8ef06775922076aa1179dc189f50e2046a772ead41774072669905657cf75fad"
+    },
+    {
+      "number": 1436,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1436.png",
+      "driveId": "11t_CAl-tg9VFKDVFk4r1LhzRYT7MLJh9",
+      "sha256": "2a56ec693196ddce71b31b74ecabff817c1f2831149e03afd7b7e81be96e5c68"
+    },
+    {
+      "number": 1437,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1437.png",
+      "driveId": "1vOF8wddajFk929vCMFBw0vyvhr6hKZ5K",
+      "sha256": "c5f8b0c71def80c30bc8e630e32f9c3bd88886bf505bd1558f2e4c51623177d0"
+    },
+    {
+      "number": 1438,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1438.png",
+      "driveId": "1LNeiD6E1RY-oRovGXa2Nk6iQzKxfM-Hs",
+      "sha256": "2e0bbcd35b7d5440eb3871c4c78f549e985531e5e810075aabfdeb28b7999411"
+    },
+    {
+      "number": 1439,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1439.png",
+      "driveId": "11oALbrD_ZxxyOmkeEAH8ttPo83DYf09n",
+      "sha256": "380b6168e76fe0b152a7ec5b0946a0774cb7e9cb5a53430d26f4b3a9c913f5e4"
+    },
+    {
+      "number": 1440,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1440.png",
+      "driveId": "1-_tJv8O5y5Rqz5g8HPPu0q3RMzLd_6Ij",
+      "sha256": "c3dc88694dd6bcd31d8a610f058829c2559692c7215bf257f07e832a8971b30d"
+    },
+    {
+      "number": 1441,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1441.png",
+      "driveId": "1wfhD04JyuZemLB7RtCq902Tl6sJ4TbOJ",
+      "sha256": "e1cba609362e6280284de3250e0e7ee907b642f6a14a408dbd9fae32579040a9"
+    },
+    {
+      "number": 1442,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1442.png",
+      "driveId": "16lMpLbFsCvqkit0aiPHGTWpRvI8IAYbt",
+      "sha256": "25702f64e606c940c384cdb1efe9d07464714370e4c277ca4cbe72c650f0fe85"
+    },
+    {
+      "number": 1443,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1443.png",
+      "driveId": "1Tr7PVXmhE1zeX1VRUvpMe_PPs05KjNa_",
+      "sha256": "15b8ea6ea93cead43f84b7430f1ea71a696c4fe23903f1a0d1c9327b432a8fd5"
+    },
+    {
+      "number": 1444,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1444.png",
+      "driveId": "1V6jsmcfMGeE4lacObiqsZ_jQBTpD7PaY",
+      "sha256": "e46e99b03e2cc46703ce480627c24ef28e73b63b2b48a4a5dfbd77fb7463780b"
+    },
+    {
+      "number": 1445,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1445.png",
+      "driveId": "1Jfr6dySnxStRH525WQ7pO2XMDQYfURfP",
+      "sha256": "da509dc148026a16115f79d278f8fa2898d0c6bf90a16f11fcb651dce27bf2fa"
+    },
+    {
+      "number": 1446,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1446.png",
+      "driveId": "1CXKcYM2yIJthY650IsCp3Mfu99iSQXwJ",
+      "sha256": "6fd3bdfb87cb336710ab38c7fa375b7877c33946f614c50dabc3e0a562bde2d3"
+    },
+    {
+      "number": 1447,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1447.png",
+      "driveId": "18whYNSUsTjIix75OFQPw2ndnZTFq46OB",
+      "sha256": "a963522b334178dbe3bce91e7e4ad013edd6500ac31564b832d77fe8e6c6b0b2"
+    },
+    {
+      "number": 1448,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1448.png",
+      "driveId": "1tkNq8vY14ENPS_D0VPnFzdYxC_4nCGUN",
+      "sha256": "5e1ab88707d355689936b64a1589127f7a6e82522b0096cb944c5ea10001a6ed"
+    },
+    {
+      "number": 1449,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1449.png",
+      "driveId": "1neWJc5ttzIcMYP2K_qcyK_8GukzIliEw",
+      "sha256": "9286af3dcea0df14f14568d28e2c0aec135aae8393f24c0eb7eae644e0cce946"
+    },
+    {
+      "number": 1450,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1450.png",
+      "driveId": "1HFMmKB8_02pP01rEZo6OEk0R2kvSC4qw",
+      "sha256": "94902cd702e779652e5bcf5d0a878a34f90daf62cd4f5a325b97506d3a343bd8"
+    },
+    {
+      "number": 1451,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1451.png",
+      "driveId": "1amX3Gg5foPg5IrH5ns4jmZ5MkOTw7vaq",
+      "sha256": "9a836043e35216e53b1eaf20a65a5dd6046b3cd73bd87bc131079f74d22edbf1"
+    },
+    {
+      "number": 1452,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1452.png",
+      "driveId": "1vvYaeQ49oeOLuZYL4hnCMHUUlEphwAYt",
+      "sha256": "9e97c786ab673fddfc8b39d6d5efaaf18f05613d7ebbc80bae5975b766b901ea"
+    },
+    {
+      "number": 1453,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1453.png",
+      "driveId": "1uGmnaYRUxrOcVHLgNUF4Y1r1pgS58fNi",
+      "sha256": "34d61923691f8fa5fdea8e78813391478e3d005cf3e79574d3d5599a81d8c18f"
+    },
+    {
+      "number": 1454,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1454.png",
+      "driveId": "11OvxEHbE88bTGORakn3QMIw1P9SJgUOT",
+      "sha256": "ce814d312b068715cfd799d3944e9d13cf4418cb0f4f20510e9886729c9d9fce"
+    },
+    {
+      "number": 1455,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1455.png",
+      "driveId": "1fwDr-bMe9HMgksif_cny4rM0lGMXlFQC",
+      "sha256": "77ba1a51f2a6c96d1ae5dbfbbd30a082599679f9018be0c0c12da2661a5599c6"
+    },
+    {
+      "number": 1456,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1456.png",
+      "driveId": "1On2DkEqk_f-vsy7uCPUoF-AFzJoqvc67",
+      "sha256": "f86fb819bb69d7c899a836261a88359953d2b6e482bc0437fc9a001ee0c6089e"
+    },
+    {
+      "number": 1457,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1457.png",
+      "driveId": "1rWkAuLmoFCFiZVjEHgtA0y20RndalmlJ",
+      "sha256": "ad9276bdc2f6bd53742d21ae7d6c2b45f94621b8fc8ea40209d6030470fe1017"
+    },
+    {
+      "number": 1458,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1458.png",
+      "driveId": "1SQGvwkKB4fWAhnuAkz2u9C-YsoaHS_8j",
+      "sha256": "6813f0b3530b410436a88e59a2ce56f52aa2bdb26e86b77029c69828178d1a70"
+    },
+    {
+      "number": 1459,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1459.png",
+      "driveId": "1evWGUT57XoBRV_0YGQVaRj5HOqUy_1it",
+      "sha256": "52f1042af8e09a114d578b3fb4dcd3d4229186a37e731ba09ad178f7bc987867"
+    },
+    {
+      "number": 1460,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1460.png",
+      "driveId": "16jedRkml5wG6Ep7WQ0aTolPjk6XE8OJl",
+      "sha256": "36f5d370948b1d2f962d7d52e45a002eeaeb0dfa54b319a3881ad931c0e5266e"
+    },
+    {
+      "number": 1461,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1461.png",
+      "driveId": "1FnY8CX9vgSS91DNdMzEmw5TYt-UgOPXw",
+      "sha256": "ee05c943869154466c739908db6ddb74a07740054af53e7af7be2a7f83ea411d"
+    },
+    {
+      "number": 1462,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1462.png",
+      "driveId": "1GLLYWeCzsRU2pUkP9Kf4I6iik43HSO3j",
+      "sha256": "1cdec35369fa8f5ef6bb6868978844b0b97c7fcfb5d22caae329d68255c5eae3"
+    },
+    {
+      "number": 1463,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1463.png",
+      "driveId": "1_y0g7t8SYSX8wGgn1DCnw5EbjX7B0n48",
+      "sha256": "55d02bee936052726f272e17afb24521508c1e4b045a912681af42025afd25d8"
+    },
+    {
+      "number": 1464,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1464.png",
+      "driveId": "1XigIhhmfaiMDwA2EP_6xXnBJYHgF6XLO",
+      "sha256": "094eea1b75959e598160cb20e7211ab3646feaaf5051277783762f740e594068"
+    },
+    {
+      "number": 1465,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1465.png",
+      "driveId": "1SaEvLAlniyhVvzPu7Hw-pqYRtAr76c5O",
+      "sha256": "bd3b2c465af73a11504ed120da668ff2c507eb36826e298ade440904aa1f40ad"
+    },
+    {
+      "number": 1466,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1466.png",
+      "driveId": "1W7Xt5cCqEwWLs5P8SPwLAbM9wSmarNGG",
+      "sha256": "90d93c9df672fd388b79721328cd8c7d7fa25cf337556e57ae541b9559dc01ef"
+    },
+    {
+      "number": 1467,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1467.png",
+      "driveId": "1Z8tQvxHUIuPEjEn_q5xXfXpHksNcj1oZ",
+      "sha256": "55381f17cbc079af76dc8bdc4cdddee4dd3a01fbf79b79b01c0b6f2e004b6e21"
+    },
+    {
+      "number": 1468,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1468.png",
+      "driveId": "1S308f6f-QQ59NsjPKbDAbhccwNvzKENV",
+      "sha256": "b8442245d510c0e76556997c2814f5f67cad4032a9823aa517729d1cfeab4481"
+    },
+    {
+      "number": 1469,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1469.png",
+      "driveId": "17zwrYz5cuHLA_jtZCJbG6YyTBZFip3XL",
+      "sha256": "50d1de3f038b8ddebad2746633045b945d8be7a66f734357ea0af4958a6b861f"
+    },
+    {
+      "number": 1470,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1470.png",
+      "driveId": "1ZHg8avr4iu5ofv3BfKn4z9yvcjcFcRVa",
+      "sha256": "96bfdec64d31ec24dc3fffa050d218cb5b3a4d3aa04c13535daa946aa6c4d2c2"
+    },
+    {
+      "number": 1471,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1471.png",
+      "driveId": "10cm62UqiIBh9lfgmJiKHntBWLTQNlzU9",
+      "sha256": "89e5b5254571d7dff539d1a593aeb424c355f561b41e5ffafc66389cd7e0d1d8"
+    },
+    {
+      "number": 1472,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1472.png",
+      "driveId": "1gENPgGemhHDM80Vez31OcBbq30BWtNup",
+      "sha256": "2aae3275083a2884e619281994bb7127b7d1ae26d05466b71f12c8456659e8de"
+    },
+    {
+      "number": 1473,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1473.png",
+      "driveId": "1Unea4nmav1TG7VM7cqe7ueuFQCEKaU7I",
+      "sha256": "e7d6bc3be5354a5ea7e023e3fd709973c9b554d3aee2ef7ac7f5addd37c70a5f"
+    },
+    {
+      "number": 1474,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1474.png",
+      "driveId": "16S9zUU5p_HTzLhl-dqBFEs1TbUM50xlP",
+      "sha256": "f9497075dd7874d193a66085d77badd5daad1735dd3f43b906fb3883788ccdc1"
+    },
+    {
+      "number": 1475,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1475.png",
+      "driveId": "1TkhlPqSPEvLPwGfRt9WYIM6S6-pJ6NRk",
+      "sha256": "bf92dcf2d2ae2f831ed360adf47b6a5a30dc70300267659704339952f74a5181"
+    },
+    {
+      "number": 1476,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1476.png",
+      "driveId": "1M77rurNEYzOY6rZOyKwLKO2v38O3R8cr",
+      "sha256": "0580335808c19006670a4f03de435a2071586e457431466139bba8114e9db824"
+    },
+    {
+      "number": 1477,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1477.png",
+      "driveId": "1yju5Trvn5rq4y7bFsOjoFtU1VuD5eaSo",
+      "sha256": "07d9aaf96ee18bf8aa03e5832a0f971baff41239dd9f41f356d4f5ec9c66138e"
+    },
+    {
+      "number": 1478,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1478.png",
+      "driveId": "1M8AzBodn6B4OK2akiRfPVSdah6qIqL-a",
+      "sha256": "0c08d53cc7dca768ff16e1e18a746115b5ecf264c77f5833e9096ed3cba5ae71"
+    },
+    {
+      "number": 1479,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1479.png",
+      "driveId": "1ecSYpUiODviaudlQD-XI2ZHsoyUoRCvp",
+      "sha256": "f133b2372f15ae77f6399b5d982a2ecf715b3e7462086d05c07e9b41cb4d8ed7"
+    },
+    {
+      "number": 1480,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1480.png",
+      "driveId": "1MPd0zsPMJy-Kwpua3y2JHM3N7mjAJxna",
+      "sha256": "0e19dffccd679da69697f1e63f94e56de6a6d61aa011ef260c0b8aa1e22b4c2a"
+    },
+    {
+      "number": 1481,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1481.png",
+      "driveId": "1qg08lh61Q2iPE-qVtdAO6KXH9wf24gcf",
+      "sha256": "ce7cd54056720b065296aff6f0f1bdd80896e377ff43248532bffc8ddd652654"
+    },
+    {
+      "number": 1482,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1482.png",
+      "driveId": "1XORgz_bIIHNezHXnaYJr9Rf5Z0dzPvC4",
+      "sha256": "6416eef4fd5f25f6647b333d1d590ca6af7a7783d452874ba0de391fbb4e48e1"
+    },
+    {
+      "number": 1483,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1483.png",
+      "driveId": "1XmbzbCD_6EfQAgMMQmbSJ4XMlC8DC9Tq",
+      "sha256": "773289c522699b53243104bacfdb708469a46df853215d07182319f2f0f8254f"
+    },
+    {
+      "number": 1484,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1484.png",
+      "driveId": "1vam7P_uBNSV6cyq9R5KGVCUqeNndgQlo",
+      "sha256": "7f474d1fdc5f9401ba96941cdb540c01020028d31ad5b664f050858102cec5a5"
+    },
+    {
+      "number": 1485,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1485.png",
+      "driveId": "1FNdNoDW1vxwOYy9siKgSuol8W1ftD1pP",
+      "sha256": "891b865fd128edca8011f063f938b3acfff450f0f55cd7032d286a22cf16dd14"
+    },
+    {
+      "number": 1486,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1486.png",
+      "driveId": "1Q_p2F3_5hG-wn_9Tr3hH5fzhSfqi91Ck",
+      "sha256": "36fdb2942df357133ec72cc6b2bccb929553f349626768eb184d5053d3658a0e"
+    },
+    {
+      "number": 1487,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1487.png",
+      "driveId": "1lsED2V7icd2WxcL1la99cjXnMlLrlQFw",
+      "sha256": "1a2b5df26d852420e0bfbe6de8fea3fe08c6b1be74026f61eb023424fb38168c"
+    },
+    {
+      "number": 1488,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1488.png",
+      "driveId": "119uQYywdWjZmSZ8umK95QrkjubGr-nfw",
+      "sha256": "0c9f77877981d3b0170617de1ffd5229947d7ef5b0f7f77c7ebebd6cb33887a2"
+    },
+    {
+      "number": 1489,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1489.png",
+      "driveId": "1Htgbq8AkY_Q5j8H08Eecevedxkcy6wzM",
+      "sha256": "4e968f26741c71d3db2c51dc3037e01519347d45c8eea0b1e63920d1b7c8d608"
+    },
+    {
+      "number": 1490,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1490.png",
+      "driveId": "1Wp_zj7LNDoZcXJmxuKhkyHu2mKwIaTs6",
+      "sha256": "1dfd3e095017ed71af6f1767fd15b5f44dec442804f2ca7258cd7908772af571"
+    },
+    {
+      "number": 1491,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1491.png",
+      "driveId": "1T3Zsypfd9guecxsEx3eEzjWhtiUpmIrV",
+      "sha256": "ca15e22060e0b17b60e9c14fb070b11db82db9108367f48648f386dd549b1e0a"
+    },
+    {
+      "number": 1492,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1492.png",
+      "driveId": "1tt1h6ReC6sDbv1pQXrKJGfC2TzBGoe_p",
+      "sha256": "3e858e8fc1d6db9d681989fe1259dd2d373e6f008d64f39b6072b03c71779b4c"
+    },
+    {
+      "number": 1493,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1493.png",
+      "driveId": "1tiTHhYfYLe9DxZMTrKhAsNLR8OWPU3Yn",
+      "sha256": "d16e4465e9594bc84877c0617df98a521ce29911ff4395a9e53d7ffa47e1c2df"
+    },
+    {
+      "number": 1494,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1494.png",
+      "driveId": "1J_-wODWpFWL3bxw_OdeYNKZGBM1MSJFy",
+      "sha256": "4ec7b738e22aa806c49c784276d11898d39d4b20239b976c842a239ef9ccd3de"
+    },
+    {
+      "number": 1495,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1495.png",
+      "driveId": "1W5jF3usNRenV4jtlyIKVCdu5yuXhkgDo",
+      "sha256": "72d69313bb30a78de14bc8fe8a236039b311dc7d9cb7aeb87e757321492d811e"
+    },
+    {
+      "number": 1496,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1496.png",
+      "driveId": "1s6po9LVV0M99yKJs9Z7citJwPmtMbq5l",
+      "sha256": "be841890c153256a7a6578e6ce1a1a343d4596476440eb7ad73f918161594a4d"
+    },
+    {
+      "number": 1497,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1497.png",
+      "driveId": "1L0csrtAgesYpiDcvPbQ-f2-X9dWmU6E3",
+      "sha256": "dd1348600477a26a528a714fe55f254dbcfedd2a8e40f176c88418dd848f884d"
+    },
+    {
+      "number": 1498,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1498.png",
+      "driveId": "1gzOWNRd8Fe0-rfLxJaDFVQnsAGqWyEpF",
+      "sha256": "8b1acd73ba673c3a7a6f9c48bdc84569df59ee1bc0bd3f76b3b2af8a1d8167a9"
+    },
+    {
+      "number": 1499,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1499.png",
+      "driveId": "1k7jY8c-wegG_D9gxTygiHzCWeQCaYJyk",
+      "sha256": "5ffd2835ac38d2396bd6e97a1ca9d8ffad61df3f3fea552148d66d438a85ce8b"
+    },
+    {
+      "number": 1500,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1500.png",
+      "driveId": "1Ml3yKo1p5Blj6t3jWEa6U9tL7E3Lbco1",
+      "sha256": "098c88d34631a75c1176eadba9310ab0214280343dc22a66b0427e89313f8a97"
+    },
+    {
+      "number": 1501,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1501.png",
+      "driveId": "1kmnDzHKY6nZ6CMANJncbuLUhL5qYckTy",
+      "sha256": "3092faf8c70eaa3ea5dda9d20f8b6ea940dac184b7a1c2e2fb1736601d779582"
+    },
+    {
+      "number": 1502,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1502.png",
+      "driveId": "1BdKQE5kr2n2ZoETnx8jqk59mvp-zH6N6",
+      "sha256": "303082a9bbfa9ddfac010704f9620d082b033c8a926f338d2658dc7f25ce9ebd"
+    },
+    {
+      "number": 1503,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1503.png",
+      "driveId": "1JX07j20vHIHqlNgNJYXvh0oG288FXuLr",
+      "sha256": "37e76112565ec78bd6220fd8b527ea43487703bc17e5a0333c215c1cc660d551"
+    },
+    {
+      "number": 1504,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1504.png",
+      "driveId": "1wGHnEr1-RiCCm90egPMXiDl-LiPYx1NY",
+      "sha256": "ffc0eddf5279beb17cece95aa10e06997081a89fa7c61a8ca0d6d651767fa6cf"
+    },
+    {
+      "number": 1505,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1505.png",
+      "driveId": "14UujVaJUltMQR8xsa2b_OczTmACouLF6",
+      "sha256": "9bedd50e81977e949adaecdd86037667eeec08ca2fa205efbf4ad65f915b1fa7"
+    },
+    {
+      "number": 1506,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1506.png",
+      "driveId": "1qynsNRFjq6eHH1yp5ItpGIyAcxZzbrwa",
+      "sha256": "7bd71521215a8b16be18f81fae70665bb6ae4f51cda19cc21d52a1335b93a5d7"
+    },
+    {
+      "number": 1507,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1507.png",
+      "driveId": "1-OpY5aYeuDbPKBaN6L77ge5aOLxbR4RI",
+      "sha256": "c77c0b34f5c31e0e6ed211640232553df2e6d3810be9c438bca839f70eb01389"
+    },
+    {
+      "number": 1508,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1508.png",
+      "driveId": "1Hc26r81UNXzD0Il9HNezg_-ORbAWhuoZ",
+      "sha256": "cb755f3aae1ec9ffac15fbdcb655728c788470066a27f335b57b3c140b9ebf77"
+    },
+    {
+      "number": 1509,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1509.png",
+      "driveId": "1K7g9UX7gVPXWCkZaHnuh-UY93QF38m3A",
+      "sha256": "9c852df079049ee1b915788903db03ae6e76e4033963c74fa5b20b227d463261"
+    },
+    {
+      "number": 1510,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1510.png",
+      "driveId": "1t1ANtfWk44TRevMfWp95rA6cnU_LkGYa",
+      "sha256": "138b4c47b19cca89ed3fe319c2c89e69b231310ce91eb705a3661b858b07fcd4"
+    },
+    {
+      "number": 1511,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1511.png",
+      "driveId": "1kQnTXNER6A3aZjSzDLPk8eGi4jqNWpNN",
+      "sha256": "9a3a2f29abeec7bc5ef9553baa99d19e67a92e215e82ee0ab554936f42d40e04"
+    },
+    {
+      "number": 1512,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1512.png",
+      "driveId": "1qTZo1bjO2ERdG1OlUYs6TeMQ71wS2Apb",
+      "sha256": "ad2cf2307e5e7328807577b882fe07d9cf57b7bf24b3ca79c54cbf29ae3017b8"
+    },
+    {
+      "number": 1513,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1513.png",
+      "driveId": "15ElMHDGmC7uJ3uhYiX9B-e8j-M43kR3O",
+      "sha256": "544dec539fc924735f730169789ed2980450695d1ff6a0188cc3ac35f74a66fc"
+    },
+    {
+      "number": 1514,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1514.png",
+      "driveId": "1QmfKyA5Q-_fN6-MLA6oqAEW0g2QKs22v",
+      "sha256": "b6fb3990c67336091cccbf8227fa2590b81025dab0c7124450f0fe4efacf6459"
+    },
+    {
+      "number": 1515,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1515.png",
+      "driveId": "1lZTJSOzvUQhvJQgj3sr3e5RKXaYdhzl8",
+      "sha256": "29c5c202e8f818a8a8ad804f6e6bd9c1421f774149a130d1f87926ec2658ba8b"
+    },
+    {
+      "number": 1516,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1516.png",
+      "driveId": "1HvSh03f1E8OtK6DW5LdACNuJeSxvTumt",
+      "sha256": "fd1ad39dd09699dc6aa7c212f4b4dc5ad2c93f2e5943cd1dff9e0ae09767a0e4"
+    },
+    {
+      "number": 1517,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1517.png",
+      "driveId": "1JK-rzMOSJGXWc9S5uuQPNEDMQqOPtZvM",
+      "sha256": "c8d235c2c3cb7d3df1191633ffcaea7eadcef7a7d8a9f009acbc4ce4dac6ad2a"
+    },
+    {
+      "number": 1518,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1518.png",
+      "driveId": "1X1eOlktoc0WY2FEXi2L2jU1dyntLdEd9",
+      "sha256": "78b2e5fb1b16ef491ebfad6fb70a7a1a97db258e0e1296bbab9b68abafb32785"
+    },
+    {
+      "number": 1519,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1519.png",
+      "driveId": "15nEpC_IEF0HdhCy5lzxpIxJ8F5RiEX1E",
+      "sha256": "12e95137b1d55c18ce8524f05d021109ea3cf10f065d1dc14579bdf4edd2c8b4"
+    },
+    {
+      "number": 1520,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1520.png",
+      "driveId": "1_PgEy-lPgNipCJSYuyqNn7OaQ7F6ZcRh",
+      "sha256": "d6ec1468fdca8bdc1cd93584e5868445e4a439efda985a36c684bebeca89a07e"
+    },
+    {
+      "number": 1521,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1521.png",
+      "driveId": "1Dgew0x082RxusbS-Ec_fsPKIoq3DUbYU",
+      "sha256": "caaf74eb2ce37a6bf82aa194f24330fd9b6ef28d9cd294fca7653bf94b31909f"
+    },
+    {
+      "number": 1522,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1522.png",
+      "driveId": "1-EWvGI2P3c6oydT9qnODB2LzZeRcHtUf",
+      "sha256": "a36b9f34fd7aeceb0b97ce2c0a642d9761ff94496dd58aa45b99d5eee2de05e7"
+    },
+    {
+      "number": 1523,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1523.png",
+      "driveId": "10W2Wcs44o-VMPfdGsC2ZKxE1-N8GwvQG",
+      "sha256": "3c4c1ecccac4ffdcc7c6bffd290cb9fd113c24f297787f83326cc3a02b4d6567"
+    },
+    {
+      "number": 1524,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1524.png",
+      "driveId": "1IaBpaxTbp66Sc3FEBWQiBjZGHFktF7B7",
+      "sha256": "a8507532f5de611f562c2f54dddcbab6300b928da82aa299d049a59e4dd05b7e"
+    },
+    {
+      "number": 1525,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1525.png",
+      "driveId": "1Zg0bVpXfK-r1Y6ltXQRrnApL6f_3Y0G-",
+      "sha256": "816c8e463dd270c2a3e798253f603b3188aa93f14512167251115b93268ff913"
+    },
+    {
+      "number": 1526,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1526.png",
+      "driveId": "13CtJ75wxQkq6WmeZq_ekLzVWdgaMljHA",
+      "sha256": "7b07af37d695a45353495eddd5416d2dc06269ca427aacb641b5d450c123677f"
+    },
+    {
+      "number": 1527,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1527.png",
+      "driveId": "1L7IJWc2n_6l5hKuD4fDYMufjl1JF8SKk",
+      "sha256": "70a10d8dc39276a617028de6475ee87c64eed4c81840487594ba47eb5a8b22ea"
+    },
+    {
+      "number": 1528,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1528.png",
+      "driveId": "1Qqj-VtzptwnVxg9H4gTy3dRHDEIrA5Sx",
+      "sha256": "26e27a3fe1d4d17a2cc5ca760fbb14dab76ace72275da0e6ab4bbe2536b9ae1a"
+    },
+    {
+      "number": 1529,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1529.png",
+      "driveId": "1LPhIxO9xtItQXlqj4ACL6DlgOPqH4hQt",
+      "sha256": "4072caf1f88691bd835251a792d1d965351826d7d5c0e903e00d74821be88c06"
+    },
+    {
+      "number": 1530,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1530.png",
+      "driveId": "1ed24Enh9y06ckOA2CojOs4vwlRTO2m04",
+      "sha256": "8c5b53ad1f40c9feacd4b5b54e8662fe342e3b3dba86d12834821aea71f6a021"
+    },
+    {
+      "number": 1531,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1531.png",
+      "driveId": "1S7Wt_BEK_0I7ry1gA7gfR00RTCLY9m-_",
+      "sha256": "429811906aa754025e72a6c97e669383b63f939225b4386e4f3cce690a00c0dc"
+    },
+    {
+      "number": 1532,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1532.png",
+      "driveId": "1FxKpgsanwXf9xPrUpwWhhEArBhP03dlr",
+      "sha256": "abac00576ca2fc25fa986c77fd111dbc0fab605d75be8a5674b288f30281319c"
+    },
+    {
+      "number": 1533,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1533.png",
+      "driveId": "1O9rvqSq-aKb8LGiRMpwmkWyGrCDn98ti",
+      "sha256": "bce5c9cc73750f7d65d4cc3261316bd8f28c7b1ae96877e2e0ed39e5862b5955"
+    },
+    {
+      "number": 1534,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1534.png",
+      "driveId": "1y86cS_Hqbnar-0sjyUV2fz_bYKAeEdtH",
+      "sha256": "fdef24f4e0a9f00518760ef45b25cc803614231dc1483d2041db6ece42a54c24"
+    },
+    {
+      "number": 1535,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1535.png",
+      "driveId": "1KCXR_H00WK33c1FPvjOQ_2CGnu4vwS3R",
+      "sha256": "6f0aae5821ac81d6802dac84d2fe34658b5c4a3ef64d75680b82755e6af35263"
+    },
+    {
+      "number": 1536,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1536.png",
+      "driveId": "1EdPGgISLf3UhVE-K__ZEe0J9cXjFlN6_",
+      "sha256": "908d75eaa0b6641b206c02040bae2003a32a3e7bfdf8fb3b1ce1376f152fcb08"
+    },
+    {
+      "number": 1537,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1537.png",
+      "driveId": "1Ht33LRhmXZr41RRfvoztOnALCNq0_8lz",
+      "sha256": "719a386526c079e53ebde990a2c5730fda603e241f1927aa3fe05e96d61c9fc9"
+    },
+    {
+      "number": 1538,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1538.png",
+      "driveId": "1k_nAAGAqBzWcDrAW77pTs6K_XRJYLjfr",
+      "sha256": "7cceac67062b7ffdde9e1277699d240b5dfd69601492639ec3f4ffe37259bd77"
+    },
+    {
+      "number": 1539,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1539.png",
+      "driveId": "11o5WAaYcWS2GwyuU4xltOM2s2HivcnMD",
+      "sha256": "71de8d1a3d083a7541d399630809396b121e7c010775e7f5fa3332b374b435f5"
+    },
+    {
+      "number": 1540,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1540.png",
+      "driveId": "1wpNQW9Yq97s-w51OB9G1agYY32BWA1EN",
+      "sha256": "a5c4dba587f29cf95ce6e3cfe63fca753728ba39baa4a2463e8a4bcf5a1a5aac"
+    },
+    {
+      "number": 1541,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1541.png",
+      "driveId": "1xhHvgNo9bFneIaCDdX2VFQnPUSNucQBt",
+      "sha256": "3d0941b676c63aed677a1b0a2eb0805658b84e9ab0e480aaedcaee743abaadac"
+    },
+    {
+      "number": 1542,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1542.png",
+      "driveId": "1l7t561Y1q-yfua2dSe_wc0zSuM1ZAMfj",
+      "sha256": "2b907417f1eaf1b9826c88e08a3e2a1df374791fc996075d4048588eed167548"
+    },
+    {
+      "number": 1543,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1543.png",
+      "driveId": "1IfHi6X8YFX0jBkEHMtCfqWqBaGYEMARA",
+      "sha256": "abef9aee89016ae60a0635b9d87cfc0d6651b44372a88a424dec0de4e3c40438"
+    },
+    {
+      "number": 1544,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1544.png",
+      "driveId": "1dagXTxtpthS15YII9KOmwVYmwOURFbL1",
+      "sha256": "b8a9849662ba3d1458ef691b07b2f6261709745310df640b0921da9843f6a3de"
+    },
+    {
+      "number": 1545,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1545.png",
+      "driveId": "1cKJgom5r2Z3QQd8szxhpoukXQ_mJDTkm",
+      "sha256": "f1e82c318c29e295505a9f88c6b9db1bf000240bb0a5cdb2008367f0d852f2be"
+    },
+    {
+      "number": 1546,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1546.png",
+      "driveId": "1-HMrtXtDmt7FeKvYbmCS1_Ov9HFy05qW",
+      "sha256": "3a8cc61fafa9639e6261afc825cdefc07fcb60b0edfb4950045df664448e8c62"
+    },
+    {
+      "number": 1547,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1547.png",
+      "driveId": "1nxttepTasM-DTksN-LRvdXHgKpnD7FoS",
+      "sha256": "b8396d90eed3d5fe426822989d913f893f31af48c9060b031369a05fcbbe8a64"
+    },
+    {
+      "number": 1548,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1548.png",
+      "driveId": "1FcguO_la1ShxVfn58ww2vjlLZnpV4LLB",
+      "sha256": "4e76dffd674234428c1bdad5d83e0d776ee7902951c83a4ec378e80494ef3d4c"
+    },
+    {
+      "number": 1549,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1549.png",
+      "driveId": "1TJw4lamI7iD_b1mjX0ViOP_LFUHyONlK",
+      "sha256": "c567a7bbe6c763810b6366ee304eafc00f5618339ab1093780c10a58bdc52db6"
+    },
+    {
+      "number": 1550,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1550.png",
+      "driveId": "12RI_LWHPgVvUJF-8vmOaOWJOZTgZLJ14",
+      "sha256": "916fd1b6032e8633cf9ced8ab5b3ba234b1a2682a8bc96c916e725d8d95b603c"
+    },
+    {
+      "number": 1551,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1551.png",
+      "driveId": "1Gw_HRFP6C6ZhXalzX1Lf4zLP1Y4sJCP4",
+      "sha256": "3fc7cb3b4f04f573b444a06678b4ef6883692ca0d17cc74d91e4ae53c1636e19"
+    },
+    {
+      "number": 1552,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1552.png",
+      "driveId": "1Pzwo0oCon3jwijVgHXRX2bPNmu9_KX5t",
+      "sha256": "07e4e3c15e5ed598e6aa77b0152c007d5bfb51a6945f4d96d3ca7d95daeb589b"
+    },
+    {
+      "number": 1553,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1553.png",
+      "driveId": "1bOfAk3ZMwZKiikoRZV8KmGv_8ksyzZsl",
+      "sha256": "bcf5ab1fdca1447d94dd3d23800b915b5e873a76209519db4a3fc1538c79a102"
+    },
+    {
+      "number": 1554,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1554.png",
+      "driveId": "1cwTuZl-GA_kjvTSYEMPxTLyApNyVMgDz",
+      "sha256": "f3b220e9e74b88a5d7f363b014e8cf2bc4033106bce12967f3f701fc3351b8f7"
+    },
+    {
+      "number": 1555,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1555.png",
+      "driveId": "1jDr94rKHkdUZPkZ6H_ogUL9y2t399hNg",
+      "sha256": "684f9547eabeaf1a827664aafd16a7020343bb90f894d4fd4cc7f1bdbb01635d"
+    },
+    {
+      "number": 1556,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1556.png",
+      "driveId": "1Aep5YMol62Lf9soyJKnZnxMgllKb9q3q",
+      "sha256": "9ef7dc6a2449c9bca877f0d928d585c271e4fe0c71f365ce3d1b72a8eedba93b"
+    },
+    {
+      "number": 1557,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1557.png",
+      "driveId": "1wkjbQ-V_Fdpk__T5RdtmQC9Sh8iOYuhw",
+      "sha256": "eda9d344660c94d324c5cafab5ffdd261af995fc93cf5314a1974d33ebcc9db6"
+    },
+    {
+      "number": 1558,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1558.png",
+      "driveId": "12jsIIVW-9SLQErPaDkCPB-uGrou5D8Nc",
+      "sha256": "c80ac5da22768f91e3fb6af43209d3513690569ac55563914e0cbdd6c5028519"
+    },
+    {
+      "number": 1559,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1559.png",
+      "driveId": "1h-Zj4gIlC_ZnA0b0JHsNsbW8aKU_wWxH",
+      "sha256": "db5e2288a57fe0350527a74fcc210a873b7047612b4be8c27665acd41a136eb0"
+    },
+    {
+      "number": 1560,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1560.png",
+      "driveId": "1KrjQIdUSdd_6_H07rKl1r8E9eNzdt_8O",
+      "sha256": "e7d817258429860358531d055577c09654a50bd53a569aff5701cdd8d071bc19"
+    },
+    {
+      "number": 1561,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1561.png",
+      "driveId": "1WbD-jq6uDyFwDxOcka0hOvh7nzBSqRXN",
+      "sha256": "d5052c85a9ebc90b387b8f2b66e6e41da061d79f123477de4f10bbbb2e4c7a8f"
+    },
+    {
+      "number": 1562,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1562.png",
+      "driveId": "16nPH5U7V7sWaK-L92jwOwadYX1OvICt6",
+      "sha256": "10754942049a64804817bde4ba334ad4edb98025521eedf1bd853832d0936b44"
+    },
+    {
+      "number": 1563,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1563.png",
+      "driveId": "1soZHh8f2RU0OB7AnlfXL9K_o5oWhiS5-",
+      "sha256": "68f91cf9e783dff53fcfd6e4b1cd169df278b6e56cd0394268ff3c04576ab64e"
+    },
+    {
+      "number": 1564,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1564.png",
+      "driveId": "19yyNHMsdL5ywMT-NcUn7Ju6Xi2Thjffm",
+      "sha256": "e164e7a2fca8790c22777dee769c10eb764aa7e95a9a9cb2a25055a125462a1d"
+    },
+    {
+      "number": 1565,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1565.png",
+      "driveId": "1fhffIAbmDhG4cWuS-C9BAl6w9ZnR8oG9",
+      "sha256": "303a9cea78ab0824baeddaa8b4c94858363fd1a474b77fb41be309854cfede07"
+    },
+    {
+      "number": 1566,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1566.png",
+      "driveId": "1I6Iq_TKvKHW4UmWrapIZFX_vwqcxlNLc",
+      "sha256": "ff82678e1354d463cfcd76057f630dd88daec8ee150ee1bddefcec499f34d674"
+    },
+    {
+      "number": 1567,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1567.png",
+      "driveId": "1pLgQ4nKUdihra_ZyQ8q603A6mrLJu4a_",
+      "sha256": "1af879764cfe2ce0843c93a7636e7c7bb00bc86f3352c01e4c970e995117fa1a"
+    },
+    {
+      "number": 1568,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1568.png",
+      "driveId": "1JYGuUio3Wf5APgldegr4QpMrb13S34zI",
+      "sha256": "a77a96e16ba4760af0faa57d30195215dda5b8a6b88fa4dfc299deca26709f5b"
+    },
+    {
+      "number": 1569,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1569.png",
+      "driveId": "1uF83O9x1gWnOBqEBgW3QaNHBnRKr35Q8",
+      "sha256": "ad50088d1cefd3c84df5bbf819b16b49a44f3383e69d411b91f84f1f9f180e99"
+    },
+    {
+      "number": 1570,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1570.png",
+      "driveId": "1h3ttMeo-qY9Z_fCB2QvyPSWj0BL_6j3G",
+      "sha256": "067e5c0ae7cda371cc53a011d9f8d8f7454e6017b3a7100294c42fd7f2fe099d"
+    },
+    {
+      "number": 1571,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1571.png",
+      "driveId": "1BjzZikxWmMfYw04tHKACwvWMw2dGquwJ",
+      "sha256": "723a872d66fb00e548d760dbca5175fc814371fa2a0c32c32de486b260a8f5b6"
+    },
+    {
+      "number": 1572,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1572.png",
+      "driveId": "135fYrJk-wQhKDdG6LOzCEDr5iJ-FH3Bd",
+      "sha256": "208b31974162405ec1a1ab59bc374c5e4bef9f37dc7113895debe3b51679b7c4"
+    },
+    {
+      "number": 1573,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1573.png",
+      "driveId": "1J85MmltESu1fbCLno-hgfm1oP78BhKCz",
+      "sha256": "0c5009ad9ccfb4b97fe268b59498d962754a36ef978682a5b5ffdb21f495f01c"
+    },
+    {
+      "number": 1574,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1574.png",
+      "driveId": "1YGb9PuCBJrhH9tSmuXT9Vmf25UpxQcXZ",
+      "sha256": "be7394850c182b57775b498d72a1ec147564ea95678fc26ca7ab17715f6848e9"
+    },
+    {
+      "number": 1575,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1575.png",
+      "driveId": "1iTQVPle2wQjARFcRFYUtQQpeQdYuNKmO",
+      "sha256": "524eceeb5fbf576677613314e269faa945966d480c5bba1ffc554813f8ff45d1"
+    },
+    {
+      "number": 1576,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1576.png",
+      "driveId": "1BGoXuQMYHAFBscK_3TKrdOpZRotsW-9H",
+      "sha256": "1c261154d4822782e827d133fca26cfdb8776c1e581e0cff8126c217c739debd"
+    },
+    {
+      "number": 1577,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1577.png",
+      "driveId": "1I_wkWgM5NXj61dvikDpBS2SbDinIdzcP",
+      "sha256": "567ed75975c97e75b72f8eb5b1987b5adc377a764576f18983f3472c3a65ee6b"
+    },
+    {
+      "number": 1578,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1578.png",
+      "driveId": "1WoD4Alq69paGw-NB9hVa8zyiutYyMdN_",
+      "sha256": "b3963586402562af94ff7c7a9bef519f5f57abb9cf3ac98b15657bd76c77e143"
+    },
+    {
+      "number": 1579,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1579.png",
+      "driveId": "1Nm0d0R-OaRO85hajB_MWZZMvMPRpC_op",
+      "sha256": "f79b79046acd40b5e64fb0f7eb209ddf03a8e36e69a53add0ea7fb8f8b4c47fa"
+    },
+    {
+      "number": 1580,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1580.png",
+      "driveId": "1zKn_CsSkpUVHigKLw2RrkX99kn5-Hf0b",
+      "sha256": "e21b3d1f3955cbd2e1c1175d5d8d92dd354d93a60d7c11d91466bed427240c8d"
+    },
+    {
+      "number": 1581,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1581.png",
+      "driveId": "1TOfV5v9uRzGltSK8Xqek1pAkJwSDCDZD",
+      "sha256": "844600e988e48cb305304dc96b9ffddcba868a95546637e4ad57168498c45586"
+    },
+    {
+      "number": 1582,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1582.png",
+      "driveId": "1u3FadmH4aZ2LGQCgiKuVdK3qD12XCx-z",
+      "sha256": "e6f79cf2520c8616580048e5dece55da2dc66f963b86af5712d4452b960c8794"
+    },
+    {
+      "number": 1583,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1583.png",
+      "driveId": "1Vmam9ItGSxUoflP4AOUunPuCixU0nf_w",
+      "sha256": "746ee8acaab7884f9a951a5e6f096238c4723daffbf101af774856bba4e47648"
+    },
+    {
+      "number": 1584,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1584.png",
+      "driveId": "1dNlLP-439LopbaPAQgw20qy1O3qMVGPS",
+      "sha256": "c6dea1dfb869f3fec9f8909f070105454d95225234ff419dfa389ead7fd419dd"
+    },
+    {
+      "number": 1585,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1585.png",
+      "driveId": "1fD434XgmF3N9la8RCqOEp2Xggx6bYO4q",
+      "sha256": "b3d0e491719aa1485584c6fe6c4ef6dc01f015d0d24c745d7d0ff8ea737ecfa8"
+    },
+    {
+      "number": 1586,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1586.png",
+      "driveId": "1aeVXbtpbtlBw8Ur0S16SP2riTjNe-PDM",
+      "sha256": "a2fdb0a69059b0b2fd1dbaff5b1566ac0dd324f3a2f0b55f9edf4ac2c4cef0f4"
+    },
+    {
+      "number": 1587,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1587.png",
+      "driveId": "10Qll3D_-HB_VL9Jee6d3a2b_TxNHxA4b",
+      "sha256": "d27eedf757cbd1d8f9fd92b855dd0b2e8b804717c51da4e25791c889d94fd00a"
+    },
+    {
+      "number": 1588,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1588.png",
+      "driveId": "1lkb7VElE2VosBLQWbhO6B_mMgFynjitu",
+      "sha256": "45c51b168885d18e15a73b368b036f89c7c26fac83fb1cb35d30410f6b2889dc"
+    },
+    {
+      "number": 1589,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1589.png",
+      "driveId": "19ZH-oIISUXTrdPyUGBElHh2vLI9Z_1ox",
+      "sha256": "54005ca90f72a6939c6ebe57eef3e2b1c9cb38f37351e8f177c10497eb06add6"
+    },
+    {
+      "number": 1590,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1590.png",
+      "driveId": "1p1XtyY2a6HoByyHKE3zN06GVNNwWVQfU",
+      "sha256": "fd6314c75bb8c2d21e5d26ff163b758fa2e23e24d87a5f0f14b784d9bb89ed3f"
+    },
+    {
+      "number": 1591,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1591.png",
+      "driveId": "1sJHKxrgH_GCQgqgcwlLPPDGhcIXyRLYW",
+      "sha256": "e4b4124c918eb6406804503c9068a6da090c18b1630c78649e6b37d556d02505"
+    },
+    {
+      "number": 1592,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1592.png",
+      "driveId": "1hPoi5qFenhG90EUFaSlnVejmOuqut221",
+      "sha256": "01c2890feefe1d4e40020193df2dfae381d11f30f5d414d19ae854bfe39a775a"
+    },
+    {
+      "number": 1593,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1593.png",
+      "driveId": "1peUZXhYYdmuC7kY4j3w9z12TuIRJzZxa",
+      "sha256": "9d00f0a5313149002cd8a57cc035816f7f6cc90df90cc1d85c5af78cc87e38ff"
+    },
+    {
+      "number": 1594,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1594.png",
+      "driveId": "1CLqBuHaUOgqXMGXs697wzaOQVtmpAqYl",
+      "sha256": "0962244e5cc178aa09f2ee091f2ff8728b0a56a20f6c0ed4f53103c4cc32e569"
+    },
+    {
+      "number": 1595,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1595.png",
+      "driveId": "19VzCbPi5qlxYrgwvhTOAe6QsiHB4F6bE",
+      "sha256": "6660efa357e2011489737c47c1b93b4869de416d80497f4894db063c4c250736"
+    },
+    {
+      "number": 1596,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1596.png",
+      "driveId": "172K1BNAKaHqk-leBSlIiLSxbx__FS-ah",
+      "sha256": "3c98d93ddf04fac29e7cc1e9466df95609c4778455eba27053a15ae21e3c99f1"
+    },
+    {
+      "number": 1597,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1597.png",
+      "driveId": "1lwT23Lg3ceLrCu4CD5mrLQ0hg_8-d8XE",
+      "sha256": "d8b53798df21fc81ced8caf3a3099f34dc185ad57489cccfae9fd149a3619f12"
+    },
+    {
+      "number": 1598,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1598.png",
+      "driveId": "1C5xqCZtSfpmCb8TMf0h8p06aBH3Ofrgc",
+      "sha256": "1dc1eb64785a79e5a81f20644fce8c7eaadc2d680feb8f7c70be890f54759684"
+    },
+    {
+      "number": 1599,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1599.png",
+      "driveId": "1CFwkJLCq5eR5RKytLTAQc16wLLuc4Ulr",
+      "sha256": "73cf2d77d2b0f8b805e40f2cf2490894d6268f86a736c88bd3357fc933867816"
+    },
+    {
+      "number": 1600,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1600.png",
+      "driveId": "1W53ilOZJvZv05OZIo6lF0mzRkIN2jBuY",
+      "sha256": "78b2ebdb9d013d344495db90ce16e6a24189e85d2c6014c432854d002918f117"
+    },
+    {
+      "number": 1601,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1601.png",
+      "driveId": "1_YBl5I0qKgmqC5AJnpGUkxgk0cyeGbTM",
+      "sha256": "3958719fca91745b29c3000dc1f3b2e9befefcca72f640b4512233de685ecda5"
+    },
+    {
+      "number": 1602,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1602.png",
+      "driveId": "1Qvz4a9UDZIpwAmiYw84mop_Wx4xjzPPA",
+      "sha256": "cdedd0d6b9514d0200bf2d894dd830b691dc806fcf4621b4c3475ea0935a3ab7"
+    },
+    {
+      "number": 1603,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1603.png",
+      "driveId": "1TgF43YtrVeFfTyBPNdsmOxXZNJW4UGLm",
+      "sha256": "7eb3be57bca3f6b207055ff4b8098f32ec8ec68fe71e3c9dcb5f1a8db86d2523"
+    },
+    {
+      "number": 1604,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1604.png",
+      "driveId": "1uA9YEnUMu9nc35ED6HGFl_GV9ju5mzeZ",
+      "sha256": "b58abfb1fd3ad5174fe506a74a44e05d1219cb997755a237a5ab2e173398ca7b"
+    },
+    {
+      "number": 1605,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1605.png",
+      "driveId": "1dcFCI0kaurl_3DQ_EhqR_E39RCsH9NJl",
+      "sha256": "410c712dfa1a623504d212a6556932b0d7d01edcdc954d429276ee3d262a6911"
+    },
+    {
+      "number": 1606,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1606.png",
+      "driveId": "1VaBQRRYQv23_6tXDpJCzBrATiqIErb4A",
+      "sha256": "69f493c56c08854b8ddf294f8ecb5b98dea068282f82eb49d057ec57d72890f8"
+    },
+    {
+      "number": 1607,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1607.png",
+      "driveId": "1mVsTTboul5H5lydvH8Q6X0LjWWTkvJtT",
+      "sha256": "928e651eb52f742a37b6317b5599f283ac15aca7f92774a4ae69a4477a7a420d"
+    },
+    {
+      "number": 1608,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1608.png",
+      "driveId": "1R_5nj6uB0WtyvOjAFB-mQ1bugftB8GHf",
+      "sha256": "f53ce0f439a622e6bd9e61fd736aa5322cadcbb95077f5f4432e0bb30608f54b"
+    },
+    {
+      "number": 1609,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1609.png",
+      "driveId": "1Kq94SZLUpyu3Qwljz4vSgbwcVxS1-MJk",
+      "sha256": "5efb059a1c18c2407f9e68f6bbafa2691b10d8c8f23a407e7d0a6a456d41ca38"
+    },
+    {
+      "number": 1610,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1610.png",
+      "driveId": "1RGeen48AnAM_X-epEHkKiPqTMUlpekj3",
+      "sha256": "03dc99724e4da06b5d71cfd65f6bb36b458d512f9bec02a637ae81683d771742"
+    },
+    {
+      "number": 1611,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1611.png",
+      "driveId": "1Wb5x8OBlZb6suYh2i02QIJizrWAp9h_a",
+      "sha256": "0d15c9b55870d3da51f945c480d0183a6b32808b682d168a6ead6cc4dafc46cd"
+    },
+    {
+      "number": 1612,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1612.png",
+      "driveId": "1tl5_cbM_Kpl_VAtTJgl4YmqvC5Jr_51k",
+      "sha256": "8c343b18e23eb7bef8f13fa45d28fbadd720e6cc70526db8e22857c3b7293adb"
+    },
+    {
+      "number": 1613,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1613.png",
+      "driveId": "12Q7JwhrHVAXP1HoVkTfOWKMobiOOabrH",
+      "sha256": "94ba7a4520055148cda80f4b5ca2f68b11c91c518ca4b420b747cb930b773102"
+    },
+    {
+      "number": 1614,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1614.png",
+      "driveId": "1e_QEF_Jp1KA3cFSsxDkNjnmw7oVKxOtx",
+      "sha256": "44962e5a0141a7f3596fc83673986fb47077f0b0347f35946ae43b96c3f92779"
+    },
+    {
+      "number": 1615,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1615.png",
+      "driveId": "1-N5n-Uzq4wHUUW3LOc67HZBiPvnhnzdu",
+      "sha256": "5bc8d71c8fe4d23a9369e6d704a225ec70dfc1705c55cce54f0dc74bc29b17df"
+    },
+    {
+      "number": 1616,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1616.png",
+      "driveId": "1hNqdJxeFOSGbO9evpXi9sE1h52A4NxJ3",
+      "sha256": "2d87b653c555aa9c60fe43a41f84dc5a1637e6c2c97c3023488ae9d4802f4c72"
+    },
+    {
+      "number": 1617,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1617.png",
+      "driveId": "1WgYaP9wDqF2EB0q1BNLZjKQGe7NkxuOL",
+      "sha256": "e7d6e021515cd4a4d1e2d83a7655ac9bb20c646cf6bd09236323993fe66741e9"
+    },
+    {
+      "number": 1618,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1618.png",
+      "driveId": "1viE3oKSx-t_xqDcYM5Nm-pm_JhQ7PIsl",
+      "sha256": "99a66f960ff97c1449aa439ea569bddc59f0e07def13ffe2061c5f5f35d88ea6"
+    },
+    {
+      "number": 1619,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1619.png",
+      "driveId": "16p6C-EfBtpWwiSSeeo1_EQ-_lkV60lQX",
+      "sha256": "612ea97e4a914550826629949dad750477bc21a69412980be3e3c51fc2cd5356"
+    },
+    {
+      "number": 1620,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1620.png",
+      "driveId": "1ksgrW7UOj9ugeN9o2h_GZurSbxKUOzKe",
+      "sha256": "58b6b2202186a1000595c828fffae3710ed96801571eb52b1f8c1a2e66c13679"
+    },
+    {
+      "number": 1621,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1621.png",
+      "driveId": "1O98SrdRs7OnvZSl32ZwHEYO5pFi-jrmX",
+      "sha256": "ac1787d6028f367e5dc259835c98469027627c0ec40b08314704932f65049022"
+    },
+    {
+      "number": 1622,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1622.png",
+      "driveId": "1l9KDyztYfBqD3Wnw8j-9cFuxVd3RsfKR",
+      "sha256": "e7f0af0444c856eed45741d88f97ce77b9b41e58d94cc29860e80b9d0cce9d58"
+    },
+    {
+      "number": 1623,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1623.png",
+      "driveId": "1HAn38TRdsZjAr2SMkQ67zl0il9EzyhDQ",
+      "sha256": "bc1367a1d2905485e6970d7f92a0912737c4aff370c2111bc7eb36768b9ef8af"
+    },
+    {
+      "number": 1624,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1624.png",
+      "driveId": "18t-H39v3CDrBQge2gpGU7DuU4rCrkhgv",
+      "sha256": "b21f50720915816c53c44015aed9c037f705559ae2842f23528f0189569af313"
+    },
+    {
+      "number": 1625,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1625.png",
+      "driveId": "1vRSOQikFAlHyKTMQDQ5WppBHO26he8i0",
+      "sha256": "74fa902bf44ec468d5a7414c218a8b7556ce99fccb0d28788e5135a1ea321ed8"
+    },
+    {
+      "number": 1626,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1626.png",
+      "driveId": "1iw4MWHKDT6D7jHmhRUlcLVMnAldleW4c",
+      "sha256": "dc6c1f908c123ac75dfc1f46dc8191bc264eac615e681531b5768e4f76ce0089"
+    },
+    {
+      "number": 1627,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1627.png",
+      "driveId": "14c2ylC8THi3syzlA5yzmegyTm-m4phtN",
+      "sha256": "7f846a1068ec1ce17c229bb42bc5473c77567d801240a547b07a17f89315394f"
+    },
+    {
+      "number": 1628,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1628.png",
+      "driveId": "1p_KSM0ns_fE0Ij84XRmWJUU3QCX_jBCd",
+      "sha256": "672bdc348add6b4ac9f42ba238859d6bfa65c6872297888ed3eaf911dcc87ebf"
+    },
+    {
+      "number": 1629,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1629.png",
+      "driveId": "1Xmq2ZSlLxqCveCUKAgwKLVfIQ3bUPdT0",
+      "sha256": "4b90cd65f0039baee2cf6b5ab94ee9fc69cdd5ddf87b172fd6ceacfb118b616f"
+    },
+    {
+      "number": 1630,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1630.png",
+      "driveId": "1t9yntN-7ycXBhDfoIfaiKEXhTD2_Jb9_",
+      "sha256": "d6165fac77fd413617576ba7daf729132f9b968d9d8b61b9b7656658dd82989d"
+    },
+    {
+      "number": 1631,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1631.png",
+      "driveId": "1CEXAH7PCUj3KdJ9Uv7ordLJ8378nJzLd",
+      "sha256": "908f457ad7a758ae68bfbdb0cf190f67ec69fd176fa6a0629758667a70da51d5"
+    },
+    {
+      "number": 1632,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1632.png",
+      "driveId": "1t2VZ1N3vkVypyW1YC-C7X5RA1nYPjQIl",
+      "sha256": "c36e63593913e771c549db3009c2ada778cee8b8edddb7f6ee6dd8f52a0da60e"
+    },
+    {
+      "number": 1633,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1633.png",
+      "driveId": "1k-GRKr1HxvpeDOB57VWa0o7mnUc7RyXL",
+      "sha256": "445f9f2e1fb0260ea89c46fbdb62a7a7794ea87d1f5205b5f3810c17f9674f1b"
+    },
+    {
+      "number": 1634,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1634.png",
+      "driveId": "11QNKBbj1S2WcqbkpW2WL8fjGTCxIyPxP",
+      "sha256": "e8d8574d1005c2d874d4e80eec47d9447487a0cee9a4e82ee65ae915d365be7c"
+    },
+    {
+      "number": 1635,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1635.png",
+      "driveId": "1yRqZDu9n25I-XEyvFpmQuwidPSrfICtI",
+      "sha256": "fd73bfdbf4e3e6a1496907d52fa70c7b731b3045bb768041a26222d9226e0dde"
+    },
+    {
+      "number": 1636,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1636.png",
+      "driveId": "1Cid8GN23v8LXbZZM24eG9wizqyx-Z1O6",
+      "sha256": "11eaf0df13ab7e7ca54008cf3fbc7f6569190771491102e1a3b84947731b6cc0"
+    },
+    {
+      "number": 1637,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1637.png",
+      "driveId": "1l4_36gvjh6KDrDgnFMn2IhB-drEaiGss",
+      "sha256": "6ef9fc248f3e45c37bb6365bd9a9182f817c43ceb40b90240a332bd2708e59a1"
+    },
+    {
+      "number": 1638,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1638.png",
+      "driveId": "10kdkE1I057OLFIVX1p_-8tgQUfgNoa8B",
+      "sha256": "38d13adc50ef414e2d67a99a9708f592202176a3568f6ea0d6f4715b995fb656"
+    },
+    {
+      "number": 1639,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1639.png",
+      "driveId": "1VnhK-igAPAmeFwcBiXzOVArL66-SsXEb",
+      "sha256": "1d8878ed604db3927bab750663b74b495f67b3baf63f4429f34daa759eeeea1c"
+    },
+    {
+      "number": 1640,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1640.png",
+      "driveId": "14kyNbFF-KnA_aNj5xOeTFeZgE6xEUK2F",
+      "sha256": "aa3454158d0a1988951fefae861e20ea94a58fa481518c597b2b5629a33c5fe1"
+    },
+    {
+      "number": 1641,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1641.png",
+      "driveId": "14Vg_hduEV0TjE2yfs_t1lglXHczKyfVU",
+      "sha256": "dcae8d24ebb178fc4cc63e7b24119af9270291755a50390f04fdcdfe82a938f2"
+    },
+    {
+      "number": 1642,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1642.png",
+      "driveId": "1iLubR0amudgEIXKIoyMPytdWVg9LkwlE",
+      "sha256": "8e17e05127a008fb9fab140006a8353626ef5f42170c14f2d8b67e5ea76dcdf7"
+    },
+    {
+      "number": 1643,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1643.png",
+      "driveId": "1GxPcAM_WAxdlr0of2LSIZBtHb3Pr4hvl",
+      "sha256": "5f6121b74c4bbae772e6c89af3f9f71b2f3dec5d21e5b6fa8d0a67d2d9ed97f6"
+    },
+    {
+      "number": 1644,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1644.png",
+      "driveId": "1FhL-GhF4_MFfQ78YUot68q2Z7Bl-wL_f",
+      "sha256": "77d154d1821f54486c371b564b2fdea4f6f02e68b8e0975d4527e39e13858a3a"
+    },
+    {
+      "number": 1645,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1645.png",
+      "driveId": "1RIpeO9kr4NJqTU_wDFnmbG9VZ-1UyOkQ",
+      "sha256": "25b99cbeac101fda7247b4895191746f437dca6dcadf8e2a249d9666c4165295"
+    },
+    {
+      "number": 1646,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1646.png",
+      "driveId": "1nJytKeO-cviqa9PA11qBdfB80jeUcgiO",
+      "sha256": "7000f6c1bdcf9990bb6b02b79cd26d70f079cf3c3821a1727af88ff1ca414c02"
+    },
+    {
+      "number": 1647,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1647.png",
+      "driveId": "1dR5_e_t7CKiL9qbYmoVVjxlurnQQKw_j",
+      "sha256": "6551662fb7670426d3bba4b40bb4750c9cc4ec41c375f93e9522d6ff0afcc5f8"
+    },
+    {
+      "number": 1648,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1648.png",
+      "driveId": "1ToFcLkgDCGlEPktKkz9QnGYbCJ__LFd3",
+      "sha256": "aad7ee2a6307f7f0156ddd39c7dc5cc28aeebb0551e8561e0954d3cab93cb917"
+    },
+    {
+      "number": 1649,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1649.png",
+      "driveId": "1kYG1EhIb3pJbSX9dy-UAuUPl1iWWQeUs",
+      "sha256": "cf3ffa0e4c5cd9b95cf58f765e026a57595c79824d0d0ea216dc7b6aa3fc47af"
+    },
+    {
+      "number": 1650,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1650.png",
+      "driveId": "1UTZ6gLBIrxXYd0Ywt0lqpGmKkxp0VNBp",
+      "sha256": "394de84a854e6cf04698a27275fd37dabafd3438ce7c72b5a56e63a14dff3f1c"
+    },
+    {
+      "number": 1651,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1651.png",
+      "driveId": "1psRPC_M0H6yxSrpttIwunZV4eJWIhLLl",
+      "sha256": "63d5a1f04b2a6f79aaca183841167d011229ce80ad19d01c019ef2be39e2d048"
+    },
+    {
+      "number": 1652,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1652.png",
+      "driveId": "15q96Qea9HsbMNeF-YAG5OeRbS_qL-lpB",
+      "sha256": "a5fb157f8e41d15f7efdc7f0925672d6a81e2248f78acff879a7c3c21002868c"
+    },
+    {
+      "number": 1653,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1653.png",
+      "driveId": "1IuZokkQCNLoZ5HbgDU5HSdPze2f_2t9A",
+      "sha256": "e37eba7d23fab8e37990bba8c5cb240990b1adecaba2d7816a710a022cfdc1f1"
+    },
+    {
+      "number": 1654,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1654.png",
+      "driveId": "1cpfrmIM-mnMxOhnwQx315WpAyiE_KTgq",
+      "sha256": "7ddaef09897625d398a85bcdb52bcd3e8f002b30b47715409389dc81888ea000"
+    },
+    {
+      "number": 1655,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1655.png",
+      "driveId": "1CCcAINb7JBQ_O_SSWI4u3ezuak_AFmSc",
+      "sha256": "47ba63ee03ac252e06852629811033ad692e719c420b77448f6511fb08887e2d"
+    },
+    {
+      "number": 1656,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1656.png",
+      "driveId": "1zEVt10LmD-CJpunga7WTNyaR2jAnxh-t",
+      "sha256": "37a48d2e6f01ba30e3fa1dbe8e253d1a11c5dba5e0caacd2fc6cbfa07137ad5d"
+    },
+    {
+      "number": 1657,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1657.png",
+      "driveId": "1C9ZMD7ju6m13vgmkjnAgLf8yYXeFKUA-",
+      "sha256": "7cf072661f4460a21b9733384ee2cbf93de41dc272867176388934bc08202ca6"
+    },
+    {
+      "number": 1658,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1658.png",
+      "driveId": "1EKjb2ij7ZovnLuv5zc0QuB_Km3lr3agz",
+      "sha256": "f8269f4ece1afcfac6a7408edc67c660b79982ba407f307972b177174649fc92"
+    },
+    {
+      "number": 1659,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1659.png",
+      "driveId": "1vXWGuN3v0LAsT5gd4LHEmbboCxIcoc-_",
+      "sha256": "7f0e0ebb7fd604feabf12243f616ea2783a5cafb44904e373f9967d7d58be2a9"
+    },
+    {
+      "number": 1660,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1660.png",
+      "driveId": "1A7IS_uBcDYt0nljn5a2GF42wor2-HhOi",
+      "sha256": "248fe418e7723ddff4b49c8ed525af10a3d505b7cd5e55b42fd83a0510e5b7df"
+    },
+    {
+      "number": 1661,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1661.png",
+      "driveId": "1HhZisFAYyvWihbhoImuUlleAB6tiF2IX",
+      "sha256": "b574a964f40c161f590d8663ad716805df731066fe1b9675c245c6e5151068e2"
+    },
+    {
+      "number": 1662,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1662.png",
+      "driveId": "1c73pnTtXwBUt-p5CHiByCiJBLPhkoHUj",
+      "sha256": "51d7fe62f1d1d8bccd2751558073f55dfd31101e91882e48ee4cfffbe7e80d06"
+    },
+    {
+      "number": 1663,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1663.png",
+      "driveId": "1JP4czt1lHCKvcgW4VBtjZuJyXZ3TEqWU",
+      "sha256": "344d8d5872e11e92e6b2edc4c0e0c21136c3d7a6972055f1edf43858f5b68fe8"
+    },
+    {
+      "number": 1664,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1664.png",
+      "driveId": "1yBS2m_qtKK7LE8NHkujf9cJ_SvQCiMJc",
+      "sha256": "6fdc130ad0168d309d8626c948264868eb8ac511c13d3abe6c2d0982aada867a"
+    },
+    {
+      "number": 1665,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1665.png",
+      "driveId": "17ihB95rGw4BbV6hQjMrB_7ELcYyTrzWN",
+      "sha256": "6a9163bd88ef62083467d67d75407c58f14551151e1c5e76025e9da2150e7a8d"
+    },
+    {
+      "number": 1666,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1666.png",
+      "driveId": "1VIutR3AatNDDYPWtoRm4XvI1YSDIej24",
+      "sha256": "d0f3092ac5a5494514b6c4055e821f9d2eff2b24640d36a9876b23f15fda82c7"
+    },
+    {
+      "number": 1667,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1667.png",
+      "driveId": "1D5XuErjZhqcTIRVgkYoZCZ-DXClbhNXI",
+      "sha256": "fa9d54fd57f3b78f41bbeafd83bec987aa596d9746d7e51b5eb73e60110e4924"
+    },
+    {
+      "number": 1668,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1668.png",
+      "driveId": "1oJAC2p46sWPvZU3JJ8lz9f05bcEPdGiF",
+      "sha256": "8aeace6a15f9d32524bec46bfffbd103ade2bec1713041c6ef03ebc422b35128"
+    },
+    {
+      "number": 1669,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1669.png",
+      "driveId": "1kjLgTM5phge6SKiqRtxUsoQ6SpdjPXVn",
+      "sha256": "9ede9ad71b059423183b73e14e203cd83f5c24e219dcc00d3629a7739e3e6fbb"
+    },
+    {
+      "number": 1670,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1670.png",
+      "driveId": "1v9WPjWTNIQ-cAiFVavL5MZZg55BTEcYY",
+      "sha256": "9fd07563a9b441240c837ff0b380c48b6fd76e515855d44074e92b0813e0f505"
+    },
+    {
+      "number": 1671,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1671.png",
+      "driveId": "1cCJ9P7xaXT12jofVewLxNbl53YyWF9yc",
+      "sha256": "7e4824b189adfa1f789c933e6a19941e5c949e83804ad70401cfb93e7ec9769a"
+    },
+    {
+      "number": 1672,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1672.png",
+      "driveId": "11sQbGisEL8rgRTYurf5h2N9NeXyss9YU",
+      "sha256": "98e8681ef3e18a80a8a36e438e5eb2c97fa4354fa3880238aec6a0bb4501a867"
+    },
+    {
+      "number": 1673,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1673.png",
+      "driveId": "1CVCECO7y4SVLSV9MLyhRVyEGVlZk0-uI",
+      "sha256": "4edce9944fc69a9f7b7b010c9c6da152bdf3abca484c05100956f3f7a11bb0c7"
+    },
+    {
+      "number": 1674,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1674.png",
+      "driveId": "1WQPjssGDP7q4TG34OhQFRY-AL5ufhC0P",
+      "sha256": "623dfafc2fcf69ebb061d8d374504973613993789bce132bf4a71ac097236847"
+    },
+    {
+      "number": 1675,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1675.png",
+      "driveId": "1FoOvpaTi_11i5U3Sm-7YrsMBKdMEiguJ",
+      "sha256": "1dea59536799d1649fa0fb57bf38a28e0d1031cb593d2b9b8c6e9297fbe57850"
+    },
+    {
+      "number": 1676,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1676.png",
+      "driveId": "1BdnU5_v9FPTSW9NWa7xeat61RDMSBSTX",
+      "sha256": "64ae3eb36c66571b76cce71b6561c1fe4ad89a6b678c8a5ce797c1193fb45a86"
+    },
+    {
+      "number": 1677,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1677.png",
+      "driveId": "1nWWUWc6-m2QeCTPfKNobrxN9DUUTpz_Y",
+      "sha256": "87ba29835181eb905d43f8e2cb70c6259746d78acfbe743695becf08e99b9273"
+    },
+    {
+      "number": 1678,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1678.png",
+      "driveId": "1R3OWqSMmM7UcoH0lU_7JIiqN6Um_awcC",
+      "sha256": "993e3e79cfe6c209c58c652b1989ba3028463fe2cdc89c9baba699d2d3ac55b2"
+    },
+    {
+      "number": 1679,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1679.png",
+      "driveId": "1UFlqnEXGz1Sv_shpEWQRCfjvnow3v-Sn",
+      "sha256": "149599440ca25986159a1dfebd5286bb36b3959c88d6619a3fd15ea32d43e0a9"
+    },
+    {
+      "number": 1680,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1680.png",
+      "driveId": "1U2yAQAsNJOF9-4kY4qPniUBh_a5r2p2L",
+      "sha256": "1198810d260f825b8026e15a24e6f7f4ce627349225306e3b375370f4fb8a96a"
+    },
+    {
+      "number": 1681,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1681.png",
+      "driveId": "1VvnWh4ivaVcfxOqlvoXorKA7pvrzsUuN",
+      "sha256": "f7259c2fd0b3886e17ca0615ba31e18beda0774132649bfbb6ca47da99dcb0d8"
+    },
+    {
+      "number": 1682,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1682.png",
+      "driveId": "1rTABmBswKliQQPC0bXWsIE3-4NZEBoC-",
+      "sha256": "28cefbfb3ae93c3b21550dc976ffade7eced28306ce748442e904b1137e908b1"
+    },
+    {
+      "number": 1683,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1683.png",
+      "driveId": "1MY4MbhRCebKibgAZgZ6rSAlk0UOoiplW",
+      "sha256": "59264dea0bb06bfd9c82874bf038962d976f8a4c20c8d248a730a783214440d3"
+    },
+    {
+      "number": 1684,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1684.png",
+      "driveId": "1efVZ6qma00SfuPJfq14xMmLZg10BlLbw",
+      "sha256": "face30c9cea56925e3063d75d55a679b8c0e42c246f1744cd961898a0e15abe9"
+    },
+    {
+      "number": 1685,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1685.png",
+      "driveId": "16D7ocOOL-NL1jmCBNG_NpdZb-fgRhYLG",
+      "sha256": "0a549630908746d6c12a92c9e9b3cc0fa5a6a86bd763b0dd7576ba2ae3047650"
+    },
+    {
+      "number": 1686,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1686.png",
+      "driveId": "1a2D_oPNLTnQ_PP9gPgZ3YkmRldusMZa9",
+      "sha256": "c08650c924b21b24bac6510b063fe2ee74c71ba74ae368604b5e58b0d25f64aa"
+    },
+    {
+      "number": 1687,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1687.png",
+      "driveId": "12cjjZtV3v_OFmCITvsFPqKfE0bqZbVSM",
+      "sha256": "8daa847efabd716c0cb21c0509ee66a0d6c323aad31e1393d3861f45fb24912a"
+    },
+    {
+      "number": 1688,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1688.png",
+      "driveId": "1CDMFUJfTYQyyJSVzfQxbX8GgKYdBfQR3",
+      "sha256": "ac600ca17521341828b03f666dddc4ecee43bc6a9e54017fa2683267b138854d"
+    },
+    {
+      "number": 1689,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1689.png",
+      "driveId": "1kP1V3cunaCzHY7cEB-GtdyWYcGoTAEvX",
+      "sha256": "5c1766ea88ef4a5e04c8cf1c236fd0cd16aeca194db9957a4e6216ce6ed7640d"
+    },
+    {
+      "number": 1690,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1690.png",
+      "driveId": "1p8KLNfvgflzHP1JhOfQDnAjDSxyeG0SV",
+      "sha256": "7f5be1534d326a5f5aa84e7e5166a5a3d778d8f92dc6ff1eda1df6d77e4f22a8"
+    },
+    {
+      "number": 1691,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1691.png",
+      "driveId": "1pVhfHUZLCNPwzoknKEuSTBfl0ffgBMAK",
+      "sha256": "1446c9b78a2b3e9d043cbff93ca0446e1e1f35177afe628cc687a13dc7ad6b83"
+    },
+    {
+      "number": 1692,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1692.png",
+      "driveId": "1KzWz93MZmrrs6xWj0f02EBHy1onWVCYH",
+      "sha256": "bab582755c2ffdc716c5a729ddab46c88d5d8e63609a4a1390fd5b1ee46c32af"
+    },
+    {
+      "number": 1693,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1693.png",
+      "driveId": "1vNDT0UGF-Gm7rdzE0oEhlx605y9nduD3",
+      "sha256": "851c543db0635d8a8f52f52f301dc5b0c68bf1960cbecb326d2c2c71b4b3e543"
+    },
+    {
+      "number": 1694,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1694.png",
+      "driveId": "1bhhPZ9pm0ocq468Z8vDilZW7msTZjorx",
+      "sha256": "0aac4c4bd321ac964a8a57d3ba927d52d660246550ab31028a5ed82660e72ea5"
+    },
+    {
+      "number": 1695,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1695.png",
+      "driveId": "1B6ln0J-1MefGd8X8xs3JPhz5t5Pi2Ad1",
+      "sha256": "61894b2aba21a5de3c6644706f132aa469884a4ea69016545b8910975140b17e"
+    },
+    {
+      "number": 1696,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1696.png",
+      "driveId": "1e6jExMPP8CJlsIQzFHNsDtDuUFQtIeaf",
+      "sha256": "cab5631c2f43aba089c7f934f7c69858c866ad855d28d69cddc39951d875eb77"
+    },
+    {
+      "number": 1697,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1697.png",
+      "driveId": "1KYQv9Vn8U5QHfImFK-Jci_RLKXM4nVF8",
+      "sha256": "d475cf91413d2cd5f2f5c9593a399e80a6a360ddcdddd77beb07c1ff91caae06"
+    },
+    {
+      "number": 1698,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1698.png",
+      "driveId": "1tPNiaPAg0e_scOJ64BCnvx05yQWWKg89",
+      "sha256": "849d6f14b9da4a826391356aa2674b2fb6e053a1baa111591486fbc51d393905"
+    },
+    {
+      "number": 1699,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1699.png",
+      "driveId": "1V3O5WIw7Px4tAKW-wRF9SqwGv2mcaP8f",
+      "sha256": "13d19e87baa8cc7216139f33c65f9599cb68e242c4b99b9b0d5bb6e5fdb72c12"
+    },
+    {
+      "number": 1700,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1700.png",
+      "driveId": "1qoUzwSF9WQZ5SJ3Ml9pnF_kM3fqbu-tD",
+      "sha256": "69c1514437fb480752eca2a8000b31f901a276ba6c1fbd66654992294c871abc"
+    },
+    {
+      "number": 1701,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1701.png",
+      "driveId": "18cSsZ3NO4jc1Q_S25tBXEAyifOWL64VF",
+      "sha256": "331653596d1d80ef5d1dc9b0b44dbe7fcc82afdc8ec68071820c84b38c02ee5d"
+    },
+    {
+      "number": 1702,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1702.png",
+      "driveId": "13pE-aEHjdUhb5MdgAu_Z77bI08uq-A_y",
+      "sha256": "435cc1210db9dbcb2592c91d2f3dcc90d7aaa2be008dea39051eb04aa5f1313e"
+    },
+    {
+      "number": 1703,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1703.png",
+      "driveId": "15Dci1or-IWUnyGp5plJIktN2GUjR5Ukm",
+      "sha256": "e706ef40b37e4362273ec05bf808a4bc11832cc039bdfc2dc044ffe16d1369ff"
+    },
+    {
+      "number": 1704,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1704.png",
+      "driveId": "1jF_r8bdlev7l4n1FPqAvWtu5M1HUcMpa",
+      "sha256": "949c65231ffd6be3110f4db6b4aa06dc648ea31748c1cdc819657b1451a90882"
+    },
+    {
+      "number": 1705,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1705.png",
+      "driveId": "1YAyjyARL4x0fxRNQd10K40tRvSFkMEKy",
+      "sha256": "c1361db750e8ee98645d7330fdc3788e78d928dc31a726f80355ec8a96e13863"
+    },
+    {
+      "number": 1706,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1706.png",
+      "driveId": "1zON5p_t0kMKt1h88zeT9THCjc-gSXsup",
+      "sha256": "eae0ad19bd1c8a12a7342882acea87465b317209eda00723a66f24417c3aec20"
+    },
+    {
+      "number": 1707,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1707.png",
+      "driveId": "1J-2nYYxdn20_6mLCEMOWkWL0h2w_b-4P",
+      "sha256": "baadd4137afe90b551c7582f967452f8a31d0f113cb9b143c1a38f261a4775a2"
+    },
+    {
+      "number": 1708,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1708.png",
+      "driveId": "1K3kN9Qpi7Tn0kamsLdI_87tLDnyTO92S",
+      "sha256": "def50960fb3102d402d429e37030285a004dfebf401ad8006356e5fa6d218601"
+    },
+    {
+      "number": 1709,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1709.png",
+      "driveId": "1OQfMQ_VV4Z3qKO52duSzo_hn70q1o8cD",
+      "sha256": "e0a518da7040348511e715a508bb22f56ccea17d102b4d12b7d3d3ebd8e259e0"
+    },
+    {
+      "number": 1710,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1710.png",
+      "driveId": "1c_oIg3moe3C1ILKVnO9bTG_2nLjoUdWT",
+      "sha256": "4c72e17fa37c65498fdd8d33ebc62a2552f4cd55d1d66727ce11326b0f2d550e"
+    },
+    {
+      "number": 1711,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1711.png",
+      "driveId": "1S1PFa36Vel44byhaoKYt5w7IT4djKdeT",
+      "sha256": "c2f426a41c6b161c4dc7c584932736bfdd93de2691e834c9ae8fc8693b73ca4d"
+    },
+    {
+      "number": 1712,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1712.png",
+      "driveId": "1SuD1se-jSzPrhg79AL_W68L1FrFJ1n0M",
+      "sha256": "48a21c249d4e0f412e165b8805d6fe8199934b5c4c16639056feeb2a544291e9"
+    },
+    {
+      "number": 1713,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1713.png",
+      "driveId": "1LLuIc3ocJL9S_8pEPzZusi5ffG65_ssE",
+      "sha256": "e7ecee07be0d8f73e4fc4a6362ed38d83b5d801e0877ab7f459acab92026546a"
+    },
+    {
+      "number": 1714,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1714.png",
+      "driveId": "1v9Y8faUsC0noCFLneNO1UNyA5UQy5Ady",
+      "sha256": "fbc6a55c0b83af653c9e17441aa888ed12b82466d30b206f6a933d888d39b2d7"
+    },
+    {
+      "number": 1715,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1715.png",
+      "driveId": "1ig0h84yEMgSG9gURkfGTgQRe-w8NpWRv",
+      "sha256": "7812279ca521380227ec0019a1dabfe62733532d0484ff98fbbbc29e30743912"
+    },
+    {
+      "number": 1716,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1716.png",
+      "driveId": "1CN_QE2yRfYWGkR4GXNLZmlDlH0nfU4Nh",
+      "sha256": "d737d084a03eb2b495dd5d1074dd8414242d2c1a28547cce954da9330c8deed9"
+    },
+    {
+      "number": 1717,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1717.png",
+      "driveId": "1Ale8rD4vmAnDL0N0WtWsWpURZrxwKHJW",
+      "sha256": "96cc0bebf0dd3293f2290ce5ec626ac1167c57ec74f4c9f810356d530fa58ec0"
+    },
+    {
+      "number": 1718,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1718.png",
+      "driveId": "1XE642D65J3OQ5vFpLC_sEJ-3z45W6JtH",
+      "sha256": "b5bfe183253b550434e1084862427e2907cd7dd5f8fec223aa0ad66b8629d666"
+    },
+    {
+      "number": 1719,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1719.png",
+      "driveId": "1CInQP3XmL7FUazZV_yOAKS4S98pigTmK",
+      "sha256": "3775cec2383b01bb7d370a2f00c9efa2c1086fa88e298892e09b8c26171cc7ef"
+    },
+    {
+      "number": 1720,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1720.png",
+      "driveId": "1BdgLBRhBjpZhBAQiDlqjCL19Cm9B3cuV",
+      "sha256": "989f4a7a7d825e7b164e41bf0a2921afa9855423a71defd085b373a7ddf465ca"
+    },
+    {
+      "number": 1721,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1721.png",
+      "driveId": "1KOxgbPOpbBbBNqOSMsa3vBcNcgrTiAj_",
+      "sha256": "47586aa82beb0f5ce2e9399d53f5713311fad9e19c403622f9aeaf1ec8314cbd"
+    },
+    {
+      "number": 1722,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1722.png",
+      "driveId": "1rsDJp82V27DE_5MiYlAMfMWDv2kpEAXy",
+      "sha256": "aae85d3a40a69ca6f73868855ed0c83c4ea84a73b86e7e07111c6fd5ad3432cc"
+    },
+    {
+      "number": 1723,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1723.png",
+      "driveId": "1FH2FZ5jt3EQi_Fc7PgOwUizjHl2GET_x",
+      "sha256": "263dd195b9ebdca99f61e4c7bed2aeae92c58d69297a7c24b8eb518c5edaf9b1"
+    },
+    {
+      "number": 1724,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1724.png",
+      "driveId": "15ydsK4hXJbVaYPkR_mnrnf2Z5Bc2BMfH",
+      "sha256": "8abdedc15d4f8bcc3ee6ee9d0d80af972177e513e48f52610196a335c2e5a6c8"
+    },
+    {
+      "number": 1725,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1725.png",
+      "driveId": "1BiH32MDmeVMbJZ81kpcJUXLOwBdc4qVO",
+      "sha256": "d5ce4c5052f486e195d5006eea7497fb91a5765cefc4941e3fc7cd617f8aebe7"
+    },
+    {
+      "number": 1726,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1726.png",
+      "driveId": "1JHNklVWvVQkBVVlvM2KNBpzAVaTy3FVY",
+      "sha256": "a1b43ad3b5389801225b10f8a6c5d4acfa27518f56b73b5a97d0b66c72284a35"
+    },
+    {
+      "number": 1727,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1727.png",
+      "driveId": "14YT3WIs3XdC__7KCr3LIB8lWDw-IwzAO",
+      "sha256": "fd4d6e7e1f7fe236de0974afc62a6f837227072bcb73c40688ffab35f120b102"
+    },
+    {
+      "number": 1728,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1728.png",
+      "driveId": "128bOAAUnoK79m7Rk19G1kVPIjepqw-3h",
+      "sha256": "658e06e4fd0bc1ed0c592478e76dda7a5692ee0741228839dfa617b85e853a3d"
+    },
+    {
+      "number": 1729,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1729.png",
+      "driveId": "1vXoxcZoduYsAzNBtgdQQFElfgrLBgVA2",
+      "sha256": "31ed003826785bc2756efdccdba9f401605d2b9d05346bde6ae26952d1241590"
+    },
+    {
+      "number": 1730,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1730.png",
+      "driveId": "13DFGWfB1BwsE2vPOYSthkYXLmx7qqoVf",
+      "sha256": "254f0debe29da3254df528ecaa04ee094d4199ece51c34b97db1fa4acf35d15f"
+    },
+    {
+      "number": 1731,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1731.png",
+      "driveId": "1hzpgfjfdAj1I_4U802kkGsSUbv6eINax",
+      "sha256": "298c605e15c9029d4ce3f71e144f12b41c2d74bd1e845fdda1b063c038995a27"
+    },
+    {
+      "number": 1732,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1732.png",
+      "driveId": "1FX4cP71HKhYa5KZ0wByCxYPWCjbBk4qY",
+      "sha256": "43af4352070f318723dc2aeab393a2bd2d1da2bbbbc6c77d14fab0e510e5288d"
+    },
+    {
+      "number": 1733,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1733.png",
+      "driveId": "122PqrkdJczYkjH6pfZyhnWJYA8vUG2GR",
+      "sha256": "b0845e5599b21fa51b69e699979e5c20e97fd33774e73b94572adbf1461bebca"
+    },
+    {
+      "number": 1734,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1734.png",
+      "driveId": "1-IEUuMH7IJNoeJCSjd8ZjktHsz7nLABX",
+      "sha256": "d8c8da02862802dde3c96abb3a32304e7c29861b403d53efb3503d755c33e8c4"
+    },
+    {
+      "number": 1735,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1735.png",
+      "driveId": "1_PSjRTayI7xyGUVct0VpG_vkC4c9-3iT",
+      "sha256": "743067ff0569e00bfd1e906c3ec1af3c0f75d5ebde2308131f86ce142de9f150"
+    },
+    {
+      "number": 1736,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1736.png",
+      "driveId": "1zcvoQeJ2cMvl8GMulp1_OVh9qXvdL90k",
+      "sha256": "fa5fca4f6972c0760a231ffaddb298ee1c427b1c1e6540880f706dcc1311c8f4"
+    },
+    {
+      "number": 1737,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1737.png",
+      "driveId": "1-gxPzlHD7GNwLCW5m0-wSmTBSp8iKU8L",
+      "sha256": "ae946784cc20c30a39056fc43dcb0e1ad566019d8067517762092e9e9db552d1"
+    },
+    {
+      "number": 1738,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1738.png",
+      "driveId": "1_xHnD8M_JRtmjKNSZtTTE1EH53XSlD3A",
+      "sha256": "5d4ffb91dc5b15544ced687e7c85b62793abd0fbcb785c7c5ca6491101513c1a"
+    },
+    {
+      "number": 1739,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1739.png",
+      "driveId": "1bIrD63mKzKQwEZOraRH_hRzVAt6SIZZO",
+      "sha256": "add41b187f1e1139bc0cc1e866c0e08e299939f35cedaee30d5eafeb0930e9a1"
+    },
+    {
+      "number": 1740,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1740.png",
+      "driveId": "1ZsiB9gp0xAnvdycvjwFABkvws7fFW_LT",
+      "sha256": "f7243c9215b7fb39394635817b2112ee66a005e9ee61e9dc6e4b8b69c08fc344"
+    },
+    {
+      "number": 1741,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1741.png",
+      "driveId": "13aZ4PNvy9IDq5sBOkP64CcjkQh4WOQX_",
+      "sha256": "73834066b8a9b52274871d93397d5004418a5978fe378f8a7f85c569f40b5d5e"
+    },
+    {
+      "number": 1742,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1742.png",
+      "driveId": "1TIHoaaT-FmNqgUGhyIDQmxLgVPgasRo2",
+      "sha256": "2b5ef1edfd9516e3e3ca20401668efbb7cf8d18b3449777eb0b42edc8fe74d4b"
+    },
+    {
+      "number": 1743,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1743.png",
+      "driveId": "12_u67C-8M--LVIfaLeIxzLjzc-A0F_7G",
+      "sha256": "2f935b9aab053438470e587b1323a32dabbd27a16a5be6bbcd2c9b659be712ab"
+    },
+    {
+      "number": 1744,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1744.png",
+      "driveId": "1TJ0ORPrCl1SzKon1zj0pfW9E6paO2qUS",
+      "sha256": "af380fc8a84008be395cb85a9cad6496b55b9fc6e76d5c900974cd45f117841f"
+    },
+    {
+      "number": 1745,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1745.png",
+      "driveId": "1IfCCbU-CB9o0ym7QkzzT4HOJXC3x2rEI",
+      "sha256": "de4d8639d6270def8a7f578d33b21d205e2990a42c87c0227e1677a6a2957e1d"
+    },
+    {
+      "number": 1746,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1746.png",
+      "driveId": "1PePz6PUes-OcJR9JGApPLZ5_O7uXJxWe",
+      "sha256": "a75af47c0916d86cbd1909514d6ba019eda7049cd8bfdb84e7b666b915a47240"
+    },
+    {
+      "number": 1747,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1747.png",
+      "driveId": "1AKCgiUu-ItCXfdN354p_ee0A77XXh6Jo",
+      "sha256": "d01e77298e99c77a4e96999f8121e67be7196c0106453381f67c9f282c3b2b59"
+    },
+    {
+      "number": 1748,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1748.png",
+      "driveId": "1vYww_NxecmlXbbUl7MQIpLU16Al6JMDw",
+      "sha256": "6976903e3a84612e172bbda8971c4701dfdfcdb23a81d92e0d9218f0517c8ba7"
+    },
+    {
+      "number": 1749,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1749.png",
+      "driveId": "1Q2w5EX7QtV5pl_C1L_pzei180sIIWLOm",
+      "sha256": "7b7a6d8596a97240f39040053d39ed9743f16274f102d91157c72ef9de32d9f2"
+    },
+    {
+      "number": 1750,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1750.png",
+      "driveId": "1TdkIQtbPKN7FTXsKJleDm1a3U6piOpV8",
+      "sha256": "52f73993d926e946bf7d43f7461e1fde5e76b7e1b0065a56ae43067ddcd184e6"
+    },
+    {
+      "number": 1751,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1751.png",
+      "driveId": "1WNsPaKNwUYgGvbZsJPqhEMSrJJVnrTL8",
+      "sha256": "aabf3c300e57e79ddf1455c854f70dca63b5d3fcaaf1a5a9a559e50fd2b7bed6"
+    },
+    {
+      "number": 1752,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1752.png",
+      "driveId": "16PjX2JAtqzXP4e1R_DPmZs2yg9MJyXd4",
+      "sha256": "81147512f4eb42724068540b87bf7cc6f77eac1def6df5056ca8ad139420ab7c"
+    },
+    {
+      "number": 1753,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1753.png",
+      "driveId": "14loY9Jz-Lh-wr1uhfoUwvRQM_epIJhP8",
+      "sha256": "31e74ee93a48bd00be80d0c611c73e2772fd205d8a715489dd0a665104ea093d"
+    },
+    {
+      "number": 1754,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1754.png",
+      "driveId": "1XUPkW0ta7r6138ITlMVDlz8cr-cwj0cb",
+      "sha256": "384fd29627eb098a5686593626bbe44e426ac890129df1e9abae2e4feab65296"
+    },
+    {
+      "number": 1755,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1755.png",
+      "driveId": "16Ta_iOMfXrO8XEtQrQuDR6NruIyk6Y4m",
+      "sha256": "bbb748c64e19aca0cee694da89acb96dc02b436892b08afe877ed41d071a4d5e"
+    },
+    {
+      "number": 1756,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1756.png",
+      "driveId": "1RLAUogXf2NM9x8nMkd0Z-O_ZxLtZ8WXo",
+      "sha256": "b7e7b7ea4ea6d10afbd868f6f525bd311f98fd3404b4d851e6baa777399564aa"
+    },
+    {
+      "number": 1757,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1757.png",
+      "driveId": "1xEItEg78TYndTl9uLIT26rpa8BYzkJum",
+      "sha256": "07c19e327b1baf4230f5170f39f199e488ae3bd223398d51e125147244a0ab96"
+    },
+    {
+      "number": 1758,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1758.png",
+      "driveId": "1v3ZPHXX9QUXUjw4OhJDS0bMLOBt-Lqwo",
+      "sha256": "e16f45dba8319f7991112776428ca0ed3abefe5134c8fc0f08431c3676326017"
+    },
+    {
+      "number": 1759,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1759.png",
+      "driveId": "1c9gJ2-ZvsD29_YWMJMYVkjPXB1Xh1cKf",
+      "sha256": "c00b0c63979ba5ce315dede63a9285407a72457a6376a8c76d158c575d613d06"
+    },
+    {
+      "number": 1760,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1760.png",
+      "driveId": "1MyfE4460A7DnrELoZtizQjwWaRNJawnx",
+      "sha256": "2a48ea36f61839796f2ef0c6579cebb71fe27a8a0e06058e9f53229142f8d315"
+    },
+    {
+      "number": 1761,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1761.png",
+      "driveId": "1Mf6eETI0Y9ppIubIxKkTAP3MD7G1y3HM",
+      "sha256": "717887a53f3200d3288dd4f95cd763f1ec9501255e5b51bccbd3f910325f618c"
+    },
+    {
+      "number": 1762,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1762.png",
+      "driveId": "18HQsbzgMkFE4MDNUsk3-9ia82Immb1WC",
+      "sha256": "b8048c84b8bfc3aefbd1634ff84ec24b4121a9705b5b88ff4d7194ac15d8b860"
+    },
+    {
+      "number": 1763,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1763.png",
+      "driveId": "1VlmollrlKXXrva7FbSrEt-xfOmhRHAKc",
+      "sha256": "7c1fa1f3293de577bee1f8abd4cd7bde90d82ddf9364455e7106a5607de5c456"
+    },
+    {
+      "number": 1764,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1764.png",
+      "driveId": "1Q-SwFZgOomTZUPiO9PJ8pKFvTtfNNlH4",
+      "sha256": "d865b977590f49dfeddcf3db596e72be351e7f062793bc334ba12fd550233f30"
+    },
+    {
+      "number": 1765,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1765.png",
+      "driveId": "1VH1q7xv_pMtHrWYAWmnYdByHpXRvlF80",
+      "sha256": "4bab1e921641a2c6fd27a7f931e52543fb0dbe313c43b31db704bb7e569fad2e"
+    },
+    {
+      "number": 1766,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1766.png",
+      "driveId": "1R2JQs9ZhjcXFfXg7myPy2JNv1K5YKP_V",
+      "sha256": "a76e7ca85d3bb857bcc9e8443c54c28d232fb9c2ffc2d4f55f2304971d771e08"
+    },
+    {
+      "number": 1767,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1767.png",
+      "driveId": "1mJO3SEE2zhiWlieKhxUh85xUjsp4O5kS",
+      "sha256": "fae2e6dc88a92b6fab08283681be47fe03833c2d0f2c956c74adc18e9c01adc5"
+    },
+    {
+      "number": 1768,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1768.png",
+      "driveId": "1JnLMiH7-JafnvWu5gk3tuESANQnBHKwJ",
+      "sha256": "8d83dd2d2b285edcca28ccfe4dcd1fbfbbd51b4bfd18e0c82bde519f9ba8ef32"
+    },
+    {
+      "number": 1769,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1769.png",
+      "driveId": "1ZvUGtiP0YAl6OQGs4ybg4n_9y_vfbnKl",
+      "sha256": "dd2bf1d5b42b79c53f300a9f36a3a70455e82d3fce2925d06e6100409241f38a"
+    },
+    {
+      "number": 1770,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+      "driveId": "1-1OxeXeyrrrpz8UjLLAk-c3cqVVuaO2V",
+      "sha256": "f71e185495bb38a257fd03d86e7b4d3c2601017d41f581f55a42ea6a8abafe70"
+    },
+    {
+      "number": 1771,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1771.png",
+      "driveId": "1Kkg0cS74Vm0Ay_F4Z_qf6NnRaA9dguB1",
+      "sha256": "22d16dd19568d52a6823581e172c2ec140cc61c3d50aa6897cdc6a3948b5eb1e"
+    },
+    {
+      "number": 1772,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1772.png",
+      "driveId": "1yaWMqhqMye6xFnArj7EtVSiG2otoEM7P",
+      "sha256": "da124fd63c865f23c9901abc1f808280220d37606d5481b3240c7c46ad1270fe"
+    },
+    {
+      "number": 1773,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1773.png",
+      "driveId": "12lBFjX4uXSpaDS1NJME7ygYkMCkT8IZg",
+      "sha256": "024882b4b6a31d4ce6a526ff3bb94b09d720997ebf6121b4d2efc554154651d3"
+    },
+    {
+      "number": 1774,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1774.png",
+      "driveId": "1Vf4hkFaUTkYfz5z8n3eiWgzGscgUeDfB",
+      "sha256": "d74c6b4d25f875549da9d1e1a27c309c91742a4668dcdd53b1a1373bd6064209"
+    },
+    {
+      "number": 1775,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1775.png",
+      "driveId": "1d-OWTHMUBRZ3dB0SNfINkauHYhlKU7Yy",
+      "sha256": "55e367d57ff9c7e072328ef09361e2ea50d47aaecf63e35c8c1171e950f184fb"
+    },
+    {
+      "number": 1776,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1776.png",
+      "driveId": "1E0lvdoGcwNd5n_PbgjjgwSx5YtmccHy0",
+      "sha256": "a000faaaef5727c0dd4637fcd8ce3a50449090601c33f5657e1b67c536f98dfe"
+    },
+    {
+      "number": 1777,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1777.png",
+      "driveId": "1jqTsELEIoLjmM46eiD5JdcyCPeSo9aGs",
+      "sha256": "65f2d3d268b68182bcd39469d5de96d02a06f015481bb69e475df1b4adb3ecb8"
+    },
+    {
+      "number": 1778,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1778.png",
+      "driveId": "1PazIxUoXkDgTq6Qh5BLAczMYwG57IPoK",
+      "sha256": "40538cb854c69088f62e38253070f246c84a228554e22d381df06cffb795a07b"
+    },
+    {
+      "number": 1779,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1779.png",
+      "driveId": "1WYKIwPLbfNp3Z3YEfnz9uUrWoVjhDj5T",
+      "sha256": "a7e7e551519b53f75cdf91350046d67b9a25c5a0c87f5d614362b0a0efd3b040"
+    },
+    {
+      "number": 1780,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1780.png",
+      "driveId": "1BaGJzSdlNGLIYI2ZiccJ3r_op2fZOISv",
+      "sha256": "338159511155591085d54ca62b66df933124801a40df450b227b2f0a217da3fd"
+    },
+    {
+      "number": 1781,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1781.png",
+      "driveId": "1y3vVD99CHqIPpZSoLeDklqW3w-phFwB5",
+      "sha256": "253c504cef4ef38355a952b98d6200f6b81c812d43b1141d0978f6e5e5d791bc"
+    },
+    {
+      "number": 1782,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1782.png",
+      "driveId": "1BgjMJeMHuIZ2BSVQobG3V3aMT7FsAXrl",
+      "sha256": "098afc13c10b3e422775c6fae21c75bafeb3a3d8fe2799244a5f68c0378fa9ac"
+    },
+    {
+      "number": 1783,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1783.png",
+      "driveId": "1ShPxz39EEzIQN2KmPyGFsS-B4FEoc3h1",
+      "sha256": "74cfb8ef3ff982ccb6d6c630587922c1481118369826754610a5dd6b12c29b33"
+    },
+    {
+      "number": 1784,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1784.png",
+      "driveId": "1lZW7iob7m_uUFvSwqf2aogfJ039e87MU",
+      "sha256": "159eb33feb5382f57e0d86936bb7bf72640667558a97e67612cee6f8c4d9cf2d"
+    },
+    {
+      "number": 1785,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1785.png",
+      "driveId": "1miwzWsY32B_CZ4cVWekeAfInBWgUae8y",
+      "sha256": "60742088759987be65a5051d2ccee8e19a230f712b60c984cf1ab57d7c2ee692"
+    },
+    {
+      "number": 1786,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1786.png",
+      "driveId": "1AD91ilwPLYyY97EMe_mB8E7lexCTBhaS",
+      "sha256": "82ee6b57eedcc15180dd6e676092c23e3951058fb6a0752e8497b6d1f8ee51d9"
+    },
+    {
+      "number": 1787,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1787.png",
+      "driveId": "1tIoRmCn469UCx3JuMuidfooGgic61GIZ",
+      "sha256": "7db2eb7c1eb22c9adf0335c7254d28a426697d90acc6937029e44f64951c180a"
+    },
+    {
+      "number": 1788,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1788.png",
+      "driveId": "1WeJ4CIcs72uRWdiF3_Elu8BNGoL0660E",
+      "sha256": "9fcee5d0f577d45b1625dd061321f3fa906036fa3c19a4e7b639ed86ecb6057a"
+    },
+    {
+      "number": 1789,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1789.png",
+      "driveId": "14PZc_pmRhAzFTydha0t1aC2VvEmZ7MiA",
+      "sha256": "9a61577e3fd7ade70677106a24692c7ef34afd53e0ab2c8d6a9735b0aaad15ab"
+    },
+    {
+      "number": 1790,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1790.png",
+      "driveId": "1_ZPIqE-8Yba3ScHYxTWoefY4rWESyJHS",
+      "sha256": "3660e75d9178a10e84ed6bad704cfa4c344971febcc247598851211a70574326"
+    },
+    {
+      "number": 1791,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1791.png",
+      "driveId": "1LIbGjLqunVsBzN5DK8VlVYnKnnmgg12o",
+      "sha256": "3d5cd3b750cb46035dc1386117ffe734fc5f639aa1153b9a3697e1ee0b702267"
+    },
+    {
+      "number": 1792,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1792.png",
+      "driveId": "1-9qFlWvMUSKlQBRMYWhtxW_Ks0pzRJzN",
+      "sha256": "38f0387ec2a78691a859ecddd59ede1e2b8fd21dc76fd85cea84e5d939b94ca8"
+    },
+    {
+      "number": 1793,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1793.png",
+      "driveId": "1gxkhlVuMomlK-U-Q_KIhpeI3CljC6M-I",
+      "sha256": "76d4dbe08f045027d0e0559280ad1b580489cec89c1079f4e5c1f2ae9c3c8a07"
+    },
+    {
+      "number": 1794,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1794.png",
+      "driveId": "1w6Ou9tBH4RmTjtulWGyo8tTIQFlEbCC5",
+      "sha256": "809e2de9f09ed935387e1a18b6b7aea13e2f60041e333671819e4de544e0a05e"
+    },
+    {
+      "number": 1795,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1795.png",
+      "driveId": "1SDI1zpQn22uv9nx2cYqpekJg6U5hAyYw",
+      "sha256": "0e9afae30dd83b166250b2090c8f5a89ba0337e49ac1791f1155a576ee678a8f"
+    },
+    {
+      "number": 1796,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1796.png",
+      "driveId": "1JtdNn9Nm3r1FE8RgGC6FJpqF_6RVOz_d",
+      "sha256": "e5e6d8d7c837a8c6356f388c56c751d01e5cbf9a28a4a1a64cda2bfcd060fff5"
+    },
+    {
+      "number": 1797,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1797.png",
+      "driveId": "1GHeMO34fqM4-XtR5LSd0HvvZ4lORyWhH",
+      "sha256": "9b3a08f64eb948100d33ae68139460bab6c79293945ae9585aa67595d00aaee4"
+    },
+    {
+      "number": 1798,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1798.png",
+      "driveId": "1hCiNAVeTYIlwWtg_Qkm5-gVEG5YoJ2Cn",
+      "sha256": "29b8eb8b2c76cf0a9a7cff73476624de084f97298903b3211533ff2578cfe125"
+    },
+    {
+      "number": 1799,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1799.png",
+      "driveId": "1pSaLeoDenhdmG1m_SNqXmprd7_NP5uNY",
+      "sha256": "66991e8590850ad11fab72e66f214133e4d055f09605066d9f27b7671333fd97"
+    },
+    {
+      "number": 1800,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1800.png",
+      "driveId": "14JC3IdeHJH151yMJpKTd-sH1SnuKsCHK",
+      "sha256": "6d1366389d7b475c9f0cefe76a8e12c470a97effaa624f8f11fbadb9cbb2f055"
+    },
+    {
+      "number": 1801,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1801.png",
+      "driveId": "14wbXq7VBJG4OmgouOcOpCk6ObxfauSih",
+      "sha256": "8ad4a24be379f6f5dec610ce16e64f809a1492598cee01c46785786c814ec7ee"
+    },
+    {
+      "number": 1802,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1802.png",
+      "driveId": "1-GdgN-KfL4Gjs4-85hCY_2KK69UNrOBt",
+      "sha256": "b5f6d47f7962921b723d56358c1a9f0d64b14935e2512534b008fb0b123b7fea"
+    },
+    {
+      "number": 1803,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1803.png",
+      "driveId": "1Mt2gdxEkFQGg8QnsVjOmMQLjoZi7aKVX",
+      "sha256": "cc0eb9da0432312c828fb955877f3ed2e92a22582cabbe5a6d5b383ae699065f"
+    },
+    {
+      "number": 1804,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1804.png",
+      "driveId": "18dSKVmxh5EWXn1gc1B7L2bxD_gF_2tWm",
+      "sha256": "b19ca7ea8e4e63811c2723777dc392380a8fb9863b31db8057259fb5c9833dd9"
+    },
+    {
+      "number": 1805,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1805.png",
+      "driveId": "1n3dk2ssLflDRULJu74iXv-JGeyRU4-En",
+      "sha256": "d65958458a4e06f75defa60701aae4c3c5b36091ff1257f579a99d4bda82d617"
+    },
+    {
+      "number": 1806,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1806.png",
+      "driveId": "1T73Dct9zrlUR-Ag3CehPd4C2sSUahcdt",
+      "sha256": "95c3ef777502325d058d39740f9af886995e65d6e23dca7ab824ddfc6433b5c7"
+    },
+    {
+      "number": 1807,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1807.png",
+      "driveId": "1z4vmhIGsMLHs1H5Z3TuLY5eDERFYgkhm",
+      "sha256": "81360688c73437ca46ed3b8e7da7e20b02b0b9688334f15c284afff52979995d"
+    },
+    {
+      "number": 1808,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1808.png",
+      "driveId": "1J7BFIPaiD0gHLQ8B4DD90_T3opktt7GP",
+      "sha256": "0568bbd0a0d6f0a1aa9e801bacdd4a85da06926b28ae6d1380a7d23fdd628498"
+    },
+    {
+      "number": 1809,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1809.png",
+      "driveId": "11GozQ4U5RsxsRfh-T5qzR4CNvwAsj5Bk",
+      "sha256": "9c65dc5d520357463271265fd0de62ba733316c13595ce22f90e64a2f11ed953"
+    },
+    {
+      "number": 1810,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1810.png",
+      "driveId": "1edjg8dYlqGJpCPnmicQMzXH1kdQlYaEN",
+      "sha256": "61c73a001188213e67012ad781b0e01437f29f55053b8e58f2df83c8b1441aae"
+    },
+    {
+      "number": 1811,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1811.png",
+      "driveId": "1mQbG0_srVVy7iE6B2Xrq2AnTgflx-3jA",
+      "sha256": "90e193c17576932db13b80e526415286490cd8a2dbea73f50aa6dabbe215d9aa"
+    },
+    {
+      "number": 1812,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1812.png",
+      "driveId": "18JCDTU3ONyCSyJPy07DC0W58N9MlAoEM",
+      "sha256": "bb294577143d0ca19099a4cf468c73772420f25a8f7ecf07809f8b8a99a3aa7c"
+    },
+    {
+      "number": 1813,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1813.png",
+      "driveId": "1Q_bDaHHd7eIjgifKdTX_WiWsT4cAANcu",
+      "sha256": "c7aeb391cad343fdb9362de5a71778f463ed49288f8c77df13e1e2684fc346e3"
+    },
+    {
+      "number": 1814,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1814.png",
+      "driveId": "1-1KbkXsz3ekFqrtQGSqE7iB7AydvPLHD",
+      "sha256": "5482d994e0c3963214c8f94024547b787e60e71646e79153b98c4b7a0c2ac4de"
+    },
+    {
+      "number": 1815,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1815.png",
+      "driveId": "15EctYof2Bh5sPBbcFT3oZ-CiYGifKSwg",
+      "sha256": "bcf1e074c5ad61d7d8efb180c6ae76a740be5279edf25807e7f4d5e25dc30a0c"
+    },
+    {
+      "number": 1816,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1816.png",
+      "driveId": "1prIbpslylZIVK45Y5hFnapiz1OxGoSfL",
+      "sha256": "cb04b6d148fddf3124674468780219ab0ca26f00124426a9b40d4a3780850f03"
+    },
+    {
+      "number": 1817,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1817.png",
+      "driveId": "1o2nIzh9pDdAkR5h6lniW1HIKiONAgjJs",
+      "sha256": "904fbc1e2f145f40d4eb12d3f9ce43605607dd4b2a406a8953d8a4961fa2e2ef"
+    },
+    {
+      "number": 1818,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1818.png",
+      "driveId": "1Mi49x1r0gpaxHUor7Y-Mk-vjnJ7k5-LS",
+      "sha256": "3d420a206c22aca082beaf619a802c0a5a7bb7b6e713fc9eb71cc4491173631a"
+    },
+    {
+      "number": 1819,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1819.png",
+      "driveId": "1dicAjY2bD8drlQrpjOdac9aZe0vip1Xr",
+      "sha256": "fc27bc302703b0e99c47188436c0a173c67938d202f94aa05a24f547a172022e"
+    },
+    {
+      "number": 1820,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1820.png",
+      "driveId": "1RrHe-FWmSRpsyNXCNPnR4oCObqd4Uf9q",
+      "sha256": "b52f44eddd65475c78d4ab1075203224414b0e54cf89e9ef0306f83dc2059c3c"
+    },
+    {
+      "number": 1821,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1821.png",
+      "driveId": "1fLNRiiR-y1qUL71mfeX_evVceIA7uxdS",
+      "sha256": "5c7f0f169273ec3a55c5230020ae864f37f820197e4d00aaaf851d2e0a3ca553"
+    },
+    {
+      "number": 1822,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1822.png",
+      "driveId": "1r5RcmVTY0-vHlBha_7Ifaa8aN6B9-jpP",
+      "sha256": "47a512087456a8407cf4d145d63b70a239b911a4f72e1fc3677329ecbb3bb03d"
+    },
+    {
+      "number": 1823,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1823.png",
+      "driveId": "1_aZH5dhOvHLaVmWg7uWUFHVo_dayUNIJ",
+      "sha256": "9717d72f9d2564f22732e45103144f0353bcf9a7c82c09c93d68f3f69c5bc7be"
+    },
+    {
+      "number": 1824,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1824.png",
+      "driveId": "1U6ekgLUQLxz9bIdikIRo6RddmN1rWvzC",
+      "sha256": "8265acd39620b86e6f38d8f2196970d45ff0258ff6bf889132059a229b5f82d0"
+    },
+    {
+      "number": 1825,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1825.png",
+      "driveId": "18jb2gtWIb6qLGfYzrCUSXH4xoPpo6MCK",
+      "sha256": "0c90001bb4ad01ad9831247babd279f9ad3f28b10eefe36efa4360458cee5244"
+    },
+    {
+      "number": 1826,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1826.png",
+      "driveId": "1tAn0ND9FSLky2-rvvDdl3p_mHEw_fBes",
+      "sha256": "8080c378d5c6c5e7549aea2f551deee672ffefffa748e749d1e993b6052635ad"
+    },
+    {
+      "number": 1827,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1827.png",
+      "driveId": "1PoBcNoykDIyrAYEBOPEF1kA_VyDjVGlp",
+      "sha256": "652e89ed15744caf4c3106e0346f488387602c408f4d1f6068e56347ae098436"
+    },
+    {
+      "number": 1828,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1828.png",
+      "driveId": "1eV2MdaZSPHcmno5rqhdlIOG6YM72hi0j",
+      "sha256": "f2a14b3b2460ffac548f75647b31f2a38864734f997af8ef0cd99b0219d0412a"
+    },
+    {
+      "number": 1829,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1829.png",
+      "driveId": "1NmcROri8bJMvYaIxO6Ux1L0dYNjH6-BW",
+      "sha256": "397cf3327c00dbf60c9023c07b0d92a4c68ea192224e4c70771b99bcdc9bdff5"
+    },
+    {
+      "number": 1830,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1830.png",
+      "driveId": "1-JZAvPSMvGVfXDArfPOB3igT3JDH6uQh",
+      "sha256": "0e3b716044979e741a6ee2e2504df526461a945092611893a5ed0c53021fdf0c"
+    },
+    {
+      "number": 1831,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1831.png",
+      "driveId": "1R8XxSjJLynOZPM_B8xgQmD15_e2xplbt",
+      "sha256": "891721ce9cb3af05ce4eee2c5043f549f62a57cd996e0702e77780377accb223"
+    },
+    {
+      "number": 1832,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1832.png",
+      "driveId": "1LiXiJCIOZ2ZxOisK64jB5cK9MrGKGojf",
+      "sha256": "529cb36168f9091b38e0c1cd4371f90372773cea64e2aaaedbf41153acbc4900"
+    },
+    {
+      "number": 1833,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1833.png",
+      "driveId": "1qNwQpGT-00qX8DqyBHvaqyATqOWrEMuA",
+      "sha256": "3d015f2742e61c87005ea7a8f943fc86d409bea273d6247000c82e3b5c33e748"
+    },
+    {
+      "number": 1834,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1834.png",
+      "driveId": "1tUBMAVLQyp-_oSyWmLJ6KD0vEWcRMk4i",
+      "sha256": "50bcf506ddd9daa3205430fb87b4f66c6f3f89cd4cf8b35d3c8b7d1e7caef284"
+    },
+    {
+      "number": 1835,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1835.png",
+      "driveId": "1NCTsjX9EyIimwF2Cq11iHaQH6mQqs7Wl",
+      "sha256": "05df32b6228cdb3c1d69d94f901f611e49c5e95095d22e97f527533d338b94ef"
+    },
+    {
+      "number": 1836,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1836.png",
+      "driveId": "11PJ6cq3o23yxlCEV0RpN5G2MCjNV20wU",
+      "sha256": "2eeb7502e644974eced3deb021ea802a0843ed2ad628c838763a610a4591820a"
+    },
+    {
+      "number": 1837,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1837.png",
+      "driveId": "1E-_zkis8YZ4ubYa0IlCL9ueWO56ob6oF",
+      "sha256": "2da6d87eb5704998facbdf2414419be7001ab6fd3f51f30ba68a76af0d00dd83"
+    },
+    {
+      "number": 1838,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1838.png",
+      "driveId": "1oR_pR_V-KXa5LpYR-f3p9SjA3N87PiZU",
+      "sha256": "3bea44d42fc654b40738f380e08628d0e031690711fd23eec891736514ade9f8"
+    },
+    {
+      "number": 1839,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1839.png",
+      "driveId": "1pVVxSOcha0sAhHgtCeaKuq71qfil3Om7",
+      "sha256": "879adb119f5204169ae4edd5dab79c9ea42d2963d8b050b926031ca0525f4467"
+    },
+    {
+      "number": 1840,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1840.png",
+      "driveId": "14PsZxJ5DS1xRH08qd7FPe4dofsWi2qgj",
+      "sha256": "5033127da98cd5156b1439c64c199604ffa4ccbc8c8abaacdaa6e6bc85c41a39"
+    },
+    {
+      "number": 1841,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1841.png",
+      "driveId": "15b56hWFVmv90FnyMkOo5KjWABApX3fnQ",
+      "sha256": "84fd63c24d5de58db8031ffbe5bf3b5dc055250688fad51d3443fd1cc5a84d97"
+    },
+    {
+      "number": 1842,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1842.png",
+      "driveId": "12Gio0LO3Q1H38vh29DCCwE0cRcYWsCQK",
+      "sha256": "73bccf5aa02ff0c91b977e244715154aa48e30a5d85ddc145752729663f92990"
+    },
+    {
+      "number": 1843,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1843.png",
+      "driveId": "1x8g01wgESVjG8HsHQvo6NFrOMfgs3urt",
+      "sha256": "e0b348a79fcb92d9b4b083a52c3676dc124ad031651333240dfec63c295a6a7e"
+    },
+    {
+      "number": 1844,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1844.png",
+      "driveId": "1ysf6Md253Thxb5_4qHJQ6GYjfladAy87",
+      "sha256": "636c04d08e5c2d3b04ff217dcc21af9958838035c90535b3e2bf62fea991f821"
+    },
+    {
+      "number": 1845,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1845.png",
+      "driveId": "18n5rYv8wryQCrHy5_RPTYoXH1MXa-roy",
+      "sha256": "5f0c729ff0fc319e283125fa5651e49df282ecca70828c143972de168c3f65ef"
+    },
+    {
+      "number": 1846,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1846.png",
+      "driveId": "1HyLV2YpoYM-SV_-BK4Av977vkYIFKlFh",
+      "sha256": "c7752379457c66bbfd8ca4870591701cd8b4202f130a651f2e3531e3fa8e2b3b"
+    },
+    {
+      "number": 1847,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1847.png",
+      "driveId": "1hQgu6MSTzA0XHY5SMIo2s7Kqf-QBCKX8",
+      "sha256": "b4b16ba45edce5a9ad611a752a16647fc063643b181696521c8d1a0c71aa0fed"
+    },
+    {
+      "number": 1848,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1848.png",
+      "driveId": "1T4j1y0CiccU62GMqrRGE4SLxLOl2l-_P",
+      "sha256": "f2cc3025970e3b55583f64d5f403e92d35f875e7fcbdaef5b075a48c79a187ef"
+    },
+    {
+      "number": 1849,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1849.png",
+      "driveId": "1mBEYFFNhV5hPK6PwbLmznstoRokxAwpt",
+      "sha256": "72562f7374f49fd7ce75d1c58aa96db052a911dec5628a0fafba66bf42392010"
+    },
+    {
+      "number": 1850,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1850.png",
+      "driveId": "17lPn4r8a6pn8_rcui8LhStYUQVnQngqS",
+      "sha256": "1b13d5e2ad0ad220f757618429ecd3f10fa8a52a1562e413b459e2687f6c6af0"
+    },
+    {
+      "number": 1851,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1851.png",
+      "driveId": "1QBqhL20FMGLvHXNeSBb0dD_XW1W8W0kC",
+      "sha256": "1f0ac3fd7378c6490c50b9c9e32f60e829230c5d2391b21d00114b0376d50ff4"
+    },
+    {
+      "number": 1852,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1852.png",
+      "driveId": "1i7CVHtjnkituJnPNFcvuZhkE2Nt6UBYk",
+      "sha256": "af74716aebffb2f544189fb71df46445349392f12155cea665ed5c2915f2d402"
+    },
+    {
+      "number": 1853,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1853.png",
+      "driveId": "1CDQeTeinrSuuxr80n1rg2nQMG-N5Kh1o",
+      "sha256": "9ddc3c85d4a09c2de87988e8bb47e5efda169b2960a224ac25c3373585783e38"
+    },
+    {
+      "number": 1854,
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1854.png",
+      "driveId": "1Xfmu_OxdSD12eTJcwsdfFMnhDXpD4stG",
+      "sha256": "d1c0a8e551905d41428bcb9d921e7e90a939b2bccb5c06bc58966b4a75bad72e"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Mishnah Menachot",
+  "ledgerFile": "accordance-kodashim-current-menachot-b-observations.json",
+  "ledgerSha256": "2d99620c03b185154c63924782090ebe77f25d1d300513e1f17e3ef41b37e373",
+  "frozenScaffoldCommit": "9968f0874d5668f29601c1c3a3c9a83570a1bdc0",
+  "currentModuleSha256": "8610a44ef2b989f9141626417b9ebeb90809396f2cd488a63087a2fb96767307",
+  "frozenSourceUnitsSha256": "cd5d4f69b27950559483c3735668fdf136f053044cd4b531a5958d730b934f01",
+  "currentSourceUnitsSha256": "cd5d4f69b27950559483c3735668fdf136f053044cd4b531a5958d730b934f01",
+  "imageCount": 12,
+  "rawObservationRecords": 808,
+  "uniqueSourcePositions": 641,
+  "byRef": {
+    "3:7": 50,
+    "4:1": 53,
+    "4:2": 56,
+    "4:3": 118,
+    "4:4": 79,
+    "4:5": 69,
+    "5:1": 47,
+    "5:2": 46,
+    "5:3": 97,
+    "5:8": 40,
+    "5:9": 18,
+    "6:2": 31,
+    "6:3": 70,
+    "6:4": 34
+  },
+  "missingImageNumbers": [
+    1392,
+    1393,
+    1394,
+    1395,
+    1397,
+    1398
+  ],
+  "errors": [],
+  "humanValidated": false,
+  "scope": "Structural/image identity QA only, not independent confirmation of visual Lex/Tag readings"
+}

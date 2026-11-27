@@ -9,7 +9,7 @@ Inventarprüfung: 27.11.2026. Der ursprüngliche Abschnitt dokumentiert vorhande
 | Peah: sechs genaue Einzelbelege | `accordance-maagarim-followup.json` und `.md`; Kandidaten in `accordance-peah-maagarim.json` | Peah 4:1#16 בחליקי; 4:5#2 הבעיות; 4:11#1 חוררי; 5:8#2 לכובעות, #3 ולכומסות, #4 ולחררה. Wort-IDs, Primär-URLs, ausgelesene HTML-Attribute und HTML-SHA dokumentiert. Vor allem Lemmabelege, keine vollständigen Flexionstags. |
 | Demai 7:4#19 מחל | `accordance-maagarim-demai-7-4-followup.json` und `.md`; `accordance-demai-maagarim.json` | Wort-ID 991010: חלל 1, ausdrücklich Hifil-Partizip. Keine eigenständige Bestätigung sämtlicher Vokal-/Genus-/Numerusmerkmale. |
 | Sheviit 4:8#14 בשאר | `accordance-sheviit-maagarim-followup.json` und `.md`; `accordance-sheviit-maagarim-4-8-evidence.html`; `accordance-sheviit-maagarim.json` | Wort-ID 995424: konkrete Form בשאר und Lemma שאר; Roh-HTML gesichert. Vollständiger Morphologietag ist redaktionelle Ableitung, kein gelieferter Ma’agarim-Tag. |
-| Moed und Naschim: ursprünglicher Bestand | Bei der ursprünglichen Bestandsprüfung kein positionsgebundener Ma’agarim-Abgleich gefunden | Der neue Moed-Nachgang unten ergänzt fünf Belege. Naschim weiterhin ohne dokumentierten positionsgebundenen Ma’agarim-Nachgang. |
+| Moed und Naschim: ursprünglicher Bestand | Bei der ursprünglichen Bestandsprüfung kein positionsgebundener Ma’agarim-Abgleich gefunden | Der neue Moed-Nachgang unten ergänzt fünf Belege. Der neue Naschim-Nachgang unten ergänzt sechs Gittin-Belege. |
 
 Alle Pfade oben sind relativ zu diesem Verzeichnis. Die acht detaillierten Nachgangsbelege sind keine acht vollständigen morphologischen Zertifizierungen; Kandidatendateien wiederholen dieselben Belege und dürfen nicht zusätzlich gezählt werden.
 
@@ -45,3 +45,25 @@ Dies ist ein gezielter Anfang, kein vollständiger Moed-Abgleich. Die historisch
 `moed-maagarim-followup-pending.json` bleibt eine unveränderte Liste des damaligen
 Prüfbedarfs; sie ist zusammen mit den neueren Einzelbelegen zu lesen. Keine
 Wortkarte, Punktierung oder Kaufmann-Textstelle wurde durch diesen Nachgang geändert.
+
+## Neuer gezielter Naschim-Nachgang am 27.11.2026
+
+`nashim-maagarim-priority1-initial-evidence.json` hält sechs tatsächlich
+abgerufene und im Kontext zugeordnete Gittin-Belege aus vier Primärseiten fest:
+3:3/33 שנישאת; 5:4/17 und /22 ישבע; 6:4/18 התקבל; 7:9/12 und /50 כתבו.
+Exakte Word-IDs, die jeweiligen Ma’agarim-Absatzkennungen und Wortnummern,
+Rohattribute, HTML-Auszüge, Kontext und Dateihashes stehen je Beleg im Bericht.
+Die Ma’agarim-Wortnummer wird nicht mit unserem Quellindex gleichgesetzt.
+
+Die expliziten Angaben ergeben unter anderem Nifal/Vergangenheit für שנישאת
+und Nifal/Zukunft für beide ישבע-Belege. Bei התקבל liefert Ma’agarim
+Hitpael/Imperativ, während die zweite tatsächlich nachgelesene
+Accordance-Instanz in Original367 Perfekt druckt. Ein Quellenwiderspruch ist
+damit kein automatischer Grund, unsere Lesung oder einen Tag still zu ändern.
+In 7:9 unterscheiden sich Ma’agarim-Absätze; /12 ist in unserer Quelle eine
+editoriale Tilgungslesung, /50 ein Zusatz. Beide Quellenzustände bleiben erhalten.
+
+Diese sechs Abfragen bestätigen keine vollständige Flexionsanalyse oder
+Vokalisierung. Die Naschim-Folgeliste bleibt ein historischer ungeprüfter
+Snapshot; die neuen Einzelbelege sind getrennt dazu zu lesen. Keine Wortkarte
+und kein Quelltext wurden durch diese Recherche verändert.

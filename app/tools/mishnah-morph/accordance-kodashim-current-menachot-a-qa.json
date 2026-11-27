@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "title": "Mishnah Menachot",
+  "ledger": "app/tools/mishnah-morph/accordance-kodashim-current-menachot-a-observations.json",
+  "ledgerSha256": "08654a0b92d7d9f04c01873e5e941e281340eecca7d3eadffdadb1ac9edc52e3",
+  "sourceTextHash": "1ca42ad6a5ea12ff988ef2275bf750d0ecab5aec4f100814ce2fe988d29d3c81",
+  "humanValidated": false,
+  "checks": {
+    "boundRecords": 915,
+    "unboundRawRecords": 114,
+    "uniqueBoundSourceWords": 763,
+    "originalImages": 15,
+    "sourcePositionIdentity": "pass",
+    "sourceHash": "pass",
+    "surfaceConsonants": "pass",
+    "sourceCriticalGuard": "pass",
+    "imageSha256": "pass",
+    "driveIds": "present",
+    "noSuffixInference": "pass",
+    "rawObservationPartition": "pass"
+  },
+  "errors": [],
+  "sourceMutated": false,
+  "rawReadingChanged": false,
+  "meaning": "Technical export/binding QA only; no claim that every morphology tag is linguistically correct or human validated."
+}

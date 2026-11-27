@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "title": "Mishnah Zevachim",
+  "ledger": {
+    "file": "accordance-kodashim-current-zevachim-c-observations.json",
+    "sha256": "e3f0c90de1e886bb8ade516c0be2aeb12598d886ba4f5c29e55ea8bcafd6e37e"
+  },
+  "rawInput": {
+    "file": "/workspace/private/kodashim-accordance-zevachim-c-raw.json",
+    "sha256": "22bd8b8d86dd4f785da275424bd09fff7bc039a23cf596f4905ab4f741ae7612"
+  },
+  "sourceTextHash": "33ce68c5890334698aae82161de4bf837a508a4dfa9e2badbf66531806b8aa34",
+  "baselineCommit": "9968f0874d5668f29601c1c3a3c9a83570a1bdc0",
+  "humanValidated": false,
+  "checks": {
+    "actualOriginalImageShaChecks": 32,
+    "individualBindingChecks": 1257,
+    "sourceWordAndOffsetsUnchanged": true,
+    "uniqueSourceWordIds": 1257,
+    "openPositionsEnumerated": 211,
+    "unboundRowsKeptSeparate": 158,
+    "structuralErrors": 0,
+    "issues": []
+  },
+  "coverage": {
+    "imagesRead": 32,
+    "totalImages": 32,
+    "visibleRawRows": 1415,
+    "individualObservations": 1257,
+    "uniqueSourcePositions": 1257,
+    "unboundVisibleRows": 158,
+    "scopeSourcePositions": 1468,
+    "openScopeSourcePositions": 211,
+    "humanValidated": false,
+    "allAssignedImagesRead": true,
+    "allSourcePositionsObserved": false
+  },
+  "limitations": [
+    "Structural QA of AI visual observations, not independent human visual rereading.",
+    "Exact consonantal matches only; variants and source fragments remain open."
+  ],
+  "notes": [
+    "Printed image references remain separate from current source refs. Image 1338 printed 11:4 continues current 11:3; images 1358–1359 printed 14:3/14:4 continue current 14:2.",
+    "1336 contains an extended sequence beginning כשם שקודמין בהקרבתן and ending קדשי קדשים before שנ׳ במקום קדש; preserved as visible unbound rows, not silently mapped into 11:1.",
+    "1347 visible surface/Lex alignment around אינה ראיה is anomalous: recorded literally. 1348 under surface או׳ the visible Lex/Tag is אילו / bth pl; no contextual correction made.",
+    "Exact matches only were position-bound. Consonantal variants, editorial additions, source word fragments, and uncertain isolated words remain unbound; no tags inferred for their constituent fragments.",
+    "Current 13:8 ending after the final visible ואחד and current 14:2 ending after final שלא are cropped/unshown in assigned images. Current14:3 ending משם רחוץ ידים ורגליים is also not visible after final ולא on1360.",
+    "All 32 assigned screenshots were viewed freshly. This is AI observation evidence, not independent human validation or full manuscript verification. Surface/Lex copied without full vowel transcription."
+  ]
+}

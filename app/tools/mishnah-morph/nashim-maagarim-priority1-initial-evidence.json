@@ -1,0 +1,779 @@
+{
+  "version": 1,
+  "kind": "initial-targeted-Nashim-Maagarim-primary-evidence-not-analysis-patch",
+  "scope": "Six individually context-bound Gittin positions, four primary HTML requests",
+  "queueSnapshotSha256": "90f41b08de0d2923f143167955008edef628ee1a548d51b7efb3b5769dcf1a21",
+  "queried": true,
+  "humanValidated": false,
+  "completeQueueChecked": false,
+  "sourceTextPointingAndAnalysesModified": false,
+  "records": [
+    {
+      "title": "Mishnah Gittin",
+      "ref": "3:3",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceWordId": "S07326.3.6.3.3/word/33",
+      "sourceWordIndex": 33,
+      "sourceWord": "שֶׁנִּישֵּׂאת",
+      "sourceFlags": [],
+      "context": "בְּחֶזְקַת שֶׁהוּא קַיָּיּם בַּת ישרא' שֶׁנִּישֵּׂאת לַכֹּהֵן וְהָלַךְ בַּעְלָהּ לִמְדִינַת",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029003030+00",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029003030+00&mismilla=33",
+        "mm15": "000029003030 00",
+        "wordId": "1059348",
+        "mismila": "33",
+        "attributes": {
+          "mismila": "33",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1059348",
+          "erec0": "נשׂא [נפעל, עבר]",
+          "srs0": "נשׂא 1 - הרמה, מתנה, נשיאה",
+          "kode0": "21000",
+          "kods0": "6694",
+          "yhd0": "ערך מוצע למילה מוטעית",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1059348",
+          "zman0": "1",
+          "zura0": "שנישאת",
+          "hatkana": "[\"17\"]",
+          "hatkana_otiot": "[]",
+          "hatkana_mila": "[17]"
+        },
+        "rawWordHtml": "<span  mismila=33  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1059348\"  erec0=\"נשׂא [נפעל, עבר]\" srs0=\"נשׂא 1 - הרמה, מתנה, נשיאה\" kode0=\"21000\" kods0=\"6694\" yhd0=\"ערך מוצע למילה מוטעית\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1059348\" zman0=\"1\" zura0=\"שנישאת\" hatkana=\"[&quot;17&quot;]\" hatkana_otiot=\"[]\" hatkana_mila=\"[17]\"><nobr>שני-שאת</nobr></span>",
+        "visibleReading": "שני-שאת",
+        "contextQuote": "בחזקת שהוא קיים. בת ישרא' שני-שאת לכהן והלך בעלה למדינת הים.",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-3-3.html",
+        "htmlSha256": "14237b81770b6a8c52cd6a957f3b382034fc5e1ac985e18a40fed51bfab60d02",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-3-3-1059348-word.html",
+        "wordExcerptSha256": "d54107fd8f39c23aea6a0622cec2366a45161e98e1205467e0c9675abdeafe91",
+        "httpStatus": 200,
+        "retrievedDate": "2026-11-27"
+      },
+      "binding": {
+        "method": "Root manually matched the bounded occurrence and both adjacent phrase contexts; Maagarim ordinal is recorded, never treated as the current source index",
+        "surfaceCorrespondence": "exact consonants, ignoring displayed hyphen/pointing",
+        "fullyIndependentManuscriptWitness": false
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemmaLabel": "נשׂא",
+            "rawLabel": "נשׂא [נפעל, עבר]",
+            "stem": "נפעל",
+            "formClass": "עבר",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "interpretation": "Explicit Nifal/past supports the Nifal stem against draft Piel candidates, but differs from the visible Accordance participle. No full inflection confirmed.",
+        "currentDraftCandidates": [
+          {
+            "lemma": "ש/נשא",
+            "morph": "HTr/Vpp2ms",
+            "partial": false,
+            "missing": [
+              "state"
+            ],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "N",
+                "actual": "p"
+              },
+              {
+                "feature": "form",
+                "expected": "participle",
+                "actual": "p"
+              },
+              {
+                "feature": "gender",
+                "expected": "f",
+                "actual": "m"
+              }
+            ]
+          },
+          {
+            "lemma": "ש/נשא",
+            "morph": "HTr/Vpp2fs",
+            "partial": false,
+            "missing": [
+              "state"
+            ],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "N",
+                "actual": "p"
+              },
+              {
+                "feature": "form",
+                "expected": "participle",
+                "actual": "p"
+              }
+            ]
+          }
+        ],
+        "accordanceRaw": [
+          {
+            "observationFile": "accordance-nashim-current-gittin-observations.json",
+            "observationFileSha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+            "status": "visible-head-feature-difference",
+            "observedWord": "שנישאת",
+            "observedRef": "Git. 3:3",
+            "rawLex": "ש נשא",
+            "rawTags": "rel; nif prt fm sg cnst",
+            "image": {
+              "lex": "ש נשא",
+              "tags": "rel; nif prt fm sg cnst",
+              "surface": "שנישאת",
+              "ref": "Git. 3:3",
+              "file": "mischna_2026-11-27_09-27-19_25B5EA35_340.png",
+              "driveId": "1W-px-YoQJefNLI_udMOimF6op5g3d3uL",
+              "sha256": "9f78b3a168e17f9115025b1e2d49348d00bd24d5cea3b41559559569d934ea29"
+            },
+            "observationMethod": "fresh-visible-Lex-Tag-observation",
+            "observationStatus": "fresh-visible-Lex-Tag-observation",
+            "notes": null,
+            "lexicalComparisonStatus": "candidate-head-lexeme-present-in-visible-components"
+          }
+        ],
+        "notIndependentlyDelivered": [
+          "person",
+          "gender",
+          "number",
+          "current vowel points"
+        ],
+        "noSourceOrCardMutation": true
+      }
+    },
+    {
+      "title": "Mishnah Gittin",
+      "ref": "5:4",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceWordId": "S07326.3.6.5.4/word/17",
+      "sourceWordIndex": 17,
+      "sourceWord": "יִשָּׁבַע",
+      "sourceFlags": [],
+      "context": "אַפִּיטְרוֹפּוֹס שֶׁמִּינָּהוּ אֲבִי יְתוֹמִים יִשָּׁבַע וְשִׁמִּינוּהוּ בֵית דִּין לֹא יִשָּׁבַע",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029005040+00",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029005040+00&mismilla=18",
+        "mm15": "000029005040 00",
+        "wordId": "1060085",
+        "mismila": "18",
+        "attributes": {
+          "mismila": "18",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1060085",
+          "erec0": "שׁבע 1 (שבועה) [נפעל, עתיד]",
+          "srs0": "שׁבע 1 - שבועה",
+          "kode0": "31931",
+          "kods0": "8586",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1060085",
+          "zman0": "2",
+          "zura0": "ישבע",
+          "hatkana": "[\"23\"]",
+          "hatkana_otiot": "[{\"kod\":23,\"text\":\".\"}]",
+          "hatkana_mila": "[]"
+        },
+        "rawWordHtml": "<span  mismila=18  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1060085\"  erec0=\"שׁבע 1 (שבועה) [נפעל, עתיד]\" srs0=\"שׁבע 1 - שבועה\" kode0=\"31931\" kods0=\"8586\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1060085\" zman0=\"2\" zura0=\"ישבע\" hatkana=\"[&quot;23&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:23,&quot;text&quot;:&quot;.&quot;}]\" hatkana_mila=\"[]\"><nobr>ישבע.</nobr></span>",
+        "visibleReading": "ישבע.",
+        "contextQuote": "פירותיהן. אפיטרופוס שמינהו אבי יתומים ישבע. ושמינוהו בית דין לא ישבע.",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-5-4.html",
+        "htmlSha256": "3d5e81a8af2ba5bca5c75c8263985a9486a511b6f756a3a4d278c1b05564848e",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-5-4-1060085-word.html",
+        "wordExcerptSha256": "00ee540fe31bbbdf2aad53ac1c4d34997ad54a274abf2d45de96074de3e2de75",
+        "httpStatus": 200,
+        "retrievedDate": "2026-11-27"
+      },
+      "binding": {
+        "method": "Root manually matched the bounded occurrence and both adjacent phrase contexts; Maagarim ordinal is recorded, never treated as the current source index",
+        "surfaceCorrespondence": "exact consonants, ignoring displayed hyphen/pointing",
+        "fullyIndependentManuscriptWitness": false
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemmaLabel": "שׁבע 1 (שבועה)",
+            "rawLabel": "שׁבע 1 (שבועה) [נפעל, עתיד]",
+            "stem": "נפעל",
+            "formClass": "עתיד",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "interpretation": "Explicit Nifal/future agrees with the visible Accordance stem/form and differs from draft Qal. Person/gender/number are not separately delivered.",
+        "currentDraftCandidates": [
+          {
+            "lemma": "שבע",
+            "morph": "HVqi3ms",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "N",
+                "actual": "q"
+              }
+            ]
+          }
+        ],
+        "accordanceRaw": [
+          {
+            "observationFile": "accordance-nashim-current-gittin-observations.json",
+            "observationFileSha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+            "status": "visible-head-feature-difference",
+            "observedWord": "ישבע",
+            "observedRef": "Git. 5:4",
+            "rawLex": "שבע",
+            "rawTags": "nif imprf 3 ms sg",
+            "image": {
+              "lex": "שבע",
+              "tags": "nif imprf 3 ms sg",
+              "surface": "ישבע",
+              "ref": "Git. 5:4",
+              "file": "mischna_2026-11-27_09-27-19_25B5EA35_357.png",
+              "driveId": "1oW2kBP-YatAYAdyGygnYPKSMLUeC3Y89",
+              "sha256": "1d6505dac20ede8f46f9f1fba3d5255010358f5907ca3aea53b83ea40407fef9"
+            },
+            "observationMethod": "fresh-visible-Lex-Tag-observation",
+            "observationStatus": "fresh-visible-Lex-Tag-observation",
+            "notes": null,
+            "lexicalComparisonStatus": "candidate-head-lexeme-present-in-visible-components"
+          }
+        ],
+        "notIndependentlyDelivered": [
+          "person",
+          "gender",
+          "number",
+          "current vowel points"
+        ],
+        "noSourceOrCardMutation": true
+      }
+    },
+    {
+      "title": "Mishnah Gittin",
+      "ref": "5:4",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceWordId": "S07326.3.6.5.4/word/22",
+      "sourceWordIndex": 22,
+      "sourceWord": "יִשָּׁבַע",
+      "sourceFlags": [],
+      "context": "יִשָּׁבַע וְשִׁמִּינוּהוּ בֵית דִּין לֹא יִשָּׁבַע אַבָּא שָׁאוּל אומ' חִילּוּף הַדְּבָרִים",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029005040+00",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029005040+00&mismilla=23",
+        "mm15": "000029005040 00",
+        "wordId": "1060090",
+        "mismila": "23",
+        "attributes": {
+          "mismila": "23",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1060090",
+          "erec0": "שׁבע 1 (שבועה) [נפעל, עתיד]",
+          "srs0": "שׁבע 1 - שבועה",
+          "kode0": "31931",
+          "kods0": "8586",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1060090",
+          "zman0": "2",
+          "zura0": "ישבע",
+          "hatkana": "[\"23\"]",
+          "hatkana_otiot": "[{\"kod\":23,\"text\":\".\"}]",
+          "hatkana_mila": "[]"
+        },
+        "rawWordHtml": "<span  mismila=23  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1060090\"  erec0=\"שׁבע 1 (שבועה) [נפעל, עתיד]\" srs0=\"שׁבע 1 - שבועה\" kode0=\"31931\" kods0=\"8586\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1060090\" zman0=\"2\" zura0=\"ישבע\" hatkana=\"[&quot;23&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:23,&quot;text&quot;:&quot;.&quot;}]\" hatkana_mila=\"[]\"><nobr>ישבע.</nobr></span>",
+        "visibleReading": "ישבע.",
+        "contextQuote": "ישבע. ושמינוהו בית דין לא ישבע. אבא שאול אומ'. חילוף הדברים.",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-5-4.html",
+        "htmlSha256": "3d5e81a8af2ba5bca5c75c8263985a9486a511b6f756a3a4d278c1b05564848e",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-5-4-1060090-word.html",
+        "wordExcerptSha256": "c0729a81c204009798296fa4f5704b6c4b5b8410a8b9b831d2aadd2706c6b322",
+        "httpStatus": 200,
+        "retrievedDate": "2026-11-27"
+      },
+      "binding": {
+        "method": "Root manually matched the bounded occurrence and both adjacent phrase contexts; Maagarim ordinal is recorded, never treated as the current source index",
+        "surfaceCorrespondence": "exact consonants, ignoring displayed hyphen/pointing",
+        "fullyIndependentManuscriptWitness": false
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemmaLabel": "שׁבע 1 (שבועה)",
+            "rawLabel": "שׁבע 1 (שבועה) [נפעל, עתיד]",
+            "stem": "נפעל",
+            "formClass": "עתיד",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "interpretation": "Explicit Nifal/future agrees with the visible Accordance stem/form and differs from draft Qal. Person/gender/number are not separately delivered.",
+        "currentDraftCandidates": [
+          {
+            "lemma": "שבע",
+            "morph": "HVqi3ms",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "N",
+                "actual": "q"
+              }
+            ]
+          }
+        ],
+        "accordanceRaw": [
+          {
+            "observationFile": "accordance-nashim-current-gittin-observations.json",
+            "observationFileSha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+            "status": "visible-head-feature-difference",
+            "observedWord": "ישבע",
+            "observedRef": "Git. 5:4",
+            "rawLex": "שבע",
+            "rawTags": "nif imprf 3 ms sg",
+            "image": {
+              "lex": "שבע",
+              "tags": "nif imprf 3 ms sg",
+              "surface": "ישבע",
+              "ref": "Git. 5:4",
+              "file": "mischna_2026-11-27_09-27-19_25B5EA35_357.png",
+              "driveId": "1oW2kBP-YatAYAdyGygnYPKSMLUeC3Y89",
+              "sha256": "1d6505dac20ede8f46f9f1fba3d5255010358f5907ca3aea53b83ea40407fef9"
+            },
+            "observationMethod": "fresh-visible-Lex-Tag-observation",
+            "observationStatus": "fresh-visible-Lex-Tag-observation",
+            "notes": null,
+            "lexicalComparisonStatus": "candidate-head-lexeme-present-in-visible-components"
+          }
+        ],
+        "notIndependentlyDelivered": [
+          "person",
+          "gender",
+          "number",
+          "current vowel points"
+        ],
+        "noSourceOrCardMutation": true
+      }
+    },
+    {
+      "title": "Mishnah Gittin",
+      "ref": "6:4",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceWordId": "S07326.3.6.6.4/word/18",
+      "sourceWordIndex": 18,
+      "sourceWord": "הִתְקַבֵּל",
+      "sourceFlags": [],
+      "context": "אֲסוּרָה מִלאוכַל בִּתְרוּמָות מִיָּד הִתְקַבֵּל לִי גִיטִּי",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029006040+00",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029006040+00&mismilla=19",
+        "mm15": "000029006040 00",
+        "wordId": "1060625",
+        "mismila": "19",
+        "attributes": {
+          "mismila": "19",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1060625",
+          "erec0": "קבל 1 (נטילה, קבלת פנים, הקבלה והעמתה) [התפעל, ציווי]",
+          "srs0": "קבל 1 - נטילה, קבלת פנים, הקבלה והעמתה",
+          "kode0": "28228",
+          "kods0": "7987",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1060625",
+          "zman0": "3",
+          "zura0": "התקבל"
+        },
+        "rawWordHtml": "<span  mismila=19  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1060625\"  erec0=\"קבל 1 (נטילה, קבלת פנים, הקבלה והעמתה) [התפעל, ציווי]\" srs0=\"קבל 1 - נטילה, קבלת פנים, הקבלה והעמתה\" kode0=\"28228\" kods0=\"7987\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1060625\" zman0=\"3\" zura0=\"התקבל\"><nobr>התקבל</nobr></span>",
+        "visibleReading": "התקבל",
+        "contextQuote": "אסורה מלאוכל בתרומות מיד. (הבא) התקבל לי גיטי ממקום פלוני. אוכלת",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-6-4.html",
+        "htmlSha256": "6fd0b51ea5380ab88929e29609bf217277a70b1a0af1f5a815f0ec72f9393ff7",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-6-4-1060625-word.html",
+        "wordExcerptSha256": "38890dd254bfc9e083020bd2d09dbca4b33f1ac32d04d1a89ccb84bce82d669c",
+        "httpStatus": 200,
+        "retrievedDate": "2026-11-27"
+      },
+      "binding": {
+        "method": "Root manually matched the bounded occurrence and both adjacent phrase contexts; Maagarim ordinal is recorded, never treated as the current source index",
+        "surfaceCorrespondence": "exact consonants, ignoring displayed hyphen/pointing",
+        "fullyIndependentManuscriptWitness": false
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemmaLabel": "קבל 1 (נטילה, קבלת פנים, הקבלה והעמתה)",
+            "rawLabel": "קבל 1 (נטילה, קבלת פנים, הקבלה והעמתה) [התפעל, ציווי]",
+            "stem": "התפעל",
+            "formClass": "ציווי",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "interpretation": "Explicit Hitpael/imperative agrees with the draft imperative form, whereas the second visible Accordance occurrence prints perfect. Original367 freshly re-read by root: first occurrence imperative, second perfect; both literal tags preserved.",
+        "currentDraftCandidates": [
+          {
+            "lemma": "קבל",
+            "morph": "HVtv2ms",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "form",
+                "expected": "p",
+                "actual": "v"
+              },
+              {
+                "feature": "person",
+                "expected": "3",
+                "actual": "2"
+              }
+            ]
+          }
+        ],
+        "accordanceRaw": [
+          {
+            "observationFile": "accordance-nashim-current-gittin-observations.json",
+            "observationFileSha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+            "status": "visible-head-feature-difference",
+            "observedWord": "התקבל",
+            "observedRef": "Git. 6:4",
+            "rawLex": "קבל",
+            "rawTags": "htpl prf 3 ms sg",
+            "image": {
+              "lex": "קבל",
+              "tags": "htpl prf 3 ms sg",
+              "surface": "התקבל",
+              "ref": "Git. 6:4",
+              "file": "mischna_2026-11-27_09-27-19_25B5EA35_367.png",
+              "driveId": "1ecRs9NicnG7OSSFPw3DIRUf87ic9ste-",
+              "sha256": "6e3470a770421d2d2ab97cfb94753579524bb40f6542c0aa2c4a69e3c9286035"
+            },
+            "observationMethod": "fresh-visible-Lex-Tag-observation",
+            "observationStatus": "fresh-visible-Lex-Tag-observation",
+            "notes": null,
+            "lexicalComparisonStatus": "candidate-head-lexeme-present-in-visible-components"
+          }
+        ],
+        "notIndependentlyDelivered": [
+          "person",
+          "gender",
+          "number",
+          "current vowel points"
+        ],
+        "noSourceOrCardMutation": true
+      }
+    },
+    {
+      "title": "Mishnah Gittin",
+      "ref": "7:9",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceWordId": "S07326.3.6.7.9/word/12",
+      "sourceWordIndex": 12,
+      "sourceWord": "כתבו",
+      "sourceFlags": [
+        "del"
+      ],
+      "context": "כִּיתְבוּ גֵט וּתְנוּ לְאִשְׁתִּי כתבו בְתוֹךְ שְׁנֵים עָשָׂר ונתנו בְתוֹךְ",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029007090+00",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029007090+00&mismilla=12",
+        "mm15": "000029007090 00",
+        "wordId": "1061276",
+        "mismila": "12",
+        "attributes": {
+          "mismila": "12",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1061276",
+          "erec0": "כתב [קל, עבר]",
+          "srs0": "כתב 1 - רישום",
+          "kode0": "15390",
+          "kods0": "5946",
+          "yhd0": "ערך התיבה לאחר תיקונה או תיקון ניקודה במסירה",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1061276",
+          "zman0": "1",
+          "zura0": "כיתבו",
+          "hatkana": "[\"20\"]",
+          "hatkana_otiot": "[{\"kod\":20,\"text\":\"י\"}]",
+          "hatkana_mila": "[]"
+        },
+        "rawWordHtml": "<span  mismila=12  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1061276\"  erec0=\"כתב [קל, עבר]\" srs0=\"כתב 1 - רישום\" kode0=\"15390\" kods0=\"5946\" yhd0=\"ערך התיבה לאחר תיקונה או תיקון ניקודה במסירה\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1061276\" zman0=\"1\" zura0=\"כיתבו\" hatkana=\"[&quot;20&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:20,&quot;text&quot;:&quot;י&quot;}]\" hatkana_mila=\"[]\"><nobr>כ(י)תבו</nobr></span>",
+        "visibleReading": "כ(י)תבו",
+        "contextQuote": "חודש כיתבו גט ותנו לאשתי. כ(י)תבו בתוך שנים-עשר ונ(ו)תנו בתוך שנים-עשר",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-7-9.html",
+        "htmlSha256": "9c0d5acfdb14e217d61b9ad4a6fb6c56ecee793516bff8f361005c32797cede0",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-7-9-1061276-word.html",
+        "wordExcerptSha256": "c11597ecd3f6456501b46c77f0e04b9fddd2dd09abf6deaca349db63977d81c3",
+        "httpStatus": 200,
+        "retrievedDate": "2026-11-27"
+      },
+      "binding": {
+        "method": "Root manually matched the bounded occurrence and both adjacent phrase contexts; Maagarim ordinal is recorded, never treated as the current source index",
+        "surfaceCorrespondence": "editorial-deletion/addition counterpart",
+        "fullyIndependentManuscriptWitness": false
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemmaLabel": "כתב",
+            "rawLabel": "כתב [קל, עבר]",
+            "stem": "קל",
+            "formClass": "עבר",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "interpretation": "Explicit Qal/past agrees with visible Accordance perfect rather than draft imperative. Source editorial flags remain intact; no vowels or full inflection are certified.",
+        "currentDraftCandidates": [
+          {
+            "lemma": "כתב",
+            "morph": "HVqv2mp",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "form",
+                "expected": "p",
+                "actual": "v"
+              },
+              {
+                "feature": "person",
+                "expected": "3",
+                "actual": "2"
+              },
+              {
+                "feature": "gender",
+                "expected": "c",
+                "actual": "m"
+              }
+            ]
+          }
+        ],
+        "accordanceRaw": [
+          {
+            "observationFile": "accordance-nashim-current-gittin-observations.json",
+            "observationFileSha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+            "status": "visible-head-feature-difference",
+            "observedWord": "כתבו",
+            "observedRef": "Git. 7:9",
+            "rawLex": "כתב",
+            "rawTags": "qal prf 3 com pl",
+            "image": {
+              "lex": "כתב",
+              "tags": "qal prf 3 com pl",
+              "surface": "כתבו",
+              "ref": "Git. 7:9",
+              "file": "mischna_2026-11-27_09-27-19_25B5EA35_378.png",
+              "driveId": "1qiJHJhZgzdpEkJrezDRlh1zPRSkQ7Ihh",
+              "sha256": "b864240bceb2caac932957b53671c59c865ac503b8fd60141fbc0c3b16d1ae98"
+            },
+            "observationMethod": "fresh-visible-Lex-Tag-observation",
+            "observationStatus": "fresh-visible-Lex-Tag-observation",
+            "notes": null,
+            "lexicalComparisonStatus": "candidate-head-lexeme-present-in-visible-components"
+          }
+        ],
+        "notIndependentlyDelivered": [
+          "person",
+          "gender",
+          "number",
+          "current vowel points"
+        ],
+        "noSourceOrCardMutation": true
+      }
+    },
+    {
+      "title": "Mishnah Gittin",
+      "ref": "7:9",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceWordId": "S07326.3.6.7.9/word/50",
+      "sourceWordIndex": 50,
+      "sourceWord": "כתבו",
+      "sourceFlags": [
+        "add"
+      ],
+      "context": "אינו גט ר' יוסי אומ' כזה גט כתבו לאחר שנים עשר חדש ונתנו לאחר",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029007090+00",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000029007091+00&mismilla=25",
+        "mm15": "000029007091 00",
+        "wordId": "1061309",
+        "mismila": "25",
+        "attributes": {
+          "mismila": "25",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1061309",
+          "erec0": "כתב [קל, עבר]",
+          "srs0": "כתב 1 - רישום",
+          "kode0": "15390",
+          "kods0": "5946",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1061309",
+          "zman0": "1",
+          "zura0": "כתבו",
+          "hatkana": "[\"29\"]",
+          "hatkana_otiot": "[{\"kod\":29,\"text\":\"כתבו\"}]",
+          "hatkana_mila": "[]"
+        },
+        "rawWordHtml": "<span  mismila=25  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1061309\"  erec0=\"כתב [קל, עבר]\" srs0=\"כתב 1 - רישום\" kode0=\"15390\" kods0=\"5946\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1061309\" zman0=\"1\" zura0=\"כתבו\" hatkana=\"[&quot;29&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:29,&quot;text&quot;:&quot;כתבו&quot;}]\" hatkana_mila=\"[]\"><nobr>כתבו</nobr></span>",
+        "visibleReading": "כתבו",
+        "contextQuote": "ר' יוסי אומ'. כזה גט. כתבו לאחר שנים-עשר חדש ונתנו לאחר",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-7-9.html",
+        "htmlSha256": "9c0d5acfdb14e217d61b9ad4a6fb6c56ecee793516bff8f361005c32797cede0",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-nashim-initial/gittin-7-9-1061309-word.html",
+        "wordExcerptSha256": "350a22f84958a5cb8f870f623f826fa5a846297f7bed131040fd680d38e0164e",
+        "httpStatus": 200,
+        "retrievedDate": "2026-11-27"
+      },
+      "binding": {
+        "method": "Root manually matched the bounded occurrence and both adjacent phrase contexts; Maagarim ordinal is recorded, never treated as the current source index",
+        "surfaceCorrespondence": "editorial-deletion/addition counterpart",
+        "fullyIndependentManuscriptWitness": false
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemmaLabel": "כתב",
+            "rawLabel": "כתב [קל, עבר]",
+            "stem": "קל",
+            "formClass": "עבר",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "interpretation": "Explicit Qal/past agrees with visible Accordance perfect rather than draft imperative. Source editorial flags remain intact; no vowels or full inflection are certified.",
+        "currentDraftCandidates": [
+          {
+            "lemma": "כתב",
+            "morph": "HVqv2mp",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "form",
+                "expected": "p",
+                "actual": "v"
+              },
+              {
+                "feature": "person",
+                "expected": "3",
+                "actual": "2"
+              },
+              {
+                "feature": "gender",
+                "expected": "c",
+                "actual": "m"
+              }
+            ]
+          }
+        ],
+        "accordanceRaw": [
+          {
+            "observationFile": "accordance-nashim-current-gittin-observations.json",
+            "observationFileSha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+            "status": "visible-head-feature-difference",
+            "observedWord": "כתבו",
+            "observedRef": "Git. 7:9",
+            "rawLex": "כתב",
+            "rawTags": "qal prf 3 com pl",
+            "image": {
+              "lex": "כתב",
+              "tags": "qal prf 3 com pl",
+              "surface": "כתבו",
+              "ref": "Git. 7:9",
+              "file": "mischna_2026-11-27_09-27-19_25B5EA35_379.png",
+              "driveId": "13ASMoZhoHPJnv7FT0x3A4bQVsxrfh8Cv",
+              "sha256": "159304b7aac80803a5f41b5bbd71f33f5a1b86bd9d6a37a201a59ba5073a6527"
+            },
+            "observationMethod": "fresh-visible-Lex-Tag-observation",
+            "observationStatus": "fresh-visible-Lex-Tag-observation",
+            "notes": null,
+            "lexicalComparisonStatus": "candidate-head-lexeme-present-in-visible-components"
+          }
+        ],
+        "notIndependentlyDelivered": [
+          "person",
+          "gender",
+          "number",
+          "current vowel points"
+        ],
+        "noSourceOrCardMutation": true
+      }
+    }
+  ],
+  "limitations": [
+    "Targeted lexical analysis evidence only; no complete Nashim or Mishnah Maagarim comparison.",
+    "Maagarim describes the same Kaufmann witness, not an independent manuscript.",
+    "Numeric codes retained raw and not decoded to missing inflection features.",
+    "7:9 has separate Maagarim paragraph mm15 identifiers; exact paragraph IDs and ordinal are bound per occurrence.",
+    "Editorial deletion/addition at current Gittin7:9/12 and /50 remains explicit."
+  ]
+}
