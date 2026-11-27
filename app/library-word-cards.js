@@ -1131,11 +1131,19 @@ window.LibraryWordCards = (() => {
     if(!hebState)return;
     const S=hebState,e=host.esc,t=(s,...args)=>e(I18N.t(s,...args)),box=host.$('#wcHebrew'),rows=S.groups[S.source],total=rows.reduce((n,r)=>n+r.count,0),LEM=window.OSHB_LEMMAS||{};
     const name=k=>k==='all'?I18N.t('Alle'):k==='LXX'?'Septuaginta':k,colors=['#3688e8','#d95420','#179e78','#cc9100','#cc4c86','#16a400','#9683dc'];
-    let pos=0;const stops=rows.map((r,i)=>{const start=pos;pos+=r.count/total*100;return colors[i%colors.length]+' '+start+'% '+pos+'%';}).join(',');
+    const pt=(r,a)=>[100+r*Math.sin(a),100-r*Math.cos(a)].map(x=>x.toFixed(2)).join(' ');
+    let angle=0;
+    const arcs=rows.map((r,i)=>{
+      const end=angle+r.count/total*2*Math.PI,big=end-angle>Math.PI?1:0;
+      const d=rows.length===1?'M 100 6 A 94 94 0 1 1 99.99 6 L 99.99 40 A 60 60 0 1 0 100 40 Z':`M ${pt(94,angle)} A 94 94 0 ${big} 1 ${pt(94,end)} L ${pt(60,end)} A 60 60 0 ${big} 0 ${pt(60,angle)} Z`;
+      angle=end;const label=(LEM[r.lemma]?.[0]||r.lemma)+': '+wcNum(r.count)+' ('+Math.round(r.count/total*100)+' %)';
+      return '<path class="wcHebSlice" d="'+d+'" fill="'+colors[i%colors.length]+'" data-hebrew-slice="'+e(r.lemma)+'" role="button" tabindex="0" aria-expanded="false" aria-label="'+e(label)+'"><title>'+e(label)+'</title></path>';
+    }).join('');
+    const ring='<svg class="wcHebRing" viewBox="0 0 200 200" role="group" aria-label="'+t('Hebräische Vorlage')+'">'+arcs+'<text x="100" y="100" class="wcHebCenter" lang="grc">'+e(S.head)+'</text><text x="100" y="123" class="wcHebTotal">'+wcNum(total)+'</text></svg>';
     box.innerHTML='<h4>'+t('Hebräische Vorlage')+'</h4><div class="wcHebSources">'+Object.entries(S.groups).map(([k,rs])=>'<button type="button" data-hebrew-source="'+k+'" aria-pressed="'+(k===S.source)+'">'+name(k)+' <small>'+wcNum(rs.reduce((n,r)=>n+r.count,0))+'</small></button>').join('')+'</div>'+
       '<p class="muted">'+e(name(S.source))+' · '+t('{} Zuordnungen · {} hebräische Wörter',wcNum(total),wcNum(rows.length))+'</p>'+
       '<p class="muted wcHebCoverage">'+t('Die Grafik zählt Wortzuordnungen, nicht sämtliche Vorkommen. Septuaginta insgesamt: {} Belege; eindeutig zugeordnete CATSS-Belege dieses Lemmas: {}. Erfasst sind bestimmte Tanach-Fassungen; deuterokanonische Bücher und nicht eindeutig zugeordnete Wortgruppen sind hier nicht enthalten.',wcNum(S.lxxTotal),wcNum(S.groups.LXX.reduce((n,r)=>n+r.count,0)))+'</p>'+
-      (rows.length?'<div class="wcHebViz"><div class="wcHebRing" role="img" aria-label="'+t('Hebräische Vorlage')+'" style="background:conic-gradient('+stops+')"><div><b dir="auto">'+e(S.head)+'</b><span>'+wcNum(total)+'</span></div></div><div class="wcHebRows">'+rows.map((r,i)=>{
+      (rows.length?'<div class="wcHebViz">'+ring+'<div class="wcHebRows">'+rows.map((r,i)=>{
        const lemma=LEM[r.lemma],label=lemma?.[0]||r.lemma,gloss=lemma?(I18N.lang==='de'&&lemma[2]?lemma[2]:lemma[1]):'',percent=r.count/total*100;
        return '<details class="wcHebEntry" data-hebrew-lemma="'+e(r.lemma)+'" style="--hc:'+colors[i%colors.length]+'"><summary><span class="wcHebLabel"><button type="button" class="wcHebWord" data-hebrew-reverse="'+e(r.lemma)+'" title="'+t('Andere griechische Wiedergaben anzeigen')+'"><bdi lang="he" dir="rtl">'+e(label)+'</bdi></button> <small>'+e(gloss||'')+'</small></span><span class="wcHebBar"><i style="width:'+percent+'%"></i></span><span>'+wcNum(r.count)+'</span><small>'+(percent<1?'&lt; 1':Math.round(percent))+' %</small></summary><button type="button" data-hebrew-reverse="'+e(r.lemma)+'">'+t('Andere griechische Wiedergaben anzeigen')+'</button><div class="wcHebReverse" hidden></div><button type="button" class="wcHL" data-hl="'+e(r.lemma)+'">'+t('Hebräische Wortkarte öffnen')+'</button>'+(r.sources?'<p class="muted">'+r.sources.map(x=>e(name(x.source))+' '+wcNum(x.count)).join(' · ')+'</p>':'')+'<div class="wcHebOccurrences fmRL"></div></details>';
       }).join('')+'</div></div>':'<p class="muted">'+t('Keine Zuordnungen vorhanden.')+'</p>')+
@@ -1160,9 +1168,32 @@ window.LibraryWordCards = (() => {
     }).join('')+(rows.length>limit?'<button type="button" data-hebrew-more="'+(limit+300)+'">'+host.esc(I18N.t('weitere {} Stellen zeigen',Math.min(300,rows.length-limit)))+'</button>':'');
   }
   host.$('#wcHebrew').addEventListener('toggle',e=>{
-    if(e.target.matches('.wcHebEntry')&&e.target.open)renderHebrewOccurrences(e.target);
+    if(!e.target.matches('.wcHebEntry'))return;
+    const entry=e.target;
+    host.$('#wcHebrew').querySelectorAll('[data-hebrew-slice]').forEach(slice=>{
+      if(slice.dataset.hebrewSlice!==entry.dataset.hebrewLemma)return;
+      slice.setAttribute('aria-expanded',String(entry.open));slice.classList.toggle('selected',entry.open);
+    });
+    if(entry.open)renderHebrewOccurrences(entry);
   },true);
+  function toggleHebrewSlice(slice){
+    const entry=[...host.$('#wcHebrew').querySelectorAll('.wcHebEntry')].find(x=>x.dataset.hebrewLemma===slice.dataset.hebrewSlice);
+    if(!entry)return;entry.open=!entry.open;
+    if(entry.open)entry.scrollIntoView({block:'nearest'});
+  }
+  {
+    const box=host.$('#wcHebrew');
+    const highlight=lemma=>box.querySelectorAll('.wcHebSlice,.wcHebEntry').forEach(x=>{
+      const same=(x.dataset.hebrewSlice||x.dataset.hebrewLemma)===lemma;
+      x.classList.toggle('dim',!!lemma&&!same);x.classList.toggle('highlight',!!lemma&&same);
+    });
+    const key=node=>node?.closest?.('.wcHebSlice,.wcHebEntry');
+    for(const event of ['mouseover','focusin'])box.addEventListener(event,e=>{const x=key(e.target);if(x)highlight(x.dataset.hebrewSlice||x.dataset.hebrewLemma);});
+    for(const event of ['mouseout','focusout'])box.addEventListener(event,e=>{if(!key(e.target))return;const x=key(e.relatedTarget);highlight(x?.dataset.hebrewSlice||x?.dataset.hebrewLemma||null);});
+    box.addEventListener('keydown',e=>{const slice=e.target.closest('.wcHebSlice');if(slice&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleHebrewSlice(slice);}});
+  }
   host.$('#wcHebrew').addEventListener('click',e=>{
+    const slice=e.target.closest('.wcHebSlice');if(slice){toggleHebrewSlice(slice);return;}
     const more=e.target.closest('[data-hebrew-more]');if(more){renderHebrewOccurrences(more.closest('.wcHebEntry'),+more.dataset.hebrewMore);return;}
     const source=e.target.closest('[data-hebrew-source]');if(source&&hebState){hebState.source=source.dataset.hebrewSource;renderHebrew();return;}
     const word=e.target.closest('[data-greek-rendering]');if(word){openCorpusForms(word.dataset.greekRendering,true);return;}

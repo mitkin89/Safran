@@ -105,6 +105,19 @@ module.exports=async({win,js,waitFor})=>{
  await waitFor("document.querySelector('#dictOut .dentry')?.textContent.includes('fixture')",'Dictionary link opens the complete article');
  await js("document.querySelector('#dictViewCard').click();document.querySelector('#dictQ').value='δοκέω';document.querySelector('#dictCardSearch').click()");
  await waitFor("document.querySelector('#wcHebrew .wcHebEntry')&&document.querySelector('#wcDict .wcDE')",'Greek dictionary and Hebrew equivalents');
+ assert.equal(await js("document.querySelectorAll('#wcHebrew .wcHebSlice').length"),6,'Each Hebrew equivalent has an interactive segment');
+ await js("document.querySelector('#wcHebrew .wcHebSlice').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+ assert.equal(await js("document.querySelectorAll('#wcHebrew .wcHebSlice.dim').length"),5,'Hover dims other segments');
+ assert(await js("document.querySelector('#wcHebrew .wcHebEntry.highlight').dataset.hebrewLemma===document.querySelector('#wcHebrew .wcHebSlice.highlight').dataset.hebrewSlice"),'Hover links segment and Hebrew row');
+ await js("document.querySelector('#wcHebrew .wcHebSlice').dispatchEvent(new MouseEvent('mouseout',{bubbles:true}));document.querySelector('#wcHebrew .wcHebSlice').dispatchEvent(new MouseEvent('click',{bubbles:true}))");
+ await waitFor("document.querySelector('#wcHebrew .wcHebEntry[open] .wcHebOccurrence')",'Segment opens aligned occurrences');
+ assert(await js("document.querySelector('#wcHebrew .wcHebSlice').getAttribute('aria-expanded')==='true'"),'Segment reflects expanded row');
+ await js("document.querySelector('#wcHebrew .wcHebSlice').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}))");
+ await waitFor("!document.querySelector('#wcHebrew .wcHebEntry[open]')",'Enter closes the segment');
+ await js("document.querySelector('#wcHebrew .wcHebSlice').dispatchEvent(new KeyboardEvent('keydown',{key:' ',bubbles:true}))");
+ await waitFor("document.querySelector('#wcHebrew .wcHebEntry[open]')",'Space opens the segment');
+ await js("document.querySelector('#wcHebrew .wcHebEntry').open=false");
+ await waitFor("document.querySelector('#wcHebrew .wcHebSlice').getAttribute('aria-expanded')==='false'",'Row collapse updates diagram');
  for(const source of ['all','Josephus','Philo','LXX']){
   await js(`document.querySelector('#fmCorpusControls [data-corpus=${source}]').click()`);
   assert(await js("!document.querySelector('#wcDict').hidden&&!document.querySelector('#wcHebrew').hidden"),'Lexicon and Hebrew equivalents stay visible for '+source);
