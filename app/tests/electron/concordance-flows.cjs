@@ -76,6 +76,11 @@ module.exports=async({win,js,waitFor})=>{
   await js("document.querySelector('#wcTr .wcSameClose').click()");
   assert(await js("!document.querySelector('#wcTr .wcSame')"));
  }
+ await waitFor("document.querySelector('#wcHex:not([hidden]) .wcHexSource')",'Field Hexapla in Hebrew word card');
+ assert.equal(await js("document.querySelectorAll('#wcHex .wcHexSource').length"),3);
+ await js("document.querySelector('#wcHex .wcHexSource').open=true;document.querySelector('#wcHex [data-hx-source]').open=true");
+ await waitFor("document.querySelector('#wcHex .wcHexOriginal p')",'Field original loaded on demand');
+ assert(await js("document.querySelector('#wcHex a[data-ref]')"),'Field verse links available');
  await js("document.querySelector('#fmHead [data-wc-scope=family]').click()");
  await waitFor("document.querySelector('#fmHead .fmCnt')?.textContent.includes('373') && document.querySelector('#wcTr [data-src=Zunz]')",'373 Belege und Übersetzungen im Wortfamilien-Überblick');
  assert.equal(await js("document.documentElement.dataset.tab"),'read');

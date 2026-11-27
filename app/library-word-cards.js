@@ -386,6 +386,7 @@ window.LibraryWordCards = (() => {
       <section class="wcSec"><h4>${host.esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${host.esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
       <section class="wcSec" id="wcTr" hidden></section>
+      <section class="wcSec" id="wcHex" hidden></section>
       <section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>
       <section class="wcSec" id="wcLxx" hidden></section>
       <section class="wcSec" id="wcTgR" hidden></section>
@@ -410,6 +411,7 @@ window.LibraryWordCards = (() => {
     if (greek) wcHeb(token);
     else if (!targum) {
       wcTrans(token);
+      wcHexapla(token);
       if (!family) { wcLxx(token); wcTgRen(token); wcPeshittaRen(token); wcQumran(token); wcTargum(token); }
     }
   }
@@ -504,6 +506,48 @@ window.LibraryWordCards = (() => {
     };
     done([...by].map(([id,d])=>`<div class="wcD" data-sy-dict="${host.esc(id)}"><div class="wcDH"><span>${host.esc(d.name)}</span><small>${d.xs.length}</small></div>${d.xs.slice(0,3).map(entry).join('')}${d.xs.length>3?`<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length-3}">${host.esc(I18N.t('+ {} weitere',d.xs.length-3))}</button>`:''}</div>`).join(''));
   }
+  // Field fragments keep their source attribution and phrase-level anchors.
+  let wcHexP = null;
+  async function wcHexapla(token) {
+    const card = fmCur;
+    let index;
+    try { index = await (wcHexP ||= lazyScript('hexapla-word-index.js', () => window.HEXAPLA_WORD_INDEX)); }
+    catch { wcHexP = null; return; }
+    const box = host.$('#wcHex');
+    if (token !== wcToken || card !== fmCur || !box || !index) return;
+    const ids = [...new Set((card.family?.ids || [card.lemma]).flatMap(id => index.lemmas[id] || []))];
+    if (!ids.length) return;
+    const e = host.esc, t = s => e(I18N.t(s));
+    const row = id => {
+      const r = index.rows[id];
+      return `<article class="wcHexRow"><div class="fmRL"><a data-ref="${e(r.ref)}">${e(r.ref)}</a> · <small>Field ${r.volume === 2 ? 'II' : 'I'}, ${e(String(r.page))}${r.field !== r.ref.split(' ').at(-1) ? ' · Field ' + e(r.field) : ''}</small></div>
+        <div><bdi lang="he" dir="rtl">${e(r.he)}</bdi>${r.phrase ? ` <small class="muted">${t('Wortgruppe – Zuordnung zum Kontext')}</small>` : ''}</div>
+        <p lang="grc">${e(r.head)} ${r.forWord ? '(' + e(r.forWord) + ') ' : ''}${e(r.reading)}</p>
+        <details data-hx-source="${id}"><summary>${t('Field: Original und Fußnoten')}</summary><div class="wcHexOriginal"></div></details></article>`;
+    };
+    box.innerHTML = `<h4>Field Hexapla</h4><p class="muted">${t('Erhaltene Lesarten zu diesem Wort und seinem Kontext; keine vollständige Übersetzung und keine durchgehende Wort-für-Wort-Zuordnung.')}</p>` +
+      ['Aquila','Symmachus','Theodotion'].map(source => {
+        const members = ids.filter(id => index.rows[id].sources.includes(source));
+        return `<details class="wcHexSource"><summary>${e(source)} <small>${wcNum(members.length)} ${t('Lesarten')}</small></summary>${members.slice(0,30).map(row).join('')}${members.length > 30 ? `<details><summary>${t('Weitere Lesarten')}</summary>${members.slice(30).map(row).join('')}</details>` : ''}</details>`;
+      }).join('');
+    box.hidden = false;
+  }
+  host.$('#wcBody').addEventListener('toggle', async event => {
+    const details = event.target;
+    if (!details.matches?.('[data-hx-source]') || !details.open || details.dataset.loaded) return;
+    details.dataset.loaded = '1';
+    const row = window.HEXAPLA_WORD_INDEX?.rows[+details.dataset.hxSource];
+    if (!row) return;
+    const match = /^(.*) (\d+:\d+)$/.exec(row.ref), target = details.querySelector('.wcHexOriginal');
+    try {
+      const data = await lazyScript('hexapla-data/' + match[1].replace(/ /g,'_') + '.js', () => window.HEXAPLA_DATA?.[match[1]]);
+      const unit = data.verses[match[2]][row.unit], e = host.esc;
+      target.innerHTML = `<p lang="grc">${e(unit.t)}</p>` + (unit.fn || []).map(key => {
+        const note = data.notes[key];
+        return note ? `<p><b>${e(key.split('.').at(-1))}</b> <span lang="en">${e(note.en || '')}</span></p><p lang="la">${e(note.la || '')}</p>` : '';
+      }).join('');
+    } catch { delete details.dataset.loaded; target.textContent = I18N.t('Nicht verfügbar'); }
+  }, true);
   // Septuaginta: häufigste griechische Lemmata für dieses hebräische Lemma (CATSS-Zuordnung + lxx-morph, Index oshb-lxx.js); Klick öffnet die griechische Wortkarte
   async function wcLxx(token) {
     const { lemma } = fmCur;
@@ -549,6 +593,7 @@ window.LibraryWordCards = (() => {
   function wcDefaultSource(keys){const title=host.getBibleTranslation?.()||'';return keys.find(k=>(host.IL_VT[k]||WC_TR_VT[k])?.test(title))||keys[0];}
   const RTL = l => l === 'arc' || l === 'he' || l === 'syr';
   function wcHovPick(a) {
+    if (a.closest('#wcHex')) return fmCur?.family ? null : {lem:fmCur?.lemma};
     if (fmCur && fmCur.targum && a.closest('.fmRL') && a.dataset.gvt) {
       return { vt: '^' + a.dataset.gvt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$', rtl: true, label: 'Targum', targum: fmCur.targum };
     }

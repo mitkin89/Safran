@@ -3147,3 +3147,10 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #wcBody .wcPsX .g[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 30px; line-height: 1.5; max-width: 100%; }
 #wcBody .wcPsW small { font: 11px/1.3 var(--ui-font, system-ui, sans-serif); color: var(--muted); text-align: start; }
 #wcBody .wcPsMore summary { cursor: pointer; color: var(--muted); margin: 6px 0; }
+
+#wcHex .wcHexSource { margin: 8px 0; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+#wcHex .wcHexSource > summary { cursor: pointer; font-weight: 600; }
+#wcHex .wcHexRow { padding: 12px 0; border-top: 1px solid var(--line); margin-top: 8px; }
+#wcHex .wcHexRow p { margin: 6px 0; }
+#wcHex .wcHexRow [lang=grc] { font-size: 1.1em; }
+#wcHex .wcHexOriginal { padding-inline-start: 12px; }
