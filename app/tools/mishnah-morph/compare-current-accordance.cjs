@@ -1,6 +1,7 @@
 'use strict';
 // Read-only comparison: source-bound screenshot facts never become draft inputs.
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
+const cp=require('node:child_process');
 const {segments}=require('./compare.cjs');
 const M=require('../../mishnah-morph');
 const ROOT=path.resolve(__dirname,'../..'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
@@ -67,17 +68,20 @@ function compareObservation(data,o){
 }
 function load(file){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(file,'utf8'),ctx);return Object.values(ctx.window)[0];}
 function main(){
+ const draftArg=process.argv.find(a=>a.startsWith('--draft-commit=')),draftRef=draftArg?.slice('--draft-commit='.length);if(draftRef&&!/^[a-f0-9]{7,40}$/.test(draftRef))throw Error('Draft commit must be a hexadecimal Git commit ID');
+ const draftCommit=draftRef?cp.execFileSync('git',['rev-parse','--verify',draftRef+'^{commit}'],{cwd:ROOT,encoding:'utf8'}).trim():null,draftHashes=new Map();
  const indexArg=process.argv.find(a=>a.startsWith('--image-index='));if(!indexArg)throw Error('Supply --image-index=/path/to/full-download-index.json to verify original image hashes');
  const imageIndexFile=path.resolve(indexArg.slice('--image-index='.length)),imageIndexBytes=fs.readFileSync(imageIndexFile),imageIndex=new Map(JSON.parse(imageIndexBytes).map(r=>[r.name,r])),verifiedImages=new Map();
  function verifiedImage(o){const name=path.basename(o.image.file||''),record=imageIndex.get(name);if(!record||o.image.sha256!==record.sha256||o.image.driveId!==record.id)return false;if(!verifiedImages.has(name))verifiedImages.set(name,hash(fs.readFileSync(path.join(path.dirname(imageIndexFile),name)))===record.sha256);return verifiedImages.get(name);}
  const files=fs.readdirSync(__dirname).filter(f=>/^accordance-moed-current-.*-observations\.json$/.test(f)),catalog=load(path.join(ROOT,'mishnah-accordance-catalog.js')),books=new Map(),rows=[],inputs=[{imageIndexSha256:hash(imageIndexBytes)}];
+ function book(title){if(!books.has(title)){const file=catalog[title].file,bytes=draftCommit?cp.execFileSync('git',['show',draftCommit+':app/'+file],{cwd:ROOT,maxBuffer:128*1024*1024}):fs.readFileSync(path.join(ROOT,file)),ctx={window:{}};vm.runInNewContext(bytes.toString('utf8'),ctx);books.set(title,Object.values(ctx.window)[0]);draftHashes.set(title,hash(bytes));}return books.get(title);}
  for(const file of files){const bytes=fs.readFileSync(path.join(__dirname,file)),doc=JSON.parse(bytes);inputs.push({file,sha256:hash(bytes),observations:doc.observations?.length||0,coverage:doc.coverage||doc.summary||null});
-  for(const raw of doc.observations||[]){const o=normalizeObservation(raw,doc),item=catalog[o.title];if(!verifiedImage(o))throw Error('Original image binding refused: '+file+' '+o.ref+' '+o.wordId);if(!item){rows.push({title:o.title,ref:o.ref,status:'title-not-found'});continue;}if(!books.has(o.title))books.set(o.title,load(path.join(ROOT,item.file)));rows.push({...compareObservation(books.get(o.title),o),observationFile:file});}
+  for(const raw of doc.observations||[]){const o=normalizeObservation(raw,doc),item=catalog[o.title];if(!verifiedImage(o))throw Error('Original image binding refused: '+file+' '+o.ref+' '+o.wordId);if(!item){rows.push({title:o.title,ref:o.ref,status:'title-not-found'});continue;}rows.push({...compareObservation(book(o.title),o),observationFile:file});}
  }
  const counts={};for(const row of rows)counts[row.status]=(counts[row.status]||0)+1;
  const scopeBooks=JSON.parse(fs.readFileSync(path.join(__dirname,'moed-nashim-morphology-completion-moed-audit.json'),'utf8')).books;
- const coverage=scopeBooks.map(({title})=>{if(!books.has(title))books.set(title,load(path.join(ROOT,catalog[title].file)));const d=books.get(title),observed=new Set(rows.filter(r=>r.title===title&&r.status!=='binding-refused').map(r=>r.sourceWordId)),all=Object.values(d.units).flatMap(u=>u.words.map((_,i)=>u.id+'/word/'+i));return {title,sourceWords:all.length,positionsWithObservation:all.filter(id=>observed.has(id)).length,withoutObservation:all.filter(id=>!observed.has(id)),wordCoverageComplete:all.every(id=>observed.has(id))};});
- const report={version:1,scope:'Moed available screenshot observations',complete:false,meaning:'Conservative compatibility with visible lexical-head fields only, not an accuracy score, complete morphology check, manuscript check, or human validation. No input cards or source text modified.',inputs,draftFiles:[...books].map(([title])=>({title,file:catalog[title].file,sha256:hash(fs.readFileSync(path.join(ROOT,catalog[title].file)))})),verifiedOriginalImages:verifiedImages.size,coverage,counts,rows};
+ const coverage=scopeBooks.map(({title})=>{const d=book(title),observed=new Set(rows.filter(r=>r.title===title&&r.status!=='binding-refused').map(r=>r.sourceWordId)),all=Object.values(d.units).flatMap(u=>u.words.map((_,i)=>u.id+'/word/'+i));return {title,sourceWords:all.length,positionsWithObservation:all.filter(id=>observed.has(id)).length,withoutObservation:all.filter(id=>!observed.has(id)),wordCoverageComplete:all.every(id=>observed.has(id))};});
+ const report={version:1,scope:'Moed available screenshot observations',draftCommit,complete:false,meaning:'Conservative compatibility with visible lexical-head fields only, not an accuracy score, complete morphology check, manuscript check, or human validation. No input cards or source text modified.',inputs,draftFiles:[...books].map(([title])=>({title,file:catalog[title].file,sha256:draftHashes.get(title)})),verifiedOriginalImages:verifiedImages.size,coverage,counts,rows};
  const out=path.join(__dirname,'moed-current-accordance-comparison.json');fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n');process.stdout.write(JSON.stringify({output:out,counts})+'\n');
 }
 module.exports={parseHead,normalizeObservation,compareObservation};if(require.main===module)main();
