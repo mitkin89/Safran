@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "method": "AI contextual lexical review; not human confirmation or manuscript pointing validation",
+  "scope": "Five previously unanalysed singular רשיי positions in Kaufmann Berakhot; no global spelling normalization",
+  "evidence": [
+    {
+      "dictId": "e8d290b744f6",
+      "dict": "Levy",
+      "entry": 17688,
+      "head": "רַשַּׁיי, רַשַּׁאי",
+      "match": "reviewed-entry",
+      "queryKind": "contextual-lexical-review",
+      "dictionarySha256": "caac370b0f8f95463fee20c86158393a3a56af9f3eba5f8cf2fb4a31b36c113c",
+      "entrySha256": "02f138dbee46babfb8dc3eb4e3aae4ccd00fabde6f62dfa73432270e26a41679"
+    }
+  ],
+  "decisions": [
+    {
+      "ref": "1:4",
+      "wordIndex": 20,
+      "sourceWordId": "S07326.1.1.1.4/word/20",
+      "originalWord": "רשיי",
+      "context": "מקום שאמרו להאריך אינו רשיי לקצר",
+      "lemma": "רשאי",
+      "morph": "HAamsa",
+      "note": "Levy führt רשיי und רשאי im selben Eintrag. Im Satz prädikatives Adjektiv, männlicher Singular: berechtigt/befugt. KI-Kontextprüfung; die übertragene Punktierung wird damit nicht am Manuskript bestätigt."
+    },
+    {
+      "ref": "1:4",
+      "wordIndex": 24,
+      "sourceWordId": "S07326.1.1.1.4/word/24",
+      "originalWord": "רשיי",
+      "context": "לקצר אינו רשיי להאריך",
+      "lemma": "רשאי",
+      "morph": "HAamsa",
+      "note": "Levy führt רשיי und רשאי im selben Eintrag. Im Satz prädikatives Adjektiv, männlicher Singular: berechtigt/befugt. KI-Kontextprüfung; die übertragene Punktierung wird damit nicht am Manuskript bestätigt."
+    },
+    {
+      "ref": "1:4",
+      "wordIndex": 28,
+      "sourceWordId": "S07326.1.1.1.4/word/28",
+      "originalWord": "רשיי",
+      "context": "לחתום אינו רשיי שלא לחתום",
+      "lemma": "רשאי",
+      "morph": "HAamsa",
+      "note": "Levy führt רשיי und רשאי im selben Eintrag. Im Satz prädikatives Adjektiv, männlicher Singular: berechtigt/befugt. KI-Kontextprüfung; die übertragene Punktierung wird damit nicht am Manuskript bestätigt."
+    },
+    {
+      "ref": "1:4",
+      "wordIndex": 34,
+      "sourceWordId": "S07326.1.1.1.4/word/34",
+      "originalWord": "רשיי",
+      "context": "ושלא לחתום אינו רשיי לחתום",
+      "lemma": "רשאי",
+      "morph": "HAamsa",
+      "note": "Levy führt רשיי und רשאי im selben Eintrag. Im Satz prädikatives Adjektiv, männlicher Singular: berechtigt/befugt. KI-Kontextprüfung; die übertragene Punktierung wird damit nicht am Manuskript bestätigt."
+    },
+    {
+      "ref": "5:4",
+      "wordIndex": 30,
+      "sourceWordId": "S07326.1.1.5.4/word/30",
+      "originalWord": "רשיי",
+      "context": "נושא את כפיו וחוזר לתפילתו רשיי",
+      "lemma": "רשאי",
+      "morph": "HAamsa",
+      "note": "Levy führt רשיי und רשאי im selben Eintrag. Im Satz prädikatives Adjektiv, männlicher Singular: berechtigt/befugt. KI-Kontextprüfung; die übertragene Punktierung wird damit nicht am Manuskript bestätigt."
+    }
+  ]
+}

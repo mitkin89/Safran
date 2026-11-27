@@ -54,8 +54,21 @@ Die Herkunftsangaben trennen:
   Analyse; nicht erneut für die neue Lesung bestätigt. Die Wörterbuchauswahl
   bleibt auf Jastrow, Levy und Krauss beschränkt.
 
-Es wurden keine fehlenden Morphologien oder Übersetzungen erfunden. Die 550
-bisher nicht zugeordneten lexikalischen Karten bleiben ohne solche Analyse.
+174 der bisher 550 leeren Karten erhalten nun vorhandene Analysevorschläge
+aus eindeutigen Einzelwortverknüpfungen des Interlinears. Die übrigen **376**
+bleiben ohne Analyse. Übertragen wird nur bei einmalig verknüpften, nicht
+annotierten Wortpositionen, identischen Konsonanten, einer zugeordneten
+Abkürzung oder der ausdrücklich belegten Schreibvariante רשיי / רשי. Die
+Punktierung bleibt davon unabhängig. Es gibt keine globale Normalisierung
+der Kaufmann-Schreibung und keine neue Analyse allein aufgrund einer Vokalform.
+
+Die fünf Singularstellen רשיי in 1:4 und 5:4 sind zusätzlich mit Levy,
+Eintrag 17688 (רשיי / רשאי), abgeglichen: prädikatives Adjektiv, männlicher
+Singular, „berechtigt; befugt“. Eintrag und Wörterbuchdatei sind durch SHA-256
+gebunden. Der Befund ist eine KI-Kontextprüfung, keine menschliche Freigabe
+oder Bestätigung der Manuskriptpunktierung. Die Karten öffnen den konkreten
+Levy-Beleg. Entscheidungen stehen in `kaufmann-lexical-decisions.json`;
+alle automatischen Übernahmen und Ablehnungsgründe im Arbeitsaudit.
 153 Karten mit vorhandenen Vorschlägen sind wegen abweichender oder offener
 Punktierung als teilweise bestimmt gekennzeichnet; die übrigen Analysen bleiben
 ebenfalls Vorschläge.

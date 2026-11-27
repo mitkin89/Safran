@@ -97,6 +97,15 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   if(r.form.analyses.length)assert(p.provenance.analysis.includes('bestehender Kandidat; nicht erneut geprüft'));
  }
  const conflict=records.find(r=>r.ref==='3:1'&&r.sourceIndex===14);
+ for(const decision of require('../../tools/mishnah/kaufmann-lexical-decisions.json').decisions){
+  const record=records.find(r=>r.ref===decision.ref&&r.sourceIndex===decision.wordIndex),p=await popup(record);
+  assert.equal(p.word,record.form.word);assert.equal(p.analyses,1);
+  assert(p.text.includes('רשאי')&&p.text.includes('berechtigt'),'rashai lemma and meaning displayed');
+  assert(p.provenance.analysis.includes('Levy')&&p.provenance.analysis.includes('KI-Kontextprüfung'));
+  assert(p.text.includes('Rabbinische Wörterbücher'),'direct Levy evidence displayed');
+ }
+ const automatic=records.find(r=>r.form.provenance?.analysis.kind==='interlinear-position');
+ const automaticPopup=await popup(automatic);assert(automaticPopup.provenance.analysis.includes('eindeutiger Interlinearverknüpfung'));
  assert(conflict,'real manuscript/Accordance pointing conflict');
  const conflictPopup=await popup(conflict);
  assert.equal(conflictPopup.word,'אֵת','working text retains provisional Accordance tsere');

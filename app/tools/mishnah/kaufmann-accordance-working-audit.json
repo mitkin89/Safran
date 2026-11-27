@@ -32,10 +32,3084 @@
     "words": 2171,
     "statuses": {
       "partial": 153,
-      "candidate": 1051,
-      "ambiguous": 417,
-      "unresolved": 550
+      "candidate": 1201,
+      "ambiguous": 441,
+      "unresolved": 376
     }
+  },
+  "interlinearAnalysisTransfer": {
+    "sourceTextHash": "eed07ea0084761b208e406d581924f88eca4379dbc6c720889a37a70ecb40337",
+    "accepted": [
+      {
+        "ref": "1:1",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.1.1/word/17",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 17,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.1.1/word/18",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.1.1/word/23",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 23,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 55,
+        "sourceWordId": "S07326.1.1.1.1/word/55",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 55,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 84,
+        "sourceWordId": "S07326.1.1.1.1/word/84",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 86,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.1.2/word/9",
+        "sourceRef": "1:2",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.1.2/word/19",
+        "sourceRef": "1:2",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.1.2/word/21",
+        "sourceRef": "1:2",
+        "sourceTokenIndex": 20,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.1.3/word/2",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 2,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.1.3/word/10",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 10,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.1.3/word/15",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 15,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.1.3/word/21",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 20,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 41,
+        "sourceWordId": "S07326.1.1.1.3/word/41",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 40,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 42,
+        "sourceWordId": "S07326.1.1.1.3/word/42",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 41,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.1.4/word/20",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 19,
+        "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 24,
+        "sourceWordId": "S07326.1.1.1.4/word/24",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 23,
+        "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 28,
+        "sourceWordId": "S07326.1.1.1.4/word/28",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 27,
+        "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 34,
+        "sourceWordId": "S07326.1.1.1.4/word/34",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 33,
+        "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.1.5/word/4",
+        "sourceRef": "1:5",
+        "sourceTokenIndex": 4,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.1.5/word/5",
+        "sourceRef": "1:5",
+        "sourceTokenIndex": 5,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 24,
+        "sourceWordId": "S07326.1.1.1.5/word/24",
+        "sourceRef": "1:5",
+        "sourceTokenIndex": 24,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 31,
+        "sourceWordId": "S07326.1.1.1.5/word/31",
+        "sourceRef": "1:5",
+        "sourceTokenIndex": 31,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 43,
+        "sourceWordId": "S07326.1.1.1.5/word/43",
+        "sourceRef": "1:5",
+        "sourceTokenIndex": 43,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:1",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.2.1/word/26",
+        "sourceRef": "2:1",
+        "sourceTokenIndex": 26,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:1",
+        "wordIndex": 28,
+        "sourceWordId": "S07326.1.1.2.1/word/28",
+        "sourceRef": "2:1",
+        "sourceTokenIndex": 28,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:1",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.2.1/word/30",
+        "sourceRef": "2:1",
+        "sourceTokenIndex": 30,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 24,
+        "sourceWordId": "S07326.1.1.2.2/word/24",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 29,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.2.2/word/26",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 31,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 33,
+        "sourceWordId": "S07326.1.1.2.2/word/33",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 39,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 34,
+        "sourceWordId": "S07326.1.1.2.2/word/34",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 40,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.2.3/word/7",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 7,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.2.3/word/9",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.2.3/word/16",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 16,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.2.3/word/18",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.2.3/word/20",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 20,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.2.3/word/22",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 22,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.2.5/word/15",
+        "sourceRef": "2:5",
+        "sourceTokenIndex": 15,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.2.5/word/30",
+        "sourceRef": "2:5",
+        "sourceTokenIndex": 29,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:6",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.2.6/word/12",
+        "sourceRef": "2:6",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:7",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.2.7/word/15",
+        "sourceRef": "2:7",
+        "sourceTokenIndex": 16,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.2.8/word/13",
+        "sourceRef": "2:8",
+        "sourceTokenIndex": 13,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "3:4",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.3.4/word/17",
+        "sourceRef": "3:4",
+        "sourceTokenIndex": 17,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "3:4",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.3.4/word/19",
+        "sourceRef": "3:4",
+        "sourceTokenIndex": 19,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "3:6",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.3.6/word/12",
+        "sourceRef": "3:6",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.4.1/word/4",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 4,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.4.1/word/6",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 6,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.4.1/word/14",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 14,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.4.1/word/16",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 16,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.4.2/word/0",
+        "sourceRef": "4:2",
+        "sourceTokenIndex": 0,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.4.2/word/18",
+        "sourceRef": "4:2",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 1,
+        "sourceWordId": "S07326.1.1.4.3/word/1",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 1,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.4.3/word/2",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 2,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.4.3/word/9",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.4.3/word/11",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 11,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.4.3/word/15",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 15,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.4.3/word/17",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 17,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.4.4/word/0",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 0,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.4.4/word/9",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.4.4/word/11",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 11,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.4.7/word/0",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 0,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.4.7/word/4",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 4,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.4.7/word/11",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 11,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.4.7/word/12",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.4.7/word/18",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.4.7/word/20",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 20,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.5.2/word/12",
+        "sourceRef": "5:2",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.5.2/word/14",
+        "sourceRef": "5:2",
+        "sourceTokenIndex": 14,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.5.2/word/19",
+        "sourceRef": "5:2",
+        "sourceTokenIndex": 19,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.5.2/word/21",
+        "sourceRef": "5:2",
+        "sourceTokenIndex": 21,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.5.4/word/30",
+        "sourceRef": "5:4",
+        "sourceTokenIndex": 29,
+        "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.5.5/word/19",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 27,
+        "sourceWordId": "S07326.1.1.5.5/word/27",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 26,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 37,
+        "sourceWordId": "S07326.1.1.5.5/word/37",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 37,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.6.1/word/8",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 8,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.6.1/word/18",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.6.1/word/26",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 26,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 36,
+        "sourceWordId": "S07326.1.1.6.1/word/36",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 36,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 44,
+        "sourceWordId": "S07326.1.1.6.1/word/44",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 44,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 48,
+        "sourceWordId": "S07326.1.1.6.1/word/48",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 48,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 51,
+        "sourceWordId": "S07326.1.1.6.1/word/51",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 50,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.6.3/word/7",
+        "sourceRef": "6:3",
+        "sourceTokenIndex": 6,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.6.3/word/18",
+        "sourceRef": "6:3",
+        "sourceTokenIndex": 17,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 25,
+        "sourceWordId": "S07326.1.1.6.3/word/25",
+        "sourceRef": "6:3",
+        "sourceTokenIndex": 23,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.6.4/word/5",
+        "sourceRef": "6:4",
+        "sourceTokenIndex": 4,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.6.4/word/8",
+        "sourceRef": "6:4",
+        "sourceTokenIndex": 6,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.6.4/word/17",
+        "sourceRef": "6:4",
+        "sourceTokenIndex": 15,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.6.4/word/18",
+        "sourceRef": "6:4",
+        "sourceTokenIndex": 16,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 35,
+        "sourceWordId": "S07326.1.1.6.5/word/35",
+        "sourceRef": "6:5",
+        "sourceTokenIndex": 34,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:6",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.6.6/word/26",
+        "sourceRef": "6:6",
+        "sourceTokenIndex": 26,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.6.8/word/8",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 8,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.6.8/word/9",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.6.8/word/10",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 10,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.6.8/word/11",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 11,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.6.8/word/12",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.6.8/word/17",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 17,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 32,
+        "sourceWordId": "S07326.1.1.6.8/word/32",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 30,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 36,
+        "sourceWordId": "S07326.1.1.6.8/word/36",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 34,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 38,
+        "sourceWordId": "S07326.1.1.6.8/word/38",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 36,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:2",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.7.2/word/12",
+        "sourceRef": "7:2",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:2",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.7.2/word/14",
+        "sourceRef": "7:2",
+        "sourceTokenIndex": 14,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 37,
+        "sourceWordId": "S07326.1.1.7.3/word/37",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 37,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 43,
+        "sourceWordId": "S07326.1.1.7.3/word/43",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 43,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 48,
+        "sourceWordId": "S07326.1.1.7.3/word/48",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 48,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 53,
+        "sourceWordId": "S07326.1.1.7.3/word/53",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 53,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 61,
+        "sourceWordId": "S07326.1.1.7.3/word/61",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 61,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 65,
+        "sourceWordId": "S07326.1.1.7.3/word/65",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 65,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 73,
+        "sourceWordId": "S07326.1.1.7.3/word/73",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 73,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 76,
+        "sourceWordId": "S07326.1.1.7.3/word/76",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 76,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 82,
+        "sourceWordId": "S07326.1.1.7.3/word/82",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 82,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 88,
+        "sourceWordId": "S07326.1.1.7.3/word/88",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 88,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 100,
+        "sourceWordId": "S07326.1.1.7.3/word/100",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 100,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 104,
+        "sourceWordId": "S07326.1.1.7.3/word/104",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 104,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 105,
+        "sourceWordId": "S07326.1.1.7.3/word/105",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 105,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 106,
+        "sourceWordId": "S07326.1.1.7.3/word/106",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 106,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.7.5/word/0",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 0,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 1,
+        "sourceWordId": "S07326.1.1.7.5/word/1",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 1,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.7.5/word/2",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 2,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.7.5/word/3",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 3,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.7.5/word/4",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 4,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.7.5/word/5",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 5,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.7.5/word/6",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 6,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.7.5/word/7",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 7,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.7.5/word/8",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 8,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.7.5/word/9",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 9,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.7.5/word/10",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 10,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.7.5/word/11",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 11,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.7.5/word/12",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 12,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.7.5/word/13",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 13,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.7.5/word/14",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 14,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.7.5/word/16",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 16,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.7.5/word/17",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 17,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.7.5/word/19",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 19,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.7.5/word/20",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 20,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.7.5/word/22",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 22,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.7.5/word/23",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 23,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.7.5/word/26",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 25,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 27,
+        "sourceWordId": "S07326.1.1.7.5/word/27",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 26,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 28,
+        "sourceWordId": "S07326.1.1.7.5/word/28",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 27,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.7.5/word/29",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 28,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.7.5/word/30",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 29,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 32,
+        "sourceWordId": "S07326.1.1.7.5/word/32",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 31,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 33,
+        "sourceWordId": "S07326.1.1.7.5/word/33",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 32,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 34,
+        "sourceWordId": "S07326.1.1.7.5/word/34",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 33,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 35,
+        "sourceWordId": "S07326.1.1.7.5/word/35",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 34,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 36,
+        "sourceWordId": "S07326.1.1.7.5/word/36",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 35,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 37,
+        "sourceWordId": "S07326.1.1.7.5/word/37",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 36,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 38,
+        "sourceWordId": "S07326.1.1.7.5/word/38",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 37,
+        "compatibility": "same-consonants"
+      },
+      {
+        "ref": "8:1",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.8.1/word/21",
+        "sourceRef": "8:1",
+        "sourceTokenIndex": 21,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:2",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.8.2/word/2",
+        "sourceRef": "8:2",
+        "sourceTokenIndex": 2,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:2",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.8.2/word/12",
+        "sourceRef": "8:2",
+        "sourceTokenIndex": 12,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:5",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.8.5/word/9",
+        "sourceRef": "8:5",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:5",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.8.5/word/16",
+        "sourceRef": "8:5",
+        "sourceTokenIndex": 16,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:5",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.8.5/word/22",
+        "sourceRef": "8:5",
+        "sourceTokenIndex": 22,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:7",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.8.7/word/7",
+        "sourceRef": "8:7",
+        "sourceTokenIndex": 7,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:7",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.8.7/word/13",
+        "sourceRef": "8:7",
+        "sourceTokenIndex": 13,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.8.8/word/23",
+        "sourceRef": "8:8",
+        "sourceTokenIndex": 23,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 35,
+        "sourceWordId": "S07326.1.1.8.8/word/35",
+        "sourceRef": "8:8",
+        "sourceTokenIndex": 35,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.9.1/word/5",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 5,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.9.1/word/6",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 6,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.9.1/word/18",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 18,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 27,
+        "sourceWordId": "S07326.1.1.9.2/word/27",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 27,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 31,
+        "sourceWordId": "S07326.1.1.9.2/word/31",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 31,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 33,
+        "sourceWordId": "S07326.1.1.9.2/word/33",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 33,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 38,
+        "sourceWordId": "S07326.1.1.9.2/word/38",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 38,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 54,
+        "sourceWordId": "S07326.1.1.9.2/word/54",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 54,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 55,
+        "sourceWordId": "S07326.1.1.9.2/word/55",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 55,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 62,
+        "sourceWordId": "S07326.1.1.9.2/word/62",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 62,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 63,
+        "sourceWordId": "S07326.1.1.9.2/word/63",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 63,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.9.3/word/6",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 6,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:4",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.9.4/word/11",
+        "sourceRef": "9:4",
+        "sourceTokenIndex": 10,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.9.5/word/9",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 9,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 117,
+        "sourceWordId": "S07326.1.1.9.5/word/117",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 116,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 131,
+        "sourceWordId": "S07326.1.1.9.5/word/131",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 130,
+        "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 136,
+        "sourceWordId": "S07326.1.1.9.5/word/136",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 135,
+        "compatibility": "aligned-abbreviation"
+      }
+    ],
+    "rejected": [
+      {
+        "ref": "1:1",
+        "wordIndex": 12,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 14,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 15,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 46,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 48,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 66,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 75,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 11,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 12,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:2",
+        "wordIndex": 34,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 4,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 5,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 6,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 53,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 54,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 60,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 61,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 64,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 68,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 6,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 7,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 13,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 26,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 30,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 31,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 32,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 35,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 26,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 55,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "1:5",
+        "wordIndex": 56,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "2:1",
+        "wordIndex": 7,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 6,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 12,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 14,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 19,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 22,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 41,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 49,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 54,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 55,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 58,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 59,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 60,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 62,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 14,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 15,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 31,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:4",
+        "wordIndex": 12,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 2,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 16,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 17,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 23,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:6",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:6",
+        "wordIndex": 11,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:7",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:7",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 9,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 10,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 11,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 12,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 17,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 2,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 5,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 11,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 12,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 13,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 20,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 21,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 22,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 23,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 24,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 27,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 28,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 29,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 30,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 31,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 33,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 34,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 35,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 38,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:2",
+        "wordIndex": 10,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "3:2",
+        "wordIndex": 22,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 5,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:5",
+        "wordIndex": 2,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:5",
+        "wordIndex": 17,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:6",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "3:6",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 0,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 28,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 29,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 30,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 31,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 32,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 33,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 1,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 9,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 16,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 31,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 5,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "4:3",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 4,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 7,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 16,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 24,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 30,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 33,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 35,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:5",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:5",
+        "wordIndex": 22,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:5",
+        "wordIndex": 23,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:6",
+        "wordIndex": 3,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:6",
+        "wordIndex": 4,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "4:6",
+        "wordIndex": 6,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:6",
+        "wordIndex": 7,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 6,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 5,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 15,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 19,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 25,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 22,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 4,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 6,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 16,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 22,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 23,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 26,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 2,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 30,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 34,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 36,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 41,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 46,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 52,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 5,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 23,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 42,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 49,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 50,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 0,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 2,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 8,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 17,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 4,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 12,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 14,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 1,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 2,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 6,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 7,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "6:4",
+        "wordIndex": 19,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 0,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 25,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 26,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 39,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:6",
+        "wordIndex": 1,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:6",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:6",
+        "wordIndex": 25,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 13,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 19,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 21,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 24,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 27,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 1,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 15,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 25,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 26,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 27,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 31,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 41,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 3,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 4,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 6,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 12,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 14,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 27,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 30,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 33,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 19,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 21,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 29,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 42,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 51,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 55,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 78,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 86,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 97,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 99,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 103,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 109,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 110,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:4",
+        "wordIndex": 11,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:4",
+        "wordIndex": 14,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "7:4",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 15,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 21,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 31,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:1",
+        "wordIndex": 19,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:1",
+        "wordIndex": 20,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "8:2",
+        "wordIndex": 10,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:2",
+        "wordIndex": 11,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 0,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 1,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 2,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 3,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 4,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 5,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 6,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 7,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 8,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 9,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 10,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 11,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 12,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 13,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:3",
+        "wordIndex": 14,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:4",
+        "wordIndex": 2,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:4",
+        "wordIndex": 10,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:4",
+        "wordIndex": 12,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:5",
+        "wordIndex": 7,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:5",
+        "wordIndex": 21,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "8:7",
+        "wordIndex": 4,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "8:7",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "8:7",
+        "wordIndex": 11,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 12,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 21,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 22,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 37,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 45,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 3,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 4,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 9,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 10,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 23,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 4,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 13,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 24,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 46,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 58,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 64,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 8,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 16,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 17,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 18,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 27,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 32,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 33,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 41,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 48,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 50,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 60,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:4",
+        "wordIndex": 0,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:4",
+        "wordIndex": 18,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:4",
+        "wordIndex": 22,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 0,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 4,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 19,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 30,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 31,
+        "reason": "ambiguous-link"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 37,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 39,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 43,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 45,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 46,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 51,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 66,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 77,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 83,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 85,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 86,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 95,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 97,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 102,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 109,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 110,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 115,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 125,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 127,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 130,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 132,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 144,
+        "reason": "unmatched-word-or-missing-analysis"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 147,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 148,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 149,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 150,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 151,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 152,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 153,
+        "reason": "source-annotation-or-reused-position"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 154,
+        "reason": "source-annotation-or-reused-position"
+      }
+    ]
+  },
+  "lexicalReview": {
+    "method": "AI contextual lexical review; not human confirmation or manuscript pointing validation",
+    "decisions": [
+      {
+        "ref": "1:4",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.1.4/word/20",
+        "lemma": "רשאי",
+        "morph": "HAamsa"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 24,
+        "sourceWordId": "S07326.1.1.1.4/word/24",
+        "lemma": "רשאי",
+        "morph": "HAamsa"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 28,
+        "sourceWordId": "S07326.1.1.1.4/word/28",
+        "lemma": "רשאי",
+        "morph": "HAamsa"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 34,
+        "sourceWordId": "S07326.1.1.1.4/word/34",
+        "lemma": "רשאי",
+        "morph": "HAamsa"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.5.4/word/30",
+        "lemma": "רשאי",
+        "morph": "HAamsa"
+      }
+    ]
   },
   "openReasons": {
     "no-unique-reference-anchor": 98,
@@ -3090,7 +6164,7 @@
   ],
   "policy": {
     "pointing": "Only the user-supplied Accordance text supplies pointing; open positions retain original unpointed Digital Mishnah text.",
-    "analysis": "Existing Be’eri-position candidates retained with explicit mismatch status; no new morphology inferred from pointing.",
+    "analysis": "Existing candidates retained; missing analyses transferred through unique interlinear positions with consonantal or explicitly documented spelling compatibility. Five rashai positions additionally checked against Levy. No morphology inferred from pointing.",
     "translation": "Existing editorial glosses remain conditional on unverified analyses; rabbinic dictionary links only.",
     "manuscript": "Original source characters, corrections, raw TEI and image observations remain unchanged."
   }

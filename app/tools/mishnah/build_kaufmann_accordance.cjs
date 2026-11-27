@@ -62,12 +62,42 @@ function build(raw,original,previous,images){
  const meta={rel:REL,versionTitle:VERSION,textHash:hash(text),diplomaticSha256:source.sha256,witnessSha256:{D:source.sha256,P:original.witnesses.P.sha256,C:original.witnesses.C.sha256},vocalized:true,transferred:true,provisional:true,pointingDonor:'Accordance',referenceSha256,analysisSourceTextHash:previous.source.textHash};
  const summary={chapters:9,mishnayot:refs.length,totalWords:transfers.length,transferredWords:transfers.filter(t=>t.status==='transferred').length,openWords:transfers.filter(t=>t.status==='open').length,meaning:'Provisional exact-character transfer from user-supplied Accordance pointing; no complete manuscript validation.'};
  const rules=clone(previous.rules);rules['kaufmann-pointing-transfer']={label:'Analysekandidat positionsgebunden aus der Be’eri-Vorarbeit erhalten',refs:['Diese Regel belegt nur die Herkunft des Analysevorschlags.','Die Punktierung dieser Arbeitsfassung stammt ausschließlich aus der Accordance-Abschrift; Abweichungen bleiben ungeprüft.']};
- const interlinear=clone(previous.interlinear),D={version:1,title:TITLE,edition:VERSION,source:meta,sources:{[TITLE]:{rel:REL,textHash:meta.textHash,chapters}},sourceSummary:summary,witnessSha256:meta.witnessSha256,units,base:units,interlinear,forms,rules,transfers,provenance:{pointing:'Only the user-supplied Accordance text supplies pointing; open positions retain original unpointed Digital Mishnah text.',analysis:'Existing Be’eri-position candidates retained with explicit mismatch status; no new morphology inferred from pointing.',translation:'Existing editorial glosses remain conditional on unverified analyses; rabbinic dictionary links only.',manuscript:'Original source characters, corrections, raw TEI and image observations remain unchanged.'},coverage:{chapters:9,mishnayot:refs.length,sourceWords:transfers.length,words:forms.length,statuses:forms.reduce((o,f)=>(o[f.status]=(o[f.status]||0)+1,o),{})}};
+ const interlinear=clone(previous.interlinear),D={version:1,title:TITLE,edition:VERSION,source:meta,sources:{[TITLE]:{rel:REL,textHash:meta.textHash,chapters}},sourceSummary:summary,witnessSha256:meta.witnessSha256,units,base:units,interlinear,forms,rules,transfers,provenance:{pointing:'Only the user-supplied Accordance text supplies pointing; open positions retain original unpointed Digital Mishnah text.',analysis:'Existing candidates retained; missing analyses transferred through unique interlinear positions with consonantal or explicitly documented spelling compatibility. Five rashai positions additionally checked against Levy. No morphology inferred from pointing.',translation:'Existing editorial glosses remain conditional on unverified analyses; rabbinic dictionary links only.',manuscript:'Original source characters, corrections, raw TEI and image observations remain unchanged.'},coverage:{chapters:9,mishnayot:refs.length,sourceWords:transfers.length,words:forms.length,statuses:forms.reduce((o,f)=>(o[f.status]=(o[f.status]||0)+1,o),{})}};
+ const alignmentContext={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'mishnah-vocalized/berakhot.js'),'utf8'),alignmentContext);
+ require('./transfer_interlinear_analyses.cjs').transfer(D,alignmentContext.window.MISHNAH_VOCALIZED[TITLE],require('../../mishnah-morph-data'));
+ applyLexicalDecisions(D);
  const imageData={...clone(images),targetTextHash:meta.textHash,reboundFrom:{targetTextHash:images.targetTextHash,method:'Every diplomatic ID and original word checked; image observations preserved without change.'}};
  for(const[ref,u]of Object.entries(units))u.words.forEach((w,i)=>{if(imageData.words[u.id+'/word/'+i]?.originalWord!==w.originalWord)throw Error('Image word identity changed '+ref);});
  const doc={title:TITLE,heTitle:'משנה ברכות',language:'he',actualLanguage:'he',versionTitle:VERSION,versionSource:source.url,categories:['Mishnah','Seder Zeraim'],sectionNames:['Chapter','Mishnah'],direction:'rtl',isSource:true,isPrimary:false,license:'Unknown',attribution:'Consonantal transcription: Digital Mishnah, CC BY 4.0. Pointing: user-supplied Accordance text; provisional local working edition. Redistribution rights for the pointing are not asserted.',rights:{consonants:'Digital Mishnah CC BY 4.0',pointing:'User-supplied Accordance text; source version and redistribution license not embedded'},pointingStatus:'Provisional Accordance transfer, with explicitly open positions; not a manuscript-certified edition',text};
- const report={edition:VERSION,source:meta,summary,coverage:D.coverage,openReasons:reasons,open:transfers.filter(t=>t.status==='open').map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,originalWord:t.originalWord,reasons:t.reasons})),imageFeatureConflicts:transfers.filter(t=>t.pointingCautions.length).map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,cautions:t.pointingCautions})),policy:D.provenance};
+ const report={edition:VERSION,source:meta,summary,coverage:D.coverage,interlinearAnalysisTransfer:D.interlinearAnalysisTransfer,lexicalReview:D.lexicalReview,openReasons:reasons,open:transfers.filter(t=>t.status==='open').map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,originalWord:t.originalWord,reasons:t.reasons})),imageFeatureConflicts:transfers.filter(t=>t.pointingCautions.length).map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,cautions:t.pointingCautions})),policy:D.provenance};
  return{data:D,imageData,doc,report};
+}
+function applyLexicalDecisions(data){
+ const review=require('./kaufmann-lexical-decisions.json'),zlib=require('node:zlib');
+ for(const e of review.evidence){
+  if(e.dictId!=='e8d290b744f6')throw Error('Unexpected lexical evidence dictionary');
+  const bytes=fs.readFileSync(path.join(root,'bundled/dict',e.dictId+'.json.gz')),dict=JSON.parse(zlib.gunzipSync(bytes));
+  if(sha(bytes)!==e.dictionarySha256||sha(dict.html[e.entry])!==e.entrySha256||!dict.heads[e.entry].includes('רשיי')||!dict.heads[e.entry].includes('רשאי'))throw Error('Lexical evidence changed');
+ }
+ const changed=[],seen=new Set();
+ for(const decision of review.decisions){
+  const u=data.units[decision.ref],word=u?.words[decision.wordIndex],id=u?.id+'/word/'+decision.wordIndex;
+  if(!word||id!==decision.sourceWordId||word.originalWord!==decision.originalWord||seen.has(id))throw Error('Lexical decision source mismatch');
+  seen.add(id);
+  const tokens=M.tokens(u.offsetText),matches=tokens.map((t,i)=>({t,i})).filter(({t})=>word.start<=t.start&&word.end>=t.end);
+  if(matches.length!==1)throw Error('Lexical decision requires one exact token');
+  const [c,m]=decision.ref.split(':').map(Number),form=data.forms[data.sources[TITLE].chapters[c-1][m-1][matches[0].i]];
+  if(form.word!==matches[0].t.word||form.analyses.some(a=>a.lemma!==decision.lemma||a.morph!==decision.morph))throw Error('Lexical decision would replace an incompatible analysis');
+  form.analyses=[{lemma:decision.lemma,morph:decision.morph,rules:['nominal','kaufmann-context-lexicon'],method:'contextual-rabbinic-lexicon-candidate',note:decision.note}];
+  form.status='candidate';form.hints=['Lexikalisch und im Satz geprüft (KI); keine Bestätigung der Manuskriptpunktierung.'];
+  form.dictionaryEvidence=clone(review.evidence);
+  form.provenance.analysis={source:'Levy, Eintrag רשיי / רשאי; positionsgebundene KI-Kontextprüfung',kind:'contextual-rabbinic-lexicon',reviewed:false,sourceWord:word.originalWord,sourceWordId:id,pointingMatch:null};
+  form.provenance.translation={source:'Redaktionelle Kurzbedeutung nach Levy: berechtigt; befugt',kind:'contextual-rabbinic-lexicon',reviewed:false,conditionalOnAnalysis:true};
+  changed.push({ref:decision.ref,wordIndex:decision.wordIndex,sourceWordId:id,lemma:decision.lemma,morph:decision.morph});
+ }
+ data.rules['kaufmann-context-lexicon']={label:'Positionsgebundene KI-Kontextprüfung mit rabbinischem Wörterbuch',refs:['Levy, Stichwort רשיי / רשאי: berechtigt, bevollmächtigt.','Analyse unabhängig von der vorläufigen Punktierung; Originalschreibung unverändert.']};
+ data.coverage.statuses=data.forms.reduce((o,f)=>(o[f.status]=(o[f.status]||0)+1,o),{});
+ data.lexicalReview={method:review.method,decisions:changed};
 }
 function main(args){
  if(args.length!==1)throw Error('Usage: node build_kaufmann_accordance.cjs PRIVATE_REFERENCE.txt');
