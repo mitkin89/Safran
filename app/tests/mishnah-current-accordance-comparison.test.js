@@ -35,3 +35,12 @@ test('screenshot surface and split-span warnings take precedence over the local 
  const grouped=C.normalizeObservation({sourceWordIds:['K.1/word/0','K.1/word/1'],sourceWord:'בית',confidence:'clear'},{});
  assert.equal(grouped.alignment,'many-to-one');
 });
+test('overlapping observations count once and contradictory visible features remain explicit',()=>{
+ const one=C.compareObservation(book([{lemma:'בית',morph:'HNcmsc'}]),obs());
+ const two=C.compareObservation(book([{lemma:'בית',morph:'HNcmsc'}]),obs({tags:'cm ms pl cnst'}));
+ const summary=C.summarizePositions([one,{...one},two,{...one,status:'binding-refused',sourceWordId:'invalid'}]);
+ assert.equal(summary.positions.length,1);assert.equal(summary.positions[0].observationRows,3);
+ assert.equal(summary.positions[0].status,'conflicting-visible-reference-features');
+ assert.deepEqual(summary.positions[0].conflictingReferenceFeatures,[{feature:'number',values:['p','s']}]);
+ assert.deepEqual(C.summarizePositions([one,one]).counts,{'visible-head-features-compatible':1});
+});

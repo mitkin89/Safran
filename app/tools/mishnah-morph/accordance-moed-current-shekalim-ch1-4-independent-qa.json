@@ -1,0 +1,30 @@
+{
+  "method": "Independent AI review of all source bindings/offsets and image hashes; selected fresh visual surface checks, not human validation or full second transcription.",
+  "humanValidated": false,
+  "ledgerSha256": "86781824d2ac589c949049cdf499f6a534dc75bc6dc57d596159a24d10bcdb66",
+  "checkedPositions": 1137,
+  "imageHashesChecked": 24,
+  "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+  "bindingErrors": [],
+  "visualChecks": [
+    {
+      "ref": "2:3",
+      "sourceWordIndex": 21,
+      "image": 254,
+      "result": "Confirmed unusual visible חולים; Lex חל cm ms pl."
+    },
+    {
+      "ref": "4:4",
+      "sourceWordIndex": 5,
+      "image": 265,
+      "result": "Confirmed visible בהן differs from current source בה; Lex ב, prp."
+    },
+    {
+      "ref": "3:2",
+      "sourceWordIndex": 54,
+      "image": 259,
+      "result": "Parent corrected after independent rereading: observedWord כדרכך, Lex ב כ דרך, raw tags prp; prp; cm bth sg; explicit printed correction (ב)⟦כ⟧דרכך retained. Final corrected ledger hash bound."
+    }
+  ],
+  "completeSecondVisualTranscription": false
+}

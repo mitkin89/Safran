@@ -67,6 +67,18 @@ function compareObservation(data,o){
   lexicalComparison:{observed:o.lex,visibleLexemes,candidateLemmas:analyses.map(a=>a.lemma),candidateHeads,matchingCandidateLemmas:lexicalMatches.map(a=>a.lemma),status:!visibleLexemes.length?'not-readable':!analyses.length?'draft-unresolved':lexicalMatches.length?'candidate-head-lexeme-present-in-visible-components':'candidate-head-lexeme-differs',limitations:'Exact consonantal component comparison only. Prefix order, homonym sense, spelling equivalence and root equivalence require separate contextual review.'},candidates:reports};
 }
 function load(file){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(file,'utf8'),ctx);return Object.values(ctx.window)[0];}
+function summarizePositions(rows){
+ const groups=new Map();
+ for(const row of rows){if(!row.sourceWordId||['binding-refused','title-not-found'].includes(row.status))continue;const key=row.title+'\0'+row.sourceWordId;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(row);}
+ const positions=[...groups.values()].map(observations=>{
+  const statuses=[...new Set(observations.map(r=>r.status))].sort(),fields=new Map();
+  for(const row of observations){if(!row.parsed||row.parsed.unsupported.length)continue;for(const [key,value]of Object.entries(row.parsed.features)){if(!fields.has(key))fields.set(key,new Set());fields.get(key).add(value);}}
+  const conflictingReferenceFeatures=[...fields].filter(([,values])=>values.size>1).map(([feature,values])=>({feature,values:[...values].sort()}));
+  return {title:observations[0].title,ref:observations[0].ref,sourceWordId:observations[0].sourceWordId,observationRows:observations.length,statuses,status:conflictingReferenceFeatures.length?'conflicting-visible-reference-features':statuses.length===1?statuses[0]:'mixed-reference-results',conflictingReferenceFeatures,observedSurfaces:[...new Set(observations.map(r=>r.reference.word))],observationFiles:[...new Set(observations.map(r=>r.observationFile))]};
+ });
+ const counts={};for(const p of positions)counts[p.status]=(counts[p.status]||0)+1;
+ return {meaning:'Unique source positions, never a sum of overlapping screenshot rows; mixed results and conflicting visible reference features are retained for contextual review.',counts,positions};
+}
 function main(){
  const draftArg=process.argv.find(a=>a.startsWith('--draft-commit=')),draftRef=draftArg?.slice('--draft-commit='.length);if(draftRef&&!/^[a-f0-9]{7,40}$/.test(draftRef))throw Error('Draft commit must be a hexadecimal Git commit ID');
  const draftCommit=draftRef?cp.execFileSync('git',['rev-parse','--verify',draftRef+'^{commit}'],{cwd:ROOT,encoding:'utf8'}).trim():null,draftHashes=new Map();
@@ -81,7 +93,7 @@ function main(){
  const counts={};for(const row of rows)counts[row.status]=(counts[row.status]||0)+1;
  const scopeBooks=JSON.parse(fs.readFileSync(path.join(__dirname,'moed-nashim-morphology-completion-moed-audit.json'),'utf8')).books;
  const coverage=scopeBooks.map(({title})=>{const d=book(title),observed=new Set(rows.filter(r=>r.title===title&&r.status!=='binding-refused').map(r=>r.sourceWordId)),all=Object.values(d.units).flatMap(u=>u.words.map((_,i)=>u.id+'/word/'+i));return {title,sourceWords:all.length,positionsWithObservation:all.filter(id=>observed.has(id)).length,withoutObservation:all.filter(id=>!observed.has(id)),wordCoverageComplete:all.every(id=>observed.has(id))};});
- const report={version:1,scope:'Moed available screenshot observations',draftCommit,complete:false,meaning:'Conservative compatibility with visible lexical-head fields only, not an accuracy score, complete morphology check, manuscript check, or human validation. No input cards or source text modified.',inputs,draftFiles:[...books].map(([title])=>({title,file:catalog[title].file,sha256:draftHashes.get(title)})),verifiedOriginalImages:verifiedImages.size,coverage,counts,rows};
+ const report={version:1,scope:'Moed available screenshot observations',draftCommit,complete:false,meaning:'Conservative compatibility with visible lexical-head fields only, not an accuracy score, complete morphology check, manuscript check, or human validation. No input cards or source text modified.',inputs,draftFiles:[...books].map(([title])=>({title,file:catalog[title].file,sha256:draftHashes.get(title)})),verifiedOriginalImages:verifiedImages.size,coverage,counts,uniquePositions:summarizePositions(rows),rows};
  const out=path.join(__dirname,'moed-current-accordance-comparison.json');fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n');process.stdout.write(JSON.stringify({output:out,counts})+'\n');
 }
-module.exports={parseHead,normalizeObservation,compareObservation};if(require.main===module)main();
+module.exports={parseHead,normalizeObservation,compareObservation,summarizePositions};if(require.main===module)main();
