@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "humanValidated": false,
+  "method": "Read-only cross-ledger literal Tag comparison by exact sourceWordId. Shared compare-current-accordance normalizeObservation resolves flat and nested formats. Whitespace and semicolon/pipe delimiters normalized; absent tags excluded. Group observations excluded from individual comparisons.",
+  "snapshot": [
+    {
+      "file": "accordance-kodashim-current-expansion-a-chullin-observations.json",
+      "sha256": "7b4fcf84271b5d59021b2ab3c0b962c8204eb92d0def541967c5dab637c2b33c",
+      "observationRows": 3230
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-b-bekhorot-observations.json",
+      "sha256": "df98f05ea675b3a3fda79009be519981eee53da696c8b5fd94f8bb16c5928f4f",
+      "observationRows": 2863
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-b-chullin-observations.json",
+      "sha256": "046ed617136156c3505600198563e0777aa742a4bafaa72882e49a9cd99cfd66",
+      "observationRows": 115
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-b-temurah-observations.json",
+      "sha256": "d4c4d6d00e3da99069a4d4d25f01b56bf422619ea60ed4fe737947d7bcf3e86a",
+      "observationRows": 234
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-arakhin-supplement-observations.json",
+      "sha256": "bebd969d060304c263dcb4f08b28ac921e63a154e16d493fb184051c23b76ddb",
+      "observationRows": 100
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-meilah-observations.json",
+      "sha256": "aa6d361783af884e74ce0b34fee0694611f097f46b7f4b68bb491c7639496d63",
+      "observationRows": 1672
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-middot-observations.json",
+      "sha256": "1f86f266f7d6ca944ebbf96fe103847cb6718b94731560f123d4ce1541545509",
+      "observationRows": 957
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-temurah-observations.json",
+      "sha256": "0dfbdf4d178aaad1fd571078c9023f509ec5f10f975b4c17f2b81189b28d9fb5",
+      "observationRows": 1367
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-arakhin-observations.json",
+      "sha256": "f0a4cc2dce18190dec528a1cfddc537994b7e73d9e39709bb66fbb26996ba94e",
+      "observationRows": 468
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-kinnim-observations.json",
+      "sha256": "a226b3837bc3519ec383ceb027fc1680755ae52923d7a4c431c7dcc4fb762b82",
+      "observationRows": 672
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-middot-observations.json",
+      "sha256": "32f677d5aa7717fcd68d22f9fc3e86410d34dca14ba030772aa564ac67e6a88e",
+      "observationRows": 806
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-tamid-observations.json",
+      "sha256": "313dcf978b221f0749d6abaafb6f4031dc820182de93423eb8cfcdc0aa8b8338",
+      "observationRows": 1492
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-e-arakhin-b-observations.json",
+      "sha256": "08f6ef2eaf3e0b26e181b22ee3d2a469168a54c365bf38dad071c6ce87adabee",
+      "observationRows": 1373
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-e-keritot-observations.json",
+      "sha256": "4502d82e220ec2c877fc0aa3eef9df86302d83890212da6ba1aece16bf6d14df",
+      "observationRows": 1826
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json",
+      "sha256": "6f55a51dda07acca0c7a6bd67841170a598dddb9ce9b741919b40f556b0c7644",
+      "observationRows": 297
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-f-chullin-tail-observations.json",
+      "sha256": "bde3b1d67da6a346beb90665d519819851ef66623c3c160a8712e4d812afaa65",
+      "observationRows": 723
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-f-menachot-observations.json",
+      "sha256": "725ada665d321226e2e013ee16c15ac2de3540f3fbb1f154e81d066ed5272f71",
+      "observationRows": 2773
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-root-arakhin-observations.json",
+      "sha256": "d4907eea847b56f71c282e0aff81ca858964ce0e926d5324562f0fd567a72c70",
+      "observationRows": 414
+    },
+    {
+      "file": "accordance-kodashim-current-menachot-a-observations.json",
+      "sha256": "08654a0b92d7d9f04c01873e5e941e281340eecca7d3eadffdadb1ac9edc52e3",
+      "observationRows": 915
+    },
+    {
+      "file": "accordance-kodashim-current-menachot-b-observations.json",
+      "sha256": "88bdb771ccbdabc1f5d0a50ed38a147f62c47d356a56412001fa9950c0ddc1ae",
+      "observationRows": 808
+    },
+    {
+      "file": "accordance-kodashim-current-zevachim-a-observations.json",
+      "sha256": "59b08357f32d6f78480e654dae51d8188331291876bbb1ac822d73c6807b82d9",
+      "observationRows": 1465
+    },
+    {
+      "file": "accordance-kodashim-current-zevachim-b-observations.json",
+      "sha256": "497cd6f3b962385e387ff13f074a4f69c5df06eeb9dd573f92604caf0d3400c8",
+      "observationRows": 1449
+    },
+    {
+      "file": "accordance-kodashim-current-zevachim-c-observations.json",
+      "sha256": "a608cbd6de7d010f1d85d2b188e704bfccf6c2df757f351ff5c1f9be0062b106",
+      "observationRows": 1257
+    }
+  ],
+  "coverage": {
+    "ledgers": 23,
+    "observationRows": 27276,
+    "groupRowsExcluded": 78,
+    "uniqueIndividualPositions": 25745,
+    "rawTagConflictPositions": 1,
+    "byTitle": {
+      "Mishnah Arakhin": 1
+    }
+  },
+  "conflicts": [
+    {
+      "sourceWordId": "S07326.5.5.7.4/word/18",
+      "title": "Mishnah Arakhin",
+      "ref": "7:4",
+      "observations": [
+        {
+          "file": "accordance-kodashim-current-expansion-e-arakhin-b-observations.json",
+          "title": "Mishnah Arakhin",
+          "ref": "7:4",
+          "sourceWordId": "S07326.5.5.7.4/word/18",
+          "sourceWordIndex": 18,
+          "word": "נתנים",
+          "lex": "נתן",
+          "tags": "qal prt ms pl",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_1639.png",
+            "sha256": "1d8878ed604db3927bab750663b74b495f67b3baf63f4429f34daa759eeeea1c",
+            "driveId": "1VnhK-igAPAmeFwcBiXzOVArL66-SsXEb"
+          },
+          "confidence": "clear",
+          "alignment": "one-to-one"
+        },
+        {
+          "file": "accordance-kodashim-current-expansion-e-arakhin-b-observations.json",
+          "title": "Mishnah Arakhin",
+          "ref": "7:4",
+          "sourceWordId": "S07326.5.5.7.4/word/18",
+          "sourceWordIndex": 18,
+          "word": "נתנים",
+          "lex": "נתן",
+          "tags": "nif prt ms pl",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_1640.png",
+            "sha256": "aa3454158d0a1988951fefae861e20ea94a58fa481518c597b2b5629a33c5fe1",
+            "driveId": "14kyNbFF-KnA_aNj5xOeTFeZgE6xEUK2F"
+          },
+          "confidence": "clear",
+          "alignment": "editorial-review"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "A raw conflict is a review queue, not adjudication or permission to replace morphology.",
+    "Independent source witnesses or editorial-prefix scope can differ legitimately.",
+    "Snapshot hashes must match before calling this final."
+  ]
+}

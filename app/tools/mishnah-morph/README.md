@@ -401,8 +401,10 @@ Menachot. Eine erneute Drive-Abfrage ergab inzwischen 2.044 vollständig geladen
 Dateien: darunter 589 Kodaschim-Originale1266–1854, mit allen elf Traktaten.
 `kodashim-accordance-expanded-image-inventory.json` hält die tatsächlich
 angesehenen Traktatgrenzen und die unabhängig geprüften Bildbytes fest.
-Die Wortlesung der Nachlieferung läuft getrennt; verfügbare Dateien zählen
-nicht automatisch als gelesene oder geprüfte Wortpositionen. Historische
+Der verfügbare Bilddurchgang ist abgeschlossen: 589 Originale wurden frisch
+visuell gelesen. `kodashim-accordance-image-reading-pass.json` prüft die
+vollständige Union ihrer Lesemetadaten und Originalbytes. Dateien, gelesene
+Bildzeilen und zugeordnete Quellpositionen bleiben getrennte Zählungen. Historische
 Einzelberichte über sechs damals fehlende Menachot-Bildnummern bleiben
 Snapshots; neue Nachtragsledger bearbeiten die inzwischen vorhandenen Bilder. Die unabhängigen Bildlesungen bleiben separate
 `accordance-kodashim-current-*-observations.json` mit eigenem Prüfstand.
@@ -416,3 +418,29 @@ gepinntes und aktuelles GitHub-Original, Dateihashes, Notiz und Gegenprüfung.
 Die physische Seitenlücke ist hier ein zitierter Herausgeberbefund, keine neu
 von uns bestätigte Manuskriptlesung. Fehlender Kaufmann-Text wird weder aus
 Be’eri noch aus Parma/Cambridge in die Kaufmann-Grundlage eingesetzt.
+
+
+Der abschließende Kodaschim-Vergleich bindet 23 Rohledger und 27.276
+Beobachtungszeilen an den unveränderten Entwurf `c0268bf`. Von 31.065
+diplomatischen Quellpositionen haben 25.900 einen Bildbeleg: 25.745 individuell
+und 155 nur innerhalb einer expliziten Wortgruppe. 5.165 Positionen bleiben ohne
+zugeordneten Bildbeleg. Die 579 in gebundenen Beobachtungen referenzierten
+Originale sind eine Teilmenge aller 589 gelesenen Bilder; reine Wiederholungs-,
+ungebundene oder abgeschnittene Abschnitte werden nicht als neue Wortbelege
+erfunden. `kodashim-current-accordance-comparison-summary.json` hält den
+reproduzierbaren Gesamtvergleich fest; die unabhängige Struktur-QA und der
+separate Audit aller elf unveränderten Modulbytes melden keine Bindungsfehler.
+
+Bei überlappenden Einzelwortbelegen bleibt nach frischer Nachlesung genau ein
+roher Tagwiderspruch: Arakhin 7:4/18 `נתנים` ist in Original1639 mit `qal`, in
+Original1640 mit `nif` markiert. Beide Anzeigen bleiben erhalten. Die
+entsprechenden unabhängigen Nachlesungen dokumentieren ebenso korrigierte
+Ablesefehler und unveränderte gedruckte Auffälligkeiten. Ein Tagvergleich
+prüft nur die sichtbaren Kopfmerkmale; er bestätigt weder sämtliche Präfixe
+und Suffixe noch den Wörterbuchsinn oder die Manuskriptvokale.
+
+`humanValidated:false` bleibt durchgehend bestehen. Der verfügbare
+Accordance-Bilddurchgang ist kein vollständiger Manuskript- oder
+Ma’agarim-Abgleich. Die sechs tatsächlich neu abgefragten Naschim-Stellen
+stehen separat in `nashim-maagarim-priority1-initial-evidence.json`; die
+vorbereiteten Folgelisten sind weiterhin keine geprüften Korpusabfragen.

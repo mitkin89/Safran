@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "title": "Mishnah Chullin",
+  "humanValidated": false,
+  "method": "Independent fresh AI visual rereading of originals, with enlarged crops for2:9.",
+  "checks": [
+    {
+      "ref": "2:9",
+      "sourceWordIndex": 26,
+      "surface": "עושה",
+      "lex": "עשה",
+      "tags": "qal prt ms sg",
+      "images": [
+        1474,
+        1475
+      ],
+      "result": "confirmed identical visible singular participle in both originals"
+    },
+    {
+      "ref": "6:1",
+      "sourceWordIndex": 34,
+      "surface": "מכסין",
+      "lex": "כסה",
+      "tags": "pi prt ms pl",
+      "images": [
+        1495,
+        1496
+      ],
+      "result": "confirmed identical visible plural participle with no article in both originals"
+    }
+  ],
+  "images": [
+    {
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1474.png",
+      "sha256": "f9497075dd7874d193a66085d77badd5daad1735dd3f43b906fb3883788ccdc1",
+      "driveId": "16S9zUU5p_HTzLhl-dqBFEs1TbUM50xlP"
+    },
+    {
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1475.png",
+      "sha256": "bf92dcf2d2ae2f831ed360adf47b6a5a30dc70300267659704339952f74a5181",
+      "driveId": "1TkhlPqSPEvLPwGfRt9WYIM6S6-pJ6NRk"
+    },
+    {
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1495.png",
+      "sha256": "72d69313bb30a78de14bc8fe8a236039b311dc7d9cb7aeb87e757321492d811e",
+      "driveId": "1W5jF3usNRenV4jtlyIKVCdu5yuXhkgDo"
+    },
+    {
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1496.png",
+      "sha256": "be841890c153256a7a6578e6ce1a1a343d4596476440eb7ad73f918161594a4d",
+      "driveId": "1s6po9LVV0M99yKJs9Z7citJwPmtMbq5l"
+    }
+  ],
+  "sourceOrMorphologyChanged": false
+}

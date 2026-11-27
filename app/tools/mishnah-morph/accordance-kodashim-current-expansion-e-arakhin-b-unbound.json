@@ -1,0 +1,38 @@
+[
+  {
+    "imageNumber": 1618,
+    "ref": "3:2",
+    "afterSourceWordIndex": 36,
+    "beforeSourceWordIndex": 37,
+    "actualObservedWord": "{לבין}",
+    "reason": "Printed additional word between אחוזה and שדה, no diplomatic source counterpart; not forced into an existing ID.",
+    "lexicalTagTranscriptionComplete": false
+  },
+  {
+    "imageNumber": 1633,
+    "ref": "6:2",
+    "afterSourceWordIndex": 37,
+    "beforeSourceWordIndex": 38,
+    "actualObservedWord": "{מאה}",
+    "reason": "Printed repeated supplied מאה after source מאה, no independent source counterpart.",
+    "lexicalTagTranscriptionComplete": false
+  },
+  {
+    "imageNumber": 1640,
+    "ref": "7:4",
+    "afterSourceWordIndex": 26,
+    "beforeSourceWordIndex": 27,
+    "actualObservedWord": "[הגיע]",
+    "reason": "Printed additional bracketed הגיע before source הגיע, no independent source counterpart.",
+    "lexicalTagTranscriptionComplete": false
+  },
+  {
+    "imageNumber": 1643,
+    "ref": "8:2",
+    "afterSourceWordIndex": 38,
+    "beforeSourceWordIndex": 39,
+    "actualObservedWord": "[עשר]",
+    "reason": "Printed supplied עשר after עד, absent from diplomatic source; not forced into source39 חזר.",
+    "lexicalTagTranscriptionComplete": false
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "kind": "visible-subsegment-alignment-uncertain",
+    "imageNumber": 1677,
+    "accordanceRef": "5:3",
+    "sourceWordIndexes": [
+      28,
+      29
+    ],
+    "actualObservedWord": "שאי איפשר",
+    "rawLex": "ש אי איפשר",
+    "rawTag": "rel ng cm ms sg",
+    "status": "unbound",
+    "humanValidated": false,
+    "reason": "Two visible surface/Lex segments do not give a unique individual binding to source fragments ש / איאיפשר; no reconstructed lexical assignment."
+  },
+  {
+    "kind": "screenshot-cut",
+    "sourceRef": "2:1",
+    "firstOpenWordIndex": 66,
+    "lastOpenWordIndex": 98,
+    "afterImage": 1663,
+    "nextImage": 1664,
+    "status": "not-visible-no-reconstruction"
+  },
+  {
+    "kind": "screenshot-cut",
+    "sourceRef": "3:1",
+    "firstOpenWordIndex": 81,
+    "lastOpenWordIndex": 89,
+    "afterImage": 1666,
+    "nextImage": 1667,
+    "status": "not-visible-no-reconstruction"
+  },
+  {
+    "kind": "screenshot-cut",
+    "sourceRef": "3:3",
+    "firstOpenWordIndex": 77,
+    "lastOpenWordIndex": 89,
+    "afterImage": 1668,
+    "nextImage": 1669,
+    "status": "not-visible-no-reconstruction"
+  },
+  {
+    "kind": "screenshot-cut",
+    "sourceRef": "3:5",
+    "firstOpenWordIndex": 74,
+    "lastOpenWordIndex": 86,
+    "afterImage": 1670,
+    "nextImage": 1671,
+    "status": "not-visible-no-reconstruction"
+  },
+  {
+    "kind": "screenshot-cut",
+    "sourceRef": "4:3",
+    "firstOpenWordIndex": 69,
+    "lastOpenWordIndex": 142,
+    "afterImage": 1673,
+    "nextImage": 1674,
+    "status": "not-visible-no-reconstruction"
+  },
+  {
+    "kind": "source-halakhah-labels-not-printed-as-lexical-cells",
+    "refs": [
+      "4:1",
+      "5:1",
+      "6:1"
+    ],
+    "sourceWordIndexes": [
+      0,
+      1
+    ],
+    "status": "unbound-no-lexical-image-evidence"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "title": "Mishnah Zevachim",
+  "ref": "11:1",
+  "sourceWordIndex": 2,
+  "observedWord": "דם",
+  "lex": "דם",
+  "tags": "cm ms sg cnst",
+  "humanValidated": false,
+  "adjudication": "Fresh independent AI original inspection confirms identical printed cnst in both1335and1336. The1335record lackingcnst is a transcription error, not an Accordance source disagreement.",
+  "images": [
+    {
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1335.png",
+      "sha256": "c26f523c14659f701755e0da3c654ba1dc3e604cfd0c5551ec726718a32068f5",
+      "driveId": "1XSVnqtMdE2QplcZ8JNEusQUs72q9-Rb5"
+    },
+    {
+      "file": "mischna_2026-11-27_09-27-19_25B5EA35_1336.png",
+      "sha256": "6df6fc79b5174c4e86fefd8f4ce7de53a2b51ab146fa19c0fadd087ae9cddf6c",
+      "driveId": "191INtj45Z_SnUGQdQ8sOvTOtYZ1XWgOv"
+    }
+  ]
+}

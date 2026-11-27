@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "scope": "All eleven Kodashim tractates; available Accordance image review",
+  "humanValidated": false,
+  "availableImageReadingPassComplete": true,
+  "availableOriginalImages": 589,
+  "originalImageRange": [
+    1266,
+    1854
+  ],
+  "frozenIndependentMorphologyDraft": "c0268bf90f898362e9845b813a87040c08cec8ab",
+  "sourceTextOrBoundariesChanged": false,
+  "morphologyChangedByImageComparison": false,
+  "sourcePositions": 31065,
+  "positionsWithObservation": 25900,
+  "individualPositions": 25745,
+  "groupOnlyPositions": 155,
+  "positionsWithoutObservation": 5165,
+  "rawBoundObservationRows": 27276,
+  "ledgers": 23,
+  "originalImagesReferencedByBoundObservations": 579,
+  "remainingRawOverlapTagConflicts": 1,
+  "fullSourceCoverageComplete": false,
+  "fullMorphologyValidationComplete": false,
+  "fullManuscriptCollationComplete": false,
+  "fullVowelValidationComplete": false,
+  "fullMaagarimComparisonComplete": false,
+  "reports": [
+    {
+      "file": "kodashim-accordance-image-reading-pass.json",
+      "sha256": "b5c5ac08b808513f660112a7e50120c51e1756bc3890bc26faebfd0a1071bb29"
+    },
+    {
+      "file": "kodashim-current-accordance-comparison-summary.json",
+      "sha256": "8864023da63e6a4d775d42dc9603668e2519529e3d6381dda0ad3fa52c7cf92f"
+    },
+    {
+      "file": "accordance-kodashim-current-independent-structure-qa.json",
+      "sha256": "0ec223d08e46e056b1621f37ab7913bc2677b74d0f474f939d7009706a0292dd"
+    },
+    {
+      "file": "kodashim-all-image-bindings-independent-qa.json",
+      "sha256": "a8c505a3665b221d81b06ed2e0e6fa30677fccf63d09f08e13fa738e8fa3e6e1"
+    },
+    {
+      "file": "accordance-kodashim-current-independent-raw-tag-conflicts.json",
+      "sha256": "fd14c408a8a597aef40ee927f31adb708c599b788f268890078bfe60e81a248b"
+    }
+  ],
+  "limitations": [
+    "Missing source sections, cut image tails, edition differences, source fragments and uncertain bindings remain explicit.",
+    "The three corrected/read tags at Meilah6:5 remain literal perfect tags; no grammar-based normalization.",
+    "Arakhin7:4/18 prints qal in1639 and nif in1640; both readings retained.",
+    "Maagarim evidence is targeted only; pending queues are not completed comparisons.",
+    "No biblical dictionaries or Beeri pointing used."
+  ]
+}

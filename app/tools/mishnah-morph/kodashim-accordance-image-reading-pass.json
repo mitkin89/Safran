@@ -1,0 +1,3637 @@
+{
+  "method": "Union of image inspection metadata in original-image reading ledgers; source word coverage is separately deduplicated. No manuscript or human validation.",
+  "complete": true,
+  "inputs": [
+    {
+      "file": "accordance-kodashim-current-expansion-a-chullin-observations.json",
+      "sha256": "7b4fcf84271b5d59021b2ab3c0b962c8204eb92d0def541967c5dab637c2b33c"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-b-bekhorot-observations.json",
+      "sha256": "df98f05ea675b3a3fda79009be519981eee53da696c8b5fd94f8bb16c5928f4f"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-b-chullin-observations.json",
+      "sha256": "046ed617136156c3505600198563e0777aa742a4bafaa72882e49a9cd99cfd66"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-b-temurah-observations.json",
+      "sha256": "d4c4d6d00e3da99069a4d4d25f01b56bf422619ea60ed4fe737947d7bcf3e86a"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-arakhin-supplement-observations.json",
+      "sha256": "bebd969d060304c263dcb4f08b28ac921e63a154e16d493fb184051c23b76ddb"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-meilah-observations.json",
+      "sha256": "aa6d361783af884e74ce0b34fee0694611f097f46b7f4b68bb491c7639496d63"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-middot-observations.json",
+      "sha256": "1f86f266f7d6ca944ebbf96fe103847cb6718b94731560f123d4ce1541545509"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-c-temurah-observations.json",
+      "sha256": "0dfbdf4d178aaad1fd571078c9023f509ec5f10f975b4c17f2b81189b28d9fb5"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-arakhin-observations.json",
+      "sha256": "f0a4cc2dce18190dec528a1cfddc537994b7e73d9e39709bb66fbb26996ba94e"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-kinnim-observations.json",
+      "sha256": "a226b3837bc3519ec383ceb027fc1680755ae52923d7a4c431c7dcc4fb762b82"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-middot-observations.json",
+      "sha256": "32f677d5aa7717fcd68d22f9fc3e86410d34dca14ba030772aa564ac67e6a88e"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-d-tamid-observations.json",
+      "sha256": "313dcf978b221f0749d6abaafb6f4031dc820182de93423eb8cfcdc0aa8b8338"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-e-arakhin-b-observations.json",
+      "sha256": "08f6ef2eaf3e0b26e181b22ee3d2a469168a54c365bf38dad071c6ce87adabee"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-e-keritot-observations.json",
+      "sha256": "4502d82e220ec2c877fc0aa3eef9df86302d83890212da6ba1aece16bf6d14df"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json",
+      "sha256": "6f55a51dda07acca0c7a6bd67841170a598dddb9ce9b741919b40f556b0c7644"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-f-chullin-tail-observations.json",
+      "sha256": "bde3b1d67da6a346beb90665d519819851ef66623c3c160a8712e4d812afaa65"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-f-menachot-observations.json",
+      "sha256": "725ada665d321226e2e013ee16c15ac2de3540f3fbb1f154e81d066ed5272f71"
+    },
+    {
+      "file": "accordance-kodashim-current-expansion-root-arakhin-observations.json",
+      "sha256": "d4907eea847b56f71c282e0aff81ca858964ce0e926d5324562f0fd567a72c70"
+    },
+    {
+      "file": "accordance-kodashim-current-menachot-a-observations.json",
+      "sha256": "08654a0b92d7d9f04c01873e5e941e281340eecca7d3eadffdadb1ac9edc52e3"
+    },
+    {
+      "file": "accordance-kodashim-current-menachot-b-observations.json",
+      "sha256": "88bdb771ccbdabc1f5d0a50ed38a147f62c47d356a56412001fa9950c0ddc1ae"
+    },
+    {
+      "file": "accordance-kodashim-current-zevachim-a-observations.json",
+      "sha256": "59b08357f32d6f78480e654dae51d8188331291876bbb1ac822d73c6807b82d9"
+    },
+    {
+      "file": "accordance-kodashim-current-zevachim-b-observations.json",
+      "sha256": "497cd6f3b962385e387ff13f074a4f69c5df06eeb9dd573f92604caf0d3400c8"
+    },
+    {
+      "file": "accordance-kodashim-current-zevachim-c-observations.json",
+      "sha256": "a608cbd6de7d010f1d85d2b188e704bfccf6c2df757f351ff5c1f9be0062b106"
+    }
+  ],
+  "declaredReadImages": 589,
+  "missing": [],
+  "errors": [],
+  "images": [
+    {
+      "number": 1266,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1267,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1268,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1269,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1270,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1271,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1272,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1273,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1274,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1275,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1276,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1277,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1278,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1279,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1280,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1281,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1282,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1283,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1284,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1285,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1286,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1287,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1288,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1289,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1290,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1291,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1292,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1293,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1294,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1295,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1296,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1297,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1298,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1299,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1300,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-a-observations.json"
+      ]
+    },
+    {
+      "number": 1301,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1302,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1303,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1304,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1305,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1306,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1307,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1308,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1309,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1310,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1311,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1312,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1313,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1314,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1315,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1316,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1317,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1318,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1319,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1320,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1321,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1322,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1323,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1324,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1325,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1326,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1327,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1328,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1329,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1330,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1331,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1332,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1333,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1334,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1335,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-b-observations.json"
+      ]
+    },
+    {
+      "number": 1336,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1337,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1338,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1339,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1340,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1341,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1342,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1343,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1344,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1345,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1346,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1347,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1348,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1349,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1350,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1351,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1352,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1353,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1354,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1355,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1356,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1357,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1358,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1359,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1360,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1361,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1362,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1363,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1364,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1365,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1366,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1367,
+      "readingLedgers": [
+        "accordance-kodashim-current-zevachim-c-observations.json"
+      ]
+    },
+    {
+      "number": 1368,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1369,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1370,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1371,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1372,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1373,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1374,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1375,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1376,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1377,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1378,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1379,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1380,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1381,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1382,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-a-observations.json"
+      ]
+    },
+    {
+      "number": 1383,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1384,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1385,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1386,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1387,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1388,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1389,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1390,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1391,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1392,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1393,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1394,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1395,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1396,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1397,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1398,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-menachot-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1399,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1400,
+      "readingLedgers": [
+        "accordance-kodashim-current-menachot-b-observations.json"
+      ]
+    },
+    {
+      "number": 1401,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1402,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1403,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1404,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1405,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1406,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1407,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1408,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1409,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1410,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1411,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1412,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1413,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1414,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1415,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1416,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1417,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1418,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1419,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1420,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1421,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1422,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1423,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1424,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1425,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1426,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1427,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1428,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1429,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1430,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1431,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1432,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1433,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1434,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1435,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1436,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1437,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1438,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1439,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1440,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1441,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1442,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1443,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1444,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1445,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1446,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1447,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1448,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1449,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1450,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1451,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1452,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1453,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1454,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1455,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1456,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1457,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1458,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1459,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-menachot-observations.json"
+      ]
+    },
+    {
+      "number": 1460,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1461,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1462,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1463,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1464,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1465,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1466,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1467,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1468,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1469,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1470,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1471,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1472,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1473,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1474,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1475,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1476,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1477,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1478,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1479,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1480,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1481,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1482,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1483,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1484,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1485,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1486,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1487,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1488,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1489,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1490,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1491,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1492,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1493,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1494,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1495,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1496,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1497,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1498,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1499,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1500,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1501,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1502,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1503,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1504,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1505,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1506,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1507,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1508,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1509,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1510,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1511,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1512,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1513,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1514,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1515,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-a-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1516,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1517,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1518,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1519,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1520,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1521,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1522,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1523,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1524,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1525,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1526,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1527,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1528,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1529,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1530,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-f-chullin-tail-observations.json"
+      ]
+    },
+    {
+      "number": 1531,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1532,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-chullin-observations.json"
+      ]
+    },
+    {
+      "number": 1533,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1534,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1535,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1536,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1537,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1538,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1539,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1540,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1541,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1542,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1543,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1544,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1545,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1546,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1547,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1548,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1549,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1550,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1551,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1552,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1553,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1554,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1555,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1556,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1557,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1558,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1559,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1560,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1561,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1562,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1563,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1564,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1565,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1566,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1567,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1568,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1569,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1570,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1571,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1572,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1573,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1574,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1575,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1576,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1577,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1578,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1579,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1580,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1581,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1582,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1583,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1584,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1585,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1586,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1587,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1588,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1589,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1590,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1591,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1592,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1593,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1594,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1595,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1596,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1597,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1598,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1599,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1600,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1601,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1602,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1603,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1604,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1605,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1606,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-bekhorot-observations.json"
+      ]
+    },
+    {
+      "number": 1607,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1608,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1609,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1610,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1611,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1612,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1613,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1614,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1615,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1616,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-root-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1617,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1618,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1619,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1620,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1621,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1622,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1623,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1624,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1625,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1626,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1627,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1628,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1629,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1630,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1631,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1632,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1633,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1634,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1635,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1636,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1637,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1638,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1639,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1640,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1641,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1642,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1643,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1644,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-arakhin-b-observations.json"
+      ]
+    },
+    {
+      "number": 1645,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-arakhin-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1646,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-arakhin-supplement-observations.json"
+      ]
+    },
+    {
+      "number": 1647,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1648,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1649,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1650,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1651,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1652,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1653,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1654,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1655,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1656,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-arakhin-observations.json"
+      ]
+    },
+    {
+      "number": 1657,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1658,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1659,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1660,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-b-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1661,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1662,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1663,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1664,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1665,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1666,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1667,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1668,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1669,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1670,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1671,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1672,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1673,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1674,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1675,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1676,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1677,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1678,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1679,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1680,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1681,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1682,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1683,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1684,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1685,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1686,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1687,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1688,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1689,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1690,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-temurah-observations.json"
+      ]
+    },
+    {
+      "number": 1691,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1692,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1693,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1694,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1695,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1696,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1697,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1698,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1699,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1700,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1701,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1702,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1703,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1704,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1705,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1706,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1707,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1708,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1709,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1710,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1711,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1712,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1713,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1714,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1715,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1716,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1717,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1718,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1719,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1720,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1721,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1722,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1723,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1724,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1725,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1726,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1727,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1728,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1729,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1730,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1731,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1732,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1733,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-e-keritot-observations.json"
+      ]
+    },
+    {
+      "number": 1734,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1735,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1736,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1737,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1738,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1739,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1740,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1741,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1742,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1743,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1744,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1745,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1746,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1747,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1748,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1749,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1750,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1751,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1752,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1753,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1754,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1755,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1756,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1757,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1758,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1759,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1760,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1761,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1762,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1763,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1764,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1765,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1766,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1767,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1768,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1769,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1770,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1771,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-meilah-observations.json"
+      ]
+    },
+    {
+      "number": 1772,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1773,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1774,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1775,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1776,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1777,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1778,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1779,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1780,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1781,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1782,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1783,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1784,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1785,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1786,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1787,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1788,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1789,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1790,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-c-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1791,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1792,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1793,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1794,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1795,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1796,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1797,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1798,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1799,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1800,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1801,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1802,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1803,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1804,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1805,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-middot-observations.json"
+      ]
+    },
+    {
+      "number": 1806,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1807,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1808,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1809,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1810,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1811,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1812,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1813,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1814,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1815,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1816,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1817,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1818,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1819,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1820,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1821,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1822,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1823,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1824,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1825,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1826,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1827,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1828,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1829,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1830,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1831,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1832,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1833,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1834,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1835,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1836,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1837,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1838,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1839,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-tamid-observations.json"
+      ]
+    },
+    {
+      "number": 1840,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1841,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1842,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1843,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1844,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1845,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1846,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1847,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1848,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1849,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1850,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1851,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1852,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1853,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    },
+    {
+      "number": 1854,
+      "readingLedgers": [
+        "accordance-kodashim-current-expansion-d-kinnim-observations.json"
+      ]
+    }
+  ]
+}

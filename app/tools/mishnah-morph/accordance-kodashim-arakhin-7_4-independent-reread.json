@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "humanValidated": false,
+  "method": "Root independently freshly inspected originals1639 and1640; literal Tag difference preserved, not a context morphology decision.",
+  "input": {
+    "file": "accordance-kodashim-current-expansion-e-arakhin-b-observations.json",
+    "sha256": "08f6ef2eaf3e0b26e181b22ee3d2a469168a54c365bf38dad071c6ce87adabee"
+  },
+  "sourceWordId": "S07326.5.5.7.4/word/18",
+  "ref": "7:4",
+  "findings": [
+    {
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_1639.png",
+        "sha256": "1d8878ed604db3927bab750663b74b495f67b3baf63f4429f34daa759eeeea1c",
+        "driveId": "1VnhK-igAPAmeFwcBiXzOVArL66-SsXEb"
+      },
+      "word": "נתנים",
+      "lex": "נתן",
+      "tag": "qal prt ms pl"
+    },
+    {
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_1640.png",
+        "sha256": "aa3454158d0a1988951fefae861e20ea94a58fa481518c597b2b5629a33c5fe1",
+        "driveId": "14kyNbFF-KnA_aNj5xOeTFeZgE6xEUK2F"
+      },
+      "word": "נתנים",
+      "lex": "נתן",
+      "tag": "nif prt ms pl"
+    }
+  ],
+  "finding": "1639 prints qal prt ms pl and1640 nif prt ms pl for נתנים. Both literal observations retained.",
+  "sourceOrMorphologyChanged": false
+}

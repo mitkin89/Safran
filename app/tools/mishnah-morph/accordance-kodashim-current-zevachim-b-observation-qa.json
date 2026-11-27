@@ -1,9 +1,9 @@
 {
   "version": 1,
   "ledger": "accordance-kodashim-current-zevachim-b-observations.json",
-  "ledgerSha256": "63edc0fab2ba5840b0482b4764c5f8711e892f3e9ae0f32aecd802a1ca4ece26",
+  "ledgerSha256": "497cd6f3b962385e387ff13f074a4f69c5df06eeb9dd573f92604caf0d3400c8",
   "sourceTextHash": "33ce68c5890334698aae82161de4bf837a508a4dfa9e2badbf66531806b8aa34",
-  "privateRawSha256": "56447c565199ec812670ecceeb4a02d10f95273fcc2d1a5e9c7d47e022e2b3d8",
+  "privateRawSha256": "3658d8588c9ff6e7eceb36d335cafbd9fad1c019f0e04bcf1a20eb9424ccbc2e",
   "coverage": {
     "visuallyInspectedImages": 35,
     "rawObservationRecords": 1591,
@@ -24,7 +24,9 @@
     "all1591RawRecordsPreserved": true,
     "uncertainLexReadingsNotClearConfidence": true,
     "noSuffixInference": true,
-    "noSourceOrUiChanges": true
+    "noSourceOrUiChanges": true,
+    "clearConfidenceAndOneToOneAlignmentNormalized": true,
+    "cnstOriginal1335Rechecked": true
   },
   "uncertainObservationIds": [
     "zevachim-b-338",
@@ -67,5 +69,15 @@
     "10:7": 30,
     "10:8": 49,
     "11:1": 15
-  }
+  },
+  "adjudications": [
+    {
+      "observationId": "zevachim-b-1573",
+      "imageNumber": 1335,
+      "rawTagBefore": "cm ms sg",
+      "rawTagCorrected": "cm ms sg cnst",
+      "basis": "Original1335 lower-block crop freshly reinspected; cnst visible. Independent agent agrees. No source/candidate analysis evidence.",
+      "humanValidated": false
+    }
+  ]
 }

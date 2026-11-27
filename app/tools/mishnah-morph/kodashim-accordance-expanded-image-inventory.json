@@ -263,7 +263,7 @@
   "boundaryInventorySha256": "870c4ea72b0afed2f2fbd3ec7ddfe8b2a28ec45b929296f89806fc5abccdae68",
   "kodashimImageCount": 589,
   "allKodashimImageBytesVerified": true,
-  "wordReadingStatus": "In progress in separate source-bound ledgers; boundary and byte checks are not word-level verification",
+  "wordReadingStatus": "All589 available originals freshly AI-visually read; complete available-image reading pass, not complete source morphology/manuscript/vowel validation",
   "kodashimImages": [
     {
       "number": 1266,
@@ -3799,5 +3799,13 @@
       "driveId": "1Xfmu_OxdSD12eTJcwsdfFMnhDXpD4stG",
       "sha256": "d1c0a8e551905d41428bcb9d921e7e90a939b2bccb5c06bc58966b4a75bad72e"
     }
-  ]
+  ],
+  "readingPass": {
+    "file": "kodashim-accordance-image-reading-pass.json",
+    "sha256": "b5c5ac08b808513f660112a7e50120c51e1756bc3890bc26faebfd0a1071bb29"
+  },
+  "comparisonSummary": {
+    "file": "kodashim-current-accordance-comparison-summary.json",
+    "sha256": "8864023da63e6a4d775d42dc9603668e2519529e3d6381dda0ad3fa52c7cf92f"
+  }
 }

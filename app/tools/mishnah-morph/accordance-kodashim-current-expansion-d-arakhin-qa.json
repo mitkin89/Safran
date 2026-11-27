@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "title": "Mishnah Arakhin",
+  "ledger": {
+    "file": "accordance-kodashim-current-expansion-d-arakhin-observations.json",
+    "sha256": "f0a4cc2dce18190dec528a1cfddc537994b7e73d9e39709bb66fbb26996ba94e"
+  },
+  "sourceTextHash": "b3fa81c80191e6a6bafa747ea692f8809cc1531c2ff8df420b2ac4709a9fe579",
+  "humanValidated": false,
+  "sourceBaseline": "c0268bf",
+  "checks": {
+    "actualImageShaChecks": 10,
+    "bindingChecks": 468,
+    "sourceUnchanged": true,
+    "structuralErrors": 0
+  },
+  "coverage": {
+    "imagesRead": 10,
+    "rawVisibleRows": 580,
+    "uniqueSourcePositions": 468,
+    "individualObservations": 468,
+    "unboundVisibleRows": 112,
+    "scopeSourcePositions": 602,
+    "openSourcePositions": 134,
+    "humanValidated": false
+  },
+  "limitations": [
+    "Structural QA, not independent human image rereading.",
+    "Scope is assigned images only; not a complete tractate text claim."
+  ]
+}

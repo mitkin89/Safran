@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "title": "Mishnah Chullin",
+  "humanValidated": false,
+  "scope": {
+    "assignedImageNumbers": [
+      1460,
+      1515
+    ],
+    "scaffoldCommit": "c0268bf",
+    "imagesRead": [
+      1460,
+      1461,
+      1462,
+      1463,
+      1464,
+      1465,
+      1466,
+      1467,
+      1468,
+      1469,
+      1470,
+      1471,
+      1472,
+      1473,
+      1474,
+      1475,
+      1476,
+      1477,
+      1478,
+      1479,
+      1480,
+      1481,
+      1482,
+      1483,
+      1484,
+      1485,
+      1486,
+      1487,
+      1488,
+      1489,
+      1490,
+      1491,
+      1492,
+      1493,
+      1494,
+      1495,
+      1496,
+      1497,
+      1498,
+      1499,
+      1500,
+      1501,
+      1502,
+      1503,
+      1504,
+      1505,
+      1506,
+      1507,
+      1508,
+      1509,
+      1510,
+      1511,
+      1512,
+      1513,
+      1514,
+      1515
+    ],
+    "complete": true,
+    "completeMeaning": "All56assignedoriginalimages1460–1515visuallyread; not full source or tractate coverage",
+    "sourceRefRange": [
+      "1:1",
+      "9:1"
+    ],
+    "nextReaderStartsAt": "1516 / Hul.9:2"
+  },
+  "coverage": {
+    "assignedImages": 56,
+    "imagesRead": 56,
+    "rawObservationRows": 3687,
+    "boundRawObservations": 3230,
+    "uniqueBoundSourceWords": 2237,
+    "unboundRawObservations": 457,
+    "complete": true,
+    "fullyReviewedTractate": false,
+    "completeMeaning": "assigned-image-reading-only",
+    "sourceWordsInAssignedRefRange": 2770,
+    "openSourcePositions": 533
+  },
+  "method": "Structural source-binding and image-file audit plus fresh enlarged reread of targeted original screenshot cells; AI only",
+  "checks": {
+    "all56OriginalImageSha256Match": true,
+    "allDriveIdsPresent": true,
+    "sourceIdIndexHashTextAndConsonantsVerified": true,
+    "criticalOrAnnotatedSourceBindingsExcluded": true,
+    "suffixFeaturesNotInferred": true,
+    "overlapLexTagConflicts": 0,
+    "structuralErrors": 0
+  },
+  "errors": [],
+  "conflicts": [],
+  "transcriptionCorrectionAudit": {
+    "method": "Fresh enlarged original screenshot reread by AI; no grammatical normalization",
+    "humanValidated": false,
+    "corrections": [
+      {
+        "images": [
+          1474,
+          1475
+        ],
+        "ref": "2:9",
+        "word": "עושה",
+        "before": {
+          "image": 1475,
+          "tags": "qal prt ms pl"
+        },
+        "after": {
+          "lex": "עשה",
+          "tags": "qal prt ms sg"
+        },
+        "finding": "Both original images explicitly display qal prt ms sg. Earlier plural reading on1475 was our transcription error."
+      },
+      {
+        "images": [
+          1495,
+          1496
+        ],
+        "ref": "6:1",
+        "word": "מכסין",
+        "before": {
+          "image": 1495,
+          "lex": "ה כסה",
+          "tags": "art;pi prt ms pl"
+        },
+        "after": {
+          "lex": "כסה",
+          "tags": "pi prt ms pl"
+        },
+        "finding": "Both original images display כסה and pi prt ms pl without article. Earlier added article on1495 was our transcription error."
+      },
+      {
+        "before": "1467\t2:2\tראשים|ראש|cm ms pl",
+        "after": "1467\t2:2\tראשין|ראשון|ms sg",
+        "finding": "Fresh enlarged original reread corrected transcription; literal displayed values retained."
+      },
+      {
+        "before": "1503\t7:1\tשלימין|של ימין|cnj;prp;cm fm sg",
+        "after": "1503\t7:1\tשלימין|של ימין|prpArt;cm fm sg",
+        "finding": "Fresh enlarged original reread corrected transcription; literal displayed values retained."
+      },
+      {
+        "before": "1512\t8:4\tבחלב|ב חלב|prp;cm fm sg cnst",
+        "after": "1512\t8:4\tבחלב|ב חלב|prp;cm ms sg cnst",
+        "finding": "Fresh enlarged original reread corrected transcription; literal displayed values retained."
+      },
+      {
+        "before": "1512\t8:4\tאמו|אם|cm ms sg cnst",
+        "after": "1512\t8:4\tאמו|אם|cm fm sg cnst",
+        "finding": "Fresh enlarged original reread corrected transcription; literal displayed values retained."
+      }
+    ]
+  },
+  "ledgerSha256": "7b4fcf84271b5d59021b2ab3c0b962c8204eb92d0def541967c5dab637c2b33c",
+  "unboundReasons": {
+    "no-unique-mandatory-optimal-consonantal-anchor": 356,
+    "source-or-visible-editorial-notation": 101
+  },
+  "openReasons": {
+    "critical-source-token-not-bound": 108,
+    "no-safe-exact-one-to-one-screenshot-binding": 196,
+    "not-visible-in-assigned-original-image-sequence-source-tail-gap": 229
+  },
+  "limitations": [
+    "This is an AI reading, not human validation.",
+    "Unpointed surface transcriptions are not a vocalization comparison.",
+    "Open source positions include genuine screenshot tail gaps, spelling variants, abbreviations, segmentation and critical notation; they are not silently reconstructed.",
+    "No screenshot suffix analysis was inferred from source morphology.",
+    "Only1460–1515isthisreaderblock;1516onwardsbelongsotherreaders."
+  ]
+}

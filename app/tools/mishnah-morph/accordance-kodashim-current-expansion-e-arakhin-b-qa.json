@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "method": "Independent exact source-ID, field and immutable image-byte binding checks; no linguistic certification.",
+  "humanValidated": false,
+  "ledgerSha256": "08f6ef2eaf3e0b26e181b22ee3d2a469168a54c365bf38dad071c6ce87adabee",
+  "draftCommit": "c0268bf90f898362e9845b813a87040c08cec8ab",
+  "sourceModuleSha256": "0f3a185c19fce9390b3d19af346310a92589cbb46aa4b6782b95151d9579e1aa",
+  "currentModuleByteIdentical": true,
+  "verifiedImages": 28,
+  "counts": {
+    "rawObservationRecords": 1373,
+    "uniqueSourcePositions": 1385,
+    "totalSourcePositions": 1454,
+    "openSourcePositions": 69,
+    "unboundImageSections": 4
+  },
+  "issues": [],
+  "openSourceRanges": [
+    {
+      "ref": "3:5",
+      "first": 4,
+      "last": 4,
+      "count": 1
+    },
+    {
+      "ref": "4:4",
+      "first": 81,
+      "last": 146,
+      "count": 66
+    },
+    {
+      "ref": "5:6",
+      "first": 3,
+      "last": 9,
+      "count": 2
+    }
+  ],
+  "limitations": [
+    "All28Arakhin originals1617–1644 inspected; target refs3:1–8:3. Gaps and unbound printed extras kept explicit.",
+    "Not a full-pointing or full-manuscript check.",
+    "AI visual observations remain unreviewed by a human."
+  ]
+}

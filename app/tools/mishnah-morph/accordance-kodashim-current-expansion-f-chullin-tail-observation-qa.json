@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "ledger": "accordance-kodashim-current-expansion-f-chullin-tail-observations.json",
+  "ledgerSha256": "bde3b1d67da6a346beb90665d519819851ef66623c3c160a8712e4d812afaa65",
+  "sourceTextHash": "84851e04887adfbf5189e4012951c88656397825607c4e69f7c8635c10d02f1d",
+  "privateRawSha256": "2d334d1bf44bade3095dee45a0b8f86f3f11cd9e46e9eaec5e1af9754497d881",
+  "humanValidated": false,
+  "coverage": {
+    "visuallyInspectedImages": 15,
+    "rawObservationRecords": 789,
+    "boundObservationRecords": 723,
+    "boundSourcePositions": 723,
+    "unboundRecords": 66,
+    "currentSourceWordsInRefs": 906,
+    "openCurrentPositions": 183,
+    "allAssignedImagesInspected": true,
+    "completeSourceCoverage": false,
+    "completeTractateComparison": false,
+    "noSourceOrUiChanges": true
+  },
+  "checks": {
+    "all15OriginalImageHashesMatch": true,
+    "all723CurrentSourceBindingsValidated": true,
+    "duplicateSourceWordIds": 0,
+    "all789RawRecordsPreserved": true,
+    "onlyExplicitBindingsInObservations": true,
+    "unboundRecordsHaveNoSourceWordId": true,
+    "noSuffixInference": true,
+    "noSourceOrUiChanges": true
+  },
+  "boundByRef": {
+    "9:2": 58,
+    "9:3": 39,
+    "9:4": 46,
+    "9:5": 43,
+    "9:6": 27,
+    "9:7": 44,
+    "9:8": 27,
+    "10:1": 47,
+    "10:2": 65,
+    "10:3": 55,
+    "10:4": 45,
+    "11:1": 38,
+    "11:2": 79,
+    "12:1": 49,
+    "12:2": 26,
+    "12:3": 35
+  }
+}

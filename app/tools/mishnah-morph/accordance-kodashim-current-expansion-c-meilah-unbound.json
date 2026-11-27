@@ -1,0 +1,145 @@
+[
+  {
+    "ref": "1:1",
+    "wordIndexes": [
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82
+    ],
+    "status": "screenshot-tail-not-visible",
+    "images": [
+      1734,
+      1735
+    ]
+  },
+  {
+    "ref": "1:2",
+    "afterIndex": 21,
+    "actualObservedWord": "אין",
+    "status": "printed-additional-word-no-source-counterpart",
+    "images": [
+      1735
+    ]
+  },
+  {
+    "ref": "3:2",
+    "wordIndexes": [
+      3,
+      4
+    ],
+    "actualObservedWord": "לא",
+    "status": "two-source-words-one-visible-cell-ambiguous",
+    "images": [
+      1748
+    ]
+  },
+  {
+    "ref": "3:3",
+    "beforeIndex": 19,
+    "actualObservedWord": "{הנסכים}",
+    "status": "printed-editorial-word-no-source-counterpart",
+    "images": [
+      1749
+    ]
+  },
+  {
+    "ref": "3:6",
+    "wordIndexes": [
+      69
+    ],
+    "actualObservedWord": "מועלין מועלין",
+    "status": "duplicated-visible-cells-one-source-word-ambiguous",
+    "images": [
+      1752
+    ]
+  },
+  {
+    "ref": "3:6",
+    "wordIndexes": [
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114
+    ],
+    "status": "screenshot-tail-not-visible",
+    "images": [
+      1752,
+      1753
+    ]
+  },
+  {
+    "ref": "4:4",
+    "wordIndexes": [
+      34,
+      35,
+      36,
+      37
+    ],
+    "status": "missing-or-ambiguous-visible-continuation",
+    "images": [
+      1758
+    ]
+  },
+  {
+    "ref": "5:4",
+    "wordIndexes": [
+      55
+    ],
+    "actualObservedWord": "[ה]כנס",
+    "lex": "כנס",
+    "tag": "nif impr ms sg",
+    "status": "source-isolated-article-fragment-not-equivalent-to-printed-verb",
+    "images": [
+      1764
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "method": "Independent root AI fresh original1770 visual rereading of three unusual printed tags; not a human or manuscript validation.",
+  "humanValidated": false,
+  "input": {
+    "file": "accordance-kodashim-current-expansion-c-meilah-observations.json",
+    "sha256": "2c94ccfd90b7af2ad561df85446d358e832173b60fee84b12c4733bea649b78d"
+  },
+  "checks": [
+    {
+      "sourceWordId": "S07326.5.8.6.5/word/7",
+      "ref": "6:5",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+        "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+        "sha256": "f71e185495bb38a257fd03d86e7b4d3c2601017d41f581f55a42ea6a8abafe70",
+        "driveId": "1-1OxeXeyrrrpz8UjLLAk-c3cqVVuaO2V"
+      },
+      "word": "ישתמש",
+      "lex": "שמש",
+      "tag": "htpl prf 3 ms sg",
+      "finding": "Original visibly prints htpl prf 3 ms sg for ישתמש. Literal perfect retained, no grammatical normalization."
+    },
+    {
+      "sourceWordId": "S07326.5.8.6.5/word/15",
+      "ref": "6:5",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+        "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+        "sha256": "f71e185495bb38a257fd03d86e7b4d3c2601017d41f581f55a42ea6a8abafe70",
+        "driveId": "1-1OxeXeyrrrpz8UjLLAk-c3cqVVuaO2V"
+      },
+      "word": "ישתמש",
+      "lex": "שמש",
+      "tag": "htpl prf 3 ms sg",
+      "finding": "Original visibly prints htpl prf 3 ms sg for ישתמש. Literal perfect retained, no grammatical normalization."
+    },
+    {
+      "sourceWordId": "S07326.5.8.6.5/word/30",
+      "ref": "6:5",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+        "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_1770.png",
+        "sha256": "f71e185495bb38a257fd03d86e7b4d3c2601017d41f581f55a42ea6a8abafe70",
+        "driveId": "1-1OxeXeyrrrpz8UjLLAk-c3cqVVuaO2V"
+      },
+      "word": "ישתמש",
+      "lex": "שמש",
+      "tag": "htpl prf 3 ms sg",
+      "finding": "Original visibly prints htpl prf 3 ms sg for ישתמש. Literal perfect retained, no grammatical normalization."
+    }
+  ],
+  "sourceOrMorphologyChanged": false
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "ledger": "accordance-kodashim-current-expansion-b-chullin-observations.json",
+  "ledgerSha256": "046ed617136156c3505600198563e0777aa742a4bafaa72882e49a9cd99cfd66",
+  "sourceTextHash": "84851e04887adfbf5189e4012951c88656397825607c4e69f7c8635c10d02f1d",
+  "privateRawSha256": "6f6f5619879a202b3ab6487e5b26099acd910efb68cd6e70a34ffdad981cacb4",
+  "coverage": {
+    "visuallyInspectedImages": 2,
+    "rawObservationRecords": 138,
+    "boundObservationRecords": 115,
+    "boundSourcePositions": 115,
+    "unboundRecords": 23,
+    "uncertainRawReadings": 0,
+    "allAssignedImagesInspected": true,
+    "completeSourceCoverage": false,
+    "completeTractateComparison": false,
+    "noSourceOrUiChanges": true
+  },
+  "checks": {
+    "allOriginalImageHashesMatch": true,
+    "componentCountsMatch": true,
+    "allSourceBindingsMatchFrozenScaffold": true,
+    "sourceConsonantsMatchObservedSurface": true,
+    "duplicateSourceWordIds": 0,
+    "allRawRecordsPreserved": true,
+    "partialReadingsNotClear": true,
+    "noSuffixInference": true,
+    "noSourceOrUiChanges": true
+  },
+  "uncertainObservationIds": [],
+  "boundByRef": {
+    "12:3": 61,
+    "12:4": 27,
+    "12:5": 27
+  }
+}
