@@ -1,0 +1,139 @@
+{
+  "books": [
+    {
+      "title": "Mishnah Shabbat",
+      "sourceWords": 5348,
+      "wordsWithIndividualObservation": 4500,
+      "wordsWithoutIndividualObservation": 848,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 48,
+      "observedFeatures": 96,
+      "featureConflictWords": 0,
+      "pages": 17
+    },
+    {
+      "title": "Mishnah Eruvin",
+      "sourceWords": 3806,
+      "wordsWithIndividualObservation": 3103,
+      "wordsWithoutIndividualObservation": 703,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 29,
+      "observedFeatures": 58,
+      "featureConflictWords": 1,
+      "pages": 12
+    },
+    {
+      "title": "Mishnah Pesachim",
+      "sourceWords": 3720,
+      "wordsWithIndividualObservation": 3153,
+      "wordsWithoutIndividualObservation": 567,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 10,
+      "observedFeatures": 16,
+      "featureConflictWords": 0,
+      "pages": 11
+    },
+    {
+      "title": "Mishnah Shekalim",
+      "sourceWords": 2396,
+      "wordsWithIndividualObservation": 2085,
+      "wordsWithoutIndividualObservation": 311,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 8,
+      "observedFeatures": 15,
+      "featureConflictWords": 0,
+      "pages": 9
+    },
+    {
+      "title": "Mishnah Yoma",
+      "sourceWords": 2707,
+      "wordsWithIndividualObservation": 2383,
+      "wordsWithoutIndividualObservation": 324,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 8,
+      "observedFeatures": 17,
+      "featureConflictWords": 0,
+      "pages": 9
+    },
+    {
+      "title": "Mishnah Sukkah",
+      "sourceWords": 2077,
+      "wordsWithIndividualObservation": 1790,
+      "wordsWithoutIndividualObservation": 287,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 2,
+      "observedFeatures": 2,
+      "featureConflictWords": 0,
+      "pages": 7
+    },
+    {
+      "title": "Mishnah Beitzah",
+      "sourceWords": 1491,
+      "wordsWithIndividualObservation": 1262,
+      "wordsWithoutIndividualObservation": 229,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 1,
+      "observedFeatures": 2,
+      "featureConflictWords": 0,
+      "pages": 5
+    },
+    {
+      "title": "Mishnah Rosh Hashanah",
+      "sourceWords": 1555,
+      "wordsWithIndividualObservation": 1350,
+      "wordsWithoutIndividualObservation": 205,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 3,
+      "observedFeatures": 4,
+      "featureConflictWords": 0,
+      "pages": 5
+    },
+    {
+      "title": "Mishnah Ta'anit",
+      "sourceWords": 1736,
+      "wordsWithIndividualObservation": 1464,
+      "wordsWithoutIndividualObservation": 272,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 0,
+      "observedFeatures": 0,
+      "featureConflictWords": 0,
+      "pages": 6
+    },
+    {
+      "title": "Mishnah Megillah",
+      "sourceWords": 1281,
+      "wordsWithIndividualObservation": 1106,
+      "wordsWithoutIndividualObservation": 175,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 2,
+      "observedFeatures": 2,
+      "featureConflictWords": 0,
+      "pages": 5
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "sourceWords": 764,
+      "wordsWithIndividualObservation": 665,
+      "wordsWithoutIndividualObservation": 99,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 1,
+      "observedFeatures": 1,
+      "featureConflictWords": 0,
+      "pages": 3
+    },
+    {
+      "title": "Mishnah Chagigah",
+      "sourceWords": 866,
+      "wordsWithIndividualObservation": 743,
+      "wordsWithoutIndividualObservation": 123,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 0,
+      "observedFeatures": 0,
+      "featureConflictWords": 0,
+      "pages": 4
+    }
+  ],
+  "pagesWithOverview": 84,
+  "unboundObservations": [],
+  "completeWordPointingReview": false
+}

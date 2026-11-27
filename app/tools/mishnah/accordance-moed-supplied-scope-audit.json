@@ -1,0 +1,358 @@
+{
+  "kind": "mishnah-moed-supplied-reference-scope-audit",
+  "version": 1,
+  "scope": "All twelve Seder Moed tractates through Chagigah",
+  "method": "Independent explicit-reference inventory against Digital Mishnah Kaufmann unit IDs; opening references and merged final Pesachim line documented separately",
+  "policy": {
+    "sourceTextChanged": false,
+    "manuscriptTextChanged": false,
+    "rawReferenceLineEndingsPreservedInInputHashes": true,
+    "normalisedLineProjectionIsNotOriginalRawText": true,
+    "pointingOrMorphologyValidatedByScopeAudit": false,
+    "missingReferenceLabelDoesNotMeanMissingText": true
+  },
+  "inputs": [
+    {
+      "id": "Shabbat_next",
+      "sourceFile": "Pasted text.txt",
+      "sha256": "311d57a83894a348095fc589c27e6e65c900abe3e3242add38f807dde0387077",
+      "bytes": 88099,
+      "utf16Length": 47852,
+      "lineEndings": {
+        "CR": 138,
+        "LF": 0
+      }
+    },
+    {
+      "id": "Eruvin_next",
+      "sourceFile": "Pasted text.txt",
+      "sha256": "0e762829fe620d1c62a28635823b81127df94f3845773b2120b3bde304522447",
+      "bytes": 61048,
+      "utf16Length": 33130,
+      "lineEndings": {
+        "CR": 95,
+        "LF": 0
+      }
+    },
+    {
+      "id": "Pesachim_next",
+      "sourceFile": "Pasted text.txt",
+      "sha256": "cbe3f724efe88edab06c6ac68e963ef718022752e6f39f5ef1ec117ff4783900",
+      "bytes": 59891,
+      "utf16Length": 32458,
+      "lineEndings": {
+        "CR": 86,
+        "LF": 0
+      }
+    },
+    {
+      "id": "Yoma_bundle_next",
+      "sourceFile": "Pasted text.txt",
+      "sha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "bytes": 232386,
+      "utf16Length": 125617,
+      "lineEndings": {
+        "CR": 354,
+        "LF": 0
+      }
+    },
+    {
+      "id": "Hagigah_next",
+      "sourceFile": "Pasted text.txt",
+      "sha256": "052ed5f769002797aa62152190d1da6043013138e0bc02976b3527a4cbfdbaa7",
+      "bytes": 14627,
+      "utf16Length": 7924,
+      "lineEndings": {
+        "CR": 22,
+        "LF": 0
+      }
+    }
+  ],
+  "books": [
+    {
+      "title": "Mishnah Shabbat",
+      "prefix": "Shabb.",
+      "inputId": "Shabbat_next",
+      "inputSha256": "311d57a83894a348095fc589c27e6e65c900abe3e3242add38f807dde0387077",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 139,
+      "explicitReferenceLabels": 138,
+      "inferredOpeningRef": "1:1",
+      "originalReferenceCount": 139,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 139,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Eruvin",
+      "prefix": "Eruv.",
+      "inputId": "Eruvin_next",
+      "inputSha256": "0e762829fe620d1c62a28635823b81127df94f3845773b2120b3bde304522447",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 96,
+      "explicitReferenceLabels": 95,
+      "inferredOpeningRef": "1:1",
+      "originalReferenceCount": 96,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 96,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Pesachim",
+      "prefix": "Pesah.",
+      "inputId": "Pesachim_next",
+      "inputSha256": "cbe3f724efe88edab06c6ac68e963ef718022752e6f39f5ef1ec117ff4783900",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 89,
+      "explicitReferenceLabels": 86,
+      "inferredOpeningRef": "1:1",
+      "originalReferenceCount": 87,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [
+        "10:8",
+        "10:9"
+      ],
+      "documentedMergedContent": [
+        "10:8",
+        "10:9"
+      ],
+      "projectedReferenceCount": 89,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true,
+      "divisionNote": "The uploaded version has one reference Pesah. 10:7 here, not independent 10:8 or 10:9 units. The three spans map that one input reference to the Digital Mishnah Kaufmann target coordinates; no source text or source division is rewritten."
+    },
+    {
+      "title": "Mishnah Yoma",
+      "prefix": "Yoma",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 61,
+      "explicitReferenceLabels": 60,
+      "inferredOpeningRef": "1:1",
+      "originalReferenceCount": 61,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 61,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Shekalim",
+      "prefix": "Sheqal.",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 52,
+      "explicitReferenceLabels": 52,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 52,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 52,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Sukkah",
+      "prefix": "Sukk.",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 53,
+      "explicitReferenceLabels": 53,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 53,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 53,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Beitzah",
+      "prefix": "Betza",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 42,
+      "explicitReferenceLabels": 42,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 42,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 42,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Rosh Hashanah",
+      "prefix": "RoshHa.",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 35,
+      "explicitReferenceLabels": 35,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 35,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 35,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Ta'anit",
+      "prefix": "Taan.",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 34,
+      "explicitReferenceLabels": 34,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 34,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 34,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "prefix": "MoedQa.",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 24,
+      "explicitReferenceLabels": 24,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 24,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 24,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Megillah",
+      "prefix": "Meg.",
+      "inputId": "Yoma_bundle_next",
+      "inputSha256": "8578aa724ccf7d24a216013424c6c207d3d30482cc0931cb13bc15ff4303ee6c",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 33,
+      "explicitReferenceLabels": 33,
+      "inferredOpeningRef": null,
+      "originalReferenceCount": 33,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 33,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    },
+    {
+      "title": "Mishnah Chagigah",
+      "prefix": "Hagig.",
+      "inputId": "Hagigah_next",
+      "inputSha256": "052ed5f769002797aa62152190d1da6043013138e0bc02976b3527a4cbfdbaa7",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "sourceUnits": 23,
+      "explicitReferenceLabels": 22,
+      "inferredOpeningRef": "1:1",
+      "originalReferenceCount": 23,
+      "duplicateOriginalReferences": 0,
+      "originalReferencesWithoutSeparateLabel": [],
+      "documentedMergedContent": [],
+      "projectedReferenceCount": 23,
+      "missingContentReferences": [],
+      "extraProjectedReferences": [],
+      "completeContent": true
+    }
+  ],
+  "pesachimMergedLine": {
+    "inputSha256": "cbe3f724efe88edab06c6ac68e963ef718022752e6f39f5ef1ec117ff4783900",
+    "originalLabel": "Pesah. 10:7",
+    "displayedLeadingNumericMarker": "(8)",
+    "originalLineStartUTF16": 31764,
+    "originalLineEndUTF16": 32458,
+    "spans": [
+      {
+        "reference": "10:7",
+        "startUTF16": 31764,
+        "endUTF16": 32001,
+        "lineRelativeStartUTF16": 0,
+        "lineRelativeEndUTF16": 237,
+        "spanUtf8Sha256": "bc5066a6d88337fbdbb85c5ac155c21439add444416dc3f98296ca87a1b8fd6e",
+        "consonantalOpening": "מזגו לו כוס שלישי",
+        "targetRef": "10:7",
+        "originalRef": "10:7"
+      },
+      {
+        "reference": "10:8",
+        "startUTF16": 32001,
+        "endUTF16": 32171,
+        "lineRelativeStartUTF16": 237,
+        "lineRelativeEndUTF16": 407,
+        "spanUtf8Sha256": "fb44880b57aa3c933c26b8eb7c6eb35d899685b613ee9b74a0e62be16fc2c0e6",
+        "consonantalOpening": "אין מפטירים אחר הפסח",
+        "targetRef": "10:8",
+        "originalRef": "10:7"
+      },
+      {
+        "reference": "10:9",
+        "startUTF16": 32171,
+        "endUTF16": 32458,
+        "lineRelativeStartUTF16": 407,
+        "lineRelativeEndUTF16": 694,
+        "spanUtf8Sha256": "8b395ee13d7054ef5a3e93f39d7fd4e37a583b804f1dd8454f0c1b778dcf85f5",
+        "consonantalOpening": "הפסח אחר חצות",
+        "targetRef": "10:9",
+        "originalRef": "10:7"
+      }
+    ],
+    "numericMarker9StartUTF16": 32171,
+    "opening10_9StartUTF16": 32175,
+    "method": "Three contiguous original raw UTF-16 spans. Boundaries checked against unique content openings of Kaufmann 10:7,10:8,10:9. No letters, points, or editorial markers changed by this scope audit.",
+    "originalRef": "10:7",
+    "originalReferenceUnitCount": 1,
+    "sourceDivisionUnchanged": true,
+    "divisionNote": "The uploaded version has one reference Pesah. 10:7 here, not independent 10:8 or 10:9 units. The three spans map that one input reference to the Digital Mishnah Kaufmann target coordinates; no source text or source division is rewritten."
+  },
+  "summary": {
+    "tractates": 12,
+    "sourceUnits": 681,
+    "projectedReferences": 681,
+    "completeContentTractates": 12,
+    "separatelyUnlabelledMergedUnits": 2,
+    "missingContentReferences": [],
+    "coordinateNote": "The two additional target coordinates lie inside a single uploaded reference; they are not missing or newly invented source units."
+  },
+  "coordinateSystems": {
+    "input": "References exactly as labelled in the uploaded Accordance text",
+    "target": "Digital Mishnah Kaufmann unit identifiers; projection metadata only"
+  }
+}

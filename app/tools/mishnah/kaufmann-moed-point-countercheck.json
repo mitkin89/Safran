@@ -1,0 +1,82 @@
+{
+  "method": "independent blind AI image countercheck",
+  "observations": [
+    {
+      "sourceWordId": "S07326.2.1.23.3/word/20",
+      "folio": "050v",
+      "column": "right",
+      "bbox": [
+        802,
+        170,
+        1474,
+        370
+      ],
+      "imageSha256": "2eeaf7e6cc341aa49792e0a9dbc8857430506ad05a67da4f8bd159a465bbf820",
+      "observedFeatures": [
+        {
+          "letterIndex": 2,
+          "marks": [],
+          "certainty": "uncertain"
+        }
+      ],
+      "notes": [
+        "Source-only consonantal map consulted after viewing to identify מחשיך and its third Hebrew letter ש.",
+        "At the specified ש I cannot confidently isolate a positive vocalization or shin-dot mark from the available pixels. I do not certify absence of a mark."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.2.2.1.1/word/27",
+      "folio": "051r",
+      "column": "right",
+      "bbox": [
+        813,
+        170,
+        1496,
+        370
+      ],
+      "imageSha256": "bbc974654e1194286647cd163bd5502a38af1184fcf8d4fb2685f4dc0cc08792",
+      "observedFeatures": [
+        {
+          "letterIndex": 3,
+          "marks": [],
+          "certainty": "uncertain"
+        }
+      ],
+      "notes": [
+        "Source-only consonantal map consulted after viewing to identify צריך and its fourth Hebrew letter ך.",
+        "At the specified final ך I cannot confidently isolate a positive mark. Its long descending letter stroke is visible; no absence of pointing is certified."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.2.2.9.1/word/30",
+      "folio": "055v",
+      "column": "right",
+      "bbox": [
+        811,
+        170,
+        1492,
+        370
+      ],
+      "imageSha256": "58d164025dedcd17489d8613ceb04bd30106307ab485ca74ecae2e7256a92ea9",
+      "observedFeatures": [
+        {
+          "letterIndex": 2,
+          "marks": [
+            "ָ"
+          ],
+          "certainty": "clear"
+        }
+      ],
+      "notes": [
+        "Source-only consonantal map consulted after viewing to identify ואחד and its third Hebrew letter ח.",
+        "Below ח a horizontal stroke with a separate lower point/short foot is visibly present, read as qamats. Positive feature only; no claim about other marks or the complete word."
+      ]
+    }
+  ],
+  "limitations": [
+    "Three specified letter positions only; no full-word or full-pointing verification.",
+    "Original images were viewed before lossless nearest-neighbour enlarged crops. Expected marks, Accordance and the first reviewer’s feature records were not consulted.",
+    "Empty marks with uncertain certainty mean no positive mark was confidently isolated; they do not assert that the manuscript lacks pointing.",
+    "Small faint marks, letter strokes and parchment texture can remain ambiguous at the available resolution."
+  ]
+}

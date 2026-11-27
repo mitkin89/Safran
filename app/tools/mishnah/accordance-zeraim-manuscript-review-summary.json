@@ -1,0 +1,117 @@
+{
+  "books": [
+    {
+      "title": "Mishnah Peah",
+      "sourceWords": 2432,
+      "wordsWithIndividualObservation": 2092,
+      "wordsWithoutIndividualObservation": 340,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 22,
+      "observedFeatures": 25,
+      "featureConflictWords": 0,
+      "pages": 10
+    },
+    {
+      "title": "Mishnah Demai",
+      "sourceWords": 1858,
+      "wordsWithIndividualObservation": 1531,
+      "wordsWithoutIndividualObservation": 327,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 12,
+      "observedFeatures": 12,
+      "featureConflictWords": 0,
+      "pages": 8
+    },
+    {
+      "title": "Mishnah Kilayim",
+      "sourceWords": 2924,
+      "wordsWithIndividualObservation": 2396,
+      "wordsWithoutIndividualObservation": 528,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 5,
+      "observedFeatures": 9,
+      "featureConflictWords": 0,
+      "pages": 11
+    },
+    {
+      "title": "Mishnah Sheviit",
+      "sourceWords": 3209,
+      "wordsWithIndividualObservation": 2627,
+      "wordsWithoutIndividualObservation": 582,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 2,
+      "observedFeatures": 4,
+      "featureConflictWords": 0,
+      "pages": 12
+    },
+    {
+      "title": "Mishnah Terumot",
+      "sourceWords": 3582,
+      "wordsWithIndividualObservation": 3018,
+      "wordsWithoutIndividualObservation": 564,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 6,
+      "observedFeatures": 7,
+      "featureConflictWords": 0,
+      "pages": 13
+    },
+    {
+      "title": "Mishnah Maasrot",
+      "sourceWords": 1511,
+      "wordsWithIndividualObservation": 1276,
+      "wordsWithoutIndividualObservation": 235,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 4,
+      "observedFeatures": 4,
+      "featureConflictWords": 0,
+      "pages": 6
+    },
+    {
+      "title": "Mishnah Maaser Sheni",
+      "sourceWords": 2241,
+      "wordsWithIndividualObservation": 1781,
+      "wordsWithoutIndividualObservation": 460,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 29,
+      "observedFeatures": 32,
+      "featureConflictWords": 0,
+      "pages": 9
+    },
+    {
+      "title": "Mishnah Challah",
+      "sourceWords": 1305,
+      "wordsWithIndividualObservation": 1116,
+      "wordsWithoutIndividualObservation": 189,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 24,
+      "observedFeatures": 34,
+      "featureConflictWords": 0,
+      "pages": 5
+    },
+    {
+      "title": "Mishnah Orlah",
+      "sourceWords": 987,
+      "wordsWithIndividualObservation": 745,
+      "wordsWithoutIndividualObservation": 242,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 2,
+      "observedFeatures": 3,
+      "featureConflictWords": 0,
+      "pages": 4
+    },
+    {
+      "title": "Mishnah Bikkurim",
+      "sourceWords": 1308,
+      "wordsWithIndividualObservation": 1062,
+      "wordsWithoutIndividualObservation": 246,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 5,
+      "observedFeatures": 9,
+      "featureConflictWords": 0,
+      "pages": 5
+    }
+  ],
+  "pagesWithOverview": 75,
+  "unboundObservations": [],
+  "completeWordPointingReview": false
+}

@@ -358,7 +358,7 @@
     }
     if (!sel.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) sel.add(v.rel); });
     if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
-    if(g.title==='Mishnah Berakhot'){const work=g.versions.find(v=>v.versionTitle==='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing');if(work)sel.add(work.rel);}
+    if(g.title==='Mishnah Berakhot'||window.MISHNAH_ACCORDANCE_CATALOG?.[g.title]){const item=window.MISHNAH_ACCORDANCE_CATALOG?.[g.title],work=g.versions.find(v=>v.versionTitle==='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing'&&(!item||v.rel===item.rel));if(work)sel.add(work.rel);}
     return /^Tanakh\//.test(g.key||'')?window.BibleVersions.select(g.versions,sel,disp,I18N.lang):sel;
   }
   async function openGroup(g, target = {}, inNewTab = false) {

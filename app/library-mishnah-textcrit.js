@@ -4,6 +4,7 @@ window.LibraryMishnahTextCrit=(()=>{
 const DERIVED_VERSION="Kaufmann A50 (Digital Mishnah), vocalized after Be'eri";
 const ACCORDANCE_VERSION='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing';
 const isDerivedVersion=v=>v===DERIVED_VERSION||v===ACCORDANCE_VERSION;
+const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title]||(title==='Mishnah Berakhot'?{file:'mishnah-kaufmann-accordance-data.js',global:'MISHNAH_KAUFMANN_ACCORDANCE_DATA'}:null);
 const editionLabel=v=>v===ACCORDANCE_VERSION?'Digital Mishnah · vorläufige Accordance-Punktierung · nicht am Manuskript geprüft':DERIVED_LABEL;
 const DERIVED_LABEL='Digital Mishnah · Punktierung nach Be’eri · teilweise/offen';
 const supports=title=>title==='Mishnah Berakhot'||!!window.MISHNAH_TEXTCRIT_CATALOG?.[title];
@@ -19,12 +20,13 @@ function create(host){
   const selected=await pending.get(title);if(ticket===request)data=selected;return selected;
  }
  async function loadVocalized(title,versionTitle){
-  const derived=title==='Mishnah Berakhot'&&isDerivedVersion(versionTitle),accordance=derived&&versionTitle===ACCORDANCE_VERSION;
+  const work=accordanceItem(title),accordance=versionTitle===ACCORDANCE_VERSION&&!!work,derived=accordance||title==='Mishnah Berakhot'&&versionTitle===DERIVED_VERSION;
+  if(versionTitle===ACCORDANCE_VERSION&&!accordance||versionTitle===DERIVED_VERSION&&title!=='Mishnah Berakhot')return null;
   const item=window.MISHNAH_VOCALIZED_CATALOG?.[title];if(!derived&&!item)return null;
   const base=await load(title),key='vocalized/'+title+'/'+(derived?versionTitle:'original');
-  if(!pending.has(key))pending.set(key,host.load(derived?(accordance?'mishnah-kaufmann-accordance-data.js':'mishnah-kaufmann-berakhot-data.js'):item.file,()=>derived?(accordance?window.MISHNAH_KAUFMANN_ACCORDANCE_DATA:window.MISHNAH_KAUFMANN_BERAKHOT_DATA):window.MISHNAH_VOCALIZED?.[title]).catch(err=>{pending.delete(key);throw err;}));
+  if(!pending.has(key))pending.set(key,host.load(derived?(accordance?work.file:'mishnah-kaufmann-berakhot-data.js'):item.file,()=>derived?(accordance?window[work.global]:window.MISHNAH_KAUFMANN_BERAKHOT_DATA):window.MISHNAH_VOCALIZED?.[title]).catch(err=>{pending.delete(key);throw err;}));
   const v=await pending.get(key),units=derived?v?.units:v?.base,sha=v?.witnessSha256||v?.source?.witnessSha256;
-  if(!v?.source||!units||!v.interlinear||derived&&(v.source.versionTitle!==versionTitle||(accordance?(!v.source.provisional||v.source.pointingDonor!=='Accordance'):!v.source.transferred)||!v.source.rel||!v.source.textHash)||!derived&&(v.source.textHash!==item.textHash||v.source.rel!==item.rel)||['D','P','C'].some(s=>sha?.[s]!==base.witnesses[s==='D'?'K':s]?.sha256))throw Error('Vocalized Mishnah comparison source mismatch');
+  if(!v?.source||!units||!v.interlinear||derived&&v.title!==title||accordance&&work.rel&&(v.source.rel!==work.rel||v.source.textHash!==work.textHash)||derived&&(v.source.versionTitle!==versionTitle||(accordance?(!v.source.provisional||v.source.pointingDonor!=='Accordance'):!v.source.transferred)||!v.source.rel||!v.source.textHash)||!derived&&(v.source.textHash!==item.textHash||v.source.rel!==item.rel)||['D','P','C'].some(s=>sha?.[s]!==base.witnesses[s==='D'?'K':s]?.sha256))throw Error('Vocalized Mishnah comparison source mismatch');
   const view={...base,source:{...v.source,vocalized:true,versionTitle:derived?versionTitle:v.source.versionTitle},sourceSummary:v.sourceSummary,witnesses:{...base.witnesses,D:base.witnesses.K,K:{...base.witnesses.K,name:derived?editionLabel(versionTitle):'Kaufmann · vokalisierte Lesefassung',units}},verses:Object.fromEntries(Object.keys(units).map(r=>[r,{}])),interlinear:v.interlinear};
   vocalizedViews.set(derived?versionTitle:'original',view);if(data===base)vocalized=view;return v;
  }

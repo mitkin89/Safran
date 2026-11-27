@@ -173,3 +173,47 @@ variant outside the gap. Ambiguous or physically unsupported matches retain
 the original uncertain grouping. This places `מ □ ראה` at `מפני / היראה`,
 `בתרו □ ד` at `בתרומתן / עד`, and `שפ □ כבת` at `שפלטה / שכבת` without
 supplying missing letters. Such refinements stay automatic and uncertain.
+
+## Source-preserving Accordance working editions
+
+`build_zeraim_accordance.cjs` builds the additional working editions for the
+remaining Seder Zeraim and Seder Moed from private user-supplied surface texts.
+It keeps the original Digital Mishnah Kaufmann words, IDs, raw TEI,
+annotations and punctuation. Only individually recorded pointing insertions
+are added at strict unique matching anchors; other words stay open. Existing
+analyses can cross a separately guarded interlinear link as candidates, without
+copying Be'eri pointing. Mishnah dictionary actions remain restricted to
+Jastrow, Levy and Krauss.
+
+Original CR, CRLF and LF input is supported. Public audits contain hashes and
+reference/span metadata; complete pasted reference files remain private.
+The supplied final Pesachim 10:7 line spans three Kaufmann comparison units.
+Its original division remains 10:7: the two synthetic comparison headings are
+metadata, not new source units or new text. Original UTF-16 spans and hashes
+document this mapping; word cards show the differing division. The nine source
+commentary words in Pesachim 8:6 remain labelled as commentary in both plain
+and interlinear views.
+
+`build_accordance_images.cjs LOCATIONS INVENTORY REVIEW...` binds manuscript
+evidence separately. Reproducible source-location maps are bundled as
+`sources/kaufmann-{zeraim,moed}-word-locations.json.gz`; the inventories bind
+their uncompressed hashes and the original image URLs, dimensions and hashes.
+JPEG originals remain outside the repository. The resulting image modules
+bind the exact edition hash and each original source word, and retain hashes
+of the individual review reports.
+
+The image reports distinguish page/column inspection, independently attempted
+consonantal readings, individual observed point marks, and unresolved source
+positions. **Neither page coverage nor a matching individual mark certifies
+the complete pointing of a word.** The present new reports certify no complete
+word vocalizations. Unmatched readings are not silently turned into variants.
+Blind counterchecks can leave a formerly clear individual mark uncertain;
+no image observation automatically corrects the running text.
+
+Run `node --test tests/kaufmann-zeraim-accordance.test.js` in `app` for corpus
+preservation and image-binding checks. Electron uses
+`SAFRAN_SMOKE_KAUFMANN_ZERAIM_ACCORDANCE=1`; the optional
+`SAFRAN_SMOKE_KAUFMANN_ACCORDANCE_TITLES` accepts `|`-separated titles for
+focused checks. `accordance-independent-source-audit.json` documents the
+independent comparison with the original private input spans; it is not a
+claim of complete manuscript-pointing validation.

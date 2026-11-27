@@ -5,12 +5,12 @@ const spellingReview=require('./kaufmann-interlinear-spelling-decisions.json');
 const spellingDecisions=new Map(spellingReview.decisions.map(d=>[d.ref+'/'+d.wordIndex,d]));
 if(spellingDecisions.size!==spellingReview.decisions.length)throw Error('Duplicate spelling decision');
 const consonants=s=>P.stripPointing(s).replace(/[^א-ת]/g,'');
-function compatible(target,source,position){
+function compatible(target,source,position,title='Mishnah Berakhot'){
  if(consonants(target)===consonants(source))return 'same-consonants';
  if(/['׳]$/.test(target)&&consonants(source).startsWith(consonants(target)))return 'aligned-abbreviation';
- if(consonants(target)==='רשיי'&&consonants(source)==='רשי')return 'Levy-rashai-spelling';
+ if(title==='Mishnah Berakhot'&&consonants(target)==='רשיי'&&consonants(source)==='רשי')return 'Levy-rashai-spelling';
  const decision=spellingDecisions.get(position);
- if(decision&&target===decision.target&&P.stripPointing(source)===decision.source)return 'reviewed-spelling-variant';
+ if(title==='Mishnah Berakhot'&&decision&&target===decision.target&&P.stripPointing(source)===decision.source)return 'reviewed-spelling-variant';
  return null;
 }
 function transfer(data,alignment,donor){
@@ -40,7 +40,7 @@ function transfer(data,alignment,donor){
    const sw=alignment.base[sr]?.words[si],[sc,sm]=sr.split(':').map(Number),sourceTokens=M.tokens(alignment.base[sr].offsetText||alignment.base[sr].text);
    const st=sourceTokens.map((t,j)=>({t,j})).filter(({t})=>sw.start<=t.start&&sw.end>=t.end);
    if(st.length!==1||sw.flags?.length){reject('source-token-not-singular');continue;}
-   const sf=donor.forms[source.chapters[sc-1][sm-1][st[0].j]],kind=compatible(w.originalWord,sw.text,ref+'/'+i);
+   const sf=donor.forms[source.chapters[sc-1][sm-1][st[0].j]],kind=compatible(w.originalWord,sw.text,ref+'/'+i,title);
    if(!kind||sf?.word!==st[0].t.word||!sf.analyses.length){reject('unmatched-word-or-missing-analysis');continue;}
    const sourceWordId=u.id+'/word/'+i;
    f.analyses=sf.analyses.map(a=>({...JSON.parse(JSON.stringify(a)),method:'interlinear-position-candidate',rules:[...new Set([...(a.rules||[]),'interlinear-analysis-transfer'])],note:(a.note?a.note+' ':'')+'Analyse aus der eindeutigen Interlinearverknüpfung übernommen; keine Übernahme oder Bestätigung der Quellpunktierung.'}));
@@ -56,7 +56,7 @@ function transfer(data,alignment,donor){
   }
  }
  data.rules['interlinear-analysis-transfer']={label:'Analyse aus eindeutiger Interlinearverknüpfung',refs:['Positionsgebundene Übernahme vorhandener Analysekandidaten; Punktierung getrennt.','Nur unverletzte Einzelwortanker, gleiche Konsonanten, belegte Abkürzungen oder positionsgenau geprüfte Schreibvariante. Keine globale Normalisierung von Jod/Waw.']};
- data.interlinearAnalysisTransfer={sourceTextHash:source.textHash,spellingReview:{file:'kaufmann-interlinear-spelling-decisions.json',decisions:spellingReview.decisions.length,dictionary:spellingReview.dictionary},accepted,rejected};
+ data.interlinearAnalysisTransfer={sourceTextHash:source.textHash,spellingReview:title==='Mishnah Berakhot'?{file:'kaufmann-interlinear-spelling-decisions.json',decisions:spellingReview.decisions.length,dictionary:spellingReview.dictionary}:null,accepted,rejected};
  return data.interlinearAnalysisTransfer;
 }
 module.exports={transfer,compatible};

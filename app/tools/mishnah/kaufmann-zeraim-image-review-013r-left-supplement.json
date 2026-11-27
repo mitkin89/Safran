@@ -1,0 +1,5155 @@
+{
+  "version": 1,
+  "scope": "Supplement filling previously uncovered 013r LEFT only: Kilayim opening, source sections1:1–1:6. Right column is not claimed here.",
+  "method": "Viewed full original 013r, read full native left column and independently typed every visible main consonantal line before source matching. Exact mandatory unique column-local LCS anchors bind source words. One positive vowel feature read independently from a lossless enlarged crop. No expected source form repaired the attempt.",
+  "source": "https://archive.org/details/Mishnah_Kaufman_ms",
+  "diplomaticXmlSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+  "columnTranscriptionSha256": "688beda4835ff71a44612795831be7c855504ec7ca5bccbbd2fa15c6775c0495",
+  "coordinateConvention": "Original native image pixels [left,top,right,bottom].",
+  "pages": [
+    {
+      "folio": "013r",
+      "imageName": "fol. 013r    Demai VII.5 - Kilayim I.6.jpg",
+      "imageSha256": "c5f5dc06bc24083e5040cbb81155abc7677f33cb5cae389c6e621362ac4c0d28",
+      "width": 1641,
+      "height": 1946,
+      "status": "full-original-overview-and-entire-left-main-column-read",
+      "inspectedRegions": [
+        {
+          "bbox": [
+            0,
+            0,
+            1641,
+            1946
+          ],
+          "level": "full-original overview; detailed right-column review not claimed"
+        },
+        {
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "level": "entire left-column independent consonantal attempt"
+        },
+        {
+          "bbox": [
+            500,
+            285,
+            800,
+            375
+          ],
+          "level": "enlarged positive point observation"
+        }
+      ],
+      "individualPointingComplete": false
+    }
+  ],
+  "columnReadings": [
+    {
+      "folio": "013r",
+      "column": "left",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "method": "Independent actual-image consonantal attempt before binding; unaligned strings remain attempts, not established manuscript variants.",
+      "lines": [
+        {
+          "attemptLine": 1,
+          "reading": "הכוסמין והשיפון והפול והספיר והפורדן",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 2,
+          "reading": "והטופח ופול לבן והשעועית אינן",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 3,
+          "reading": "כלאים זה בזה ב הקישות והמלפפון",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 4,
+          "reading": "אינן כלאים זה בזה ר יהודה אומר",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 5,
+          "reading": "כלאים חזרת וחזרת גלים עולשים",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 6,
+          "reading": "עולשי שדה כרישים כרישי שדה",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 7,
+          "reading": "כוסבר כוסבר שדה חרדל וחרדל מצרי",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 8,
+          "reading": "ודלעת מצרית והרמוצה ופול מצרי",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 9,
+          "reading": "והחרוב אינן כלאים זה בזה ג הלפת",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 10,
+          "reading": "והנפס הכרוב והתרובדור התרדים",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 11,
+          "reading": "והלעונים הנוסטה וענשון השום",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 12,
+          "reading": "והשומנית הבצל והבצלצול והתורמוס",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 13,
+          "reading": "והפלוסלוס אינן כלאים זה בזה ד",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 14,
+          "reading": "באילן האגסין והקרוסתומלין ה",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 15,
+          "reading": "הפרישים והעוזררים אינן כלאים",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 16,
+          "reading": "זה בזה התפוח והחוזרר הפרסקין",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 17,
+          "reading": "והשקדין והשיזפין והרימין א",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 18,
+          "reading": "אף על פי דומין זה לזה כלאים זה",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 19,
+          "reading": "בזה ה הצנון והנפוס החרדל",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 20,
+          "reading": "והלפסן ודלעת יונית עם המצרית",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 21,
+          "reading": "והרמוצה אף על פי דומין זה לזה",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 22,
+          "reading": "כלאים זה בזה ו הזאב והכלב",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 23,
+          "reading": "כלב כופרי והשועל העזים והצבאים",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 24,
+          "reading": "היעלים והרחילים הסוס והפרד",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 25,
+          "reading": "הפרד והחמור החמור והערוד",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        },
+        {
+          "attemptLine": 26,
+          "reading": "אף על פי דומין זה לזה כלאים זה",
+          "scope": "Main consonantal attempt; complete pointing unresolved"
+        }
+      ],
+      "sourcePositions": 137,
+      "typedTokens": 138,
+      "mandatoryUniqueExactMatches": 103,
+      "lcsLength": 105,
+      "unmappedAttempts": [
+        {
+          "reading": "והפול",
+          "attemptLine": 1,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והפורדן",
+          "attemptLine": 1,
+          "attemptToken": 4,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "לבן",
+          "attemptLine": 2,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "ב",
+          "attemptLine": 3,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "חזרת",
+          "attemptLine": 5,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "וחזרת",
+          "attemptLine": 5,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "כוסבר",
+          "attemptLine": 7,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "כוסבר",
+          "attemptLine": 7,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "חרדל",
+          "attemptLine": 7,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "וחרדל",
+          "attemptLine": 7,
+          "attemptToken": 4,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "מצרית",
+          "attemptLine": 8,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "ג",
+          "attemptLine": 9,
+          "attemptToken": 5,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והנפס",
+          "attemptLine": 10,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והתרובדור",
+          "attemptLine": 10,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "הנוסטה",
+          "attemptLine": 11,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "וענשון",
+          "attemptLine": 11,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והתורמוס",
+          "attemptLine": 12,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והפלוסלוס",
+          "attemptLine": 13,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "ד",
+          "attemptLine": 13,
+          "attemptToken": 5,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "באילן",
+          "attemptLine": 14,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והקרוסתומלין",
+          "attemptLine": 14,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "ה",
+          "attemptLine": 14,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והחוזרר",
+          "attemptLine": 16,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "הפרסקין",
+          "attemptLine": 16,
+          "attemptToken": 4,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והשקדין",
+          "attemptLine": 17,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והשיזפין",
+          "attemptLine": 17,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והרימין",
+          "attemptLine": 17,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "א",
+          "attemptLine": 17,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "אף",
+          "attemptLine": 18,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "ה",
+          "attemptLine": 19,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "יונית",
+          "attemptLine": 20,
+          "attemptToken": 2,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "והרמוצה",
+          "attemptLine": 21,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "ו",
+          "attemptLine": 22,
+          "attemptToken": 3,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "כופרי",
+          "attemptLine": 23,
+          "attemptToken": 1,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        },
+        {
+          "reading": "היעלים",
+          "attemptLine": 24,
+          "attemptToken": 0,
+          "reason": "No mandatory unique exact source anchor; may be misreading, different segmentation, editorial material or ambiguous match."
+        }
+      ],
+      "unmatchedSourceWordIds": [
+        "S07326.1.4.1.1/word/11",
+        "S07326.1.4.1.1/word/13",
+        "S07326.1.4.1.1/word/16",
+        "S07326.1.4.1.2/word/10",
+        "S07326.1.4.1.2/word/11",
+        "S07326.1.4.1.2/word/19",
+        "S07326.1.4.1.2/word/20",
+        "S07326.1.4.1.2/word/21",
+        "S07326.1.4.1.2/word/22",
+        "S07326.1.4.1.2/word/24",
+        "S07326.1.4.1.2/word/25",
+        "S07326.1.4.1.2/word/28",
+        "S07326.1.4.1.3/word/1",
+        "S07326.1.4.1.3/word/2",
+        "S07326.1.4.1.3/word/3",
+        "S07326.1.4.1.3/word/4",
+        "S07326.1.4.1.3/word/6",
+        "S07326.1.4.1.3/word/9",
+        "S07326.1.4.1.3/word/10",
+        "S07326.1.4.1.3/word/11",
+        "S07326.1.4.1.3/word/16",
+        "S07326.1.4.1.3/word/17",
+        "S07326.1.4.1.4/word/0",
+        "S07326.1.4.1.4/word/2",
+        "S07326.1.4.1.4/word/10",
+        "S07326.1.4.1.4/word/11",
+        "S07326.1.4.1.4/word/12",
+        "S07326.1.4.1.4/word/13",
+        "S07326.1.4.1.4/word/14",
+        "S07326.1.4.1.4/word/15",
+        "S07326.1.4.1.5/word/5",
+        "S07326.1.4.1.5/word/8",
+        "S07326.1.4.1.6/word/3",
+        "S07326.1.4.1.6/word/7"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/9",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 9,
+      "originalWord": "הכוסמין",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "1",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הכוסמין",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הכוסמין",
+          "attemptLine": 1,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/10",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 10,
+      "originalWord": "והשיפון",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "1",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והשיפון",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והשיפון",
+          "attemptLine": 1,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/12",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 12,
+      "originalWord": "והספיר",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "1",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והספיר",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והספיר",
+          "attemptLine": 1,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/14",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 14,
+      "originalWord": "והטופח",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "2",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והטופח",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והטופח",
+          "attemptLine": 2,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/15",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 15,
+      "originalWord": "ופול",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "2",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "ופול",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "ופול",
+          "attemptLine": 2,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/17",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 17,
+      "originalWord": "והשעועית",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "2",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והשעועית",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והשעועית",
+          "attemptLine": 2,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/18",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 18,
+      "originalWord": "אינן",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "2",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אינן",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אינן",
+          "attemptLine": 2,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/19",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 19,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "3",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 3,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/20",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 20,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "3",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [
+        {
+          "letterIndex": 0,
+          "marks": [
+            "ֶ"
+          ],
+          "certainty": "clear",
+          "bbox": [
+            500,
+            285,
+            800,
+            375
+          ],
+          "bboxScope": "inspected point region",
+          "scope": "Positive segol observation only; other points unresolved"
+        }
+      ],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 3,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.1/word/21",
+      "title": "Mishnah Kilayim",
+      "ref": "1:1",
+      "wordIndex": 21,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "3",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 3,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/0",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 0,
+      "originalWord": "הקישות",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "3",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הקישות",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הקישות",
+          "attemptLine": 3,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/1",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 1,
+      "originalWord": "והמלפפון",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "3",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והמלפפון",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והמלפפון",
+          "attemptLine": 3,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/2",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 2,
+      "originalWord": "אינן",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אינן",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אינן",
+          "attemptLine": 4,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/3",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 3,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 4,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/4",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 4,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 4,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/5",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 5,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 4,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/6",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 6,
+      "originalWord": "ר'",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "ר",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "ר",
+          "attemptLine": 4,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/7",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 7,
+      "originalWord": "יהודה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "יהודה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "יהודה",
+          "attemptLine": 4,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/8",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 8,
+      "originalWord": "אומר",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "4",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אומר",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אומר",
+          "attemptLine": 4,
+          "attemptToken": 6,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/9",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 9,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "5",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 5,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/12",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 12,
+      "originalWord": "גלים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "5",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "גלים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "גלים",
+          "attemptLine": 5,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/13",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 13,
+      "originalWord": "עולשים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "5",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "עולשים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "עולשים",
+          "attemptLine": 5,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/14",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 14,
+      "originalWord": "עולשי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "6",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "עולשי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "עולשי",
+          "attemptLine": 6,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/15",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 15,
+      "originalWord": "שדה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "6",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "שדה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "שדה",
+          "attemptLine": 6,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/16",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 16,
+      "originalWord": "כרישים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "6",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כרישים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כרישים",
+          "attemptLine": 6,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/17",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 17,
+      "originalWord": "כרישי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "6",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כרישי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כרישי",
+          "attemptLine": 6,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/18",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 18,
+      "originalWord": "שדה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "6",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "שדה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "שדה",
+          "attemptLine": 6,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/23",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 23,
+      "originalWord": "שדה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "7",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "שדה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "שדה",
+          "attemptLine": 7,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/26",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 26,
+      "originalWord": "מצרי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "7",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "מצרי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "מצרי",
+          "attemptLine": 7,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/27",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 27,
+      "originalWord": "ודלעת",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "8",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "ודלעת",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "ודלעת",
+          "attemptLine": 8,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/29",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 29,
+      "originalWord": "והרמוצה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "8",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והרמוצה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והרמוצה",
+          "attemptLine": 8,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/30",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 30,
+      "originalWord": "ופול",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "8",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "ופול",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "ופול",
+          "attemptLine": 8,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/31",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 31,
+      "originalWord": "מצרי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "8",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "מצרי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "מצרי",
+          "attemptLine": 8,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/32",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 32,
+      "originalWord": "והחרוב",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "9",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והחרוב",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והחרוב",
+          "attemptLine": 9,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/33",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 33,
+      "originalWord": "אינן",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "9",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אינן",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אינן",
+          "attemptLine": 9,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/34",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 34,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "9",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 9,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/35",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 35,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "9",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 9,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.2/word/36",
+      "title": "Mishnah Kilayim",
+      "ref": "1:2",
+      "wordIndex": 36,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "9",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 9,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/0",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 0,
+      "originalWord": "הלפת",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "9",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הלפת",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הלפת",
+          "attemptLine": 9,
+          "attemptToken": 6,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/5",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 5,
+      "originalWord": "הכרוב",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "10",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הכרוב",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הכרוב",
+          "attemptLine": 10,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/7",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 7,
+      "originalWord": "התרדים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "10",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "התרדים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "התרדים",
+          "attemptLine": 10,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/8",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 8,
+      "originalWord": "והלעונים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "11",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והלעונים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והלעונים",
+          "attemptLine": 11,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/12",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 12,
+      "originalWord": "השום",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "11",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "השום",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "השום",
+          "attemptLine": 11,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/13",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 13,
+      "originalWord": "והשומנית",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "12",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והשומנית",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והשומנית",
+          "attemptLine": 12,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/14",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 14,
+      "originalWord": "הבצל",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "12",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הבצל",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הבצל",
+          "attemptLine": 12,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/15",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 15,
+      "originalWord": "והבצלצול",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "12",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והבצלצול",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והבצלצול",
+          "attemptLine": 12,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/18",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 18,
+      "originalWord": "אינן",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "13",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אינן",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אינן",
+          "attemptLine": 13,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/19",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 19,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "13",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 13,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/20",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 20,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "13",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 13,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.3/word/21",
+      "title": "Mishnah Kilayim",
+      "ref": "1:3",
+      "wordIndex": 21,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "13",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 13,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/1",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 1,
+      "originalWord": "האגסין",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "14",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "האגסין",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "האגסין",
+          "attemptLine": 14,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/3",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 3,
+      "originalWord": "הפרישים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "15",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הפרישים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הפרישים",
+          "attemptLine": 15,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/4",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 4,
+      "originalWord": "והעוזררים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "15",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והעוזררים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והעוזררים",
+          "attemptLine": 15,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/5",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 5,
+      "originalWord": "אינן",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "15",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אינן",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אינן",
+          "attemptLine": 15,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/6",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 6,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "15",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 15,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/7",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 7,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "16",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 16,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/8",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 8,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "16",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 16,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/9",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 9,
+      "originalWord": "התפוח",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "16",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "התפוח",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "התפוח",
+          "attemptLine": 16,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/16",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 16,
+      "originalWord": "על",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "על",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "על",
+          "attemptLine": 18,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/17",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 17,
+      "originalWord": "פי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "פי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "פי",
+          "attemptLine": 18,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/18",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 18,
+      "originalWord": "דומין",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "דומין",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "דומין",
+          "attemptLine": 18,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/19",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 19,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 18,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/20",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 20,
+      "originalWord": "לזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "לזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "לזה",
+          "attemptLine": 18,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/21",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 21,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 18,
+          "attemptToken": 6,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/22",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 22,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "18",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 18,
+          "attemptToken": 7,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.4/word/23",
+      "title": "Mishnah Kilayim",
+      "ref": "1:4",
+      "wordIndex": 23,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "19",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 19,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/0",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 0,
+      "originalWord": "הצנון",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "19",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הצנון",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הצנון",
+          "attemptLine": 19,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/1",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 1,
+      "originalWord": "והנפוס",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "19",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והנפוס",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והנפוס",
+          "attemptLine": 19,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/2",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 2,
+      "originalWord": "החרדל",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "19",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "החרדל",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "החרדל",
+          "attemptLine": 19,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/3",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 3,
+      "originalWord": "והלפסן",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "20",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והלפסן",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והלפסן",
+          "attemptLine": 20,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/4",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 4,
+      "originalWord": "ודלעת",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "20",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "ודלעת",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "ודלעת",
+          "attemptLine": 20,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/6",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 6,
+      "originalWord": "עם",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "20",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "עם",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "עם",
+          "attemptLine": 20,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/7",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 7,
+      "originalWord": "המצרית",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "20",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "המצרית",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "המצרית",
+          "attemptLine": 20,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/9",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 9,
+      "originalWord": "אף",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "21",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אף",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אף",
+          "attemptLine": 21,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/10",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 10,
+      "originalWord": "על",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "21",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "על",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "על",
+          "attemptLine": 21,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/11",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 11,
+      "originalWord": "פי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "21",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "פי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "פי",
+          "attemptLine": 21,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/12",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 12,
+      "originalWord": "דומין",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "21",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "דומין",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "דומין",
+          "attemptLine": 21,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/13",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 13,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "21",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 21,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/14",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 14,
+      "originalWord": "לזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "21",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "לזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "לזה",
+          "attemptLine": 21,
+          "attemptToken": 6,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/15",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 15,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "22",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 22,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/16",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 16,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "22",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 22,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.5/word/17",
+      "title": "Mishnah Kilayim",
+      "ref": "1:5",
+      "wordIndex": 17,
+      "originalWord": "בזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "22",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "בזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "בזה",
+          "attemptLine": 22,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/0",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 0,
+      "originalWord": "הזאב",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "22",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הזאב",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הזאב",
+          "attemptLine": 22,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/1",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 1,
+      "originalWord": "והכלב",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "22",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והכלב",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והכלב",
+          "attemptLine": 22,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/2",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 2,
+      "originalWord": "כלב",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "23",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלב",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלב",
+          "attemptLine": 23,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/4",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 4,
+      "originalWord": "והשועל",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "23",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והשועל",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והשועל",
+          "attemptLine": 23,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/5",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 5,
+      "originalWord": "העזים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "23",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "העזים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "העזים",
+          "attemptLine": 23,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/6",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 6,
+      "originalWord": "והצבאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "23",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והצבאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והצבאים",
+          "attemptLine": 23,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/8",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 8,
+      "originalWord": "והרחילים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "24",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והרחילים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והרחילים",
+          "attemptLine": 24,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/9",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 9,
+      "originalWord": "הסוס",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "24",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הסוס",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הסוס",
+          "attemptLine": 24,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/10",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 10,
+      "originalWord": "והפרד",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "24",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והפרד",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והפרד",
+          "attemptLine": 24,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/11",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 11,
+      "originalWord": "הפרד",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "25",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "הפרד",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "הפרד",
+          "attemptLine": 25,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/12",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 12,
+      "originalWord": "והחמור",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "25",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והחמור",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והחמור",
+          "attemptLine": 25,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/13",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 13,
+      "originalWord": "החמור",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "25",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "החמור",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "החמור",
+          "attemptLine": 25,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/14",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 14,
+      "originalWord": "והערוד",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "25",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "והערוד",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "והערוד",
+          "attemptLine": 25,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/15",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 15,
+      "originalWord": "אף",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "אף",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "אף",
+          "attemptLine": 26,
+          "attemptToken": 0,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/16",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 16,
+      "originalWord": "על",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "על",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "על",
+          "attemptLine": 26,
+          "attemptToken": 1,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/17",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 17,
+      "originalWord": "פי",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "פי",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "פי",
+          "attemptLine": 26,
+          "attemptToken": 2,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/18",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 18,
+      "originalWord": "דומין",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "דומין",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "דומין",
+          "attemptLine": 26,
+          "attemptToken": 3,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/19",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 19,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 26,
+          "attemptToken": 4,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/20",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 20,
+      "originalWord": "לזה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "לזה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "לזה",
+          "attemptLine": 26,
+          "attemptToken": 5,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/21",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 21,
+      "originalWord": "כלאים",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "כלאים",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "כלאים",
+          "attemptLine": 26,
+          "attemptToken": 6,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.1.4.1.6/word/22",
+      "title": "Mishnah Kilayim",
+      "ref": "1:6",
+      "wordIndex": 22,
+      "originalWord": "זה",
+      "folio": "013r",
+      "column": "left",
+      "sourceLine": "26",
+      "bbox": [
+        90,
+        170,
+        880,
+        1820
+      ],
+      "bboxScope": "full-column",
+      "reading": "זה",
+      "readingScope": "Consonants only; complete pointing unresolved",
+      "status": "uncertain",
+      "consonantalStatus": "mandatory-unique-exact-consonant-match",
+      "examinationLevel": "independently typed full-column main consonants, source binding after image reading",
+      "observedFeatures": [],
+      "consonantalEvidence": [
+        {
+          "folio": "013r",
+          "column": "left",
+          "bbox": [
+            90,
+            170,
+            880,
+            1820
+          ],
+          "bboxScope": "full-column",
+          "reading": "זה",
+          "attemptLine": 26,
+          "attemptToken": 7,
+          "consonantalStatus": "mandatory-unique-exact-consonant-match"
+        }
+      ],
+      "notes": [
+        "Original native pixel bbox is entire inspected column, not a word rectangle.",
+        "attemptLine is the independent typed-row index, not a TEI sourceLine number.",
+        "Exact consonant match does not certify complete vowels, correction hands or editorial interpretation. Unrecorded points remain unresolved."
+      ]
+    }
+  ],
+  "unreviewedWordIds": [
+    "S07326.1.4.1.1/word/11",
+    "S07326.1.4.1.1/word/13",
+    "S07326.1.4.1.1/word/16",
+    "S07326.1.4.1.2/word/10",
+    "S07326.1.4.1.2/word/11",
+    "S07326.1.4.1.2/word/19",
+    "S07326.1.4.1.2/word/20",
+    "S07326.1.4.1.2/word/21",
+    "S07326.1.4.1.2/word/22",
+    "S07326.1.4.1.2/word/24",
+    "S07326.1.4.1.2/word/25",
+    "S07326.1.4.1.2/word/28",
+    "S07326.1.4.1.3/word/1",
+    "S07326.1.4.1.3/word/2",
+    "S07326.1.4.1.3/word/3",
+    "S07326.1.4.1.3/word/4",
+    "S07326.1.4.1.3/word/6",
+    "S07326.1.4.1.3/word/9",
+    "S07326.1.4.1.3/word/10",
+    "S07326.1.4.1.3/word/11",
+    "S07326.1.4.1.3/word/16",
+    "S07326.1.4.1.3/word/17",
+    "S07326.1.4.1.4/word/0",
+    "S07326.1.4.1.4/word/2",
+    "S07326.1.4.1.4/word/10",
+    "S07326.1.4.1.4/word/11",
+    "S07326.1.4.1.4/word/12",
+    "S07326.1.4.1.4/word/13",
+    "S07326.1.4.1.4/word/14",
+    "S07326.1.4.1.4/word/15",
+    "S07326.1.4.1.5/word/5",
+    "S07326.1.4.1.5/word/8",
+    "S07326.1.4.1.6/word/3",
+    "S07326.1.4.1.6/word/7"
+  ],
+  "unreviewedWordIdsMeaning": "Source positions in this inspected left column without reliable bound consonantal observation. Entire column was attempted; full pointing remains incompletely reviewed throughout.",
+  "limitations": [
+    "Fallible independent AI image transcription, not human verification.",
+    "All visible main consonantal rows were attempted, but unmatched source positions remain open. No failed reading was repaired from expected text.",
+    "Full vowel inventory, dagesh/rafe, shin/sin dots, meteg and correction-hand attribution unresolved except the one explicitly recorded positive feature.",
+    "No full pointed word certified. Exact consonants cannot be counted as complete Accordance or manuscript-pointing agreement.",
+    "No underlying source text, pointing, morphology, translations or UI changed."
+  ],
+  "completionStatus": "Entire assigned left column actually read and attempted; source-bound exact consonants counted separately from unresolved positions and incomplete pointing.",
+  "summary": {
+    "pagesInspected": 1,
+    "fullColumnsActuallyRead": 1,
+    "assignedSourceWordPositions": 137,
+    "independentlyTypedConsonantalTokens": 138,
+    "sourcePositionsWithMandatoryUniqueConsonantMatch": 103,
+    "sourcePositionsWithoutBoundConsonantObservation": 34,
+    "completePointedWordsCertified": 0,
+    "clearIndividualFeatures": 1
+  }
+}

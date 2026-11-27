@@ -19,7 +19,8 @@ function create(host){
  const readingLabel=v=>v===ACCORDANCE_VERSION?ACCORDANCE_LABEL:v===DERIVED_VERSION?DERIVED_LABEL:'Kaufmann · vokalisierte Lesefassung';
  const preferredViews=new WeakSet();
  const VERSION="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
- const isReadingEntry=e=>e?.versionTitle===VERSION||e?.title==='Mishnah Berakhot'&&derivedVersion(e?.versionTitle);
+ const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title];
+ const isReadingEntry=e=>e?.versionTitle===VERSION||e?.title==='Mishnah Berakhot'&&derivedVersion(e?.versionTitle)||e?.versionTitle===ACCORDANCE_VERSION&&!!accordanceItem(e?.title)&&e.rel===accordanceItem(e.title).rel;
  const readings=()=>getView()?.group?.versions.filter(isReadingEntry)||[];
  const reading=()=>readings().find(e=>e.versionTitle===ACCORDANCE_VERSION&&getView()?.selected.has(e.rel))||readings().find(e=>getView()?.selected.has(e.rel))||readings().find(e=>e.versionTitle===ACCORDANCE_VERSION)||readings().find(e=>e.versionTitle===VERSION)||readings()[0];
  const hasReading=()=>readings().some(e=>getView()?.selected.has(e.rel));
@@ -71,7 +72,26 @@ function create(host){
   for(const cell of $('#rOut').querySelectorAll('.cell[data-rel]')){
    const doc=view.loaded.find(d=>d.entry.rel===cell.dataset.rel),v=vocalized.get(doc?.entry.rel),isReading=!!v&&isReadingEntry(doc?.entry)&&doc.textHash===v.source.textHash&&doc.entry.rel===v.source.rel,sig=isReading?'K':doc?.mishnahWitness;if(!sig)continue;
    const row=cell.closest('.row'),ref=(chapter+1)+':'+row.dataset.l,u=isReading?v.base[ref]:data.witnesses[sig].units[ref],txt=cell.querySelector('.txt');if(!txt||!u&&!(sig==='K'&&data.verses[ref]?.missingBase))continue;
-   if(isReading&&!picks.length)continue;
+   if(isReading&&!picks.length){
+    // The general text sanitizer deliberately removes source-specific wrappers.
+    // Rebuild only this labelled source note from validated offsets and escaped
+    // text, keeping commentary words bound without broadening that sanitizer.
+    const noteIndices=new Set((v.interlinear.baseNotes?.[String(chapter+1)]||[]).filter(n=>n.ref===ref).flatMap(n=>n.reading.map(pair=>pair[1])));
+    if(noteIndices.size&&u.offsetText){
+     let html='',at=0,noteOpen=false;
+     u.words.forEach((w,i)=>{
+      if(u.offsetText.slice(w.start,w.end)!==w.text)throw Error('Plain Mishnah source-note offset mismatch');
+      const note=noteIndices.has(i);
+      if(note&&!noteOpen){html+='<aside class="mci-note kpt-source-note"><small class="kpt-note-label">'+esc(tr('Randkommentar (Quelle)'))+'</small> ';noteOpen=true;}
+      else if(!note&&noteOpen){html+='</aside>';noteOpen=false;}
+      html+=esc(u.offsetText.slice(at,w.start))+'<span class="kpt-word'+(w.pointingStatus==='open'?' kpt-open':'')+(note?' mci-base-word':'')+'"'+(note?' data-vocalized-word="'+esc(ref+'|'+i)+'"':'')+'>'+esc(w.text)+'</span>';at=w.end;
+     });
+     if(noteOpen)html+='</aside>';html+=esc(u.offsetText.slice(at));
+     txt.innerHTML='<div class="kpt-text" dir="rtl" lang="he">'+html+'</div>';
+     delete cell.dataset.mishnahMorphReady;cell.dataset.mishnahMorphState='pending';cell.dataset.mciVocalized='1';cell.dataset.mciEdition=derivedVersion(doc.entry.versionTitle)?doc.entry.versionTitle:'original';
+    }
+    continue;
+   }
    txt.classList.add('mishnah-reader-text');
    if(sig==='K'){
     const template=document.createElement('template');template.innerHTML=(isReading?adapter.renderVocalized:adapter.render)(chapter+1,[ref],['K',...picks.filter(s=>(isReading?comparisonAvailable(view.group.title):available(view.group.title).filter(s=>s!=='K')).includes(s))],isReading?doc?.entry.versionTitle:undefined);

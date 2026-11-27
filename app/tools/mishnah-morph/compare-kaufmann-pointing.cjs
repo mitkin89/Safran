@@ -13,13 +13,15 @@ const consonants = value => Array.from(String(value).normalize('NFD')).filter(ch
 const hashValid = value => typeof value === 'string' && /^[a-f0-9]{64}$/i.test(value);
 
 // Mapping is to original UTF-16 offsets, never to a normalized replacement text.
-function parseLine(raw, start, end, ref, referenceSpan) {
+function parseLine(raw, start, end, ref, referenceSpan, displaySpan) {
   const annotations = [], excluded = [], delimiters = new Set(), stack = [];
   if (referenceSpan) excluded.push({...referenceSpan, kind: 'reference-label'});
+  if (displaySpan) excluded.push({...displaySpan, kind: 'display-number'});
   const closing = {'{': '}', '⟦': '⟧', '(': ')', '<': '>', '[': ']', '⌝': '⌜'};
   const closers = new Set(Object.values(closing));
   for (let i = start; i < end; i++) {
     if (referenceSpan && i >= referenceSpan.start && i < referenceSpan.end) { i = referenceSpan.end - 1; continue; }
+    if (displaySpan && i >= displaySpan.start && i < displaySpan.end) { i = displaySpan.end - 1; continue; }
     if (raw[i] === '(') {
       const numeric = /^\(\s*\d+\s*\)/u.exec(raw.slice(i, end));
       if (numeric) { excluded.push({start: i, end: i + numeric[0].length, kind: 'numeric-division'}); i += numeric[0].length - 1; continue; }
@@ -66,25 +68,28 @@ function parseLine(raw, start, end, ref, referenceSpan) {
   return {ref, start, end, raw: raw.slice(start, end), referenceSpan, floatingMarkRanges, annotations: annotations.sort((a, b) => a.start - b.start), excluded, projection, tokens};
 }
 
-function parseReference(raw) {
+function parseReference(raw, options = {}) {
   if (typeof raw !== 'string') throw new TypeError('Reference text must be a string.');
   const units = [], refs = new Set();
   let start = 0;
   while (start < raw.length) {
-    const newline = raw.indexOf('\n', start), end = newline < 0 ? raw.length : newline;
+    const lineBreak = /[\r\n]/u.exec(raw.slice(start)), newline = lineBreak ? start + lineBreak.index : -1, end = newline < 0 ? raw.length : newline;
     if (raw.slice(start, end).trim()) {
-      const label = /Ber\.\s*(\d+)\s*:\s*(\d+)/u.exec(raw.slice(start, end));
+      const label = (options.labelPattern || /Ber\.\s*(\d+)\s*:\s*(\d+)/u).exec(raw.slice(start, end));
       let ref, referenceSpan = null;
       if (label) { ref = +label[1] + ':' + +label[2]; referenceSpan = {start: start + label.index, end: start + label.index + label[0].length}; }
-      else if (!units.length && /^מאמתי\s+קורין(?:\s|$)/u.test(raw.slice(start, end).normalize('NFD').replace(/[^א-ת\s]/gu, '').trim())) ref = '1:1';
+      else if (!units.length && (options.openingPattern || /^מאמתי\s+קורין(?:\s|$)/u).test(raw.slice(start, end).normalize('NFD').replace(/[^א-ת\s]/gu, '').trim())) ref = '1:1';
       else throw new Error('Unlabelled reference line at UTF-16 offset ' + start + '; only the identified opening 1:1 can be inferred.');
       if (refs.has(ref)) throw new Error('Duplicate reference unit ' + ref);
       refs.add(ref);
-      const unit = parseLine(raw, start, end, ref, referenceSpan);
+      const headerEnd = referenceSpan?.end ?? start;
+      const display = options.displayNumbers && /^[\s\u200e\u200f]*\([אב⌝⌜\s]*\d+[אב⌝⌜\s]*\)/u.exec(raw.slice(headerEnd, end));
+      const displaySpan = display ? {start: headerEnd, end: headerEnd + display[0].length} : null;
+      const unit = parseLine(raw, start, end, ref, referenceSpan, displaySpan);
       unit.refInferred = !label; units.push(unit);
     }
     if (newline < 0) break;
-    start = newline + 1;
+    start = newline + (raw[newline] === '\r' && raw[newline + 1] === '\n' ? 2 : 1);
   }
   return {offsetConvention: 'UTF-16 offsets into unchanged raw input', units};
 }

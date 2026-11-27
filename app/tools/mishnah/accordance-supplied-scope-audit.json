@@ -1,0 +1,494 @@
+{
+  "kind": "supplied-accordance-scope-audit",
+  "version": 1,
+  "method": "Independent exact unit-reference comparison against existing Digital Mishnah Kaufmann unit keys; raw files only inspected, no text or morphology changed.",
+  "tractates": 10,
+  "units": 598,
+  "completeCoverage": true,
+  "inputs": [
+    {
+      "title": "Mishnah Peah",
+      "prefix": "Pea",
+      "inputBytes": 38630,
+      "inputSha256": "636ecdcef5cc5e79611fe84628d6ea7fb71afc46442557c62de4600299143c5c",
+      "explicitLabels": 68,
+      "opening1_1Inferred": true,
+      "references": 69,
+      "expectedKaufmannUnits": 69,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 6,
+        "2": 8,
+        "3": 8,
+        "4": 11,
+        "5": 8,
+        "6": 11,
+        "7": 8,
+        "8": 9
+      },
+      "witnessUnits": {
+        "K": 69,
+        "P": 69,
+        "C": 69
+      },
+      "firstLabel": "Pea 1:2",
+      "lastLabel": "Pea 8:9",
+      "referencePrefixesInSameFile": [
+        "Pea"
+      ]
+    },
+    {
+      "title": "Mishnah Demai",
+      "prefix": "Dem.",
+      "inputBytes": 29938,
+      "inputSha256": "ff4e6d40f33248390219459c869506e7d9d905f783ed252d19a194d59e035757",
+      "explicitLabels": 52,
+      "opening1_1Inferred": true,
+      "references": 53,
+      "expectedKaufmannUnits": 53,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 4,
+        "2": 5,
+        "3": 6,
+        "4": 7,
+        "5": 11,
+        "6": 12,
+        "7": 8
+      },
+      "witnessUnits": {
+        "K": 53,
+        "P": 53,
+        "C": 0
+      },
+      "firstLabel": "Dem. 1:2",
+      "lastLabel": "Dem. 7:8",
+      "referencePrefixesInSameFile": [
+        "Dem."
+      ]
+    },
+    {
+      "title": "Mishnah Kilayim",
+      "prefix": "Kil.",
+      "inputBytes": 47110,
+      "inputSha256": "612b19b96a055f63a2972cd210e018cb49f86404bcd9eb477ae1f6bd6671c951",
+      "explicitLabels": 76,
+      "opening1_1Inferred": true,
+      "references": 77,
+      "expectedKaufmannUnits": 77,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 9,
+        "2": 11,
+        "3": 7,
+        "4": 9,
+        "5": 8,
+        "6": 9,
+        "7": 8,
+        "8": 6,
+        "9": 10
+      },
+      "witnessUnits": {
+        "K": 77,
+        "P": 77,
+        "C": 70
+      },
+      "firstLabel": "Kil. 1:2",
+      "lastLabel": "Kil. 9:10",
+      "referencePrefixesInSameFile": [
+        "Kil."
+      ]
+    },
+    {
+      "title": "Mishnah Sheviit",
+      "prefix": "Shev.",
+      "inputBytes": 111361,
+      "inputSha256": "c1a9db002e28fb2d14fea8bd1b7ba37684e721de0430d535cc0d9627745fd371",
+      "explicitLabels": 89,
+      "opening1_1Inferred": false,
+      "references": 89,
+      "expectedKaufmannUnits": 89,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 8,
+        "2": 10,
+        "3": 10,
+        "4": 10,
+        "5": 9,
+        "6": 6,
+        "7": 7,
+        "8": 11,
+        "9": 9,
+        "10": 9
+      },
+      "witnessUnits": {
+        "K": 89,
+        "P": 89,
+        "C": 89
+      },
+      "firstLabel": "Shev. 1:1",
+      "lastLabel": "Shev. 10:9",
+      "referencePrefixesInSameFile": [
+        "Shev.",
+        "Ter."
+      ]
+    },
+    {
+      "title": "Mishnah Terumot",
+      "prefix": "Ter.",
+      "inputBytes": 111361,
+      "inputSha256": "c1a9db002e28fb2d14fea8bd1b7ba37684e721de0430d535cc0d9627745fd371",
+      "explicitLabels": 101,
+      "opening1_1Inferred": false,
+      "references": 101,
+      "expectedKaufmannUnits": 101,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 10,
+        "2": 6,
+        "3": 9,
+        "4": 13,
+        "5": 9,
+        "6": 6,
+        "7": 7,
+        "8": 12,
+        "9": 7,
+        "10": 12,
+        "11": 10
+      },
+      "witnessUnits": {
+        "K": 101,
+        "P": 101,
+        "C": 101
+      },
+      "firstLabel": "Ter. 1:1",
+      "lastLabel": "Ter. 11:10",
+      "referencePrefixesInSameFile": [
+        "Shev.",
+        "Ter."
+      ]
+    },
+    {
+      "title": "Mishnah Maasrot",
+      "prefix": "Maas.",
+      "inputBytes": 125366,
+      "inputSha256": "ff117441d05edc1439d7fe6572962b2a662475935272a1d73f75e8981c07b67c",
+      "explicitLabels": 39,
+      "opening1_1Inferred": true,
+      "references": 40,
+      "expectedKaufmannUnits": 40,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 8,
+        "2": 8,
+        "3": 10,
+        "4": 6,
+        "5": 8
+      },
+      "witnessUnits": {
+        "K": 40,
+        "P": 40,
+        "C": 35
+      },
+      "firstLabel": "Maas. 1:2",
+      "lastLabel": "Maas. 5:8",
+      "referencePrefixesInSameFile": [
+        "Maas.",
+        "Maaser2",
+        "Hal.",
+        "Orla",
+        "Bik."
+      ]
+    },
+    {
+      "title": "Mishnah Maaser Sheni",
+      "prefix": "Maaser2",
+      "inputBytes": 125366,
+      "inputSha256": "ff117441d05edc1439d7fe6572962b2a662475935272a1d73f75e8981c07b67c",
+      "explicitLabels": 57,
+      "opening1_1Inferred": false,
+      "references": 57,
+      "expectedKaufmannUnits": 57,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 7,
+        "2": 10,
+        "3": 13,
+        "4": 12,
+        "5": 15
+      },
+      "witnessUnits": {
+        "K": 57,
+        "P": 57,
+        "C": 48
+      },
+      "firstLabel": "Maaser2 1:1",
+      "lastLabel": "Maaser2 5:15",
+      "referencePrefixesInSameFile": [
+        "Maas.",
+        "Maaser2",
+        "Hal.",
+        "Orla",
+        "Bik."
+      ]
+    },
+    {
+      "title": "Mishnah Challah",
+      "prefix": "Hal.",
+      "inputBytes": 125366,
+      "inputSha256": "ff117441d05edc1439d7fe6572962b2a662475935272a1d73f75e8981c07b67c",
+      "explicitLabels": 38,
+      "opening1_1Inferred": false,
+      "references": 38,
+      "expectedKaufmannUnits": 38,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 9,
+        "2": 8,
+        "3": 10,
+        "4": 11
+      },
+      "witnessUnits": {
+        "K": 38,
+        "P": 38,
+        "C": 38
+      },
+      "firstLabel": "Hal. 1:1",
+      "lastLabel": "Hal. 4:11",
+      "referencePrefixesInSameFile": [
+        "Maas.",
+        "Maaser2",
+        "Hal.",
+        "Orla",
+        "Bik."
+      ]
+    },
+    {
+      "title": "Mishnah Orlah",
+      "prefix": "Orla",
+      "inputBytes": 125366,
+      "inputSha256": "ff117441d05edc1439d7fe6572962b2a662475935272a1d73f75e8981c07b67c",
+      "explicitLabels": 35,
+      "opening1_1Inferred": false,
+      "references": 35,
+      "expectedKaufmannUnits": 35,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 9,
+        "2": 17,
+        "3": 9
+      },
+      "witnessUnits": {
+        "K": 35,
+        "P": 35,
+        "C": 35
+      },
+      "firstLabel": "Orla 1:1",
+      "lastLabel": "Orla 3:9",
+      "referencePrefixesInSameFile": [
+        "Maas.",
+        "Maaser2",
+        "Hal.",
+        "Orla",
+        "Bik."
+      ]
+    },
+    {
+      "title": "Mishnah Bikkurim",
+      "prefix": "Bik.",
+      "inputBytes": 125366,
+      "inputSha256": "ff117441d05edc1439d7fe6572962b2a662475935272a1d73f75e8981c07b67c",
+      "explicitLabels": 39,
+      "opening1_1Inferred": false,
+      "references": 39,
+      "expectedKaufmannUnits": 39,
+      "missingRefs": [],
+      "extraRefs": [],
+      "duplicateRefs": {},
+      "chapterCounts": {
+        "1": 11,
+        "2": 11,
+        "3": 12,
+        "4": 5
+      },
+      "witnessUnits": {
+        "K": 39,
+        "P": 39,
+        "C": 34
+      },
+      "firstLabel": "Bik. 1:1",
+      "lastLabel": "Bik. 4:5",
+      "referencePrefixesInSameFile": [
+        "Maas.",
+        "Maaser2",
+        "Hal.",
+        "Orla",
+        "Bik."
+      ]
+    }
+  ],
+  "bundleHeadings": [
+    "MAASER2",
+    "HALLAH",
+    "ORLA",
+    "BIKKURIM",
+    "TERUMOT"
+  ],
+  "initialNonNumericNumberingMarkers": [
+    {
+      "prefix": "Pea",
+      "ref": "2:3",
+      "marker": "(א3)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "2:4",
+      "marker": "(ב3)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "2:7",
+      "marker": "(א7)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "2:8",
+      "marker": "(ב7)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "3:4",
+      "marker": "(א4)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "3:5",
+      "marker": "(ב4)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "3:6",
+      "marker": "(⌝6⌜)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "4:4",
+      "marker": "(א4)"
+    },
+    {
+      "prefix": "Pea",
+      "ref": "4:5",
+      "marker": "(ב4)"
+    },
+    {
+      "prefix": "Maaser2",
+      "ref": "1:5",
+      "marker": "(א5)"
+    },
+    {
+      "prefix": "Maaser2",
+      "ref": "1:6",
+      "marker": "(ב5)"
+    },
+    {
+      "prefix": "Maaser2",
+      "ref": "2:4",
+      "marker": "(⌝4⌜)"
+    },
+    {
+      "prefix": "Hal.",
+      "ref": "2:2",
+      "marker": "(⌝2⌜)"
+    },
+    {
+      "prefix": "Hal.",
+      "ref": "3:8",
+      "marker": "(א8)"
+    },
+    {
+      "prefix": "Hal.",
+      "ref": "3:9",
+      "marker": "(ב8)"
+    },
+    {
+      "prefix": "Orla",
+      "ref": "2:7",
+      "marker": "(⌝7⌜)"
+    },
+    {
+      "prefix": "Orla",
+      "ref": "2:17",
+      "marker": "(⌝17⌜)"
+    },
+    {
+      "prefix": "Bik.",
+      "ref": "3:4",
+      "marker": "(א4)"
+    },
+    {
+      "prefix": "Bik.",
+      "ref": "3:5",
+      "marker": "(ב4)"
+    },
+    {
+      "prefix": "Bik.",
+      "ref": "3:12",
+      "marker": "(⌝12⌜)"
+    },
+    {
+      "prefix": "Shev.",
+      "ref": "3:1",
+      "marker": "(א1)"
+    },
+    {
+      "prefix": "Shev.",
+      "ref": "3:2",
+      "marker": "(ב1)"
+    },
+    {
+      "prefix": "Ter.",
+      "ref": "8:6",
+      "marker": "(א6)"
+    },
+    {
+      "prefix": "Ter.",
+      "ref": "8:7",
+      "marker": "(ב6)"
+    }
+  ],
+  "kilayim9_9SupplementMatchesFullPaste": {
+    "matches": true,
+    "comparison": "Literal isolated user text equals full Kil.9:9 after removing bidi controls and collapsing whitespace only; vowels and editorial characters were not normalized."
+  },
+  "parserRequirements": [
+    "Select tractate prefix before parsing; the Sheviit file also includes all Terumot units, and the Maasrot file also includes Maaser Sheni, Challah, Orlah and Bikkurim.",
+    "Support numeric text in label prefix Maaser2 and prefixes with or without periods.",
+    "Infer only the identified opening 1:1 for Peah, Demai, Kilayim and Maasrot; all later units have explicit reference labels.",
+    "Treat the initial parenthetical display-number markers, including Hebrew letters or reversed corner signs, as header metadata; do not turn them into Hebrew text tokens. Do not strip similar body annotations globally.",
+    "Canonical units follow the explicit labels, not the displayed parenthetical number; e.g. Shev.10:9 carries (10).",
+    "Missing Cambridge material is missing source coverage, not a demonstrated textual omission."
+  ],
+  "limitations": [
+    "No manuscript image has been visually checked in this scope audit.",
+    "Complete reference coverage does not certify consonants, niqqud, word alignment, morphology or translation.",
+    "Editorial annotation spans and point marks must remain independently inspectable; the copied surface text is a reference, not automatic manuscript authority."
+  ]
+}

@@ -1,20 +1,27 @@
-// Corpus-bound candidate analyses for the vocalized Kaufmann editions of Seder Zeraim.
+// Corpus-bound candidate analyses for vocalized Kaufmann reading and working editions.
 window.LibraryMishnahMorph=(()=>{
  'use strict';
  const TITLES=['Mishnah Berakhot','Mishnah Peah','Mishnah Demai','Mishnah Kilayim','Mishnah Sheviit','Mishnah Terumot','Mishnah Maasrot','Mishnah Maaser Sheni','Mishnah Challah','Mishnah Orlah','Mishnah Bikkurim'],VERSION="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
  const DERIVED_VERSION="Kaufmann A50 (Digital Mishnah), vocalized after Be'eri";
  const ACCORDANCE_VERSION='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing';
  const derivedVersion=v=>v===DERIVED_VERSION||v===ACCORDANCE_VERSION;
+ const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title]||(title==='Mishnah Berakhot'?{file:'mishnah-kaufmann-accordance-data.js',global:'MISHNAH_KAUFMANN_ACCORDANCE_DATA'}:null);
+ const supportedDerived=(title,version)=>version===ACCORDANCE_VERSION&&!!accordanceItem(title)||title==='Mishnah Berakhot'&&version===DERIVED_VERSION;
  const editionLabel=v=>v===ACCORDANCE_VERSION?'Digital Mishnah · vorläufige Accordance-Punktierung · nicht am Manuskript geprüft':'Digital Mishnah · Punktierung nach Be’eri · teilweise/offen';
  const RABBINIC_DICTIONARIES=['d895bc1c727b','e8d290b744f6','d701423861c6']; // Jastrow, Levy, Krauss
- const IGNORE='small,sup,.note,.footnote,a.aref,.aref,.mci-labels,.mci-witness,.mci-open,.mci-insertion,.mci-note';
+ const IGNORE='small,sup,.note,.footnote,a.aref,.aref,.mci-labels,.mci-witness,.mci-open,.mci-insertion,.mci-note,.mci-coverage-notice,.mci-unbased-notice';
  function imageURL(url){
   try{const u=new URL(url),prefix='/download/Mishnah_Kaufman_ms/',file=decodeURIComponent(u.pathname.slice(prefix.length));return u.protocol==='https:'&&u.hostname==='archive.org'&&!u.port&&!u.username&&!u.password&&!u.search&&!u.hash&&u.pathname.startsWith(prefix)&&/^[^/\\?#]+\.jpg$/i.test(file)&&!file.includes('..')?u.href:null;}catch{return null;}
  }
  function sourceWord(unit,token){const index=unit?.words?.findIndex(w=>w.start<=token.start&&w.end>=token.end);return index>=0?{id:unit.id+'/word/'+index,index,word:unit.words[index]}:null;}
  function boundImageEvidence(data,evidence,id){
-  if(!derivedVersion(data?.source?.versionTitle)||evidence?.title!=='Mishnah Berakhot'||evidence.targetTextHash!==data.source.textHash||evidence.diplomaticSha256!==data.source.diplomaticSha256)return null;
-  return evidence.words?.[id]||null;
+  if(!derivedVersion(data?.source?.versionTitle)||!data?.title||evidence?.title!==data.title||evidence.targetTextHash!==data.source.textHash||evidence.diplomaticSha256!==data.source.diplomaticSha256)return null;
+  const match=/^(.+)\/word\/(\d+)$/.exec(id||''),unit=match&&Object.values(data.units||data.base||{}).find(u=>u.id===match[1]),word=unit?.words[Number(match?.[2])],record=evidence.words?.[id];
+  return word&&record&&record.originalWord===word.originalWord?record:null;
+ }
+ function observedFeatures(originalWord,features){
+  const letters=Array.from(String(originalWord||'')).filter(c=>/[א-ת]/u.test(c));
+  return (Array.isArray(features)?features:[]).map(f=>f&&({...f,marks:typeof f.marks==='string'?Array.from(f.marks):f.marks})).filter(f=>f&&Number.isInteger(f.letterIndex)&&f.letterIndex>=0&&f.letterIndex<letters.length&&['clear','uncertain'].includes(f.certainty)&&Array.isArray(f.marks)&&f.marks.length>0&&f.marks.every(m=>typeof m==='string'&&/^[\u05b0-\u05bd\u05bf\u05c1\u05c2\u05c7]$/u.test(m))).map(f=>({letterIndex:f.letterIndex,letter:letters[f.letterIndex],marks:[...new Set(f.marks)],certainty:f.certainty}));
  }
  function create({$,esc,getView,load,openDict,closeOther,openExternal}){
   let data=null,dictionaryData=null,selectedImages=null,generation=0,popup=null,anchor=null,formsDialog=null,formsAnchor=null;
@@ -24,14 +31,15 @@ window.LibraryMishnahMorph=(()=>{
   function closeForms(){if(formsDialog){if(formsDialog.open)formsDialog.close();formsDialog.remove();}formsDialog=null;formsAnchor=null;}
   function close(){closePopup();closeForms();}
   function ready(title,version){
-   const berakhot=title==='Mishnah Berakhot',derived=berakhot&&derivedVersion(version),accordance=derived&&version===ACCORDANCE_VERSION,key=accordance?'berakhot-accordance':derived?'berakhot-derived':berakhot?'berakhot':'zeraim';
+   const berakhot=title==='Mishnah Berakhot',work=accordanceItem(title),derived=supportedDerived(title,version),accordance=derived&&version===ACCORDANCE_VERSION,key=accordance?title+'/accordance':derived?'berakhot-derived':berakhot?'berakhot':'zeraim';
    if(pending.has(key))return pending.get(key);
+   const image=derived&&(accordance&&work?.imageFile&&work?.imageGlobal?{file:work.imageFile,global:work.imageGlobal}:berakhot?{file:accordance?'mishnah-kaufmann-accordance-image-data.js':'mishnah-kaufmann-image-data.js',global:accordance?'MISHNAH_KAUFMANN_ACCORDANCE_IMAGE_DATA':'MISHNAH_KAUFMANN_IMAGE_DATA'}:null);
    const promise=Promise.all([
     load('mishnah-morph.js',()=>window.MishnahMorph),
-    derived?load(accordance?'mishnah-kaufmann-accordance-data.js':'mishnah-kaufmann-berakhot-data.js',()=>accordance?window.MISHNAH_KAUFMANN_ACCORDANCE_DATA:window.MISHNAH_KAUFMANN_BERAKHOT_DATA):berakhot?load('mishnah-morph-data.js',()=>window.MISHNAH_MORPH_DATA):load('mishnah-zeraim-data.js',()=>window.MISHNAH_ZERAIM_DATA),
+    derived?load(accordance?work.file:'mishnah-kaufmann-berakhot-data.js',()=>accordance?window[work.global]:window.MISHNAH_KAUFMANN_BERAKHOT_DATA):berakhot?load('mishnah-morph-data.js',()=>window.MISHNAH_MORPH_DATA):load('mishnah-zeraim-data.js',()=>window.MISHNAH_ZERAIM_DATA),
     load('mishnah-meanings.js',()=>window.MishnahMeanings),
     load('mishnah-dictionary-data.js',()=>window.MISHNAH_DICTIONARY_DATA),
-    derived?load(accordance?'mishnah-kaufmann-accordance-image-data.js':'mishnah-kaufmann-image-data.js',()=>accordance?window.MISHNAH_KAUFMANN_ACCORDANCE_IMAGE_DATA:window.MISHNAH_KAUFMANN_IMAGE_DATA).catch(()=>null):null
+    image?load(image.file,()=>window[image.global]).catch(()=>null):null
    ]).then(([,d,,dictionary,images])=>({data:d,dictionary,images})).catch(err=>{pending.delete(key);throw err;});
    pending.set(key,promise);return promise;
   }
@@ -39,7 +47,9 @@ window.LibraryMishnahMorph=(()=>{
   // tags do not create word boundaries; editorial labels and notes do.
   function projection(txt){
    const walker=document.createTreeWalker(txt,NodeFilter.SHOW_TEXT),nodes=[];let text='';
-   for(let n;(n=walker.nextNode());){if(n.parentElement.closest(IGNORE)){text+=' ';continue;}nodes.push({node:n,start:text.length,end:text.length+n.nodeValue.length});text+=n.nodeValue;}
+   // Source commentary stays in its labelled note. Its bound Kaufmann words
+   // still need cards; only note labels and comparison metadata are excluded.
+   for(let n;(n=walker.nextNode());){const sourceNoteWord=n.parentElement.closest('.mci-note .mci-base-word[data-vocalized-word]');if(n.parentElement.closest(IGNORE)&&!sourceNoteWord){text+=' ';continue;}nodes.push({node:n,start:text.length,end:text.length+n.nodeValue.length});text+=n.nodeValue;}
    return {text,nodes};
   }
   function locate(nodes,pos){return nodes.find(n=>n.start<=pos&&pos<n.end);}
@@ -70,16 +80,16 @@ window.LibraryMishnahMorph=(()=>{
   async function refresh(){
    const token=++generation;close();
    const view=getView(),path=view?.sections?.[view.idx]?.path;
-   if(!TITLES.includes(view?.group?.title)||!Array.isArray(path)||path.length!==1||!Number.isInteger(path[0]))return;
+   if((!TITLES.includes(view?.group?.title)&&!accordanceItem(view?.group?.title))||!Array.isArray(path)||path.length!==1||!Number.isInteger(path[0]))return;
    const cells=[...$('#rOut').querySelectorAll('.cell[data-mishnah-morph]')];if(!cells.length)return;
    for(const cell of cells){
     if(!cell.isConnected)continue;
     const doc=view.loaded.find(d=>d.entry.rel===cell.dataset.rel),version=doc?.entry.versionTitle||doc?.versionTitle;
-    if(doc?.entry.title!==view.group.title||version!==VERSION&&!(view.group.title==='Mishnah Berakhot'&&derivedVersion(version))){mismatch(cell);continue;}
+    if(doc?.entry.title!==view.group.title||version!==VERSION&&!supportedDerived(view.group.title,version)){mismatch(cell);continue;}
     let selected;try{selected=await ready(view.group.title,version);}catch{mismatch(cell);continue;}
     if(token!==generation||getView()!==view||view.sections?.[view.idx]?.path?.[0]!==path[0])return;
     data=selected.data;dictionaryData=selected.dictionary;selectedImages=selected.images;const source=data?.sources?.[view.group.title];
-    if(!source||doc.textHash!==source.textHash||derivedVersion(version)&&(doc.entry.rel!==source.rel||data.source?.versionTitle!==version||version===ACCORDANCE_VERSION&&(!data.source.provisional||data.source.pointingDonor!=='Accordance'))){mismatch(cell);continue;}
+    if(!source||doc.textHash!==source.textHash||version===ACCORDANCE_VERSION&&accordanceItem(view.group.title)?.rel&&(source.rel!==accordanceItem(view.group.title).rel||source.textHash!==accordanceItem(view.group.title).textHash)||derivedVersion(version)&&(doc.entry.rel!==source.rel||data.source?.versionTitle!==version||version===ACCORDANCE_VERSION&&(!data.source.provisional||data.source.pointingDonor!=='Accordance'))){mismatch(cell);continue;}
     const label=cell.closest('.row')?.dataset.l;if(!/^[1-9]\d*$/.test(label||''))continue;
     decorate(cell,doc,path[0]+1,Number(label));
    }
@@ -127,7 +137,7 @@ window.LibraryMishnahMorph=(()=>{
    const p=form.provenance||{},pointing=p.pointing||{},analysis=p.analysis||{},translation=p.translation||{};
    const named=source=>typeof source==='string'&&source?source:'keine Quelle zugeordnet';
    const open=record.pointingStatus==='open'||pointing.status==='open';
-   return `<details class="mhm-grammar mhm-provenance"><summary>${esc(t('Herkunft und Prüfstand'))}</summary><p data-provenance="pointing"><b>${esc(t('Punktierung'))}</b>: ${esc(named(pointing.source))} · ${esc(t(open?'offen; keine Ersatzpunktierung':'vorläufig übertragen; nicht am Manuskript geprüft'))}${Array.isArray(pointing.cautions)?pointing.cautions.filter(c=>typeof c==='string'&&c.trim()).map(c=>'<br><span class="mhm-pointing-caution">'+esc(c.includes('Offener Bildkonflikt')?c:'Offener Bildkonflikt: '+c)+'</span>').join(''):''}</p><p data-provenance="analysis"><b>${esc(t('Wortbestimmung'))}</b>: ${esc(named(analysis.source))} · ${esc(t(analysis.kind==='contextual-rabbinic-lexicon'?'KI-Kontextprüfung mit rabbinischem Wörterbuch; Analysekandidat':analysis.kind==='interlinear-position'?'automatisch aus eindeutiger Interlinearverknüpfung; Analysekandidat':form.analyses?.length?'bestehender Kandidat; nicht erneut geprüft':'keine Bestimmung zugeordnet'))}${analysis.pointingMatch===false?' · '+esc(t('abweichende Punktierung; Zuordnung offen')):''}${analysis.pointingMatch===false&&analysis.sourceWord?'<br>'+esc(t('Analyse bisher zu'))+': <bdi lang="he" dir="rtl">'+esc(analysis.sourceWord)+'</bdi>':''}</p><p data-provenance="translation"><b>${esc(t('Kurzbedeutung'))}</b>: ${esc(named(translation.source))} · ${esc(t(translation.kind==='contextual-rabbinic-lexicon'?'KI-Prüfung nach rabbinischem Wörterbuch':'nicht erneut geprüft'))}${translation.conditionalOnAnalysis?' · '+esc(t('abhängig von der vorgeschlagenen Bestimmung')):''}</p></details>`;
+   return `<details class="mhm-grammar mhm-provenance"><summary>${esc(t('Herkunft und Prüfstand'))}</summary><p data-provenance="pointing"><b>${esc(t('Punktierung'))}</b>: ${esc(named(pointing.source))} · ${esc(t(open?'offen; keine Ersatzpunktierung':'vorläufig übertragen; nicht am Manuskript geprüft'))}${typeof pointing.divisionNote==='string'&&pointing.divisionNote.trim()?'<br><span class="mhm-reference-division-note">'+esc(pointing.divisionNote)+'</span>':''}${Array.isArray(pointing.cautions)?pointing.cautions.filter(c=>typeof c==='string'&&c.trim()).map(c=>'<br><span class="mhm-pointing-caution">'+esc(c.includes('Offener Bildkonflikt')?c:'Offener Bildkonflikt: '+c)+'</span>').join(''):''}</p><p data-provenance="analysis"><b>${esc(t('Wortbestimmung'))}</b>: ${esc(named(analysis.source))} · ${esc(t(analysis.kind==='contextual-rabbinic-lexicon'?'KI-Kontextprüfung mit rabbinischem Wörterbuch; Analysekandidat':analysis.kind==='interlinear-position'?'automatisch aus eindeutiger Interlinearverknüpfung; Analysekandidat':form.analyses?.length?'bestehender Kandidat; nicht erneut geprüft':'keine Bestimmung zugeordnet'))}${analysis.pointingMatch===false?' · '+esc(t('abweichende Punktierung; Zuordnung offen')):''}${analysis.pointingMatch===false&&analysis.sourceWord?'<br>'+esc(t('Analyse bisher zu'))+': <bdi lang="he" dir="rtl">'+esc(analysis.sourceWord)+'</bdi>':''}</p><p data-provenance="translation"><b>${esc(t('Kurzbedeutung'))}</b>: ${esc(named(translation.source))} · ${esc(t(translation.kind==='contextual-rabbinic-lexicon'?'KI-Prüfung nach rabbinischem Wörterbuch':'nicht erneut geprüft'))}${translation.conditionalOnAnalysis?' · '+esc(t('abhängig von der vorgeschlagenen Bestimmung')):''}</p></details>`;
   }
   function imageLinks(record){
    const evidence=boundImageEvidence(record.data,record.imageData,record.sourceWordId);if(!evidence)return [];
@@ -138,7 +148,8 @@ window.LibraryMishnahMorph=(()=>{
    const side=s=>s==='right'?'rechte Spalte':s==='left'?'linke Spalte':'Spalte offen',links=imageLinks(record),status=e.reviewStatus;
    const location=(e.locations||[]).map(l=>'Blatt '+l.folio+' · '+side(l.column)+(l.sourceLine?' · Quellzeile '+l.sourceLine:' · Zeile nicht nummeriert')+(l.placement==='margin-right'?' · rechter Rand':l.placement==='margin-left'?' · linker Rand':'')+(l.unnumberedLine?' · unnummerierte Zeile':'')).map(esc).join('<br>');
    const labels={clear:'KI-Bildlesung · als klar erfasst',uncertain:'KI-Bildlesung · unsicher / Teilpunktierung','not-visible':'KI-Bildlesung · nicht lesbar',conflicting:'Widersprüchliche KI-Bildlesungen'};
-   const readings=(e.reviews||[]).map(r=>`<div class="mhm-image-reading"><p>${esc(t(labels[r.status]||'KI-Bildlesung · unsicher'))} · ${esc('Blatt '+r.folio+' · '+side(r.column)+' · Bildzeile '+r.line)}</p>${r.reading?`<bdi lang="he" dir="rtl">${esc(r.reading)}</bdi>`:''}${r.notes?.length?`<details><summary>${esc(t('Hinweise zur Lesung'))}</summary><p>${r.notes.map(esc).join('<br>')}</p></details>`:''}</div>`).join('');
+   const featureHTML=r=>{const features=observedFeatures(e.originalWord,r.observedFeatures);return features.length?`<div class="mhm-image-features"><p><b>${esc(t('Einzelzeichen (KI)'))}</b></p><ul>${features.map(f=>`<li class="mhm-image-feature"><bdi lang="he" dir="rtl">${esc(f.letter+f.marks.join(''))}</bdi> · ${esc('Buchstabe '+(f.letterIndex+1))} · ${esc(t(f.certainty==='clear'?'Einzelzeichen als klar erfasst':'Einzelzeichen unsicher'))}</li>`).join('')}</ul><p class="muted">${esc(t('Einzelzeichenbefunde bestätigen nicht die vollständige Wortpunktierung.'))}</p></div>`:'';};
+   const readings=(e.reviews||[]).map(r=>`<div class="mhm-image-reading"><p>${esc(t(labels[r.status]||'KI-Bildlesung · unsicher'))} · ${esc('Blatt '+r.folio+' · '+side(r.column)+(r.line!=null?' · Bildzeile '+r.line:' · Bildausschnitt'))}</p>${r.reading?`<bdi lang="he" dir="rtl">${esc(r.reading)}</bdi>`:''}${featureHTML(r)}${r.notes?.length?`<details><summary>${esc(t('Hinweise zur Lesung'))}</summary><p>${r.notes.map(esc).join('<br>')}</p></details>`:''}</div>`).join('');
    return `<details class="mhm-grammar mhm-image-source" data-image-status="${esc(status)}"><summary>${esc(t('Kaufmann · Bildquelle'))}</summary><p>${location}</p>${status==='conflicting'?`<p>${esc(t(labels.conflicting))}</p>`:''}${readings||`<p class="mhm-image-location-only">${esc(t('Bisher nur Quellenort zugeordnet; keine Bildlesung erfasst.'))}</p>`}<p class="muted">${esc(t('Quellenort aus der Transkription; KI-Bildlesungen zur Nachprüfung. Keine abschließende Handschriftenprüfung.'))}</p>${links.map((l,i)=>`<button type="button" data-mhm-image="${i}">${esc(t('Manuskriptbild öffnen'))} · ${esc(l.folio)}</button>`).join('')}</details>`;
   }
   function position(){if(!popup||!anchor?.isConnected)return;const r=anchor.getBoundingClientRect(),w=popup.offsetWidth,h=popup.offsetHeight;popup.style.left=Math.max(8,Math.min(innerWidth-w-8,r.left+r.width/2-w/2))+'px';popup.style.top=(r.bottom+h+8<=innerHeight?r.bottom+6:Math.max(8,r.top-h-6))+'px';}
@@ -168,5 +179,5 @@ window.LibraryMishnahMorph=(()=>{
   new MutationObserver(()=>{if(document.documentElement.dataset.tab!=='read')close();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-tab']});
   return {refresh,close};
  }
- return {create,imageURL,sourceWord,boundImageEvidence,supports:(title,version)=>TITLES.includes(title)&&version===VERSION||title==='Mishnah Berakhot'&&derivedVersion(version)};
+ return {create,imageURL,sourceWord,boundImageEvidence,observedFeatures,supports:(title,version)=>TITLES.includes(title)&&version===VERSION||supportedDerived(title,version)};
 })();
