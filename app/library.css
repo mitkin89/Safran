@@ -3193,3 +3193,12 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcCorpusBar > span { flex:1; }
 .wcCorpusBar progress { width:35%; accent-color:var(--accent); }
 .wcCorpusBar > b { min-width:4em; text-align:end; }
+
+#dictCardMatches { position:fixed; z-index:120; display:flex; flex-direction:column; flex-wrap:nowrap; gap:0; max-height:min(60vh,520px); overflow-y:auto; padding:5px; border:1px solid var(--line); border-radius:7px; background:var(--bg); box-shadow:0 8px 24px #0005; box-sizing:border-box; }
+#dictCardMatches[hidden] { display:none!important; }
+#dictCardMatches button { flex:none; width:100%; border:0; border-radius:3px; background:transparent; padding:9px 12px; text-align:start; }
+#dictCardMatches button:hover,#dictCardMatches button:focus-visible { background:color-mix(in srgb,var(--accent) 15%,var(--bg)); outline:none; }
+#dictCardMatches small { display:inline; float:inline-end; margin-inline-start:15px; }
+#dictCardSources { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
+#dictCardSources:empty { display:none; }
+#dictCardSources [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }
