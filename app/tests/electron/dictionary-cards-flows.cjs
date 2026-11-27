@@ -58,15 +58,16 @@ module.exports=async({win,js,waitFor})=>{
  assert(await js("[...document.querySelectorAll('#dictCardMatches button')].some(b=>b.dataset.memberKeys.includes('563')&&b.dataset.memberKeys.includes('ps:')&&b.textContent.includes('Aramäisch'))"),'Biblical Aramaic lamb and Peshitta grouped');
  assert.equal(await js("getComputedStyle(document.querySelector('#dictCardMatches')).flexDirection"),'column');
  assert.equal(await js("getComputedStyle(document.querySelector('#dictCardMatches')).position"),'fixed');
+ assert(await js("document.querySelector('#dictCardMatches').parentElement===document.body"),'Popup escapes the header container stacking context');
  await js("document.querySelector('#dictCardMatches button').click()");
  assert(await js("document.querySelector('#dictCardMatches').hidden"),'Dropdown closes after choosing a result');
  await js("document.querySelector('#dictQ').focus();document.querySelector('#dictQ').dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
  assert(await js("document.querySelector('#dictCardMatches').hidden"),'Escape dismisses suggestions');
- win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
+ win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
  await js("document.querySelector('#dictQ').focus();document.querySelector('#dictQ').value='אמר';document.querySelector('#dictQ').dispatchEvent(new Event('input',{bubbles:true}))");
  await waitFor("!document.querySelector('#dictCardMatches').hidden&&document.querySelector('#dictCardMatches button')",'Dropdown screenshot');
  await new Promise(r=>setTimeout(r,250));
- assert(await js("(()=>{const box=document.querySelector('#dictCardMatches'),r=box.getBoundingClientRect();return r.height>20&&box.contains(document.elementFromPoint(r.left+20,r.top+20))})()"),'Suggestion popup is visible above the card');
+ assert(await js("(()=>{const box=document.querySelector('#dictCardMatches'),r=box.getBoundingClientRect();return r.height>20&&[20,r.height/2,r.height-20].every(y=>box.contains(document.elementFromPoint(r.left+20,r.top+y)))})()"),'Suggestion popup is visible above the card');
  fs.writeFileSync('/tmp/safran-dictionary-card.png',(await win.webContents.capturePage()).toPNG());
  console.log('Electron: dictionary switch, lemma disambiguation, root families, full card and reader restoration passed.');
 };

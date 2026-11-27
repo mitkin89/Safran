@@ -3,13 +3,15 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  let mode='dictionary',serial=0,selected=false,timer=null;
  const panel=$('#formsPanel'),home=document.createComment('word-card-panel-home');panel.before(home);
  const input=$('#dictQ'),placeholder=input.getAttribute('placeholder');
- const out=$('#dictCardMatches');$('#dictBar').append(out);out.hidden=true;out.setAttribute('role','listbox');
+ // Keep the fixed popup outside the dictionary header's container/stacking context.
+ const out=$('#dictCardMatches');document.body.append(out);out.hidden=true;out.setAttribute('role','listbox');
  const sources=document.createElement('div');sources.id='dictCardSources';$('#dictCardMount').before(sources);
  input.setAttribute('aria-autocomplete','list');input.setAttribute('aria-controls','dictCardMatches');input.setAttribute('aria-expanded','false');
  function position(){const r=input.getBoundingClientRect();out.style.left=r.left+'px';out.style.top=(r.bottom+4)+'px';out.style.width=Math.min(Math.max(r.width,920),window.innerWidth-r.left-16)+'px';}
  function showSuggestions(){position();out.hidden=false;input.setAttribute('aria-expanded','true');}
  function hideSuggestions(){out.hidden=true;input.setAttribute('aria-expanded','false');}
  window.addEventListener('resize',position);
+ document.addEventListener('scroll',()=>{if(!out.hidden)position();},true);
  document.addEventListener('mousedown',e=>{if(!out.contains(e.target)&&e.target!==input){clearTimeout(timer);hideSuggestions();}});
  const active=()=>mode==='card'&&document.documentElement.dataset.tab==='dict';
  function sync(){
