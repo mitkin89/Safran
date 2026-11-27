@@ -637,7 +637,7 @@ window.LibraryWordCards = (() => {
     }
     if(HR && (!IR || JSON.stringify(IR.books)===JSON.stringify(HR.books)))for(const key of WC_TR_HEX){
       const entry=HR.renderings[key]?.[lemma];if(!entry)continue;
-      src[key]={lang:'grc',grouped:true,labels:entry[0],cells:entry[1].map(([g,code,n,refs,form,fieldIds])=>({g,code,n,refs,form,fieldIds}))};
+      src[key]={lang:'grc',grouped:false,labels:entry[0],cells:entry[1].map(([g,code,n,refs,form,fieldIds])=>({g,code,n,refs,form,fieldIds}))};
     }
     for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
     const keys = Object.keys(WC_TR_LABEL).filter(k => src[k]?.total >= (Object.hasOwn(WC_TR_WITNESSES, k) || WC_TR_HEX.has(k) ? 1 : 2));
@@ -790,7 +790,7 @@ window.LibraryWordCards = (() => {
     const pct = n => { const p = n / tot * 100; return (p < 1 ? '< 1' : String(Math.round(p))) + ' %'; };
     const lab = g => g.other ? I18N.t('Andere') : g.forms[0];
     // Einzelbelege: Wiedergaben mit nur einem Beleg zusammengefasst (wenn es genug sind und daneben noch andere stehen)
-    const ones = gs.filter(g => g.n === 1 && !g.other), fold = ones.length >= 3 && ones.length < gs.length;
+    const ones = gs.filter(g => g.n === 1 && !g.other), fold = !WC_TR_HEX.has(S.cur) && ones.length >= 3 && ones.length < gs.length;
     const main = fold ? gs.filter(g => g.n !== 1 || g.other) : gs, CAP = 20;
     const shown = S.allRows ? main : main.slice(0, CAP);
     // abweichende Deutung: dieselbe Grundform ist bei einem gleich geschriebenen Lemma deutlich häufiger -> die Fassung liest hier wohl das andere Wort

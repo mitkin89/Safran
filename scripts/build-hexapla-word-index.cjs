@@ -37,22 +37,20 @@ for(const book of box.window.LibraryHexaplaTC.BOOKS){
     if(unit.s!==unit.e||row.lxxReference||row.type==='verweis'||/ὁμοίως|ὡς\s|ὡσαύτως|ἀνωτέρω/.test(surface)||!surface||!/^[\p{Script=Greek}\p{M}\s.,;·’'᾿]+$/u.test(surface))continue;
     const tokens=surface.match(/[\p{Script=Greek}\p{M}]+[’'᾿]?/gu)||[];
     if(!tokens.length)continue;
-    const analyses=tokens.map(word=>[...new Set((box.window.HEXAPLA_MORPH.F[GM.form(word)]||[]).map(a=>a[0]))]);
-    const certain=analyses.every(a=>a.length===1),type=tokens.length>1?'phrase':certain?'lemma':'form';
-    const label=certain?analyses.map(a=>a[0]).join(' '):surface,key=type+':'+label.normalize('NFC');
     const tags=[...(text[c-1][v-1]).matchAll(/<span class="w" data-l="([^"]*)" data-m="([^"]*)"[^>]*>/g)];
     if(!tags[unit.s])throw Error('Missing morphology '+book+' '+ref);
+    const {type,label,key,surface:headSurface}=require('./field-word-morphology.cjs').group(tokens,box.window.HEXAPLA_MORPH.F,tags[unit.s][2],GM.form);
     const code=mcode(tags[unit.s][1],tags[unit.s][2]),num=books.indexOf(book)*1000000+c*1000+v;
     if(num<0)throw Error('Unknown book '+book);
     for(const source of sources){
      const entry=renderings[source][ids[0]]||=( [[],[]] );
      let g=entry[0].findIndex(l=>l.key===key);
      if(g<0){g=entry[0].length;entry[0].push({key,type,forms:[label]});}
-     const occurrence=JSON.stringify([source,book,ref,unit.s,key,surface]);
+     const occurrence=JSON.stringify([source,book,ref,unit.s,key,headSurface]);
      if(seen.has(occurrence)){seen.get(occurrence)[5].push(index);continue;}
-     const cell=[g,code,1,num.toString(36),surface,[index]];entry[1].push(cell);seen.set(occurrence,cell);
-     const forms=entry[0][g].forms,existing=forms.slice(1).find(f=>f[0]===surface);
-     if(existing)existing[1]++;else forms.push([surface,1]);
+     const cell=[g,code,1,num.toString(36),headSurface,[index]];entry[1].push(cell);seen.set(occurrence,cell);
+     const forms=entry[0][g].forms,existing=forms.slice(1).find(f=>f[0]===headSurface);
+     if(existing)existing[1]++;else forms.push([headSurface,1]);
     }
 
    }

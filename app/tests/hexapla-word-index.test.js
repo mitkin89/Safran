@@ -49,3 +49,12 @@ test('lexical Field statistics only count single MT anchors with original forms 
   assert(reversed.some(r=>r.lemma==='4390'&&r.forms.length&&r.refs.length));
  }
 });
+
+test('Exodus 32:6 groups all three Field witnesses under orthorizo rather than a conjunction phrase',()=>{
+ for(const source of ['Aquila','Symmachus','Theodotion']){
+  const [labels,cells]=index.renderings[source]['7925'];
+  assert(labels.some(l=>l.forms[0]==='ὀρθρίζω'&&l.type==='lemma'));
+  assert(!labels.some(l=>/καί|καὶ|δέ/.test(l.forms[0])));
+  assert(cells.some(c=>index.rows[c[5][0]].ref==='Exodus 32:6'));
+ }
+});

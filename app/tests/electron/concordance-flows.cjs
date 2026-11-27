@@ -70,6 +70,7 @@ module.exports=async({win,js,waitFor})=>{
   await waitFor(`document.querySelector('#wcTr [data-src="${source}"]')`,source+' available');
   await js(`document.querySelector('#wcTr [data-src="${source}"]').click()`);
   await waitFor("document.querySelector('#wcTr .wcSamePick')",source+' reverse lookup button');
+  if(['Aquila','Symmachus','Theodotion'].includes(source))assert(await js("!document.querySelector('#wcTr .wcTrUnresolved')&&!document.querySelector('#wcTr .wcTrR.ones')"),source+' rendering list is immediately visible like LXX');
   await js("document.querySelector('#wcTr .wcSamePick').click()");
   assert(await js("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"4390\"] a[data-ref]')"),source+' reverse lookup contains current Hebrew lemma and references');
   assert(await js("document.querySelector('#wcTr .wcSame .wcHL')"),source+' opens other word cards');
