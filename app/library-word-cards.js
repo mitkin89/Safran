@@ -95,8 +95,8 @@ window.LibraryWordCards = (() => {
       const stats = !card.greek && !card.syriac && !card.targum
         ? await host.loadPassageStats().catch(() => null) : null;
       if (!active()) return;
-      const family = stats?.roots?.[card.lemma];
-      const root = mode === 'root' && family ? card.lemma : '';
+      const family = window.Forms.rootInfo(stats?.roots, card.lemma);
+      const root = mode === 'root' && family ? card.lemma.replace(/\s+/g, '') : '';
       state.root = root;
       if (root) state.query = family.root;
       const result = await host.O.search({
@@ -196,9 +196,9 @@ window.LibraryWordCards = (() => {
     if (rest?.family && D) {
       const roots = (await host.loadPassageStats().catch(() => null))?.roots;
       if (token !== wcToken) return;
-      const selected = roots?.[lemma];
+      const selected = window.Forms.rootInfo(roots, lemma);
       if (selected) {
-        const ids = Object.keys(roots).filter(id => roots[id].id === selected.id && roots[id].lang === selected.lang);
+        const ids = window.Forms.rootEntries(D, roots).filter(([, r]) => r.id === selected.id && r.lang === selected.lang).map(([id]) => id);
         family = { root: selected.root, ids };
       }
     }
@@ -436,7 +436,7 @@ window.LibraryWordCards = (() => {
     if (!greek && !targum) {
       const lemma = fmCur.lemma;
       host.loadPassageStats().then(index => {
-        const root = index?.roots?.[lemma]?.root;
+        const root = window.Forms.rootInfo(index?.roots, lemma)?.root;
         if (token !== wcToken || !root) return;
         const e = host.esc;
         host.$('#fmHead').insertAdjacentHTML('beforeend', `<div class="wcScope" role="group" aria-label="${e(I18N.t('Suchumfang'))}">

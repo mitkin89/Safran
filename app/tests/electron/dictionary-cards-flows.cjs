@@ -63,6 +63,11 @@ module.exports=async({win,js,waitFor})=>{
  assert(await js("document.querySelector('#dictCardMatches').hidden"),'Dropdown closes after choosing a result');
  await js("document.querySelector('#dictQ').focus();document.querySelector('#dictQ').dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
  assert(await js("document.querySelector('#dictCardMatches').hidden"),'Escape dismisses suggestions');
+ await js("document.querySelector('#dictQ').value='חסד';document.querySelector('#dictQ').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelectorAll('#dictCardMatches [data-kind=root]').length===2",'Distinct homonymous chesed roots');
+ await js("[...document.querySelectorAll('#dictCardMatches [data-kind=root]')].find(b=>b.dataset.key==='heb|ecs').click()");
+ await waitFor("document.querySelector('#fmHead .fmCnt').textContent.includes('285')",'Chesed includes suffixed lemmas');
+ assert(await js("document.querySelector('#fmHead').textContent.includes(window.OSHB_LEMMAS['2617 a'][0])"),'Chesed root retains its main noun');
  win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
  await js("document.querySelector('#dictQ').focus();document.querySelector('#dictQ').value='אמר';document.querySelector('#dictQ').dispatchEvent(new Event('input',{bubbles:true}))");
  await waitFor("!document.querySelector('#dictCardMatches').hidden&&document.querySelector('#dictCardMatches button')",'Dropdown screenshot');

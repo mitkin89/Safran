@@ -68,10 +68,14 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
    }else{
     matches=Object.entries(lemmas).filter(([id,l])=>q===id||match(l[0])).map(([id,l])=>({key:id,id,language:/^A/.test(D.lem[id]||'')?'Aramäisch':'Hebräisch',source:'Tanach',label:l[0],groupGloss:l[1],gloss:I18N.lang==='de'&&l[2]?l[2]:l[1],count:total(D,id)})).filter(x=>x.count);
     const roots=(await loadRoots()).roots,families=new Map();
-    for(const [id,r] of Object.entries(roots))if(match(r.root)||q===r.id){
+    for(const [id,r] of window.Forms.rootEntries(D,roots))if(match(r.root)||q===r.id){
      const familyKey=r.lang+'|'+r.id,n=total(D,id);if(!n)continue;
      if(!families.has(familyKey))families.set(familyKey,{key:familyKey,id,root:true,label:r.root,language:r.lang==='arc'?'Aramäisch':'Hebräisch',source:'Tanach',count:0});
-     families.get(familyKey).count+=n;
+     const family=families.get(familyKey);family.count+=n;
+     if(n>(family.representativeCount||0)){
+      family.id=id;family.representativeCount=n;
+      const lex=lemmas[id];family.gloss=lex&&(I18N.lang==='de'&&lex[2]?lex[2]:lex[1]);
+     }
     }
     matches.push(...families.values());
     if(key){const T=await cards.loadTForms();

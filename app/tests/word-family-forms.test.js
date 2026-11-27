@@ -29,3 +29,22 @@ test('the forms and book counts for מלא preserve the seven individual lexicon
     }
   }
 });
+
+
+test('חסד families retain suffixed Strong IDs and keep homonymous roots separate', () => {
+  const context = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../oshb-forms.js'), 'utf8'), context);
+  const D = context.window.OSHB_FORMS;
+  const familyFor = id => {
+    const selected = Forms.rootInfo(roots, id);
+    const ids = Forms.rootEntries(D, roots).filter(([, r]) => r.id === selected.id && r.lang === selected.lang).map(([key]) => key);
+    return Forms.familyModel(D, ids);
+  };
+  const kindness = familyFor('2617 a'), reproach = familyFor('2617 b');
+  assert.deepEqual(kindness.members.map(m => m.lemma).sort(), ['2616 a', '2617 a', '2623', '2624']);
+  assert.equal(kindness.total, 285);
+  assert.deepEqual(reproach.members.map(m => m.lemma).sort(), ['2616 b', '2617 b']);
+  assert.equal(reproach.total, 3);
+  assert.equal(Forms.dist(D, kindness).reduce((sum, book) => sum + book.n, 0), 285);
+  assert.equal(Forms.rootInfo(roots, '2617 a'), Forms.rootInfo(roots, '2617a'));
+});
