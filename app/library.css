@@ -3222,16 +3222,23 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #dictCardSources:empty { display:none; }
 #dictCardSources [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }
 
-/* Stable corpus colors in the combined Greek distribution. */
-#fmCorpusBody [data-corpus=LXX],#fmCorpusControls [data-corpus=LXX] { --corpus-color:#3b82d0; }
-#fmCorpusBody [data-corpus=Josephus],#fmCorpusControls [data-corpus=Josephus] { --corpus-color:#22945a; }
-#fmCorpusBody [data-corpus=Philo],#fmCorpusControls [data-corpus=Philo] { --corpus-color:#d6ad20; }
+/* Stable source colors shared by columns, legends and source switches. */
+#formsPanel [data-corpus=Tanach] { --corpus-color:#5b8fc9; }
+#formsPanel [data-corpus=Mishnah] { --corpus-color:#c36a91; }
+#formsPanel [data-corpus=LXX] { --corpus-color:#3b82d0; }
+#formsPanel [data-corpus=Josephus] { --corpus-color:#22945a; }
+#formsPanel [data-corpus=Philo] { --corpus-color:#d6ad20; }
+#formsPanel [data-corpus=Onkelos] { --corpus-color:#d88935; }
+#formsPanel [data-corpus="Neofiti 1"] { --corpus-color:#9475cc; }
+#formsPanel [data-corpus=Pseudo-Jonathan] { --corpus-color:#32a898; }
+#formsPanel [data-corpus=Peshitta] { --corpus-color:#d65d6e; }
+#formsPanel [data-corpus=Targumim] { --corpus-color:#a68b55; }
 .wcCorpusBar progress { accent-color:var(--corpus-color,var(--accent)); }
 .wcCorpusBar progress::-webkit-progress-value { background:var(--corpus-color,var(--accent)); }
 .wcCorpusLegend { display:flex; gap:18px; flex-wrap:wrap; margin:8px 0 14px; }
 .wcCorpusLegend span { display:inline-flex; align-items:center; gap:6px; }
 .wcCorpusLegend i { display:inline-block; width:11px; height:11px; border-radius:2px; background:var(--corpus-color); }
-.wcCorpusScopes button[data-corpus]:not([data-corpus=all]):not([data-corpus=Tanach]):not([data-corpus=Mishnah]) { border-bottom:3px solid var(--corpus-color); }
+.wcCorpusScopes button[data-corpus]:not([data-corpus=all]) { border-bottom:3px solid var(--corpus-color); }
 
 /* Compact grammar chips, matching the translation overview. */
 .wcCorpusGrammar { display:grid; gap:4px; }
