@@ -215,18 +215,22 @@
   const ord = (a, x) => { const i = a.indexOf(x); return i < 0 ? 99 : i; };
   function model(D, lemma, t = idt) {
     const x = ix(D), li = x.byLemma.get(lemma); if (li == null) return null;
-    const o = occ(D), forms = [], items = [];
+    const o = occ(D), forms = [];
     for (let id = x.first[li]; id < x.first[li + 1]; id++) {
       const n = o.start[id + 1] - o.start[id], key = D.P[x.eKey[id]];
       forms.push({ f: x.eForm[id], n, key, id });
-      if (n) items.push({ i: forms.length - 1, f: x.eForm[id], n, key, ft: feat(key) });
     }
-    const sum = a => a.reduce((s, y) => s + y.n, 0);
+    return modelFromForms(lemma,forms,t);
+  }
+  function modelFromForms(lemma,forms,t=idt,countItems){
+    const items=forms.map((f,i)=>({...f,i,ft:f.ft||feat(f.key)})).filter(f=>f.n);
+    const sum = countItems || (a => a.reduce((s, y) => s + y.n, 0));
     const groupBy = (a, fn) => { const m = new Map(); for (const y of a) { const k = fn(y); if (!m.has(k)) m.set(k, []); m.get(k).push(y); } return m; };
     // Formen einer Zelle: gleiche Schreibung zusammenfassen, häufigste zuerst; amb = die Bestimmung lässt mehrere Zeilen/Spalten zu
     const cell = (a, amb) => {
       const m = new Map();
       for (const y of a) { const z = m.get(y.f); if (z) { z.n += y.n; z.i += ',' + y.i; z.keys.push(y.key); } else m.set(y.f, { f: y.f, n: y.n, i: String(y.i), pre: false, keys: [y.key], amb: !!(amb && amb(y)) }); }
+      if(countItems)for(const z of m.values())z.n=sum(z.i.split(',').map(i=>items.find(y=>y.i===+i)));
       return [...m.values()].sort((p, q) => q.n - p.n || (p.f < q.f ? -1 : 1));
     };
     const caseLabel = c => t(CASE_S[c]);
@@ -314,9 +318,9 @@
     };
     const nav = mdl.sections.length > 1 ? `<div class="fmNav">${mdl.sections.map((s, i) => `<button type="button" data-sec="${i}">${esc(s.title)} <small>${s.n}×</small></button>`).join('')}</div>` : '';
     const secs = mdl.sections.map((s, i) => `<details class="fmSec" data-sec="${i}" open><summary><b>${esc(s.title)}</b> <small>${s.n}×</small></summary><div class="fmGrid${s.kind === 'verb' ? '' : ' one'}">${s.blocks.map(b => `<div class="fmBlk">${b.title ? `<h4>${esc(b.title)} <small>${b.n}×</small></h4>` : ''}${b.tables.map(table).join('')}</div>`).join('')}</div></details>`).join('');
-    return nav + secs + `<p class="fmNote">${esc(t('Nur in der Septuaginta belegte Formen (Rahlfs; Morphologie: lxx-morph), Gravis als Akut; die Zahl nennt die Häufigkeit. Formen, deren Bestimmung mehrere Fälle oder Geschlechter zulässt (z. B. Nom./Akk. Neutrum), stehen in jeder passenden Zeile.'))}</p>`;
+    return nav + secs + `<p class="fmNote">${esc(o.note??t('Nur in der Septuaginta belegte Formen (Rahlfs; Morphologie: lxx-morph), Gravis als Akut; die Zahl nennt die Häufigkeit. Formen, deren Bestimmung mehrere Fälle oder Geschlechter zulässt (z. B. Nom./Akk. Neutrum), stehen in jeder passenden Zeile.'))}</p>`;
   }
 
-  const api = { fold, sameForm, form, words, wordsOf, plain, WORD, GREEK, ALPH, BASE, encoder, decode, ix, bookIndex, hasBook, bookId, verse, info, lemmaInfo, findLemma, dictionaryLemmas, occ, refs, dist, refsIn, topForms, feat, describe, model, render, POS };
+  const api = { fold, sameForm, form, words, wordsOf, plain, WORD, GREEK, ALPH, BASE, encoder, decode, ix, bookIndex, hasBook, bookId, verse, info, lemmaInfo, findLemma, dictionaryLemmas, occ, refs, dist, refsIn, topForms, feat, describe, model, modelFromForms, render, POS };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.GMorph = api;
 })();

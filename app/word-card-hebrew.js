@@ -25,5 +25,36 @@ function collect(indices,head,fold,reverse){
  }
  return {all:[...merged.values()].map(r=>({...r,refs:[...r.refs].sort((a,b)=>a-b)})).sort((a,b)=>b.count-a.count),...result};
 }
-const api={sources,collect};if(typeof module==='object'&&module.exports)module.exports=api;else root.WordCardHebrew=api;
+function renderings(indices,lemma,scope='all'){
+ const by=new Map();
+ for(const source of scope==='all'?sources:[scope]){
+  const entry=(source==='LXX'?indices.LXX:indices.hexapla?.renderings?.[source])?.[lemma];if(!entry)continue;
+  const [labels,cells]=entry;
+  for(const [g,,n,encoded]of cells){
+   const raw=labels[g],label=typeof raw==='string'?raw:raw.forms[0],type=typeof raw==='string'?'lemma':raw.type;
+   if(!label||label==='*'||!n)continue;
+   const key=JSON.stringify([label,type]),item=by.get(key)||{label,type,count:0,sources:{}};
+   const edition=item.sources[source]||{count:0,refs:new Set()};let ref=0;
+   for(const delta of String(encoded||'').split('.').filter(Boolean)){ref+=parseInt(delta,36);edition.refs.add(ref);}
+   edition.count+=n;item.count+=n;item.sources[source]=edition;by.set(key,item);
+  }
+ }
+ return [...by.values()].map(r=>({...r,sources:Object.entries(r.sources).map(([source,d])=>({source,count:d.count,refs:[...d.refs].sort((a,b)=>a-b)}))})).sort((a,b)=>b.count-a.count||a.label.localeCompare(b.label));
+}
+function occurrences(indices,lemma,head,fold,scope='all'){
+ const rows=[];
+ for(const source of scope==='all'?sources:[scope]){
+  const entry=(source==='LXX'?indices.LXX:indices.hexapla?.renderings?.[source])?.[lemma];if(!entry)continue;
+  for(const [g,code,,encoded,forms] of entry[1]){
+   const label=entry[0][g],word=typeof label==='string'?label:label.forms[0];
+   if(fold(word)!==fold(head))continue;
+   let ref=0;
+   String(encoded||'').split('.').filter(Boolean).forEach((delta,i)=>{
+    ref+=parseInt(delta,36);rows.push({source,ref,code,form:source==='LXX'?forms?.[i]||'':forms||''});
+   });
+  }
+ }
+ return rows.sort((a,b)=>a.ref-b.ref||sources.indexOf(a.source)-sources.indexOf(b.source));
+}
+const api={sources,collect,renderings,occurrences};if(typeof module==='object'&&module.exports)module.exports=api;else root.WordCardHebrew=api;
 })(typeof window==='object'?window:globalThis);

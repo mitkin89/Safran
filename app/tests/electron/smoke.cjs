@@ -76,7 +76,7 @@ const handlers={
  'off:summary':()=>[], 'notes:list':()=>[], 'dict:list':()=>({list:[]}), 'dict:suggest':()=>({list:[]}), 'dict:syriacMentions':()=>({results:[]}),
  'interlinear:read':()=>({data:{},renderings:null}), 'links:status':()=>({ready:false,complete:false,done:[],total:0}), 'topics:status':()=>({ready:false}),
  'links:section':()=>[], 'links:texts':(_e,refs)=>{
-   if(process.env.SAFRAN_SMOKE_WITNESS_REN!=='1')return {};
+   if(process.env.SAFRAN_SMOKE_WITNESS_REN!=='1'&&process.env.SAFRAN_SMOKE_CORPUS_CARDS!=='1')return {};
    const links=require(path.join(root,'links')),result={};
    for(const ref of refs){const {book,tail}=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===book&&d.entry.kind==='he'&&/^Westminster/.test(d.versionTitle));if(doc)result[ref]={versionTitle:doc.versionTitle,items:links.resolveText(doc,tail)};}
    return result;

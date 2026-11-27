@@ -655,6 +655,10 @@ window.LibraryWordCards = (() => {
   function wcDefaultSource(keys){const title=host.getBibleTranslation?.()||'';return keys.find(k=>(host.IL_VT[k]||WC_TR_VT[k])?.test(title))||keys[0];}
   const RTL = l => l === 'arc' || l === 'he' || l === 'syr';
   function wcHovPick(a) {
+    // Hebrew equivalents need the annotated MT even when opened from a Greek card.
+    if (a.closest('#wcHebrew') && a.dataset.sameLemma) {
+      return { vt: '^Septuaginta \\(CATSS', rtl: false, label: 'Septuaginta', greek: fmCur?.lemma, lem: a.dataset.sameLemma, mt: true };
+    }
     if (fmCur && fmCur.targum && a.closest('.fmRL') && a.dataset.gvt) {
       return { vt: '^' + a.dataset.gvt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$', rtl: true, label: 'Targum', targum: fmCur.targum };
     }
@@ -1120,7 +1124,7 @@ window.LibraryWordCards = (() => {
     const [LXX,hexapla,books]=await Promise.all([loadLxxRen(),loadHexRen(),loadWitnessRen()]);
     if(token!==wcToken)return;
     const groups=window.WordCardHebrew.collect({LXX,hexapla},head,window.GMorph.fold,window.RenderingSearch.findAncient);
-    hebState={head,groups,books:books?.books||hexapla?.books||[],source:'all'};
+    hebState={head,groups,lxxTotal:fmCur.mdl?.total||0,indices:{LXX,hexapla},books:books?.books||hexapla?.books||[],source:'all'};
     renderHebrew();
   }
   function renderHebrew(){
@@ -1130,16 +1134,50 @@ window.LibraryWordCards = (() => {
     let pos=0;const stops=rows.map((r,i)=>{const start=pos;pos+=r.count/total*100;return colors[i%colors.length]+' '+start+'% '+pos+'%';}).join(',');
     box.innerHTML='<h4>'+t('Hebräische Vorlage')+'</h4><div class="wcHebSources">'+Object.entries(S.groups).map(([k,rs])=>'<button type="button" data-hebrew-source="'+k+'" aria-pressed="'+(k===S.source)+'">'+name(k)+' <small>'+wcNum(rs.reduce((n,r)=>n+r.count,0))+'</small></button>').join('')+'</div>'+
       '<p class="muted">'+e(name(S.source))+' · '+t('{} Zuordnungen · {} hebräische Wörter',wcNum(total),wcNum(rows.length))+'</p>'+
+      '<p class="muted wcHebCoverage">'+t('Die Grafik zählt Wortzuordnungen, nicht sämtliche Vorkommen. Septuaginta insgesamt: {} Belege; eindeutig zugeordnete CATSS-Belege dieses Lemmas: {}. Erfasst sind bestimmte Tanach-Fassungen; deuterokanonische Bücher und nicht eindeutig zugeordnete Wortgruppen sind hier nicht enthalten.',wcNum(S.lxxTotal),wcNum(S.groups.LXX.reduce((n,r)=>n+r.count,0)))+'</p>'+
       (rows.length?'<div class="wcHebViz"><div class="wcHebRing" role="img" aria-label="'+t('Hebräische Vorlage')+'" style="background:conic-gradient('+stops+')"><div><b dir="auto">'+e(S.head)+'</b><span>'+wcNum(total)+'</span></div></div><div class="wcHebRows">'+rows.map((r,i)=>{
        const lemma=LEM[r.lemma],label=lemma?.[0]||r.lemma,gloss=lemma?(I18N.lang==='de'&&lemma[2]?lemma[2]:lemma[1]):'',percent=r.count/total*100;
-       return '<details class="wcHebEntry" style="--hc:'+colors[i%colors.length]+'"><summary><span class="wcHebLabel"><bdi lang="he" dir="rtl">'+e(label)+'</bdi> <small>'+e(gloss||'')+'</small></span><span class="wcHebBar"><i style="width:'+percent+'%"></i></span><span>'+wcNum(r.count)+'</span><small>'+(percent<1?'&lt; 1':Math.round(percent))+' %</small></summary><button type="button" class="wcHL" data-hl="'+e(r.lemma)+'">'+t('Hebräische Wortkarte öffnen')+'</button>'+(r.sources?'<p class="muted">'+r.sources.map(x=>e(name(x.source))+' '+wcNum(x.count)).join(' · ')+'</p>':'')+'<div class="fmRL">'+r.refs.map(n=>{
-         const book=S.books[Math.floor(n/1e6)],ch=Math.floor(n/1000)%1000,v=n%1000,ref=book+' '+ch+':'+v;
-         return '<a href="#" data-ref="'+e(ref)+'" data-same-lemma="'+e(r.lemma)+'">'+e(fmBook(book))+' '+ch+':'+v+'</a>';
-       }).join(' · ')+'</div></details>';
+       return '<details class="wcHebEntry" data-hebrew-lemma="'+e(r.lemma)+'" style="--hc:'+colors[i%colors.length]+'"><summary><span class="wcHebLabel"><button type="button" class="wcHebWord" data-hebrew-reverse="'+e(r.lemma)+'" title="'+t('Andere griechische Wiedergaben anzeigen')+'"><bdi lang="he" dir="rtl">'+e(label)+'</bdi></button> <small>'+e(gloss||'')+'</small></span><span class="wcHebBar"><i style="width:'+percent+'%"></i></span><span>'+wcNum(r.count)+'</span><small>'+(percent<1?'&lt; 1':Math.round(percent))+' %</small></summary><button type="button" data-hebrew-reverse="'+e(r.lemma)+'">'+t('Andere griechische Wiedergaben anzeigen')+'</button><div class="wcHebReverse" hidden></div><button type="button" class="wcHL" data-hl="'+e(r.lemma)+'">'+t('Hebräische Wortkarte öffnen')+'</button>'+(r.sources?'<p class="muted">'+r.sources.map(x=>e(name(x.source))+' '+wcNum(x.count)).join(' · ')+'</p>':'')+'<div class="wcHebOccurrences fmRL"></div></details>';
       }).join('')+'</div></div>':'<p class="muted">'+t('Keine Zuordnungen vorhanden.')+'</p>')+
       '<p class="muted">'+t('Zuordnungen des Lemmas aus den gewählten Übersetzungen, unabhängig vom Korpus- und Grammatikfilter oben. Für Josephus und Philo liegen keine hebräischen Wortzuordnungen vor.')+'</p>';
   }
-  host.$('#wcHebrew').addEventListener('click',e=>{const b=e.target.closest('[data-hebrew-source]');if(b&&hebState){hebState.source=b.dataset.hebrewSource;renderHebrew();}});
+  async function renderHebrewOccurrences(entry,limit=12){
+    const S=hebState,lemma=entry.dataset.hebrewLemma,box=entry.querySelector('.wcHebOccurrences');
+    if(!S||!box)return;
+    const rows=window.WordCardHebrew.occurrences(S.indices,lemma,S.head,window.GMorph.fold,S.source),shown=rows.slice(0,limit);
+    const refOf=n=>S.books[Math.floor(n/1e6)]+' '+(Math.floor(n/1000)%1000)+':'+(n%1000);
+    await wcTrCtxLoad(shown.map(r=>refOf(r.ref)));
+    if(hebState!==S||!box.isConnected)return;
+    const used=new Map();let book=null;
+    box.innerHTML=shown.map(r=>{
+      const ref=refOf(r.ref),bi=Math.floor(r.ref/1e6),key=ref+'|'+r.source;
+      const words=wcVerseWords.get(ref)||[],taken=used.get(key)||new Set();used.set(key,taken);
+      let i=words.findIndex((w,i)=>!taken.has(i)&&w.lem===lemma&&w.code===r.code);
+      if(i<0)i=words.findIndex((w,i)=>!taken.has(i)&&w.lem===lemma);
+      if(i>=0)taken.add(i);
+      const heading=book===bi?'':'<b class="bk">'+host.esc(fmBook(S.books[bi]))+'</b>';book=bi;
+      return heading+'<div class="wcHebOccurrence"><a href="#" data-ref="'+host.esc(ref)+'" data-same-lemma="'+host.esc(lemma)+'">'+(Math.floor(r.ref/1000)%1000)+':'+(r.ref%1000)+'</a><span lang="he" dir="rtl">'+host.esc(words[i]?.he||'—')+'</span><span lang="grc">'+host.esc(r.form||'—')+'</span><small class="muted">'+host.esc(r.source==='LXX'?'Septuaginta':r.source)+'</small></div>';
+    }).join('')+(rows.length>limit?'<button type="button" data-hebrew-more="'+(limit+300)+'">'+host.esc(I18N.t('weitere {} Stellen zeigen',Math.min(300,rows.length-limit)))+'</button>':'');
+  }
+  host.$('#wcHebrew').addEventListener('toggle',e=>{
+    if(e.target.matches('.wcHebEntry')&&e.target.open)renderHebrewOccurrences(e.target);
+  },true);
+  host.$('#wcHebrew').addEventListener('click',e=>{
+    const more=e.target.closest('[data-hebrew-more]');if(more){renderHebrewOccurrences(more.closest('.wcHebEntry'),+more.dataset.hebrewMore);return;}
+    const source=e.target.closest('[data-hebrew-source]');if(source&&hebState){hebState.source=source.dataset.hebrewSource;renderHebrew();return;}
+    const word=e.target.closest('[data-greek-rendering]');if(word){openCorpusForms(word.dataset.greekRendering,true);return;}
+    const reverse=e.target.closest('[data-hebrew-reverse]');if(!reverse||!hebState)return;
+    e.preventDefault();const entry=reverse.closest('.wcHebEntry'),box=entry.querySelector('.wcHebReverse');entry.open=true;
+    if(!box.hidden){box.hidden=true;return;}box.hidden=false;
+    const S=hebState,esc=host.esc,rows=window.WordCardHebrew.renderings(S.indices,reverse.dataset.hebrewReverse,S.source);
+    box.innerHTML='<h5>'+esc(I18N.t('Griechische Wiedergaben dieses hebräischen Lemmas'))+'</h5>'+rows.map(r=>{
+      const current=window.GMorph.fold(r.label)===window.GMorph.fold(S.head);
+      return '<details><summary>'+(r.type==='lemma'?'<button type="button" data-greek-rendering="'+esc(r.label)+'"><bdi lang="grc">'+esc(r.label)+'</bdi></button>':'<bdi lang="grc">'+esc(r.label)+'</bdi>')+' · '+wcNum(r.count)+(current?' · '+esc(I18N.t('Aktuelles Wort')):'')+'</summary>'+r.sources.map(x=>'<p>'+esc(x.source==='LXX'?'Septuaginta':x.source)+' · '+wcNum(x.count)+'</p><div class="fmRL">'+x.refs.map(n=>{
+        const book=S.books[Math.floor(n/1e6)],ch=Math.floor(n/1000)%1000,v=n%1000,ref=book+' '+ch+':'+v;
+        return '<a href="#" data-ref="'+esc(ref)+'" data-same-lemma="'+esc(reverse.dataset.hebrewReverse)+'">'+esc(fmBook(book))+' '+ch+':'+v+'</a>';
+      }).join(' · ')+'</div>').join('')+'</details>';
+    }).join('');
+  });
   // Lemma-Suche griechisch: Sprache „Andere“, Treffer „Alle Formen“
   function gSearchAll(lemma) {
     closeForms(); host.showTab('search');
@@ -1581,6 +1619,14 @@ window.LibraryWordCards = (() => {
   host.$('#formsPanel').addEventListener('scroll', () => host.hovApi && host.hovApi.hide(), { passive: true });
 
     return {
+      snapshot(){fmHistSave();return JSON.parse(JSON.stringify({history:fmHist,index:fmHi}));},
+      restore(snapshot){
+        ++wcToken;fmCur=null;fmHold=null;host.hovApi?.hide();
+        fmHist=JSON.parse(JSON.stringify(snapshot?.history||[]));fmHi=snapshot?.index??-1;fmHistUI();
+        host.$('#formsPanel').hidden=fmHi<0;
+        if(fmHi>=0)fmHistGo(0);
+      },
+      get title(){return fmCur?.lem?.[0]||'';},
       get canReopen(){return !!fmCur||fmHi>=0;},
       async openRoot(lemma) { fmHistSave(); const next={greek:false,lemma,family:true,info:null,tab:'card',scroll:0,tr:null}; fmHistPush(next); return openForms(lemma,null,'card',next); },
       reopen() { if(!fmCur&&fmHi<0)return false;host.$('#formsPanel').hidden=false;fmActive=true;if(!fmCur)fmHistGo(0);return true; },
