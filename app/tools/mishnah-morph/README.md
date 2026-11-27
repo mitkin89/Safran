@@ -332,3 +332,29 @@ Accordance- oder Ma’agarim-Bestätigung. Die Bildlesung verwendet eigene
 ```sh
 node tools/mishnah-morph/compare-current-accordance.cjs --seder=nashim --image-index=/path/to/full-download-index.json --draft-commit=2cc7eaa
 ```
+
+Der verfügbare Naschim-Bilddurchgang reicht nun durch alle sieben Traktate.
+Der kompakte `nashim-current-accordance-comparison-summary.json` bindet die
+Rohlesungen an den unveränderten Entwurf `2cc7eaa` und an die tatsächlich
+referenzierten Originalbild-Hashes. Die zugehörige unabhängige Strukturprüfung
+steht in `accordance-nashim-current-independent-structure-qa.json`.
+Wortgruppen zählen nur als Gruppenbelege; Ankerzeilen, einzelne Quellpositionen
+und Positionen ohne Beobachtung werden nicht miteinander gleichgesetzt.
+Abgeschnittene Schlussabschnitte bleiben offen, etwa Jevamot 16:7 nach Index80
+und Sotah 9:15 nach Index80. Das folgende Bild beginnt jeweils bereits einen
+anderen Traktat. Es wurde kein fehlender Text anhand bekannter Formulierungen
+oder des Morphologieentwurfs als Accordance-Beleg ergänzt.
+
+Die Erstlesungen wurden zusätzlich unabhängig stichprobenweise nachgelesen;
+belegte Ablesefehler sind an den Rohbeobachtungen korrigiert und dokumentiert.
+Gedruckte Alternativen bleiben bestehen, insbesondere Ketubot 3:8/19:
+Original149 zeigt `{קטנה}`, Original150 `נערה`. Dies ist kein Grund, eine der
+beiden tatsächlichen Anzeigeformen zu verbergen. `humanValidated:false` gilt
+auch nach der unabhängigen KI-Nachlesung.
+
+`build-moed-maagarim-followup.cjs --seder=nashim` erzeugt die eigene, ausdrücklich
+ungeprüfte Naschim-Folgeliste. Dabei werden die eingefrorenen Buchbytes sowie
+Vergleichs-, Ledger- und Bildindex-Hashes kontrolliert; Moed-Dateien werden nicht
+überschrieben. Die fünf neu tatsächlich abgefragten Moed-Einzelbelege stehen
+separat in `moed-maagarim-priority1-initial-evidence.json`. Eine vorbereitete
+Folgeliste ist keine abgeschlossene Ma’agarim-Prüfung.

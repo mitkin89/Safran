@@ -1,6 +1,6 @@
 # Ma’agarim: belegte bestehende Teilprüfungen
 
-Inventarprüfung: 27.11.2026. Dies dokumentiert vorhandene Artefakte, keinen neuen Online-Abgleich. Ein vollständiger Wort-für-Wort-Abgleich der Mischna oder eines ganzen Seders ist damit **nicht** belegt.
+Inventarprüfung: 27.11.2026. Der ursprüngliche Abschnitt dokumentiert vorhandene Artefakte. Der neue gezielte Nachgang unten ist davon getrennt. Ein vollständiger Wort-für-Wort-Abgleich der Mischna oder eines ganzen Seders ist damit **nicht** belegt.
 
 | Bereich | Vorhandener Nachweis | Aussagegrenze |
 | --- | --- | --- |
@@ -9,7 +9,7 @@ Inventarprüfung: 27.11.2026. Dies dokumentiert vorhandene Artefakte, keinen neu
 | Peah: sechs genaue Einzelbelege | `accordance-maagarim-followup.json` und `.md`; Kandidaten in `accordance-peah-maagarim.json` | Peah 4:1#16 בחליקי; 4:5#2 הבעיות; 4:11#1 חוררי; 5:8#2 לכובעות, #3 ולכומסות, #4 ולחררה. Wort-IDs, Primär-URLs, ausgelesene HTML-Attribute und HTML-SHA dokumentiert. Vor allem Lemmabelege, keine vollständigen Flexionstags. |
 | Demai 7:4#19 מחל | `accordance-maagarim-demai-7-4-followup.json` und `.md`; `accordance-demai-maagarim.json` | Wort-ID 991010: חלל 1, ausdrücklich Hifil-Partizip. Keine eigenständige Bestätigung sämtlicher Vokal-/Genus-/Numerusmerkmale. |
 | Sheviit 4:8#14 בשאר | `accordance-sheviit-maagarim-followup.json` und `.md`; `accordance-sheviit-maagarim-4-8-evidence.html`; `accordance-sheviit-maagarim.json` | Wort-ID 995424: konkrete Form בשאר und Lemma שאר; Roh-HTML gesichert. Vollständiger Morphologietag ist redaktionelle Ableitung, kein gelieferter Ma’agarim-Tag. |
-| Moed und Naschim | In den geprüften Helper-Repo- und privaten Referenzartefakten kein positionsgebundener Ma’agarim-Abgleich gefunden | Keine Vollständigkeits- oder Prüfstatusbehauptung daraus ableitbar. |
+| Moed und Naschim: ursprünglicher Bestand | Bei der ursprünglichen Bestandsprüfung kein positionsgebundener Ma’agarim-Abgleich gefunden | Der neue Moed-Nachgang unten ergänzt fünf Belege. Naschim weiterhin ohne dokumentierten positionsgebundenen Ma’agarim-Nachgang. |
 
 Alle Pfade oben sind relativ zu diesem Verzeichnis. Die acht detaillierten Nachgangsbelege sind keine acht vollständigen morphologischen Zertifizierungen; Kandidatendateien wiederholen dieselben Belege und dürfen nicht zusätzlich gezählt werden.
 
@@ -23,4 +23,25 @@ Bei Berakhot konkret dokumentiert sind beispielsweise מתחיל 5:3, שגרה 4
 
 Die dokumentierte Primärquelle ist das Historische Wörterbuchprojekt der Akademie der hebräischen Sprache, Kaufmann A 50, shibbur 31000. Direkte URLs, Wort-IDs und gesicherte Attribute stehen in den genannten Einzelbelegdateien. Das ist keine unabhängige Handschrift gegenüber Kaufmann. Allgemeine Suchtreffer oder künftige Nachprüfungsnotizen zählen nicht als erfolgte Positionsprüfungen; Terumot 9:1 יוֹפַךְ ist beispielsweise in `accordance-terumot-9-open.json` ausdrücklich weiterhin offen.
 
-Die Prüfung hat weder neue Ma’agarim-Abfragen durchgeführt noch Text, Punktierung oder Analysekandidaten verändert. Sie bestätigt die Existenz und den deklarierten Umfang der Artefakte, nicht rückwirkend jede darin berichtete Live-Lesung.
+Die ursprüngliche Bestandsprüfung hat weder neue Ma’agarim-Abfragen durchgeführt noch Text, Punktierung oder Analysekandidaten verändert. Sie bestätigt die Existenz und den deklarierten Umfang der Artefakte, nicht rückwirkend jede darin berichtete Live-Lesung.
+
+## Neuer gezielter Moed-Nachgang am 27.11.2026
+
+`moed-maagarim-priority1-initial-evidence.json` dokumentiert fünf neu abgefragte,
+positionsgebundene Kaufmann-Belege aus drei gesicherten Primär-HTML-Seiten:
+Beitzah 3:4 יעלה und ניכר, Beitzah 3:5 ששאלו, Chagigah 3:6 נגענו sowie
+Eruvin 10:1 המוציא. Word-IDs, konkrete Beleg-URLs, HTML-Auszüge und SHA-256
+sind je Beleg gespeichert. Die gespeicherten HTML- und Exzerptbytes wurden
+unabhängig gegen die angegebenen Hashes geprüft.
+
+Ma’agarim liefert bei Eruvin 10:1 ausdrücklich zwei alternative Analysen; beide
+bleiben erhalten. Chagigah 3:6 hat dort Qal, während das frisch nochmals gelesene
+Accordance-Original tatsächlich Hifil druckt. Der Quellenwiderspruch bleibt
+sichtbar und wird nicht durch stilles Ändern einer Transkription aufgelöst.
+Person, Genus, Numerus und Vokale sind durch diese HTML-Belege nicht separat
+bestätigt, soweit solche Angaben nicht ausdrücklich geliefert werden.
+
+Dies ist ein gezielter Anfang, kein vollständiger Moed-Abgleich. Die historische
+`moed-maagarim-followup-pending.json` bleibt eine unveränderte Liste des damaligen
+Prüfbedarfs; sie ist zusammen mit den neueren Einzelbelegen zu lesen. Keine
+Wortkarte, Punktierung oder Kaufmann-Textstelle wurde durch diesen Nachgang geändert.

@@ -1,0 +1,239 @@
+{
+  "beforeSha256": "cdd888037be92d17143a704db367a33ab4b8c8eb7c98db2555993f851f359b53",
+  "afterSha256": "f86fc121a882e858a5a71d9f8caad21258baac5f3fe781b0d75c2d61a983185c",
+  "changes": [
+    {
+      "before": {
+        "title": "Mishnah Yevamot",
+        "ref": "4:12",
+        "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+        "tokenIndex": 26,
+        "sourceWordId": "S07326.3.1.4.12/word/26",
+        "sourceWord": "ס׳א׳",
+        "sourceBindings": [
+          {
+            "tokenIndex": 26,
+            "sourceWordId": "S07326.3.1.4.12/word/26",
+            "sourceWord": "ס׳א׳"
+          }
+        ],
+        "image": "mischna_2026-11-27_09-27-19_25B5EA35_35.png",
+        "observedConsonants": "ס׳א׳",
+        "lexComponents": [
+          "ספר",
+          "אמר"
+        ],
+        "tagComponents": [
+          [
+            "cm",
+            "ms",
+            "sg"
+          ],
+          [
+            "qal",
+            "prt",
+            "ms",
+            "sg"
+          ]
+        ],
+        "rawLex": "ספר|אמר",
+        "rawTag": "cm ms sg|qal prt ms sg",
+        "humanValidated": false,
+        "readingStatus": "clear",
+        "alignment": "one-to-one",
+        "note": "Only the displayed components are recorded; no suffix features inferred.",
+        "referenceNote": "ref is the current source binding; no inference from parenthesized Accordance section numbers."
+      },
+      "after": {
+        "title": "Mishnah Yevamot",
+        "ref": "4:12",
+        "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+        "tokenIndex": 26,
+        "sourceWordId": "S07326.3.1.4.12/word/26",
+        "sourceWord": "ס׳א",
+        "sourceBindings": [
+          {
+            "tokenIndex": 26,
+            "sourceWordId": "S07326.3.1.4.12/word/26",
+            "sourceWord": "ס׳א"
+          }
+        ],
+        "image": "mischna_2026-11-27_09-27-19_25B5EA35_35.png",
+        "observedConsonants": "ס׳א׳",
+        "lexComponents": [
+          "ספר",
+          "אמר"
+        ],
+        "tagComponents": [
+          [
+            "cm",
+            "ms",
+            "sg"
+          ],
+          [
+            "qal",
+            "prt",
+            "ms",
+            "sg"
+          ]
+        ],
+        "rawLex": "ספר|אמר",
+        "rawTag": "cm ms sg|qal prt ms sg",
+        "humanValidated": false,
+        "readingStatus": "clear",
+        "alignment": "editorial-nonlexical",
+        "note": "Only the displayed components are recorded; no suffix features inferred. Source token is an editorial reading marker, not a lexical Mishnah word. Displayed raw Lex/Tag retained as image evidence only; never interpret combined abbreviation expansions as one lexical head.",
+        "referenceNote": "ref is the current source binding; no inference from parenthesized Accordance section numbers.",
+        "status": "editorial-abbreviation-needs-review"
+      }
+    },
+    {
+      "before": {
+        "title": "Mishnah Yevamot",
+        "ref": "7:4",
+        "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+        "tokenIndex": 37,
+        "sourceWordId": "S07326.3.1.7.4/word/37",
+        "sourceWord": "ס׳א׳",
+        "sourceBindings": [
+          {
+            "tokenIndex": 37,
+            "sourceWordId": "S07326.3.1.7.4/word/37",
+            "sourceWord": "ס׳א׳"
+          }
+        ],
+        "image": "mischna_2026-11-27_09-27-19_25B5EA35_52.png",
+        "observedConsonants": "ס׳",
+        "lexComponents": [
+          "ספר"
+        ],
+        "tagComponents": [
+          [
+            "qal",
+            "prt",
+            "ms",
+            "sg"
+          ]
+        ],
+        "rawLex": "ספר",
+        "rawTag": "qal prt ms sg",
+        "humanValidated": false,
+        "readingStatus": "clear",
+        "alignment": "one-to-one",
+        "note": "Only the displayed components are recorded; no suffix features inferred.",
+        "referenceNote": "ref is the current source binding; no inference from parenthesized Accordance section numbers."
+      },
+      "after": {
+        "title": "Mishnah Yevamot",
+        "ref": "7:4",
+        "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+        "tokenIndex": 37,
+        "sourceWordId": "S07326.3.1.7.4/word/37",
+        "sourceWord": "ס׳א",
+        "sourceBindings": [
+          {
+            "tokenIndex": 37,
+            "sourceWordId": "S07326.3.1.7.4/word/37",
+            "sourceWord": "ס׳א"
+          }
+        ],
+        "image": "mischna_2026-11-27_09-27-19_25B5EA35_52.png",
+        "observedConsonants": "ס׳",
+        "lexComponents": [
+          "ספר"
+        ],
+        "tagComponents": [
+          [
+            "qal",
+            "prt",
+            "ms",
+            "sg"
+          ]
+        ],
+        "rawLex": "ספר",
+        "rawTag": "qal prt ms sg",
+        "humanValidated": false,
+        "readingStatus": "clear",
+        "alignment": "editorial-nonlexical",
+        "note": "Only the displayed components are recorded; no suffix features inferred. Source token is an editorial reading marker, not a lexical Mishnah word. Displayed raw Lex/Tag retained as image evidence only; never interpret combined abbreviation expansions as one lexical head.",
+        "referenceNote": "ref is the current source binding; no inference from parenthesized Accordance section numbers.",
+        "status": "editorial-abbreviation-needs-review"
+      }
+    },
+    {
+      "before": {
+        "title": "Mishnah Yevamot",
+        "ref": "9:1",
+        "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+        "tokenIndex": 53,
+        "sourceWordId": "S07326.3.1.9.1/word/53",
+        "sourceWord": "נ׳א׳",
+        "sourceBindings": [
+          {
+            "tokenIndex": 53,
+            "sourceWordId": "S07326.3.1.9.1/word/53",
+            "sourceWord": "נ׳א׳"
+          }
+        ],
+        "image": "mischna_2026-11-27_09-27-19_25B5EA35_61.png",
+        "observedConsonants": "נ׳א׳",
+        "lexComponents": [
+          "אמר"
+        ],
+        "tagComponents": [
+          [
+            "nif",
+            "prf",
+            "3",
+            "ms",
+            "sg"
+          ]
+        ],
+        "rawLex": "אמר",
+        "rawTag": "nif prf 3 ms sg",
+        "humanValidated": false,
+        "readingStatus": "clear",
+        "alignment": "one-to-one",
+        "note": "Only the displayed components are recorded; no suffix features inferred.",
+        "referenceNote": "ref is the current source binding; no inference from parenthesized Accordance section numbers."
+      },
+      "after": {
+        "title": "Mishnah Yevamot",
+        "ref": "9:1",
+        "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+        "tokenIndex": 53,
+        "sourceWordId": "S07326.3.1.9.1/word/53",
+        "sourceWord": "נ׳א",
+        "sourceBindings": [
+          {
+            "tokenIndex": 53,
+            "sourceWordId": "S07326.3.1.9.1/word/53",
+            "sourceWord": "נ׳א"
+          }
+        ],
+        "image": "mischna_2026-11-27_09-27-19_25B5EA35_61.png",
+        "observedConsonants": "נ׳א׳",
+        "lexComponents": [
+          "אמר"
+        ],
+        "tagComponents": [
+          [
+            "nif",
+            "prf",
+            "3",
+            "ms",
+            "sg"
+          ]
+        ],
+        "rawLex": "אמר",
+        "rawTag": "nif prf 3 ms sg",
+        "humanValidated": false,
+        "readingStatus": "clear",
+        "alignment": "editorial-nonlexical",
+        "note": "Only the displayed components are recorded; no suffix features inferred. Source token is an editorial reading marker, not a lexical Mishnah word. Displayed raw Lex/Tag retained as image evidence only; never interpret combined abbreviation expansions as one lexical head.",
+        "referenceNote": "ref is the current source binding; no inference from parenthesized Accordance section numbers.",
+        "status": "editorial-abbreviation-needs-review"
+      }
+    }
+  ]
+}

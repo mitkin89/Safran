@@ -1,0 +1,129 @@
+{
+  "method": "Independent current source/ID/index/hash and actual image byte audit, plus fresh selected original image readings. Not a complete second transcription or human validation.",
+  "humanValidated": false,
+  "ledger": {
+    "file": "tools/mishnah-morph/accordance-nashim-current-yevamot-ch13-16-observations.json",
+    "sha256": "79a3a63fc4a6daf64376792988d94480a289ffb352ac1925265c475437f2aad9"
+  },
+  "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+  "scopeRefs": [
+    "13:1",
+    "13:2",
+    "13:3",
+    "13:4",
+    "13:5",
+    "13:6",
+    "13:7",
+    "13:8",
+    "13:9",
+    "13:10",
+    "13:11",
+    "13:12",
+    "13:13",
+    "14:1",
+    "14:2",
+    "14:3",
+    "14:4",
+    "15:1",
+    "15:2",
+    "15:3"
+  ],
+  "coverage": {
+    "rows": 973,
+    "uniqueRowPositions": 973,
+    "currentScopeWords": 1143,
+    "explicitTokenOpen": 170,
+    "actualImagesShaChecked": 18,
+    "selectedImagesFreshlyViewed": [
+      91,
+      92,
+      106,
+      107,
+      109
+    ]
+  },
+  "critical": {
+    "tail14_4": 164,
+    "opening15_3": 6,
+    "editorialReviewRows14_4": 8
+  },
+  "selectedVisualChecks": [
+    {
+      "ref": "14:4",
+      "image": 106,
+      "currentIndices": [
+        0,
+        72
+      ],
+      "result": "Original106 ends with בעל at current72. Last printed line and tags were freshly inspected. Current73–236 absent from provided continuation and correctly left open."
+    },
+    {
+      "ref": "15:1",
+      "image": 107,
+      "result": "Fresh original107 starts15:1; it supplies no continuation for14:4/73–236."
+    },
+    {
+      "ref": "14:4",
+      "image": 106,
+      "currentIndices": [
+        61,
+        68
+      ],
+      "result": "Repeated תצא משם אחות אשה מת פיקח בעל הפיקחת sequence is editorial/ambiguous; eight rows correctly carry editorial-repeat-needs-review."
+    },
+    {
+      "ref": "15:3",
+      "image": 109,
+      "currentIndices": [
+        4,
+        9
+      ],
+      "result": "Fresh opening reads בית שמי או תנשא ולא תיטול כתובה. Current additional בית הלל/positive clause is absent;4–9 correctly open."
+    },
+    {
+      "ref": "15:3",
+      "image": 109,
+      "currentIndices": [
+        17
+      ],
+      "observed": {
+        "surface": "היתרתם",
+        "lex": "נתר",
+        "tags": "hif prf 2 ms pl"
+      },
+      "result": "Enlarged crop confirms ledger. Initial QA suggestion qal was rejected after crop inspection; no ledger correction needed."
+    },
+    {
+      "ref": "13:2",
+      "image": 91,
+      "editorial": true,
+      "observed": {
+        "surface": "לא",
+        "lex": "לא",
+        "tags": "ng"
+      },
+      "result": "Inserted {לא} before תאכל clearly visible; unbound editorial observation appropriate."
+    },
+    {
+      "ref": "13:3",
+      "image": 92,
+      "editorial": true,
+      "observed": {
+        "surface": "אינה",
+        "lex": "אין",
+        "tags": "adv"
+      },
+      "result": "Alternative אינה before bracketed היא clearly visible; preserve separately from source11 היא."
+    }
+  ],
+  "issues": [],
+  "limitations": [
+    "Many-to-one groups and editorial-repeat rows remain review-only; raw row counts are not individual morphology verification.",
+    "No source text, vocalization, core module, or observation ledger was modified by this audit.",
+    "Global ledger scope remains incomplete beyond15:3."
+  ],
+  "metadataNotes": [
+    "Ledger has per-row image SHA and sourceTextHash; no top-level images index is required for these checks.",
+    "Ledger open token rows omit title/sourceTextHash, but sourceWordId and sourceWordIndex bind them uniquely; downstream consumers should retain ledger-level/source provenance."
+  ]
+}

@@ -1,0 +1,1969 @@
+{
+  "method": "Independent structural binding and explicit coverage audit; not an independent second visual reading.",
+  "humanValidated": false,
+  "draftCommit": "2cc7eaa",
+  "ledgerSha256": "13baddf374621f91788b1fbd7eacaa45d56c9e6372feca281b81e497671186cb",
+  "sourceTextHash": "481b6d93d1d21ec7428dfcc1d5c5a41c98c9802c6ea2874127ecab54c92f8034",
+  "totalSourceTokens": 2246,
+  "observations": 1969,
+  "uniqueObservedSourcePositions": 1967,
+  "remainingSourcePositions": 279,
+  "actualScreenshotGaps": 243,
+  "groupOrEditorialOpen": 36,
+  "errors": [],
+  "missing": [
+    {
+      "ref": "1:10",
+      "tokenIndex": 40,
+      "sourceWord": "הי",
+      "sourceWordId": "S07326.3.7.1.10/word/40",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "1:10",
+      "tokenIndex": 41,
+      "sourceWord": "שוב",
+      "sourceWordId": "S07326.3.7.1.10/word/41",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:3",
+      "tokenIndex": 76,
+      "sourceWord": "עלפי",
+      "sourceWordId": "S07326.3.7.2.3/word/76",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:4",
+      "tokenIndex": 5,
+      "sourceWord": "אש",
+      "sourceWordId": "S07326.3.7.2.4/word/5",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:4",
+      "tokenIndex": 6,
+      "sourceWord": "ה",
+      "sourceWordId": "S07326.3.7.2.4/word/6",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:5",
+      "tokenIndex": 8,
+      "sourceWord": "ונימצא",
+      "sourceWordId": "S07326.3.7.2.5/word/8",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:5",
+      "tokenIndex": 9,
+      "sourceWord": "ו",
+      "sourceWordId": "S07326.3.7.2.5/word/9",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:5",
+      "tokenIndex": 42,
+      "sourceWord": "ה",
+      "sourceWordId": "S07326.3.7.2.5/word/42",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:5",
+      "tokenIndex": 43,
+      "sourceWord": "פוסלים",
+      "sourceWordId": "S07326.3.7.2.5/word/43",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:6",
+      "tokenIndex": 17,
+      "sourceWord": "מ",
+      "sourceWordId": "S07326.3.7.2.6/word/17",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:6",
+      "tokenIndex": 18,
+      "sourceWord": "יכן",
+      "sourceWordId": "S07326.3.7.2.6/word/18",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:8",
+      "tokenIndex": 2,
+      "sourceWord": "בקדש",
+      "sourceWordId": "S07326.3.7.2.8/word/2",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:8",
+      "tokenIndex": 3,
+      "sourceWord": "י",
+      "sourceWordId": "S07326.3.7.2.8/word/3",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:8",
+      "tokenIndex": 4,
+      "sourceWord": "נ׳א",
+      "sourceWordId": "S07326.3.7.2.8/word/4",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:8",
+      "tokenIndex": 8,
+      "sourceWord": "נ׳א",
+      "sourceWordId": "S07326.3.7.2.8/word/8",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:9",
+      "tokenIndex": 14,
+      "sourceWord": "וב",
+      "sourceWordId": "S07326.3.7.2.9/word/14",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "2:9",
+      "tokenIndex": 15,
+      "sourceWord": "בשר",
+      "sourceWordId": "S07326.3.7.2.9/word/15",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:4",
+      "tokenIndex": 38,
+      "sourceWord": "שאיל",
+      "sourceWordId": "S07326.3.7.3.4/word/38",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:4",
+      "tokenIndex": 39,
+      "sourceWord": "מנה",
+      "sourceWordId": "S07326.3.7.3.4/word/39",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:4",
+      "tokenIndex": 40,
+      "sourceWord": "מלא",
+      "sourceWordId": "S07326.3.7.3.4/word/40",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 6,
+      "sourceWord": "שה",
+      "sourceWordId": "S07326.3.7.3.5/word/6",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 7,
+      "sourceWord": "יא",
+      "sourceWordId": "S07326.3.7.3.5/word/7",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 10,
+      "sourceWord": "ה",
+      "sourceWordId": "S07326.3.7.3.5/word/10",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 11,
+      "sourceWord": "יא",
+      "sourceWordId": "S07326.3.7.3.5/word/11",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 15,
+      "sourceWord": "ה",
+      "sourceWordId": "S07326.3.7.3.5/word/15",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 16,
+      "sourceWord": "יא",
+      "sourceWordId": "S07326.3.7.3.5/word/16",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 20,
+      "sourceWord": "ה",
+      "sourceWordId": "S07326.3.7.3.5/word/20",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:5",
+      "tokenIndex": 21,
+      "sourceWord": "יא",
+      "sourceWordId": "S07326.3.7.3.5/word/21",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 75,
+      "sourceWord": "שבגדולות",
+      "sourceWordId": "S07326.3.7.3.9/word/75",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 76,
+      "sourceWord": "ר'",
+      "sourceWordId": "S07326.3.7.3.9/word/76",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 77,
+      "sourceWord": "יוֹסֵה",
+      "sourceWordId": "S07326.3.7.3.9/word/77",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 78,
+      "sourceWord": "או'",
+      "sourceWordId": "S07326.3.7.3.9/word/78",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 79,
+      "sourceWord": "כוּלָם",
+      "sourceWordId": "S07326.3.7.3.9/word/79",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 80,
+      "sourceWord": "מוּתָרוֹת",
+      "sourceWordId": "S07326.3.7.3.9/word/80",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 81,
+      "sourceWord": "חוּץ",
+      "sourceWordId": "S07326.3.7.3.9/word/81",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 82,
+      "sourceWord": "מִן",
+      "sourceWordId": "S07326.3.7.3.9/word/82",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 83,
+      "sourceWord": "הַקִטַנָּה",
+      "sourceWordId": "S07326.3.7.3.9/word/83",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:9",
+      "tokenIndex": 84,
+      "sourceWord": "שֶׁבַּקְטַנוֹת",
+      "sourceWordId": "S07326.3.7.3.9/word/84",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 10,
+      "sourceWord": "וְאֵי",
+      "sourceWordId": "S07326.3.7.3.12/word/10",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 11,
+      "sourceWord": "זֶה",
+      "sourceWordId": "S07326.3.7.3.12/word/11",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 32,
+      "sourceWord": "וְאֵי",
+      "sourceWordId": "S07326.3.7.3.12/word/32",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 33,
+      "sourceWord": "זֶה",
+      "sourceWordId": "S07326.3.7.3.12/word/33",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 64,
+      "sourceWord": "וְאֵי",
+      "sourceWordId": "S07326.3.7.3.12/word/64",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 65,
+      "sourceWord": "זֶה",
+      "sourceWordId": "S07326.3.7.3.12/word/65",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 81,
+      "sourceWord": "עָלָיו",
+      "sourceWordId": "S07326.3.7.3.12/word/81",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 82,
+      "sourceWord": "וְלֹא",
+      "sourceWordId": "S07326.3.7.3.12/word/82",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 83,
+      "sourceWord": "עַל",
+      "sourceWordId": "S07326.3.7.3.12/word/83",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 84,
+      "sourceWord": "אֲחֵרִים",
+      "sourceWordId": "S07326.3.7.3.12/word/84",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 85,
+      "sourceWord": "קִידּוּשִׁים",
+      "sourceWordId": "S07326.3.7.3.12/word/85",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 86,
+      "sourceWord": "הַוֶּולֶד",
+      "sourceWordId": "S07326.3.7.3.12/word/86",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 87,
+      "sourceWord": "כָּמוֹהָ",
+      "sourceWordId": "S07326.3.7.3.12/word/87",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 88,
+      "sourceWord": "וְאֵי",
+      "sourceWordId": "S07326.3.7.3.12/word/88",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 89,
+      "sourceWord": "זֶה",
+      "sourceWordId": "S07326.3.7.3.12/word/89",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 90,
+      "sourceWord": "זֶה",
+      "sourceWordId": "S07326.3.7.3.12/word/90",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 91,
+      "sourceWord": "זֶה",
+      "sourceWordId": "S07326.3.7.3.12/word/91",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 92,
+      "sourceWord": "וֶולֶד",
+      "sourceWordId": "S07326.3.7.3.12/word/92",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 93,
+      "sourceWord": "שִׁפְחָה",
+      "sourceWordId": "S07326.3.7.3.12/word/93",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "3:12",
+      "tokenIndex": 94,
+      "sourceWord": "ונכרית",
+      "sourceWordId": "S07326.3.7.3.12/word/94",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 12,
+      "sourceWord": "אח",
+      "sourceWordId": "S07326.3.7.4.14/word/12",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 13,
+      "sourceWord": "ת",
+      "sourceWordId": "S07326.3.7.4.14/word/13",
+      "reason": "source-fragment-editorial-or-group-open"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 85,
+      "sourceWord": "אֶלָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/85",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 86,
+      "sourceWord": "אוּמָּנוּת",
+      "sourceWordId": "S07326.3.7.4.14/word/86",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 87,
+      "sourceWord": "נְקִייָּה",
+      "sourceWordId": "S07326.3.7.4.14/word/87",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 88,
+      "sourceWord": "וְקַלָּה",
+      "sourceWordId": "S07326.3.7.4.14/word/88",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 89,
+      "sourceWord": "שֶׁאֵין",
+      "sourceWordId": "S07326.3.7.4.14/word/89",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 90,
+      "sourceWord": "לַךְ",
+      "sourceWordId": "S07326.3.7.4.14/word/90",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 91,
+      "sourceWord": "אוּמָּנוּת",
+      "sourceWordId": "S07326.3.7.4.14/word/91",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 92,
+      "sourceWord": "שֶׁאֵין",
+      "sourceWordId": "S07326.3.7.4.14/word/92",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 93,
+      "sourceWord": "בָּה",
+      "sourceWordId": "S07326.3.7.4.14/word/93",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 94,
+      "sourceWord": "עֲנִייִּם",
+      "sourceWordId": "S07326.3.7.4.14/word/94",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 95,
+      "sourceWord": "וָעֲשִׁירִים",
+      "sourceWordId": "S07326.3.7.4.14/word/95",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 96,
+      "sourceWord": "אֶלָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/96",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 97,
+      "sourceWord": "הַכֹּל",
+      "sourceWordId": "S07326.3.7.4.14/word/97",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 98,
+      "sourceWord": "לְפִי",
+      "sourceWordId": "S07326.3.7.4.14/word/98",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 99,
+      "sourceWord": "זְכוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/99",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 100,
+      "sourceWord": "שֶׁלָּאָדָן",
+      "sourceWordId": "S07326.3.7.4.14/word/100",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 101,
+      "sourceWord": "הוּא",
+      "sourceWordId": "S07326.3.7.4.14/word/101",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 102,
+      "sourceWord": "הָיָה",
+      "sourceWordId": "S07326.3.7.4.14/word/102",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 103,
+      "sourceWord": "אומ'",
+      "sourceWordId": "S07326.3.7.4.14/word/103",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 104,
+      "sourceWord": "הֲרָאִיתָה",
+      "sourceWordId": "S07326.3.7.4.14/word/104",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 105,
+      "sourceWord": "מִיָּמֶיךָ",
+      "sourceWordId": "S07326.3.7.4.14/word/105",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 106,
+      "sourceWord": "אֲרִי",
+      "sourceWordId": "S07326.3.7.4.14/word/106",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 107,
+      "sourceWord": "סַבָּל",
+      "sourceWordId": "S07326.3.7.4.14/word/107",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 108,
+      "sourceWord": "צְבִי",
+      "sourceWordId": "S07326.3.7.4.14/word/108",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 109,
+      "sourceWord": "קייץ",
+      "sourceWordId": "S07326.3.7.4.14/word/109",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 110,
+      "sourceWord": "שׁוּעַל",
+      "sourceWordId": "S07326.3.7.4.14/word/110",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 111,
+      "sourceWord": "חַנְוָונִי",
+      "sourceWordId": "S07326.3.7.4.14/word/111",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 112,
+      "sourceWord": "זְאֵב",
+      "sourceWordId": "S07326.3.7.4.14/word/112",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 113,
+      "sourceWord": "גּוֹדֵר",
+      "sourceWordId": "S07326.3.7.4.14/word/113",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 114,
+      "sourceWord": "גְּדֵירוֹת",
+      "sourceWordId": "S07326.3.7.4.14/word/114",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 115,
+      "sourceWord": "וַהֲרֵי",
+      "sourceWordId": "S07326.3.7.4.14/word/115",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 116,
+      "sourceWord": "הַדְּבָרִים",
+      "sourceWordId": "S07326.3.7.4.14/word/116",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 117,
+      "sourceWord": "קל",
+      "sourceWordId": "S07326.3.7.4.14/word/117",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 118,
+      "sourceWord": "וַחוֹמֶר",
+      "sourceWordId": "S07326.3.7.4.14/word/118",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 119,
+      "sourceWord": "וּמָהּ",
+      "sourceWordId": "S07326.3.7.4.14/word/119",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 120,
+      "sourceWord": "אִם",
+      "sourceWordId": "S07326.3.7.4.14/word/120",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 121,
+      "sourceWord": "אֵלּוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/121",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 122,
+      "sourceWord": "שֶׁנִּיבְרְאוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/122",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 123,
+      "sourceWord": "שֶׁלֹא",
+      "sourceWordId": "S07326.3.7.4.14/word/123",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 124,
+      "sourceWord": "לשַׁמֵּשׁ",
+      "sourceWordId": "S07326.3.7.4.14/word/124",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 125,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/125",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 126,
+      "sourceWord": "קוֹנָן",
+      "sourceWordId": "S07326.3.7.4.14/word/126",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 127,
+      "sourceWord": "הֲרֵי",
+      "sourceWordId": "S07326.3.7.4.14/word/127",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 128,
+      "sourceWord": "הֵן",
+      "sourceWordId": "S07326.3.7.4.14/word/128",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 129,
+      "sourceWord": "מִיתְפַּרנְסִים",
+      "sourceWordId": "S07326.3.7.4.14/word/129",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 130,
+      "sourceWord": "שֶׁלֹא",
+      "sourceWordId": "S07326.3.7.4.14/word/130",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 131,
+      "sourceWord": "בְצַעַר",
+      "sourceWordId": "S07326.3.7.4.14/word/131",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 132,
+      "sourceWord": "אֲנִי",
+      "sourceWordId": "S07326.3.7.4.14/word/132",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 133,
+      "sourceWord": "שֶׁנִּיבְרֵאתִי",
+      "sourceWordId": "S07326.3.7.4.14/word/133",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 134,
+      "sourceWord": "לְשַׁמֵּשׁ",
+      "sourceWordId": "S07326.3.7.4.14/word/134",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 135,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/135",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 136,
+      "sourceWord": "קוֹנִי",
+      "sourceWordId": "S07326.3.7.4.14/word/136",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 137,
+      "sourceWord": "אֵינוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/137",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 138,
+      "sourceWord": "דִין",
+      "sourceWordId": "S07326.3.7.4.14/word/138",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 139,
+      "sourceWord": "שֶׁתְּהֵא",
+      "sourceWordId": "S07326.3.7.4.14/word/139",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 140,
+      "sourceWord": "פַרִנָסָתִי",
+      "sourceWordId": "S07326.3.7.4.14/word/140",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 141,
+      "sourceWord": "שֶׁלֹּא",
+      "sourceWordId": "S07326.3.7.4.14/word/141",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 142,
+      "sourceWord": "בְצַעַר",
+      "sourceWordId": "S07326.3.7.4.14/word/142",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 143,
+      "sourceWord": "וּמִי",
+      "sourceWordId": "S07326.3.7.4.14/word/143",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 144,
+      "sourceWord": "גָרַם",
+      "sourceWordId": "S07326.3.7.4.14/word/144",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 145,
+      "sourceWord": "לִי",
+      "sourceWordId": "S07326.3.7.4.14/word/145",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 146,
+      "sourceWord": "לִהְיוֹת",
+      "sourceWordId": "S07326.3.7.4.14/word/146",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 147,
+      "sourceWord": "מִתְפַּרְנֵס",
+      "sourceWordId": "S07326.3.7.4.14/word/147",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 148,
+      "sourceWord": "בִּצַעַר",
+      "sourceWordId": "S07326.3.7.4.14/word/148",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 149,
+      "sourceWord": "הוי",
+      "sourceWordId": "S07326.3.7.4.14/word/149",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 150,
+      "sourceWord": "אומ'",
+      "sourceWordId": "S07326.3.7.4.14/word/150",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 151,
+      "sourceWord": "חֲטָאַיִי",
+      "sourceWordId": "S07326.3.7.4.14/word/151",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 152,
+      "sourceWord": "לְפִי",
+      "sourceWordId": "S07326.3.7.4.14/word/152",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 153,
+      "sourceWord": "שֶׁהֵירַעְתִּי",
+      "sourceWordId": "S07326.3.7.4.14/word/153",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 154,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/154",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 155,
+      "sourceWord": "מַעֲשַׂי",
+      "sourceWordId": "S07326.3.7.4.14/word/155",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 156,
+      "sourceWord": "וֶקֵיפַחְתִּי",
+      "sourceWordId": "S07326.3.7.4.14/word/156",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 157,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/157",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 158,
+      "sourceWord": "פַּרְנָסָתִי",
+      "sourceWordId": "S07326.3.7.4.14/word/158",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 159,
+      "sourceWord": "אמ'",
+      "sourceWordId": "S07326.3.7.4.14/word/159",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 160,
+      "sourceWord": "לָהֶם",
+      "sourceWordId": "S07326.3.7.4.14/word/160",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 161,
+      "sourceWord": "רְבִי",
+      "sourceWordId": "S07326.3.7.4.14/word/161",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 162,
+      "sourceWord": "נוּהֹרַי",
+      "sourceWordId": "S07326.3.7.4.14/word/162",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 163,
+      "sourceWord": "מַנִּיַח",
+      "sourceWordId": "S07326.3.7.4.14/word/163",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 164,
+      "sourceWord": "אֲנִי",
+      "sourceWordId": "S07326.3.7.4.14/word/164",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 165,
+      "sourceWord": "אֵת",
+      "sourceWordId": "S07326.3.7.4.14/word/165",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 166,
+      "sourceWord": "כָּל",
+      "sourceWordId": "S07326.3.7.4.14/word/166",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 167,
+      "sourceWord": "אוּמָּנוּת",
+      "sourceWordId": "S07326.3.7.4.14/word/167",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 168,
+      "sourceWord": "שֶׁבָּעוֹלָם",
+      "sourceWordId": "S07326.3.7.4.14/word/168",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 169,
+      "sourceWord": "וְאֵינִי",
+      "sourceWordId": "S07326.3.7.4.14/word/169",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 170,
+      "sourceWord": "מְלַמֵּד",
+      "sourceWordId": "S07326.3.7.4.14/word/170",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 171,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/171",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 172,
+      "sourceWord": "בָנַי",
+      "sourceWordId": "S07326.3.7.4.14/word/172",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 173,
+      "sourceWord": "אֶלָא",
+      "sourceWordId": "S07326.3.7.4.14/word/173",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 174,
+      "sourceWord": "תוֹרָה",
+      "sourceWordId": "S07326.3.7.4.14/word/174",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 175,
+      "sourceWord": "כְּדֵי",
+      "sourceWordId": "S07326.3.7.4.14/word/175",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 176,
+      "sourceWord": "שֶׁיֹּאכְלוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/176",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 177,
+      "sourceWord": "שְׂכַר",
+      "sourceWordId": "S07326.3.7.4.14/word/177",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 178,
+      "sourceWord": "עֲמָלָה",
+      "sourceWordId": "S07326.3.7.4.14/word/178",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 179,
+      "sourceWord": "בַּעוֹלָם",
+      "sourceWordId": "S07326.3.7.4.14/word/179",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 180,
+      "sourceWord": "הַזֶה",
+      "sourceWordId": "S07326.3.7.4.14/word/180",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 181,
+      "sourceWord": "וְקֶרֶן",
+      "sourceWordId": "S07326.3.7.4.14/word/181",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 182,
+      "sourceWord": "קַיֶּימֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/182",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 183,
+      "sourceWord": "לָהֶם",
+      "sourceWordId": "S07326.3.7.4.14/word/183",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 184,
+      "sourceWord": "לָעוֹלָם",
+      "sourceWordId": "S07326.3.7.4.14/word/184",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 185,
+      "sourceWord": "הַבָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/185",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 186,
+      "sourceWord": "שֶׁאֵין",
+      "sourceWordId": "S07326.3.7.4.14/word/186",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 187,
+      "sourceWord": "לָךְ",
+      "sourceWordId": "S07326.3.7.4.14/word/187",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 188,
+      "sourceWord": "אוּמָּנוּת",
+      "sourceWordId": "S07326.3.7.4.14/word/188",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 189,
+      "sourceWord": "שֶׁהִיא",
+      "sourceWordId": "S07326.3.7.4.14/word/189",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 190,
+      "sourceWord": "עוֹמֶדֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/190",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 191,
+      "sourceWord": "לָאָדָּן",
+      "sourceWordId": "S07326.3.7.4.14/word/191",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 192,
+      "sourceWord": "אֶלָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/192",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 193,
+      "sourceWord": "בְנַעְרוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/193",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 194,
+      "sourceWord": "בִלְבַד",
+      "sourceWordId": "S07326.3.7.4.14/word/194",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 195,
+      "sourceWord": "אֶלָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/195",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 196,
+      "sourceWord": "אִם",
+      "sourceWordId": "S07326.3.7.4.14/word/196",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 197,
+      "sourceWord": "בָא",
+      "sourceWordId": "S07326.3.7.4.14/word/197",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 198,
+      "sourceWord": "לִידֵי",
+      "sourceWordId": "S07326.3.7.4.14/word/198",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 199,
+      "sourceWord": "חוֹלי",
+      "sourceWordId": "S07326.3.7.4.14/word/199",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 200,
+      "sourceWord": "אוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/200",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 201,
+      "sourceWord": "לְמִידָה",
+      "sourceWordId": "S07326.3.7.4.14/word/201",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 202,
+      "sourceWord": "שֶׁלְיִיסּוּרִין",
+      "sourceWordId": "S07326.3.7.4.14/word/202",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 203,
+      "sourceWord": "אוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/203",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 204,
+      "sourceWord": "יִכָּנֵס",
+      "sourceWordId": "S07326.3.7.4.14/word/204",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 205,
+      "sourceWord": "לי",
+      "sourceWordId": "S07326.3.7.4.14/word/205",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 206,
+      "sourceWord": "מי",
+      "sourceWordId": "S07326.3.7.4.14/word/206",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 207,
+      "sourceWord": "זִיקְנָה",
+      "sourceWordId": "S07326.3.7.4.14/word/207",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 208,
+      "sourceWord": "וְאֵין",
+      "sourceWordId": "S07326.3.7.4.14/word/208",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 209,
+      "sourceWord": "וְאֵין",
+      "sourceWordId": "S07326.3.7.4.14/word/209",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 210,
+      "sourceWord": "יָכוֹל",
+      "sourceWordId": "S07326.3.7.4.14/word/210",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 211,
+      "sourceWord": "לַעֲמוֹד",
+      "sourceWordId": "S07326.3.7.4.14/word/211",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 212,
+      "sourceWord": "בִּמְלַאכְתּוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/212",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 213,
+      "sourceWord": "נִמְצָא",
+      "sourceWordId": "S07326.3.7.4.14/word/213",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 214,
+      "sourceWord": "מֵת",
+      "sourceWordId": "S07326.3.7.4.14/word/214",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 215,
+      "sourceWord": "בְּרָעָב",
+      "sourceWordId": "S07326.3.7.4.14/word/215",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 216,
+      "sourceWord": "אֲבַל",
+      "sourceWordId": "S07326.3.7.4.14/word/216",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 217,
+      "sourceWord": "הַתּוֹרָה",
+      "sourceWordId": "S07326.3.7.4.14/word/217",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 218,
+      "sourceWord": "אֵינָהּ",
+      "sourceWordId": "S07326.3.7.4.14/word/218",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 219,
+      "sourceWord": "כֵּן",
+      "sourceWordId": "S07326.3.7.4.14/word/219",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 220,
+      "sourceWord": "אֶלָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/220",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 221,
+      "sourceWord": "מְשַׁמֶּרֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/221",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 222,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/222",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 223,
+      "sourceWord": "אדם",
+      "sourceWordId": "S07326.3.7.4.14/word/223",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 224,
+      "sourceWord": "מִכַּל",
+      "sourceWordId": "S07326.3.7.4.14/word/224",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 225,
+      "sourceWord": "רַע",
+      "sourceWordId": "S07326.3.7.4.14/word/225",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 226,
+      "sourceWord": "בְנַעְרוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/226",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 227,
+      "sourceWord": "וְנוֹתֶנֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/227",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 228,
+      "sourceWord": "לוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/228",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 229,
+      "sourceWord": "אַחֲרִית",
+      "sourceWordId": "S07326.3.7.4.14/word/229",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 230,
+      "sourceWord": "וְתִקְוָה",
+      "sourceWordId": "S07326.3.7.4.14/word/230",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 231,
+      "sourceWord": "בְזִקְנּוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/231",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 232,
+      "sourceWord": "בְּנַעְרוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/232",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 233,
+      "sourceWord": "מָה",
+      "sourceWordId": "S07326.3.7.4.14/word/233",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 234,
+      "sourceWord": "הוּא",
+      "sourceWordId": "S07326.3.7.4.14/word/234",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 235,
+      "sourceWord": "אומ'",
+      "sourceWordId": "S07326.3.7.4.14/word/235",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 236,
+      "sourceWord": "וְקוּיֵי",
+      "sourceWordId": "S07326.3.7.4.14/word/236",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 237,
+      "sourceWord": "יָיי",
+      "sourceWordId": "S07326.3.7.4.14/word/237",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 238,
+      "sourceWord": "יַחֲלִיפוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/238",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 239,
+      "sourceWord": "כֹחַ",
+      "sourceWordId": "S07326.3.7.4.14/word/239",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 240,
+      "sourceWord": "יַעֲלוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/240",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 241,
+      "sourceWord": "אֶבֶר",
+      "sourceWordId": "S07326.3.7.4.14/word/241",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 242,
+      "sourceWord": "כַּנְּשָׁרִים",
+      "sourceWordId": "S07326.3.7.4.14/word/242",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 243,
+      "sourceWord": "יָרוּצוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/243",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 244,
+      "sourceWord": "וְלֹא",
+      "sourceWordId": "S07326.3.7.4.14/word/244",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 245,
+      "sourceWord": "ייגעו",
+      "sourceWordId": "S07326.3.7.4.14/word/245",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 246,
+      "sourceWord": "יֵלְכוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/246",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 247,
+      "sourceWord": "וְלֹא",
+      "sourceWordId": "S07326.3.7.4.14/word/247",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 248,
+      "sourceWord": "יִיּעָפוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/248",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 249,
+      "sourceWord": "בִּזִקְנוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/249",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 250,
+      "sourceWord": "מָּה",
+      "sourceWordId": "S07326.3.7.4.14/word/250",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 251,
+      "sourceWord": "הוּא",
+      "sourceWordId": "S07326.3.7.4.14/word/251",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 252,
+      "sourceWord": "או'",
+      "sourceWordId": "S07326.3.7.4.14/word/252",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 253,
+      "sourceWord": "עוֹד",
+      "sourceWordId": "S07326.3.7.4.14/word/253",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 254,
+      "sourceWord": "יְנוּבוּן",
+      "sourceWordId": "S07326.3.7.4.14/word/254",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 255,
+      "sourceWord": "בְּשֵׂיבָה",
+      "sourceWordId": "S07326.3.7.4.14/word/255",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 256,
+      "sourceWord": "דְּשֵׁנִים",
+      "sourceWordId": "S07326.3.7.4.14/word/256",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 257,
+      "sourceWord": "וְרַעֲנָנִים",
+      "sourceWordId": "S07326.3.7.4.14/word/257",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 258,
+      "sourceWord": "יִהְיוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/258",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 259,
+      "sourceWord": "וְכֵן",
+      "sourceWordId": "S07326.3.7.4.14/word/259",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 260,
+      "sourceWord": "אַתְּ",
+      "sourceWordId": "S07326.3.7.4.14/word/260",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 261,
+      "sourceWord": "מוֹצֵּא",
+      "sourceWordId": "S07326.3.7.4.14/word/261",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 262,
+      "sourceWord": "בִּאָבִינוּ",
+      "sourceWordId": "S07326.3.7.4.14/word/262",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 263,
+      "sourceWord": "אַבְרָהָם",
+      "sourceWordId": "S07326.3.7.4.14/word/263",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 264,
+      "sourceWord": "ששימר",
+      "sourceWordId": "S07326.3.7.4.14/word/264",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 265,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/265",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 266,
+      "sourceWord": "הַתּוֹרָה",
+      "sourceWordId": "S07326.3.7.4.14/word/266",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 267,
+      "sourceWord": "עַד",
+      "sourceWordId": "S07326.3.7.4.14/word/267",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 268,
+      "sourceWord": "שֶׁלֹא",
+      "sourceWordId": "S07326.3.7.4.14/word/268",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 269,
+      "sourceWord": "בָאת",
+      "sourceWordId": "S07326.3.7.4.14/word/269",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 270,
+      "sourceWord": "לָעוֹלָם",
+      "sourceWordId": "S07326.3.7.4.14/word/270",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 271,
+      "sourceWord": "שנ'",
+      "sourceWordId": "S07326.3.7.4.14/word/271",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 272,
+      "sourceWord": "עֵקֶב",
+      "sourceWordId": "S07326.3.7.4.14/word/272",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 273,
+      "sourceWord": "אֲשֶֽׁר",
+      "sourceWordId": "S07326.3.7.4.14/word/273",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 274,
+      "sourceWord": "שָׁמַע",
+      "sourceWordId": "S07326.3.7.4.14/word/274",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 275,
+      "sourceWord": "אַבְרָהָם",
+      "sourceWordId": "S07326.3.7.4.14/word/275",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 276,
+      "sourceWord": "בְּקוֹלי",
+      "sourceWordId": "S07326.3.7.4.14/word/276",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 277,
+      "sourceWord": "וַיִשְׁמֹר",
+      "sourceWordId": "S07326.3.7.4.14/word/277",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 278,
+      "sourceWord": "מִשְׁמַרְתִּי",
+      "sourceWordId": "S07326.3.7.4.14/word/278",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 279,
+      "sourceWord": "מִצְוֹתַיִ",
+      "sourceWordId": "S07326.3.7.4.14/word/279",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 280,
+      "sourceWord": "חֻקתַיִ",
+      "sourceWordId": "S07326.3.7.4.14/word/280",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 281,
+      "sourceWord": "וְתוֹרֹתַיִ",
+      "sourceWordId": "S07326.3.7.4.14/word/281",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 282,
+      "sourceWord": "וְכֵן",
+      "sourceWordId": "S07326.3.7.4.14/word/282",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 283,
+      "sourceWord": "אַתְ",
+      "sourceWordId": "S07326.3.7.4.14/word/283",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 284,
+      "sourceWord": "מוֹצֵא",
+      "sourceWordId": "S07326.3.7.4.14/word/284",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 285,
+      "sourceWord": "שֶׁבֵּירְכוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/285",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 286,
+      "sourceWord": "הַמָּקוֹם",
+      "sourceWordId": "S07326.3.7.4.14/word/286",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 287,
+      "sourceWord": "ב'",
+      "sourceWordId": "S07326.3.7.4.14/word/287",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 288,
+      "sourceWord": "ה'",
+      "sourceWordId": "S07326.3.7.4.14/word/288",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 289,
+      "sourceWord": "בְּנַעְרוֹתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/289",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 290,
+      "sourceWord": "ובְזִקְנוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/290",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 291,
+      "sourceWord": "בְּנַעְרוּתוֹ",
+      "sourceWordId": "S07326.3.7.4.14/word/291",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 292,
+      "sourceWord": "מָה",
+      "sourceWordId": "S07326.3.7.4.14/word/292",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 293,
+      "sourceWord": "הוּא",
+      "sourceWordId": "S07326.3.7.4.14/word/293",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 294,
+      "sourceWord": "אומ'",
+      "sourceWordId": "S07326.3.7.4.14/word/294",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 295,
+      "sourceWord": "וְאַבְרָהָם",
+      "sourceWordId": "S07326.3.7.4.14/word/295",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 296,
+      "sourceWord": "זָקֵן",
+      "sourceWordId": "S07326.3.7.4.14/word/296",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 297,
+      "sourceWord": "בָּא",
+      "sourceWordId": "S07326.3.7.4.14/word/297",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 298,
+      "sourceWord": "בַּיָּמִים",
+      "sourceWordId": "S07326.3.7.4.14/word/298",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 299,
+      "sourceWord": "וָיָיי",
+      "sourceWordId": "S07326.3.7.4.14/word/299",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 300,
+      "sourceWord": "בֵּרַךְ",
+      "sourceWordId": "S07326.3.7.4.14/word/300",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 301,
+      "sourceWord": "אֶת",
+      "sourceWordId": "S07326.3.7.4.14/word/301",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 302,
+      "sourceWord": "אַבְרָהָם",
+      "sourceWordId": "S07326.3.7.4.14/word/302",
+      "reason": "actual-screenshot-gap"
+    },
+    {
+      "ref": "4:14",
+      "tokenIndex": 303,
+      "sourceWord": "בַכֹּל",
+      "sourceWordId": "S07326.3.7.4.14/word/303",
+      "reason": "actual-screenshot-gap"
+    }
+  ]
+}

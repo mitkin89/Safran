@@ -1,0 +1,405 @@
+{
+  "method": "Exhaustive independent source/image/schema audit; no second visual reading except separately documented targeted rereads. Raw disagreements are candidates, not adjudications.",
+  "draftCommit": "2cc7eaa",
+  "complete": false,
+  "humanValidated": false,
+  "coverageLimitations": [
+    "Position coverage is partial; source fragments, editorial readings and screenshot cutoffs remain explicit.",
+    "uniqueObservedSourcePositions counts anchor IDs, not expanded group coverage. Use the source-ID coverage in the comparator for group-inclusive totals.",
+    "No source morphology is changed by this audit; no claim of independent human validation or full manuscript collation."
+  ],
+  "inputs": [
+    {
+      "file": "accordance-nashim-current-gittin-observations.json",
+      "sha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+      "observations": 3580
+    },
+    {
+      "file": "accordance-nashim-current-ketubot-observations.json",
+      "sha256": "82eae131acfd0e6b7b1ac115fbad39eb8f5fdaf1f8248d9c3824c0d1edd3538a",
+      "observations": 4882
+    },
+    {
+      "file": "accordance-nashim-current-kiddushin-observations.json",
+      "sha256": "13baddf374621f91788b1fbd7eacaa45d56c9e6372feca281b81e497671186cb",
+      "observations": 1969
+    },
+    {
+      "file": "accordance-nashim-current-nazir-observations.json",
+      "sha256": "4a5ba2acc0b01845767a672b998de09c0365fef95d4c34a0efa56b5160c30bc1",
+      "observations": 2904
+    },
+    {
+      "file": "accordance-nashim-current-nedarim-observations.json",
+      "sha256": "4d9b5e81d58e6126b9f36c1731f62f3c22e18739148baf0ce8122a142f38887f",
+      "observations": 3787
+    },
+    {
+      "file": "accordance-nashim-current-sotah-a-observations.json",
+      "sha256": "25b36c7a287fbaafe0c335216b03a474073c11770d46d1831f0e3c5a75614d4b",
+      "observations": 1763
+    },
+    {
+      "file": "accordance-nashim-current-sotah-b-observations.json",
+      "sha256": "16d3dd9c2da56c3aa6fc1bf8a0ed522100a74d2fe58870e51e36cdbc1ec38b41",
+      "observations": 1544
+    },
+    {
+      "file": "accordance-nashim-current-yevamot-ch13-16-observations.json",
+      "sha256": "79a3a63fc4a6daf64376792988d94480a289ffb352ac1925265c475437f2aad9",
+      "observations": 973
+    },
+    {
+      "file": "accordance-nashim-current-yevamot-ch15-tail-observations.json",
+      "sha256": "f87ac292497fe46e9e1cd20b2b10bf0f9e595824f034fa933384182c747517e6",
+      "observations": 369
+    },
+    {
+      "file": "accordance-nashim-current-yevamot-ch16-observations.json",
+      "sha256": "a435cdf58c9efea462db3d534dfb6626f67c11a507f4931f90faa409677633b0",
+      "observations": 391
+    },
+    {
+      "file": "accordance-nashim-current-yevamot-observations.json",
+      "sha256": "f86fc121a882e858a5a71d9f8caad21258baac5f3fe781b0d75c2d61a983185c",
+      "observations": 4219
+    }
+  ],
+  "observations": 26381,
+  "uniqueObservedSourcePositions": 26334,
+  "verifiedActualImages": 569,
+  "errors": [],
+  "warnings": [
+    {
+      "file": "accordance-nashim-current-ketubot-observations.json",
+      "reason": "Document-level humanValidated:false not explicit"
+    },
+    {
+      "file": "accordance-nashim-current-yevamot-ch15-tail-observations.json",
+      "reason": "Document-level humanValidated:false not explicit"
+    }
+  ],
+  "exactRawDisagreements": [
+    {
+      "key": "Mishnah Ketubot|S07326.3.2.1.9/word/32",
+      "variants": [
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "1:9",
+          "id": "S07326.3.2.1.9/word/32",
+          "word": "ראייה",
+          "lex": "ראיה",
+          "tags": "cm fm sg",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "sha256": "9c46861af1ca33c70bea6066ca3b65e457deb3698b4cfd6ffc348a7129899276",
+            "driveId": "1vd9HQQd0Lyy2sdTIMc92Dd5Z-rj4NF-B"
+          }
+        },
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "1:9",
+          "id": "S07326.3.2.1.9/word/32",
+          "word": "{ראייה}",
+          "lex": "ראיה",
+          "tags": "cm fm sg",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "sha256": "9c46861af1ca33c70bea6066ca3b65e457deb3698b4cfd6ffc348a7129899276",
+            "driveId": "1vd9HQQd0Lyy2sdTIMc92Dd5Z-rj4NF-B"
+          }
+        }
+      ],
+      "reviewClassification": "editorial-bracketing-or-lexical-spelling-review"
+    },
+    {
+      "key": "Mishnah Ketubot|S07326.3.2.2.3/word/5",
+      "variants": [
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "2:3",
+          "id": "S07326.3.2.2.3/word/5",
+          "word": "(אבל)",
+          "lex": "אבל",
+          "tags": "adv",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "sha256": "343c5ec50e28f834111831cae7ac2100a94a927a668a97180c10dcca9ac7ff12",
+            "driveId": "1vQUkOIh_v3G_vjsZjwapzFxhFqX-BzJ9"
+          }
+        },
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "2:3",
+          "id": "S07326.3.2.2.3/word/5",
+          "word": "{אבל}",
+          "lex": "אבל",
+          "tags": "adv",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "sha256": "343c5ec50e28f834111831cae7ac2100a94a927a668a97180c10dcca9ac7ff12",
+            "driveId": "1vQUkOIh_v3G_vjsZjwapzFxhFqX-BzJ9"
+          }
+        }
+      ],
+      "reviewClassification": "editorial-bracketing-or-lexical-spelling-review"
+    },
+    {
+      "key": "Mishnah Ketubot|S07326.3.2.2.10/word/27",
+      "variants": [
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "2:10",
+          "id": "S07326.3.2.2.10/word/27",
+          "word": "פלני",
+          "lex": "פלני",
+          "tags": "cm ms sg",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "sha256": "58e6d28b5142c53cd967a211a98a07f4691c67be7b1c0805bb0f45ce3216238d",
+            "driveId": "1gnRdjuIIF_OQhZDgvnCL1MA5fGSHYGMx"
+          }
+        },
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "2:10",
+          "id": "S07326.3.2.2.10/word/27",
+          "word": "(פלוני)",
+          "lex": "פלוני",
+          "tags": "cm ms sg",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "sha256": "58e6d28b5142c53cd967a211a98a07f4691c67be7b1c0805bb0f45ce3216238d",
+            "driveId": "1gnRdjuIIF_OQhZDgvnCL1MA5fGSHYGMx"
+          }
+        }
+      ],
+      "reviewClassification": "editorial-bracketing-or-lexical-spelling-review"
+    },
+    {
+      "key": "Mishnah Ketubot|S07326.3.2.3.8/word/19",
+      "variants": [
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "3:8",
+          "id": "S07326.3.2.3.8/word/19",
+          "word": "{קטנה}",
+          "lex": "קטן",
+          "tags": "fm sg",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_149.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_149.png",
+            "sha256": "3a8988f3407a927d0ca244f86717aa28e1c6fd86c60512076f4d3a4a16c2c4de",
+            "driveId": "1u-k0S5kaAH8tP3K7b53XO8UyCMCWVBYq"
+          }
+        },
+        {
+          "file": "accordance-nashim-current-ketubot-observations.json",
+          "ref": "3:8",
+          "id": "S07326.3.2.3.8/word/19",
+          "word": "נערה",
+          "lex": "נערה",
+          "tags": "cm fm sg",
+          "confidence": "clear",
+          "alignment": "one-to-one",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_150.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_150.png",
+            "sha256": "bca8a154132417d850cc184c396f9de1dd06a0f5953ac9203dc25ab03ceeff1f",
+            "driveId": "1be8s1CW7kr9-dxy3MTyteUgV7YnwQzO-"
+          }
+        }
+      ],
+      "reviewClassification": "confirmed-visible-variant-149-vs150"
+    }
+  ],
+  "bookModuleByteChecks": [
+    {
+      "title": "Mishnah Yevamot",
+      "file": "mishnah-kaufmann-accordance-yevamot-data.js",
+      "currentSha256": "5b4ff14b91be4c924d23fbc009ecd2af1842649a925d22115830c51aba7a5bd3",
+      "draftSha256": "5b4ff14b91be4c924d23fbc009ecd2af1842649a925d22115830c51aba7a5bd3",
+      "byteIdentical": true
+    },
+    {
+      "title": "Mishnah Ketubot",
+      "file": "mishnah-kaufmann-accordance-ketubot-data.js",
+      "currentSha256": "54cfb5ac36300d75e647e6d7d0b1c6861b43bc10fe8305ce4298a5d12c2b786c",
+      "draftSha256": "54cfb5ac36300d75e647e6d7d0b1c6861b43bc10fe8305ce4298a5d12c2b786c",
+      "byteIdentical": true
+    },
+    {
+      "title": "Mishnah Nedarim",
+      "file": "mishnah-kaufmann-accordance-nedarim-data.js",
+      "currentSha256": "b6b5284192c735bb715bfabf078a72fb76bacfb2bbe2eb0ae5e29b7620ed5c72",
+      "draftSha256": "b6b5284192c735bb715bfabf078a72fb76bacfb2bbe2eb0ae5e29b7620ed5c72",
+      "byteIdentical": true
+    },
+    {
+      "title": "Mishnah Nazir",
+      "file": "mishnah-kaufmann-accordance-nazir-data.js",
+      "currentSha256": "ad15b6319e9667f7db5238c0154585828344bff367f4914e924a61fe169cd5fb",
+      "draftSha256": "ad15b6319e9667f7db5238c0154585828344bff367f4914e924a61fe169cd5fb",
+      "byteIdentical": true
+    },
+    {
+      "title": "Mishnah Sotah",
+      "file": "mishnah-kaufmann-accordance-sotah-data.js",
+      "currentSha256": "77e2241a658628b2c50f2a98017b5eaf8cc0c157b301db71ed3c39473d5bdd78",
+      "draftSha256": "77e2241a658628b2c50f2a98017b5eaf8cc0c157b301db71ed3c39473d5bdd78",
+      "byteIdentical": true
+    },
+    {
+      "title": "Mishnah Gittin",
+      "file": "mishnah-kaufmann-accordance-gittin-data.js",
+      "currentSha256": "23a6c73ae2f0d9fa97e3faead8e22be3f334edd0e047681b77b0762817d14780",
+      "draftSha256": "23a6c73ae2f0d9fa97e3faead8e22be3f334edd0e047681b77b0762817d14780",
+      "byteIdentical": true
+    },
+    {
+      "title": "Mishnah Kiddushin",
+      "file": "mishnah-kaufmann-accordance-kiddushin-data.js",
+      "currentSha256": "9e13851146ac3fa8a56eab90d77b921e28e50a4e50baff85a87a7158c82d0780",
+      "draftSha256": "9e13851146ac3fa8a56eab90d77b921e28e50a4e50baff85a87a7158c82d0780",
+      "byteIdentical": true
+    }
+  ],
+  "comparisonBinding": {
+    "file": "nashim-current-accordance-comparison.json",
+    "sha256": "6d94c5947253426212afbd3192bbaaa8c3d2b3a07c2e5de6a016ef41457e290e",
+    "draftCommit": "2cc7eaae7b94de668634b588b116422c7e8d32f0",
+    "observationRows": 26381,
+    "uniqueGroupInclusivePositions": 26442,
+    "coverage": [
+      {
+        "title": "Mishnah Yevamot",
+        "sourceWords": 6625,
+        "observed": 5999,
+        "withoutObservation": 626,
+        "complete": false
+      },
+      {
+        "title": "Mishnah Ketubot",
+        "sourceWords": 5081,
+        "observed": 4936,
+        "withoutObservation": 145,
+        "complete": false
+      },
+      {
+        "title": "Mishnah Nedarim",
+        "sourceWords": 4459,
+        "observed": 3787,
+        "withoutObservation": 672,
+        "complete": false
+      },
+      {
+        "title": "Mishnah Nazir",
+        "sourceWords": 3139,
+        "observed": 2904,
+        "withoutObservation": 235,
+        "complete": false
+      },
+      {
+        "title": "Mishnah Sotah",
+        "sourceWords": 3865,
+        "observed": 3269,
+        "withoutObservation": 596,
+        "complete": false
+      },
+      {
+        "title": "Mishnah Gittin",
+        "sourceWords": 3743,
+        "observed": 3580,
+        "withoutObservation": 163,
+        "complete": false
+      },
+      {
+        "title": "Mishnah Kiddushin",
+        "sourceWords": 2246,
+        "observed": 1967,
+        "withoutObservation": 279,
+        "complete": false
+      }
+    ],
+    "ledgerHashes": [
+      {
+        "file": "accordance-nashim-current-gittin-observations.json",
+        "sha256": "17bf26e5304a639d2fb33610a823c48365d272e28e360d757e19ee973c99e209",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-ketubot-observations.json",
+        "sha256": "82eae131acfd0e6b7b1ac115fbad39eb8f5fdaf1f8248d9c3824c0d1edd3538a",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-kiddushin-observations.json",
+        "sha256": "13baddf374621f91788b1fbd7eacaa45d56c9e6372feca281b81e497671186cb",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-nazir-observations.json",
+        "sha256": "4a5ba2acc0b01845767a672b998de09c0365fef95d4c34a0efa56b5160c30bc1",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-nedarim-observations.json",
+        "sha256": "4d9b5e81d58e6126b9f36c1731f62f3c22e18739148baf0ce8122a142f38887f",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-sotah-a-observations.json",
+        "sha256": "25b36c7a287fbaafe0c335216b03a474073c11770d46d1831f0e3c5a75614d4b",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-sotah-b-observations.json",
+        "sha256": "16d3dd9c2da56c3aa6fc1bf8a0ed522100a74d2fe58870e51e36cdbc1ec38b41",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-yevamot-ch13-16-observations.json",
+        "sha256": "79a3a63fc4a6daf64376792988d94480a289ffb352ac1925265c475437f2aad9",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-yevamot-ch15-tail-observations.json",
+        "sha256": "f87ac292497fe46e9e1cd20b2b10bf0f9e595824f034fa933384182c747517e6",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-yevamot-ch16-observations.json",
+        "sha256": "a435cdf58c9efea462db3d534dfb6626f67c11a507f4931f90faa409677633b0",
+        "comparisonHashMatches": true
+      },
+      {
+        "file": "accordance-nashim-current-yevamot-observations.json",
+        "sha256": "f86fc121a882e858a5a71d9f8caad21258baac5f3fe781b0d75c2d61a983185c",
+        "comparisonHashMatches": true
+      }
+    ],
+    "referenceFeatureConflicts": [],
+    "allInputHashesMatch": true
+  },
+  "auditScriptSha256": "165e6cdfb47d1b2901c66b332186db1a2a2ae7c69ca830a8b278628fc949097f"
+}

@@ -1,0 +1,489 @@
+{
+  "title": "Independent Nazir original-screenshot spot QA",
+  "ledger": "/workspace/work/Safran-berakhot-push/app/tools/mishnah-morph/accordance-nashim-current-nazir-observations.json",
+  "ledgerSha256": "4a5ba2acc0b01845767a672b998de09c0365fef95d4c34a0efa56b5160c30bc1",
+  "humanValidated": false,
+  "selection": {
+    "method": "Python random.Random(27112026), one random ref in each chapter1–9 and two random bound positions within that ref; first two groups and first two unbound editorial variants additionally checked",
+    "randomBoundPositions": 18,
+    "additionalGroupedSourcePositions": 5,
+    "additionalVariantObservations": 2
+  },
+  "sample": [
+    {
+      "ref": "1:2",
+      "wordIndex": 6,
+      "observedWord": "ומן",
+      "lex": "ו מן",
+      "tags": "cnj;prp",
+      "sourceWordId": "S07326.3.4.1.2/word/6",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_399.png",
+        "sha256": "e3ccf56d912b66ca43f0ef0c48fda122942209c61c244b1dad7e5f13c0e51444",
+        "driveId": "1Fbct4NTT4gISQMSaZvSNytHX1lQoFB59"
+      },
+      "recordedLex": "ו מן",
+      "recordedTags": "cnj; prp",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "1:2",
+      "wordIndex": 64,
+      "observedWord": "שערו",
+      "lex": "שער",
+      "tags": "cm ms sg cnst",
+      "sourceWordId": "S07326.3.4.1.2/word/64",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_400.png",
+        "sha256": "504e22a6770282c3f84477e6d67ef8c4716e1a1f9bc03d9dbce56b63820869d7",
+        "driveId": "16iF-9nT8QfjXwSsHthzHFLPbetbZM7w3"
+      },
+      "recordedLex": "שער",
+      "recordedTags": "cm ms sg cnst",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "2:10",
+      "wordIndex": 18,
+      "observedWord": "סותר",
+      "lex": "סתר",
+      "tags": "qal prt ms sg",
+      "sourceWordId": "S07326.3.4.2.10/word/18",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_414.png",
+        "sha256": "96cb57fe98d786a1d0837425f8ad87a3213f93d95a4f161d35984919cd117ed4",
+        "driveId": "1nfpK7eKI_IPDnKjDzQWF6dVjIDKUMrjz"
+      },
+      "recordedLex": "סתר",
+      "recordedTags": "qal prt ms sg",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "2:10",
+      "wordIndex": 13,
+      "observedWord": "לא",
+      "lex": "לא",
+      "tags": "ng",
+      "sourceWordId": "S07326.3.4.2.10/word/13",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_414.png",
+        "sha256": "96cb57fe98d786a1d0837425f8ad87a3213f93d95a4f161d35984919cd117ed4",
+        "driveId": "1nfpK7eKI_IPDnKjDzQWF6dVjIDKUMrjz"
+      },
+      "recordedLex": "לא",
+      "recordedTags": "ng",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "3:4",
+      "wordIndex": 15,
+      "observedWord": "אלא",
+      "lex": "אלא",
+      "tags": "cnj",
+      "sourceWordId": "S07326.3.4.3.4/word/15",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_418.png",
+        "sha256": "2fcde448c4f4b027f6ded3dfff7934d32629f4fc41120922055d0ce7b90550b7",
+        "driveId": "1v3TkrZCHSIIsonYeGQRyIHHWnfOtSHD-"
+      },
+      "recordedLex": "אלא",
+      "recordedTags": "cnj",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "3:4",
+      "wordIndex": 12,
+      "observedWord": "אומ׳",
+      "lex": "אמר",
+      "tags": "qal prt ms sg",
+      "sourceWordId": "S07326.3.4.3.4/word/12",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_418.png",
+        "sha256": "2fcde448c4f4b027f6ded3dfff7934d32629f4fc41120922055d0ce7b90550b7",
+        "driveId": "1v3TkrZCHSIIsonYeGQRyIHHWnfOtSHD-"
+      },
+      "recordedLex": "אמר",
+      "recordedTags": "qal prt ms sg",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "4:7",
+      "wordIndex": 14,
+      "observedWord": "אביו",
+      "lex": "אב",
+      "tags": "cm ms sg cnst",
+      "sourceWordId": "S07326.3.4.4.7/word/14",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_429.png",
+        "sha256": "19e36371bebb4836134e0bf2e3e8939a5195d323f517d41cdb9acaa87581d0d2",
+        "driveId": "1CznIu9tNw6BwDzEXVS7__XwxfTSc6KTc"
+      },
+      "recordedLex": "אב",
+      "recordedTags": "cm ms sg cnst",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "4:7",
+      "wordIndex": 47,
+      "observedWord": "מגליח",
+      "lex": "גלח",
+      "tags": "pi prt ms sg",
+      "sourceWordId": "S07326.3.4.4.7/word/47",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_429.png",
+        "sha256": "19e36371bebb4836134e0bf2e3e8939a5195d323f517d41cdb9acaa87581d0d2",
+        "driveId": "1CznIu9tNw6BwDzEXVS7__XwxfTSc6KTc"
+      },
+      "recordedLex": "גלח",
+      "recordedTags": "pi prt ms sg",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "5:6",
+      "wordIndex": 17,
+      "observedWord": "נזיר",
+      "lex": "נזיר",
+      "tags": "cm ms sg cnst",
+      "sourceWordId": "S07326.3.4.5.6/word/17",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_434.png",
+        "sha256": "c110eb2b97d783081101b72b68b444e71efe888dc8db313a6a170f0c1a06cd20",
+        "driveId": "13DvjVGyF2VD-MqgX_hFhyNM6OpbxF9ig"
+      },
+      "recordedLex": "נזיר",
+      "recordedTags": "cm ms sg cnst",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "5:6",
+      "wordIndex": 5,
+      "observedWord": "שמעון",
+      "lex": "שמעון",
+      "tags": "prop",
+      "sourceWordId": "S07326.3.4.5.6/word/5",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_434.png",
+        "sha256": "c110eb2b97d783081101b72b68b444e71efe888dc8db313a6a170f0c1a06cd20",
+        "driveId": "13DvjVGyF2VD-MqgX_hFhyNM6OpbxF9ig"
+      },
+      "recordedLex": "שמעון",
+      "recordedTags": "prop",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "6:6",
+      "wordIndex": 9,
+      "observedWord": "ומגליח",
+      "lex": "ו גלח",
+      "tags": "cnj;pi prt ms sg",
+      "sourceWordId": "S07326.3.4.6.6/word/9",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_442.png",
+        "sha256": "72077d88185e21bd4525439e4a4d063de89b1e99a2545ceaf73ffc070dadd7bb",
+        "driveId": "1EWhL4JFMklzIhU_dh0e4zzlfZVt5en8Q"
+      },
+      "recordedLex": "ו גלח",
+      "recordedTags": "cnj; pi prt ms sg",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "6:6",
+      "wordIndex": 33,
+      "observedWord": "לו",
+      "lex": "ל",
+      "tags": "prp",
+      "sourceWordId": "S07326.3.4.6.6/word/33",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_442.png",
+        "sha256": "72077d88185e21bd4525439e4a4d063de89b1e99a2545ceaf73ffc070dadd7bb",
+        "driveId": "1EWhL4JFMklzIhU_dh0e4zzlfZVt5en8Q"
+      },
+      "recordedLex": "ל",
+      "recordedTags": "prp",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 64,
+      "observedWord": "הקודמים",
+      "lex": "ה קדם",
+      "tags": "art;qal prt ms pl",
+      "sourceWordId": "S07326.3.4.7.2/word/64",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_449.png",
+        "sha256": "477bcdfe1043da238407cbc0b66721df4c7dd2ab6b69602e484a1fc7b1e29768",
+        "driveId": "1Ix--EMStPRs5hY85Ga9MfasepJ0fnfR2"
+      },
+      "recordedLex": "ה קדם",
+      "recordedTags": "art; qal prt ms pl",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 69,
+      "observedWord": "שיטהר",
+      "lex": "ש טהר",
+      "tags": "rel;qal imprf 3 ms sg",
+      "sourceWordId": "S07326.3.4.7.2/word/69",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_449.png",
+        "sha256": "477bcdfe1043da238407cbc0b66721df4c7dd2ab6b69602e484a1fc7b1e29768",
+        "driveId": "1Ix--EMStPRs5hY85Ga9MfasepJ0fnfR2"
+      },
+      "recordedLex": "ש טהר",
+      "recordedTags": "rel; qal imprf 3 ms sg",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "8:2",
+      "wordIndex": 16,
+      "observedWord": "מאה",
+      "lex": "מאה",
+      "tags": "fm sg abs crd",
+      "sourceWordId": "S07326.3.4.8.2/word/16",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_453.png",
+        "sha256": "b02cd010739981000a750c94e10ba88989aeaa8807fa778d592a89a518223dcf",
+        "driveId": "14fA-v3nWev9N9fL3AuL2WomYHU7ArPvE"
+      },
+      "recordedLex": "מאה",
+      "recordedTags": "fm sg abs crd",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "8:2",
+      "wordIndex": 18,
+      "observedWord": "יום",
+      "lex": "יום",
+      "tags": "cm ms sg",
+      "sourceWordId": "S07326.3.4.8.2/word/18",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_453.png",
+        "sha256": "b02cd010739981000a750c94e10ba88989aeaa8807fa778d592a89a518223dcf",
+        "driveId": "14fA-v3nWev9N9fL3AuL2WomYHU7ArPvE"
+      },
+      "recordedLex": "יום",
+      "recordedTags": "cm ms sg",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "9:1",
+      "wordIndex": 48,
+      "observedWord": "מאיר",
+      "lex": "מאיר",
+      "tags": "prop",
+      "sourceWordId": "S07326.3.4.9.1/word/48",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_454.png",
+        "sha256": "f4c652c7bb6db421386389445624e5d72d9f755cd6ef2e6629a290bb55645c96",
+        "driveId": "1y95PNByGQ_IlWoFtW-cZqfmzeniSfAg-"
+      },
+      "recordedLex": "מאיר",
+      "recordedTags": "prop",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    },
+    {
+      "ref": "9:1",
+      "wordIndex": 4,
+      "observedWord": "נשים",
+      "lex": "אשה",
+      "tags": "cm fm pl",
+      "sourceWordId": "S07326.3.4.9.1/word/4",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "image": {
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_453.png",
+        "sha256": "b02cd010739981000a750c94e10ba88989aeaa8807fa778d592a89a518223dcf",
+        "driveId": "14fA-v3nWev9N9fL3AuL2WomYHU7ArPvE"
+      },
+      "recordedLex": "אשה",
+      "recordedTags": "cm fm pl",
+      "lexTagMatch": true,
+      "method": "Fresh AI visual reading of original Lex/Tag display before opening recorded tag values; 5:6/17 additionally enlarged to confirm cnst",
+      "humanValidated": false
+    }
+  ],
+  "groupChecks": [
+    {
+      "title": "Mishnah Nazir",
+      "ref": "1:1",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "sourceWordIds": [
+        "S07326.3.4.1.1/word/5",
+        "S07326.3.4.1.1/word/6",
+        "S07326.3.4.1.1/word/7"
+      ],
+      "wordIndices": [
+        5,
+        6,
+        7
+      ],
+      "words": [
+        "א",
+        "י",
+        "הא"
+      ],
+      "observation": {
+        "observedWord": "אהא",
+        "surface": "אהא",
+        "lex": "היה",
+        "tags": "qal imprf 1 com sg",
+        "imageRef": "Nazir 1:1",
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_399.png",
+        "driveId": "1Fbct4NTT4gISQMSaZvSNytHX1lQoFB59",
+        "sha256": "e3ccf56d912b66ca43f0ef0c48fda122942209c61c244b1dad7e5f13c0e51444",
+        "observer": "AI visual observation",
+        "humanValidated": false
+      },
+      "status": "grouped-source-image-segmentation-mismatch",
+      "notAssignedToIndividualWords": true,
+      "humanValidated": false,
+      "note": "Editorial א(י)[ו]ה{י} variant displayed. Whole image reading only.",
+      "qaResult": "Visible whole-token lexical/tag reading agrees; source segmentation remains group-only, not reassigned individually",
+      "qaNote": "Editorial surface variants visible; אהא is a simplified reading label, not a complete diplomatic transcription of editorial brackets. Whole-token lex היה and tag qal imprf 1 com sg confirmed."
+    },
+    {
+      "title": "Mishnah Nazir",
+      "ref": "1:2",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "sourceWordIds": [
+        "S07326.3.4.1.2/word/59",
+        "S07326.3.4.1.2/word/60"
+      ],
+      "wordIndices": [
+        59,
+        60
+      ],
+      "words": [
+        "טומא",
+        "ה"
+      ],
+      "observation": {
+        "observedWord": "טומאה",
+        "surface": "טומאה",
+        "lex": "טמאה",
+        "tags": "cm fm sg",
+        "imageRef": "Nazir 1:2",
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_400.png",
+        "driveId": "16iF-9nT8QfjXwSsHthzHFLPbetbZM7w3",
+        "sha256": "504e22a6770282c3f84477e6d67ef8c4716e1a1f9bc03d9dbce56b63820869d7",
+        "observer": "AI visual observation",
+        "humanValidated": false
+      },
+      "status": "grouped-source-image-segmentation-mismatch",
+      "notAssignedToIndividualWords": true,
+      "humanValidated": false,
+      "note": "",
+      "qaResult": "Visible whole-token lexical/tag reading agrees; source segmentation remains group-only, not reassigned individually",
+      "qaNote": "טומאה, lex טמאה, cm fm sg confirmed."
+    }
+  ],
+  "variantChecks": [
+    {
+      "title": "Mishnah Nazir",
+      "ref": "6:5",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "observation": {
+        "observedWord": "שהיוצא מן הגפן",
+        "lex": "ש ה יצא; מן; ה גפן",
+        "tags": "rel; art; qal prt ms sg; prp; art; cm bth sg",
+        "imageRef": "Nazir 6:5",
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_441.png",
+        "driveId": "1Ugzl6SbGWsYCuR1s45d76g8LnOrKeJXZ",
+        "sha256": "01f618b44e8de4d4564c1d2c027ee1555a9b7892c4e88583dfcc86ade847e085",
+        "observer": "AI visual observation",
+        "humanValidated": false
+      },
+      "status": "image-word-without-current-individual-source-position",
+      "note": "Editorial {שהיוצא מן הגפן} after ובתיגלחת, before שלא. No source target invented.",
+      "humanValidated": false,
+      "qaResult": "Editorial insertion visibly present in original441; lexical/tag sequence agrees; no individual source binding invented"
+    },
+    {
+      "title": "Mishnah Nazir",
+      "ref": "6:5",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "observation": {
+        "observedWord": "הטומאה והתגלחת",
+        "lex": "ה טמאה; ו ה תגלחת",
+        "tags": "art; cm fm sg; cnj; art; cm fm sg",
+        "imageRef": "Nazir 6:5",
+        "file": "mischna_2026-11-27_09-27-19_25B5EA35_441.png",
+        "driveId": "1Ugzl6SbGWsYCuR1s45d76g8LnOrKeJXZ",
+        "sha256": "01f618b44e8de4d4564c1d2c027ee1555a9b7892c4e88583dfcc86ade847e085",
+        "observer": "AI visual observation",
+        "humanValidated": false
+      },
+      "status": "image-word-without-current-individual-source-position",
+      "note": "Editorial {הטומאה והתגלחת} between first הגפן and הותר. No source target invented.",
+      "humanValidated": false,
+      "qaResult": "Editorial insertion visibly present in original441; lexical/tag sequence agrees; no individual source binding invented"
+    }
+  ],
+  "technicalValidation": {
+    "scope": "All ledger single-word bindings, grouped IDs and referenced original-image SHA256/DriveIDs",
+    "uniqueOriginalImagesHashed": 60,
+    "errors": []
+  },
+  "actualErrors": [],
+  "summary": {
+    "literalLexTagErrors": 0,
+    "technicalErrors": 0,
+    "rawLedgerModified": false
+  },
+  "limitations": [
+    "Spot QA does not validate every Nazir tag.",
+    "AI visual reading, not human validation.",
+    "Editorial group surface labels are simplified; original screenshot remains authoritative."
+  ]
+}

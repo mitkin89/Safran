@@ -1,0 +1,548 @@
+{
+  "version": 1,
+  "kind": "initial-targeted-Maagarim-primary-evidence-not-an-analysis-patch",
+  "scope": "Five individually bound priority1 Moed positions only",
+  "queried": true,
+  "humanValidated": false,
+  "completeQueueChecked": false,
+  "queueSnapshotSha256": "fa41ee1eb0faaa298dfa5b944b0d04b0acd95b7b712c92077996e6924f8c1493",
+  "sourceTextPointingAndAnalysesModified": false,
+  "records": [
+    {
+      "title": "Mishnah Beitzah",
+      "ref": "3:4",
+      "sourceTextHash": "b34a31d9112dacf71f3b9b282887d7a2c39ce19f66918b825382df679dc62760",
+      "sourceWordId": "S07326.2.7.3.4/word/13",
+      "sourceWordIndex": 13,
+      "sourceWord": "יַעֲלֶה",
+      "context": "מוּמְחֶה וְיִרְאֶה אִם יֶשׁ בּוֹ מוּם יַעֲלֶה וְיִשְׁחוֹט וְאִם לָאו לֹא יִשְׁחוֹט",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "manuscriptId": "11722",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000018003040%2000",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000018003040%2000&mismilla=14",
+        "httpStatus": 200,
+        "mm15": "000018003040 00",
+        "mismila": "14",
+        "wordId": "1028992",
+        "attributes": {
+          "mismila": "14",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1028992",
+          "erec0": "עלי [הפעיל, עתיד]",
+          "srs0": "עלי 1 - התרוממות",
+          "kode0": "23733",
+          "kods0": "7180",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1028992",
+          "zman0": "2",
+          "zura0": "יעלה"
+        },
+        "rawWordHtml": "<span  mismila=14  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1028992\"  erec0=\"עלי [הפעיל, עתיד]\" srs0=\"עלי 1 - התרוממות\" kode0=\"23733\" kods0=\"7180\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1028992\" zman0=\"2\" zura0=\"יעלה\"><nobr>יעלה</nobr></span>",
+        "visibleReading": "יעלה",
+        "contextQuote": "ויראה. אם יש בו מום יעלה וישחוט. ואם לאו לא ישחוט.",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/beitzah-3-4.html",
+        "htmlSha256": "ea85100e73e09988415a3ce2f493efa253866034d09da43cdc8372961a837333",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/beitzah-3-4-1028992-word.html",
+        "wordExcerptSha256": "388f819eb36707faa4d23eb6506a9c3c00adb60232e5f86ff6f23e9cfd0ef1b9",
+        "retrievedDate": "2026-11-27"
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemma": "עלי",
+            "stem": "הפעיל",
+            "formClass": "עתיד",
+            "rawLabel": "עלי [הפעיל, עתיד]",
+            "wordId": "1028992",
+            "annotation": "",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "comparisonOnly": true,
+        "accordanceRaw": [
+          {
+            "rawLex": "עלה",
+            "rawTags": "hif imprf 3 ms sg",
+            "observedWord": "יעלה"
+          }
+        ],
+        "currentCandidates": [
+          {
+            "lemma": "עלה",
+            "morph": "HVqi3ms",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "h",
+                "actual": "q"
+              }
+            ]
+          }
+        ],
+        "note": "Only explicit erec labels parsed. Numeric codes retained raw; no person, gender, number or vocalization inferred.",
+        "interpretation": "Maagarim explicitly Hifil future agrees with visible Accordance stem/form and differs from current Qal candidate. No person is separately delivered."
+      }
+    },
+    {
+      "title": "Mishnah Beitzah",
+      "ref": "3:4",
+      "sourceTextHash": "b34a31d9112dacf71f3b9b282887d7a2c39ce19f66918b825382df679dc62760",
+      "sourceWordId": "S07326.2.7.3.4/word/26",
+      "sourceWordIndex": 26,
+      "sourceWord": "נִיכָּר",
+      "context": "שאי ן מומו נִיכָּר מֵעֶרֶב יוֹם טוֹב אֵין",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "manuscriptId": "11722",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000018003040%2000",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000018003040%2000&mismilla=26",
+        "httpStatus": 200,
+        "mm15": "000018003040 00",
+        "mismila": "26",
+        "wordId": "1029004",
+        "attributes": {
+          "mismila": "26",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1029004",
+          "erec0": "נכר 1 (היכרות) [נפעל, בינוני]",
+          "srs0": "נכר 1 - היכרות",
+          "kode0": "20345",
+          "kods0": "6574",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1029004",
+          "zman0": "4",
+          "zura0": "ניכר"
+        },
+        "rawWordHtml": "<span  mismila=26  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1029004\"  erec0=\"נכר 1 (היכרות) [נפעל, בינוני]\" srs0=\"נכר 1 - היכרות\" kode0=\"20345\" kods0=\"6574\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1029004\" zman0=\"4\" zura0=\"ניכר\"><nobr>ניכר</nobr></span>",
+        "visibleReading": "ניכר",
+        "contextQuote": "שמעון או'. כל שאי(נו)[ן] מומו ניכר מערב יום טוב אין זה",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/beitzah-3-4.html",
+        "htmlSha256": "ea85100e73e09988415a3ce2f493efa253866034d09da43cdc8372961a837333",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/beitzah-3-4-1029004-word.html",
+        "wordExcerptSha256": "25fddf955aa630869ca33bb5a7caa534df43f2df63a6ebc5b46c95eb33cb0a11",
+        "retrievedDate": "2026-11-27"
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemma": "נכר 1 (היכרות)",
+            "stem": "נפעל",
+            "formClass": "בינוני",
+            "rawLabel": "נכר 1 (היכרות) [נפעל, בינוני]",
+            "wordId": "1029004",
+            "annotation": "",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "comparisonOnly": true,
+        "accordanceRaw": [
+          {
+            "rawLex": "נכר",
+            "rawTags": "nif prt ms sg",
+            "observedWord": "ניכר"
+          }
+        ],
+        "currentCandidates": [
+          {
+            "lemma": "נכר",
+            "morph": "HVpp3ms",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "N",
+                "actual": "p"
+              },
+              {
+                "feature": "form",
+                "expected": "participle",
+                "actual": "p"
+              }
+            ]
+          }
+        ],
+        "note": "Only explicit erec labels parsed. Numeric codes retained raw; no person, gender, number or vocalization inferred.",
+        "interpretation": "Maagarim explicitly Nifal participle agrees with visible Accordance head; current Piel perfect candidate differs."
+      }
+    },
+    {
+      "title": "Mishnah Beitzah",
+      "ref": "3:5",
+      "sourceTextHash": "b34a31d9112dacf71f3b9b282887d7a2c39ce19f66918b825382df679dc62760",
+      "sourceWordId": "S07326.2.7.3.5/word/6",
+      "sourceWordIndex": 6,
+      "sourceWord": "שֶׁשָּׁאֲלוּ",
+      "context": "יְזִיזֶינָּה מִמְּקוֹמָהּ מַעֲשֶׂה שֶׁשָּׁאֲלוּ אֶת ר' טַרְפוֹן עָלֶיהָ על הַחלָה",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "manuscriptId": "11722",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000018003040%2000",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000018003050%2000&mismilla=7",
+        "httpStatus": 200,
+        "mm15": "000018003050 00",
+        "mismila": "7",
+        "wordId": "1029018",
+        "attributes": {
+          "mismila": "7",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1029018",
+          "erec0": "שׁאל 1 (שאילת דבר, שאֵלה, בקשה) [קל, עבר]",
+          "srs0": "שׁאל 1 - שאילת דבר, שאֵלה, בקשה",
+          "kode0": "31768",
+          "kods0": "8558",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1029018",
+          "zman0": "1",
+          "zura0": "ששאלו"
+        },
+        "rawWordHtml": "<span  mismila=7  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1029018\"  erec0=\"שׁאל 1 (שאילת דבר, שאֵלה, בקשה) [קל, עבר]\" srs0=\"שׁאל 1 - שאילת דבר, שאֵלה, בקשה\" kode0=\"31768\" kods0=\"8558\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1029018\" zman0=\"1\" zura0=\"ששאלו\"><nobr>ששאלו</nobr></span>",
+        "visibleReading": "ששאלו",
+        "contextQuote": "שמתה לא יזיזי-נה ממקומה. מעשה ששאלו את ר' טרפון עליה על",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/beitzah-3-4.html",
+        "htmlSha256": "ea85100e73e09988415a3ce2f493efa253866034d09da43cdc8372961a837333",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/beitzah-3-4-1029018-word.html",
+        "wordExcerptSha256": "a821cf571f3313c2d64a11d0dc9dbf24317d9ac99cec9b44c2d50bad1a5ac8d9",
+        "retrievedDate": "2026-11-27"
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemma": "שׁאל 1 (שאילת דבר, שאֵלה, בקשה)",
+            "stem": "קל",
+            "formClass": "עבר",
+            "rawLabel": "שׁאל 1 (שאילת דבר, שאֵלה, בקשה) [קל, עבר]",
+            "wordId": "1029018",
+            "annotation": "",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "comparisonOnly": true,
+        "accordanceRaw": [
+          {
+            "rawLex": "ש שאל",
+            "rawTags": "rel; qal prf 3 com pl",
+            "observedWord": "ששאלו"
+          }
+        ],
+        "currentCandidates": [
+          {
+            "lemma": "ש/שאל",
+            "morph": "HTr/Vqv2mp",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "form",
+                "expected": "p",
+                "actual": "v"
+              },
+              {
+                "feature": "person",
+                "expected": "3",
+                "actual": "2"
+              },
+              {
+                "feature": "gender",
+                "expected": "c",
+                "actual": "m"
+              }
+            ]
+          }
+        ],
+        "note": "Only explicit erec labels parsed. Numeric codes retained raw; no person, gender, number or vocalization inferred.",
+        "interpretation": "Maagarim explicitly Qal past supports perfect rather than current imperative; person and number are not separately delivered, so person conflict is not independently settled."
+      }
+    },
+    {
+      "title": "Mishnah Chagigah",
+      "ref": "3:6",
+      "sourceTextHash": "1976f26028d12af26b9ce0916c7c995f2b4469b945d72b1f39bb217cddf10abb",
+      "sourceWordId": "S07326.2.12.3.6/word/13",
+      "sourceWordIndex": 13,
+      "sourceWord": "נָגַעְנוּ",
+      "context": "אֶת הַכֵּלִים נֶאֱמָנִים לומ' לֹא נָגַעְנוּ ובירוש' נֶאֱמָנִין עַל הַקּוֹדֶשׁ",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "manuscriptId": "11722",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000023003060%2000",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000023003060%2000&mismilla=13",
+        "httpStatus": 200,
+        "mm15": "000023003060 00",
+        "mismila": "13",
+        "wordId": "1035742",
+        "attributes": {
+          "mismila": "13",
+          "cnt": "1",
+          "class": " tooltippedWord ",
+          "kodmilim": "1035742",
+          "erec0": "נגע 1 (התקרבות, נגיעה, זכייה) [קל, עבר]",
+          "srs0": "נגע 1 - התקרבות, נגיעה, זכייה",
+          "kode0": "19580",
+          "kods0": "6435",
+          "yhd0": "",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1035742",
+          "zman0": "1",
+          "zura0": "נגענו",
+          "hatkana": "[\"23\"]",
+          "hatkana_otiot": "[{\"kod\":23,\"text\":\".\"}]",
+          "hatkana_mila": "[]"
+        },
+        "rawWordHtml": "<span  mismila=13  cnt=1  class=\" tooltippedWord \"  kodmilim=\"1035742\"  erec0=\"נגע 1 (התקרבות, נגיעה, זכייה) [קל, עבר]\" srs0=\"נגע 1 - התקרבות, נגיעה, זכייה\" kode0=\"19580\" kods0=\"6435\" yhd0=\"\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1035742\" zman0=\"1\" zura0=\"נגענו\" hatkana=\"[&quot;23&quot;]\" hatkana_otiot=\"[{&quot;kod&quot;:23,&quot;text&quot;:&quot;.&quot;}]\" hatkana_mila=\"[]\"><nobr>נגענו.</nobr></span>",
+        "visibleReading": "נגענו.",
+        "contextQuote": "את הכלים נאמנים לומ'. לא נגענו. ובירוש' נאמנין על הקודש ובש(?ב?)[ע]ת",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/chagigah-3-6.html",
+        "htmlSha256": "87a54d71d2b94cc10595ab18fdfe66cccb0ceaa9722f0fe6c2283c6c5974af78",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/chagigah-3-6-1035742-word.html",
+        "wordExcerptSha256": "f6be8fc5b2ef07fd9bbc9f7b250cd8721769a1ea83f79f3f55d78c5b09526242",
+        "retrievedDate": "2026-11-27"
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemma": "נגע 1 (התקרבות, נגיעה, זכייה)",
+            "stem": "קל",
+            "formClass": "עבר",
+            "rawLabel": "נגע 1 (התקרבות, נגיעה, זכייה) [קל, עבר]",
+            "wordId": "1035742",
+            "annotation": "",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "comparisonOnly": true,
+        "accordanceRaw": [
+          {
+            "rawLex": "נגע",
+            "rawTags": "hif prf 1 com pl",
+            "observedWord": "נגענו"
+          }
+        ],
+        "currentCandidates": [
+          {
+            "lemma": "נגע",
+            "morph": "H",
+            "partial": true,
+            "missing": [
+              "type",
+              "stem",
+              "form",
+              "person"
+            ],
+            "different": [
+              {
+                "feature": "gender",
+                "expected": "c",
+                "actual": "m"
+              },
+              {
+                "feature": "number",
+                "expected": "p",
+                "actual": "s"
+              }
+            ]
+          },
+          {
+            "lemma": "נגע",
+            "morph": "HVqp1cp",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "h",
+                "actual": "q"
+              }
+            ]
+          }
+        ],
+        "note": "Only explicit erec labels parsed. Numeric codes retained raw; no person, gender, number or vocalization inferred.",
+        "interpretation": "Maagarim explicitly Qal past agrees with current Qal candidate; visible Accordance Hifil stem differs. No vocalization or person independently confirmed.",
+        "independentAccordanceImageRecheck": {
+          "method": "root-agent fresh visual original-image reading",
+          "file": "mischna_2026-11-26_22-48-07_4CB37088_538.png",
+          "sha256": "7482612baeb933788f170fb53917ff0eae3df4898f6037f39a2c49feff6a5a7d",
+          "rawLex": "נגע",
+          "rawTags": "hif prf 1 com pl",
+          "result": "Printed Hifil confirmed; not corrected to Qal merely because Maagarim differs",
+          "humanValidated": false
+        }
+      }
+    },
+    {
+      "title": "Mishnah Eruvin",
+      "ref": "10:1",
+      "sourceTextHash": "8e3c56f00028f1bbdf50894b40f941566dca97c17e6ada4cbe9808897f8d0cca",
+      "sourceWordId": "S07326.2.2.10.1/word/0",
+      "sourceWordIndex": 0,
+      "sourceWord": "הַמּוֹצִיא",
+      "context": "הַמּוֹצִיא תְפִילִּים מַכְנִיסָן זוֹג זוֹג רַבָּן",
+      "priority": 1,
+      "status": "primary-Kaufmann-attestation-checked-not-integrated",
+      "humanValidated": false,
+      "source": {
+        "provider": "Historical Dictionary Project of the Academy of the Hebrew Language / מפעל המילון ההיסטורי של האקדמיה ללשון העברית",
+        "shibbur": 31000,
+        "witness": "Budapest, Magyar Tudomanyos Akademia, MS. Kaufmann, A 50",
+        "manuscriptId": "11722",
+        "requestUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000013010010%2000",
+        "exactAttestationUrl": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx?mishibbur=31000&mm15=000013010010%2000&mismilla=1",
+        "httpStatus": 200,
+        "mm15": "000013010010 00",
+        "mismila": "1",
+        "wordId": "1016745",
+        "attributes": {
+          "mismila": "1",
+          "cnt": "2",
+          "class": " tooltippedWord ",
+          "kodmilim": "1016745",
+          "erec0": "יצא [הפעיל, בינוני]",
+          "srs0": "יצא 1 - העברה החוצה",
+          "kode0": "13641",
+          "kods0": "5594",
+          "yhd0": "הערך נקבע על פי הניקוד במסירה",
+          "hera0": "",
+          "hpnimit0": "",
+          "rciv0": "0",
+          "kodm0": "1016745",
+          "zman0": "4",
+          "zura0": "המוציא",
+          "erec1": "מצא [קל, בינוני]",
+          "srs1": "מצא 1 - חיפוש וגילוי",
+          "kode1": "18421",
+          "kods1": "6303",
+          "yhd1": "הערך נקבע בניגוד לניקוד במסירה",
+          "hera1": "",
+          "hpnimit1": "",
+          "rciv1": "0",
+          "kodm1": "1016746",
+          "zman1": "4",
+          "zura1": "המוציא"
+        },
+        "rawWordHtml": "<span  mismila=1  cnt=2  class=\" tooltippedWord \"  kodmilim=\"1016745\"  erec0=\"יצא [הפעיל, בינוני]\" srs0=\"יצא 1 - העברה החוצה\" kode0=\"13641\" kods0=\"5594\" yhd0=\"הערך נקבע על פי הניקוד במסירה\" hera0=\"\" hpnimit0=\"\" rciv0=\"0\" kodm0=\"1016745\" zman0=\"4\" zura0=\"המוציא\" erec1=\"מצא [קל, בינוני]\" srs1=\"מצא 1 - חיפוש וגילוי\" kode1=\"18421\" kods1=\"6303\" yhd1=\"הערך נקבע בניגוד לניקוד במסירה\" hera1=\"\" hpnimit1=\"\" rciv1=\"0\" kodm1=\"1016746\" zman1=\"4\" zura1=\"המוציא\"><nobr>המוציא</nobr></span>",
+        "visibleReading": "המוציא",
+        "contextQuote": "המוציא תפילים מכניסן זוג זוג. רבן",
+        "privateHtmlFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/eruvin-10-1.html",
+        "htmlSha256": "15eb49b55d58d59d5f32e9bff680929f242d94bf1a38588d45d34e9398790049",
+        "privateWordExcerptFile": "/workspace/private/safran-mishnah-reference/maagarim-moed-priority1/eruvin-10-1-1016745-word.html",
+        "wordExcerptSha256": "66b3c3dab2191114c91ee625eeaaadb39e8c828abec11c359cd0935942e68bd6",
+        "retrievedDate": "2026-11-27"
+      },
+      "findings": {
+        "deliveredAnalyses": [
+          {
+            "lemma": "יצא",
+            "stem": "הפעיל",
+            "formClass": "בינוני",
+            "rawLabel": "יצא [הפעיל, בינוני]",
+            "wordId": "1016745",
+            "annotation": "הערך נקבע על פי הניקוד במסירה",
+            "person": null,
+            "gender": null,
+            "number": null
+          },
+          {
+            "lemma": "מצא",
+            "stem": "קל",
+            "formClass": "בינוני",
+            "rawLabel": "מצא [קל, בינוני]",
+            "wordId": "1016746",
+            "annotation": "הערך נקבע בניגוד לניקוד במסירה",
+            "person": null,
+            "gender": null,
+            "number": null
+          }
+        ],
+        "comparisonOnly": true,
+        "accordanceRaw": [
+          {
+            "rawLex": "ה|מצא",
+            "rawTags": "art|qal prt ms sg",
+            "observedWord": "המוציא"
+          }
+        ],
+        "currentCandidates": [
+          {
+            "lemma": "ה/יצא",
+            "morph": "HTd/Vhrmsa",
+            "partial": false,
+            "missing": [],
+            "different": [
+              {
+                "feature": "stem",
+                "expected": "q",
+                "actual": "h"
+              }
+            ]
+          }
+        ],
+        "note": "Only explicit erec labels parsed. Numeric codes retained raw; no person, gender, number or vocalization inferred.",
+        "interpretation": "Two analyses explicitly delivered: יצא Hifil participle לפי ניקוד המסירה, and מצא Qal participle בניגוד לניקוד המסירה. Both recorded; no false unique lemma or resolved-stem claim."
+      }
+    }
+  ],
+  "coverage": {
+    "checkedPositions": 5,
+    "primaryHtmlRequests": 3,
+    "exactKaufmannAttestationsFound": 5,
+    "multiAnalysisAttestations": 1,
+    "priority1QueuePositions": 57
+  },
+  "limitations": [
+    "No global queue status changed. These are targeted individual attestations only.",
+    "Public HTML provides lemma, named stem and broad form class here, not complete morphological tags.",
+    "Unvocalized visible forms do not independently validate Kaufmann pointing. Eruvin explicitly supplies two competing readings."
+  ],
+  "rootEvidenceIntegrityCheck": {
+    "records": 5,
+    "htmlAndExcerptHashesVerified": true,
+    "rawWordSpansPresentInSavedPrimaryHtml": true,
+    "meaning": "Integrity check of saved primary evidence; not independent certification of every linguistic interpretation",
+    "humanValidated": false
+  }
+}

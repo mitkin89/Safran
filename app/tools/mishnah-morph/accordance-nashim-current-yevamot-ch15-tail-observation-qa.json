@@ -1,0 +1,33 @@
+{
+  "ledger": "accordance-nashim-current-yevamot-ch15-tail-observations.json",
+  "sha256": "f87ac292497fe46e9e1cd20b2b10bf0f9e595824f034fa933384182c747517e6",
+  "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+  "imageShaChecks": 7,
+  "componentAndSourceBindingErrors": [],
+  "duplicateSourcePositions": 0,
+  "summary": {
+    "visuallyInspectedImages": 7,
+    "locallyAvailableYevamotImages": 123,
+    "observationRecords": 369,
+    "boundSourcePositions": 375,
+    "refs": [
+      "15:4",
+      "15:5",
+      "15:6",
+      "15:7",
+      "15:8",
+      "15:9",
+      "15:10"
+    ],
+    "completeTractateComparison": false,
+    "completeImageCoverage": false,
+    "noSourceOrDraftDataChanged": true,
+    "openSourcePositions": 37,
+    "scopeSourcePositions": 412,
+    "scopeAllPositionsAccountedFor": true
+  },
+  "openByRef": {
+    "15:5": 2,
+    "15:7": 35
+  }
+}

@@ -1,0 +1,987 @@
+{
+  "version": 1,
+  "title": "Mishnah Ketubot",
+  "method": "Read-only source index/hash, image SHA/Drive ID, raw schema and coverage validation. AI transcription is not human review.",
+  "ledgerFile": "accordance-nashim-current-ketubot-observations.json",
+  "ledgerSha256": "82eae131acfd0e6b7b1ac115fbad39eb8f5fdaf1f8248d9c3824c0d1edd3538a",
+  "moduleFileSha256": "54cfb5ac36300d75e647e6d7d0b1c6861b43bc10fe8305ce4298a5d12c2b786c",
+  "sourceTextHash": "00f0c57ee76f1f3a61d89cbb8c6efaf2ac2797fc3fa0c2eb4f2dd8b33c3b4904",
+  "counts": {
+    "images": 111,
+    "records": 4882,
+    "boundPositions": 4936,
+    "totalPositions": 5081,
+    "sourceGaps": 11,
+    "screenshotCutPositions": 128,
+    "otherUnbound": 6
+  },
+  "sourceGaps": [
+    {
+      "ref": "3:3",
+      "index": 16,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.3.3/word/16"
+    },
+    {
+      "ref": "13:3",
+      "index": 39,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.3/word/39"
+    },
+    {
+      "ref": "13:4",
+      "index": 3,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.4/word/3"
+    },
+    {
+      "ref": "13:4",
+      "index": 9,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.4/word/9"
+    },
+    {
+      "ref": "13:4",
+      "index": 15,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.4/word/15"
+    },
+    {
+      "ref": "13:4",
+      "index": 19,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.4/word/19"
+    },
+    {
+      "ref": "13:4",
+      "index": 24,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.4/word/24"
+    },
+    {
+      "ref": "13:4",
+      "index": 28,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.4/word/28"
+    },
+    {
+      "ref": "13:10",
+      "index": 1,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.10/word/1"
+    },
+    {
+      "ref": "13:10",
+      "index": 10,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.10/word/10"
+    },
+    {
+      "ref": "13:10",
+      "index": 17,
+      "word": "□",
+      "sourceWordId": "S07326.3.2.13.10/word/17"
+    }
+  ],
+  "screenshotCuts": [
+    {
+      "ref": "5:1",
+      "start": 85,
+      "end": 91,
+      "lastImage": 165,
+      "nextImage": 166,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "5:1",
+          "index": 85,
+          "word": "מִמָּאתַיִם",
+          "sourceWordId": "S07326.3.2.5.1/word/85"
+        },
+        {
+          "ref": "5:1",
+          "index": 86,
+          "word": "וּלְאַלְמָנָה",
+          "sourceWordId": "S07326.3.2.5.1/word/86"
+        },
+        {
+          "ref": "5:1",
+          "index": 87,
+          "word": "מִמָּנֶה",
+          "sourceWordId": "S07326.3.2.5.1/word/87"
+        },
+        {
+          "ref": "5:1",
+          "index": 88,
+          "word": "הֲרִי",
+          "sourceWordId": "S07326.3.2.5.1/word/88"
+        },
+        {
+          "ref": "5:1",
+          "index": 89,
+          "word": "זוֹ",
+          "sourceWordId": "S07326.3.2.5.1/word/89"
+        },
+        {
+          "ref": "5:1",
+          "index": 90,
+          "word": "בְּעִילַת",
+          "sourceWordId": "S07326.3.2.5.1/word/90"
+        },
+        {
+          "ref": "5:1",
+          "index": 91,
+          "word": "זְנוּת",
+          "sourceWordId": "S07326.3.2.5.1/word/91"
+        }
+      ]
+    },
+    {
+      "ref": "5:8",
+      "start": 82,
+      "end": 95,
+      "lastImage": 172,
+      "nextImage": 173,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "5:8",
+          "index": 82,
+          "word": "נוֹתֵן",
+          "sourceWordId": "S07326.3.2.5.8/word/82"
+        },
+        {
+          "ref": "5:8",
+          "index": 83,
+          "word": "לָהּ",
+          "sourceWordId": "S07326.3.2.5.8/word/83"
+        },
+        {
+          "ref": "5:8",
+          "index": 84,
+          "word": "כֵּלִים",
+          "sourceWordId": "S07326.3.2.5.8/word/84"
+        },
+        {
+          "ref": "5:8",
+          "index": 85,
+          "word": "שֶׁלְּחֲמִישִּׁים",
+          "sourceWordId": "S07326.3.2.5.8/word/85"
+        },
+        {
+          "ref": "5:8",
+          "index": 86,
+          "word": "זוּז",
+          "sourceWordId": "S07326.3.2.5.8/word/86"
+        },
+        {
+          "ref": "5:8",
+          "index": 87,
+          "word": "בִימוֹת",
+          "sourceWordId": "S07326.3.2.5.8/word/87"
+        },
+        {
+          "ref": "5:8",
+          "index": 88,
+          "word": "הַגְּשָׁמִים",
+          "sourceWordId": "S07326.3.2.5.8/word/88"
+        },
+        {
+          "ref": "5:8",
+          "index": 89,
+          "word": "וְהִיא",
+          "sourceWordId": "S07326.3.2.5.8/word/89"
+        },
+        {
+          "ref": "5:8",
+          "index": 90,
+          "word": "מִתְכַּסָּה",
+          "sourceWordId": "S07326.3.2.5.8/word/90"
+        },
+        {
+          "ref": "5:8",
+          "index": 91,
+          "word": "בִּבְלָיוֹתֵיהֶין",
+          "sourceWordId": "S07326.3.2.5.8/word/91"
+        },
+        {
+          "ref": "5:8",
+          "index": 92,
+          "word": "בִּימוֹת",
+          "sourceWordId": "S07326.3.2.5.8/word/92"
+        },
+        {
+          "ref": "5:8",
+          "index": 93,
+          "word": "הַחַמָּה",
+          "sourceWordId": "S07326.3.2.5.8/word/93"
+        },
+        {
+          "ref": "5:8",
+          "index": 94,
+          "word": "וְהַשְּׁחָקים",
+          "sourceWordId": "S07326.3.2.5.8/word/94"
+        },
+        {
+          "ref": "5:8",
+          "index": 95,
+          "word": "שֶׁלָּהּ",
+          "sourceWordId": "S07326.3.2.5.8/word/95"
+        }
+      ]
+    },
+    {
+      "ref": "8:1",
+      "start": 80,
+      "end": 108,
+      "lastImage": 191,
+      "nextImage": 192,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "8:1",
+          "index": 80,
+          "word": "מָכְרָה",
+          "sourceWordId": "S07326.3.2.8.1/word/80"
+        },
+        {
+          "ref": "8:1",
+          "index": 81,
+          "word": "וְנָתְנָה",
+          "sourceWordId": "S07326.3.2.8.1/word/81"
+        },
+        {
+          "ref": "8:1",
+          "index": 82,
+          "word": "קַיָּים",
+          "sourceWordId": "S07326.3.2.8.1/word/82"
+        },
+        {
+          "ref": "8:1",
+          "index": 83,
+          "word": "א'",
+          "sourceWordId": "S07326.3.2.8.1/word/83"
+        },
+        {
+          "ref": "8:1",
+          "index": 84,
+          "word": "ר'",
+          "sourceWordId": "S07326.3.2.8.1/word/84"
+        },
+        {
+          "ref": "8:1",
+          "index": 85,
+          "word": "חֲנַנְיָא",
+          "sourceWordId": "S07326.3.2.8.1/word/85"
+        },
+        {
+          "ref": "8:1",
+          "index": 86,
+          "word": "בֶן",
+          "sourceWordId": "S07326.3.2.8.1/word/86"
+        },
+        {
+          "ref": "8:1",
+          "index": 87,
+          "word": "עֲקִיבָה",
+          "sourceWordId": "S07326.3.2.8.1/word/87"
+        },
+        {
+          "ref": "8:1",
+          "index": 88,
+          "word": "אָמְרוּ",
+          "sourceWordId": "S07326.3.2.8.1/word/88"
+        },
+        {
+          "ref": "8:1",
+          "index": 89,
+          "word": "לִפְנֵי",
+          "sourceWordId": "S07326.3.2.8.1/word/89"
+        },
+        {
+          "ref": "8:1",
+          "index": 90,
+          "word": "רַבָּן",
+          "sourceWordId": "S07326.3.2.8.1/word/90"
+        },
+        {
+          "ref": "8:1",
+          "index": 91,
+          "word": "גמליא'",
+          "sourceWordId": "S07326.3.2.8.1/word/91"
+        },
+        {
+          "ref": "8:1",
+          "index": 92,
+          "word": "הוֹאִיל",
+          "sourceWordId": "S07326.3.2.8.1/word/92"
+        },
+        {
+          "ref": "8:1",
+          "index": 93,
+          "word": "וְזָכָה",
+          "sourceWordId": "S07326.3.2.8.1/word/93"
+        },
+        {
+          "ref": "8:1",
+          "index": 94,
+          "word": "בָאִשָּׁה",
+          "sourceWordId": "S07326.3.2.8.1/word/94"
+        },
+        {
+          "ref": "8:1",
+          "index": 95,
+          "word": "לֹא",
+          "sourceWordId": "S07326.3.2.8.1/word/95"
+        },
+        {
+          "ref": "8:1",
+          "index": 96,
+          "word": "זָכָה",
+          "sourceWordId": "S07326.3.2.8.1/word/96"
+        },
+        {
+          "ref": "8:1",
+          "index": 97,
+          "word": "בַנְּכָסִים",
+          "sourceWordId": "S07326.3.2.8.1/word/97"
+        },
+        {
+          "ref": "8:1",
+          "index": 98,
+          "word": "אמ'",
+          "sourceWordId": "S07326.3.2.8.1/word/98"
+        },
+        {
+          "ref": "8:1",
+          "index": 99,
+          "word": "לָהֶן",
+          "sourceWordId": "S07326.3.2.8.1/word/99"
+        },
+        {
+          "ref": "8:1",
+          "index": 100,
+          "word": "בַּחֲדָשִׁים",
+          "sourceWordId": "S07326.3.2.8.1/word/100"
+        },
+        {
+          "ref": "8:1",
+          "index": 101,
+          "word": "אָנוּ",
+          "sourceWordId": "S07326.3.2.8.1/word/101"
+        },
+        {
+          "ref": "8:1",
+          "index": 102,
+          "word": "בוֹשִׁים",
+          "sourceWordId": "S07326.3.2.8.1/word/102"
+        },
+        {
+          "ref": "8:1",
+          "index": 103,
+          "word": "אֶלָּא",
+          "sourceWordId": "S07326.3.2.8.1/word/103"
+        },
+        {
+          "ref": "8:1",
+          "index": 104,
+          "word": "שֶׁאַתֶּם",
+          "sourceWordId": "S07326.3.2.8.1/word/104"
+        },
+        {
+          "ref": "8:1",
+          "index": 105,
+          "word": "מְגַלְגְּלִין",
+          "sourceWordId": "S07326.3.2.8.1/word/105"
+        },
+        {
+          "ref": "8:1",
+          "index": 106,
+          "word": "עָלֵינוּ",
+          "sourceWordId": "S07326.3.2.8.1/word/106"
+        },
+        {
+          "ref": "8:1",
+          "index": 107,
+          "word": "אֶת",
+          "sourceWordId": "S07326.3.2.8.1/word/107"
+        },
+        {
+          "ref": "8:1",
+          "index": 108,
+          "word": "הַיְישָׁנִים",
+          "sourceWordId": "S07326.3.2.8.1/word/108"
+        }
+      ]
+    },
+    {
+      "ref": "9:1",
+      "start": 78,
+      "end": 101,
+      "lastImage": 199,
+      "nextImage": 200,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "9:1",
+          "index": 78,
+          "word": "בְּחַיֶּיהַ",
+          "sourceWordId": "S07326.3.2.9.1/word/78"
+        },
+        {
+          "ref": "9:1",
+          "index": 79,
+          "word": "וְאִם",
+          "sourceWordId": "S07326.3.2.9.1/word/79"
+        },
+        {
+          "ref": "9:1",
+          "index": 80,
+          "word": "מֵתָה",
+          "sourceWordId": "S07326.3.2.9.1/word/80"
+        },
+        {
+          "ref": "9:1",
+          "index": 81,
+          "word": "אֵינוּ",
+          "sourceWordId": "S07326.3.2.9.1/word/81"
+        },
+        {
+          "ref": "9:1",
+          "index": 82,
+          "word": "יוֹרְשָׁהּ",
+          "sourceWordId": "S07326.3.2.9.1/word/82"
+        },
+        {
+          "ref": "9:1",
+          "index": 83,
+          "word": "רַבָּן",
+          "sourceWordId": "S07326.3.2.9.1/word/83"
+        },
+        {
+          "ref": "9:1",
+          "index": 84,
+          "word": "שִׁמְעוֹן",
+          "sourceWordId": "S07326.3.2.9.1/word/84"
+        },
+        {
+          "ref": "9:1",
+          "index": 85,
+          "word": "בֶּן",
+          "sourceWordId": "S07326.3.2.9.1/word/85"
+        },
+        {
+          "ref": "9:1",
+          "index": 86,
+          "word": "גמליא'",
+          "sourceWordId": "S07326.3.2.9.1/word/86"
+        },
+        {
+          "ref": "9:1",
+          "index": 87,
+          "word": "אומ'",
+          "sourceWordId": "S07326.3.2.9.1/word/87"
+        },
+        {
+          "ref": "9:1",
+          "index": 88,
+          "word": "אִם",
+          "sourceWordId": "S07326.3.2.9.1/word/88"
+        },
+        {
+          "ref": "9:1",
+          "index": 89,
+          "word": "מֵתָה",
+          "sourceWordId": "S07326.3.2.9.1/word/89"
+        },
+        {
+          "ref": "9:1",
+          "index": 90,
+          "word": "יִירָשֶׁנָּה",
+          "sourceWordId": "S07326.3.2.9.1/word/90"
+        },
+        {
+          "ref": "9:1",
+          "index": 91,
+          "word": "שֶׁהִיתְנָה",
+          "sourceWordId": "S07326.3.2.9.1/word/91"
+        },
+        {
+          "ref": "9:1",
+          "index": 92,
+          "word": "עַל",
+          "sourceWordId": "S07326.3.2.9.1/word/92"
+        },
+        {
+          "ref": "9:1",
+          "index": 93,
+          "word": "הַכָּתוּב",
+          "sourceWordId": "S07326.3.2.9.1/word/93"
+        },
+        {
+          "ref": "9:1",
+          "index": 94,
+          "word": "שֶׁבַּתּוֹרָה",
+          "sourceWordId": "S07326.3.2.9.1/word/94"
+        },
+        {
+          "ref": "9:1",
+          "index": 95,
+          "word": "שֶׁכָּל",
+          "sourceWordId": "S07326.3.2.9.1/word/95"
+        },
+        {
+          "ref": "9:1",
+          "index": 96,
+          "word": "הַמַּתְנֶה",
+          "sourceWordId": "S07326.3.2.9.1/word/96"
+        },
+        {
+          "ref": "9:1",
+          "index": 97,
+          "word": "עַל",
+          "sourceWordId": "S07326.3.2.9.1/word/97"
+        },
+        {
+          "ref": "9:1",
+          "index": 98,
+          "word": "הַכָּתוּב",
+          "sourceWordId": "S07326.3.2.9.1/word/98"
+        },
+        {
+          "ref": "9:1",
+          "index": 99,
+          "word": "שֶׁבַּתּוֹרָה",
+          "sourceWordId": "S07326.3.2.9.1/word/99"
+        },
+        {
+          "ref": "9:1",
+          "index": 100,
+          "word": "תנאו",
+          "sourceWordId": "S07326.3.2.9.1/word/100"
+        },
+        {
+          "ref": "9:1",
+          "index": 101,
+          "word": "בָטֵל",
+          "sourceWordId": "S07326.3.2.9.1/word/101"
+        }
+      ]
+    },
+    {
+      "ref": "9:5",
+      "start": 75,
+      "end": 75,
+      "lastImage": 203,
+      "nextImage": 204,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "9:5",
+          "index": 75,
+          "word": "בִּרְשׁוּתָהּ",
+          "sourceWordId": "S07326.3.2.9.5/word/75"
+        }
+      ]
+    },
+    {
+      "ref": "9:8",
+      "start": 76,
+      "end": 108,
+      "lastImage": 206,
+      "nextImage": 207,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "9:8",
+          "index": 76,
+          "word": "בְּפָנָיו",
+          "sourceWordId": "S07326.3.2.9.8/word/76"
+        },
+        {
+          "ref": "9:8",
+          "index": 77,
+          "word": "כֵּיצָד",
+          "sourceWordId": "S07326.3.2.9.8/word/77"
+        },
+        {
+          "ref": "9:8",
+          "index": 78,
+          "word": "הָלַךְ",
+          "sourceWordId": "S07326.3.2.9.8/word/78"
+        },
+        {
+          "ref": "9:8",
+          "index": 79,
+          "word": "לוֹ",
+          "sourceWordId": "S07326.3.2.9.8/word/79"
+        },
+        {
+          "ref": "9:8",
+          "index": 80,
+          "word": "לִמְדִינַת",
+          "sourceWordId": "S07326.3.2.9.8/word/80"
+        },
+        {
+          "ref": "9:8",
+          "index": 81,
+          "word": "הַיָּם",
+          "sourceWordId": "S07326.3.2.9.8/word/81"
+        },
+        {
+          "ref": "9:8",
+          "index": 82,
+          "word": "וְהִיא",
+          "sourceWordId": "S07326.3.2.9.8/word/82"
+        },
+        {
+          "ref": "9:8",
+          "index": 83,
+          "word": "נִפְרַעַת",
+          "sourceWordId": "S07326.3.2.9.8/word/83"
+        },
+        {
+          "ref": "9:8",
+          "index": 84,
+          "word": "שֶׁלֹּא",
+          "sourceWordId": "S07326.3.2.9.8/word/84"
+        },
+        {
+          "ref": "9:8",
+          "index": 85,
+          "word": "בְּפָנָיו",
+          "sourceWordId": "S07326.3.2.9.8/word/85"
+        },
+        {
+          "ref": "9:8",
+          "index": 86,
+          "word": "לֹא",
+          "sourceWordId": "S07326.3.2.9.8/word/86"
+        },
+        {
+          "ref": "9:8",
+          "index": 87,
+          "word": "תִיפָּרַע",
+          "sourceWordId": "S07326.3.2.9.8/word/87"
+        },
+        {
+          "ref": "9:8",
+          "index": 88,
+          "word": "אֶלָּא",
+          "sourceWordId": "S07326.3.2.9.8/word/88"
+        },
+        {
+          "ref": "9:8",
+          "index": 89,
+          "word": "בשבועה",
+          "sourceWordId": "S07326.3.2.9.8/word/89"
+        },
+        {
+          "ref": "9:8",
+          "index": 90,
+          "word": "ר'",
+          "sourceWordId": "S07326.3.2.9.8/word/90"
+        },
+        {
+          "ref": "9:8",
+          "index": 91,
+          "word": "שִׁמְעוֹן",
+          "sourceWordId": "S07326.3.2.9.8/word/91"
+        },
+        {
+          "ref": "9:8",
+          "index": 92,
+          "word": "או'",
+          "sourceWordId": "S07326.3.2.9.8/word/92"
+        },
+        {
+          "ref": "9:8",
+          "index": 93,
+          "word": "כָּל",
+          "sourceWordId": "S07326.3.2.9.8/word/93"
+        },
+        {
+          "ref": "9:8",
+          "index": 94,
+          "word": "זְמַן",
+          "sourceWordId": "S07326.3.2.9.8/word/94"
+        },
+        {
+          "ref": "9:8",
+          "index": 95,
+          "word": "שֶׁהִיא",
+          "sourceWordId": "S07326.3.2.9.8/word/95"
+        },
+        {
+          "ref": "9:8",
+          "index": 96,
+          "word": "תוֹבַעַת",
+          "sourceWordId": "S07326.3.2.9.8/word/96"
+        },
+        {
+          "ref": "9:8",
+          "index": 97,
+          "word": "כְּתוּבָּתָהּ",
+          "sourceWordId": "S07326.3.2.9.8/word/97"
+        },
+        {
+          "ref": "9:8",
+          "index": 98,
+          "word": "הַיּוֹרְשִׁין",
+          "sourceWordId": "S07326.3.2.9.8/word/98"
+        },
+        {
+          "ref": "9:8",
+          "index": 99,
+          "word": "מַשְׁבִּיעִין",
+          "sourceWordId": "S07326.3.2.9.8/word/99"
+        },
+        {
+          "ref": "9:8",
+          "index": 100,
+          "word": "אוֹתָה",
+          "sourceWordId": "S07326.3.2.9.8/word/100"
+        },
+        {
+          "ref": "9:8",
+          "index": 101,
+          "word": "אִם",
+          "sourceWordId": "S07326.3.2.9.8/word/101"
+        },
+        {
+          "ref": "9:8",
+          "index": 102,
+          "word": "אֵינָה",
+          "sourceWordId": "S07326.3.2.9.8/word/102"
+        },
+        {
+          "ref": "9:8",
+          "index": 103,
+          "word": "תּוֹבַעַת",
+          "sourceWordId": "S07326.3.2.9.8/word/103"
+        },
+        {
+          "ref": "9:8",
+          "index": 104,
+          "word": "כְּתוּבָּתָהּ",
+          "sourceWordId": "S07326.3.2.9.8/word/104"
+        },
+        {
+          "ref": "9:8",
+          "index": 105,
+          "word": "אֵין",
+          "sourceWordId": "S07326.3.2.9.8/word/105"
+        },
+        {
+          "ref": "9:8",
+          "index": 106,
+          "word": "היורשין",
+          "sourceWordId": "S07326.3.2.9.8/word/106"
+        },
+        {
+          "ref": "9:8",
+          "index": 107,
+          "word": "מַשְׁבִּיעִין",
+          "sourceWordId": "S07326.3.2.9.8/word/107"
+        },
+        {
+          "ref": "9:8",
+          "index": 108,
+          "word": "אוֹתָהּ",
+          "sourceWordId": "S07326.3.2.9.8/word/108"
+        }
+      ]
+    },
+    {
+      "ref": "9:9",
+      "start": 83,
+      "end": 100,
+      "lastImage": 207,
+      "nextImage": 208,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "9:9",
+          "index": 83,
+          "word": "שֶׁהִישִּׂיאוֹ",
+          "sourceWordId": "S07326.3.2.9.9/word/83"
+        },
+        {
+          "ref": "9:9",
+          "index": 84,
+          "word": "אָבִיו",
+          "sourceWordId": "S07326.3.2.9.9/word/84"
+        },
+        {
+          "ref": "9:9",
+          "index": 85,
+          "word": "כְּתוּבָּתָהּ",
+          "sourceWordId": "S07326.3.2.9.9/word/85"
+        },
+        {
+          "ref": "9:9",
+          "index": 86,
+          "word": "קַיֶּימֶת",
+          "sourceWordId": "S07326.3.2.9.9/word/86"
+        },
+        {
+          "ref": "9:9",
+          "index": 87,
+          "word": "שֶׁעַל",
+          "sourceWordId": "S07326.3.2.9.9/word/87"
+        },
+        {
+          "ref": "9:9",
+          "index": 88,
+          "word": "מְנָת",
+          "sourceWordId": "S07326.3.2.9.9/word/88"
+        },
+        {
+          "ref": "9:9",
+          "index": 89,
+          "word": "כֵּן",
+          "sourceWordId": "S07326.3.2.9.9/word/89"
+        },
+        {
+          "ref": "9:9",
+          "index": 90,
+          "word": "קִיְּימָהּ",
+          "sourceWordId": "S07326.3.2.9.9/word/90"
+        },
+        {
+          "ref": "9:9",
+          "index": 91,
+          "word": "גֵּר",
+          "sourceWordId": "S07326.3.2.9.9/word/91"
+        },
+        {
+          "ref": "9:9",
+          "index": 92,
+          "word": "שֶׁנִּתְגַּיַּיר",
+          "sourceWordId": "S07326.3.2.9.9/word/92"
+        },
+        {
+          "ref": "9:9",
+          "index": 93,
+          "word": "וְאִשְׁתּוֹ",
+          "sourceWordId": "S07326.3.2.9.9/word/93"
+        },
+        {
+          "ref": "9:9",
+          "index": 94,
+          "word": "עִימּוֹ",
+          "sourceWordId": "S07326.3.2.9.9/word/94"
+        },
+        {
+          "ref": "9:9",
+          "index": 95,
+          "word": "כְּתוּבָּתָהּ",
+          "sourceWordId": "S07326.3.2.9.9/word/95"
+        },
+        {
+          "ref": "9:9",
+          "index": 96,
+          "word": "קַיֶּימֶת",
+          "sourceWordId": "S07326.3.2.9.9/word/96"
+        },
+        {
+          "ref": "9:9",
+          "index": 97,
+          "word": "שֶׁעַל",
+          "sourceWordId": "S07326.3.2.9.9/word/97"
+        },
+        {
+          "ref": "9:9",
+          "index": 98,
+          "word": "מְנָת",
+          "sourceWordId": "S07326.3.2.9.9/word/98"
+        },
+        {
+          "ref": "9:9",
+          "index": 99,
+          "word": "כֵּן",
+          "sourceWordId": "S07326.3.2.9.9/word/99"
+        },
+        {
+          "ref": "9:9",
+          "index": 100,
+          "word": "קִיְּימָה",
+          "sourceWordId": "S07326.3.2.9.9/word/100"
+        }
+      ]
+    },
+    {
+      "ref": "11:4",
+      "start": 78,
+      "end": 79,
+      "lastImage": 217,
+      "nextImage": 218,
+      "reason": "Previous image ends before these source words; next image begins at next unit. Not reconstructed.",
+      "positions": [
+        {
+          "ref": "11:4",
+          "index": 78,
+          "word": "מִכְרַן",
+          "sourceWordId": "S07326.3.2.11.4/word/78"
+        },
+        {
+          "ref": "11:4",
+          "index": 79,
+          "word": "קַיָּים",
+          "sourceWordId": "S07326.3.2.11.4/word/79"
+        }
+      ]
+    }
+  ],
+  "otherUnbound": [
+    {
+      "ref": "2:9",
+      "index": 13,
+      "word": "וכן",
+      "sourceWordId": "S07326.3.2.2.9/word/13",
+      "reason": "No separate literal visible cell was identified; left open."
+    },
+    {
+      "ref": "5:2",
+      "index": 6,
+      "word": "לה",
+      "sourceWordId": "S07326.3.2.5.2/word/6",
+      "reason": "No separate literal visible cell was identified; left open."
+    },
+    {
+      "ref": "10:6",
+      "index": 37,
+      "word": "הל'",
+      "sourceWordId": "S07326.3.2.10.6/word/37",
+      "reason": "Source trailing halakhah markers not printed as lexical cells."
+    },
+    {
+      "ref": "10:6",
+      "index": 38,
+      "word": "ו'",
+      "sourceWordId": "S07326.3.2.10.6/word/38",
+      "reason": "Source trailing halakhah markers not printed as lexical cells."
+    },
+    {
+      "ref": "12:3",
+      "index": 24,
+      "word": "לַה",
+      "sourceWordId": "S07326.3.2.12.3/word/24",
+      "reason": "Current target includes extra/reordered לה and אמרה; no separate literal cell bound automatically."
+    },
+    {
+      "ref": "12:3",
+      "index": 28,
+      "word": "אמרה",
+      "sourceWordId": "S07326.3.2.12.3/word/28",
+      "reason": "Current target includes extra/reordered לה and אמרה; no separate literal cell bound automatically."
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "limitations": [
+    "All 111 original images have been visually read by AI; source position gaps are explicitly retained.",
+    "Morphology/printed oddities require independent adjudication before calling them verified.",
+    "Unpointed literal screenshot surfaces do not validate vowel points."
+  ]
+}

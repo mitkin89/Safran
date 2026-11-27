@@ -1,0 +1,152 @@
+{
+  "kind": "fresh-original-image-editorial-variant-qa",
+  "title": "Mishnah Ketubot",
+  "humanValidated": false,
+  "sourceTextHash": "00f0c57ee76f1f3a61d89cbb8c6efaf2ac2797fc3fa0c2eb4f2dd8b33c3b4904",
+  "ledgerFile": "accordance-nashim-current-ketubot-observations.json",
+  "ledgerSha256": "82eae131acfd0e6b7b1ac115fbad39eb8f5fdaf1f8248d9c3824c0d1edd3538a",
+  "priorLedgerSha256": "fdb6fee7b2b1f26541f49d6d58326bf6886b4be52f2682deb16dcc609b436321",
+  "sourceModulesChanged": false,
+  "rawCorrections": [
+    {
+      "ref": "2:3",
+      "index": 5,
+      "rawBefore": "אבל",
+      "rawCorrected": "(אבל)",
+      "lexTagChanged": false
+    },
+    {
+      "ref": "2:10",
+      "index": 27,
+      "rawBefore": "פלוני",
+      "rawCorrected": "פלני",
+      "lexTagChanged": false
+    }
+  ],
+  "checks": [
+    {
+      "sourceWordId": "S07326.3.2.1.9/word/32",
+      "ref": "1:9",
+      "sourceWordIndex": 32,
+      "outcome": "confirmed-printed-editorial-alternatives",
+      "note": "Image131 visibly prints ראייה and {ראייה}; identical Lex/Tag retained separately.",
+      "observations": [
+        {
+          "actualObservedWord": "ראייה",
+          "lex": "ראיה",
+          "tag": "cm fm sg",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "sha256": "9c46861af1ca33c70bea6066ca3b65e457deb3698b4cfd6ffc348a7129899276",
+            "driveId": "1vd9HQQd0Lyy2sdTIMc92Dd5Z-rj4NF-B"
+          }
+        },
+        {
+          "actualObservedWord": "{ראייה}",
+          "lex": "ראיה",
+          "tag": "cm fm sg",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_131.png",
+            "sha256": "9c46861af1ca33c70bea6066ca3b65e457deb3698b4cfd6ffc348a7129899276",
+            "driveId": "1vd9HQQd0Lyy2sdTIMc92Dd5Z-rj4NF-B"
+          }
+        }
+      ]
+    },
+    {
+      "sourceWordId": "S07326.3.2.2.3/word/5",
+      "ref": "2:3",
+      "sourceWordIndex": 5,
+      "outcome": "literal-surface-correction",
+      "note": "Image135 visibly prints (אבל) and {אבל}; restored round parentheses on first observation only. Lex/Tag unchanged.",
+      "observations": [
+        {
+          "actualObservedWord": "(אבל)",
+          "lex": "אבל",
+          "tag": "adv",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "sha256": "343c5ec50e28f834111831cae7ac2100a94a927a668a97180c10dcca9ac7ff12",
+            "driveId": "1vQUkOIh_v3G_vjsZjwapzFxhFqX-BzJ9"
+          }
+        },
+        {
+          "actualObservedWord": "{אבל}",
+          "lex": "אבל",
+          "tag": "adv",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_135.png",
+            "sha256": "343c5ec50e28f834111831cae7ac2100a94a927a668a97180c10dcca9ac7ff12",
+            "driveId": "1vQUkOIh_v3G_vjsZjwapzFxhFqX-BzJ9"
+          }
+        }
+      ]
+    },
+    {
+      "sourceWordId": "S07326.3.2.2.10/word/27",
+      "ref": "2:10",
+      "sourceWordIndex": 27,
+      "outcome": "literal-surface-correction",
+      "note": "Image143 primary surface פלני, Lex פלני; editorial alternate (פלוני), Lex פלוני. Restored primary surface without ו. Opening square-bracket boundary visible before alternate parenthesis; neither printed alternative normalized.",
+      "observations": [
+        {
+          "actualObservedWord": "פלני",
+          "lex": "פלני",
+          "tag": "cm ms sg",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "sha256": "58e6d28b5142c53cd967a211a98a07f4691c67be7b1c0805bb0f45ce3216238d",
+            "driveId": "1gnRdjuIIF_OQhZDgvnCL1MA5fGSHYGMx"
+          }
+        },
+        {
+          "actualObservedWord": "(פלוני)",
+          "lex": "פלוני",
+          "tag": "cm ms sg",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_143.png",
+            "sha256": "58e6d28b5142c53cd967a211a98a07f4691c67be7b1c0805bb0f45ce3216238d",
+            "driveId": "1gnRdjuIIF_OQhZDgvnCL1MA5fGSHYGMx"
+          }
+        }
+      ]
+    },
+    {
+      "sourceWordId": "S07326.3.2.3.8/word/19",
+      "ref": "3:8",
+      "sourceWordIndex": 19,
+      "outcome": "confirmed-printed-editorial-alternatives",
+      "note": "Image149 visibly prints {קטנה}, Lex קטן, Tag fm sg; image150 continuation prints נערה, Lex נערה, Tag cm fm sg. Both belong to same uniquely aligned context and remain separate literal evidence. No morphology inferred from expected source.",
+      "observations": [
+        {
+          "actualObservedWord": "{קטנה}",
+          "lex": "קטן",
+          "tag": "fm sg",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_149.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_149.png",
+            "sha256": "3a8988f3407a927d0ca244f86717aa28e1c6fd86c60512076f4d3a4a16c2c4de",
+            "driveId": "1u-k0S5kaAH8tP3K7b53XO8UyCMCWVBYq"
+          }
+        },
+        {
+          "actualObservedWord": "נערה",
+          "lex": "נערה",
+          "tag": "cm fm sg",
+          "image": {
+            "file": "mischna_2026-11-27_09-27-19_25B5EA35_150.png",
+            "path": "/workspace/mishnah-nashim-drive/mischna_2026-11-27_09-27-19_25B5EA35_150.png",
+            "sha256": "bca8a154132417d850cc184c396f9de1dd06a0f5953ac9203dc25ab03ceeff1f",
+            "driveId": "1be8s1CW7kr9-dxy3MTyteUgV7YnwQzO-"
+          }
+        }
+      ]
+    }
+  ]
+}
