@@ -1,0 +1,391 @@
+{
+  "scope": "Keritot chapter4 primary-source inventory audit; no text or morphology changes",
+  "humanValidated": false,
+  "checkedAtUTC": "2026-11-27T14:57:31.317220+00:00",
+  "source": {
+    "localCompressedFile": "app/tools/mishnah/sources/S07326.xml.gz",
+    "compressedSha256": "21eedc16e39c5af58d2f6ef6a0be68ea06257a21c5713f0ad644f4fecb51a661",
+    "uncompressedSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+    "pinnedCommit": "39389be30e93032d722e8dd3b7bcdfe15e76a421",
+    "urls": {
+      "pinnedBlob": "https://github.com/umd-mith/mishnah-data/blob/39389be30e93032d722e8dd3b7bcdfe15e76a421/mishnah/S07326.xml",
+      "pinnedRaw": "https://raw.githubusercontent.com/umd-mith/mishnah-data/39389be30e93032d722e8dd3b7bcdfe15e76a421/mishnah/S07326.xml",
+      "currentMasterRaw": "https://raw.githubusercontent.com/umd-mith/mishnah-data/master/mishnah/S07326.xml"
+    },
+    "remoteFetchChecks": [
+      {
+        "url": "https://raw.githubusercontent.com/umd-mith/mishnah-data/39389be30e93032d722e8dd3b7bcdfe15e76a421/mishnah/S07326.xml",
+        "sha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+        "byteIdenticalToPinnedLocalTEI": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/umd-mith/mishnah-data/master/mishnah/S07326.xml",
+        "sha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+        "byteIdenticalToPinnedLocalTEI": true
+      }
+    ]
+  },
+  "currentModule": {
+    "file": "app/mishnah-textcrit/mishnah-keritot.js",
+    "sha256": "87109f6c5cd9be2f4df6089d2f9117f65c9167cd632e4c5fba12d5b0f7b5fb79"
+  },
+  "primaryTEIInventory": {
+    "tractateId": "S07326.5.7",
+    "chapterIds": [
+      "S07326.5.7.1",
+      "S07326.5.7.2",
+      "S07326.5.7.3",
+      "S07326.5.7.5",
+      "S07326.5.7.6"
+    ],
+    "allAbIds": [
+      "S07326.5.7.1.1",
+      "S07326.5.7.1.2",
+      "S07326.5.7.1.3",
+      "S07326.5.7.1.4",
+      "S07326.5.7.1.5",
+      "S07326.5.7.1.6",
+      "S07326.5.7.1.7",
+      "S07326.5.7.2.1",
+      "S07326.5.7.2.2",
+      "S07326.5.7.2.3",
+      "S07326.5.7.2.4",
+      "S07326.5.7.2.5",
+      "S07326.5.7.2.6",
+      "S07326.5.7.3.1",
+      "S07326.5.7.3.2",
+      "S07326.5.7.3.3",
+      "S07326.5.7.3.4",
+      "S07326.5.7.3.5",
+      "S07326.5.7.3.6",
+      "S07326.5.7.3.7",
+      "S07326.5.7.5.2",
+      "S07326.5.7.5.3",
+      "S07326.5.7.5.4",
+      "S07326.5.7.5.5",
+      "S07326.5.7.5.6",
+      "S07326.5.7.5.7",
+      "S07326.5.7.5.8",
+      "S07326.5.7.6.1",
+      "S07326.5.7.6.2",
+      "S07326.5.7.6.3",
+      "S07326.5.7.6.4",
+      "S07326.5.7.6.5",
+      "S07326.5.7.6.6",
+      "S07326.5.7.6.7",
+      "S07326.5.7.6.8",
+      "S07326.5.7.6.9"
+    ],
+    "units": 36,
+    "chapter4IDsIncludingLeadingZeroNumericSearch": [],
+    "currentKUnits": 36,
+    "currentPUnits": 43,
+    "currentCUnits": 43,
+    "P_CRefsAbsentInK": {
+      "P": [
+        "3:8",
+        "3:9",
+        "3:10",
+        "4:1",
+        "4:2",
+        "4:3",
+        "5:1"
+      ],
+      "C": [
+        "3:8",
+        "3:9",
+        "3:10",
+        "4:1",
+        "4:2",
+        "4:3",
+        "5:1"
+      ]
+    }
+  },
+  "upstreamEditorialGapNote": {
+    "verbatimNormalizedText": "Page missing with mKer 3:7-5:2, ca 700 words- This equals quite exactly 4 columns of text",
+    "resp": "ref.xml#dsbe",
+    "TEIPath": "//tei:div2[@xml:id=\"S07326.5.7\"]/tei:div3[@xml:id=\"S07326.5.7.3\"]/tei:note",
+    "sourceLine": 49267,
+    "noteSerializedSha256": "4169df915c924d9e3a7a358b89b87e266525310c2b7b2b854f5c047b34e2a814",
+    "authority": "Digital Mishnah TEI editor note, not a new independent manuscript inspection",
+    "precedingAb": "S07326.5.7.3.7",
+    "precedingColumnMarker": "S07326.209vB",
+    "followingAb": "S07326.5.7.5.2",
+    "followingColumnMarker": "S07326.210rA",
+    "precedingLastText": " אחד מה הוא חייב אחת על כולם או אחת על כל אחת ואחת אמרו לו לא שמענו אבל שמענו בבא על חמש נשיו נידות ב העלם אחד",
+    "followingPreservedText": "נדבה והאשם תלוי שמימין שהוא מביא על הודע מביא על לא הודע"
+  },
+  "reextraction": {
+    "parserFile": "app/tools/mishnah/build.py",
+    "parserSha256": "19abf27763df9bf24a906892cee370db336c8fffbcca56067c94250f9e535747",
+    "unitResults": [
+      {
+        "id": "S07326.5.7.1.1",
+        "ref": "1:1",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "a5a683cefaa5e9e009dbcb94e2b0f1d99ce6f703504d3ca69425457982b65ad3"
+      },
+      {
+        "id": "S07326.5.7.1.2",
+        "ref": "1:2",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "d696778569eeae3e58aca44abcb9253c2ce573304983f973bb174b88eee2d739"
+      },
+      {
+        "id": "S07326.5.7.1.3",
+        "ref": "1:3",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "fde6d00f476e63035a169b13742f81bd266351bab4a9f8cf2c6af286f161d2bd"
+      },
+      {
+        "id": "S07326.5.7.1.4",
+        "ref": "1:4",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "e0b9d2c3bdfb97784ad6a32c5b66b1aba915d4277c1e0f52b36f85ec1dbb7269"
+      },
+      {
+        "id": "S07326.5.7.1.5",
+        "ref": "1:5",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "426fb9ad4a233d656ca3bb75112a4ae9f42d950d26d181c44d8028e494af0d2a"
+      },
+      {
+        "id": "S07326.5.7.1.6",
+        "ref": "1:6",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "eaa5bf3b272bb6c2adf4e775da5e67c41953a9390e345bed2225ec63d6b85287"
+      },
+      {
+        "id": "S07326.5.7.1.7",
+        "ref": "1:7",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "3325389908e24e96c129641b40ceadc3c3e7aef6dfc244fcfc8f385636bbd27c"
+      },
+      {
+        "id": "S07326.5.7.2.1",
+        "ref": "2:1",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "72ae8c1b5a7e6f084238f216fc8fdf3e3664909219731b91d24177979f9ab809"
+      },
+      {
+        "id": "S07326.5.7.2.2",
+        "ref": "2:2",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "9de92fcb4d74fb9edb7e5074f1df299498c60ce39b6d7fd09f30dd169b59c429"
+      },
+      {
+        "id": "S07326.5.7.2.3",
+        "ref": "2:3",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "fd8f96905e2f395de0485ff552b3253157b2f9806f0d487e34817cc5c86b9706"
+      },
+      {
+        "id": "S07326.5.7.2.4",
+        "ref": "2:4",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "665ef58901d0a108b1937eb871f0cef87ae4930940fbb5b3e6fc2bda2a22d7b7"
+      },
+      {
+        "id": "S07326.5.7.2.5",
+        "ref": "2:5",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "62fabae0d6e34d51cbf6a0cec405c5869792300c1bc45a09020dc0bc432185be"
+      },
+      {
+        "id": "S07326.5.7.2.6",
+        "ref": "2:6",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "f7cb2a91b4e83ad66a45bbadc175f5d8abe3090d3037f94b6ed3c73e5f33dddd"
+      },
+      {
+        "id": "S07326.5.7.3.1",
+        "ref": "3:1",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "e3ba36581711ed9e36f87db9c67b5f1ce0fd0a16d179b2041ab37a71cbbce1d9"
+      },
+      {
+        "id": "S07326.5.7.3.2",
+        "ref": "3:2",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "8ab6862bf8ad6837cdbc99b71448045c665c6ba1f5ae73fcfaf609cc25ac1ac6"
+      },
+      {
+        "id": "S07326.5.7.3.3",
+        "ref": "3:3",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "3ed91556192f72495122f62c4c08aed830ad82113e4fd30d5a137847d10bd1d1"
+      },
+      {
+        "id": "S07326.5.7.3.4",
+        "ref": "3:4",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "e2eab9cbd2c0e4854582cee7ee46ab4c3d9aded8ad99dd9b5a9d9c0a690e2f22"
+      },
+      {
+        "id": "S07326.5.7.3.5",
+        "ref": "3:5",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "c390561471bb6e485f6d35093a02423cc1fc9cb54d0ba28eea34006637e0a6a3"
+      },
+      {
+        "id": "S07326.5.7.3.6",
+        "ref": "3:6",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "1cf375a3f30b43344da4bd924a9b9ea0f97b63a0a500eb0ac537b25736d60401"
+      },
+      {
+        "id": "S07326.5.7.3.7",
+        "ref": "3:7",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "f2312b220bb8e3e6a22969e73b1e380255a3b116f7cda522d7b7854a18a2e701"
+      },
+      {
+        "id": "S07326.5.7.5.2",
+        "ref": "5:2",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "7fd05d34479406e3f68f8a7f9f3949ea25e68aff2d69392c08a87c5a21e00126"
+      },
+      {
+        "id": "S07326.5.7.5.3",
+        "ref": "5:3",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "f3552613e2cedf0fa17bdd069ede3963d1b89c2ca44de83688317779c8e3f36a"
+      },
+      {
+        "id": "S07326.5.7.5.4",
+        "ref": "5:4",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "fd955932f71e9e6fe18e997c928ffee6d3c9d6cfc203f4a9e9304fa0771f4993"
+      },
+      {
+        "id": "S07326.5.7.5.5",
+        "ref": "5:5",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "a76d09cec1a65c24d7b231109ef5d8db508aee4ff4e4563a63181272dd59c46a"
+      },
+      {
+        "id": "S07326.5.7.5.6",
+        "ref": "5:6",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "0e0b89a34a9a12410aba4043edb81910db137fd0dc11570f49cc1ce32f86bd2f"
+      },
+      {
+        "id": "S07326.5.7.5.7",
+        "ref": "5:7",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "6381887ab09a4b9d4622c564a9af435cb5c3ad478f0b5e43976b8a9cc97d430f"
+      },
+      {
+        "id": "S07326.5.7.5.8",
+        "ref": "5:8",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "83cc91af2c641824332c08fb483cbf1b4c3f257e99261a8b1f5b64bc3e549565"
+      },
+      {
+        "id": "S07326.5.7.6.1",
+        "ref": "6:1",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "bc2d575da08f760898acae65bbf6028a5d662974a3222bdada987f7ced1b3a32"
+      },
+      {
+        "id": "S07326.5.7.6.2",
+        "ref": "6:2",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "3a77466553ed560c9041a18bd1b2ae795dfd19af8309bf6691d85043de7cf347"
+      },
+      {
+        "id": "S07326.5.7.6.3",
+        "ref": "6:3",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "a236a3ceeb2346cdb1fb71a0b8b7cc37a2d78e0dbcf655ec81472d88751a26c6"
+      },
+      {
+        "id": "S07326.5.7.6.4",
+        "ref": "6:4",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "105d9fb44742b62d9c938601198ce4eb9f1e430edbc7292b51c5481f18287ebc"
+      },
+      {
+        "id": "S07326.5.7.6.5",
+        "ref": "6:5",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "47c8d80ad5fc9a989ee873188647d2a9693c8248345c224561351b1ac7e96411"
+      },
+      {
+        "id": "S07326.5.7.6.6",
+        "ref": "6:6",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "96ca8a737a99be4ca23b3ec6234b79ca5bbb9fa362e8ff2f90d93d82eda17099"
+      },
+      {
+        "id": "S07326.5.7.6.7",
+        "ref": "6:7",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "573f56ed78402c2a24a413e351fc9b5122543af11db1cea28f9a79928873cb74"
+      },
+      {
+        "id": "S07326.5.7.6.8",
+        "ref": "6:8",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "f2fd79d827145962abdfc93f63c706ad8d629f3f997e6dd2c3145509c199abc3"
+      },
+      {
+        "id": "S07326.5.7.6.9",
+        "ref": "6:9",
+        "presentInCurrentK": true,
+        "mismatchedFields": [],
+        "teiAbSha256": "76a36ff9815f2114e9058566e39bb4b47ad58d779f9d4f88a404edd0204e4d99"
+      }
+    ],
+    "unimportedTEIUnits": [],
+    "mismatches": []
+  },
+  "excerpt": {
+    "file": "keritot-chapter4-primary-source-excerpt.xml.txt",
+    "sha256": "5bc8bba4f32b8535f338462111c4a4e8c56008f842f35c6310cf4efb7577a890"
+  },
+  "finding": "The original pinned TEI itself lacks chapter4 and explicitly reports a missing page covering mKer3:7–5:2. Both current upstream master and pinned raw TEI are byte-identical to the local source. All36 available TEI ab units re-extract exactly, including raw/offsetText/words/annotations; no local parser omission or alternate chapter4 ID was found.",
+  "limits": [
+    "No manuscript facsimile was read for this audit; physical manuscript condition is not newly verified.",
+    "The explicit Page missing claim belongs to the upstream TEI editor; coverage absence alone would not establish manuscript loss.",
+    "3:7 and5:2 survive only at the edges of the upstream reported interval; no reconstruction or invented completeness.",
+    "No Beeri, Parma, Cambridge or Accordance text was inserted; comparator references serve only as an inventory.",
+    "No source text, derived book module, catalog, morphology or pointing changed."
+  ]
+}

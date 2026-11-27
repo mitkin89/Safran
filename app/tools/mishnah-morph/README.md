@@ -400,3 +400,13 @@ Accordance-Bilder liegen derzeit für Zevachim und einen Teil von Menachot vor.
 Fehlende Aufnahmen und die übrigen neun Traktate werden nicht als geprüft
 gezählt. Die unabhängigen Bildlesungen bleiben separate
 `accordance-kodashim-current-*-observations.json` mit eigenem Prüfstand.
+
+Die Keritot-Grundlage hat eine bereits im Primärtranskript erklärte Quellenlücke:
+Nach 3:7 notiert die Digital-Mishnah-TEI ausdrücklich „Page missing with mKer
+3:7-5:2, ca 700 words“. Es gibt dort keine anders nummerierten Kapitel-4-IDs.
+Die unabhängige Neu-Extraktion reproduziert alle 36 vorhandenen Einheiten exakt.
+`tools/mishnah/kodashim-keritot-primary-source-gap-audit.json` dokumentiert
+gepinntes und aktuelles GitHub-Original, Dateihashes, Notiz und Gegenprüfung.
+Die physische Seitenlücke ist hier ein zitierter Herausgeberbefund, keine neu
+von uns bestätigte Manuskriptlesung. Fehlender Kaufmann-Text wird weder aus
+Be’eri noch aus Parma/Cambridge in die Kaufmann-Grundlage eingesetzt.
