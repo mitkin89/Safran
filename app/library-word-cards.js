@@ -16,11 +16,33 @@ window.LibraryWordCards = (() => {
   const corpora=window.LibraryWordCardCorpora.create({$:host.$,esc:host.esc,load:lazyScript,gm:()=>window.GMorph,forms:()=>window.Forms,morph:()=>window.Morph,
     jump:(hit,e)=>host.openCorpusRef(hit,host.BG(e)),changed:()=>{fmShowTab();fmHistSave();}});
   async function openCorpusForms(head,greek,tab='card',rest){
+    if(greek){const D=await host.loadGM(),id=window.GMorph.findLemma(D,head);if(id&&window.GMorph.model(D,id)?.total)return openGForms(id,null,tab,rest);}
     const lemma='corpus:'+head,info={corpus:true,head,greek};fmHistOpen(greek,lemma,info,tab,rest);corpora.reset();
     const token=++wcToken;fmTrData=null;fmCur={lemma,greek,lem:[head],corpusOnly:true};host.$('#formsPanel').hidden=false;
     host.$('#fmHead').innerHTML='<span class="fmLem" dir="auto">'+host.esc(head)+'</span><button type="button" class="wdict" data-q="'+host.esc(head)+'">'+host.esc(I18N.t('Im Wörterbuch nachschlagen'))+'</button>';
     host.$('#wcBody').replaceChildren();host.$('#fmBody').replaceChildren();host.$('#fmConcordanceBody').replaceChildren();fmShowTab(tab);
     await corpora.attach({head,greek,only:true,restore:rest?.corpus},()=>token===wcToken);fmShowTab(tab);
+  }
+  async function openAramaicRoot(item,tab='card',rest){
+    const lemma='arc:'+item.spelling;fmHistOpen(false,lemma,{aramaicRoot:item},tab,rest);corpora.reset();
+    const token=++wcToken;fmCur={lemma,lem:[item.spelling],corpusOnly:true};fmTrData=null;
+    host.$('#formsPanel').hidden=false;host.$('#fmHead').innerHTML='<span class="fmLem" dir="rtl">'+host.esc(item.spelling)+'</span><span class="fmGloss">'+host.esc(I18N.t('Wurzel'))+' · '+host.esc(I18N.t('Aramäisch'))+'</span>';
+    host.$('#wcBody').replaceChildren();host.$('#fmBody').replaceChildren();host.$('#fmConcordanceBody').replaceChildren();fmShowTab(tab);
+    const api=await corpora.model(),rows=[];
+    for(const m of item.members){
+      const firstRow=rows.length;
+      if(m.kind==='peshitta'){
+        await loadPeshittaCards();const D=window.PESHITTA_WORD_INDEX,x=D.lex[m.id];if(!x)continue;
+        x.forms.forEach((f,i)=>{const features={},keys=['pos','stem','tense','person','gender','number','voice','state'];f[1].forEach((v,j)=>{if(v&&!['NA','unknown','n/a'].includes(v))features[keys[j]]=[window.SyriacMorph.describe({[['sp','vs','vt','ps','gn','nu','vo','st'][j]]:v},s=>s)[j===0?'pos':'info']||v];});rows.push({form:f[0],features,corpus:'Peshitta',hits:f[2].map((r,j)=>({id:m.key+':'+i+':'+j,title:D.books[r[0]][0],version:D.books[r[0]][1],path:[r[1]-1],label:String(r[2]),n:r[3],corpus:'Peshitta',targetForms:[f[0]]}))});});
+      }else if(m.kind==='targum'){
+        const D=await loadTForms(),mdl=window.TargumForms.model(D,m.id);if(!mdl)continue;
+        mdl.forms.forEach((f,i)=>{const hits=window.TargumForms.refs(D,mdl,String(i)).map((r,j)=>({id:m.key+':'+i+':'+j,title:r.title,version:r.vt,path:[r.ch-1],label:String(r.v),n:r.n,corpus:D.B.find(b=>b[0]===r.title&&b[1]===r.vt)?.[2]||'Targumim',targetForms:[f.f]}));for(const corpus of new Set(hits.map(h=>h.corpus)))rows.push({form:f.f,features:Object.fromEntries(f.key.split('.').flatMap((v,j)=>v&&v!=='-'?[[['pos','stem','state','number','gender'][j],[window.TargumForms.describe(v)]]]:[])),corpus,hits:hits.filter(h=>h.corpus===corpus)});});
+      }else if(!m.root){const D=await loadForms(),mdl=window.Forms.model(D,m.id);if(mdl)rows.push(...api.base({D,mdl,F:window.Forms,greek:false}).map(r=>({...r,hits:r.hits.map(h=>({...h,id:m.key+':'+h.id}))})));}
+      rows.slice(firstRow).forEach(r=>{r.features.lemma=[m.label+(m.gloss?' · '+m.gloss:'')];});
+    }
+    if(token!==wcToken)return;
+    host.$('#fmHead').insertAdjacentHTML('beforeend','<span class="fmCnt">'+api.count(rows).toLocaleString(I18N.loc)+' '+host.esc(I18N.t('Belege'))+'</span>');
+    await corpora.attach({rows,aramaic:true,head:item.spelling,only:true,restore:rest?.corpus},()=>token===wcToken);fmShowTab(tab);
   }
   function loadForms() { // der Index (ca. 2 MB) wird erst beim ersten Wort-Popup geladen
     if (!formsP) formsP = lazyScript('oshb-forms.js', () => window.OSHB_FORMS).catch(e => { formsP = null; throw e; });
@@ -95,8 +117,8 @@ window.LibraryWordCards = (() => {
       const stats = !card.greek && !card.syriac && !card.targum
         ? await host.loadPassageStats().catch(() => null) : null;
       if (!active()) return;
-      const family = stats?.roots?.[card.lemma];
-      const root = mode === 'root' && family ? card.lemma : '';
+      const family = window.Forms.rootInfo(stats?.roots, card.lemma);
+      const root = mode === 'root' && family ? (card.family?'all:':'')+card.lemma.replace(/\s+/g, '') : '';
       state.root = root;
       if (root) state.query = family.root;
       const result = await host.O.search({
@@ -196,9 +218,9 @@ window.LibraryWordCards = (() => {
     if (rest?.family && D) {
       const roots = (await host.loadPassageStats().catch(() => null))?.roots;
       if (token !== wcToken) return;
-      const selected = roots?.[lemma];
+      const selected = window.Forms.rootInfo(roots, lemma);
       if (selected) {
-        const ids = Object.keys(roots).filter(id => roots[id].id === selected.id && roots[id].lang === selected.lang);
+        const ids = window.Forms.rootEntries(D, roots).filter(([, r]) => r.root === selected.root && r.lang === selected.lang).map(([id]) => id);
         family = { root: selected.root, ids };
       }
     }
@@ -420,7 +442,7 @@ window.LibraryWordCards = (() => {
     const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && (!x.lemma || x.lemma === fmCur.lemma) && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${targum ? 'arc' : greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${host.esc(x.f)}</span><small>${wcNum(x.n)}</small>${x.lemma ? `<small class="wcFormLemma" dir="auto">${host.esc(wcLemmaLabel(x.lemma))}</small>` : ''}</button>`;
     card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${host.esc(I18N.t(family ? 'Alle Stellen dieser Wurzel' : targum ? 'Alle Stellen dieses Wortes' : greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${host.esc(I18N.t(family ? 'Alle Stellen dieser Wurzel' : 'Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
       <section class="wcSec"><h4>${host.esc(I18N.t(targum ? 'Verteilung in den Targumim' : greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${host.esc(greek || targum ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
-        <div class="wcChart"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${host.esc(I18N.t(g.name))}</div></div>`).join('')}</div><div class="wcTip" hidden></div></div>
+        <div class="wcChart">${window.WordCardChart.controls()}<div class="wcChartViewport"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${host.esc(I18N.t(g.name))}</div></div>`).join('')}</div></div><div class="wcTip" hidden></div></div>
         <div class="wcTop"><span class="muted">${host.esc(I18N.t('Am häufigsten:'))}</span> ${top.map(x => `<a data-b="${host.esc(x.book)}">${host.esc(fmBook(x.book))}</a> <small>${wcNum(x.n)}</small>`).join(' · ')} <span class="muted wcHint">· ${host.esc(I18N.t('Klick auf einen Balken zeigt die Stellen des Buches'))}</span></div>
         <div class="wcRefs" id="wcBookRefs"></div></section>
       <section class="wcSec"><h4>${host.esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${host.esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
@@ -436,7 +458,7 @@ window.LibraryWordCards = (() => {
     if (!greek && !targum) {
       const lemma = fmCur.lemma;
       host.loadPassageStats().then(index => {
-        const root = index?.roots?.[lemma]?.root;
+        const root = window.Forms.rootInfo(index?.roots, lemma)?.root;
         if (token !== wcToken || !root) return;
         const e = host.esc;
         host.$('#fmHead').insertAdjacentHTML('beforeend', `<div class="wcScope" role="group" aria-label="${e(I18N.t('Suchumfang'))}">
@@ -1092,7 +1114,7 @@ window.LibraryWordCards = (() => {
   }
   function wcSearchAll() { // Lemma-Suche in der Suchmaske: Hebräisch, Treffer „Alle Formen“
     const { lem } = fmCur; if (!lem) return;
-    if (fmCur.family) { const { family, lemma } = fmCur; closeForms(); host.openConcordance(family.root, lemma); return; }
+    if (fmCur.family) { const { family, lemma } = fmCur; closeForms(); host.openConcordance(family.root, 'all:'+lemma.replace(/\s+/g,'')); return; }
     if (fmCur.targum) { wcBookRefs('*', true); host.$('#wcBookRefs').scrollIntoView({ block: 'nearest' }); return; }
     if (fmCur.greek) { gSearchAll(lem[0]); return; }
     closeForms(); host.showTab('search');
@@ -1199,7 +1221,8 @@ window.LibraryWordCards = (() => {
     if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && !!fmCur.family === !!h.family && host.$('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
       if (h.tr) { fmRestTr(h); wcTrRender(); }
       fmRestBase(h);
-    } else if(h.info?.corpus)openCorpusForms(h.info.head,h.info.greek,h.tab,h);
+    } else if(h.info?.aramaicRoot)openAramaicRoot(h.info.aramaicRoot,h.tab,h);
+    else if(h.info?.corpus)openCorpusForms(h.info.head,h.info.greek,h.tab,h);
     else if(h.info?.peshitta)openPForms(h.info.id,h.info,h.tab,h);
     else if(h.info?.syriac)openSForms(h.info.query,h.info,h.tab,h);
     else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
@@ -1379,10 +1402,40 @@ window.LibraryWordCards = (() => {
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
     const go = e.target.closest('.wcLink[data-go]'); if (go) { fmStep(() => { fmShowTab(go.dataset.go); host.$('#formsPanel').scrollTop = 0; }); return; }
     const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); host.showTab('dict'); host.dictLookup(q, only, false, fmCur.syriac ? fmCur.id : undefined); return; }
-    const bar = e.target.closest('.wcBar, .wcTop a[data-b]'); if (bar) { wcBookRefs(host.$('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
+    const bar = e.target.closest('.wcBar[data-b], .wcTop a[data-b]'); if (bar) { wcBookRefs(host.$('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
     const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
   });
   host.$('#wcBody').addEventListener('keydown', e => { if (e.key !== 'Enter' && e.key !== ' ') return; const tr = e.target.closest && e.target.closest('.wcTrR.can[data-g]'); if (!tr || e.target !== tr) return; e.preventDefault(); wcTrRefs(tr.dataset.g); });
+  { // Chromium delivers trackpad pinch gestures as Ctrl+wheel.
+    const zoomChart=(chart,value,clientX)=>{
+      const viewport=chart.querySelector('.wcChartViewport'),plot=chart.querySelector('.wcPlot');
+      const old=+(chart.dataset.zoom||1),zoom=Math.max(.5,Math.min(6,value));
+      const x=Math.max(0,Math.min(viewport.clientWidth,clientX-viewport.getBoundingClientRect().left));
+      const anchor=(viewport.scrollLeft+x)/old;
+      chart.dataset.zoom=zoom;plot.style.width=(zoom*100)+'%';
+      chart.querySelector('.wcChartPercent').textContent=Math.round(zoom*100)+'%';
+      viewport.scrollLeft=anchor*zoom-x;
+      chart.querySelector('.wcChartReset').hidden=zoom===1;
+      chart.querySelector('.wcTip').hidden=true;
+    };
+    host.$('#formsPanel').addEventListener('wheel',e=>{
+      const chart=e.target.closest('.wcChart');if(!chart||!(e.ctrlKey||e.metaKey)||!e.target.closest('.wcChartViewport'))return;
+      e.preventDefault();e.stopPropagation();
+      const delta=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?chart.clientHeight:1);
+      zoomChart(chart,+(chart.dataset.zoom||1)*(delta<0?1.15:1/1.15),e.clientX);
+    },{passive:false});
+    host.$('#formsPanel').addEventListener('click',e=>{
+      const control=e.target.closest('[data-chart-zoom],.wcChartReset');if(!control)return;const chart=control.closest('.wcChart'),viewport=chart.querySelector('.wcChartViewport');
+      zoomChart(chart,control.classList.contains('wcChartReset')?1:+(chart.dataset.zoom||1)*(control.dataset.chartZoom==='in'?1.4:1/1.4),viewport.getBoundingClientRect().left+viewport.clientWidth/2);
+    });
+  }
+  {
+    const show=e=>{const bar=e.target.closest('[data-chart-label]');if(!bar)return;const tip=bar.closest('.wcChart').querySelector('.wcTip');tip.textContent=bar.dataset.chartLabel;tip.hidden=false;tip.style.left='0px';};
+    const hide=e=>{const bar=e.target.closest('[data-chart-label]');if(bar)bar.closest('.wcChart').querySelector('.wcTip').hidden=true;};
+    host.$('#formsPanel').addEventListener('mouseover',show);host.$('#formsPanel').addEventListener('focusin',show);
+    host.$('#formsPanel').addEventListener('mouseout',hide);host.$('#formsPanel').addEventListener('focusout',hide);
+    host.$('#formsPanel').addEventListener('click',e=>{const bar=e.target.closest('#wcBody [data-dist]');if(!fmCur?.peshitta||!bar)return;const key=bar.classList.contains('sel')?null:bar.dataset.dist;host.$$('#wcBody [data-dist]').forEach(b=>b.classList.toggle('sel',b.dataset.dist===key));host.$$('#wcBody [data-pesh-book]').forEach(p=>p.hidden=key!==null&&p.dataset.peshBook!==key);});
+  }
   { // Balken: Buch und Zahl sofort beim Überfahren (und bei Tastaturfokus)
     const tip = (b, on) => {
       const t = host.$('#wcBody .wcTip'); if (!t) return;
@@ -1393,10 +1446,10 @@ window.LibraryWordCards = (() => {
       const c = t.parentElement.getBoundingClientRect(), r = b.getBoundingClientRect();
       t.style.left = Math.max(0, Math.min(c.width - t.offsetWidth, r.left - c.left + r.width / 2 - t.offsetWidth / 2)) + 'px';
     };
-    host.$('#wcBody').addEventListener('mouseover', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, true); });
-    host.$('#wcBody').addEventListener('mouseout', e => { const b = e.target.closest('.wcBar'); if (b && !b.contains(e.relatedTarget)) tip(b, false); });
-    host.$('#wcBody').addEventListener('focusin', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, true); });
-    host.$('#wcBody').addEventListener('focusout', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, false); });
+    host.$('#wcBody').addEventListener('mouseover', e => { const b = e.target.closest('.wcBar[data-b]'); if (b) tip(b, true); });
+    host.$('#wcBody').addEventListener('mouseout', e => { const b = e.target.closest('.wcBar[data-b]'); if (b && !b.contains(e.relatedTarget)) tip(b, false); });
+    host.$('#wcBody').addEventListener('focusin', e => { const b = e.target.closest('.wcBar[data-b]'); if (b) tip(b, true); });
+    host.$('#wcBody').addEventListener('focusout', e => { const b = e.target.closest('.wcBar[data-b]'); if (b) tip(b, false); });
   }
   { const refOf = e => { const a = e.target.closest('.fmRL a[data-ref], .dbody .dsrc[data-sref]'); return a ? [a, (a.dataset.ref || a.dataset.sref).replace(/-.*$/, '')] : [null, '']; };
     host.$('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !host.hovApi || ref === host.hovApi.current()) return; host.hovApi.start(a, ref, true, false, wcHovPick(a)); });
@@ -1485,7 +1538,7 @@ window.LibraryWordCards = (() => {
     const start=e=>{const a=e.target.closest(selector);if(!a||a.contains(e.relatedTarget)||!host.hovApi)return;
       const ref=a.dataset.peshRef||a.dataset.hoverRef,version=a.dataset.gvt||a.dataset.hoverVersion;
       const vt=version==='Westminster'?'^Westminster':'^'+version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$';
-      host.hovApi.start(a,ref,true,false,{vt,rtl:!!a.dataset.peshRef||!fmCur?.greek,label:version});
+      host.hovApi.start(a,ref,true,false,{vt,rtl:!!a.dataset.peshRef||!fmCur?.greek,label:version,targetForms:a.dataset.targetForms?JSON.parse(a.dataset.targetForms):null});
     };
     const stop=e=>{const a=e.target.closest(selector);if(a&&!a.contains(e.relatedTarget))host.hovApi?.hide();};
     box.addEventListener('mouseover',start);box.addEventListener('focusin',start);box.addEventListener('mouseout',stop);box.addEventListener('focusout',stop);
@@ -1506,6 +1559,7 @@ window.LibraryWordCards = (() => {
       get openTextCard(){return openTextCard;},
       get corpusModel(){return corpora.model;},
       get openCorpusForms(){return openCorpusForms;},
+      get openAramaicRoot(){return openAramaicRoot;},
       get loadPeshittaCards(){return loadPeshittaCards;},
       get openPForms(){return openPForms;},
       get openSForms() { return openSForms; },

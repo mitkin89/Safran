@@ -1379,20 +1379,26 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcSec > h4 small { font-weight: normal; }
 #wcBody .wcLink { margin-inline-start: auto; border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 12.5px; padding: 0; }
 #wcBody .wcLink:hover { text-decoration: underline; }
-#wcBody .wcChart { position: relative; padding-top: 22px; }
-#wcBody .wcPlot { display: flex; gap: 10px; align-items: flex-end; position: relative; }
-#wcBody .wcMax { position: absolute; top: -14px; inset-inline-start: 0; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
-#wcBody .wcGrp { display: flex; flex-direction: column; min-width: 0; }
-#wcBody .wcBars { display: flex; align-items: stretch; height: 76px; gap: 2px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, var(--line)); }
-#wcBody .wcBar { flex: 1 1 0; min-width: 0; padding: 0; border: 0; border-radius: 3px 3px 0 0; background: none; display: flex; align-items: flex-end; cursor: pointer; }
-#wcBody .wcBar > i { display: block; width: 100%; height: max(2px, calc(var(--h) * 1%)); background: var(--accent); border-radius: 3px 3px 0 0; opacity: .82; }
-#wcBody .wcBar.zero > i { height: 0; }
-#wcBody .wcBar:hover, #wcBody .wcBar:focus-visible { background: color-mix(in srgb, var(--accent) 14%, transparent); outline: none; }
-#wcBody .wcBar:hover > i, #wcBody .wcBar.sel > i { opacity: 1; }
-#wcBody .wcBar.sel { background: color-mix(in srgb, var(--accent) 20%, transparent); }
-#wcBody .wcAx { text-align: center; font-size: 11px; color: var(--muted); padding-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#wcBody .wcTip { position: absolute; top: 0; white-space: nowrap; font-size: 12px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); box-shadow: 0 2px 8px rgba(0,0,0,.18); pointer-events: none; z-index: 1; }
-#wcBody .wcTip[hidden] { display: none; }
+#formsPanel .wcChart { position: relative; }
+#formsPanel .wcChartViewport { overflow-x:auto; padding-top:22px; }
+#formsPanel .wcChartTools { display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-bottom:8px; }
+#formsPanel .wcChartTools button { padding:3px 10px; }
+#formsPanel .wcChartPercent { min-width:4ch; text-align:center; color:var(--muted); font-variant-numeric:tabular-nums; }
+#formsPanel .wcChartReset { color:var(--accent); }
+#formsPanel .wcChartReset[hidden] { display:none; }
+#formsPanel .wcPlot { display: flex; gap: 10px; align-items: flex-end; position: relative; }
+#formsPanel .wcMax { position: absolute; top: -14px; inset-inline-start: 0; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+#formsPanel .wcGrp { display: flex; flex-direction: column; min-width: 0; position:relative; }
+#formsPanel .wcBars { display: flex; align-items: stretch; height: 76px; gap: 2px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, var(--line)); }
+#formsPanel .wcBar { flex: 1 1 0; min-width: 0; padding: 0; border: 0; border-radius: 3px 3px 0 0; background: none; display: flex; align-items: flex-end; cursor: pointer; }
+#formsPanel .wcBar > i { display: block; width: 100%; height: max(2px, calc(var(--h) * 1%)); background: var(--accent); border-radius: 3px 3px 0 0; opacity: .82; }
+#formsPanel .wcBar.zero > i { height: 0; }
+#formsPanel .wcBar:hover, #formsPanel .wcBar:focus-visible { background: color-mix(in srgb, var(--accent) 14%, transparent); outline: none; }
+#formsPanel .wcBar:hover > i, #formsPanel .wcBar.sel > i { opacity: 1; }
+#formsPanel .wcBar.sel { background: color-mix(in srgb, var(--accent) 20%, transparent); }
+#formsPanel .wcAx { text-align: center; font-size: 11px; color: var(--muted); padding-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#formsPanel .wcTip { position: absolute; top: 0; white-space: nowrap; font-size: 12px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); box-shadow: 0 2px 8px rgba(0,0,0,.18); pointer-events: none; z-index: 1; }
+#formsPanel .wcTip[hidden] { display: none; }
 #wcBody .wcTop { margin-top: 6px; font-size: 12.5px; }
 #wcBody .wcTop a { cursor: pointer; color: var(--accent); }
 #wcBody .wcTop a:hover { text-decoration: underline; }
@@ -3194,11 +3200,55 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcCorpusBar progress { width:35%; accent-color:var(--accent); }
 .wcCorpusBar > b { min-width:4em; text-align:end; }
 
-#dictCardMatches { position:fixed; z-index:120; display:flex; flex-direction:column; flex-wrap:nowrap; gap:0; max-height:min(60vh,520px); overflow-y:auto; padding:5px; border:1px solid var(--line); border-radius:7px; background:var(--bg); box-shadow:0 8px 24px #0005; box-sizing:border-box; }
+#dictCardMatches { position:fixed; z-index:120; display:flex; flex-direction:column; flex-wrap:nowrap; gap:4px; max-height:min(70vh,680px); overflow-y:auto; padding:8px; border:1px solid var(--line); border-radius:12px; background:var(--bg); box-shadow:0 8px 24px #0005; box-sizing:border-box; }
 #dictCardMatches[hidden] { display:none!important; }
-#dictCardMatches button { flex:none; width:100%; border:0; border-radius:3px; background:transparent; padding:9px 12px; text-align:start; }
+#dictCardMatches button { font-size:16px; flex:none; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 20px; width:100%; border:1px solid transparent; border-radius:8px; background:transparent; padding:14px 16px; text-align:start; }
 #dictCardMatches button:hover,#dictCardMatches button:focus-visible { background:color-mix(in srgb,var(--accent) 15%,var(--bg)); outline:none; }
-#dictCardMatches small { display:inline; float:inline-end; margin-inline-start:15px; }
+#dictCardMatches button:focus-visible { border-color:var(--accent); }
+#dictCardMatches .dictSuggestWord { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; min-width:0; }
+#dictCardMatches bdi { font-size:1.65em; line-height:1.4; }
+#dictCardMatches .dictSuggestGloss { font-size:1.12em; overflow-wrap:anywhere; }
+#dictCardMatches .dictSuggestMeta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+#dictCardMatches .dictSuggestTag { display:inline-block; padding:3px 9px; border:1px solid color-mix(in srgb,var(--tag-color) 48%,var(--line)); border-radius:6px; background:color-mix(in srgb,var(--tag-color) 12%,var(--bg)); color:color-mix(in srgb,var(--tag-color) 75%,var(--fg)); font-size:.88em; font-weight:600; line-height:1.5; white-space:nowrap; }
+#dictCardMatches [data-tag=lemma] { --tag-color:#488fdb; }
+#dictCardMatches [data-tag=root] { --tag-color:#ab78d4; }
+#dictCardMatches [data-tag=hebrew] { --tag-color:#3ba78d; }
+#dictCardMatches [data-tag=aramaic] { --tag-color:#d6a440; }
+#dictCardMatches [data-tag=greek] { --tag-color:#c47d99; }
+#dictCardMatches :is([data-tag=source],[data-tag=language]) { --tag-color:var(--muted); font-weight:400; }
+#dictCardMatches .dictSuggestDetails { color:var(--muted); font-size:.88em; margin-inline-start:4px; }
+@media(max-width:700px) { #dictCardMatches button { padding:12px; } #dictCardMatches .dictSuggestMeta { width:100%; } }
 #dictCardSources { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
 #dictCardSources:empty { display:none; }
 #dictCardSources [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }
+
+/* Stable source colors shared by columns, legends and source switches. */
+#formsPanel [data-corpus=Tanach] { --corpus-color:#5b8fc9; }
+#formsPanel [data-corpus=Mishnah] { --corpus-color:#c36a91; }
+#formsPanel [data-corpus=LXX] { --corpus-color:#3b82d0; }
+#formsPanel [data-corpus=Josephus] { --corpus-color:#22945a; }
+#formsPanel [data-corpus=Philo] { --corpus-color:#d6ad20; }
+#formsPanel [data-corpus=Onkelos] { --corpus-color:#d88935; }
+#formsPanel [data-corpus="Neofiti 1"] { --corpus-color:#9475cc; }
+#formsPanel [data-corpus=Pseudo-Jonathan] { --corpus-color:#32a898; }
+#formsPanel [data-corpus=Peshitta] { --corpus-color:#d65d6e; }
+#formsPanel [data-corpus=Targumim] { --corpus-color:#a68b55; }
+.wcCorpusBar progress { accent-color:var(--corpus-color,var(--accent)); }
+.wcCorpusBar progress::-webkit-progress-value { background:var(--corpus-color,var(--accent)); }
+.wcCorpusLegend { display:flex; gap:18px; flex-wrap:wrap; margin:8px 0 14px; }
+.wcCorpusLegend span { display:inline-flex; align-items:center; gap:6px; }
+.wcCorpusLegend i { display:inline-block; width:11px; height:11px; border-radius:2px; background:var(--corpus-color); }
+.wcCorpusScopes button[data-corpus]:not([data-corpus=all]) { border-bottom:3px solid var(--corpus-color); }
+
+/* Compact grammar chips, matching the translation overview. */
+.wcCorpusGrammar { display:grid; gap:4px; }
+.wcCorpusFilterTools { display:flex; align-items:center; gap:6px; }
+#fmCorpusControls [data-features] { margin-inline-start:auto; border:0; background:none; padding:0; color:var(--accent); font:inherit; font-size:12px; cursor:pointer; }
+.wcCorpusFilter { display:flex; flex-wrap:wrap; align-items:center; gap:4px; }
+.wcCorpusFilter > .muted { width:5.5em; flex:none; font-size:12px; }
+#fmCorpusControls .wcCorpusFilter button,#fmCorpusControls [data-reset] { font:inherit; font-size:12px; padding:1px 8px; min-height:0; border:1px solid var(--line); border-radius:999px; background:transparent; color:inherit; }
+#fmCorpusControls .wcCorpusFilter small { color:var(--muted); font-variant-numeric:tabular-nums; }
+#fmCorpusControls .wcCorpusFilter button:hover { background:color-mix(in srgb,var(--accent) 10%,transparent); }
+#fmCorpusControls .wcCorpusFilter [aria-pressed=true] { background:color-mix(in srgb,var(--accent) 22%,transparent); border-color:var(--accent); }
+
+#formsPanel .wcDistBar > i { background:var(--corpus-color,var(--accent)); }

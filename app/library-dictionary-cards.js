@@ -3,13 +3,15 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  let mode='dictionary',serial=0,selected=false,timer=null;
  const panel=$('#formsPanel'),home=document.createComment('word-card-panel-home');panel.before(home);
  const input=$('#dictQ'),placeholder=input.getAttribute('placeholder');
- const out=$('#dictCardMatches');$('#dictBar').append(out);out.hidden=true;out.setAttribute('role','listbox');
+ // Keep the fixed popup outside the dictionary header's container/stacking context.
+ const out=$('#dictCardMatches');document.body.append(out);out.hidden=true;out.setAttribute('role','listbox');
  const sources=document.createElement('div');sources.id='dictCardSources';$('#dictCardMount').before(sources);
  input.setAttribute('aria-autocomplete','list');input.setAttribute('aria-controls','dictCardMatches');input.setAttribute('aria-expanded','false');
- function position(){const r=input.getBoundingClientRect();out.style.left=r.left+'px';out.style.top=(r.bottom+4)+'px';out.style.width=Math.min(Math.max(r.width,650),window.innerWidth-r.left-16)+'px';}
+ function position(){const r=input.getBoundingClientRect();out.style.left=r.left+'px';out.style.top=(r.bottom+4)+'px';out.style.width=Math.min(Math.max(r.width,920),window.innerWidth-r.left-16)+'px';}
  function showSuggestions(){position();out.hidden=false;input.setAttribute('aria-expanded','true');}
  function hideSuggestions(){out.hidden=true;input.setAttribute('aria-expanded','false');}
  window.addEventListener('resize',position);
+ document.addEventListener('scroll',()=>{if(!out.hidden)position();},true);
  document.addEventListener('mousedown',e=>{if(!out.contains(e.target)&&e.target!==input){clearTimeout(timer);hideSuggestions();}});
  const active=()=>mode==='card'&&document.documentElement.dataset.tab==='dict';
  function sync(){
@@ -31,8 +33,9 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  function setMode(next){mode=next;sync();if(active()&&input.value.trim())search(input.value);}
  async function open(item,token){
   if(token!==serial||!active())return;selected=true;hideSuggestions();
+  if(item.kind==='aramaic'){sources.replaceChildren();await cards.openAramaicRoot(item);return;}
   if(item.members){
-   sources.innerHTML=item.members.map((m,i)=>`<button type="button" data-source-member="${i}" aria-pressed="${i===0}"><bdi>${esc(m.label)}</bdi> · ${esc(I18N.t(m.source))} · ${m.count.toLocaleString(I18N.loc)}</button>`).join('');
+   sources.innerHTML=item.members.map((m,i)=>`<button type="button" data-source-member="${i}" aria-pressed="${i===0}"><bdi>${esc(m.label)}</bdi>${m.gloss?' · '+esc(m.gloss):''} · ${esc(I18N.t(m.source))} · ${m.count.toLocaleString(I18N.loc)}</button>`).join('');
    sources.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{sources.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));open({...item.members[i],keepSources:true},serial);});
    return open({...item.members[0],keepSources:true},token);
   }
@@ -66,27 +69,42 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
    }else{
     matches=Object.entries(lemmas).filter(([id,l])=>q===id||match(l[0])).map(([id,l])=>({key:id,id,language:/^A/.test(D.lem[id]||'')?'Aramäisch':'Hebräisch',source:'Tanach',label:l[0],groupGloss:l[1],gloss:I18N.lang==='de'&&l[2]?l[2]:l[1],count:total(D,id)})).filter(x=>x.count);
     const roots=(await loadRoots()).roots,families=new Map();
-    for(const [id,r] of Object.entries(roots))if(match(r.root)||q===r.id){
-     const familyKey=r.lang+'|'+r.id,n=total(D,id);if(!n)continue;
-     if(!families.has(familyKey))families.set(familyKey,{key:familyKey,id,root:true,label:r.root,count:0});
-     families.get(familyKey).count+=n;
+    for(const m of matches)if(m.language==='Aramäisch')m.rootLabel=window.Forms.rootInfo(roots,m.id)?.root;
+    for(const [id,r] of window.Forms.rootEntries(D,roots))if(match(r.root)||q===r.id){
+     const familyKey=r.lang+'|'+r.root,n=total(D,id);if(!n)continue;
+     if(!families.has(familyKey))families.set(familyKey,{key:familyKey,id,root:true,label:r.root,language:r.lang==='arc'?'Aramäisch':'Hebräisch',source:'Tanach',count:0,heads:[],lexemes:[]});
+     const family=families.get(familyKey);family.count+=n;if(lemmas[id]){family.heads.push(lemmas[id][0]);family.lexemes.push({key:id,id,label:lemmas[id][0],rootLabel:r.root,gloss:I18N.lang==='de'&&lemmas[id][2]?lemmas[id][2]:lemmas[id][1],language:family.language,source:'Tanach',count:n});}
+     if(n>(family.representativeCount||0)){
+      family.id=id;family.representativeCount=n;
+      const lex=lemmas[id];family.gloss=lex&&(I18N.lang==='de'&&lex[2]?lex[2]:lex[1]);
+     }
     }
+    const corpus=await cards.corpusModel();
+    for(const family of families.values())if(family.language==='Hebräisch'){const rows=[...new Set(family.heads.map(h=>window.WordCardCorpora.fold(h)))].flatMap(h=>corpus.extra(h,false));family.count+=corpus.count(rows);family.source='Tanach / Mischna';}
     matches.push(...families.values());
     if(key){const T=await cards.loadTForms();
-      for(const [id,[lex,forms]] of Object.entries(T.L))if(match(lex[0])||forms.some(f=>match(f[0]))){
+      for(const [id,[lex,forms]] of Object.entries(T.L))if(match(lex[0])||match(lex[1])||forms.some(f=>match(f[0]))){
         const model=window.TargumForms.model(T,id);
-        if(model?.total)matches.push({key:'tg:'+id,id,label:lex[0],gloss:lex[2],count:model.total,kind:'targum',language:'Aramäisch',source:'Targumim'});
+        if(model?.total)matches.push({key:'tg:'+id,id,label:lex[0],rootLabel:lex[1]||lex[0],gloss:lex[2],count:model.total,kind:'targum',language:'Aramäisch',source:'Targumim'});
       }
     }
     matches.push(...(await cards.loadPeshittaCards()).suggest(q,live));
    }
-   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);matches.push(...extra.filter(x=>!greek||!matches.some(m=>m.kind==='greek'&&m.label===x.label)));}
+   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);for(const x of extra){const same=greek&&matches.find(m=>m.kind==='greek'&&m.label.normalize('NFC')===x.label.normalize('NFC'));if(same){same.count+=x.count;same.source='Septuaginta / Josephus / Philo';}else matches.push(x);}}
    if(token!==serial||!active())return true;
    matches=window.WordCardSuggestions.group(matches,s=>window.SyriacMorph?window.SyriacMorph.hebrew(s):s);
    matches.sort((a,b)=>Number(fold(b.label)===key)-Number(fold(a.label)===key)||Number(!!a.root)-Number(!!b.root)||b.count-a.count||a.key.localeCompare(b.key));
    if(!matches.length){out.textContent=I18N.t('Kein passendes Lemma oder keine passende Wurzel gefunden.');return true;}
    matches=matches.slice(0,40);
-   out.innerHTML=matches.map(x=>`<button type="button" data-key="${esc(x.key)}" data-member-keys="${esc((x.members||[x]).map(m=>m.key).join(' '))}" data-kind="${x.root?'root':'lemma'}" role="option" aria-selected="false" aria-pressed="false"><bdi>${esc(x.members?[...new Set(x.members.map(m=>m.label))].join(' / '):x.label)}</bdi>${x.gloss?' · '+esc(x.gloss):''}<small>${esc(I18N.t(x.root?'Wurzel':'Lemma'))}${x.language?' · '+esc(I18N.t(x.language)):''}${x.source?' · '+esc(I18N.t(x.source)):x.members?' · '+esc([...new Set(x.members.map(m=>I18N.t(m.source)))].join(' / ')):''}${x.count?' · '+x.count.toLocaleString(I18N.loc):''}${!x.kind&&!x.root?' · Strong '+esc(x.id):''}</small></button>`).join('');
+   const badge=(kind,label)=>`<span class="dictSuggestTag" data-tag="${kind}">${esc(label)}</span>`;
+   out.innerHTML=matches.map(x=>{
+    const language={'Hebräisch':'hebrew','Aramäisch':'aramaic','Griechisch':'greek'}[x.language]||'language';
+    const sources=[...new Set((x.members||[x]).flatMap(m=>(m.source||'').split(' / ')).filter(Boolean))];
+    return `<button type="button" data-key="${esc(x.key)}" data-member-keys="${esc((x.members||[x]).map(m=>m.key).join(' '))}" data-kind="${x.root?'root':'lemma'}" role="option" aria-selected="false" aria-pressed="false">
+     <span class="dictSuggestWord"><bdi>${esc(x.displayLabels?x.displayLabels.join(' / '):x.members?[...new Set(x.members.map(m=>m.label))].join(' / '):x.label)}</bdi>${x.gloss?`<span class="dictSuggestGloss">${esc(x.gloss)}</span>`:''}</span>
+     <span class="dictSuggestMeta">${badge(x.root?'root':'lemma',I18N.t(x.root?'Wurzel':'Lemma'))}${x.language?badge(language,I18N.t(x.language)):''}${sources.map(source=>badge('source',I18N.t(source))).join('')}<span class="dictSuggestDetails">${x.count?x.count.toLocaleString(I18N.loc):''}${!x.kind&&!x.root?' · Strong '+esc(x.id):''}</span></span>
+    </button>`;
+   }).join('');
    out.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{input.value=matches[i].label;open(matches[i],serial);});
    if(!live)await open(matches[0],token);
   }catch(error){if(token===serial&&active())out.textContent=I18N.t('Wortkarte konnte nicht geladen werden.');}

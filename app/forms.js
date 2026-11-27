@@ -270,6 +270,13 @@
     return { lemma, forms, total: sum(items), sections };
   }
 
+  // Root-index IDs omit the space before homonym suffixes; form IDs retain it.
+  const rootInfo = (roots, id) => roots?.[String(id).replace(/\s+/g, '')];
+  const rootEntries = (data, roots) => Object.keys(data.lem).flatMap(id => {
+    const root = rootInfo(roots, id);
+    return root ? [[id, root]] : [];
+  });
+
   function familyModel(data, ids, t) {
     const members = [...new Set(ids)].map(id => model(data, id, t)).filter(Boolean);
     const forms = [], sections = [];
@@ -340,6 +347,6 @@
     return { list: all.slice(0, k), kinds: all.length };
   }
 
-  const api = { build, analyze, model, familyModel, render, refs, clean, parts, strip, keyOf, dist, refsIn, topForms };
+  const api = { build, analyze, model, familyModel, rootInfo, rootEntries, render, refs, clean, parts, strip, keyOf, dist, refsIn, topForms };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Forms = api;
 })();

@@ -171,7 +171,8 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
   if (!q || String(params.query).length > 100 || qt.length !== 1 || /[*?]/.test(params.query)) return { ...empty, error: 'Bitte ein einzelnes Wort ohne Platzhalter eingeben.' };
   const limit = Math.max(1, Math.min(5000, Number(params.limit) || 1000)), perFile = Math.max(1, Math.min(500, Number(params.perFile) || 25));
   const roots = params.concordanceRoot || params.concordanceFamily ? require('./passage-stats-data').roots : null;
-  let rootId = params.concordanceRoot;
+  const allRootSpellings=String(params.concordanceRoot||'').startsWith('all:');
+  let rootId = String(params.concordanceRoot||'').replace(/^all:/,'');
   if (params.concordanceFamily && !rootId) {
     const candidates = Object.entries(roots).filter(([id, r]) => normalize(r.root) === q || normalize(data().OSHB_LEMMAS?.[id]?.[0]) === q);
     const families = new Set(candidates.map(([, r]) => r.lang + ':' + r.id));
@@ -249,7 +250,7 @@ async function search({ dir, entries, params, cacheDir = null, onProgress = () =
         }
         const root = family && roots[aa?.lemmaId];
         if (family) {
-          if (root?.id !== family.id || root.lang !== family.lang) continue;
+          if (!root || root.lang !== family.lang || (allRootSpellings ? root.root !== family.root : root.id !== family.id)) continue;
         } else if (exactLemma ? aa?.lemmaId !== exactLemma : lemma ? !lemmaHit : t.key !== q) {
           continue;
         }
