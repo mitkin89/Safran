@@ -19,6 +19,11 @@ module.exports=async({win,js,waitFor})=>{
  assert(await js("document.querySelector('#fmCorpusBody').textContent.includes('Philo')"));
  await js("document.querySelector('#dictQ').value='אמר';document.querySelector('#dictCardSearch').click()");
  await waitFor("document.querySelector('#fmCorpusControls [data-corpus=Mishnah]')",'Hebrew corpora');
+ assert(await js("!document.querySelector('#fmCorpusControls [data-dim=gender]')"),'Secondary grammar is collapsed initially');
+ await js("document.querySelector('#fmCorpusControls [data-features]').click()");
+ assert(await js("document.querySelector('#fmCorpusControls [data-dim=gender]')!==null"),'More features reveals secondary grammar');
+ await js("document.querySelector('#fmCorpusControls [data-features]').click()");
+ assert(await js("document.querySelector('#fmCorpusControls [data-corpus=Tanach]')&&document.querySelector('#fmCorpusControls [data-corpus=Mishnah]')"),'Corpus choices remain available');
  await js("document.querySelector('#fmCorpusControls [data-corpus=Mishnah]').click()");
  await waitFor("document.querySelector('#fmCorpusBody').textContent.includes('Seraim')",'Mishnah coverage');
  await js("document.querySelector('#fmTabs [data-t=concordance]').click()");
@@ -32,6 +37,6 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#dictQ').value='λαλέω';document.querySelector('#dictCardSearch').click()");
  await waitFor("document.querySelector('#fmCorpusControls [data-corpus=Philo]')",'Return to Greek');
  await js("document.querySelector('#fmCorpusControls [data-corpus=Philo]').click();document.querySelector('#fmTabs [data-t=card]').click()");
- win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));fs.writeFileSync('/tmp/safran-corpus-card.png',(await win.webContents.capturePage()).toPNG());
+ win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));fs.writeFileSync('/tmp/safran-corpus-card.png',(await win.webContents.capturePage()).toPNG());
  console.log('Electron: Greek/Hebrew corpus selection, combined grammar filters, forms, concordance and header recovery passed.');
 };

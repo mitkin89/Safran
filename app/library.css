@@ -3226,3 +3226,14 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcCorpusLegend span { display:inline-flex; align-items:center; gap:6px; }
 .wcCorpusLegend i { display:inline-block; width:11px; height:11px; border-radius:2px; background:var(--corpus-color); }
 .wcCorpusScopes button[data-corpus]:not([data-corpus=all]):not([data-corpus=Tanach]):not([data-corpus=Mishnah]) { border-bottom:3px solid var(--corpus-color); }
+
+/* Compact grammar chips, matching the translation overview. */
+.wcCorpusGrammar { display:grid; gap:4px; }
+.wcCorpusFilterTools { display:flex; align-items:center; gap:6px; }
+#fmCorpusControls [data-features] { margin-inline-start:auto; border:0; background:none; padding:0; color:var(--accent); font:inherit; font-size:12px; cursor:pointer; }
+.wcCorpusFilter { display:flex; flex-wrap:wrap; align-items:center; gap:4px; }
+.wcCorpusFilter > .muted { width:5.5em; flex:none; font-size:12px; }
+#fmCorpusControls .wcCorpusFilter button,#fmCorpusControls [data-reset] { font:inherit; font-size:12px; padding:1px 8px; min-height:0; border:1px solid var(--line); border-radius:999px; background:transparent; color:inherit; }
+#fmCorpusControls .wcCorpusFilter small { color:var(--muted); font-variant-numeric:tabular-nums; }
+#fmCorpusControls .wcCorpusFilter button:hover { background:color-mix(in srgb,var(--accent) 10%,transparent); }
+#fmCorpusControls .wcCorpusFilter [aria-pressed=true] { background:color-mix(in srgb,var(--accent) 22%,transparent); border-color:var(--accent); }
