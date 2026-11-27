@@ -5,6 +5,8 @@ const fs = require('fs'), path = require('path'), vm = require('vm'), assert = r
 const F = require('../../targum-forms-core'), DSL = require('../../dsl');
 const ctx = vm.createContext({ window: { TargumForms: F, OSHB_LEMMAS: { '1': ['אמר', 'Hebrew homograph'] } }, console });
 ctx.host = ctx;
+ctx.window.WordCardChart = require('../../word-card-chart');
+ctx.dictToken = -1; ctx.fmTab = 'card';
 vm.runInContext(fs.readFileSync(path.join(repoRoot, 'targum-forms.js'), 'utf8'), ctx);
 const D = ctx.window.TARGUM_FORMS;
 const source = require('../../tools/targum/forms-source.json');
@@ -68,8 +70,8 @@ vm.runInContext(part('  async function wcDicts(token)', '  // Septuaginta: häuf
 vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
 const dictionaryUI = fs.readFileSync(path.join(repoRoot, 'library-dictionary.js'), 'utf8');
 // The real factory receives this optional host callback even when absent.
-ctx.beforeLookup = undefined;
-ctx.corpora = { reset() {} };
+ctx.beforeLookup = undefined; ctx.beforeCard = undefined;
+ctx.corpora = { reset() {}, restore() {} };
 ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
 ctx.lsGet = () => []; ctx.lsSet = () => {};
 vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('    let dictSedraId='), dictionaryUI.indexOf('    let dictOnly =')), ctx);
@@ -104,10 +106,11 @@ vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButt
     // Selbst bei vielen Treffern in anderen Wörterbüchern bleibt Levy erreichbar.
     const realLookup = ctx.O.dictLookup;
     ctx.O.dictLookup = async (q, only) => only ? realLookup(q, only) : ({ results: [{ dictId: 'other', k: 0, dict: 'Other', head: 'אמר', html: 'other' }] });
-    await ctx.wcDicts(ctx.wcToken);
+    // A new card request invalidates the per-token dictionary preview cache.
+    await ctx.wcDicts(++ctx.wcToken);
     assert($('#wcDict').innerHTML.includes('Levy, Targumim-Wörterbuch'));
     ctx.dictSel = ['other'];
-    await ctx.wcDicts(ctx.wcToken);
+    await ctx.wcDicts(++ctx.wcToken);
     assert(!$('#wcDict').innerHTML.includes('Levy, Targumim-Wörterbuch'), 'Wörterbuchauswahl respektieren');
     ctx.dictSel = null; ctx.O.dictLookup = realLookup;
     const count = ctx.wcToken;
