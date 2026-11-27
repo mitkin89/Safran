@@ -225,6 +225,8 @@ test('root scope uses explicit lexicon family IDs, excluding homonymous roots an
  assert(result.results.every(r=>r.basis==='root' && r.matchedLemma));
  const homonym = await find({ query:'נסע',concordanceRoot:'4551b' });
  assert.deepEqual(homonym.results.map(r=>r.position),[3]);
+ const combined=await find({query:'נסע',concordanceRoot:'all:5265'});
+ assert.deepEqual(combined.results.map(r=>r.position),[1,2,3]);
 });
 
 test('word-card lemma scope excludes homonyms of Strong 2805 even when their spelling matches', async t => {

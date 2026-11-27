@@ -14,6 +14,12 @@ function targetRange(text,form,position){
  else{const found=words.flatMap((_,i)=>matches(i)?[i]:[]);if(found.length!==1)return null;index=found[0];}
  return [words[index].start,words[index+wanted.length-1].end];
 }
+// All occurrences of attested source forms, preserving offsets in the original text.
+function targetRanges(text,forms){
+ const fold=s=>String(s).normalize('NFD').replace(/[\u0591-\u05c7\u0730-\u074a]/gu,'').normalize('NFC');
+ const wanted=new Set((forms||[]).map(fold));
+ return tokens(text).filter(m=>wanted.has(fold(m[0]))).map(m=>[m.index,m.index+m[0].length]);
+}
 function render(hit,esc){
  if(typeof hit?.context!=='string'||!Array.isArray(hit.positions)||!hit.positions.length)return null;
  const ts=tokens(hit.context),at=[...new Set(hit.positions)].sort((a,b)=>a-b);
@@ -59,5 +65,5 @@ function attach(root,{getHit,getHover}){
  root.ownerDocument.addEventListener('scroll',hide,true);
  if(typeof MutationObserver!=='undefined')new MutationObserver(hide).observe(root,{childList:true});
 }
-const api={render,statusHtml,attach,targetRange};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.ConcordancePreview=api;
+const api={render,statusHtml,attach,targetRange,targetRanges};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.ConcordancePreview=api;
 })();

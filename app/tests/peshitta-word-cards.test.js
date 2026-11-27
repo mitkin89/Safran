@@ -14,3 +14,11 @@ test('Peshitta cards use attested forms, references and grammar filters',()=>{
  assert(all.concordance.includes('Genesis 1:1'));assert(all.grammar.includes('data-pesh-field="vt"'));
  assert(part.forms.includes('Perfekt'));assert(!part.forms.includes('Imperfekt'));
 });
+test('Peshitta verse links retain attested forms for preview highlighting',()=>{
+ const out=model.render('BRJ',{},200,String,s=>s);
+ assert(out.concordance.includes('data-target-forms='));
+ const {targetRanges}=require('../concordance-preview');
+ const text='ܒܪܐ ܒܪܝܐ ܒܪܐ';
+ assert.deepEqual(targetRanges(text,['ܒܪܐ']),[[0,3],[9,12]]);
+ assert.equal(targetRanges('ܒܪܝܐ',['ܒܪܐ']).length,0);
+});

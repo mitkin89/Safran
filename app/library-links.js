@@ -436,6 +436,15 @@ window.LibraryLinks = (() => {
           const mark=document.createElement('span');mark.className='pvhl';mark.textContent=text.slice(...range);
           child.replaceChildren(document.createTextNode(text.slice(0,range[0])),mark,document.createTextNode(text.slice(range[1])));
         }
+        if(pick?.targetForms?.length&&pick.vt)for(const part of hov.querySelectorAll('.pvp[data-vt]')){
+          if(!new RegExp(pick.vt).test(part.dataset.vt||''))continue;
+          const child=part.firstElementChild;if(!child||part.children.length!==1)continue;
+          const text=child.textContent,ranges=window.ConcordancePreview.targetRanges(text,pick.targetForms);
+          if(!ranges.length)continue;
+          const fragment=document.createDocumentFragment();let end=0;
+          for(const [start,stop] of ranges){fragment.append(document.createTextNode(text.slice(end,start)));const mark=document.createElement('span');mark.className='pvhl';mark.textContent=text.slice(start,stop);fragment.append(mark);end=stop;}
+          fragment.append(document.createTextNode(text.slice(end)));child.replaceChildren(fragment);
+        }
         if (pick && pick.lem) pvMark(hov, ref, pick.lem, pick);
         if (pick && pick.greek) pvMarkGreek(hov, ref, pick.greek);
         if (pick && pick.targum) hov.querySelectorAll('.wt[data-l]').forEach(w => { if (w.dataset.l === pick.targum) w.classList.add('pvhl'); });

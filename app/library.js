@@ -844,7 +844,7 @@
     outlineUI.olInline();
     markMismatch();
     displayUI.taamLayout();
-    ilRefresh();
+    const layoutReady=ilRefresh();
     decorateBavliReader();
     linksUI.loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
     if (window.__refind) setTimeout(window.__refind, 0);
@@ -854,6 +854,14 @@
     masoraUI.refresh();
     const hit = $('#rOut .row.hit') || (quiet && rowLabel != null ? [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === rowLabel) : null);
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
+    if(hit&&!quiet){
+      let cancelled=false;const cancel=()=>{cancelled=true;};
+      const events=['wheel','touchstart','pointerdown','keydown'];
+      events.forEach(type=>window.addEventListener(type,cancel,{passive:true}));
+      Promise.allSettled([layoutReady,document.fonts.ready]).then(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))).then(()=>{
+        if(!cancelled&&hit.isConnected&&document.documentElement.dataset.tab==='read')hit.scrollIntoView({block:'center'});
+      }).finally(()=>events.forEach(type=>window.removeEventListener(type,cancel)));
+    }
   }
 
   // Gemeinsame Interlinear-Quellen für Anzeige, Wortkarten und Vorschauen.
