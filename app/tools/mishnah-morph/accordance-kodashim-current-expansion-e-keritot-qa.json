@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "method": "Independent exact source-ID, field and immutable image-byte binding checks; no linguistic certification.",
+  "humanValidated": false,
+  "ledgerSha256": "4502d82e220ec2c877fc0aa3eef9df86302d83890212da6ba1aece16bf6d14df",
+  "draftCommit": "c0268bf90f898362e9845b813a87040c08cec8ab",
+  "sourceModuleSha256": "79b959d998b4c3ef1f66a55f84f0a082e1318ecac6c062ad37d9e253b96b476a",
+  "currentModuleByteIdentical": true,
+  "verifiedImages": 43,
+  "counts": {
+    "rawObservationRecords": 1826,
+    "uniqueSourcePositions": 1840,
+    "totalSourcePositions": 1993,
+    "openSourcePositions": 153,
+    "unboundImageSections": 13
+  },
+  "issues": [],
+  "openSourceRanges": [
+    {
+      "ref": "1:1",
+      "first": 61,
+      "last": 102,
+      "count": 42
+    },
+    {
+      "ref": "1:6",
+      "first": 82,
+      "last": 136,
+      "count": 55
+    },
+    {
+      "ref": "2:4",
+      "first": 74,
+      "last": 107,
+      "count": 34
+    },
+    {
+      "ref": "2:6",
+      "first": 22,
+      "last": 23,
+      "count": 2
+    },
+    {
+      "ref": "6:9",
+      "first": 79,
+      "last": 98,
+      "count": 20
+    }
+  ],
+  "limitations": [
+    "All 43 assigned originals visually inspected; source-absent sections inventoried by boundaries, not word-tag transcribed.",
+    "Not a full-pointing or full-manuscript check.",
+    "AI visual observations remain unreviewed by a human."
+  ]
+}

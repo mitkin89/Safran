@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "method": "Independent exact source-ID, field and immutable image-byte binding checks; no linguistic certification.",
+  "humanValidated": false,
+  "ledgerSha256": "6f55a51dda07acca0c7a6bd67841170a598dddb9ce9b741919b40f556b0c7644",
+  "draftCommit": "c0268bf90f898362e9845b813a87040c08cec8ab",
+  "sourceModuleSha256": "26211dfa6c95e8e43f4447a2f60c4e957083c1da6109b975c0c9ec6546916f0c",
+  "currentModuleByteIdentical": true,
+  "verifiedImages": 6,
+  "counts": {
+    "rawObservationRecords": 297,
+    "uniqueSourcePositions": 301,
+    "totalSourcePositions": 319,
+    "openSourcePositions": 18,
+    "unboundImageSections": 0
+  },
+  "issues": [],
+  "openSourceRanges": [
+    {
+      "ref": "5:6",
+      "first": 81,
+      "last": 98,
+      "count": 18
+    }
+  ],
+  "limitations": [
+    "All six newly supplied Menachot originals inspected. Six target refs transcribed; neighboring units already covered by other ledgers not duplicated.",
+    "Not a full-pointing or full-manuscript check.",
+    "AI visual observations remain unreviewed by a human."
+  ]
+}
