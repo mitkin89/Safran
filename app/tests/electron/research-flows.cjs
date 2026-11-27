@@ -58,6 +58,14 @@ module.exports=async function setup({profile,docs,handlers}){
    const saved=(await service.state()).sheets.at(-1).blocks.at(-1).presentation;
    const pairs=[saved,...(saved.additional||[]),...(saved.originalInterlinear||[])];
    assert.deepEqual(pairs.map(p=>p.readerWitness).filter(Boolean).sort(),[...names].sort());
+   const witnesses=pairs.filter(p=>p.readerWitness),groups=witnesses[0].rows[0].groups.length;
+   assert.equal(await js("document.querySelectorAll('.rw-stacked .rw-original').length"),groups);
+   assert.equal(await js("document.querySelectorAll('.rw-stacked .rw-gloss').length"),groups*5);
+   assert(witnesses.find(p=>p.readerWitness==='Peshitta').rows[0].groups.some(g=>g.transliteration));
+   assert(await js("document.querySelector('.rw-stacked [lang=syr] .rw-transliteration[lang=he]')"));
+   await js("document.querySelector('.rw-stacked').scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+   win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
+   await fs.writeFile('/tmp/safran-sheet-interlinear.png',(await win.webContents.capturePage()).toPNG());
    console.log('Electron: Five ancient interlinear witnesses captured and saved in a source sheet.');
    return;
   }

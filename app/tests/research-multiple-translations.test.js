@@ -68,3 +68,23 @@ test('reader captures five ancient witnesses with word groups, saves them and ex
  await assert.rejects(T.rangePreview({source:saved,sectionPath:[0],labels:['1','3']},rich),/erneut aus dem Lesefenster/);
  await assert.rejects(T.readerView({...request,witnessSection:[1]},rich),/geöffneten Abschnitt/);
 });
+
+test('captured witnesses share one Hebrew word stack and preserve Syriac transliteration',async()=>{
+ const {rich}=fixture(),witnesses=['LXX','Samaritan','Peshitta'];
+ const request={rel:'he',visibleRels:['he'],sectionPath:[0],labels:['1'],witnesses,witnessSection:[0],witnessRows:[{label:'1',groups:[
+  {original:'מקור',lines:[{name:'LXX',text:'λόγος'},{name:'Samaritan',text:'מקור'},{name:'Peshitta',text:'ܡܠܬܐ',transliteration:'מלתא'}]},
+  {original:'א',lines:[{name:'LXX',text:'ἕν'}]}
+ ]}]};
+ const source=await T.readerView(request,rich),sheet=S.entity('sheets',{id:'s',projectId:'p',title:'Stacks',blocks:[source]}),saved=sheet.blocks[0].presentation;
+ assert.equal(saved.additional[1].rows[0].groups[0].transliteration,'מלתא');
+ const html=P.html(sheet.blocks[0],s=>String(s));
+ assert.equal((html.match(/class="rw-original"/g)||[]).length,2);
+ assert.equal((html.match(/class="rw-gloss"/g)||[]).length,6);
+ assert.match(html,/class="rw-transliteration" lang="he" dir="rtl">מלתא/);
+ assert.match(E.html(sheet),/data:font\/woff;base64/);
+ const word=xml(E.docx(sheet));assert.match(word,/ܡܠܬܐ/);assert.match(word,/מלתא/);
+ assert.equal((word.match(/<w:t xml:space="preserve">מקור<\/w:t>/g)||[]).length,2); // Hebrew + Samaritan, never once per witness.
+ const mismatched=structuredClone([saved,...saved.additional]);mismatched[1].rows[0].groups.reverse();assert.equal(P.stacked(mismatched),null);
+ const parallel=await T.readerView({...request,visibleRels:['he','de2']},rich);
+ assert.equal((P.html(parallel,s=>String(s)).match(/class="rw-original"/g)||[]).length,2);
+});

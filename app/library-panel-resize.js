@@ -21,7 +21,7 @@ function create({panels,setDockWidth}){
   function share(el,size){const area=side(el),value=sizes[area]=floating(el,size);for(const entry of entries)if(entry.el!==el&&side(entry.el)===area&&!entry.el.classList.contains('docked'))floating(entry.el,value);return value;}
   function sync(){frame=0;for(const {el,handles} of entries){
     let r=el.getBoundingClientRect();const docked=el.classList.contains('docked');
-    const visible=!el.hidden&&r.width>0&&r.height>0&&getComputedStyle(el).visibility!=='hidden';
+    const visible=!el.hidden&&!el.dataset.embedded&&r.width>0&&r.height>0&&getComputedStyle(el).visibility!=='hidden';
     if(visible&&!docked&&document.documentElement.dataset.tab!=='dict'){const w=parseFloat(getComputedStyle(el).getPropertyValue('--cmt-w'))||400;r=share(el,sizes[side(el)]||{left:r.right-w,top:r.top,width:w,height:r.height});}
     for(const [edge,h] of handles){
       h.hidden=!visible||(docked&&edge!==(el.dataset.studySide==='left'?'e':'w'))||document.documentElement.dataset.tab==='dict'&&el.id==='dictPanel';
@@ -67,8 +67,8 @@ function create({panels,setDockWidth}){
   }
   try{if(localStorage.getItem('panelDockSized')==='1')document.body.classList.add('panel-width-chosen');}catch{}
   document.body.classList.add('panel-resize-ready','panel-width-chosen');
-  window.addEventListener('resize',()=>{const active=entries.find(({el})=>!el.hidden&&!el.classList.contains('docked'));if(active&&sizes[side(active.el)])share(active.el,sizes[side(active.el)]);schedule();});
-  window.addEventListener('study-panel-width',e=>{const visible=entries.filter(({el})=>!el.hidden&&getComputedStyle(el).visibility!=='hidden'),active=visible.find(({el})=>side(el)===(document.body.dataset.studyActive||'right'))||visible[0];if(!active)return;const el=active.el;if(el.classList.contains('docked'))dock(e.detail,el);else{const r=el.getBoundingClientRect();save(el.id,share(el,{left:r.right-e.detail,top:r.top,width:e.detail,height:r.height}));schedule();}});
+  window.addEventListener('resize',()=>{const active=entries.find(({el})=>!el.hidden&&!el.dataset.embedded&&!el.classList.contains('docked'));if(active&&sizes[side(active.el)])share(active.el,sizes[side(active.el)]);schedule();});
+  window.addEventListener('study-panel-width',e=>{const visible=entries.filter(({el})=>!el.hidden&&!el.dataset.embedded&&getComputedStyle(el).visibility!=='hidden'),active=visible.find(({el})=>side(el)===(document.body.dataset.studyActive||'right'))||visible[0];if(!active)return;const el=active.el;if(el.classList.contains('docked'))dock(e.detail,el);else{const r=el.getBoundingClientRect();save(el.id,share(el,{left:r.right-e.detail,top:r.top,width:e.detail,height:r.height}));schedule();}});
   window.addEventListener('scroll',schedule,true);new MutationObserver(schedule).observe(document.body,{attributes:true,attributeFilter:['class']});schedule();
   return {sync:schedule};
 }

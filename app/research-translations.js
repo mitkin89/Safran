@@ -93,7 +93,7 @@ async function readerView(request,rich,privateRead=async()=>null){
   const original=R.flattenNode(R.getByPath(doc.text,source.reference.sectionPath)).filter(row=>source.reference.labels.includes(row.label));
   for(const name of witnesses){
    const rows=original.map(row=>{
-    const groups=(byLabel.get(row.label)||[]).map(g=>({original:g.original,translation:g.lines.filter(l=>l.name===name).map(l=>l.text).join(' · ')}));
+    const groups=(byLabel.get(row.label)||[]).map(g=>({original:g.original,translation:g.lines.filter(l=>l.name===name).map(l=>l.text).join(' · '),...(g.lines.some(l=>l.name===name&&l.transliteration)?{transliteration:g.lines.filter(l=>l.name===name).map(l=>l.transliteration||'').filter(Boolean).join(' ')}:{})}));
     const original=S.segmentText(row.html);
     return {label:row.label,key:V.known(entry.title)?chapter+':'+row.label:row.label,targetLabel:row.label,original,
      translation:groups.map(g=>g.translation).filter(Boolean).join(' '),
