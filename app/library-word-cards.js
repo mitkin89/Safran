@@ -73,7 +73,7 @@ window.LibraryWordCards = (() => {
         : t('Keine Belege gefunden.');
       const modes = family && !card.family ? `<div class="wcCcModes" role="group" aria-label="${t('Suchumfang')}">
         <button type="button" data-cc-mode="lemma" aria-pressed="${!root}">${t('Grundform')}</button>
-        <button type="button" data-cc-mode="root" aria-pressed="${!!root}">${t('Wortfamilie')} <bdi lang="he">${host.esc(family.root)}</bdi></button>
+        <button type="button" data-cc-mode="root" aria-pressed="${!!root}">${t('Wurzel')} <bdi lang="he">${host.esc(family.root)}</bdi></button>
         </div>` : '';
       box.innerHTML = `${modes}<div class="wcCcTools"><span role="status">${summary}${result.errors ? ' · ' + host.esc(I18N.t('{} Dateien konnten nicht gelesen werden', result.errors)) : ''}</span>
         <button type="button" data-cc-search>${t(state.results.length ? 'Weitere Belege in der Suche' : 'In der Suche öffnen')}</button></div>
@@ -96,7 +96,7 @@ window.LibraryWordCards = (() => {
     const peers = (hit.parallels || []).map((peer, i) => `<button type="button" data-cc-hit="${index}" data-cc-peer="${i}" class="wcCcPeer">
       <bdi lang="${lang(peer)}">${esc(peer.snippet.hit)}</bdi><small>${address(peer)} · ${esc(peer.analysisSource)}</small></button>`).join('');
     return `<article class="wcCcHit"><button type="button" data-cc-hit="${index}">
-      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>${gloss ? ' · ' + esc(gloss) : ''}` : ''}<small>${esc([hit.versionTitle, I18N.t(hit.basis === 'root' ? 'Wortfamilie' : hit.basis === 'lemma' ? 'Grundform' : 'Wortform'), hit.analysisSource && I18N.t(hit.analysisSource), hit.analysisReference].filter(Boolean).join(' · '))}</small>
+      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>${gloss ? ' · ' + esc(gloss) : ''}` : ''}<small>${esc([hit.versionTitle, I18N.t(hit.basis === 'root' ? 'Wurzel' : hit.basis === 'lemma' ? 'Grundform' : 'Wortform'), hit.analysisSource && I18N.t(hit.analysisSource), hit.analysisReference].filter(Boolean).join(' · '))}</small>
       <span class="ccContext" dir="auto" lang="${lang(hit)}">${esc(before)}<mark>${esc(word)}</mark>${esc(after)}</span>
       </button>${peers ? '<div class="wcCcPeers">' + peers + '</div>' : ''}</article>`;
   }
@@ -141,7 +141,7 @@ window.LibraryWordCards = (() => {
     const LEM=window.OSHB_LEMMAS||{},ids=members?.map(member=>member.lemma)||host.lemIdsFor(LEM[lemma]?.[0]||'');
     const entries=ids.map(id=>({id,lem:LEM[id],total:window.Forms.model(D,id)?.total||0})).filter(e=>e.lem&&e.total).sort((a,b)=>b.total-a.total||a.id.localeCompare(b.id));
     if(entries.length<2)return '';
-    return `<span class="fmHomonyms" role="group" aria-label="${host.esc(I18N.t(members ? 'Wortfamilie' : 'Einträge mit denselben Konsonanten:'))}">${entries.map(e=>`<button type="button" class="wcTrHm${e.id===lemma&&!members?' on':''}" data-lem="${host.esc(e.id)}" aria-pressed="${e.id===lemma&&!members}" title="${host.esc(I18N.t('Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.',e.total,e.id))}"><bdi class="fmLemma" lang="he" dir="rtl">${host.esc(e.lem[0])}</bdi> ${host.esc(I18N.lang==='de'&&e.lem[2]?e.lem[2]:e.lem[1])} <small>${e.total}</small></button>`).join('')}</span>`;
+    return `<span class="fmHomonyms" role="group" aria-label="${host.esc(I18N.t(members ? 'Wurzel' : 'Einträge mit denselben Konsonanten:'))}">${entries.map(e=>`<button type="button" class="wcTrHm${e.id===lemma&&!members?' on':''}" data-lem="${host.esc(e.id)}" aria-pressed="${e.id===lemma&&!members}" title="${host.esc(I18N.t('Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.',e.total,e.id))}"><bdi class="fmLemma" lang="he" dir="rtl">${host.esc(e.lem[0])}</bdi> ${host.esc(I18N.lang==='de'&&e.lem[2]?e.lem[2]:e.lem[1])} <small>${e.total}</small></button>`).join('')}</span>`;
   }
   async function openForms(lemma, info, tab, rest) { // rest: Verlaufseintrag, dessen Zustand wiederhergestellt wird (Zurück/Vor)
     fmHistOpen(false, lemma, info, tab, rest);
@@ -378,7 +378,7 @@ window.LibraryWordCards = (() => {
     const top = ds.filter(x => x.n).sort((a, b) => b.n - a.n).slice(0, 4);
     const tf = F.topForms(mdl, 8);
     const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && (!x.lemma || x.lemma === fmCur.lemma) && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${targum ? 'arc' : greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${host.esc(x.f)}</span><small>${wcNum(x.n)}</small>${x.lemma ? `<small class="wcFormLemma" dir="auto">${host.esc(wcLemmaLabel(x.lemma))}</small>` : ''}</button>`;
-    card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${host.esc(I18N.t(family ? 'Alle Stellen der Wortfamilie' : targum ? 'Alle Stellen dieses Wortes' : greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${host.esc(I18N.t(family ? 'Alle Stellen der Wortfamilie' : 'Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
+    card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${host.esc(I18N.t(family ? 'Alle Stellen dieser Wurzel' : targum ? 'Alle Stellen dieses Wortes' : greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${host.esc(I18N.t(family ? 'Alle Stellen dieser Wurzel' : 'Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
       <section class="wcSec"><h4>${host.esc(I18N.t(targum ? 'Verteilung in den Targumim' : greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${host.esc(greek || targum ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
         <div class="wcChart"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${host.esc(I18N.t(g.name))}</div></div>`).join('')}</div><div class="wcTip" hidden></div></div>
         <div class="wcTop"><span class="muted">${host.esc(I18N.t('Am häufigsten:'))}</span> ${top.map(x => `<a data-b="${host.esc(x.book)}">${host.esc(fmBook(x.book))}</a> <small>${wcNum(x.n)}</small>`).join(' · ')} <span class="muted wcHint">· ${host.esc(I18N.t('Klick auf einen Balken zeigt die Stellen des Buches'))}</span></div>
@@ -401,7 +401,7 @@ window.LibraryWordCards = (() => {
         const e = host.esc;
         host.$('#fmHead').insertAdjacentHTML('beforeend', `<div class="wcScope" role="group" aria-label="${e(I18N.t('Suchumfang'))}">
           <button type="button" data-wc-scope="lemma" aria-pressed="${!family}">${e(I18N.t('Dieses Lemma'))}</button>
-          <button type="button" data-wc-scope="family" aria-pressed="${!!family}">${e(I18N.t('Wortfamilie'))} <bdi lang="he">${e(root)}</bdi></button></div>`);
+          <button type="button" data-wc-scope="family" aria-pressed="${!!family}">${e(I18N.t('Wurzel'))} <bdi lang="he">${e(root)}</bdi></button></div>`);
         if (!family) card.querySelector('.wcAct')?.insertAdjacentHTML('beforeend',
           `<button type="button" class="wcRoot" data-root="${host.esc(root)}">${host.esc(I18N.t('Nach Wurzel suchen'))} <bdi lang="he">${host.esc(root)}</bdi></button>`);
       }, () => {});
@@ -947,7 +947,7 @@ window.LibraryWordCards = (() => {
       S.hid = hid;
     }
     const fo = document.activeElement && box.contains(document.activeElement) && document.activeElement.closest('.wcTrR[data-g]'), foKey = fo && fo.dataset.g; // Tastaturfokus über das Neuzeichnen retten
-    box.innerHTML = `<h4>${host.esc(I18N.t('Wie wird das Wort übersetzt?'))}${S.family ? ` <small class="wcTrLem">${host.esc(I18N.t('Wortfamilie'))} <bdi lang="he">${host.esc(S.family.root)}</bdi></small>` : lem ? ` <small class="wcTrLem"><span lang="he" dir="rtl">${host.esc(lem[0])}</span> ${host.esc(gloss(S.lemma))}</small>` : ''}</h4>
+    box.innerHTML = `<h4>${host.esc(I18N.t('Wie wird das Wort übersetzt?'))}${S.family ? ` <small class="wcTrLem">${host.esc(I18N.t('Wurzel'))} <bdi lang="he">${host.esc(S.family.root)}</bdi></small>` : lem ? ` <small class="wcTrLem"><span lang="he" dir="rtl">${host.esc(lem[0])}</span> ${host.esc(gloss(S.lemma))}</small>` : ''}</h4>
       ${hom}${tabs}
       <div class="wcTrF">${sum}${mainDims.map(dimRow).join('')}${wcTrMore ? restDims.map(dimRow).join('') : ''}</div>
       ${X ? `<div class="wcTrBody cmp"><div class="wcTrL">${X.list}</div></div>` : `<div class="wcTrBody"><div class="wcTrRingW">${ring}</div><div class="wcTrL">${list}</div></div>`}

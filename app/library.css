@@ -3166,9 +3166,12 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #dictCardMount #formsPanel :is(.pinB,.panel-resize-handle,#fmWide,#fmClose) { display:none!important; }
 #dictCardMount #formsPanel #wcBody { --wcbg:var(--bg); }
 #dictPanel.word-card-mode #dictQ { order:1; }
-#dictPanel.word-card-mode #dictCardScope { order:2; }
+
 #dictPanel.word-card-mode #dictCardSearch { order:3; }
 #dictPanel.word-card-mode #dictStar { order:4; }
 @media(max-width:900px){#dictPanel.word-card-mode #dictBar{flex-wrap:wrap}#dictPanel.word-card-mode #dictQ{flex-basis:45%}}
 
 #dictPanel.word-card-mode #dictHead > .lhead .dtools { visibility:hidden; }
+
+#dictCardMatches button { text-align:start; }
+#dictCardMatches small { display:block; color:var(--muted); margin-top:3px; }

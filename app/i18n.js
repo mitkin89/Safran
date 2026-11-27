@@ -556,6 +556,8 @@
     "Quelle und Wortanalyse": "Source and word analysis",
     "SEDRA-Wörterbuch": "SEDRA dictionary",
     "Wurzel": "Root",
+    "Alle Stellen dieser Wurzel": "All occurrences of this root",
+    "Kein passendes Lemma oder keine passende Wurzel gefunden.": "No matching lemma or root found.",
     "Vollständiger Wörterbucheintrag": "Full dictionary entry",
     "Wörterbuchtreffer zur Schreibung, keine Bestimmung dieser Textstelle.": "Dictionary candidates for this spelling, not an analysis of this passage.",
     "Im SEDRA-Wörterbuch öffnen": "Open in the SEDRA dictionary",
