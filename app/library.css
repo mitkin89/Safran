@@ -2220,6 +2220,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #fmHead .fmHomonyms{display:inline-flex;flex-wrap:wrap;gap:5px;align-items:center;margin-inline:10px;font:13px system-ui,sans-serif}
 #fmHead .fmHomonyms button{padding:4px 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
 #fmHead .fmHomonyms button.on{border-color:var(--accent);background:var(--chip);color:var(--accent)}
+#fmHead .fmHomonyms .fmLemma{font-family:"HeDict",var(--he-font);font-size:1.2em;margin-inline-end:4px}
 #fmHead .fmHomonyms small{color:var(--muted);font-size:11px}
 
 #wcTr .wcSamePick{border:0;border-bottom:1px dotted var(--accent);padding:0;background:transparent;color:inherit;font:inherit;cursor:pointer}

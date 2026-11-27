@@ -141,7 +141,7 @@ window.LibraryWordCards = (() => {
     const LEM=window.OSHB_LEMMAS||{},ids=members?.map(member=>member.lemma)||host.lemIdsFor(LEM[lemma]?.[0]||'');
     const entries=ids.map(id=>({id,lem:LEM[id],total:window.Forms.model(D,id)?.total||0})).filter(e=>e.lem&&e.total).sort((a,b)=>b.total-a.total||a.id.localeCompare(b.id));
     if(entries.length<2)return '';
-    return `<span class="fmHomonyms" role="group" aria-label="${host.esc(I18N.t(members ? 'Wortfamilie' : 'Einträge mit denselben Konsonanten:'))}">${entries.map(e=>`<button type="button" class="wcTrHm${e.id===lemma&&!members?' on':''}" data-lem="${host.esc(e.id)}" aria-pressed="${e.id===lemma&&!members}" title="${host.esc(I18N.t('Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.',e.total,e.id))}">${host.esc(I18N.lang==='de'&&e.lem[2]?e.lem[2]:e.lem[1])} <small>${e.total}</small></button>`).join('')}</span>`;
+    return `<span class="fmHomonyms" role="group" aria-label="${host.esc(I18N.t(members ? 'Wortfamilie' : 'Einträge mit denselben Konsonanten:'))}">${entries.map(e=>`<button type="button" class="wcTrHm${e.id===lemma&&!members?' on':''}" data-lem="${host.esc(e.id)}" aria-pressed="${e.id===lemma&&!members}" title="${host.esc(I18N.t('Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.',e.total,e.id))}"><bdi class="fmLemma" lang="he" dir="rtl">${host.esc(e.lem[0])}</bdi> ${host.esc(I18N.lang==='de'&&e.lem[2]?e.lem[2]:e.lem[1])} <small>${e.total}</small></button>`).join('')}</span>`;
   }
   async function openForms(lemma, info, tab, rest) { // rest: Verlaufseintrag, dessen Zustand wiederhergestellt wird (Zurück/Vor)
     fmHistOpen(false, lemma, info, tab, rest);
