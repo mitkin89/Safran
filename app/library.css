@@ -1381,12 +1381,15 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcLink:hover { text-decoration: underline; }
 #formsPanel .wcChart { position: relative; }
 #formsPanel .wcChartViewport { overflow-x:auto; padding-top:22px; }
-#formsPanel .wcChartReset { position:absolute; top:0; right:0; z-index:2; padding:0 6px; font-size:11px; color:var(--accent); }
+#formsPanel .wcChartTools { display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-bottom:8px; }
+#formsPanel .wcChartTools button { padding:3px 10px; }
+#formsPanel .wcChartPercent { min-width:4ch; text-align:center; color:var(--muted); font-variant-numeric:tabular-nums; }
+#formsPanel .wcChartReset { color:var(--accent); }
 #formsPanel .wcChartReset[hidden] { display:none; }
 #formsPanel .wcPlot { display: flex; gap: 10px; align-items: flex-end; position: relative; }
 #formsPanel .wcMax { position: absolute; top: -14px; inset-inline-start: 0; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
-#formsPanel .wcGrp { display: flex; flex-direction: column; min-width: 0; }
-#formsPanel .wcBars { display: flex; align-items: stretch; height: calc(76px * var(--chart-zoom, 1)); gap: 2px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, var(--line)); }
+#formsPanel .wcGrp { display: flex; flex-direction: column; min-width: 0; position:relative; }
+#formsPanel .wcBars { display: flex; align-items: stretch; height: 76px; gap: 2px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, var(--line)); }
 #formsPanel .wcBar { flex: 1 1 0; min-width: 0; padding: 0; border: 0; border-radius: 3px 3px 0 0; background: none; display: flex; align-items: flex-end; cursor: pointer; }
 #formsPanel .wcBar > i { display: block; width: 100%; height: max(2px, calc(var(--h) * 1%)); background: var(--accent); border-radius: 3px 3px 0 0; opacity: .82; }
 #formsPanel .wcBar.zero > i { height: 0; }

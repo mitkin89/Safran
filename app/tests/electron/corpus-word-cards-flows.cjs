@@ -40,6 +40,18 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#dictQ').value='διά';document.querySelector('#dictCardSearch').click()");
  await waitFor("document.querySelector('#fmHead').textContent.includes('διά')&&Number(document.querySelector('#fmCorpusControls [data-corpus=LXX] small')?.textContent.replace(/[^0-9]/g,''))>0",'Dia includes Septuagint occurrences');
  assert(await js("document.querySelector('#fmCorpusBody .wcDistBar[data-corpus=LXX]')!==null"),'LXX has actual columns, not just a legend');
+ win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
+ assert.deepEqual(await js("['LXX','Josephus','Philo'].map(k=>Math.max(...Array.from(document.querySelectorAll('#fmCorpusBody .wcDistBar[data-corpus='+k+']'),b=>+b.style.getPropertyValue('--h'))))"),[100,100,100],'Each corpus has its own full-height maximum');
+ const before=await js("(()=>{const p=document.querySelector('#fmCorpusBody .wcPlot');return [p.getBoundingClientRect().width,p.querySelector('.wcBars').getBoundingClientRect().height]})()");
+ await js("document.querySelector('#fmCorpusBody [data-chart-zoom=in]').click()");
+ const after=await js("(()=>{const p=document.querySelector('#fmCorpusBody .wcPlot');return [p.getBoundingClientRect().width,p.querySelector('.wcBars').getBoundingClientRect().height]})()");
+ assert(after[0]>before[0]*1.3,'Zoom widens the chart');assert.equal(after[1],before[1],'Zoom preserves column height');
+ assert.equal(await js("document.querySelector('#fmCorpusBody .wcChartPercent').textContent"),'140%');
+ await js("document.querySelector('#fmCorpusBody .wcChartReset').click();document.querySelector('#fmCorpusBody .wcChartViewport').dispatchEvent(new WheelEvent('wheel',{deltaY:-100,ctrlKey:true,bubbles:true,cancelable:true}))");
+ assert.equal(await js("document.querySelector('#fmCorpusBody .wcChartPercent').textContent"),'115%','Trackpad pinch zooms horizontally');
+ await js("document.querySelector('#fmCorpusBody .wcChartReset').click();document.querySelector('#fmCorpusBody [data-chart-zoom=out]').click()");
+ assert.equal(await js("document.querySelector('#fmCorpusBody .wcChartPercent').textContent"),'71%','Zoom out below 100% matches search');
+ await js("document.querySelector('#fmCorpusBody .wcChartReset').click()");
  await js("document.querySelector('#fmCorpusBody .wcDistBar[data-corpus=LXX]').click()");
  assert(await js("document.querySelector('#fmCorpusBody .wcRefBox [data-hit]')!==null"),'Clicking a distribution column opens its references');
  win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));fs.writeFileSync('/tmp/safran-corpus-card.png',(await win.webContents.capturePage()).toPNG());

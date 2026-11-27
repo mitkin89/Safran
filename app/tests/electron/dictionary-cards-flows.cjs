@@ -7,10 +7,10 @@ module.exports=async({win,js,waitFor})=>{
  assert(await js("document.querySelector('#dictOut').hidden&&document.querySelector('#wcBody .wcChart')"));
  assert.equal(await js("getComputedStyle(document.querySelector('#formsPanel')).position"),'relative');
  win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
- const chartZoom=await js("(()=>{const c=document.querySelector('#wcBody .wcChart'),p=c.querySelector('.wcPlot'),b=c.querySelector('.wcBars'),v=c.querySelector('.wcChartViewport'),width=p.getBoundingClientRect().width,height=b.getBoundingClientRect().height;const normal=new WheelEvent('wheel',{deltaY:-80,bubbles:true,cancelable:true});c.dispatchEvent(normal);const pinch=new WheelEvent('wheel',{ctrlKey:true,deltaY:-80,clientX:v.getBoundingClientRect().left+v.clientWidth/2,bubbles:true,cancelable:true});c.dispatchEvent(pinch);return {normal:normal.defaultPrevented,pinch:pinch.defaultPrevented,w:p.getBoundingClientRect().width/width,h:b.getBoundingClientRect().height/height,scroll:v.scrollLeft}})()");
+ const chartZoom=await js("(()=>{const c=document.querySelector('#wcBody .wcChart'),p=c.querySelector('.wcPlot'),b=c.querySelector('.wcBars'),v=c.querySelector('.wcChartViewport'),width=p.getBoundingClientRect().width,height=b.getBoundingClientRect().height;const normal=new WheelEvent('wheel',{deltaY:-80,bubbles:true,cancelable:true});v.dispatchEvent(normal);const pinch=new WheelEvent('wheel',{ctrlKey:true,deltaY:-80,clientX:v.getBoundingClientRect().left+v.clientWidth/2,bubbles:true,cancelable:true});v.dispatchEvent(pinch);return {normal:normal.defaultPrevented,pinch:pinch.defaultPrevented,w:p.getBoundingClientRect().width/width,h:b.getBoundingClientRect().height/height,scroll:v.scrollLeft}})()");
  assert.equal(chartZoom.normal,false,'Ordinary scrolling is preserved');
  assert.equal(chartZoom.pinch,true,'Pinch is handled locally');
- assert(chartZoom.w>2&&chartZoom.h>2&&chartZoom.scroll>0,'Chart enlarges around pointer: '+JSON.stringify(chartZoom));
+ assert(chartZoom.w>1.1&&chartZoom.h===1&&chartZoom.scroll>0,'Chart widens around pointer without changing height: '+JSON.stringify(chartZoom));
  await js("document.querySelector('#wcBody .wcChartReset').click()");
  assert(await js("document.querySelector('#wcBody .wcChart').dataset.zoom==='1'&&document.querySelector('#wcBody .wcChartReset').hidden"),'Reset restores chart');
  await js("document.querySelector('#dictQ').value='ענה';document.querySelector('#dictQ').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}))");
