@@ -66,10 +66,22 @@ function build(raw,original,previous,images){
  const alignmentContext={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'mishnah-vocalized/berakhot.js'),'utf8'),alignmentContext);
  require('./transfer_interlinear_analyses.cjs').transfer(D,alignmentContext.window.MISHNAH_VOCALIZED[TITLE],require('../../mishnah-morph-data'));
  applyLexicalDecisions(D);
+ const rejections=new Map(D.interlinearAnalysisTransfer.rejected.map(r=>[r.ref+'/'+r.wordIndex,r.reason]));D.remainingAnalysis=[];
+ for(const [ref,u] of Object.entries(D.units)){
+  const [c,m]=ref.split(':').map(Number),tokens=M.tokens(u.offsetText);
+  tokens.forEach((token,i)=>{
+   const formId=D.sources[TITLE].chapters[c-1][m-1][i],form=D.forms[formId];if(form.analyses.length)return;
+   const wordIndex=u.words.findIndex(w=>w.start<=token.start&&w.end>=token.end),word=u.words[wordIndex];
+   const reason=word.flags.length?'source-word-annotation':rejections.get(ref+'/'+wordIndex)||'no-single-word-interlinear-analysis';
+   const explanations={'source-word-annotation':'Quellwort mit Ergänzungs-, Streichungs- oder Unsicherheitszeichen; keine automatische Analyseübernahme.','source-annotation-or-reused-position':'Annotierte oder mehrfach verwendete Quellposition; keine eindeutige Einzelwortübernahme.','ambiguous-link':'Interlinearverknüpfung nicht eindeutig eins zu eins; keine automatische Einzelwortanalyse.','source-token-not-singular':'Quellposition umfasst mehrere Tokens oder Quellenzeichen; keine unabhängige Einzelwortanalyse.','unmatched-word-or-missing-analysis':'Verknüpfte Wortform weicht ab oder besitzt selbst keine Analyse; keine ungeprüfte Übernahme.','no-single-word-interlinear-analysis':'Keine sichere Einzelwortanalyse über das Interlinear verfügbar; Wortgruppe oder Quellfragment bleibt offen.'};
+   form.hints=[explanations[reason]];
+   D.remainingAnalysis.push({ref,wordIndex,lexicalTokenIndex:i,formId,sourceWordId:u.id+'/word/'+wordIndex,originalWord:word.originalWord,reason});
+  });
+ }
  const imageData={...clone(images),targetTextHash:meta.textHash,reboundFrom:{targetTextHash:images.targetTextHash,method:'Every diplomatic ID and original word checked; image observations preserved without change.'}};
  for(const[ref,u]of Object.entries(units))u.words.forEach((w,i)=>{if(imageData.words[u.id+'/word/'+i]?.originalWord!==w.originalWord)throw Error('Image word identity changed '+ref);});
  const doc={title:TITLE,heTitle:'משנה ברכות',language:'he',actualLanguage:'he',versionTitle:VERSION,versionSource:source.url,categories:['Mishnah','Seder Zeraim'],sectionNames:['Chapter','Mishnah'],direction:'rtl',isSource:true,isPrimary:false,license:'Unknown',attribution:'Consonantal transcription: Digital Mishnah, CC BY 4.0. Pointing: user-supplied Accordance text; provisional local working edition. Redistribution rights for the pointing are not asserted.',rights:{consonants:'Digital Mishnah CC BY 4.0',pointing:'User-supplied Accordance text; source version and redistribution license not embedded'},pointingStatus:'Provisional Accordance transfer, with explicitly open positions; not a manuscript-certified edition',text};
- const report={edition:VERSION,source:meta,summary,coverage:D.coverage,interlinearAnalysisTransfer:D.interlinearAnalysisTransfer,lexicalReview:D.lexicalReview,openReasons:reasons,open:transfers.filter(t=>t.status==='open').map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,originalWord:t.originalWord,reasons:t.reasons})),imageFeatureConflicts:transfers.filter(t=>t.pointingCautions.length).map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,cautions:t.pointingCautions})),policy:D.provenance};
+ const report={edition:VERSION,source:meta,summary,coverage:D.coverage,interlinearAnalysisTransfer:D.interlinearAnalysisTransfer,lexicalReview:D.lexicalReview,remainingAnalysis:D.remainingAnalysis,openReasons:reasons,open:transfers.filter(t=>t.status==='open').map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,originalWord:t.originalWord,reasons:t.reasons})),imageFeatureConflicts:transfers.filter(t=>t.pointingCautions.length).map(t=>({id:t.id,ref:t.targetRef,wordIndex:t.targetWordIndex,cautions:t.pointingCautions})),policy:D.provenance};
  return{data:D,imageData,doc,report};
 }
 function applyLexicalDecisions(data){

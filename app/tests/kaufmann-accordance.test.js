@@ -14,7 +14,7 @@ test('open words retain no hidden Beeri pointing and every transferred word has 
 test('all lexical cards keep positional analyses with separate pointing, analysis and editorial meaning provenance',()=>{
  assert.equal(D.forms.length,2171);
  for(const[ref,u]of Object.entries(D.units)){const[c,m]=ref.split(':').map(Number),tokens=M.tokens(u.offsetText),ids=D.sources[D.title].chapters[c-1][m-1],oldIds=old.sources[D.title].chapters[c-1][m-1];assert.equal(tokens.length,ids.length);ids.forEach((id,i)=>{const f=D.forms[id],o=old.forms[oldIds[i]];assert.equal(f.word,tokens[i].word);assert.equal(f.key,tokens[i].key);if(!['interlinear-position','contextual-rabbinic-lexicon'].includes(f.provenance.analysis.kind))assert.deepEqual(f.analyses.map(a=>[a.lemma,a.morph]),o.analyses.map(a=>[a.lemma,a.morph]));else assert.equal(o.analyses.length,0);assert.equal(f.provenance.pointing.source,'Vom Nutzer kopierter Accordance-Text');if(!f.provenance.analysis.kind)assert.equal(f.provenance.analysis.sourceWord,o.word);assert.equal(f.provenance.analysis.reviewed,false);assert.equal(f.provenance.translation.reviewed,false);if(f.analyses.length&&!f.provenance.analysis.kind&&f.provenance.analysis.pointingMatch!==true)assert.equal(f.status,'partial');assert.notEqual(f.status,'reviewed');});}
- assert.equal(D.coverage.statuses.unresolved,376);assert.equal(D.coverage.statuses.partial,153);
+ assert.equal(D.coverage.statuses.unresolved,206);assert.equal(D.coverage.statuses.partial,153);
 });
 test('manuscript links and image observations retain their original identities, with a separate new hash binding',()=>{
  assert.deepEqual(D.interlinear,old.interlinear);assert.deepEqual(I.words,oldI.words);assert.deepEqual(I.images,oldI.images);assert.deepEqual(I.pages,oldI.pages);assert.equal(I.targetTextHash,D.source.textHash);assert.notEqual(I.targetTextHash,oldI.targetTextHash);assert.equal(I.reboundFrom.targetTextHash,oldI.targetTextHash);
@@ -36,7 +36,7 @@ test('the remaining image-vowel conflict is visible without overruling the provi
 
 test('interlinear analyses retain exact unique source positions independently of pointing',()=>{
  const donor=require('../mishnah-morph-data'),ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'mishnah-vocalized/berakhot.js'),'utf8'),ctx);const a=ctx.window.MISHNAH_VOCALIZED[D.title];
- assert.equal(D.interlinearAnalysisTransfer.accepted.length,174);
+ assert.equal(D.interlinearAnalysisTransfer.accepted.length,344);
  for(const r of D.interlinearAnalysisTransfer.accepted){
   const u=D.units[r.ref],w=u.words[r.wordIndex],[c,m]=r.ref.split(':').map(Number),tokenIndex=M.tokens(u.offsetText).findIndex(t=>w.start<=t.start&&w.end>=t.end),f=D.forms[D.sources[D.title].chapters[c-1][m-1][tokenIndex]];
   const links=a.interlinear.chapters[c].D.links.filter(l=>l.reading.some(p=>p[0]===r.ref&&p[1]===r.wordIndex));assert.equal(links.length,1);assert.equal(links[0].base.length,1);assert.equal(links[0].reading.length,1);assert.equal(links[0].uncertain,false);assert.equal(w.flags.length,0);
@@ -50,4 +50,16 @@ test('interlinear analyses retain exact unique source positions independently of
 test('all five singular rashai variants carry Levy evidence without editing the word',()=>{
  const decisions=require('../tools/mishnah/kaufmann-lexical-decisions.json').decisions;assert.equal(decisions.length,5);
  for(const r of decisions){const u=D.units[r.ref],w=u.words[r.wordIndex],[c,m]=r.ref.split(':').map(Number),ti=M.tokens(u.offsetText).findIndex(t=>w.start<=t.start&&w.end>=t.end),f=D.forms[D.sources[D.title].chapters[c-1][m-1][ti]];assert.equal(w.originalWord,'רשיי');assert.equal(f.analyses[0].lemma,'רשאי');assert.equal(f.analyses[0].morph,'HAamsa');assert.equal(f.dictionaryEvidence[0].entry,17688);assert.equal(f.provenance.analysis.kind,'contextual-rabbinic-lexicon');assert.equal(f.provenance.pointing.source,'Vom Nutzer kopierter Accordance-Text');}
+});
+
+test('reviewed spelling variants are scoped to exact interlinear positions and retain dictionary search evidence',()=>{
+ const T=require('../tools/mishnah/transfer_interlinear_analyses.cjs'),R=require('../tools/mishnah/kaufmann-interlinear-spelling-decisions.json');
+ assert.equal(R.decisions.length,170);assert.equal(D.interlinearAnalysisTransfer.accepted.filter(r=>r.compatibility==='reviewed-spelling-variant').length,170);
+ for(const r of R.decisions){assert.equal(T.compatible(r.target,r.source,r.ref+'/'+r.wordIndex),'reviewed-spelling-variant');assert.equal(T.compatible(r.target,r.source,'outside-scope'),null);const u=D.units[r.ref],w=u.words[r.wordIndex],[c,m]=r.ref.split(':').map(Number),ti=M.tokens(u.offsetText).findIndex(t=>w.start<=t.start&&w.end>=t.end),f=D.forms[D.sources[D.title].chapters[c-1][m-1][ti]];assert.equal(w.originalWord,r.target);assert.equal(f.provenance.analysis.spellingReview.source,r.source);assert.deepEqual(f.dictionaryEvidence,r.dictionaryEvidence);assert.ok(f.analyses.length);assert.equal(f.provenance.analysis.reviewed,false);}
+ assert.equal(T.compatible('שנשא','שֶׁקָּרָא','2:5/16'),null);assert.equal(T.compatible('אומרין','אוֹמֵר','7:3/29'),null);assert.equal(T.compatible('הייתה','הָיִיתָ','1:3/61'),null);
+});
+test('every remaining empty card has an explicit source-bound reason without guessed analyses',()=>{
+ assert.equal(D.remainingAnalysis.length,206);assert.equal(new Set(D.remainingAnalysis.map(r=>r.formId)).size,206);
+ for(const r of D.remainingAnalysis){const f=D.forms[r.formId],u=D.units[r.ref],w=u.words[r.wordIndex];assert.equal(f.analyses.length,0);assert.equal(w.originalWord,r.originalWord);assert.equal(r.sourceWordId,u.id+'/word/'+r.wordIndex);assert.ok(f.hints[0]);}
+ const rejected=D.remainingAnalysis.find(r=>r.ref==='2:5'&&r.wordIndex===16);assert.ok(rejected,'lexically different shenasa/sheqara remains unassigned');assert.equal(rejected.reason,'unmatched-word-or-missing-analysis');
 });

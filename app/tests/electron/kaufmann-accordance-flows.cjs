@@ -106,6 +106,14 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  }
  const automatic=records.find(r=>r.form.provenance?.analysis.kind==='interlinear-position');
  const automaticPopup=await popup(automatic);assert(automaticPopup.provenance.analysis.includes('eindeutiger Interlinearverknüpfung'));
+ for(const [ref,index] of [['1:4',26],['4:2',10],['6:5',0],['9:1',4]]){
+  const record=records.find(r=>r.ref===ref&&r.sourceIndex===index),p=await popup(record);
+  assert.equal(record.form.provenance.analysis.compatibility,'reviewed-spelling-variant');
+  assert(p.analyses>0&&p.text.includes('Schreibvariante positionsgenau geprüft'));
+  assert(p.provenance.analysis.includes('Interlinear'));
+ }
+ const differing=records.find(r=>r.ref==='2:5'&&r.sourceIndex===16),differingPopup=await popup(differing);
+ assert.equal(differingPopup.analyses,0);assert(differingPopup.text.includes('Verknüpfte Wortform weicht ab'));
  assert(conflict,'real manuscript/Accordance pointing conflict');
  const conflictPopup=await popup(conflict);
  assert.equal(conflictPopup.word,'אֵת','working text retains provisional Accordance tsere');

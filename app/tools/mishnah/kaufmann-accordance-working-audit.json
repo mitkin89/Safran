@@ -32,14 +32,32 @@
     "words": 2171,
     "statuses": {
       "partial": 153,
-      "candidate": 1201,
-      "ambiguous": 441,
-      "unresolved": 376
+      "candidate": 1357,
+      "ambiguous": 455,
+      "unresolved": 206
     }
   },
   "interlinearAnalysisTransfer": {
     "sourceTextHash": "eed07ea0084761b208e406d581924f88eca4379dbc6c720889a37a70ecb40337",
+    "spellingReview": {
+      "file": "kaufmann-interlinear-spelling-decisions.json",
+      "decisions": 170,
+      "dictionary": {
+        "dictId": "e8d290b744f6",
+        "name": "Levy, Wörterbuch (Bd. 1–4)",
+        "sha256": "caac370b0f8f95463fee20c86158393a3a56af9f3eba5f8cf2fb4a31b36c113c",
+        "policy": "Consonantal lemma lookup in the rabbinic Levy dictionary. Search evidence only; no automatic POS, homograph selection or gloss from a hit."
+      }
+    },
     "accepted": [
+      {
+        "ref": "1:1",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.1.1/word/12",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 12,
+        "compatibility": "reviewed-spelling-variant"
+      },
       {
         "ref": "1:1",
         "wordIndex": 17,
@@ -66,11 +84,43 @@
       },
       {
         "ref": "1:1",
+        "wordIndex": 46,
+        "sourceWordId": "S07326.1.1.1.1/word/46",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 46,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 48,
+        "sourceWordId": "S07326.1.1.1.1/word/48",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 48,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:1",
         "wordIndex": 55,
         "sourceWordId": "S07326.1.1.1.1/word/55",
         "sourceRef": "1:1",
         "sourceTokenIndex": 55,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 66,
+        "sourceWordId": "S07326.1.1.1.1/word/66",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 68,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:1",
+        "wordIndex": 75,
+        "sourceWordId": "S07326.1.1.1.1/word/75",
+        "sourceRef": "1:1",
+        "sourceTokenIndex": 77,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "1:1",
@@ -105,12 +155,28 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "1:2",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.1.2/word/29",
+        "sourceRef": "1:2",
+        "sourceTokenIndex": 28,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "1:3",
         "wordIndex": 2,
         "sourceWordId": "S07326.1.1.1.3/word/2",
         "sourceRef": "1:3",
         "sourceTokenIndex": 2,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.1.3/word/6",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 6,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "1:3",
@@ -153,6 +219,30 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "1:3",
+        "wordIndex": 60,
+        "sourceWordId": "S07326.1.1.1.3/word/60",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 58,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:3",
+        "wordIndex": 68,
+        "sourceWordId": "S07326.1.1.1.3/word/68",
+        "sourceRef": "1:3",
+        "sourceTokenIndex": 66,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.1.4/word/13",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 12,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "1:4",
         "wordIndex": 20,
         "sourceWordId": "S07326.1.1.1.4/word/20",
@@ -170,6 +260,14 @@
       },
       {
         "ref": "1:4",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.1.4/word/26",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 25,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:4",
         "wordIndex": 28,
         "sourceWordId": "S07326.1.1.1.4/word/28",
         "sourceRef": "1:4",
@@ -178,11 +276,35 @@
       },
       {
         "ref": "1:4",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.1.4/word/30",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 29,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 32,
+        "sourceWordId": "S07326.1.1.1.4/word/32",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 31,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:4",
         "wordIndex": 34,
         "sourceWordId": "S07326.1.1.1.4/word/34",
         "sourceRef": "1:4",
         "sourceTokenIndex": 33,
         "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "1:4",
+        "wordIndex": 35,
+        "sourceWordId": "S07326.1.1.1.4/word/35",
+        "sourceRef": "1:4",
+        "sourceTokenIndex": 34,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "1:5",
@@ -210,6 +332,14 @@
       },
       {
         "ref": "1:5",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.1.5/word/26",
+        "sourceRef": "1:5",
+        "sourceTokenIndex": 26,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "1:5",
         "wordIndex": 31,
         "sourceWordId": "S07326.1.1.1.5/word/31",
         "sourceRef": "1:5",
@@ -223,6 +353,14 @@
         "sourceRef": "1:5",
         "sourceTokenIndex": 43,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:1",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.2.1/word/7",
+        "sourceRef": "2:1",
+        "sourceTokenIndex": 7,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "2:1",
@@ -247,6 +385,38 @@
         "sourceRef": "2:1",
         "sourceTokenIndex": 30,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.2.2/word/6",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 7,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.2.2/word/8",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.2.2/word/14",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 17,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.2.2/word/18",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 21,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "2:2",
@@ -281,6 +451,46 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "2:2",
+        "wordIndex": 49,
+        "sourceWordId": "S07326.1.1.2.2/word/49",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 56,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 54,
+        "sourceWordId": "S07326.1.1.2.2/word/54",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 61,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 55,
+        "sourceWordId": "S07326.1.1.2.2/word/55",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 62,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 58,
+        "sourceWordId": "S07326.1.1.2.2/word/58",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 65,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:2",
+        "wordIndex": 62,
+        "sourceWordId": "S07326.1.1.2.2/word/62",
+        "sourceRef": "2:2",
+        "sourceTokenIndex": 71,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "2:3",
         "wordIndex": 7,
         "sourceWordId": "S07326.1.1.2.3/word/7",
@@ -295,6 +505,22 @@
         "sourceRef": "2:3",
         "sourceTokenIndex": 9,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.2.3/word/14",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 14,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:3",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.2.3/word/15",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 15,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "2:3",
@@ -329,12 +555,44 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "2:3",
+        "wordIndex": 31,
+        "sourceWordId": "S07326.1.1.2.3/word/31",
+        "sourceRef": "2:3",
+        "sourceTokenIndex": 31,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:4",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.2.4/word/12",
+        "sourceRef": "2:4",
+        "sourceTokenIndex": 12,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.2.5/word/2",
+        "sourceRef": "2:5",
+        "sourceTokenIndex": 2,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "2:5",
         "wordIndex": 15,
         "sourceWordId": "S07326.1.1.2.5/word/15",
         "sourceRef": "2:5",
         "sourceTokenIndex": 15,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:5",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.2.5/word/23",
+        "sourceRef": "2:5",
+        "sourceTokenIndex": 22,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "2:5",
@@ -346,11 +604,35 @@
       },
       {
         "ref": "2:6",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.2.6/word/8",
+        "sourceRef": "2:6",
+        "sourceTokenIndex": 8,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:6",
         "wordIndex": 12,
         "sourceWordId": "S07326.1.1.2.6/word/12",
         "sourceRef": "2:6",
         "sourceTokenIndex": 12,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "2:7",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.2.7/word/3",
+        "sourceRef": "2:7",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:7",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.2.7/word/9",
+        "sourceRef": "2:7",
+        "sourceTokenIndex": 10,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "2:7",
@@ -369,6 +651,158 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "2:8",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.2.8/word/17",
+        "sourceRef": "2:8",
+        "sourceTokenIndex": 17,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "2:8",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.2.8/word/20",
+        "sourceRef": "2:8",
+        "sourceTokenIndex": 20,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.3.1/word/2",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 2,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.3.1/word/5",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 5,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.3.1/word/8",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 8,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.3.1/word/11",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 11,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.3.1/word/12",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 12,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.3.1/word/13",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 13,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 24,
+        "sourceWordId": "S07326.1.1.3.1/word/24",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 22,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 31,
+        "sourceWordId": "S07326.1.1.3.1/word/31",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 28,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 33,
+        "sourceWordId": "S07326.1.1.3.1/word/33",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 30,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 34,
+        "sourceWordId": "S07326.1.1.3.1/word/34",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 31,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 35,
+        "sourceWordId": "S07326.1.1.3.1/word/35",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 32,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:1",
+        "wordIndex": 38,
+        "sourceWordId": "S07326.1.1.3.1/word/38",
+        "sourceRef": "3:1",
+        "sourceTokenIndex": 35,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:2",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.3.2/word/22",
+        "sourceRef": "3:2",
+        "sourceTokenIndex": 22,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.3.3/word/5",
+        "sourceRef": "3:3",
+        "sourceTokenIndex": 4,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.3.3/word/8",
+        "sourceRef": "3:3",
+        "sourceTokenIndex": 7,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.3.3/word/9",
+        "sourceRef": "3:3",
+        "sourceTokenIndex": 8,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:3",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.3.3/word/10",
+        "sourceRef": "3:3",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "3:4",
         "wordIndex": 17,
         "sourceWordId": "S07326.1.1.3.4/word/17",
@@ -385,12 +819,36 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "3:5",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.3.5/word/2",
+        "sourceRef": "3:5",
+        "sourceTokenIndex": 2,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "3:6",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.3.6/word/9",
+        "sourceRef": "3:6",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "3:6",
         "wordIndex": 12,
         "sourceWordId": "S07326.1.1.3.6/word/12",
         "sourceRef": "3:6",
         "sourceTokenIndex": 12,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:1",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.4.1/word/0",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 0,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "4:1",
@@ -410,6 +868,14 @@
       },
       {
         "ref": "4:1",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.4.1/word/10",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 10,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:1",
         "wordIndex": 14,
         "sourceWordId": "S07326.1.1.4.1/word/14",
         "sourceRef": "4:1",
@@ -425,6 +891,14 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "4:1",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.4.1/word/20",
+        "sourceRef": "4:1",
+        "sourceTokenIndex": 20,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "4:2",
         "wordIndex": 0,
         "sourceWordId": "S07326.1.1.4.2/word/0",
@@ -434,11 +908,43 @@
       },
       {
         "ref": "4:2",
+        "wordIndex": 1,
+        "sourceWordId": "S07326.1.1.4.2/word/1",
+        "sourceRef": "4:2",
+        "sourceTokenIndex": 1,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.4.2/word/10",
+        "sourceRef": "4:2",
+        "sourceTokenIndex": 10,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.4.2/word/16",
+        "sourceRef": "4:2",
+        "sourceTokenIndex": 16,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:2",
         "wordIndex": 18,
         "sourceWordId": "S07326.1.1.4.2/word/18",
         "sourceRef": "4:2",
         "sourceTokenIndex": 18,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:2",
+        "wordIndex": 31,
+        "sourceWordId": "S07326.1.1.4.2/word/31",
+        "sourceRef": "4:2",
+        "sourceTokenIndex": 31,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "4:3",
@@ -489,12 +995,36 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "4:3",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.4.3/word/20",
+        "sourceRef": "4:3",
+        "sourceTokenIndex": 20,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "4:4",
         "wordIndex": 0,
         "sourceWordId": "S07326.1.1.4.4/word/0",
         "sourceRef": "4:4",
         "sourceTokenIndex": 0,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.4.4/word/4",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 4,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.4.4/word/7",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 7,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "4:4",
@@ -513,6 +1043,54 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "4:4",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.4.4/word/16",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 16,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.4.4/word/29",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 31,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:4",
+        "wordIndex": 35,
+        "sourceWordId": "S07326.1.1.4.4/word/35",
+        "sourceRef": "4:4",
+        "sourceTokenIndex": 37,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:5",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.4.5/word/18",
+        "sourceRef": "4:5",
+        "sourceTokenIndex": 18,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:5",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.4.5/word/23",
+        "sourceRef": "4:5",
+        "sourceTokenIndex": 23,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:6",
+        "wordIndex": 7,
+        "sourceWordId": "S07326.1.1.4.6/word/7",
+        "sourceRef": "4:6",
+        "sourceTokenIndex": 7,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "4:7",
         "wordIndex": 0,
         "sourceWordId": "S07326.1.1.4.7/word/0",
@@ -522,11 +1100,27 @@
       },
       {
         "ref": "4:7",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.4.7/word/3",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "4:7",
         "wordIndex": 4,
         "sourceWordId": "S07326.1.1.4.7/word/4",
         "sourceRef": "4:7",
         "sourceTokenIndex": 4,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "4:7",
+        "wordIndex": 6,
+        "sourceWordId": "S07326.1.1.4.7/word/6",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 6,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "4:7",
@@ -561,6 +1155,70 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "4:7",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.4.7/word/29",
+        "sourceRef": "4:7",
+        "sourceTokenIndex": 29,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.5.1/word/5",
+        "sourceRef": "5:1",
+        "sourceTokenIndex": 5,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.5.1/word/8",
+        "sourceRef": "5:1",
+        "sourceTokenIndex": 8,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.5.1/word/15",
+        "sourceRef": "5:1",
+        "sourceTokenIndex": 15,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.5.1/word/19",
+        "sourceRef": "5:1",
+        "sourceTokenIndex": 19,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 25,
+        "sourceWordId": "S07326.1.1.5.1/word/25",
+        "sourceRef": "5:1",
+        "sourceTokenIndex": 25,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:1",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.5.1/word/29",
+        "sourceRef": "5:1",
+        "sourceTokenIndex": 29,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:2",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.5.2/word/3",
+        "sourceRef": "5:2",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "5:2",
         "wordIndex": 12,
         "sourceWordId": "S07326.1.1.5.2/word/12",
@@ -593,12 +1251,92 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "5:2",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.5.2/word/22",
+        "sourceRef": "5:2",
+        "sourceTokenIndex": 22,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.5.3/word/3",
+        "sourceRef": "5:3",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 16,
+        "sourceWordId": "S07326.1.1.5.3/word/16",
+        "sourceRef": "5:3",
+        "sourceTokenIndex": 17,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.5.3/word/23",
+        "sourceRef": "5:3",
+        "sourceTokenIndex": 24,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 26,
+        "sourceWordId": "S07326.1.1.5.3/word/26",
+        "sourceRef": "5:3",
+        "sourceTokenIndex": 27,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:3",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.5.3/word/29",
+        "sourceRef": "5:3",
+        "sourceTokenIndex": 30,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.5.4/word/2",
+        "sourceRef": "5:4",
+        "sourceTokenIndex": 2,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.5.4/word/9",
+        "sourceRef": "5:4",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:4",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.5.4/word/29",
+        "sourceRef": "5:4",
+        "sourceTokenIndex": 28,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "5:4",
         "wordIndex": 30,
         "sourceWordId": "S07326.1.1.5.4/word/30",
         "sourceRef": "5:4",
         "sourceTokenIndex": 29,
         "compatibility": "Levy-rashai-spelling"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.5.5/word/8",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 7,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "5:5",
@@ -618,11 +1356,67 @@
       },
       {
         "ref": "5:5",
+        "wordIndex": 29,
+        "sourceWordId": "S07326.1.1.5.5/word/29",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 28,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 34,
+        "sourceWordId": "S07326.1.1.5.5/word/34",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 34,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:5",
         "wordIndex": 37,
         "sourceWordId": "S07326.1.1.5.5/word/37",
         "sourceRef": "5:5",
         "sourceTokenIndex": 37,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 41,
+        "sourceWordId": "S07326.1.1.5.5/word/41",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 41,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 46,
+        "sourceWordId": "S07326.1.1.5.5/word/46",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 46,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "5:5",
+        "wordIndex": 52,
+        "sourceWordId": "S07326.1.1.5.5/word/52",
+        "sourceRef": "5:5",
+        "sourceTokenIndex": 52,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.6.1/word/3",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 5,
+        "sourceWordId": "S07326.1.1.6.1/word/5",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 5,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "6:1",
@@ -642,6 +1436,14 @@
       },
       {
         "ref": "6:1",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.6.1/word/23",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 23,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:1",
         "wordIndex": 26,
         "sourceWordId": "S07326.1.1.6.1/word/26",
         "sourceRef": "6:1",
@@ -655,6 +1457,14 @@
         "sourceRef": "6:1",
         "sourceTokenIndex": 36,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:1",
+        "wordIndex": 42,
+        "sourceWordId": "S07326.1.1.6.1/word/42",
+        "sourceRef": "6:1",
+        "sourceTokenIndex": 42,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "6:1",
@@ -681,12 +1491,52 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "6:2",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.6.2/word/0",
+        "sourceRef": "6:2",
+        "sourceTokenIndex": 0,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 2,
+        "sourceWordId": "S07326.1.1.6.2/word/2",
+        "sourceRef": "6:2",
+        "sourceTokenIndex": 2,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.6.2/word/9",
+        "sourceRef": "6:2",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:2",
+        "wordIndex": 17,
+        "sourceWordId": "S07326.1.1.6.2/word/17",
+        "sourceRef": "6:2",
+        "sourceTokenIndex": 17,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "6:3",
         "wordIndex": 7,
         "sourceWordId": "S07326.1.1.6.3/word/7",
         "sourceRef": "6:3",
         "sourceTokenIndex": 6,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:3",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.6.3/word/12",
+        "sourceRef": "6:3",
+        "sourceTokenIndex": 11,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "6:3",
@@ -738,11 +1588,59 @@
       },
       {
         "ref": "6:5",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.6.5/word/0",
+        "sourceRef": "6:5",
+        "sourceTokenIndex": 0,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.6.5/word/10",
+        "sourceRef": "6:5",
+        "sourceTokenIndex": 10,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.6.5/word/20",
+        "sourceRef": "6:5",
+        "sourceTokenIndex": 20,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:5",
         "wordIndex": 35,
         "sourceWordId": "S07326.1.1.6.5/word/35",
         "sourceRef": "6:5",
         "sourceTokenIndex": 34,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:5",
+        "wordIndex": 39,
+        "sourceWordId": "S07326.1.1.6.5/word/39",
+        "sourceRef": "6:5",
+        "sourceTokenIndex": 38,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:6",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.6.6/word/10",
+        "sourceRef": "6:6",
+        "sourceTokenIndex": 10,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:6",
+        "wordIndex": 25,
+        "sourceWordId": "S07326.1.1.6.6/word/25",
+        "sourceRef": "6:6",
+        "sourceTokenIndex": 25,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "6:6",
@@ -751,6 +1649,78 @@
         "sourceRef": "6:6",
         "sourceTokenIndex": 26,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.6.7/word/3",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.6.7/word/13",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 13,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 19,
+        "sourceWordId": "S07326.1.1.6.7/word/19",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 19,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.6.7/word/20",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 20,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.6.7/word/21",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 21,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 24,
+        "sourceWordId": "S07326.1.1.6.7/word/24",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 24,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:7",
+        "wordIndex": 27,
+        "sourceWordId": "S07326.1.1.6.7/word/27",
+        "sourceRef": "6:7",
+        "sourceTokenIndex": 27,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 1,
+        "sourceWordId": "S07326.1.1.6.8/word/1",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 1,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.6.8/word/3",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "6:8",
@@ -802,6 +1772,22 @@
       },
       {
         "ref": "6:8",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.6.8/word/18",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 18,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:8",
+        "wordIndex": 31,
+        "sourceWordId": "S07326.1.1.6.8/word/31",
+        "sourceRef": "6:8",
+        "sourceTokenIndex": 29,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "6:8",
         "wordIndex": 32,
         "sourceWordId": "S07326.1.1.6.8/word/32",
         "sourceRef": "6:8",
@@ -825,6 +1811,70 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "7:1",
+        "wordIndex": 3,
+        "sourceWordId": "S07326.1.1.7.1/word/3",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 3,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.7.1/word/4",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 4,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.7.1/word/9",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 12,
+        "sourceWordId": "S07326.1.1.7.1/word/12",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 12,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 14,
+        "sourceWordId": "S07326.1.1.7.1/word/14",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 14,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 27,
+        "sourceWordId": "S07326.1.1.7.1/word/27",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 27,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 30,
+        "sourceWordId": "S07326.1.1.7.1/word/30",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 30,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:1",
+        "wordIndex": 33,
+        "sourceWordId": "S07326.1.1.7.1/word/33",
+        "sourceRef": "7:1",
+        "sourceTokenIndex": 33,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "7:2",
         "wordIndex": 12,
         "sourceWordId": "S07326.1.1.7.2/word/12",
@@ -842,11 +1892,27 @@
       },
       {
         "ref": "7:3",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.7.3/word/21",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 21,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:3",
         "wordIndex": 37,
         "sourceWordId": "S07326.1.1.7.3/word/37",
         "sourceRef": "7:3",
         "sourceTokenIndex": 37,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 42,
+        "sourceWordId": "S07326.1.1.7.3/word/42",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 42,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "7:3",
@@ -871,6 +1937,14 @@
         "sourceRef": "7:3",
         "sourceTokenIndex": 53,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 55,
+        "sourceWordId": "S07326.1.1.7.3/word/55",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 55,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "7:3",
@@ -906,6 +1980,14 @@
       },
       {
         "ref": "7:3",
+        "wordIndex": 78,
+        "sourceWordId": "S07326.1.1.7.3/word/78",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 78,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:3",
         "wordIndex": 82,
         "sourceWordId": "S07326.1.1.7.3/word/82",
         "sourceRef": "7:3",
@@ -919,6 +2001,22 @@
         "sourceRef": "7:3",
         "sourceTokenIndex": 88,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 97,
+        "sourceWordId": "S07326.1.1.7.3/word/97",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 97,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 99,
+        "sourceWordId": "S07326.1.1.7.3/word/99",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 99,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "7:3",
@@ -951,6 +2049,14 @@
         "sourceRef": "7:3",
         "sourceTokenIndex": 106,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "7:3",
+        "wordIndex": 110,
+        "sourceWordId": "S07326.1.1.7.3/word/110",
+        "sourceRef": "7:3",
+        "sourceTokenIndex": 110,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "7:5",
@@ -1074,6 +2180,14 @@
       },
       {
         "ref": "7:5",
+        "wordIndex": 15,
+        "sourceWordId": "S07326.1.1.7.5/word/15",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 15,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:5",
         "wordIndex": 16,
         "sourceWordId": "S07326.1.1.7.5/word/16",
         "sourceRef": "7:5",
@@ -1090,6 +2204,14 @@
       },
       {
         "ref": "7:5",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.7.5/word/18",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 18,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "7:5",
         "wordIndex": 19,
         "sourceWordId": "S07326.1.1.7.5/word/19",
         "sourceRef": "7:5",
@@ -1103,6 +2225,14 @@
         "sourceRef": "7:5",
         "sourceTokenIndex": 20,
         "compatibility": "same-consonants"
+      },
+      {
+        "ref": "7:5",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.7.5/word/21",
+        "sourceRef": "7:5",
+        "sourceTokenIndex": 21,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "7:5",
@@ -1218,6 +2348,14 @@
       },
       {
         "ref": "8:1",
+        "wordIndex": 20,
+        "sourceWordId": "S07326.1.1.8.1/word/20",
+        "sourceRef": "8:1",
+        "sourceTokenIndex": 20,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "8:1",
         "wordIndex": 21,
         "sourceWordId": "S07326.1.1.8.1/word/21",
         "sourceRef": "8:1",
@@ -1231,6 +2369,14 @@
         "sourceRef": "8:2",
         "sourceTokenIndex": 2,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:2",
+        "wordIndex": 11,
+        "sourceWordId": "S07326.1.1.8.2/word/11",
+        "sourceRef": "8:2",
+        "sourceTokenIndex": 11,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "8:2",
@@ -1258,11 +2404,27 @@
       },
       {
         "ref": "8:5",
+        "wordIndex": 21,
+        "sourceWordId": "S07326.1.1.8.5/word/21",
+        "sourceRef": "8:5",
+        "sourceTokenIndex": 21,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "8:5",
         "wordIndex": 22,
         "sourceWordId": "S07326.1.1.8.5/word/22",
         "sourceRef": "8:5",
         "sourceTokenIndex": 22,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:7",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.8.7/word/4",
+        "sourceRef": "8:7",
+        "sourceTokenIndex": 4,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "8:7",
@@ -1274,11 +2436,27 @@
       },
       {
         "ref": "8:7",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.8.7/word/8",
+        "sourceRef": "8:7",
+        "sourceTokenIndex": 8,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "8:7",
         "wordIndex": 13,
         "sourceWordId": "S07326.1.1.8.7/word/13",
         "sourceRef": "8:7",
         "sourceTokenIndex": 13,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "8:8",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.8.8/word/22",
+        "sourceRef": "8:8",
+        "sourceTokenIndex": 22,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "8:8",
@@ -1298,6 +2476,14 @@
       },
       {
         "ref": "9:1",
+        "wordIndex": 4,
+        "sourceWordId": "S07326.1.1.9.1/word/4",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 4,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:1",
         "wordIndex": 5,
         "sourceWordId": "S07326.1.1.9.1/word/5",
         "sourceRef": "9:1",
@@ -1314,11 +2500,43 @@
       },
       {
         "ref": "9:1",
+        "wordIndex": 9,
+        "sourceWordId": "S07326.1.1.9.1/word/9",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 9,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 10,
+        "sourceWordId": "S07326.1.1.9.1/word/10",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 10,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:1",
         "wordIndex": 18,
         "sourceWordId": "S07326.1.1.9.1/word/18",
         "sourceRef": "9:1",
         "sourceTokenIndex": 18,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:1",
+        "wordIndex": 23,
+        "sourceWordId": "S07326.1.1.9.1/word/23",
+        "sourceRef": "9:1",
+        "sourceTokenIndex": 23,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:2",
+        "wordIndex": 13,
+        "sourceWordId": "S07326.1.1.9.2/word/13",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 13,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "9:2",
@@ -1385,12 +2603,76 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "9:2",
+        "wordIndex": 64,
+        "sourceWordId": "S07326.1.1.9.2/word/64",
+        "sourceRef": "9:2",
+        "sourceTokenIndex": 64,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "9:3",
         "wordIndex": 6,
         "sourceWordId": "S07326.1.1.9.3/word/6",
         "sourceRef": "9:3",
         "sourceTokenIndex": 6,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 8,
+        "sourceWordId": "S07326.1.1.9.3/word/8",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 8,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 27,
+        "sourceWordId": "S07326.1.1.9.3/word/27",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 26,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 32,
+        "sourceWordId": "S07326.1.1.9.3/word/32",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 31,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 41,
+        "sourceWordId": "S07326.1.1.9.3/word/41",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 40,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 48,
+        "sourceWordId": "S07326.1.1.9.3/word/48",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 47,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:3",
+        "wordIndex": 60,
+        "sourceWordId": "S07326.1.1.9.3/word/60",
+        "sourceRef": "9:3",
+        "sourceTokenIndex": 59,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:4",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.9.4/word/0",
+        "sourceRef": "9:4",
+        "sourceTokenIndex": 0,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "9:4",
@@ -1401,12 +2683,100 @@
         "compatibility": "aligned-abbreviation"
       },
       {
+        "ref": "9:4",
+        "wordIndex": 18,
+        "sourceWordId": "S07326.1.1.9.4/word/18",
+        "sourceRef": "9:4",
+        "sourceTokenIndex": 17,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:4",
+        "wordIndex": 22,
+        "sourceWordId": "S07326.1.1.9.4/word/22",
+        "sourceRef": "9:4",
+        "sourceTokenIndex": 21,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 0,
+        "sourceWordId": "S07326.1.1.9.5/word/0",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 0,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
         "ref": "9:5",
         "wordIndex": 9,
         "sourceWordId": "S07326.1.1.9.5/word/9",
         "sourceRef": "9:5",
         "sourceTokenIndex": 9,
         "compatibility": "aligned-abbreviation"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 45,
+        "sourceWordId": "S07326.1.1.9.5/word/45",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 44,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 46,
+        "sourceWordId": "S07326.1.1.9.5/word/46",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 45,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 51,
+        "sourceWordId": "S07326.1.1.9.5/word/51",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 50,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 66,
+        "sourceWordId": "S07326.1.1.9.5/word/66",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 65,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 77,
+        "sourceWordId": "S07326.1.1.9.5/word/77",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 76,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 86,
+        "sourceWordId": "S07326.1.1.9.5/word/86",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 85,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 102,
+        "sourceWordId": "S07326.1.1.9.5/word/102",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 101,
+        "compatibility": "reviewed-spelling-variant"
+      },
+      {
+        "ref": "9:5",
+        "wordIndex": 115,
+        "sourceWordId": "S07326.1.1.9.5/word/115",
+        "sourceRef": "9:5",
+        "sourceTokenIndex": 114,
+        "compatibility": "reviewed-spelling-variant"
       },
       {
         "ref": "9:5",
@@ -1436,11 +2806,6 @@
     "rejected": [
       {
         "ref": "1:1",
-        "wordIndex": 12,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:1",
         "wordIndex": 14,
         "reason": "unmatched-word-or-missing-analysis"
       },
@@ -1448,26 +2813,6 @@
         "ref": "1:1",
         "wordIndex": 15,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "1:1",
-        "wordIndex": 46,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:1",
-        "wordIndex": 48,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:1",
-        "wordIndex": 66,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:1",
-        "wordIndex": 75,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "1:2",
@@ -1486,11 +2831,6 @@
       },
       {
         "ref": "1:2",
-        "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:2",
         "wordIndex": 34,
         "reason": "source-annotation-or-reused-position"
       },
@@ -1503,11 +2843,6 @@
         "ref": "1:3",
         "wordIndex": 5,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "1:3",
-        "wordIndex": 6,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "1:3",
@@ -1521,22 +2856,12 @@
       },
       {
         "ref": "1:3",
-        "wordIndex": 60,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:3",
         "wordIndex": 61,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "1:3",
         "wordIndex": 64,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:3",
-        "wordIndex": 68,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -1551,38 +2876,8 @@
       },
       {
         "ref": "1:4",
-        "wordIndex": 13,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:4",
-        "wordIndex": 26,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:4",
-        "wordIndex": 30,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:4",
         "wordIndex": 31,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "1:4",
-        "wordIndex": 32,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:4",
-        "wordIndex": 35,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "1:5",
-        "wordIndex": 26,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "1:5",
@@ -1595,21 +2890,6 @@
         "reason": "ambiguous-link"
       },
       {
-        "ref": "2:1",
-        "wordIndex": 7,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 6,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "2:2",
         "wordIndex": 9,
         "reason": "unmatched-word-or-missing-analysis"
@@ -1617,16 +2897,6 @@
       {
         "ref": "2:2",
         "wordIndex": 12,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 14,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 18,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -1647,26 +2917,6 @@
       {
         "ref": "2:2",
         "wordIndex": 41,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 49,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 54,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 55,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:2",
-        "wordIndex": 58,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -1680,36 +2930,6 @@
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
-        "ref": "2:2",
-        "wordIndex": 62,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:3",
-        "wordIndex": 14,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:3",
-        "wordIndex": 15,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:3",
-        "wordIndex": 31,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:4",
-        "wordIndex": 12,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:5",
-        "wordIndex": 2,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "2:5",
         "wordIndex": 16,
         "reason": "unmatched-word-or-missing-analysis"
@@ -1720,28 +2940,8 @@
         "reason": "ambiguous-link"
       },
       {
-        "ref": "2:5",
-        "wordIndex": 23,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:6",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "2:6",
         "wordIndex": 11,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:7",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:7",
-        "wordIndex": 9,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -1763,46 +2963,6 @@
         "ref": "2:8",
         "wordIndex": 12,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "2:8",
-        "wordIndex": 17,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "2:8",
-        "wordIndex": 20,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 2,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 5,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 11,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 12,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 13,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "3:1",
@@ -1826,11 +2986,6 @@
       },
       {
         "ref": "3:1",
-        "wordIndex": 24,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
         "wordIndex": 27,
         "reason": "ambiguous-link"
       },
@@ -1850,64 +3005,9 @@
         "reason": "source-annotation-or-reused-position"
       },
       {
-        "ref": "3:1",
-        "wordIndex": 31,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 33,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 34,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 35,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:1",
-        "wordIndex": 38,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "3:2",
         "wordIndex": 10,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "3:2",
-        "wordIndex": 22,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:3",
-        "wordIndex": 5,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:3",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:3",
-        "wordIndex": 9,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:3",
-        "wordIndex": 10,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:5",
-        "wordIndex": 2,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "3:5",
@@ -1917,26 +3017,6 @@
       {
         "ref": "3:6",
         "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "3:6",
-        "wordIndex": 9,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:1",
-        "wordIndex": 0,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:1",
-        "wordIndex": 10,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:1",
-        "wordIndex": 20,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -1971,53 +3051,13 @@
       },
       {
         "ref": "4:2",
-        "wordIndex": 1,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:2",
         "wordIndex": 9,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "4:2",
-        "wordIndex": 10,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:2",
-        "wordIndex": 16,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:2",
-        "wordIndex": 31,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "4:3",
         "wordIndex": 5,
         "reason": "ambiguous-link"
-      },
-      {
-        "ref": "4:3",
-        "wordIndex": 20,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:4",
-        "wordIndex": 4,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:4",
-        "wordIndex": 7,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:4",
-        "wordIndex": 16,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "4:4",
@@ -2036,11 +3076,6 @@
       },
       {
         "ref": "4:4",
-        "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:4",
         "wordIndex": 30,
         "reason": "unmatched-word-or-missing-analysis"
       },
@@ -2050,24 +3085,9 @@
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
-        "ref": "4:4",
-        "wordIndex": 35,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:5",
-        "wordIndex": 18,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "4:5",
         "wordIndex": 22,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "4:5",
-        "wordIndex": 23,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "4:6",
@@ -2085,71 +3105,6 @@
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
-        "ref": "4:6",
-        "wordIndex": 7,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:7",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:7",
-        "wordIndex": 6,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "4:7",
-        "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:1",
-        "wordIndex": 5,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:1",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:1",
-        "wordIndex": 15,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:1",
-        "wordIndex": 19,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:1",
-        "wordIndex": 25,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:1",
-        "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:2",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:2",
-        "wordIndex": 22,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:3",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "5:3",
         "wordIndex": 4,
         "reason": "source-annotation-or-reused-position"
@@ -2161,52 +3116,7 @@
       },
       {
         "ref": "5:3",
-        "wordIndex": 16,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:3",
         "wordIndex": 22,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:3",
-        "wordIndex": 23,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:3",
-        "wordIndex": 26,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:3",
-        "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:4",
-        "wordIndex": 2,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:4",
-        "wordIndex": 9,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:4",
-        "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:5",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:5",
-        "wordIndex": 29,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -2216,48 +3126,8 @@
       },
       {
         "ref": "5:5",
-        "wordIndex": 34,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:5",
         "wordIndex": 36,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "5:5",
-        "wordIndex": 41,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:5",
-        "wordIndex": 46,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "5:5",
-        "wordIndex": 52,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:1",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:1",
-        "wordIndex": 5,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:1",
-        "wordIndex": 23,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:1",
-        "wordIndex": 42,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "6:1",
@@ -2271,28 +3141,8 @@
       },
       {
         "ref": "6:2",
-        "wordIndex": 0,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:2",
-        "wordIndex": 2,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:2",
         "wordIndex": 8,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "6:2",
-        "wordIndex": 9,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:2",
-        "wordIndex": 17,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "6:3",
@@ -2303,11 +3153,6 @@
         "ref": "6:3",
         "wordIndex": 4,
         "reason": "ambiguous-link"
-      },
-      {
-        "ref": "6:3",
-        "wordIndex": 12,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "6:3",
@@ -2341,21 +3186,6 @@
       },
       {
         "ref": "6:5",
-        "wordIndex": 0,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:5",
-        "wordIndex": 10,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:5",
-        "wordIndex": 20,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:5",
         "wordIndex": 25,
         "reason": "unmatched-word-or-missing-analysis"
       },
@@ -2365,68 +3195,8 @@
         "reason": "ambiguous-link"
       },
       {
-        "ref": "6:5",
-        "wordIndex": 39,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "6:6",
         "wordIndex": 1,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:6",
-        "wordIndex": 10,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:6",
-        "wordIndex": 25,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 13,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 19,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 20,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 21,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 24,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:7",
-        "wordIndex": 27,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:8",
-        "wordIndex": 1,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:8",
-        "wordIndex": 3,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -2436,11 +3206,6 @@
       },
       {
         "ref": "6:8",
-        "wordIndex": 18,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:8",
         "wordIndex": 25,
         "reason": "unmatched-word-or-missing-analysis"
       },
@@ -2456,57 +3221,12 @@
       },
       {
         "ref": "6:8",
-        "wordIndex": 31,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "6:8",
         "wordIndex": 41,
         "reason": "source-annotation-or-reused-position"
       },
       {
         "ref": "7:1",
-        "wordIndex": 3,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 4,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
         "wordIndex": 6,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 9,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 12,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 14,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 27,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 30,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:1",
-        "wordIndex": 33,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -2516,17 +3236,7 @@
       },
       {
         "ref": "7:3",
-        "wordIndex": 21,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:3",
         "wordIndex": 29,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:3",
-        "wordIndex": 42,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -2536,27 +3246,7 @@
       },
       {
         "ref": "7:3",
-        "wordIndex": 55,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:3",
-        "wordIndex": 78,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:3",
         "wordIndex": 86,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:3",
-        "wordIndex": 97,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:3",
-        "wordIndex": 99,
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
@@ -2570,11 +3260,6 @@
         "reason": "unmatched-word-or-missing-analysis"
       },
       {
-        "ref": "7:3",
-        "wordIndex": 110,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "7:4",
         "wordIndex": 11,
         "reason": "unmatched-word-or-missing-analysis"
@@ -2591,21 +3276,6 @@
       },
       {
         "ref": "7:5",
-        "wordIndex": 15,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:5",
-        "wordIndex": 18,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:5",
-        "wordIndex": 21,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "7:5",
         "wordIndex": 31,
         "reason": "source-annotation-or-reused-position"
       },
@@ -2615,19 +3285,9 @@
         "reason": "source-annotation-or-reused-position"
       },
       {
-        "ref": "8:1",
-        "wordIndex": 20,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "8:2",
         "wordIndex": 10,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "8:2",
-        "wordIndex": 11,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "8:3",
@@ -2725,21 +3385,6 @@
         "reason": "source-annotation-or-reused-position"
       },
       {
-        "ref": "8:5",
-        "wordIndex": 21,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "8:7",
-        "wordIndex": 4,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "8:7",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "8:7",
         "wordIndex": 11,
         "reason": "source-annotation-or-reused-position"
@@ -2753,11 +3398,6 @@
         "ref": "8:8",
         "wordIndex": 21,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "8:8",
-        "wordIndex": 22,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "8:8",
@@ -2775,34 +3415,9 @@
         "reason": "source-annotation-or-reused-position"
       },
       {
-        "ref": "9:1",
-        "wordIndex": 4,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:1",
-        "wordIndex": 9,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:1",
-        "wordIndex": 10,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:1",
-        "wordIndex": 23,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
         "ref": "9:2",
         "wordIndex": 4,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "9:2",
-        "wordIndex": 13,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "9:2",
@@ -2818,16 +3433,6 @@
         "ref": "9:2",
         "wordIndex": 58,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "9:2",
-        "wordIndex": 64,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:3",
-        "wordIndex": 8,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "9:3",
@@ -2846,58 +3451,13 @@
       },
       {
         "ref": "9:3",
-        "wordIndex": 27,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:3",
-        "wordIndex": 32,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:3",
         "wordIndex": 33,
         "reason": "source-annotation-or-reused-position"
       },
       {
         "ref": "9:3",
-        "wordIndex": 41,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:3",
-        "wordIndex": 48,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:3",
         "wordIndex": 50,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "9:3",
-        "wordIndex": 60,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:4",
-        "wordIndex": 0,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:4",
-        "wordIndex": 18,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:4",
-        "wordIndex": 22,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 0,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "9:5",
@@ -2936,31 +3496,6 @@
       },
       {
         "ref": "9:5",
-        "wordIndex": 45,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 46,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 51,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 66,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 77,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
         "wordIndex": 83,
         "reason": "source-annotation-or-reused-position"
       },
@@ -2968,11 +3503,6 @@
         "ref": "9:5",
         "wordIndex": 85,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 86,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "9:5",
@@ -2986,11 +3516,6 @@
       },
       {
         "ref": "9:5",
-        "wordIndex": 102,
-        "reason": "unmatched-word-or-missing-analysis"
-      },
-      {
-        "ref": "9:5",
         "wordIndex": 109,
         "reason": "unmatched-word-or-missing-analysis"
       },
@@ -2998,11 +3523,6 @@
         "ref": "9:5",
         "wordIndex": 110,
         "reason": "source-annotation-or-reused-position"
-      },
-      {
-        "ref": "9:5",
-        "wordIndex": 115,
-        "reason": "unmatched-word-or-missing-analysis"
       },
       {
         "ref": "9:5",
@@ -3111,6 +3631,1862 @@
       }
     ]
   },
+  "remainingAnalysis": [
+    {
+      "ref": "1:1",
+      "wordIndex": 14,
+      "lexicalTokenIndex": 14,
+      "formId": 14,
+      "sourceWordId": "S07326.1.1.1.1/word/14",
+      "originalWord": "דבר",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "1:1",
+      "wordIndex": 15,
+      "lexicalTokenIndex": 15,
+      "formId": 15,
+      "sourceWordId": "S07326.1.1.1.1/word/15",
+      "originalWord": "י",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:2",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 103,
+      "sourceWordId": "S07326.1.1.1.2/word/10",
+      "originalWord": "אליע",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "1:2",
+      "wordIndex": 11,
+      "lexicalTokenIndex": 11,
+      "formId": 104,
+      "sourceWordId": "S07326.1.1.1.2/word/11",
+      "originalWord": "ז'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:2",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 105,
+      "sourceWordId": "S07326.1.1.1.2/word/12",
+      "originalWord": "אומ'",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "1:2",
+      "wordIndex": 34,
+      "lexicalTokenIndex": 34,
+      "formId": 127,
+      "sourceWordId": "S07326.1.1.1.2/word/34",
+      "originalWord": "ואילך",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 138,
+      "sourceWordId": "S07326.1.1.1.3/word/4",
+      "originalWord": "כל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 5,
+      "lexicalTokenIndex": 5,
+      "formId": 139,
+      "sourceWordId": "S07326.1.1.1.3/word/5",
+      "originalWord": "אדם",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 17,
+      "lexicalTokenIndex": 17,
+      "formId": 151,
+      "sourceWordId": "S07326.1.1.1.3/word/17",
+      "originalWord": "אד",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 18,
+      "lexicalTokenIndex": 18,
+      "formId": 152,
+      "sourceWordId": "S07326.1.1.1.3/word/18",
+      "originalWord": "ם",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 53,
+      "lexicalTokenIndex": 53,
+      "formId": 187,
+      "sourceWordId": "S07326.1.1.1.3/word/53",
+      "originalWord": "וס",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 54,
+      "lexicalTokenIndex": 54,
+      "formId": 188,
+      "sourceWordId": "S07326.1.1.1.3/word/54",
+      "originalWord": "יכנתי",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 61,
+      "lexicalTokenIndex": 61,
+      "formId": 195,
+      "sourceWordId": "S07326.1.1.1.3/word/61",
+      "originalWord": "הייתה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "1:3",
+      "wordIndex": 64,
+      "lexicalTokenIndex": 64,
+      "formId": 198,
+      "sourceWordId": "S07326.1.1.1.3/word/64",
+      "originalWord": "שעברתה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "1:4",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 209,
+      "sourceWordId": "S07326.1.1.1.4/word/6",
+      "originalWord": "ובערב",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:4",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 210,
+      "sourceWordId": "S07326.1.1.1.4/word/7",
+      "originalWord": "מברך",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "1:4",
+      "wordIndex": 31,
+      "lexicalTokenIndex": 31,
+      "formId": 234,
+      "sourceWordId": "S07326.1.1.1.4/word/31",
+      "originalWord": "ושלא",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:5",
+      "wordIndex": 55,
+      "lexicalTokenIndex": 55,
+      "formId": 294,
+      "sourceWordId": "S07326.1.1.1.5/word/55",
+      "originalWord": "העולם",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "1:5",
+      "wordIndex": 56,
+      "lexicalTokenIndex": 56,
+      "formId": 295,
+      "sourceWordId": "S07326.1.1.1.5/word/56",
+      "originalWord": "הבא",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 9,
+      "formId": 351,
+      "sourceWordId": "S07326.1.1.2.2/word/9",
+      "originalWord": "לשמע",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 354,
+      "sourceWordId": "S07326.1.1.2.2/word/12",
+      "originalWord": "לוהיה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 19,
+      "lexicalTokenIndex": 19,
+      "formId": 361,
+      "sourceWordId": "S07326.1.1.2.2/word/19",
+      "originalWord": "לויאמר",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 364,
+      "sourceWordId": "S07326.1.1.2.2/word/22",
+      "originalWord": "לאמת",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 29,
+      "lexicalTokenIndex": 29,
+      "formId": 371,
+      "sourceWordId": "S07326.1.1.2.2/word/29",
+      "originalWord": "לאמת",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 41,
+      "lexicalTokenIndex": 41,
+      "formId": 383,
+      "sourceWordId": "S07326.1.1.2.2/word/41",
+      "originalWord": "לוהיה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 59,
+      "lexicalTokenIndex": 59,
+      "formId": 401,
+      "sourceWordId": "S07326.1.1.2.2/word/59",
+      "originalWord": "לויאמר",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:2",
+      "wordIndex": 60,
+      "lexicalTokenIndex": 60,
+      "formId": 402,
+      "sourceWordId": "S07326.1.1.2.2/word/60",
+      "originalWord": "שוהיה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:5",
+      "wordIndex": 16,
+      "lexicalTokenIndex": 16,
+      "formId": 476,
+      "sourceWordId": "S07326.1.1.2.5/word/16",
+      "originalWord": "שנשא",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:5",
+      "wordIndex": 17,
+      "lexicalTokenIndex": 17,
+      "formId": 477,
+      "sourceWordId": "S07326.1.1.2.5/word/17",
+      "originalWord": "וקרא",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "2:6",
+      "wordIndex": 11,
+      "lexicalTokenIndex": 11,
+      "formId": 512,
+      "sourceWordId": "S07326.1.1.2.6/word/11",
+      "originalWord": "מלרחוץ",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "2:8",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 9,
+      "formId": 555,
+      "sourceWordId": "S07326.1.1.2.8/word/9",
+      "originalWord": "רבן",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "2:8",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 556,
+      "sourceWordId": "S07326.1.1.2.8/word/10",
+      "originalWord": "שמעון",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "2:8",
+      "wordIndex": 11,
+      "lexicalTokenIndex": 11,
+      "formId": 557,
+      "sourceWordId": "S07326.1.1.2.8/word/11",
+      "originalWord": "בן",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "2:8",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 558,
+      "sourceWordId": "S07326.1.1.2.8/word/12",
+      "originalWord": "גמליאל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 20,
+      "lexicalTokenIndex": 20,
+      "formId": 587,
+      "sourceWordId": "S07326.1.1.3.1/word/20",
+      "originalWord": "נ׳א׳",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 21,
+      "lexicalTokenIndex": 21,
+      "formId": 588,
+      "sourceWordId": "S07326.1.1.3.1/word/21",
+      "originalWord": "את",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 589,
+      "sourceWordId": "S07326.1.1.3.1/word/22",
+      "originalWord": "שלמטה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 23,
+      "lexicalTokenIndex": 23,
+      "formId": 590,
+      "sourceWordId": "S07326.1.1.3.1/word/23",
+      "originalWord": "המטה",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 27,
+      "lexicalTokenIndex": 27,
+      "formId": 594,
+      "sourceWordId": "S07326.1.1.3.1/word/27",
+      "originalWord": "נ׳א׳",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 28,
+      "lexicalTokenIndex": 28,
+      "formId": 595,
+      "sourceWordId": "S07326.1.1.3.1/word/28",
+      "originalWord": "ואת",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 29,
+      "lexicalTokenIndex": 29,
+      "formId": 596,
+      "sourceWordId": "S07326.1.1.3.1/word/29",
+      "originalWord": "שלאחר",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:1",
+      "wordIndex": 30,
+      "lexicalTokenIndex": 30,
+      "formId": 597,
+      "sourceWordId": "S07326.1.1.3.1/word/30",
+      "originalWord": "המטה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:2",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 616,
+      "sourceWordId": "S07326.1.1.3.2/word/10",
+      "originalWord": "יגיעו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:3",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 632,
+      "sourceWordId": "S07326.1.1.3.3/word/3",
+      "originalWord": "פטורי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "3:3",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 633,
+      "sourceWordId": "S07326.1.1.3.3/word/4",
+      "originalWord": "ם",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "3:5",
+      "wordIndex": 17,
+      "lexicalTokenIndex": 17,
+      "formId": 683,
+      "sourceWordId": "S07326.1.1.3.5/word/17",
+      "originalWord": "ולקראות",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "3:6",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 719,
+      "sourceWordId": "S07326.1.1.3.6/word/3",
+      "originalWord": "והנידה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "4:1",
+      "wordIndex": 28,
+      "lexicalTokenIndex": 28,
+      "formId": 759,
+      "sourceWordId": "S07326.1.1.4.1/word/28",
+      "originalWord": "ר'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:1",
+      "wordIndex": 29,
+      "lexicalTokenIndex": 29,
+      "formId": 760,
+      "sourceWordId": "S07326.1.1.4.1/word/29",
+      "originalWord": "יהודה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:1",
+      "wordIndex": 30,
+      "lexicalTokenIndex": 30,
+      "formId": 761,
+      "sourceWordId": "S07326.1.1.4.1/word/30",
+      "originalWord": "אומ'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:1",
+      "wordIndex": 31,
+      "lexicalTokenIndex": 31,
+      "formId": 762,
+      "sourceWordId": "S07326.1.1.4.1/word/31",
+      "originalWord": "עד",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:1",
+      "wordIndex": 32,
+      "lexicalTokenIndex": 32,
+      "formId": 763,
+      "sourceWordId": "S07326.1.1.4.1/word/32",
+      "originalWord": "שבע",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:1",
+      "wordIndex": 33,
+      "lexicalTokenIndex": 33,
+      "formId": 764,
+      "sourceWordId": "S07326.1.1.4.1/word/33",
+      "originalWord": "שעות",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:2",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 9,
+      "formId": 774,
+      "sourceWordId": "S07326.1.1.4.2/word/9",
+      "originalWord": "וביציאתו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:3",
+      "wordIndex": 5,
+      "lexicalTokenIndex": 5,
+      "formId": 804,
+      "sourceWordId": "S07326.1.1.4.3/word/5",
+      "originalWord": "אדם",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 1,
+      "lexicalTokenIndex": 1,
+      "formId": 830,
+      "sourceWordId": "S07326.1.1.4.4/word/1",
+      "originalWord": "אליעזר",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 2,
+      "lexicalTokenIndex": 2,
+      "formId": 831,
+      "sourceWordId": "S07326.1.1.4.4/word/2",
+      "originalWord": "אומ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 18,
+      "lexicalTokenIndex": 18,
+      "formId": 847,
+      "sourceWordId": "S07326.1.1.4.4/word/18",
+      "originalWord": "ואומ'",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 20,
+      "lexicalTokenIndex": 20,
+      "formId": 849,
+      "sourceWordId": "S07326.1.1.4.4/word/20",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 24,
+      "lexicalTokenIndex": 24,
+      "formId": 853,
+      "sourceWordId": "S07326.1.1.4.4/word/24",
+      "originalWord": "ישרא'",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 27,
+      "lexicalTokenIndex": 27,
+      "formId": 856,
+      "sourceWordId": "S07326.1.1.4.4/word/27",
+      "originalWord": "ה",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 28,
+      "lexicalTokenIndex": 28,
+      "formId": 857,
+      "sourceWordId": "S07326.1.1.4.4/word/28",
+      "originalWord": "עיבור",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 30,
+      "lexicalTokenIndex": 30,
+      "formId": 859,
+      "sourceWordId": "S07326.1.1.4.4/word/30",
+      "originalWord": "מלפניך",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "4:4",
+      "wordIndex": 33,
+      "lexicalTokenIndex": 33,
+      "formId": 862,
+      "sourceWordId": "S07326.1.1.4.4/word/33",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "4:5",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 887,
+      "sourceWordId": "S07326.1.1.4.5/word/22",
+      "originalWord": "בית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:6",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 893,
+      "sourceWordId": "S07326.1.1.4.6/word/3",
+      "originalWord": "או",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:6",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 894,
+      "sourceWordId": "S07326.1.1.4.6/word/4",
+      "originalWord": "בקרון",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "4:6",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 896,
+      "sourceWordId": "S07326.1.1.4.6/word/6",
+      "originalWord": "באסדה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "5:3",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 994,
+      "sourceWordId": "S07326.1.1.5.3/word/4",
+      "originalWord": "יגיעו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "5:3",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 996,
+      "sourceWordId": "S07326.1.1.5.3/word/6",
+      "originalWord": "ועל",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "5:3",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 1012,
+      "sourceWordId": "S07326.1.1.5.3/word/22",
+      "originalWord": "יהי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "5:4",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 1045,
+      "sourceWordId": "S07326.1.1.5.4/word/22",
+      "originalWord": "ה",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "5:4",
+      "wordIndex": 23,
+      "lexicalTokenIndex": 23,
+      "formId": 1046,
+      "sourceWordId": "S07326.1.1.5.4/word/23",
+      "originalWord": "יא",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "5:5",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 1060,
+      "sourceWordId": "S07326.1.1.5.5/word/6",
+      "originalWord": "של",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "5:5",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 1061,
+      "sourceWordId": "S07326.1.1.5.5/word/7",
+      "originalWord": "יח",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "5:5",
+      "wordIndex": 30,
+      "lexicalTokenIndex": 30,
+      "formId": 1084,
+      "sourceWordId": "S07326.1.1.5.5/word/30",
+      "originalWord": "וזה",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "5:5",
+      "wordIndex": 36,
+      "lexicalTokenIndex": 36,
+      "formId": 1090,
+      "sourceWordId": "S07326.1.1.5.5/word/36",
+      "originalWord": "יודע",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:1",
+      "wordIndex": 49,
+      "lexicalTokenIndex": 49,
+      "formId": 1156,
+      "sourceWordId": "S07326.1.1.6.1/word/49",
+      "originalWord": "י",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "6:1",
+      "wordIndex": 50,
+      "lexicalTokenIndex": 50,
+      "formId": 1157,
+      "sourceWordId": "S07326.1.1.6.1/word/50",
+      "originalWord": "הודה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:2",
+      "wordIndex": 8,
+      "lexicalTokenIndex": 8,
+      "formId": 1170,
+      "sourceWordId": "S07326.1.1.6.2/word/8",
+      "originalWord": "ועל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:3",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 1189,
+      "sourceWordId": "S07326.1.1.6.3/word/3",
+      "originalWord": "גידול",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:3",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 1190,
+      "sourceWordId": "S07326.1.1.6.3/word/4",
+      "originalWord": "יו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:3",
+      "wordIndex": 14,
+      "lexicalTokenIndex": 14,
+      "formId": 1200,
+      "sourceWordId": "S07326.1.1.6.3/word/14",
+      "originalWord": "הגוביי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:3",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 1208,
+      "sourceWordId": "S07326.1.1.6.3/word/22",
+      "originalWord": "ר'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "6:3",
+      "wordIndex": 23,
+      "lexicalTokenIndex": 23,
+      "formId": 1209,
+      "sourceWordId": "S07326.1.1.6.3/word/23",
+      "originalWord": "י",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "6:3",
+      "wordIndex": 24,
+      "lexicalTokenIndex": 24,
+      "formId": 1210,
+      "sourceWordId": "S07326.1.1.6.3/word/24",
+      "originalWord": "הודה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:4",
+      "wordIndex": 1,
+      "lexicalTokenIndex": 1,
+      "formId": 1220,
+      "sourceWordId": "S07326.1.1.6.4/word/1",
+      "originalWord": "לפני",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:4",
+      "wordIndex": 2,
+      "lexicalTokenIndex": 2,
+      "formId": 1221,
+      "sourceWordId": "S07326.1.1.6.4/word/2",
+      "originalWord": "ו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:4",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 1225,
+      "sourceWordId": "S07326.1.1.6.4/word/6",
+      "originalWord": "י",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "6:4",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 1226,
+      "sourceWordId": "S07326.1.1.6.4/word/7",
+      "originalWord": "הודה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:4",
+      "wordIndex": 19,
+      "lexicalTokenIndex": 19,
+      "formId": 1238,
+      "sourceWordId": "S07326.1.1.6.4/word/19",
+      "originalWord": "מברך",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:5",
+      "wordIndex": 25,
+      "lexicalTokenIndex": 25,
+      "formId": 1268,
+      "sourceWordId": "S07326.1.1.6.5/word/25",
+      "originalWord": "הפרפר",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:5",
+      "wordIndex": 26,
+      "lexicalTokenIndex": 26,
+      "formId": 1269,
+      "sourceWordId": "S07326.1.1.6.5/word/26",
+      "originalWord": "יות",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:6",
+      "wordIndex": 1,
+      "lexicalTokenIndex": 1,
+      "formId": 1284,
+      "sourceWordId": "S07326.1.1.6.6/word/1",
+      "originalWord": "יושבים",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 15,
+      "lexicalTokenIndex": 15,
+      "formId": 1365,
+      "sourceWordId": "S07326.1.1.6.8/word/15",
+      "originalWord": "ר'",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 21,
+      "lexicalTokenIndex": 21,
+      "formId": 1371,
+      "sourceWordId": "S07326.1.1.6.8/word/21",
+      "originalWord": "וה",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 1372,
+      "sourceWordId": "S07326.1.1.6.8/word/22",
+      "originalWord": "וא",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 25,
+      "lexicalTokenIndex": 25,
+      "formId": 1375,
+      "sourceWordId": "S07326.1.1.6.8/word/25",
+      "originalWord": "עליו",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 26,
+      "lexicalTokenIndex": 26,
+      "formId": 1376,
+      "sourceWordId": "S07326.1.1.6.8/word/26",
+      "originalWord": "של",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 27,
+      "lexicalTokenIndex": 27,
+      "formId": 1377,
+      "sourceWordId": "S07326.1.1.6.8/word/27",
+      "originalWord": "ש",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 41,
+      "lexicalTokenIndex": 41,
+      "formId": 1391,
+      "sourceWordId": "S07326.1.1.6.8/word/41",
+      "originalWord": "רבות",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 1399,
+      "sourceWordId": "S07326.1.1.7.1/word/6",
+      "originalWord": "דמיי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 2,
+      "lexicalTokenIndex": 2,
+      "formId": 1454,
+      "sourceWordId": "S07326.1.1.7.3/word/2",
+      "originalWord": "בשלשה",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 1455,
+      "sourceWordId": "S07326.1.1.7.3/word/3",
+      "originalWord": "אומ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 1458,
+      "sourceWordId": "S07326.1.1.7.3/word/6",
+      "originalWord": "והוא",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 1459,
+      "sourceWordId": "S07326.1.1.7.3/word/7",
+      "originalWord": "או'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 9,
+      "formId": 1461,
+      "sourceWordId": "S07326.1.1.7.3/word/9",
+      "originalWord": "בעשרה",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 1462,
+      "sourceWordId": "S07326.1.1.7.3/word/10",
+      "originalWord": "אומ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 14,
+      "lexicalTokenIndex": 14,
+      "formId": 1466,
+      "sourceWordId": "S07326.1.1.7.3/word/14",
+      "originalWord": "והוא",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 15,
+      "lexicalTokenIndex": 15,
+      "formId": 1467,
+      "sourceWordId": "S07326.1.1.7.3/word/15",
+      "originalWord": "אומר",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 19,
+      "lexicalTokenIndex": 19,
+      "formId": 1471,
+      "sourceWordId": "S07326.1.1.7.3/word/19",
+      "originalWord": "ואחד",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 22,
+      "lexicalTokenIndex": 22,
+      "formId": 1474,
+      "sourceWordId": "S07326.1.1.7.3/word/22",
+      "originalWord": "במאה",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 23,
+      "lexicalTokenIndex": 23,
+      "formId": 1475,
+      "sourceWordId": "S07326.1.1.7.3/word/23",
+      "originalWord": "אומ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 25,
+      "lexicalTokenIndex": 25,
+      "formId": 1477,
+      "sourceWordId": "S07326.1.1.7.3/word/25",
+      "originalWord": "לייי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 26,
+      "lexicalTokenIndex": 26,
+      "formId": 1478,
+      "sourceWordId": "S07326.1.1.7.3/word/26",
+      "originalWord": "אלהינו",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 29,
+      "lexicalTokenIndex": 29,
+      "formId": 1481,
+      "sourceWordId": "S07326.1.1.7.3/word/29",
+      "originalWord": "אומרין",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 31,
+      "lexicalTokenIndex": 31,
+      "formId": 1483,
+      "sourceWordId": "S07326.1.1.7.3/word/31",
+      "originalWord": "באלף",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 32,
+      "lexicalTokenIndex": 32,
+      "formId": 1484,
+      "sourceWordId": "S07326.1.1.7.3/word/32",
+      "originalWord": "אומ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 34,
+      "lexicalTokenIndex": 34,
+      "formId": 1486,
+      "sourceWordId": "S07326.1.1.7.3/word/34",
+      "originalWord": "לייי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 35,
+      "lexicalTokenIndex": 35,
+      "formId": 1487,
+      "sourceWordId": "S07326.1.1.7.3/word/35",
+      "originalWord": "אלהינו",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 39,
+      "lexicalTokenIndex": 39,
+      "formId": 1491,
+      "sourceWordId": "S07326.1.1.7.3/word/39",
+      "originalWord": "והוא",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 40,
+      "lexicalTokenIndex": 40,
+      "formId": 1492,
+      "sourceWordId": "S07326.1.1.7.3/word/40",
+      "originalWord": "אומ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 45,
+      "lexicalTokenIndex": 45,
+      "formId": 1497,
+      "sourceWordId": "S07326.1.1.7.3/word/45",
+      "originalWord": "לייי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 46,
+      "lexicalTokenIndex": 46,
+      "formId": 1498,
+      "sourceWordId": "S07326.1.1.7.3/word/46",
+      "originalWord": "אלהינו",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 51,
+      "lexicalTokenIndex": 51,
+      "formId": 1503,
+      "sourceWordId": "S07326.1.1.7.3/word/51",
+      "originalWord": "בריבו",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 62,
+      "lexicalTokenIndex": 62,
+      "formId": 1514,
+      "sourceWordId": "S07326.1.1.7.3/word/62",
+      "originalWord": "ייי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 63,
+      "lexicalTokenIndex": 63,
+      "formId": 1515,
+      "sourceWordId": "S07326.1.1.7.3/word/63",
+      "originalWord": "אלהינו",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 86,
+      "lexicalTokenIndex": 86,
+      "formId": 1538,
+      "sourceWordId": "S07326.1.1.7.3/word/86",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 89,
+      "lexicalTokenIndex": 89,
+      "formId": 1541,
+      "sourceWordId": "S07326.1.1.7.3/word/89",
+      "originalWord": "אמ'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 90,
+      "lexicalTokenIndex": 90,
+      "formId": 1542,
+      "sourceWordId": "S07326.1.1.7.3/word/90",
+      "originalWord": "ר'",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 103,
+      "lexicalTokenIndex": 103,
+      "formId": 1555,
+      "sourceWordId": "S07326.1.1.7.3/word/103",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 109,
+      "lexicalTokenIndex": 109,
+      "formId": 1561,
+      "sourceWordId": "S07326.1.1.7.3/word/109",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 11,
+      "lexicalTokenIndex": 11,
+      "formId": 1574,
+      "sourceWordId": "S07326.1.1.7.4/word/11",
+      "originalWord": "נחלקים",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 14,
+      "lexicalTokenIndex": 14,
+      "formId": 1577,
+      "sourceWordId": "S07326.1.1.7.4/word/14",
+      "originalWord": "ועשרה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 18,
+      "lexicalTokenIndex": 18,
+      "formId": 1581,
+      "sourceWordId": "S07326.1.1.7.4/word/18",
+      "originalWord": "שיהוא",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 24,
+      "lexicalTokenIndex": 24,
+      "formId": 1607,
+      "sourceWordId": "S07326.1.1.7.5/word/24",
+      "originalWord": "אי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 25,
+      "lexicalTokenIndex": 25,
+      "formId": 1608,
+      "sourceWordId": "S07326.1.1.7.5/word/25",
+      "originalWord": "ן",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 31,
+      "lexicalTokenIndex": 31,
+      "formId": 1614,
+      "sourceWordId": "S07326.1.1.7.5/word/31",
+      "originalWord": "לתוכו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:1",
+      "wordIndex": 19,
+      "lexicalTokenIndex": 19,
+      "formId": 1641,
+      "sourceWordId": "S07326.1.1.8.1/word/19",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:2",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 1662,
+      "sourceWordId": "S07326.1.1.8.2/word/10",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 0,
+      "lexicalTokenIndex": 0,
+      "formId": 1672,
+      "sourceWordId": "S07326.1.1.8.3/word/0",
+      "originalWord": "בית",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 1,
+      "lexicalTokenIndex": 1,
+      "formId": 1673,
+      "sourceWordId": "S07326.1.1.8.3/word/1",
+      "originalWord": "שמי",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 2,
+      "lexicalTokenIndex": 2,
+      "formId": 1674,
+      "sourceWordId": "S07326.1.1.8.3/word/2",
+      "originalWord": "אומ'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 1675,
+      "sourceWordId": "S07326.1.1.8.3/word/3",
+      "originalWord": "מקניח",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 1676,
+      "sourceWordId": "S07326.1.1.8.3/word/4",
+      "originalWord": "את",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 5,
+      "lexicalTokenIndex": 5,
+      "formId": 1677,
+      "sourceWordId": "S07326.1.1.8.3/word/5",
+      "originalWord": "ידיו",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 1678,
+      "sourceWordId": "S07326.1.1.8.3/word/6",
+      "originalWord": "במפה",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 1679,
+      "sourceWordId": "S07326.1.1.8.3/word/7",
+      "originalWord": "ומניחה",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 8,
+      "lexicalTokenIndex": 8,
+      "formId": 1680,
+      "sourceWordId": "S07326.1.1.8.3/word/8",
+      "originalWord": "על",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 9,
+      "formId": 1681,
+      "sourceWordId": "S07326.1.1.8.3/word/9",
+      "originalWord": "השולחן",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 1682,
+      "sourceWordId": "S07326.1.1.8.3/word/10",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 11,
+      "lexicalTokenIndex": 11,
+      "formId": 1683,
+      "sourceWordId": "S07326.1.1.8.3/word/11",
+      "originalWord": "הלל",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 1684,
+      "sourceWordId": "S07326.1.1.8.3/word/12",
+      "originalWord": "אומ'",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 13,
+      "lexicalTokenIndex": 13,
+      "formId": 1685,
+      "sourceWordId": "S07326.1.1.8.3/word/13",
+      "originalWord": "על",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:3",
+      "wordIndex": 14,
+      "lexicalTokenIndex": 14,
+      "formId": 1686,
+      "sourceWordId": "S07326.1.1.8.3/word/14",
+      "originalWord": "הכסת",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "8:4",
+      "wordIndex": 2,
+      "lexicalTokenIndex": 2,
+      "formId": 1689,
+      "sourceWordId": "S07326.1.1.8.4/word/2",
+      "originalWord": "אומ'",
+      "reason": "source-annotation-or-reused-position"
+    },
+    {
+      "ref": "8:4",
+      "wordIndex": 10,
+      "lexicalTokenIndex": 10,
+      "formId": 1697,
+      "sourceWordId": "S07326.1.1.8.4/word/10",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:4",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 1699,
+      "sourceWordId": "S07326.1.1.8.4/word/12",
+      "originalWord": "אומ'",
+      "reason": "source-annotation-or-reused-position"
+    },
+    {
+      "ref": "8:5",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 1714,
+      "sourceWordId": "S07326.1.1.8.5/word/7",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:6",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 9,
+      "formId": 1742,
+      "sourceWordId": "S07326.1.1.8.6/word/9",
+      "originalWord": "ע'ע'ז'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:6",
+      "wordIndex": 9,
+      "lexicalTokenIndex": 10,
+      "formId": 1743,
+      "sourceWordId": "S07326.1.1.8.6/word/9",
+      "originalWord": "ע'ע'ז'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:7",
+      "wordIndex": 11,
+      "lexicalTokenIndex": 11,
+      "formId": 1778,
+      "sourceWordId": "S07326.1.1.8.7/word/11",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:8",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 1805,
+      "sourceWordId": "S07326.1.1.8.8/word/12",
+      "originalWord": "אומ'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:8",
+      "wordIndex": 21,
+      "lexicalTokenIndex": 21,
+      "formId": 1814,
+      "sourceWordId": "S07326.1.1.8.8/word/21",
+      "originalWord": "ובית",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:8",
+      "wordIndex": 37,
+      "lexicalTokenIndex": 37,
+      "formId": 1830,
+      "sourceWordId": "S07326.1.1.8.8/word/37",
+      "originalWord": "ואין",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "8:8",
+      "wordIndex": 45,
+      "lexicalTokenIndex": 45,
+      "formId": 1838,
+      "sourceWordId": "S07326.1.1.8.8/word/45",
+      "originalWord": "את",
+      "reason": "ambiguous-link"
+    },
+    {
+      "ref": "9:1",
+      "wordIndex": 3,
+      "lexicalTokenIndex": 3,
+      "formId": 1844,
+      "sourceWordId": "S07326.1.1.9.1/word/3",
+      "originalWord": "בו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:2",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 1869,
+      "sourceWordId": "S07326.1.1.9.2/word/4",
+      "originalWord": "ועל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:2",
+      "wordIndex": 24,
+      "lexicalTokenIndex": 24,
+      "formId": 1889,
+      "sourceWordId": "S07326.1.1.9.2/word/24",
+      "originalWord": "ועל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:2",
+      "wordIndex": 46,
+      "lexicalTokenIndex": 46,
+      "formId": 1911,
+      "sourceWordId": "S07326.1.1.9.2/word/46",
+      "originalWord": "רואהו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:2",
+      "wordIndex": 58,
+      "lexicalTokenIndex": 58,
+      "formId": 1923,
+      "sourceWordId": "S07326.1.1.9.2/word/58",
+      "originalWord": "ועל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:3",
+      "wordIndex": 16,
+      "lexicalTokenIndex": 16,
+      "formId": 1947,
+      "sourceWordId": "S07326.1.1.9.3/word/16",
+      "originalWord": "הט",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:3",
+      "wordIndex": 17,
+      "lexicalTokenIndex": 17,
+      "formId": 1948,
+      "sourceWordId": "S07326.1.1.9.3/word/17",
+      "originalWord": "ובה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:3",
+      "wordIndex": 18,
+      "lexicalTokenIndex": 18,
+      "formId": 1949,
+      "sourceWordId": "S07326.1.1.9.3/word/18",
+      "originalWord": "ועל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:3",
+      "wordIndex": 33,
+      "lexicalTokenIndex": 33,
+      "formId": 1964,
+      "sourceWordId": "S07326.1.1.9.3/word/33",
+      "originalWord": "ואמ'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:3",
+      "wordIndex": 50,
+      "lexicalTokenIndex": 50,
+      "formId": 1981,
+      "sourceWordId": "S07326.1.1.9.3/word/50",
+      "originalWord": "ואמ'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:4",
+      "wordIndex": 6,
+      "lexicalTokenIndex": 6,
+      "formId": 1999,
+      "sourceWordId": "S07326.1.1.9.4/word/6",
+      "originalWord": "ואח",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "9:4",
+      "wordIndex": 7,
+      "lexicalTokenIndex": 7,
+      "formId": 2000,
+      "sourceWordId": "S07326.1.1.9.4/word/7",
+      "originalWord": "ת",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 4,
+      "lexicalTokenIndex": 4,
+      "formId": 2020,
+      "sourceWordId": "S07326.1.1.9.5/word/4",
+      "originalWord": "כשם",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 12,
+      "lexicalTokenIndex": 12,
+      "formId": 2028,
+      "sourceWordId": "S07326.1.1.9.5/word/12",
+      "originalWord": "ייי",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 13,
+      "lexicalTokenIndex": 13,
+      "formId": 2029,
+      "sourceWordId": "S07326.1.1.9.5/word/13",
+      "originalWord": "אלהיך",
+      "reason": "no-single-word-interlinear-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 19,
+      "lexicalTokenIndex": 19,
+      "formId": 2035,
+      "sourceWordId": "S07326.1.1.9.5/word/19",
+      "originalWord": "מאודיך",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 30,
+      "lexicalTokenIndex": 30,
+      "formId": 2046,
+      "sourceWordId": "S07326.1.1.9.5/word/30",
+      "originalWord": "אפיל",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 31,
+      "lexicalTokenIndex": 31,
+      "formId": 2047,
+      "sourceWordId": "S07326.1.1.9.5/word/31",
+      "originalWord": "ו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 37,
+      "lexicalTokenIndex": 37,
+      "formId": 2053,
+      "sourceWordId": "S07326.1.1.9.5/word/37",
+      "originalWord": "מאודיך",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 39,
+      "lexicalTokenIndex": 39,
+      "formId": 2055,
+      "sourceWordId": "S07326.1.1.9.5/word/39",
+      "originalWord": "ממוניך",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 43,
+      "lexicalTokenIndex": 43,
+      "formId": 2059,
+      "sourceWordId": "S07326.1.1.9.5/word/43",
+      "originalWord": "מאודיך",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 83,
+      "lexicalTokenIndex": 83,
+      "formId": 2099,
+      "sourceWordId": "S07326.1.1.9.5/word/83",
+      "originalWord": "קפנדרייה",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 85,
+      "lexicalTokenIndex": 85,
+      "formId": 2101,
+      "sourceWordId": "S07326.1.1.9.5/word/85",
+      "originalWord": "מקל",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 95,
+      "lexicalTokenIndex": 95,
+      "formId": 2111,
+      "sourceWordId": "S07326.1.1.9.5/word/95",
+      "originalWord": "משקלקלו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 97,
+      "lexicalTokenIndex": 97,
+      "formId": 2113,
+      "sourceWordId": "S07326.1.1.9.5/word/97",
+      "originalWord": "ואמרו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 109,
+      "lexicalTokenIndex": 109,
+      "formId": 2125,
+      "sourceWordId": "S07326.1.1.9.5/word/109",
+      "originalWord": "התקינו",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 110,
+      "lexicalTokenIndex": 110,
+      "formId": 2126,
+      "sourceWordId": "S07326.1.1.9.5/word/110",
+      "originalWord": "שיהא",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 125,
+      "lexicalTokenIndex": 125,
+      "formId": 2141,
+      "sourceWordId": "S07326.1.1.9.5/word/125",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 127,
+      "lexicalTokenIndex": 127,
+      "formId": 2143,
+      "sourceWordId": "S07326.1.1.9.5/word/127",
+      "originalWord": "ויאמר",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 130,
+      "lexicalTokenIndex": 130,
+      "formId": 2146,
+      "sourceWordId": "S07326.1.1.9.5/word/130",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 132,
+      "lexicalTokenIndex": 132,
+      "formId": 2148,
+      "sourceWordId": "S07326.1.1.9.5/word/132",
+      "originalWord": "ייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 144,
+      "lexicalTokenIndex": 144,
+      "formId": 2160,
+      "sourceWordId": "S07326.1.1.9.5/word/144",
+      "originalWord": "לייי",
+      "reason": "unmatched-word-or-missing-analysis"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 147,
+      "lexicalTokenIndex": 147,
+      "formId": 2163,
+      "sourceWordId": "S07326.1.1.9.5/word/147",
+      "originalWord": "ר'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 148,
+      "lexicalTokenIndex": 148,
+      "formId": 2164,
+      "sourceWordId": "S07326.1.1.9.5/word/148",
+      "originalWord": "נתן",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 149,
+      "lexicalTokenIndex": 149,
+      "formId": 2165,
+      "sourceWordId": "S07326.1.1.9.5/word/149",
+      "originalWord": "אומ'",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 150,
+      "lexicalTokenIndex": 150,
+      "formId": 2166,
+      "sourceWordId": "S07326.1.1.9.5/word/150",
+      "originalWord": "הפרו",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 151,
+      "lexicalTokenIndex": 151,
+      "formId": 2167,
+      "sourceWordId": "S07326.1.1.9.5/word/151",
+      "originalWord": "תורתך",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 152,
+      "lexicalTokenIndex": 152,
+      "formId": 2168,
+      "sourceWordId": "S07326.1.1.9.5/word/152",
+      "originalWord": "עת",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 153,
+      "lexicalTokenIndex": 153,
+      "formId": 2169,
+      "sourceWordId": "S07326.1.1.9.5/word/153",
+      "originalWord": "לעשות",
+      "reason": "source-word-annotation"
+    },
+    {
+      "ref": "9:5",
+      "wordIndex": 154,
+      "lexicalTokenIndex": 154,
+      "formId": 2170,
+      "sourceWordId": "S07326.1.1.9.5/word/154",
+      "originalWord": "לייי",
+      "reason": "source-word-annotation"
+    }
+  ],
   "openReasons": {
     "no-unique-reference-anchor": 98,
     "source-word-annotation": 89,

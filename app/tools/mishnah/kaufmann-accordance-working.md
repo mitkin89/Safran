@@ -54,8 +54,8 @@ Die Herkunftsangaben trennen:
   Analyse; nicht erneut für die neue Lesung bestätigt. Die Wörterbuchauswahl
   bleibt auf Jastrow, Levy und Krauss beschränkt.
 
-174 der bisher 550 leeren Karten erhalten nun vorhandene Analysevorschläge
-aus eindeutigen Einzelwortverknüpfungen des Interlinears. Die übrigen **376**
+344 der ursprünglich 550 leeren Karten erhalten nun vorhandene Analysevorschläge
+aus eindeutigen Einzelwortverknüpfungen des Interlinears. Die übrigen **206**
 bleiben ohne Analyse. Übertragen wird nur bei einmalig verknüpften, nicht
 annotierten Wortpositionen, identischen Konsonanten, einer zugeordneten
 Abkürzung oder der ausdrücklich belegten Schreibvariante רשיי / רשי. Die
@@ -69,6 +69,24 @@ gebunden. Der Befund ist eine KI-Kontextprüfung, keine menschliche Freigabe
 oder Bestätigung der Manuskriptpunktierung. Die Karten öffnen den konkreten
 Levy-Beleg. Entscheidungen stehen in `kaufmann-lexical-decisions.json`;
 alle automatischen Übernahmen und Ablehnungsgründe im Arbeitsaudit.
+
+Der zweite Durchgang ergänzt 170 dieser 344 Übernahmen über positionsgenau
+dokumentierte Schreibvarianten. Die 120 unterschiedlichen Schreibpaare sind
+auf 170 konkrete Positionen beschränkt; Jod/Waw werden weder im Text noch
+für andere Positionen pauschal entfernt. Entscheidungen und Fundkontext stehen
+in `kaufmann-interlinear-spelling-decisions.json`. 150 der 170 Positionen haben
+zusätzlich einen Stichwort-/Aliastreffer zum vorgeschlagenen Lemma in Levy.
+Diese Treffer werden ausdrücklich als Suchbelege angezeigt; sie bestätigen
+weder automatisch die Homographenwahl noch die Morphologie oder Bedeutung.
+Die übrigen 20 Übernahmen beruhen auf der dokumentierten Interlinearzuordnung,
+nicht auf einem behaupteten Wörterbuchtreffer.
+
+Alle 206 noch leeren Karten werden unter `remainingAnalysis` einzeln erfasst:
+90 mit Quellenannotation, 25 mit mehrdeutiger Verknüpfung, 38 ohne sichere
+Einzelwortanalyse, zwei mit annotierter/mehrfach verwendeter Quellposition
+und 51 mit abweichender Wortform oder fehlender Analyse auf der Quellseite.
+Der jeweilige Sperrgrund erscheint auch in der Wortkarte. Die unveränderten
+326 offenen **Punktierungen** sind eine davon getrennte Zählung.
 153 Karten mit vorhandenen Vorschlägen sind wegen abweichender oder offener
 Punktierung als teilweise bestimmt gekennzeichnet; die übrigen Analysen bleiben
 ebenfalls Vorschläge.
