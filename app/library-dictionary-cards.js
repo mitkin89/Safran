@@ -80,7 +80,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
      }
     }
     const corpus=await cards.corpusModel();
-    for(const family of families.values())if(family.language==='Hebräisch'){const rows=[...new Set(family.heads.map(h=>window.WordCardCorpora.fold(h)))].flatMap(h=>corpus.extra(h,false));family.count+=corpus.count(rows);family.source='Tanach / Mischna';}
+    for(const family of families.values())if(family.language==='Hebräisch'){const rows=[...new Set(family.heads.map(h=>window.WordCardCorpora.fold(h)))].flatMap(h=>corpus.extra(h,false));family.count+=corpus.count(rows);family.source=['Tanach',...new Set(rows.map(r=>r.corpus==='Mishnah'?'Mischna':r.corpus==='Samaritan'?'Samaritanus':r.corpus))].join(' / ');}
     matches.push(...families.values());
     if(key){const T=await cards.loadTForms();
       for(const [id,[lex,forms]] of Object.entries(T.L))if(match(lex[0])||match(lex[1])||forms.some(f=>match(f[0]))){
@@ -90,7 +90,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
     }
     matches.push(...(await cards.loadPeshittaCards()).suggest(q,live));
    }
-   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);for(const x of extra){const same=greek&&matches.find(m=>m.kind==='greek'&&m.label.normalize('NFC')===x.label.normalize('NFC'));if(same){same.count+=x.count;same.source='Septuaginta / Josephus / Philo';}else matches.push(x);}}
+   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);for(const x of extra){const same=greek&&matches.find(m=>m.kind==='greek'&&m.label.normalize('NFC')===x.label.normalize('NFC'));if(same){same.count+=x.count;same.source='Septuaginta / '+x.source;}else matches.push(x);}}
    if(token!==serial||!active())return true;
    matches=window.WordCardSuggestions.group(matches,s=>window.SyriacMorph?window.SyriacMorph.hebrew(s):s);
    matches.sort((a,b)=>Number(fold(b.label)===key)-Number(fold(a.label)===key)||Number(!!a.root)-Number(!!b.root)||b.count-a.count||a.key.localeCompare(b.key));

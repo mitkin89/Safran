@@ -3,10 +3,10 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('[data-tab=dict]').click();document.querySelector('#dictViewCard').click();document.querySelector('#dictQ').value='λαλέω';document.querySelector('#dictCardSearch').click()");
  await waitFor("document.querySelector('#fmCorpusControls [data-corpus=Josephus]')",'Greek corpora');
  assert(await js("document.querySelector('#fmCorpusControls [data-corpus=all]').getAttribute('aria-pressed')==='true'"),'All Greek corpora selected by default');
- await waitFor("document.querySelectorAll('#fmCorpusBody .wcCorpusLegend span').length===3",'Combined distribution legend');
+ await waitFor("document.querySelectorAll('#fmCorpusBody .wcCorpusLegend span').length===6",'Combined distribution legend');
  assert.deepEqual(await js("['LXX','Josephus','Philo'].map(k=>getComputedStyle(document.querySelector('#fmCorpusBody .wcDistBar[data-corpus='+k+'] i')).backgroundColor)"),['rgb(59, 130, 208)','rgb(34, 148, 90)','rgb(214, 173, 32)']);
- const counts=await js("['all','LXX','Josephus','Philo'].map(k=>Number(document.querySelector('#fmCorpusControls [data-corpus='+k+'] small').textContent.replace(/[^0-9]/g,'')))");
- assert.equal(counts[0],counts[1]+counts[2]+counts[3]);
+ const counts=await js("['all','LXX','Josephus','Philo','Aquila','Symmachus','Theodotion'].map(k=>Number(document.querySelector('#fmCorpusControls [data-corpus='+k+'] small').textContent.replace(/[^0-9]/g,'')))");
+ assert.equal(counts[0],counts.slice(1).reduce((a,b)=>a+b,0));
  await js("document.querySelector('#fmCorpusControls [data-corpus=Josephus]').click()");
  await waitFor("document.querySelector('#fmCorpusBody:not([hidden]) .wcDistBar')",'Josephus distribution');
  assert(await js("document.querySelector('#fmCorpusBody').textContent.includes('Josephus')"));
@@ -55,5 +55,19 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#fmCorpusBody .wcDistBar[data-corpus=LXX]').click()");
  assert(await js("document.querySelector('#fmCorpusBody .wcRefBox [data-hit]')!==null"),'Clicking a distribution column opens its references');
  win.show();win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));fs.writeFileSync('/tmp/safran-corpus-card.png',(await win.webContents.capturePage()).toPNG());
+ await js("document.querySelector('#dictQ').value='ὀρθρίζω';document.querySelector('#dictCardSearch').click()");
+ await waitFor("Number(document.querySelector('#fmCorpusControls [data-corpus=Aquila] small')?.textContent.replace(/[^0-9]/g,''))>0",'Field lemma count');
+ for(const source of ['Aquila','Symmachus','Theodotion']){
+  await js(`document.querySelector('#fmCorpusControls [data-corpus=${source}]').click();document.querySelector('#fmTabs [data-t=concordance]').click()`);
+  await waitFor("document.querySelector('#fmCorpusBody [data-hx-source]')",'Field original source');
+  await js("document.querySelector('#fmCorpusBody [data-hx-source]').open=true");
+  await waitFor("document.querySelector('#fmCorpusBody .wcHexOriginal').textContent.length>0",'Field original text');
+ }
+ await js("document.querySelector('#dictQ').value='ברא';document.querySelector('#dictCardSearch').click()");
+ await waitFor("Number(document.querySelector('#fmCorpusControls [data-corpus=Samaritan] small')?.textContent.replace(/[^0-9]/g,''))>0",'Samaritan count');
+ await js("document.querySelector('#fmCorpusControls [data-corpus=Samaritan]').click();document.querySelector('#fmTabs [data-t=card]').click()");
+ assert(await js("document.querySelector('#fmCorpusBody .wcDistBar[data-corpus=Samaritan]')!==null"));
+ await js("document.querySelector('#fmTabs [data-t=concordance]').click()");
+ assert(await js("document.querySelector('#fmCorpusBody [data-hit]').dataset.hoverVersion.includes('Tal–Florentin')"));
  console.log('Electron: Greek/Hebrew corpus selection, combined grammar filters, forms, concordance and header recovery passed.');
 };

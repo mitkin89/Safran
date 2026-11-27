@@ -3252,3 +3252,10 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #fmCorpusControls .wcCorpusFilter [aria-pressed=true] { background:color-mix(in srgb,var(--accent) 22%,transparent); border-color:var(--accent); }
 
 #formsPanel .wcDistBar > i { background:var(--corpus-color,var(--accent)); }
+
+#formsPanel [data-corpus=Samaritan] { --corpus-color:#a78b50; }
+#formsPanel [data-corpus=Aquila] { --corpus-color:#ae78cb; }
+#formsPanel [data-corpus=Symmachus] { --corpus-color:#d47150; }
+#formsPanel [data-corpus=Theodotion] { --corpus-color:#32a7ad; }
+
+.wcCorpusRef { margin:10px 0; }
