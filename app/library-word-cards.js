@@ -1480,6 +1480,16 @@ window.LibraryWordCards = (() => {
   // Vorschau des Verses beim Überfahren einer Belegstelle (wie bei den Verknüpfungen)
   host.$('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !host.hovApi || a.dataset.ref === host.hovApi.current()) return; host.hovApi.start(a, a.dataset.ref, true, false, wcHovPick(a)); });
   host.$('#fmBody').addEventListener('mouseout', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (a && host.hovApi && !a.contains(e.relatedTarget)) host.hovApi.hide(); });
+  { // Corpus and Peshitta references use the same native-edition hover preview as other cards.
+    const box=host.$('#formsPanel'),selector='a[data-pesh-ref],a[data-hover-ref]';
+    const start=e=>{const a=e.target.closest(selector);if(!a||a.contains(e.relatedTarget)||!host.hovApi)return;
+      const ref=a.dataset.peshRef||a.dataset.hoverRef,version=a.dataset.gvt||a.dataset.hoverVersion;
+      const vt=version==='Westminster'?'^Westminster':'^'+version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$';
+      host.hovApi.start(a,ref,true,false,{vt,rtl:!!a.dataset.peshRef||!fmCur?.greek,label:version});
+    };
+    const stop=e=>{const a=e.target.closest(selector);if(a&&!a.contains(e.relatedTarget))host.hovApi?.hide();};
+    box.addEventListener('mouseover',start);box.addEventListener('focusin',start);box.addEventListener('mouseout',stop);box.addEventListener('focusout',stop);
+  }
   host.$('#formsPanel').addEventListener('scroll', () => host.hovApi && host.hovApi.hide(), { passive: true });
 
     return {

@@ -76,7 +76,7 @@ const handlers={
    for(const ref of refs){const {book,tail}=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===book&&d.entry.kind==='he'&&/^Westminster/.test(d.versionTitle));if(doc)result[ref]={versionTitle:doc.versionTitle,items:links.resolveText(doc,tail)};}
    return result;
  }, 'links:preview':async(_e,ref,langs,pick,pref)=>{
-   if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1')return require('../production-preview-handler.cjs')({getLibrary:async()=>({list:()=>[...docs.values()].map(d=>d.entry),read:async rel=>docs.get(rel)})})(_e,ref,langs,pick,pref);
+   if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1'||process.env.SAFRAN_SMOKE_DICT_CARDS==='1')return require('../production-preview-handler.cjs')({getLibrary:async()=>({list:()=>[...docs.values()].map(d=>d.entry),read:async rel=>docs.get(rel)})})(_e,ref,langs,pick,pref);
    if(process.env.SAFRAN_SMOKE_MASORA!=='1')return {missing:true};const links=require(path.join(root,'links')),parsed=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===parsed.book&&d.entry.kind==='he');return doc?{parts:[{he:true,versionTitle:doc.entry.versionTitle,items:links.resolveText(doc,parsed.tail)}]}:{missing:true};}, 'topics:section':()=>[],
  'links:versification':()=>require(path.join(root,'bundled/versification.json')),
  'links:mishnahTalmud':()=>require(path.join(root,'bundled/mishnah_talmud.json')),
