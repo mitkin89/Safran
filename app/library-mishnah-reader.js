@@ -49,7 +49,6 @@ function create(host){
    let base=labels.querySelector('.mci-label-set');
    if(!base){base=document.createElement('div');base.className='mci-label-set';base.append(...labels.children);labels.append(base);}
    for(const copy of labels.querySelectorAll('.mci-label-repeat'))copy.remove();
-   labels.style.width=base.getBoundingClientRect().width+'px';
    const top=columns.getBoundingClientRect().top,starts=[];
    for(const column of columns.children){const y=column.getBoundingClientRect().top-top;if(!starts.some(n=>Math.abs(n-y)<1))starts.push(y);}
    base.style.top=(starts[0]||0)+'px';

@@ -19,6 +19,20 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   await js(`document.querySelector('#rSection').value='${c-1}';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);
   await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph-ready]').length===${A.sources[title].chapters[c-1].length*3}`,'three edition cells chapter '+c);
  }
+ await chapter(1);
+ const originalSize=win.getSize();
+ for(const width of [2048,1250,768]){
+  win.setSize(width,1000);
+  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(r))))');
+  const layout=await js(`(()=>{const cell=[...document.querySelectorAll('#rOut .cell')].find(c=>c.dataset.rel===${q(rels[0])}),grid=cell.querySelector('.mci-grid'),labels=grid.querySelector('.mci-labels'),columns=grid.querySelector('.mci-columns'),label=labels.querySelector('.tc-witness-label');return {grid:grid.getBoundingClientRect().width,labels:labels.getBoundingClientRect().width,columns:columns.getBoundingClientRect().width,label:label.textContent,description:label.title,words:cell.querySelectorAll('.mhw').length};})()`);
+  assert(layout.labels>0&&layout.labels<=layout.grid*.27,'source labels reserve at most 27% at '+width);
+  assert(layout.columns>=layout.grid*.65,'text retains space at '+width);
+  assert.equal(layout.label,'Kaufmann · Accordance (vorl.)');
+  assert(layout.description.includes('nicht am Manuskript geprüft'),'full source caution remains available');
+  assert(layout.words>0);
+  if(width===2048&&process.env.SAFRAN_LAYOUT_SCREENSHOT)require('node:fs').writeFileSync(process.env.SAFRAN_LAYOUT_SCREENSHOT,(await win.webContents.capturePage()).toPNG());
+ }
+ win.setSize(...originalSize);
  let units=0,sourceWords=0,cards=0,pointingOpen=0,witnessWords=0,otherCards=[0,0];
  for(let c=1;c<=9;c++){
   await chapter(c);
