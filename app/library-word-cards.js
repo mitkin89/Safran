@@ -13,6 +13,15 @@ window.LibraryWordCards = (() => {
     el.onerror = () => rej(new Error(src));
     document.body.appendChild(el);
   });
+  const corpora=window.LibraryWordCardCorpora.create({$:host.$,esc:host.esc,load:lazyScript,gm:()=>window.GMorph,forms:()=>window.Forms,morph:()=>window.Morph,
+    jump:(hit,e)=>host.openCorpusRef(hit,host.BG(e)),changed:()=>{fmShowTab();fmHistSave();}});
+  async function openCorpusForms(head,greek,tab='card',rest){
+    const lemma='corpus:'+head,info={corpus:true,head,greek};fmHistOpen(greek,lemma,info,tab,rest);corpora.reset();
+    const token=++wcToken;fmTrData=null;fmCur={lemma,greek,lem:[head],corpusOnly:true};host.$('#formsPanel').hidden=false;
+    host.$('#fmHead').innerHTML='<span class="fmLem" dir="auto">'+host.esc(head)+'</span><button type="button" class="wdict" data-q="'+host.esc(head)+'">'+host.esc(I18N.t('Im Wörterbuch nachschlagen'))+'</button>';
+    host.$('#wcBody').replaceChildren();host.$('#fmBody').replaceChildren();host.$('#fmConcordanceBody').replaceChildren();fmShowTab(tab);
+    await corpora.attach({head,greek,only:true,restore:rest?.corpus},()=>token===wcToken);fmShowTab(tab);
+  }
   function loadForms() { // der Index (ca. 2 MB) wird erst beim ersten Wort-Popup geladen
     if (!formsP) formsP = lazyScript('oshb-forms.js', () => window.OSHB_FORMS).catch(e => { formsP = null; throw e; });
     return formsP;
@@ -28,7 +37,7 @@ window.LibraryWordCards = (() => {
     host.$('#fmConcordanceBody').innerHTML='<div class="wcPeshGrammar">'+out.grammar+'</div>'+out.concordance;
   }
   async function openPForms(id,info={},tab='card',rest){
-    info={...info,peshitta:true,id};fmHistOpen(false,'ps:'+id,info,tab,rest);
+    info={...info,peshitta:true,id};fmHistOpen(false,'ps:'+id,info,tab,rest);corpora.reset();
     const token=++wcToken;fmCur=null;fmTrData=null;host.$('#formsPanel').hidden=false;fmShowTab(tab);
     host.$('#fmHead').textContent=I18N.t('Lädt …');
     host.$('#wcBody').replaceChildren();host.$('#fmBody').replaceChildren();host.$('#fmConcordanceBody').replaceChildren();
@@ -60,7 +69,8 @@ window.LibraryWordCards = (() => {
     host.$('#wcBody').hidden = fmTab !== 'card'; host.$('#fmBody').hidden = fmTab !== 'forms';
     host.$('#fmConcordance').disabled = !fmCur?.lem?.[0];
     host.$('#fmConcordanceBody').hidden = fmTab !== 'concordance';
-    if (fmTab === 'concordance' && !fmCur?.peshitta) wcLoadConcordance(wcConcordance?.token === wcToken ? wcConcordance.mode : fmCur?.family ? 'root' : 'lemma');
+    corpora.render();
+    if (fmTab === 'concordance' && !fmCur?.peshitta && !fmCur?.corpusOnly && !corpora.enabled()) wcLoadConcordance(wcConcordance?.token === wcToken ? wcConcordance.mode : fmCur?.family ? 'root' : 'lemma');
     host.hovApi && host.hovApi.hide();
     wcFindSoon();
   }
@@ -147,7 +157,7 @@ window.LibraryWordCards = (() => {
   async function openSForms(query,info={},tab='card',rest){
     info={...info,syriac:true,query};
     const key='sy:'+(info.id||query);
-    fmHistOpen(false,key,info,tab,rest);
+    fmHistOpen(false,key,info,tab,rest);corpora.reset();
     const token=++wcToken,p=host.$('#formsPanel');fmCur=null;fmTrData=null;fmRest=null;
     p.hidden=false;fmShowTab(tab);host.$('#fmHead').textContent=query;
     host.$('#wcBody').innerHTML=host.$('#fmBody').innerHTML=`<p class="muted">${host.esc(I18N.t('Lädt …'))}</p>`;
@@ -172,7 +182,7 @@ window.LibraryWordCards = (() => {
     return `<span class="fmHomonyms" role="group" aria-label="${host.esc(I18N.t(members ? 'Wurzel' : 'Einträge mit denselben Konsonanten:'))}">${entries.map(e=>`<button type="button" class="wcTrHm${e.id===lemma&&!members?' on':''}" data-lem="${host.esc(e.id)}" aria-pressed="${e.id===lemma&&!members}" title="${host.esc(I18N.t('Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.',e.total,e.id))}"><bdi class="fmLemma" lang="he" dir="rtl">${host.esc(e.lem[0])}</bdi> ${host.esc(I18N.lang==='de'&&e.lem[2]?e.lem[2]:e.lem[1])} <small>${e.total}</small></button>`).join('')}</span>`;
   }
   async function openForms(lemma, info, tab, rest) { // rest: Verlaufseintrag, dessen Zustand wiederhergestellt wird (Zurück/Vor)
-    fmHistOpen(false, lemma, info, tab, rest);
+    fmHistOpen(false, lemma, info, tab, rest);corpora.reset();
     const p = host.$('#formsPanel'), body = host.$('#fmBody'), card = host.$('#wcBody'), LEM = window.OSHB_LEMMAS || {}, lem = LEM[lemma];
     const token = ++wcToken;
     fmRest = rest ? { h: rest, token } : null;
@@ -196,6 +206,7 @@ window.LibraryWordCards = (() => {
       : window.Forms.model(D, lemma, s => I18N.t(s)));
     if (!mdl) { body.innerHTML = card.innerHTML = `<p class="muted">${host.esc(I18N.t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
     fmCur = { D, mdl, lemma, lem, family, F: window.Forms };
+    corpora.attach({D,mdl,F:window.Forms,head:lem?.[0]||lemma,heads:family?mdl.members.map(m=>(window.OSHB_LEMMAS[m.lemma]||[])[0]).filter(Boolean):null,greek:false,restore:rest?.corpus},()=>token===wcToken);
     fmShowTab();
     host.$('#fmHead .fmGloss')?.insertAdjacentHTML('afterend',fmHomonyms(D,lemma,mdl.members));
     const cur = info && info.m ? window.Forms.analyze(info.word, info.m, info.l) : null;
@@ -351,7 +362,7 @@ window.LibraryWordCards = (() => {
   host.$('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); const k=b.dataset.fsrc,S=wcTrLive(); if(k!=='off'&&S&&S.src[k])fmStep(()=>{S.pick=false;wcTrShow(k,false);});else fmTrSelect(k); }, true);
   // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
   async function openGForms(lemma, info, tab, rest) {
-    fmHistOpen(true, lemma, info, tab, rest);
+    fmHistOpen(true, lemma, info, tab, rest);corpora.reset();
     const p = host.$('#formsPanel'), body = host.$('#fmBody'), card = host.$('#wcBody'), GM = window.GMorph, t = s => I18N.t(s);
     const token = ++wcToken;
     fmRest = null;
@@ -364,6 +375,7 @@ window.LibraryWordCards = (() => {
     const li = D && GM.lemmaInfo(D, lemma), mdl = li && GM.model(D, lemma, t);
     if (!mdl || !mdl.total) { body.innerHTML = card.innerHTML = `<p class="muted">${host.esc(t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
     fmCur = { D, mdl, lemma, lem: [lemma, li.gloss], F: GM, greek: true };
+    corpora.attach({D,mdl,F:GM,head:lemma,greek:true,restore:rest?.corpus},()=>token===wcToken);
     fmShowTab();
     const cur = info && info.form ? { form: info.form, key: info.key } : null;
     const kinds = GM.topForms(mdl, 1).kinds, pos = [...new Set(mdl.forms.filter(f => f.n).map(f => GM.describe(f.key, t).pos))].join(', ');
@@ -378,7 +390,7 @@ window.LibraryWordCards = (() => {
   const loadTForms = () => targumFormsP || (targumFormsP = lazyScript('targum-forms.js', () => window.TARGUM_FORMS).catch(e => { targumFormsP = null; throw e; }));
   async function openTForms(id, info, tab, rest) {
     const lemma = 'tg:' + id;
-    fmHistOpen(false, lemma, { ...(info || {}), targum: true }, tab, rest);
+    fmHistOpen(false, lemma, { ...(info || {}), targum: true }, tab, rest);corpora.reset();
     const token = ++wcToken, p = host.$('#formsPanel'), body = host.$('#fmBody'), card = host.$('#wcBody');
     fmRest = null; fmCur = null; p.hidden = false; fmShowTab(tab || 'card');
     host.$('#fmHead').innerHTML = ''; body.innerHTML = card.innerHTML = `<p class="muted">${host.esc(I18N.t('Lädt …'))}</p>`;
@@ -1133,7 +1145,7 @@ window.LibraryWordCards = (() => {
   function fmHistSave() { // Zustand der gezeigten Karte in den aktuellen Eintrag schreiben
     const h = fmHist[fmHi], p = host.$('#formsPanel');
     if (!h || p.hidden || !fmCur || fmCur.lemma !== h.lemma || !!fmCur.greek !== h.greek) return; // geschlossen oder noch am Laden
-    h.tab = fmTab; h.scroll = p.scrollTop;
+    h.tab = fmTab; h.scroll = p.scrollTop;h.corpus=corpora.snapshot();
     if(fmCur.peshitta)h.peshFilters={...fmCur.filters};
     const S = wcTrLive(); if (S) h.tr = { lemma: S.lemma, cur: S.cur, cmp: S.cmp || null, f: { ...S.f }, open: S.open, allRows: S.allRows, refLim: S.refLim, same:S.same??null,sameLimits:{...S.sameLimits} };
     const bx = host.$('#wcBookRefs'), c = host.$('#wcBody .wcForms .fmF.sel'), fc = host.$('#fmBody .fmF.sel');
@@ -1168,7 +1180,8 @@ window.LibraryWordCards = (() => {
   function fmScrollHold(top) { // Scrollposition halten, bis die nachgeladenen Abschnitte (Wörterbücher, Stellen …) stehen oder man selbst scrollt
     fmHold = { top, token: wcToken, until: Date.now() + 5000 }; host.$('#formsPanel').scrollTop = top;
   }
-  function fmRestBase(h) { // Reiter, gewählte Stellenlisten und Scrollposition eines Eintrags
+  function fmRestBase(h) {
+    corpora.restore(h.corpus); // Reiter, gewählte Stellenlisten und Scrollposition eines Eintrags
     fmShowTab(h.tab);
     if (fmCur) {
       if (host.$('#wcBookRefs')) wcBookRefs(h.book || null);
@@ -1186,7 +1199,8 @@ window.LibraryWordCards = (() => {
     if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && !!fmCur.family === !!h.family && host.$('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
       if (h.tr) { fmRestTr(h); wcTrRender(); }
       fmRestBase(h);
-    } else if(h.info?.peshitta)openPForms(h.info.id,h.info,h.tab,h);
+    } else if(h.info?.corpus)openCorpusForms(h.info.head,h.info.greek,h.tab,h);
+    else if(h.info?.peshitta)openPForms(h.info.id,h.info,h.tab,h);
     else if(h.info?.syriac)openSForms(h.info.query,h.info,h.tab,h);
     else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
     else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
@@ -1218,7 +1232,7 @@ window.LibraryWordCards = (() => {
     wcF.hits = []; wcF.idx = -1; wcFHl('wcfind', []); wcFHl('wcfind-active', []); cnt.textContent = ''; cnt.title = '';
     if (host.$('#fmFind').hidden || p.hidden || !q) return;
     const hits = [];
-    for (const root of [host.$('#fmHead'), host.$({ forms: '#fmBody', card: '#wcBody', concordance: '#fmConcordanceBody' }[fmTab])]) {
+    for (const root of [host.$('#fmHead'), host.$(corpora.enabled()?'#fmCorpusBody':{ forms: '#fmBody', card: '#wcBody', concordance: '#fmConcordanceBody' }[fmTab])]) {
       const groups = new Map(), walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       for (let node = walker.nextNode(); node; node = walker.nextNode()) {
         const el = node.parentElement; if (!el || el.closest('svg, script, style')) continue;
@@ -1480,6 +1494,8 @@ window.LibraryWordCards = (() => {
       async matchSyriacAnalysis(query,part){if(!part)return null;try{return (await loadSyriacCards()).matchAnalysis(query,part);}catch{return null;}},
       get canOpenCard(){return canOpenCard;},
       get openTextCard(){return openTextCard;},
+      get corpusModel(){return corpora.model;},
+      get openCorpusForms(){return openCorpusForms;},
       get loadPeshittaCards(){return loadPeshittaCards;},
       get openPForms(){return openPForms;},
       get openSForms() { return openSForms; },

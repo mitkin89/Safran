@@ -1067,6 +1067,11 @@
   // reader-module:word-cards
   const wordCardsUI = window.LibraryWordCards.create({
     concordanceCoverageHtml,
+    openCorpusRef(hit,mode){
+      const entry=hit.rel?entries.find(e=>e.rel===hit.rel):entries.find(e=>e.title===hit.title&&(hit.version==='Westminster'?/^Westminster/.test(e.versionTitle):e.versionTitle===hit.version));
+      if(!entry)return;
+      return openGroup(groupsByKey.get(keyOf(entry)),{rel:entry.rel,sectionPath:hit.path,rowLabel:hit.label},mode);
+    },
     openPeshittaRef(book,version,chapter,verse,mode){
       const entry=entries.find(e=>e.title===book&&e.versionTitle===version);
       if(!entry)return;
@@ -1970,7 +1975,7 @@
   // Reiter „Wörterbuch“: dort scrollt die Ergebnisliste selbst, nicht die Seite
   let hdDictY = 0;
   document.addEventListener('scroll', e => {
-    if (e.target.id !== 'dictOut' || hdTab() !== 'dict') return;
+    if (!['dictOut','dictCardWorkspace'].includes(e.target.id) || hdTab() !== 'dict') return;
     const y = e.target.scrollTop, dy = y - hdDictY; hdDictY = y;
     hdScroll(y, dy);
   }, { capture: true, passive: true });
@@ -1978,7 +1983,7 @@
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && /^(t|w|[1-9]|Tab)$/.test(e.key)) hdSet(false); });
   window.hdShow = () => hdSet(false);
   // ganz oben gibt es kein Scroll-Ereignis mehr: Hochscrollen mit Mausrad/Trackpad holt die Leiste dort trotzdem zurück
-  window.addEventListener('wheel', e => { if (e.deltaY < 0 && hdTab() === 'read' && window.scrollY < 60) hdSet(false); }, { passive: true });
+  window.addEventListener('wheel', e => { if (e.deltaY < 0 && ((hdTab() === 'read' && window.scrollY < 60) || (hdTab() === 'dict' && (e.target.closest('#dictCardWorkspace') || e.target.closest('#dictOut'))?.scrollTop < 60))) hdSet(false); }, { passive: true });
   let stickFrame=0;const queueStick=()=>{if(!stickFrame)stickFrame=requestAnimationFrame(()=>{stickFrame=0;fixStick();});};
   new ResizeObserver(queueStick).observe($('#stick'));
   new ResizeObserver(queueStick).observe($('header'));
