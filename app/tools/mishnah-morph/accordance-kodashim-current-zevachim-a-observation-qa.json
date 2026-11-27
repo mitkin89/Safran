@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ledger": "accordance-kodashim-current-zevachim-a-observations.json",
-  "ledgerSha256": "c2d9e731e08963b7743e51b9b161612230551696ba0e17254f3640d21169b28c",
+  "ledgerSha256": "59b08357f32d6f78480e654dae51d8188331291876bbb1ac822d73c6807b82d9",
   "sourceTextHash": "33ce68c5890334698aae82161de4bf837a508a4dfa9e2badbf66531806b8aa34",
   "privateRawSha256": "c0bd233c2bcaeead1f132598e178825410d72ae383e7eab491dbdbc4afa97d12",
   "humanValidated": false,
@@ -63,5 +63,11 @@
     "6:3": 20,
     "6:4": 28,
     "6:5": 61
+  },
+  "standardFieldNormalization": {
+    "safeSingleBindingsNormalized": 1465,
+    "alignmentMethodPreserved": true,
+    "confidence": "clear",
+    "alignment": "one-to-one"
   }
 }

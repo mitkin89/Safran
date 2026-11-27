@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "title": "Mishnah Middot",
+  "ledger": {
+    "file": "accordance-kodashim-current-expansion-d-middot-observations.json",
+    "sha256": "32f677d5aa7717fcd68d22f9fc3e86410d34dca14ba030772aa564ac67e6a88e"
+  },
+  "sourceTextHash": "5d1d691c939a3d0cc0bd8f0221f36551a50dd51d1b0676a55d0b62fe6dbda0e5",
+  "humanValidated": false,
+  "sourceBaseline": "c0268bf",
+  "checks": {
+    "actualImageShaChecks": 15,
+    "bindingChecks": 806,
+    "sourceUnchanged": true,
+    "structuralErrors": 0
+  },
+  "coverage": {
+    "imagesRead": 15,
+    "rawVisibleRows": 885,
+    "uniqueSourcePositions": 806,
+    "individualObservations": 806,
+    "unboundVisibleRows": 79,
+    "scopeSourcePositions": 972,
+    "openSourcePositions": 166,
+    "humanValidated": false
+  },
+  "limitations": [
+    "Structural QA, not independent human image rereading.",
+    "Scope is assigned images only; not a complete tractate text claim."
+  ]
+}

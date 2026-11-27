@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "title": "Mishnah Kinnim",
+  "ledger": {
+    "file": "accordance-kodashim-current-expansion-d-kinnim-observations.json",
+    "sha256": "a226b3837bc3519ec383ceb027fc1680755ae52923d7a4c431c7dcc4fb762b82"
+  },
+  "sourceTextHash": "e20d1b5cc4a8a3b3e3a4723e1fab7349445ef86cda85b23ac21fbbf637379721",
+  "humanValidated": false,
+  "sourceBaseline": "c0268bf",
+  "checks": {
+    "actualImageShaChecks": 15,
+    "bindingChecks": 672,
+    "sourceUnchanged": true,
+    "structuralErrors": 0
+  },
+  "coverage": {
+    "imagesRead": 15,
+    "rawVisibleRows": 734,
+    "uniqueSourcePositions": 672,
+    "individualObservations": 672,
+    "unboundVisibleRows": 62,
+    "scopeSourcePositions": 901,
+    "openSourcePositions": 229,
+    "humanValidated": false
+  },
+  "limitations": [
+    "Structural QA, not independent human image rereading.",
+    "Scope is assigned images only; not a complete tractate text claim."
+  ]
+}

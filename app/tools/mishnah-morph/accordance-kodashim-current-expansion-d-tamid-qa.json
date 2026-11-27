@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "title": "Mishnah Tamid",
+  "ledger": {
+    "file": "accordance-kodashim-current-expansion-d-tamid-observations.json",
+    "sha256": "313dcf978b221f0749d6abaafb6f4031dc820182de93423eb8cfcdc0aa8b8338"
+  },
+  "sourceTextHash": "cc8fb3aac0bd76ce65f8c123d16eb7bb0cd33e5ada8b942139670018ca172581",
+  "humanValidated": false,
+  "sourceBaseline": "c0268bf",
+  "checks": {
+    "actualImageShaChecks": 34,
+    "bindingChecks": 1492,
+    "sourceUnchanged": true,
+    "structuralErrors": 0
+  },
+  "coverage": {
+    "imagesRead": 34,
+    "rawVisibleRows": 1708,
+    "uniqueSourcePositions": 1492,
+    "individualObservations": 1492,
+    "unboundVisibleRows": 216,
+    "scopeSourcePositions": 2115,
+    "openSourcePositions": 623,
+    "humanValidated": false
+  },
+  "limitations": [
+    "Structural QA, not independent human image rereading.",
+    "Scope is assigned images only; not a complete tractate text claim."
+  ]
+}
