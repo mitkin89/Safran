@@ -358,3 +358,45 @@ Vergleichs-, Ledger- und Bildindex-Hashes kontrolliert; Moed-Dateien werden nich
 überschrieben. Die fünf neu tatsächlich abgefragten Moed-Einzelbelege stehen
 separat in `moed-maagarim-priority1-initial-evidence.json`. Eine vorbereitete
 Folgeliste ist keine abgeschlossene Ma’agarim-Prüfung.
+
+## Kodaschim: unveränderte diplomatische Grundlage
+
+Alle elf Kodaschim-Traktate liegen als eigene Kaufmann-Arbeitsausgabe ohne
+zusätzliche Punktierung vor. Die Grundlage `9968f08` friert 582 Einheiten,
+31.065 diplomatische Quellpositionen und 31.042 lexikalische Formen ein.
+`tools/mishnah/kodashim-kaufmann-scaffold-independent-audit.json` prüft die
+Originaleinheiten einschließlich Offsets, Annotationen, Lückenzeichen und
+Wortgrenzen. 24 Quellwörter haben keinen lexikalischen Token; ein Wort enthält
+zwei. Diese Abweichungen bleiben explizit erhalten. Keine Be’eri-Vokale und kein
+synthetischer Accordance-Text wurden importiert.
+
+`complete-kodashim.cjs` ergänzt ausschließlich zuvor leere, eindeutig 1:1
+zugeordnete Karten aus der rabbinischen Lexikon-/Grammatikengine. Der eingefrorene
+Baseline-Hash, alle Quellidentitäten und tatsächlichen Wörterbuchartikel werden
+vor dem Schreiben geprüft. Es gibt keine Gruppeninferenz oder Übertragung einer
+Bestimmung auf diplomatische Fragmente. `kodashim-morphology-completion-summary.json`
+und `kodashim-morphology-independent-post-write-audit.json` dokumentieren:
+18.181 ergänzte lexikalische Formen und ebenso viele Quellkarten, davon 3.503
+mit ausschließlich partiellen Merkmalen. 12.861 lexikalische Formen bzw.
+12.884 diplomatische Quellkarten bleiben unbestimmt. Die 12.885 Restrecords
+sind wegen des 1:n-Falls keine Zahl unterschiedlicher Quellwörter.
+
+Der ausführliche reproduzierbare Änderungsbericht ist per SHA in der kompakten
+Zusammenfassung gebunden; die Karten selbst bewahren ihre Kandidaten und Belege.
+Eine Wiederholung erfolgt in einem isolierten Checkout mit den unveränderten
+Scaffold-Dateien aus `9968f08` und den gebundenen aktuellen Werkzeugen. Der
+Scaffold-Builder ist die anfängliche Grundlage und darf nicht nachträglich als
+Ersatz für die ergänzten Karten ausgeführt werden. Der Adapter verweigert
+abweichende Baseline-Bytes und bestehende geprüfte Analysen.
+
+Die App zeigt diese Ausgabe als „Digital Mishnah · Kaufmann · ohne ergänzte
+Punktierung“. Interlinear- und Wortkartenzugriff verwenden dieselben Quell-IDs;
+der interne Arbeitsansichtsstatus ist von `vocalized:false` getrennt. Der
+Publikationsgenerator prüft die vollständige diplomatische HTML-Projektion
+gegen den Quellhash. Die Morphologiekandidaten sind keine bestätigte
+Kontextanalyse und kein abgeschlossener Accordance-/Ma’agarim-Abgleich.
+
+Accordance-Bilder liegen derzeit für Zevachim und einen Teil von Menachot vor.
+Fehlende Aufnahmen und die übrigen neun Traktate werden nicht als geprüft
+gezählt. Die unabhängigen Bildlesungen bleiben separate
+`accordance-kodashim-current-*-observations.json` mit eigenem Prüfstand.

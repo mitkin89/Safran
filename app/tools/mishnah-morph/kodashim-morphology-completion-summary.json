@@ -1,0 +1,577 @@
+{
+  "version": 1,
+  "scope": "Kodashim only: all eleven books",
+  "baselineCommit": "9968f0874d5668f29601c1c3a3c9a83570a1bdc0",
+  "baselineSha256": "95f9c6736b16d3b5ee96a82efeeb7d1c6b69faf8cad032a027584e37ce9a74f3",
+  "adapterSha256": "714ac89c11fe9f5d19eea38f79231c364bd4bb3194ccf269e363bc0e0108301c",
+  "sharedEngineSha256": "0710bf027d43a87706887baddf30aa56f1cc80dc4f71ffd6fa7c709ec42f8c92",
+  "humanValidated": false,
+  "reviewed": false,
+  "written": true,
+  "pointingImported": false,
+  "donorMorphologyImported": false,
+  "groupsInferred": false,
+  "inputs": [
+    {
+      "file": "build.cjs",
+      "sha256": "a224750f0786d5a1fc8925736833a67e9ebbe3cb6dc48012ecef650c5626b4ff"
+    },
+    {
+      "file": "lexical-review-a.json",
+      "sha256": "5085687e7e4b6b32682c3b0468a0a1e02d7e7b6c120a8d5eb289c63b11fbdb93"
+    },
+    {
+      "file": "lexical-review-b.json",
+      "sha256": "577c63c3972e278ce8dda12bd49da70083df5db79da2c0001c7d9e163264a410"
+    },
+    {
+      "file": "zeraim-lexicon.json",
+      "sha256": "af0b31ff9daaad59a481fab22c8f82420dee06a2ea26f78970e879c3a2023be9"
+    },
+    {
+      "file": "moed-nashim-seed-sources.json",
+      "sha256": "a81e2addb48f49761212fc03c749b9227f06de8153612ba201073d3104aecc1d"
+    },
+    {
+      "file": "app/bavli-morph.js",
+      "sha256": "5b5ffe3778157681e201122d142051f9cc7d97648086d4e0d4626a4ec9401493"
+    },
+    {
+      "dictionary": "Jastrow",
+      "dictId": "d895bc1c727b",
+      "sha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268"
+    },
+    {
+      "dictionary": "Levy",
+      "dictId": "e8d290b744f6",
+      "sha256": "caac370b0f8f95463fee20c86158393a3a56af9f3eba5f8cf2fb4a31b36c113c"
+    },
+    {
+      "dictionary": "Krauss",
+      "dictId": "d701423861c6",
+      "sha256": "a821d2e749fed83f2a5991deeb445fb9365c19b40637962109fcea7cb2d88516"
+    },
+    {
+      "file": "moed-nashim-seeds-moedd-a.json",
+      "sha256": "be6962b6d35b58aa6b6b612642976fd03cd7f6547d8e0d79f50307351e9c9470"
+    },
+    {
+      "file": "moed-nashim-seeds-moed-b.json",
+      "sha256": "c724ad9fde2af5ee4b6cec98d80ceaa72399ea8e11d5cf36061c72977e351d19"
+    },
+    {
+      "file": "moed-nashim-seeds-moed-c.json",
+      "sha256": "4e47240746f132f9e0bb093ba6c3e6b6add0b58316328d4a32400980c5c942db"
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-a.json",
+      "sha256": "48df46535a579d838187db78949643810fd2799f93003199203dca1f6e048a9f"
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-b.json",
+      "sha256": "32c823c350048a8a34830e510b58bc9245523b3497ec546c5f4c0cbc348ad8da"
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-c.json",
+      "sha256": "62c96e575d649e9accdddbe89294cf4126595f2ef5522ae8c0fab306ab1e62e7"
+    },
+    {
+      "file": "moed-nashim-seeds-closed-numerals-adjectives.json",
+      "sha256": "50bc9b211877d05bbd3af0951d0016720d8721cedeea0ae07491783c6e66bbff"
+    },
+    {
+      "file": "moed-nashim-seeds-moed-round2.json",
+      "sha256": "11d3cf0b92cda1e652bd5b6a3112678f1d1d2feaad99e0e4eef84921cd029713"
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-c-round2.json",
+      "sha256": "fb4c902d2d7212a013c969096267d53111b6eafa7a3c43126603b08c552daa00"
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-a-round2.json",
+      "sha256": "dbb18dbde6174c50466536d915bdb906bff5d37932a291ed061c4db0007ebd7e"
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-b-round2.json",
+      "sha256": "e1b46fbc2a1b7b7e83f0398ed71bf44dd73c0feee591f6c248b4b411ac826113"
+    }
+  ],
+  "books": [
+    {
+      "title": "Mishnah Zevachim",
+      "file": "mishnah-kaufmann-kodashim-zevachim-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_ZEVACHIM_DATA",
+      "fileSha256": "0a9fc35a214519bacee9562150151a2b0c4cd80d6e23fc8e3b5079008ed6e8de",
+      "sourceTextHash": "33ce68c5890334698aae82161de4bf837a508a4dfa9e2badbf66531806b8aa34",
+      "sourceCoreSha256": "580381446dafddb3f356206553994aa843ac4aec0e9d26e9a0d15587522c155a",
+      "sourceInventorySha256": "df2a5b5c275a5e1176f495ae7270b0c805c13ef182dc05cad37d4c4ce664eb1a",
+      "forms": 5005,
+      "sourceWords": 5013,
+      "afterFileSha256": "7911615175f1e1bfacd0e3263ff1269550b9ed423e765a57dd2e1a37db1f7b59",
+      "changed": 2888,
+      "remaining": 2125,
+      "counts": {
+        "lexicalForms": 5005,
+        "diplomaticSourcePositions": 5013,
+        "supplementedLexicalForms": 2888,
+        "supplementedUniqueSourcePositions": 2888,
+        "remainingRecords": 2125,
+        "uniqueRemainingSourceIDs": 2125,
+        "remainingLexicalForms": 2117,
+        "sourcePositionsWithoutLexicalToken": 8,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 661,
+        "partialOnlySourceCards": 661,
+        "unresolvedLexicalForms": 2117,
+        "unresolvedSourceCards": 2125
+      },
+      "statuses": {
+        "candidate": 1099,
+        "unresolved": 2117,
+        "partial": 661,
+        "ambiguous": 1128
+      },
+      "sourceCardStatuses": {
+        "candidate": 1099,
+        "unresolved": 2125,
+        "partial": 661,
+        "ambiguous": 1128
+      }
+    },
+    {
+      "title": "Mishnah Menachot",
+      "file": "mishnah-kaufmann-kodashim-menachot-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_MENACHOT_DATA",
+      "fileSha256": "8610a44ef2b989f9141626417b9ebeb90809396f2cd488a63087a2fb96767307",
+      "sourceTextHash": "1ca42ad6a5ea12ff988ef2275bf750d0ecab5aec4f100814ce2fe988d29d3c81",
+      "sourceCoreSha256": "51d28aef45332cc57b4981e77a437781be240592965ff70e8972b2014313333e",
+      "sourceInventorySha256": "ead1991727699ca08e9ec3e6303fac285830b2f7eac1cb4e0b42f3f2ba275927",
+      "forms": 5216,
+      "sourceWords": 5216,
+      "afterFileSha256": "26211dfa6c95e8e43f4447a2f60c4e957083c1da6109b975c0c9ec6546916f0c",
+      "changed": 3084,
+      "remaining": 2132,
+      "counts": {
+        "lexicalForms": 5216,
+        "diplomaticSourcePositions": 5216,
+        "supplementedLexicalForms": 3084,
+        "supplementedUniqueSourcePositions": 3084,
+        "remainingRecords": 2132,
+        "uniqueRemainingSourceIDs": 2132,
+        "remainingLexicalForms": 2132,
+        "sourcePositionsWithoutLexicalToken": 0,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 619,
+        "partialOnlySourceCards": 619,
+        "unresolvedLexicalForms": 2132,
+        "unresolvedSourceCards": 2132
+      },
+      "statuses": {
+        "candidate": 1137,
+        "unresolved": 2132,
+        "ambiguous": 1328,
+        "partial": 619
+      },
+      "sourceCardStatuses": {
+        "candidate": 1137,
+        "unresolved": 2132,
+        "ambiguous": 1328,
+        "partial": 619
+      }
+    },
+    {
+      "title": "Mishnah Chullin",
+      "file": "mishnah-kaufmann-kodashim-chullin-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_CHULLIN_DATA",
+      "fileSha256": "83e628a4e0899d4dc3ccb237729480ef743ca7cbe90e164c494a7e867f273556",
+      "sourceTextHash": "84851e04887adfbf5189e4012951c88656397825607c4e69f7c8635c10d02f1d",
+      "sourceCoreSha256": "1617454d9cbc57f04142f95c0238719851469484dbc78145b5e2931f9dae2106",
+      "sourceInventorySha256": "7d4154675678bb2108cb21b66b9a6181a703f88f5d6a218aa9d4c15876ec09bf",
+      "forms": 3732,
+      "sourceWords": 3734,
+      "afterFileSha256": "6fe7db77e053963b564f5440852d7e7a43f5ccecfc3696a8348ce770641b985b",
+      "changed": 2093,
+      "remaining": 1642,
+      "counts": {
+        "lexicalForms": 3732,
+        "diplomaticSourcePositions": 3734,
+        "supplementedLexicalForms": 2093,
+        "supplementedUniqueSourcePositions": 2093,
+        "remainingRecords": 1642,
+        "uniqueRemainingSourceIDs": 1641,
+        "remainingLexicalForms": 1639,
+        "sourcePositionsWithoutLexicalToken": 3,
+        "sourcePositionsWithMultipleLexicalTokens": 1,
+        "partialOnlyLexicalForms": 454,
+        "partialOnlySourceCards": 454,
+        "unresolvedLexicalForms": 1639,
+        "unresolvedSourceCards": 1641
+      },
+      "statuses": {
+        "ambiguous": 870,
+        "unresolved": 1639,
+        "partial": 454,
+        "candidate": 769
+      },
+      "sourceCardStatuses": {
+        "ambiguous": 870,
+        "unresolved": 1641,
+        "partial": 454,
+        "candidate": 769
+      }
+    },
+    {
+      "title": "Mishnah Bekhorot",
+      "file": "mishnah-kaufmann-kodashim-bekhorot-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_BEKHOROT_DATA",
+      "fileSha256": "94b3cd7200e100d891756e171b8fbd046f3bcea0c318cf4f5dc4fadcc1e5e95e",
+      "sourceTextHash": "9a177cc1f275354dfed52cd69d16b240c56d3c0ef4dff89fe633f2b720c453df",
+      "sourceCoreSha256": "69d66116f38175187638c7cbe56501aee37e57b41ce9115d4202eab7ef092bc8",
+      "sourceInventorySha256": "b02b6ea48c19ecdce93634bceeba2cef6f65696980aa73b55b88be2df6135298",
+      "forms": 3702,
+      "sourceWords": 3708,
+      "afterFileSha256": "9d6587f906b1f2140489f542f684a7b03f6ce32802aeaa553e3161b8875c720a",
+      "changed": 2185,
+      "remaining": 1523,
+      "counts": {
+        "lexicalForms": 3702,
+        "diplomaticSourcePositions": 3708,
+        "supplementedLexicalForms": 2185,
+        "supplementedUniqueSourcePositions": 2185,
+        "remainingRecords": 1523,
+        "uniqueRemainingSourceIDs": 1523,
+        "remainingLexicalForms": 1517,
+        "sourcePositionsWithoutLexicalToken": 6,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 360,
+        "partialOnlySourceCards": 360,
+        "unresolvedLexicalForms": 1517,
+        "unresolvedSourceCards": 1523
+      },
+      "statuses": {
+        "unresolved": 1517,
+        "ambiguous": 969,
+        "candidate": 856,
+        "partial": 360
+      },
+      "sourceCardStatuses": {
+        "unresolved": 1523,
+        "ambiguous": 969,
+        "candidate": 856,
+        "partial": 360
+      }
+    },
+    {
+      "title": "Mishnah Arakhin",
+      "file": "mishnah-kaufmann-kodashim-arakhin-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_ARAKHIN_DATA",
+      "fileSha256": "cfaaae995fd972331ad36d61593bb3e81ae12257c5b3ce70b064c2a659f6008d",
+      "sourceTextHash": "b3fa81c80191e6a6bafa747ea692f8809cc1531c2ff8df420b2ac4709a9fe579",
+      "sourceCoreSha256": "5613b77a70ac7f96507a0bbfc57dea9a8a83e4cc642923a1ae52acc14cccfd77",
+      "sourceInventorySha256": "35e8de4ffe8d34837ede799c7e4c5256008958c7b34c519012b636ef75ed50c5",
+      "forms": 2574,
+      "sourceWords": 2577,
+      "afterFileSha256": "0f3a185c19fce9390b3d19af346310a92589cbb46aa4b6782b95151d9579e1aa",
+      "changed": 1640,
+      "remaining": 937,
+      "counts": {
+        "lexicalForms": 2574,
+        "diplomaticSourcePositions": 2577,
+        "supplementedLexicalForms": 1640,
+        "supplementedUniqueSourcePositions": 1640,
+        "remainingRecords": 937,
+        "uniqueRemainingSourceIDs": 937,
+        "remainingLexicalForms": 934,
+        "sourcePositionsWithoutLexicalToken": 3,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 288,
+        "partialOnlySourceCards": 288,
+        "unresolvedLexicalForms": 934,
+        "unresolvedSourceCards": 937
+      },
+      "statuses": {
+        "ambiguous": 679,
+        "unresolved": 934,
+        "candidate": 673,
+        "partial": 288
+      },
+      "sourceCardStatuses": {
+        "ambiguous": 679,
+        "unresolved": 937,
+        "candidate": 673,
+        "partial": 288
+      }
+    },
+    {
+      "title": "Mishnah Temurah",
+      "file": "mishnah-kaufmann-kodashim-temurah-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_TEMURAH_DATA",
+      "fileSha256": "84b34c49ade192c7c66ed6dda454a5349f7a34a867a20a34929bd70f4868c6ab",
+      "sourceTextHash": "d01a5a5711998facfbd69d87f54b085fc735fc5bbbaca41212fa7ae788ffdd65",
+      "sourceCoreSha256": "66a2943631e2797a21b8ae821d9e0e47fc4bc7d8a06bc7d54e1338cd8d028779",
+      "sourceInventorySha256": "83b79cedf01dedf3775ad5cc2acac32747123323a2d90120e132f86aeec8c3c5",
+      "forms": 1798,
+      "sourceWords": 1798,
+      "afterFileSha256": "80cb94a983d2b987252c406ddeae87a184b994a0bb01f59869a4eb80cb4d66fb",
+      "changed": 1018,
+      "remaining": 780,
+      "counts": {
+        "lexicalForms": 1798,
+        "diplomaticSourcePositions": 1798,
+        "supplementedLexicalForms": 1018,
+        "supplementedUniqueSourcePositions": 1018,
+        "remainingRecords": 780,
+        "uniqueRemainingSourceIDs": 780,
+        "remainingLexicalForms": 780,
+        "sourcePositionsWithoutLexicalToken": 0,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 198,
+        "partialOnlySourceCards": 198,
+        "unresolvedLexicalForms": 780,
+        "unresolvedSourceCards": 780
+      },
+      "statuses": {
+        "ambiguous": 473,
+        "unresolved": 780,
+        "candidate": 347,
+        "partial": 198
+      },
+      "sourceCardStatuses": {
+        "ambiguous": 473,
+        "unresolved": 780,
+        "candidate": 347,
+        "partial": 198
+      }
+    },
+    {
+      "title": "Mishnah Keritot",
+      "file": "mishnah-kaufmann-kodashim-keritot-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_KERITOT_DATA",
+      "fileSha256": "b0ba4333544e1e06efdda3239bd8da033825ce2e202e8068a977cf79bcc5f3df",
+      "sourceTextHash": "711edb1d3f6db5cebf3651c55ca40f725bf3e5803abb7c2668b1ae4956e93d30",
+      "sourceCoreSha256": "00262c5be84326be38a705c846fcb0ddaf0089284468e834d57dd707cfe9d7b0",
+      "sourceInventorySha256": "abeff5ae1faf230aed6e9f909f96eaa6d1d1b547d271074771f2fbf656153f3b",
+      "forms": 1993,
+      "sourceWords": 1993,
+      "afterFileSha256": "79b959d998b4c3ef1f66a55f84f0a082e1318ecac6c062ad37d9e253b96b476a",
+      "changed": 1299,
+      "remaining": 694,
+      "counts": {
+        "lexicalForms": 1993,
+        "diplomaticSourcePositions": 1993,
+        "supplementedLexicalForms": 1299,
+        "supplementedUniqueSourcePositions": 1299,
+        "remainingRecords": 694,
+        "uniqueRemainingSourceIDs": 694,
+        "remainingLexicalForms": 694,
+        "sourcePositionsWithoutLexicalToken": 0,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 206,
+        "partialOnlySourceCards": 206,
+        "unresolvedLexicalForms": 694,
+        "unresolvedSourceCards": 694
+      },
+      "statuses": {
+        "candidate": 483,
+        "unresolved": 694,
+        "partial": 206,
+        "ambiguous": 610
+      },
+      "sourceCardStatuses": {
+        "candidate": 483,
+        "unresolved": 694,
+        "partial": 206,
+        "ambiguous": 610
+      }
+    },
+    {
+      "title": "Mishnah Meilah",
+      "file": "mishnah-kaufmann-kodashim-meilah-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_MEILAH_DATA",
+      "fileSha256": "f7679a62ad2aaff799a789902492495b1c69df9c20fe97633c16b7ba85896730",
+      "sourceTextHash": "f210bf929c5dcf7e037681305e569030806af58053584742fe0198ec25f3f80e",
+      "sourceCoreSha256": "a2f4a3ff15733fde392c00b0b555cf9b32ff4a7c534252c703fae34626e6aaf7",
+      "sourceInventorySha256": "b282a44e1b2df8899a073c21abe7fdc242657e5d3166eb084da7a0dc967d1ad5",
+      "forms": 1750,
+      "sourceWords": 1750,
+      "afterFileSha256": "5fea18a617a9f52157278a14a3fce914f62cb62912d46e68c729ce65ab3a8195",
+      "changed": 987,
+      "remaining": 763,
+      "counts": {
+        "lexicalForms": 1750,
+        "diplomaticSourcePositions": 1750,
+        "supplementedLexicalForms": 987,
+        "supplementedUniqueSourcePositions": 987,
+        "remainingRecords": 763,
+        "uniqueRemainingSourceIDs": 763,
+        "remainingLexicalForms": 763,
+        "sourcePositionsWithoutLexicalToken": 0,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 145,
+        "partialOnlySourceCards": 145,
+        "unresolvedLexicalForms": 763,
+        "unresolvedSourceCards": 763
+      },
+      "statuses": {
+        "candidate": 371,
+        "ambiguous": 471,
+        "unresolved": 763,
+        "partial": 145
+      },
+      "sourceCardStatuses": {
+        "candidate": 371,
+        "ambiguous": 471,
+        "unresolved": 763,
+        "partial": 145
+      }
+    },
+    {
+      "title": "Mishnah Tamid",
+      "file": "mishnah-kaufmann-kodashim-tamid-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_TAMID_DATA",
+      "fileSha256": "42aeef3d5a7c6ad010309a98bb34854c5a15d063b229c3e2c240e473ca630e56",
+      "sourceTextHash": "cc8fb3aac0bd76ce65f8c123d16eb7bb0cd33e5ada8b942139670018ca172581",
+      "sourceCoreSha256": "07fb7da0a04c2d3c63f19c4b9ea861f6040bca6da80a3b078d2fafedc81fd7d2",
+      "sourceInventorySha256": "02f8bb693b928b55dc58ddbee3c0cd7d12d578d233daaf963cad47df2582ce30",
+      "forms": 2111,
+      "sourceWords": 2115,
+      "afterFileSha256": "b425ef2271689fdeba520c9f5000626cfe23fa8629e5f6e38dbad20a81176efc",
+      "changed": 1099,
+      "remaining": 1016,
+      "counts": {
+        "lexicalForms": 2111,
+        "diplomaticSourcePositions": 2115,
+        "supplementedLexicalForms": 1099,
+        "supplementedUniqueSourcePositions": 1099,
+        "remainingRecords": 1016,
+        "uniqueRemainingSourceIDs": 1016,
+        "remainingLexicalForms": 1012,
+        "sourcePositionsWithoutLexicalToken": 4,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 153,
+        "partialOnlySourceCards": 153,
+        "unresolvedLexicalForms": 1012,
+        "unresolvedSourceCards": 1016
+      },
+      "statuses": {
+        "candidate": 522,
+        "unresolved": 1012,
+        "partial": 153,
+        "ambiguous": 424
+      },
+      "sourceCardStatuses": {
+        "candidate": 522,
+        "unresolved": 1016,
+        "partial": 153,
+        "ambiguous": 424
+      }
+    },
+    {
+      "title": "Mishnah Middot",
+      "file": "mishnah-kaufmann-kodashim-middot-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_MIDDOT_DATA",
+      "fileSha256": "f2ce394865e888ca3da9bfa0ba680a3b0b673feb15251278cc89c4bd5e31c110",
+      "sourceTextHash": "5d1d691c939a3d0cc0bd8f0221f36551a50dd51d1b0676a55d0b62fe6dbda0e5",
+      "sourceCoreSha256": "a7a291edeb2728c36cd22b6e977979cb81e52db7a8ed9096f697306a11a176c7",
+      "sourceInventorySha256": "32b3c1d70966c794622baa3ca6f568655adf43c6030ea6f694fb6976c1175402",
+      "forms": 2260,
+      "sourceWords": 2260,
+      "afterFileSha256": "509bef1967e53c3bb7058bfd77e99e26b6575f64597533ea6fd2bf93c49a6d4f",
+      "changed": 1338,
+      "remaining": 922,
+      "counts": {
+        "lexicalForms": 2260,
+        "diplomaticSourcePositions": 2260,
+        "supplementedLexicalForms": 1338,
+        "supplementedUniqueSourcePositions": 1338,
+        "remainingRecords": 922,
+        "uniqueRemainingSourceIDs": 922,
+        "remainingLexicalForms": 922,
+        "sourcePositionsWithoutLexicalToken": 0,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 291,
+        "partialOnlySourceCards": 291,
+        "unresolvedLexicalForms": 922,
+        "unresolvedSourceCards": 922
+      },
+      "statuses": {
+        "candidate": 563,
+        "unresolved": 922,
+        "partial": 291,
+        "ambiguous": 484
+      },
+      "sourceCardStatuses": {
+        "candidate": 563,
+        "unresolved": 922,
+        "partial": 291,
+        "ambiguous": 484
+      }
+    },
+    {
+      "title": "Mishnah Kinnim",
+      "file": "mishnah-kaufmann-kodashim-kinnim-data.js",
+      "global": "MISHNAH_KAUFMANN_KODASHIM_KINNIM_DATA",
+      "fileSha256": "e3e70fad74b1b459b52db5895286b79675be7c6f7baaae8b4ab02d152d2111a1",
+      "sourceTextHash": "e20d1b5cc4a8a3b3e3a4723e1fab7349445ef86cda85b23ac21fbbf637379721",
+      "sourceCoreSha256": "aabb7051b5a45d2daa3e54245df74e040acd21b469a69e7ebf426d1a4eceefca",
+      "sourceInventorySha256": "e902970b1b2d1c5bcdc265f6baeee4194e68b4f09a74b309a8e2ccfb1fa99821",
+      "forms": 901,
+      "sourceWords": 901,
+      "afterFileSha256": "f7b3d2e09f9a1cafece841d02dbec43199a06c42cd208df5d991802e9acd8718",
+      "changed": 550,
+      "remaining": 351,
+      "counts": {
+        "lexicalForms": 901,
+        "diplomaticSourcePositions": 901,
+        "supplementedLexicalForms": 550,
+        "supplementedUniqueSourcePositions": 550,
+        "remainingRecords": 351,
+        "uniqueRemainingSourceIDs": 351,
+        "remainingLexicalForms": 351,
+        "sourcePositionsWithoutLexicalToken": 0,
+        "sourcePositionsWithMultipleLexicalTokens": 0,
+        "partialOnlyLexicalForms": 128,
+        "partialOnlySourceCards": 128,
+        "unresolvedLexicalForms": 351,
+        "unresolvedSourceCards": 351
+      },
+      "statuses": {
+        "partial": 128,
+        "unresolved": 351,
+        "ambiguous": 239,
+        "candidate": 183
+      },
+      "sourceCardStatuses": {
+        "partial": 128,
+        "unresolved": 351,
+        "ambiguous": 239,
+        "candidate": 183
+      }
+    }
+  ],
+  "summary": {
+    "lexicalForms": 31042,
+    "diplomaticSourcePositions": 31065,
+    "supplementedLexicalForms": 18181,
+    "supplementedUniqueSourcePositions": 18181,
+    "remainingRecords": 12885,
+    "uniqueRemainingSourceIDs": 12884,
+    "remainingLexicalForms": 12861,
+    "sourcePositionsWithoutLexicalToken": 24,
+    "sourcePositionsWithMultipleLexicalTokens": 1,
+    "partialOnlyLexicalForms": 3503,
+    "partialOnlySourceCards": 3503,
+    "unresolvedLexicalForms": 12861,
+    "unresolvedSourceCards": 12884,
+    "forms": 31042,
+    "sourceWords": 31065,
+    "supplemented": 18181,
+    "remaining": 12885,
+    "remainingCountUnit": "records, not unique source words"
+  },
+  "fullReportSha256": "bb0de7713b83e9057e0ccfa90d55fb0f8eef7ddf05b9944eed01989b05ee66bd",
+  "changedFormRecords": 18181,
+  "meaning": "Provisional candidates, including explicitly partial-only cards; no completed Accordance, manuscript, vocalization or Maagarim validation.",
+  "reproduction": "Use the exact frozen scaffold9968f08 in an isolated checkout with the hash-bound current adapter, shared engine and dictionary inputs. Run complete-kodashim.cjs with the committed baseline and an independent output directory.",
+  "remainingFileSha256": "89e8862ba3114c8f8d1c8f9c4fc01c99006bc0f3771a0679b2ef60e8352e11b1"
+}

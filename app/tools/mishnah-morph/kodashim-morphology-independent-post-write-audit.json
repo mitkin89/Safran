@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "scope": "Independent all-eleven Kodashim post-write morphology audit; no completion engine executed",
+  "baselineCommit": "9968f0874d5668f29601c1c3a3c9a83570a1bdc0",
+  "requireWritten": true,
+  "humanValidated": false,
+  "books": [
+    {
+      "title": "Mishnah Zevachim",
+      "file": "mishnah-kaufmann-kodashim-zevachim-data.js",
+      "frozenFileSha256": "0a9fc35a214519bacee9562150151a2b0c4cd80d6e23fc8e3b5079008ed6e8de",
+      "currentFileSha256": "7911615175f1e1bfacd0e3263ff1269550b9ed423e765a57dd2e1a37db1f7b59",
+      "sourceCoreSha256": "580381446dafddb3f356206553994aa843ac4aec0e9d26e9a0d15587522c155a",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "7edf15ab6707a76ed5e077398845adba0aa3ed5361183ad47c91112aae320779",
+      "cardMappingSha256": "c950f7c899a96d973817225f292bc9699eeb03e2ec75e402867be2cd2f9817e1",
+      "forms": 5005,
+      "sourceCards": 5013,
+      "changedForms": 2888,
+      "changedSourceCards": 2888,
+      "formStatuses": {
+        "candidate": 1099,
+        "unresolved": 2117,
+        "partial": 661,
+        "ambiguous": 1128
+      },
+      "sourceCardStatuses": {
+        "candidate": 1099,
+        "unresolved": 2125,
+        "partial": 661,
+        "ambiguous": 1128
+      }
+    },
+    {
+      "title": "Mishnah Menachot",
+      "file": "mishnah-kaufmann-kodashim-menachot-data.js",
+      "frozenFileSha256": "8610a44ef2b989f9141626417b9ebeb90809396f2cd488a63087a2fb96767307",
+      "currentFileSha256": "26211dfa6c95e8e43f4447a2f60c4e957083c1da6109b975c0c9ec6546916f0c",
+      "sourceCoreSha256": "51d28aef45332cc57b4981e77a437781be240592965ff70e8972b2014313333e",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "cd5d4f69b27950559483c3735668fdf136f053044cd4b531a5958d730b934f01",
+      "cardMappingSha256": "cdf5461f94ebebf68d7f5e3511d4546cd6891e7d035667dbe44c969955e30c3b",
+      "forms": 5216,
+      "sourceCards": 5216,
+      "changedForms": 3084,
+      "changedSourceCards": 3084,
+      "formStatuses": {
+        "candidate": 1137,
+        "unresolved": 2132,
+        "ambiguous": 1328,
+        "partial": 619
+      },
+      "sourceCardStatuses": {
+        "candidate": 1137,
+        "unresolved": 2132,
+        "ambiguous": 1328,
+        "partial": 619
+      }
+    },
+    {
+      "title": "Mishnah Chullin",
+      "file": "mishnah-kaufmann-kodashim-chullin-data.js",
+      "frozenFileSha256": "83e628a4e0899d4dc3ccb237729480ef743ca7cbe90e164c494a7e867f273556",
+      "currentFileSha256": "6fe7db77e053963b564f5440852d7e7a43f5ccecfc3696a8348ce770641b985b",
+      "sourceCoreSha256": "1617454d9cbc57f04142f95c0238719851469484dbc78145b5e2931f9dae2106",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "cc71dddbe14d1b0b101f4e699c9894cde91ea8c084f8a7f1a4941ce3db2b5e01",
+      "cardMappingSha256": "2a903e735475cbef0f391ab4bb7896f4be520b07606c3dd1fa6771c8aa5e3f18",
+      "forms": 3732,
+      "sourceCards": 3734,
+      "changedForms": 2093,
+      "changedSourceCards": 2093,
+      "formStatuses": {
+        "ambiguous": 870,
+        "unresolved": 1639,
+        "partial": 454,
+        "candidate": 769
+      },
+      "sourceCardStatuses": {
+        "ambiguous": 870,
+        "unresolved": 1641,
+        "partial": 454,
+        "candidate": 769
+      }
+    },
+    {
+      "title": "Mishnah Bekhorot",
+      "file": "mishnah-kaufmann-kodashim-bekhorot-data.js",
+      "frozenFileSha256": "94b3cd7200e100d891756e171b8fbd046f3bcea0c318cf4f5dc4fadcc1e5e95e",
+      "currentFileSha256": "9d6587f906b1f2140489f542f684a7b03f6ce32802aeaa553e3161b8875c720a",
+      "sourceCoreSha256": "69d66116f38175187638c7cbe56501aee37e57b41ce9115d4202eab7ef092bc8",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "c659e226b42fcf07e83f812f6267d2c8371353cd04895b12198c8ab0e5245340",
+      "cardMappingSha256": "9209f94a24a0d10d42a771942b53ae3f66d756c2e0e3c9a0318886767b6f5e5e",
+      "forms": 3702,
+      "sourceCards": 3708,
+      "changedForms": 2185,
+      "changedSourceCards": 2185,
+      "formStatuses": {
+        "unresolved": 1517,
+        "ambiguous": 969,
+        "candidate": 856,
+        "partial": 360
+      },
+      "sourceCardStatuses": {
+        "unresolved": 1523,
+        "ambiguous": 969,
+        "candidate": 856,
+        "partial": 360
+      }
+    },
+    {
+      "title": "Mishnah Arakhin",
+      "file": "mishnah-kaufmann-kodashim-arakhin-data.js",
+      "frozenFileSha256": "cfaaae995fd972331ad36d61593bb3e81ae12257c5b3ce70b064c2a659f6008d",
+      "currentFileSha256": "0f3a185c19fce9390b3d19af346310a92589cbb46aa4b6782b95151d9579e1aa",
+      "sourceCoreSha256": "5613b77a70ac7f96507a0bbfc57dea9a8a83e4cc642923a1ae52acc14cccfd77",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "1d0be06d98440d997fd9487c03b918d02c44700f5893c12a46bcc6a36f808103",
+      "cardMappingSha256": "31e5db3baca335b7e538fe54c82b6a362b7ad6479d7d465f747d05315855308d",
+      "forms": 2574,
+      "sourceCards": 2577,
+      "changedForms": 1640,
+      "changedSourceCards": 1640,
+      "formStatuses": {
+        "ambiguous": 679,
+        "unresolved": 934,
+        "candidate": 673,
+        "partial": 288
+      },
+      "sourceCardStatuses": {
+        "ambiguous": 679,
+        "unresolved": 937,
+        "candidate": 673,
+        "partial": 288
+      }
+    },
+    {
+      "title": "Mishnah Temurah",
+      "file": "mishnah-kaufmann-kodashim-temurah-data.js",
+      "frozenFileSha256": "84b34c49ade192c7c66ed6dda454a5349f7a34a867a20a34929bd70f4868c6ab",
+      "currentFileSha256": "80cb94a983d2b987252c406ddeae87a184b994a0bb01f59869a4eb80cb4d66fb",
+      "sourceCoreSha256": "66a2943631e2797a21b8ae821d9e0e47fc4bc7d8a06bc7d54e1338cd8d028779",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "4cbcf9e42a238861987efeccb2b03a3093b176fd959f5d9603284d5dc1895c47",
+      "cardMappingSha256": "05639393727d550950a2c886a8db67600326f59f6ddc088ff8b754c3afc12d62",
+      "forms": 1798,
+      "sourceCards": 1798,
+      "changedForms": 1018,
+      "changedSourceCards": 1018,
+      "formStatuses": {
+        "ambiguous": 473,
+        "unresolved": 780,
+        "candidate": 347,
+        "partial": 198
+      },
+      "sourceCardStatuses": {
+        "ambiguous": 473,
+        "unresolved": 780,
+        "candidate": 347,
+        "partial": 198
+      }
+    },
+    {
+      "title": "Mishnah Keritot",
+      "file": "mishnah-kaufmann-kodashim-keritot-data.js",
+      "frozenFileSha256": "b0ba4333544e1e06efdda3239bd8da033825ce2e202e8068a977cf79bcc5f3df",
+      "currentFileSha256": "79b959d998b4c3ef1f66a55f84f0a082e1318ecac6c062ad37d9e253b96b476a",
+      "sourceCoreSha256": "00262c5be84326be38a705c846fcb0ddaf0089284468e834d57dd707cfe9d7b0",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "c11bfce3c090b6b15c58f992040ffae63f5403bcdbb8006b53187ac7c0140184",
+      "cardMappingSha256": "890c3bba91c4f7fa2629c18a7a0f0311a3803bb8a10ce431fab867d5183b61d1",
+      "forms": 1993,
+      "sourceCards": 1993,
+      "changedForms": 1299,
+      "changedSourceCards": 1299,
+      "formStatuses": {
+        "candidate": 483,
+        "unresolved": 694,
+        "partial": 206,
+        "ambiguous": 610
+      },
+      "sourceCardStatuses": {
+        "candidate": 483,
+        "unresolved": 694,
+        "partial": 206,
+        "ambiguous": 610
+      }
+    },
+    {
+      "title": "Mishnah Meilah",
+      "file": "mishnah-kaufmann-kodashim-meilah-data.js",
+      "frozenFileSha256": "f7679a62ad2aaff799a789902492495b1c69df9c20fe97633c16b7ba85896730",
+      "currentFileSha256": "5fea18a617a9f52157278a14a3fce914f62cb62912d46e68c729ce65ab3a8195",
+      "sourceCoreSha256": "a2f4a3ff15733fde392c00b0b555cf9b32ff4a7c534252c703fae34626e6aaf7",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "639e8fac9ad94e78ae40e513f87c788037bb2dfec2c93dd50af16e98608f6da1",
+      "cardMappingSha256": "ea13d7ec938e45bf92d001945b6610218d2582f7d0edd362a189b5d34e8dc59d",
+      "forms": 1750,
+      "sourceCards": 1750,
+      "changedForms": 987,
+      "changedSourceCards": 987,
+      "formStatuses": {
+        "candidate": 371,
+        "ambiguous": 471,
+        "unresolved": 763,
+        "partial": 145
+      },
+      "sourceCardStatuses": {
+        "candidate": 371,
+        "ambiguous": 471,
+        "unresolved": 763,
+        "partial": 145
+      }
+    },
+    {
+      "title": "Mishnah Tamid",
+      "file": "mishnah-kaufmann-kodashim-tamid-data.js",
+      "frozenFileSha256": "42aeef3d5a7c6ad010309a98bb34854c5a15d063b229c3e2c240e473ca630e56",
+      "currentFileSha256": "b425ef2271689fdeba520c9f5000626cfe23fa8629e5f6e38dbad20a81176efc",
+      "sourceCoreSha256": "07fb7da0a04c2d3c63f19c4b9ea861f6040bca6da80a3b078d2fafedc81fd7d2",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "90f421c0ff8e7f1f14ad87e02a6012a1275f0e35c4bae4476ffa2e0319130376",
+      "cardMappingSha256": "e1071dffecf94a19087a4e5e4b01885396976d26228031407a46ede2682fc361",
+      "forms": 2111,
+      "sourceCards": 2115,
+      "changedForms": 1099,
+      "changedSourceCards": 1099,
+      "formStatuses": {
+        "candidate": 522,
+        "unresolved": 1012,
+        "partial": 153,
+        "ambiguous": 424
+      },
+      "sourceCardStatuses": {
+        "candidate": 522,
+        "unresolved": 1016,
+        "partial": 153,
+        "ambiguous": 424
+      }
+    },
+    {
+      "title": "Mishnah Middot",
+      "file": "mishnah-kaufmann-kodashim-middot-data.js",
+      "frozenFileSha256": "f2ce394865e888ca3da9bfa0ba680a3b0b673feb15251278cc89c4bd5e31c110",
+      "currentFileSha256": "509bef1967e53c3bb7058bfd77e99e26b6575f64597533ea6fd2bf93c49a6d4f",
+      "sourceCoreSha256": "a7a291edeb2728c36cd22b6e977979cb81e52db7a8ed9096f697306a11a176c7",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "8855a7ced20c41ae5a629c34d516a1faf6e72ff9aabfa739053dfa145c287217",
+      "cardMappingSha256": "632ac0db679dcd1cd90b51d5db40acdebe039199bcc03adaeb5e6abd7338bf19",
+      "forms": 2260,
+      "sourceCards": 2260,
+      "changedForms": 1338,
+      "changedSourceCards": 1338,
+      "formStatuses": {
+        "candidate": 563,
+        "unresolved": 922,
+        "partial": 291,
+        "ambiguous": 484
+      },
+      "sourceCardStatuses": {
+        "candidate": 563,
+        "unresolved": 922,
+        "partial": 291,
+        "ambiguous": 484
+      }
+    },
+    {
+      "title": "Mishnah Kinnim",
+      "file": "mishnah-kaufmann-kodashim-kinnim-data.js",
+      "frozenFileSha256": "e3e70fad74b1b459b52db5895286b79675be7c6f7baaae8b4ab02d152d2111a1",
+      "currentFileSha256": "f7b3d2e09f9a1cafece841d02dbec43199a06c42cd208df5d991802e9acd8718",
+      "sourceCoreSha256": "aabb7051b5a45d2daa3e54245df74e040acd21b469a69e7ebf426d1a4eceefca",
+      "sourceCoreUnchanged": true,
+      "sourceUnitsSha256": "050b5ba34911f7598a2b37530d4cba8d837da6f4c542c64152db0f171c5d27cf",
+      "cardMappingSha256": "78e9b3dcc4f85ca3b4adde81a21734cd9b889139aa4dc0e87a60290383bda7fc",
+      "forms": 901,
+      "sourceCards": 901,
+      "changedForms": 550,
+      "changedSourceCards": 550,
+      "formStatuses": {
+        "partial": 128,
+        "unresolved": 351,
+        "ambiguous": 239,
+        "candidate": 183
+      },
+      "sourceCardStatuses": {
+        "partial": 128,
+        "unresolved": 351,
+        "ambiguous": 239,
+        "candidate": 183
+      }
+    }
+  ],
+  "summary": {
+    "books": 11,
+    "forms": 31042,
+    "sourceCards": 31065,
+    "changedForms": 18181,
+    "changedSourceCards": 18181,
+    "uniqueDictionaryArticles": 1371
+  },
+  "dictionaryFiles": [
+    {
+      "dictId": "d895bc1c727b",
+      "sha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268"
+    }
+  ],
+  "errors": []
+}
