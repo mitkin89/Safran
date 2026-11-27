@@ -23,7 +23,8 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  async function open(item,token){
   if(token!==serial||!active())return;selected=true;
   $('#dictCardMatches').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.key===item.key)));
-  if(item.kind==='peshitta')await cards.openPForms(item.id);
+  if(item.kind==='corpus')await cards.openCorpusForms(item.id,item.greek);
+  else if(item.kind==='peshitta')await cards.openPForms(item.id);
   else if(item.kind==='targum')await cards.openTForms(item.id,null,'card');
   else if(item.kind==='greek')await cards.openGForms(item.id,null,'card');
   else if(item.kind==='syriac')await cards.openSForms(item.id,null,'card');
@@ -44,11 +45,11 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
    const D=await cards.loadForms(),lemmas=window.OSHB_LEMMAS||{};let matches=[];
    const key=fold(q),match=value=>key&&(live?fold(value).startsWith(key):fold(value)===key);
    if(/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q)){
-    const G=await loadGreek();matches=window.GMorph.dictionaryLemmas(G,q).map(id=>({key:id,id,kind:'greek',label:id,count:window.GMorph.model(G,id)?.total||0}));
+    const G=await loadGreek();matches=window.GMorph.dictionaryLemmas(G,q).map(id=>({key:id,id,kind:'greek',language:'Griechisch',source:'Septuaginta',label:id,count:window.GMorph.model(G,id)?.total||0}));
    }else if(/[\u0710-\u072f]/u.test(q)){
     matches=(await cards.loadPeshittaCards()).suggest(q,live);
    }else{
-    matches=Object.entries(lemmas).filter(([id,l])=>q===id||match(l[0])).map(([id,l])=>({key:id,id,label:l[0],gloss:I18N.lang==='de'&&l[2]?l[2]:l[1],count:total(D,id)})).filter(x=>x.count);
+    matches=Object.entries(lemmas).filter(([id,l])=>q===id||match(l[0])).map(([id,l])=>({key:id,id,language:'Hebräisch',source:'Tanach',label:l[0],gloss:I18N.lang==='de'&&l[2]?l[2]:l[1],count:total(D,id)})).filter(x=>x.count);
     const roots=(await loadRoots()).roots,families=new Map();
     for(const [id,r] of Object.entries(roots))if(match(r.root)||q===r.id){
      const familyKey=r.lang+'|'+r.id,n=total(D,id);if(!n)continue;
@@ -64,6 +65,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
     }
     matches.push(...(await cards.loadPeshittaCards()).suggest(q,live));
    }
+   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);matches.push(...extra.filter(x=>!greek||!matches.some(m=>m.kind==='greek'&&m.label===x.label)));}
    if(token!==serial||!active())return true;
    matches.sort((a,b)=>Number(fold(b.label)===key)-Number(fold(a.label)===key)||Number(!!a.root)-Number(!!b.root)||b.count-a.count||a.key.localeCompare(b.key));
    if(!matches.length){out.textContent=I18N.t('Kein passendes Lemma oder keine passende Wurzel gefunden.');return true;}

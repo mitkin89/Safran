@@ -3182,3 +3182,14 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcPeshBook { display:inline-block; margin:5px 12px 5px 0; }
 #formsPanel .wcPeshGrammar ~ table td { padding:6px; }
 #dictCardMatches [lang=syr] { font-family:"Safran Syriac",serif; }
+
+.wcCorpusScopes { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+.wcCorpusScopes [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }
+.wcCorpusGrammar { margin-bottom:12px; }
+#formsPanel.corpus-filtered :is(#wcBody,#fmBody,#fmConcordanceBody,#fmHead .fmCnt) { display:none!important; }
+#fmCorpusBody { padding-bottom:20px; }
+#fmCorpusBody[hidden],#fmCorpusControls[hidden] { display:none; }
+.wcCorpusBar { display:flex; gap:10px; align-items:center; margin:6px 0; }
+.wcCorpusBar > span { flex:1; }
+.wcCorpusBar progress { width:35%; accent-color:var(--accent); }
+.wcCorpusBar > b { min-width:4em; text-align:end; }
