@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "title": "Mishnah Arakhin",
+  "ledger": {
+    "file": "accordance-kodashim-current-expansion-root-arakhin-observations.json",
+    "sha256": "d4907eea847b56f71c282e0aff81ca858964ce0e926d5324562f0fd567a72c70"
+  },
+  "humanValidated": false,
+  "checks": {
+    "observationRows": 414,
+    "uniqueBoundPositions": 415,
+    "imageByteHashes": 10,
+    "structuralErrors": []
+  },
+  "freshImageChecks": [
+    {
+      "image": 1611,
+      "ref": "2:1",
+      "finding": "Editorial {אינו} carries Lex אין / adv and must remain separate from source נותן. Confirmed."
+    },
+    {
+      "image": 1613,
+      "ref": "2:3",
+      "finding": "First מוסיפין, top row before על ארבעים, visibly hif prt ms pl; recorded ms sg is a reading error. Second מוסיפין also hif prt ms pl.",
+      "requiresCorrection": false,
+      "resolution": "Root independently confirmed and corrected2:3/7 to hif prt ms pl before final QA hash."
+    },
+    {
+      "image": 1616,
+      "ref": "2:6",
+      "finding": "Printed וצעירי / Lex ו צער / cnj; qal prt ms pl corresponds to source fragments52+53 as a group; no individual fragment morphology inferred."
+    },
+    {
+      "image": 1609,
+      "ref": "1:4",
+      "finding": "First ממתינין index5 visibly hif prt ms pl; second index12 visibly hif prt ms sg. Literal source difference confirmed."
+    }
+  ],
+  "limitations": [
+    "Fresh independent AI rereading of selected original images only, not all 414 rows.",
+    "Structural validation checks bindings and original byte hashes; source and morphology unchanged."
+  ]
+}

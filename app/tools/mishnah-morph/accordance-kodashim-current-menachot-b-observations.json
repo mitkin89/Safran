@@ -10,7 +10,7 @@
     "sourceModuleSha256": "8610a44ef2b989f9141626417b9ebeb90809396f2cd488a63087a2fb96767307",
     "imageIndexSha256": "37037686d07c31bed309e1916675f0f51a398e33b71fd4d409793eac50874b53",
     "rawTranscriptionFile": "accordance-kodashim-current-menachot-b-raw-transcription.json",
-    "rawTranscriptionSha256": "b289009e52cc9f79b26f814b7d721e2e43087e6cd4392255ee53b809a8df4b4d"
+    "rawTranscriptionSha256": "75e9ddc0f90d59e7f571857ba4a192be7ad8ebb6712990a61b97288b2e4f44d5"
   },
   "observations": [
     {
@@ -29379,7 +29379,7 @@
         "word": "ושנים",
         "wordTranscription": "Unpointed visible lexical surface only; vowels not transcribed. Editorial bracket details, where uncertain, remain in notes/open image issues rather than reconstructed.",
         "lex": "ו שנים",
-        "tag": "cnj cm ms du abs crd",
+        "tag": "cnj ms du abs crd",
         "accordanceTitle": "Menah.",
         "accordanceRef": "6:4"
       },
@@ -29391,7 +29391,7 @@
       },
       "humanValidated": false,
       "status": "visible-raw-observation",
-      "note": "Fresh AI original-image Lex/Tag reading; no unprinted suffix features inferred."
+      "note": "Original image re-read 2026-11-27, independently confirmed by root: no cm printed; previous added cm was a reading error."
     },
     {
       "title": "Mishnah Menachot",
@@ -29693,7 +29693,7 @@
         "word": "ושנים",
         "wordTranscription": "Unpointed visible lexical surface only; vowels not transcribed. Editorial bracket details, where uncertain, remain in notes/open image issues rather than reconstructed.",
         "lex": "ו שנים",
-        "tag": "cnj cm ms du abs crd",
+        "tag": "cnj ms du abs crd",
         "accordanceTitle": "Menah.",
         "accordanceRef": "6:4"
       },
@@ -29705,7 +29705,7 @@
       },
       "humanValidated": false,
       "status": "visible-raw-observation",
-      "note": "Fresh AI original-image Lex/Tag reading; no unprinted suffix features inferred."
+      "note": "Original image re-read 2026-11-27, independently confirmed by root: no cm printed; previous added cm was a reading error."
     },
     {
       "title": "Mishnah Menachot",
