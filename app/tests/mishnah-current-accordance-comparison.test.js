@@ -8,6 +8,8 @@ test('visible tags compare only explicit head features, without inferred suffixe
  const r=C.compareObservation(book([{lemma:'בית',morph:'HNcmsc/Sp3ms'}]),obs());
  assert.equal(r.status,'visible-head-features-compatible');assert.equal(r.lexicalComparison.status,'candidate-head-lexeme-present-in-visible-components');
  assert(!('suffix' in r.parsed.features));
+ const preposition=C.compareObservation(book([{lemma:'ב',morph:'HR/Sp3ms'}]),obs({tags:'prp',lex:'ב'}));
+ assert.equal(preposition.status,'visible-head-features-compatible','the visible preposition is compared to R, never to its unprinted suffix');
 });
 test('unresolved source cards are bound through exact source spans, without invented analysis provenance',()=>{
  assert.equal(C.compareObservation(book([]),obs()).status,'draft-unresolved');

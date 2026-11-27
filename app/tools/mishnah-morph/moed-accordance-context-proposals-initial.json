@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "phase": "Context decisions proposed after visual observation, pending complete frozen-draft comparison; not applied to cards",
+  "humanValidated": false,
+  "sourceTextUnchanged": true,
+  "decisions": [
+    {
+      "title": "Mishnah Yoma",
+      "ref": "1:5",
+      "sourceTextHash": "7fa00deab1e94a5175b6cb91739222df1ef94197257566ff3265cb3424dad303",
+      "sourceWordId": "S07326.2.5.1.5/word/10",
+      "word": "הִשְׁבִּיעוּהוּ",
+      "reference": {
+        "lex": "שבע",
+        "tags": "hif prf 1 com pl",
+        "surface": "השביעוהו",
+        "ref": "Yoma 1:5",
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_188.png",
+        "driveId": "16sNcw9sdGmx0R1xdemF5Hk-HF_KDpQF1",
+        "sha256": "f2961386e7090163cf20131db7d2bd58f0054583cc9cd719be441b681c28b9fc"
+      },
+      "decision": "propose-contextual-analysis; do not import printed person",
+      "proposedAnalysis": {
+        "lemma": "שבע",
+        "morph": "HVhp3cp/Sp3ms",
+        "gloss": {
+          "de": "sie nahmen ihm einen Eid ab",
+          "en": "they administered an oath to him"
+        }
+      },
+      "reason": "The encoded השביעו + הו and the preceding plural actors/verbs identify Hifil perfect3cp plus object3ms. Printed Accordance hif prf1com pl is retained as a source discrepancy, not copied as the word analysis. No suffix feature is claimed to have been printed.",
+      "evidence": {
+        "dictId": "d895bc1c727b",
+        "dict": "Jastrow",
+        "entry": 1481,
+        "head": "שָׁבַע",
+        "entrySha256": "d1f4005cf1760e48d9e096ed530cb3b298bb3c387097766543464bcdf391e704",
+        "dictionarySha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268",
+        "use": "Rabbinic lexical senses and Mishnah examples; no biblical dictionary used"
+      },
+      "independentImageRecheck": "Root also read image188 and confirmed the literal printed1com pl."
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/22",
+      "word": "הַקִּילוֹן",
+      "reference": {
+        "lex": "ה קילון",
+        "tags": "art; cm ms pl cnst",
+        "image": {
+          "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+          "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+          "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+        }
+      },
+      "decision": "retain-current-contextual-candidate; printed number/state discrepancy",
+      "retainedAnalysis": {
+        "lemma": "ה/קילון",
+        "morph": "HTd/Ncmsa"
+      },
+      "reason": "Jastrow קילון is the masculine singular water-lifting device, explicitly citing this Mishnah. In ממי הקילון the plural construct מי does not make the following device noun plural construct. Preserve the screenshot cm ms pl cnst literally, without imposing its number/state on the candidate.",
+      "evidence": {
+        "dictId": "d895bc1c727b",
+        "dict": "Jastrow",
+        "entry": 15384,
+        "head": "קִילוֹן",
+        "entrySha256": "95c7a2901fb06dd53ebe865399ea901293016060d3fc822394e9cd6e2da91175",
+        "dictionarySha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268",
+        "use": "Rabbinic lexical senses and Mishnah examples; no biblical dictionary used"
+      }
+    }
+  ]
+}

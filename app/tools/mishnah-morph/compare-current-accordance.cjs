@@ -5,7 +5,7 @@ const {segments}=require('./compare.cjs');
 const M=require('../../mishnah-morph');
 const ROOT=path.resolve(__dirname,'../..'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const plain=s=>String(s||'').normalize('NFD').replace(/[^א-ת]/gu,'');
-const stems={qal:'q',nif:'N',pi:'p',pual:'P',hif:'h',hof:'H',htpl:'t',hitp:'t',nitp:'D',ntpal:'D',plpl:'l'};
+const stems={qal:'q',nif:'N',pi:'p',pual:'P',pul:'P',hif:'h',hof:'H',htpl:'t',hitp:'t',nitp:'D',ntpal:'D',plpl:'l'};
 function parseHead(raw){
  const words=String(raw||'').trim().split(/[\s;|]+/),features={},unsupported=[];
  // Prefix tags are often printed after the head in a right-to-left row.
@@ -55,7 +55,7 @@ function compareObservation(data,o){
  const f=forms[0],parsed=parseHead(o.tags),expected=parsed.features,analyses=f.analyses||[];
  if(!Object.keys(expected).length||parsed.unsupported.length)return {...result,status:'reference-features-not-parsed',parsed};
  const reports=analyses.map(a=>{
-  const parts=a.partialFeatures?[{...a.partialFeatures,partial:true}]:segments(a),head=parts.filter(p=>!['C','R','T','S'].includes(p.type)).at(-1)||parts.at(-1)||{};
+  const parts=a.partialFeatures?[{...a.partialFeatures,partial:true}]:segments(a),lexicalParts=parts.filter(p=>p.type!=='S'),head=lexicalParts.filter(p=>!['C','R','T'].includes(p.type)).at(-1)||lexicalParts.at(-1)||{};
   const missing=[],different=[];
   for(const [key,v]of Object.entries(expected)){const actual=head[key];if(actual===undefined)missing.push(key);else if(key==='form'&&v==='participle'? !['r','s'].includes(actual):actual!==v)different.push({feature:key,expected:v,actual});}
   return {lemma:a.lemma,morph:a.morph,partial:!!a.partialFeatures,missing,different};
