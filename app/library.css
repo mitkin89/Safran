@@ -3202,3 +3202,14 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 #dictCardSources { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
 #dictCardSources:empty { display:none; }
 #dictCardSources [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }
+
+/* Stable corpus colors in the combined Greek distribution. */
+#fmCorpusBody [data-corpus=LXX],#fmCorpusControls [data-corpus=LXX] { --corpus-color:#3b82d0; }
+#fmCorpusBody [data-corpus=Josephus],#fmCorpusControls [data-corpus=Josephus] { --corpus-color:#22945a; }
+#fmCorpusBody [data-corpus=Philo],#fmCorpusControls [data-corpus=Philo] { --corpus-color:#d6ad20; }
+.wcCorpusBar progress { accent-color:var(--corpus-color,var(--accent)); }
+.wcCorpusBar progress::-webkit-progress-value { background:var(--corpus-color,var(--accent)); }
+.wcCorpusLegend { display:flex; gap:18px; flex-wrap:wrap; margin:8px 0 14px; }
+.wcCorpusLegend span { display:inline-flex; align-items:center; gap:6px; }
+.wcCorpusLegend i { display:inline-block; width:11px; height:11px; border-radius:2px; background:var(--corpus-color); }
+.wcCorpusScopes button[data-corpus]:not([data-corpus=all]):not([data-corpus=Tanach]):not([data-corpus=Mishnah]) { border-bottom:3px solid var(--corpus-color); }

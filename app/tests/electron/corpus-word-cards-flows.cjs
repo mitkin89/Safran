@@ -2,6 +2,11 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
 module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('[data-tab=dict]').click();document.querySelector('#dictViewCard').click();document.querySelector('#dictQ').value='λαλέω';document.querySelector('#dictCardSearch').click()");
  await waitFor("document.querySelector('#fmCorpusControls [data-corpus=Josephus]')",'Greek corpora');
+ assert(await js("document.querySelector('#fmCorpusControls [data-corpus=all]').getAttribute('aria-pressed')==='true'"),'All Greek corpora selected by default');
+ await waitFor("document.querySelectorAll('#fmCorpusBody .wcCorpusLegend span').length===3",'Combined distribution legend');
+ assert.deepEqual(await js("['LXX','Josephus','Philo'].map(k=>getComputedStyle(document.querySelector('#fmCorpusBody .wcCorpusBar[data-corpus='+k+'] progress')).accentColor)"),['rgb(59, 130, 208)','rgb(34, 148, 90)','rgb(214, 173, 32)']);
+ const counts=await js("['all','LXX','Josephus','Philo'].map(k=>Number(document.querySelector('#fmCorpusControls [data-corpus='+k+'] small').textContent.replace(/[^0-9]/g,'')))");
+ assert.equal(counts[0],counts[1]+counts[2]+counts[3]);
  await js("document.querySelector('#fmCorpusControls [data-corpus=Josephus]').click()");
  await waitFor("document.querySelector('#fmCorpusBody:not([hidden]) .wcCorpusBar')",'Josephus distribution');
  assert(await js("document.querySelector('#fmCorpusBody').textContent.includes('Josephus')"));

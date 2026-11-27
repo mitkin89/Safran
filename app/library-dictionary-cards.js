@@ -80,7 +80,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
     }
     matches.push(...(await cards.loadPeshittaCards()).suggest(q,live));
    }
-   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);matches.push(...extra.filter(x=>!greek||!matches.some(m=>m.kind==='greek'&&m.label===x.label)));}
+   if(/[\u0370-\u03ff\u1f00-\u1fffא-ת]/u.test(q)){const greek=/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q);const extra=(await cards.corpusModel()).suggest(q,greek,live);for(const x of extra){const same=greek&&matches.find(m=>m.kind==='greek'&&m.label.normalize('NFC')===x.label.normalize('NFC'));if(same){same.count+=x.count;same.source='Septuaginta / Josephus / Philo';}else matches.push(x);}}
    if(token!==serial||!active())return true;
    matches=window.WordCardSuggestions.group(matches,s=>window.SyriacMorph?window.SyriacMorph.hebrew(s):s);
    matches.sort((a,b)=>Number(fold(b.label)===key)-Number(fold(a.label)===key)||Number(!!a.root)-Number(!!b.root)||b.count-a.count||a.key.localeCompare(b.key));
