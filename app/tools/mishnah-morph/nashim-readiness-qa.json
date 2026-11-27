@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "method": "Read-only seven-book preflight; buildEngine only, no main or supplementData; no source/module writes.",
+  "baselineCommit": "0374c0a8e9a47ecd82792db3c6b37c49b5b85b8a",
+  "baselineManifestSha256": "86bef6dd89a7e6536db422e943f27806dec68e5684f180d372f8c7eab1e00c64",
+  "engineScriptSha256": "0710bf027d43a87706887baddf30aa56f1cc80dc4f71ffd6fa7c709ec42f8c92",
+  "seedRegistry": {
+    "file": "moed-nashim-seed-sources.json",
+    "sha256": "a81e2addb48f49761212fc03c749b9227f06de8153612ba201073d3104aecc1d"
+  },
+  "seedSources": [
+    {
+      "file": "moed-nashim-seeds-moedd-a.json",
+      "sha256": "be6962b6d35b58aa6b6b612642976fd03cd7f6547d8e0d79f50307351e9c9470",
+      "scopeTitles": [
+        "Mishnah Shabbat",
+        "Mishnah Eruvin",
+        "Mishnah Pesachim"
+      ],
+      "entries": 218
+    },
+    {
+      "file": "moed-nashim-seeds-moed-b.json",
+      "sha256": "c724ad9fde2af5ee4b6cec98d80ceaa72399ea8e11d5cf36061c72977e351d19",
+      "scopeTitles": [
+        "Mishnah Yoma",
+        "Mishnah Shekalim",
+        "Mishnah Sukkah",
+        "Mishnah Beitzah"
+      ],
+      "entries": 443
+    },
+    {
+      "file": "moed-nashim-seeds-moed-c.json",
+      "sha256": "4e47240746f132f9e0bb093ba6c3e6b6add0b58316328d4a32400980c5c942db",
+      "scopeTitles": [
+        "Mishnah Rosh Hashanah",
+        "Mishnah Ta'anit",
+        "Mishnah Megillah",
+        "Mishnah Moed Katan",
+        "Mishnah Chagigah"
+      ],
+      "entries": 236
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-a.json",
+      "sha256": "48df46535a579d838187db78949643810fd2799f93003199203dca1f6e048a9f",
+      "scopeTitles": [
+        "Mishnah Yevamot",
+        "Mishnah Ketubot"
+      ],
+      "entries": 698
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-b.json",
+      "sha256": "32c823c350048a8a34830e510b58bc9245523b3497ec546c5f4c0cbc348ad8da",
+      "scopeTitles": [
+        "Mishnah Nedarim",
+        "Mishnah Nazir"
+      ],
+      "entries": 537
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-c.json",
+      "sha256": "62c96e575d649e9accdddbe89294cf4126595f2ef5522ae8c0fab306ab1e62e7",
+      "scopeTitles": [
+        "Mishnah Sotah",
+        "Mishnah Gittin",
+        "Mishnah Kiddushin"
+      ],
+      "entries": 263
+    },
+    {
+      "file": "moed-nashim-seeds-closed-numerals-adjectives.json",
+      "sha256": "50bc9b211877d05bbd3af0951d0016720d8721cedeea0ae07491783c6e66bbff",
+      "scopeTitles": [
+        "Mishnah Beitzah",
+        "Mishnah Chagigah",
+        "Mishnah Eruvin",
+        "Mishnah Gittin",
+        "Mishnah Ketubot",
+        "Mishnah Kiddushin",
+        "Mishnah Megillah",
+        "Mishnah Moed Katan",
+        "Mishnah Nazir",
+        "Mishnah Nedarim",
+        "Mishnah Pesachim",
+        "Mishnah Rosh Hashanah",
+        "Mishnah Shabbat",
+        "Mishnah Shekalim",
+        "Mishnah Sotah",
+        "Mishnah Sukkah",
+        "Mishnah Ta'anit",
+        "Mishnah Yevamot",
+        "Mishnah Yoma"
+      ],
+      "entries": 229
+    },
+    {
+      "file": "moed-nashim-seeds-moed-round2.json",
+      "sha256": "11d3cf0b92cda1e652bd5b6a3112678f1d1d2feaad99e0e4eef84921cd029713",
+      "scopeTitles": [
+        "Mishnah Beitzah",
+        "Mishnah Chagigah",
+        "Mishnah Eruvin",
+        "Mishnah Megillah",
+        "Mishnah Moed Katan",
+        "Mishnah Pesachim",
+        "Mishnah Rosh Hashanah",
+        "Mishnah Shabbat",
+        "Mishnah Shekalim",
+        "Mishnah Sukkah",
+        "Mishnah Ta'anit",
+        "Mishnah Yoma"
+      ],
+      "entries": 244
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-c-round2.json",
+      "sha256": "fb4c902d2d7212a013c969096267d53111b6eafa7a3c43126603b08c552daa00",
+      "scopeTitles": [
+        "Mishnah Sotah",
+        "Mishnah Gittin",
+        "Mishnah Kiddushin"
+      ],
+      "entries": 187
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-a-round2.json",
+      "sha256": "dbb18dbde6174c50466536d915bdb906bff5d37932a291ed061c4db0007ebd7e",
+      "scopeTitles": [
+        "Mishnah Yevamot",
+        "Mishnah Ketubot"
+      ],
+      "entries": 195
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-b-round2.json",
+      "sha256": "e1b46fbc2a1b7b7e83f0398ed71bf44dd73c0feee591f6c248b4b411ac826113",
+      "scopeTitles": [
+        "Mishnah Nedarim",
+        "Mishnah Nazir"
+      ],
+      "entries": 212
+    }
+  ],
+  "books": [
+    {
+      "title": "Mishnah Yevamot",
+      "file": "app/mishnah-kaufmann-accordance-yevamot-data.js",
+      "currentFileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0",
+      "baselineFileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0",
+      "gitBaselineFileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0",
+      "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+      "sourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618",
+      "baselineSourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618",
+      "gitBaselineSourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 1122,
+      "positionalSeedRows": 1939,
+      "positionalSeedHashMismatches": 0
+    },
+    {
+      "title": "Mishnah Ketubot",
+      "file": "app/mishnah-kaufmann-accordance-ketubot-data.js",
+      "currentFileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c",
+      "baselineFileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c",
+      "gitBaselineFileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c",
+      "sourceTextHash": "00f0c57ee76f1f3a61d89cbb8c6efaf2ac2797fc3fa0c2eb4f2dd8b33c3b4904",
+      "sourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c",
+      "baselineSourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c",
+      "gitBaselineSourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 1122,
+      "positionalSeedRows": 996,
+      "positionalSeedHashMismatches": 0
+    },
+    {
+      "title": "Mishnah Nedarim",
+      "file": "app/mishnah-kaufmann-accordance-nedarim-data.js",
+      "currentFileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff",
+      "baselineFileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff",
+      "gitBaselineFileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff",
+      "sourceTextHash": "acb75e2d0d840992dd08356fd92d9e5e8aa5d190c53682b98ec5572dd5529147",
+      "sourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768",
+      "baselineSourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768",
+      "gitBaselineSourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 978,
+      "positionalSeedRows": 0,
+      "positionalSeedHashMismatches": 0
+    },
+    {
+      "title": "Mishnah Nazir",
+      "file": "app/mishnah-kaufmann-accordance-nazir-data.js",
+      "currentFileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813",
+      "baselineFileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813",
+      "gitBaselineFileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "sourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324",
+      "baselineSourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324",
+      "gitBaselineSourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 978,
+      "positionalSeedRows": 0,
+      "positionalSeedHashMismatches": 0
+    },
+    {
+      "title": "Mishnah Sotah",
+      "file": "app/mishnah-kaufmann-accordance-sotah-data.js",
+      "currentFileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8",
+      "baselineFileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8",
+      "gitBaselineFileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8",
+      "sourceTextHash": "127e80dc5a619c62d689a1974afa898735260932f9cb16be0655be75937d0525",
+      "sourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a",
+      "baselineSourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a",
+      "gitBaselineSourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 679,
+      "positionalSeedRows": 186,
+      "positionalSeedHashMismatches": 0
+    },
+    {
+      "title": "Mishnah Gittin",
+      "file": "app/mishnah-kaufmann-accordance-gittin-data.js",
+      "currentFileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8",
+      "baselineFileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8",
+      "gitBaselineFileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5",
+      "baselineSourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5",
+      "gitBaselineSourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 679,
+      "positionalSeedRows": 137,
+      "positionalSeedHashMismatches": 0
+    },
+    {
+      "title": "Mishnah Kiddushin",
+      "file": "app/mishnah-kaufmann-accordance-kiddushin-data.js",
+      "currentFileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6",
+      "baselineFileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6",
+      "gitBaselineFileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6",
+      "sourceTextHash": "481b6d93d1d21ec7428dfcc1d5c5a41c98c9802c6ea2874127ecab54c92f8034",
+      "sourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005",
+      "baselineSourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005",
+      "gitBaselineSourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005",
+      "sourceCoreMatchesBaseline": true,
+      "sourceCoreMatchesGitBaseline": true,
+      "scopedSeedEntries": 679,
+      "positionalSeedRows": 61,
+      "positionalSeedHashMismatches": 0
+    }
+  ],
+  "engine": {
+    "dictionaryHeads": 18324,
+    "attestedRoots": 500,
+    "nominalForms": 131006,
+    "reviewedSeedEntries": 2364
+  },
+  "passed": true,
+  "limitations": [
+    "Readiness and source preservation only; no claim that all word positions have a complete analysis.",
+    "No new Accordance comparison or manuscript-pointing validation."
+  ]
+}
