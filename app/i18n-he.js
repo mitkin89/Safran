@@ -1,6 +1,15 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+    "Keine Zuordnungen für diese Auswahl.": "אין התאמות לבחירה זו.",
+    "{} hebräische Vorkommen · {} erfasste Zuordnungen in dieser Quelle": "{} מופעים בעברית · {} התאמות מתועדות במקור זה",
+    "Filter für häufigste Formen und Übersetzungsvergleich": "מסנן לצורות נפוצות ולהשוואת תרגומים",
+    "Kreisdiagramm": "תרשים עוגה",
+    "Was wird gezählt?": "מה נספר?",
+    "{} erfasste Zuordnungen in dieser Quelle; {} nach den gewählten Merkmalen. Prozentwerte beziehen sich auf die angezeigten Zuordnungen.": "{} התאמות מתועדות במקור זה; {} לאחר סינון לפי המאפיינים שנבחרו. האחוזים מתייחסים להתאמות המוצגות.",
+    "Die Gesamtzahl im Kopf zählt hebräische Vorkommen. Quellenabdeckung, Wortgruppen und fehlende Zuordnungen können zu anderen Zahlen führen. Eine fehlende Zuordnung bedeutet nicht automatisch, dass das Wort unübersetzt ist.": "המספר בכותרת סופר מופעים בעברית. כיסוי המקור, קבוצות מילים ושיוכים חסרים עשויים להוביל למספרים שונים. שיוך חסר אינו מעיד בהכרח שהמילה לא תורגמה.",
+    "Im Vergleich zählen nur die gemeinsamen zugeordneten Belege beider Quellen.": "בהשוואה נספרים רק המופעים המשויכים המשותפים לשני המקורות.",
+
     "Wurzel": "שורש",
     "Wurzelsuche nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).": "חיפוש שורש לפי הפניות מפורשות לשורשים במילון Open Scriptures (Westminster).",
     "Wortzuordnung nicht angewendet: {}": "שיוך המילים לא הוחל: {}",

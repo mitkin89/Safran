@@ -14,6 +14,15 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Keine Zuordnungen für diese Auswahl.": "No correspondences for this selection.",
+    "{} hebräische Vorkommen · {} erfasste Zuordnungen in dieser Quelle": "{} Hebrew occurrences · {} recorded correspondences in this source",
+    "Filter für häufigste Formen und Übersetzungsvergleich": "Filter for frequent forms and translation comparison",
+    "Kreisdiagramm": "Pie chart",
+    "Was wird gezählt?": "What is counted?",
+    "{} erfasste Zuordnungen in dieser Quelle; {} nach den gewählten Merkmalen. Prozentwerte beziehen sich auf die angezeigten Zuordnungen.": "{} recorded correspondences in this source; {} after the selected feature filters. Percentages refer to the displayed correspondences.",
+    "Die Gesamtzahl im Kopf zählt hebräische Vorkommen. Quellenabdeckung, Wortgruppen und fehlende Zuordnungen können zu anderen Zahlen führen. Eine fehlende Zuordnung bedeutet nicht automatisch, dass das Wort unübersetzt ist.": "The header counts Hebrew occurrences. Source coverage, word groups and missing alignments can produce different totals. A missing alignment does not necessarily mean the word is untranslated.",
+    "Im Vergleich zählen nur die gemeinsamen zugeordneten Belege beider Quellen.": "The comparison counts only aligned occurrences shared by both sources.",
+
     "Quellen & Hinweise": "Sources & notes",
     "Quelle hinzufügen": "Add source",
     "＋ Quelle hinzufügen": "＋ Add source",
