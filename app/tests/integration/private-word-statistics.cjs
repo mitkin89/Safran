@@ -53,7 +53,7 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
   assert((await ctx.ren()).tr.Zunz);
   assert.equal(Object.keys((await ctx.ren()).tr.BuberRosenzweig).length, 1);
   const srcStart = js.indexOf('  async function wcTrSources('), srcEnd = js.indexOf('  async function wcTrans(', srcStart);
-  Object.assign(ctx, { loadIlRen: ctx.ren, loadLxxRen: async () => null, loadTgRen: async () => null, loadQRen: async () => null, loadWitnessRen: async () => null, WC_TR_WITNESSES: { Samaritan: 'he', Peshitta: 'syr' }, WC_TR_LABEL: { Zunz: 'Zunz', BuberRosenzweig: 'Buber/Rosenzweig' } });
+  Object.assign(ctx, { loadIlRen: ctx.ren, loadLxxRen: async () => null, loadTgRen: async () => null, loadQRen: async () => null, WC_TR_LABEL: { Zunz: 'Zunz', BuberRosenzweig: 'Buber/Rosenzweig' } });
   vm.runInNewContext(js.slice(srcStart, srcEnd) + '\nglobalThis.sources = wcTrSources;', ctx);
   const sources = await ctx.sources('1');
   assert(sources.keys.includes('BuberRosenzweig'));
