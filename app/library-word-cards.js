@@ -420,7 +420,7 @@ window.LibraryWordCards = (() => {
     const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && (!x.lemma || x.lemma === fmCur.lemma) && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${targum ? 'arc' : greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${host.esc(x.f)}</span><small>${wcNum(x.n)}</small>${x.lemma ? `<small class="wcFormLemma" dir="auto">${host.esc(wcLemmaLabel(x.lemma))}</small>` : ''}</button>`;
     card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${host.esc(I18N.t(family ? 'Alle Stellen dieser Wurzel' : targum ? 'Alle Stellen dieses Wortes' : greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${host.esc(I18N.t(family ? 'Alle Stellen dieser Wurzel' : 'Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
       <section class="wcSec"><h4>${host.esc(I18N.t(targum ? 'Verteilung in den Targumim' : greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${host.esc(greek || targum ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
-        <div class="wcChart"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${host.esc(I18N.t(g.name))}</div></div>`).join('')}</div><div class="wcTip" hidden></div></div>
+        <div class="wcChart"><button type="button" class="wcChartReset" hidden>100% ↺</button><div class="wcChartViewport"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${host.esc(I18N.t(g.name))}</div></div>`).join('')}</div></div><div class="wcTip" hidden></div></div>
         <div class="wcTop"><span class="muted">${host.esc(I18N.t('Am häufigsten:'))}</span> ${top.map(x => `<a data-b="${host.esc(x.book)}">${host.esc(fmBook(x.book))}</a> <small>${wcNum(x.n)}</small>`).join(' · ')} <span class="muted wcHint">· ${host.esc(I18N.t('Klick auf einen Balken zeigt die Stellen des Buches'))}</span></div>
         <div class="wcRefs" id="wcBookRefs"></div></section>
       <section class="wcSec"><h4>${host.esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${host.esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
@@ -1383,6 +1383,28 @@ window.LibraryWordCards = (() => {
     const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
   });
   host.$('#wcBody').addEventListener('keydown', e => { if (e.key !== 'Enter' && e.key !== ' ') return; const tr = e.target.closest && e.target.closest('.wcTrR.can[data-g]'); if (!tr || e.target !== tr) return; e.preventDefault(); wcTrRefs(tr.dataset.g); });
+  { // Chromium delivers trackpad pinch gestures as Ctrl+wheel.
+    const zoomChart=(chart,value,clientX)=>{
+      const viewport=chart.querySelector('.wcChartViewport'),plot=chart.querySelector('.wcPlot');
+      const old=+(chart.dataset.zoom||1),zoom=Math.max(1,Math.min(6,value));
+      const x=Math.max(0,Math.min(viewport.clientWidth,clientX-viewport.getBoundingClientRect().left));
+      const anchor=(viewport.scrollLeft+x)/old;
+      chart.dataset.zoom=zoom;plot.style.width=(zoom*100)+'%';
+      chart.style.setProperty('--chart-zoom',zoom);
+      viewport.scrollLeft=anchor*zoom-x;
+      chart.querySelector('.wcChartReset').hidden=zoom===1;
+      chart.querySelector('.wcTip').hidden=true;
+    };
+    host.$('#wcBody').addEventListener('wheel',e=>{
+      const chart=e.target.closest('.wcChart');if(!chart||!e.ctrlKey)return;
+      e.preventDefault();e.stopPropagation();
+      const delta=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?chart.clientHeight:1);
+      zoomChart(chart,+(chart.dataset.zoom||1)*Math.exp(-Math.max(-200,Math.min(200,delta))*.01),e.clientX);
+    },{passive:false});
+    host.$('#wcBody').addEventListener('click',e=>{
+      const reset=e.target.closest('.wcChartReset');if(reset)zoomChart(reset.closest('.wcChart'),1,0);
+    });
+  }
   { // Balken: Buch und Zahl sofort beim Überfahren (und bei Tastaturfokus)
     const tip = (b, on) => {
       const t = host.$('#wcBody .wcTip'); if (!t) return;

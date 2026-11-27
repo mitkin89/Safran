@@ -1379,11 +1379,14 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcSec > h4 small { font-weight: normal; }
 #wcBody .wcLink { margin-inline-start: auto; border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 12.5px; padding: 0; }
 #wcBody .wcLink:hover { text-decoration: underline; }
-#wcBody .wcChart { position: relative; padding-top: 22px; }
+#wcBody .wcChart { position: relative; }
+#wcBody .wcChartViewport { overflow-x:auto; padding-top:22px; }
+#wcBody .wcChartReset { position:absolute; top:0; right:0; z-index:2; padding:0 6px; font-size:11px; color:var(--accent); }
+#wcBody .wcChartReset[hidden] { display:none; }
 #wcBody .wcPlot { display: flex; gap: 10px; align-items: flex-end; position: relative; }
 #wcBody .wcMax { position: absolute; top: -14px; inset-inline-start: 0; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
 #wcBody .wcGrp { display: flex; flex-direction: column; min-width: 0; }
-#wcBody .wcBars { display: flex; align-items: stretch; height: 76px; gap: 2px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, var(--line)); }
+#wcBody .wcBars { display: flex; align-items: stretch; height: calc(76px * var(--chart-zoom, 1)); gap: 2px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, var(--line)); }
 #wcBody .wcBar { flex: 1 1 0; min-width: 0; padding: 0; border: 0; border-radius: 3px 3px 0 0; background: none; display: flex; align-items: flex-end; cursor: pointer; }
 #wcBody .wcBar > i { display: block; width: 100%; height: max(2px, calc(var(--h) * 1%)); background: var(--accent); border-radius: 3px 3px 0 0; opacity: .82; }
 #wcBody .wcBar.zero > i { height: 0; }
