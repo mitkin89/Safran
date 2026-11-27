@@ -385,6 +385,16 @@ window.LibraryLinks = (() => {
       const text = doc?.text?.[chapter - 1]?.[verse - 1];
       return typeof text === 'string' ? { parts: [{ items: [text], he: true, versionTitle: doc.versionTitle }] } : {};
     }
+    async function sourcePreview(source) {
+      if(source.field)return {parts:[{items:[host.esc(source.field.reading)],versionTitle:source.version,he:false}],sourceNote:source.corpus+' · Field '+(source.field.volume===2?'II':'I')+', '+source.field.page};
+      let rel=source.rel;
+      if(!rel){const library=await host.O.library();const entries=Array.isArray(library)?library:library.entries||[];rel=entries.find(e=>e.title===source.title&&(e.versionTitle===source.version||source.version==='Westminster'&&/^Westminster/.test(e.versionTitle)))?.rel;}
+      if(!rel)return {};
+      const doc=await host.O.read(rel);
+      const node=host.R.getByPath(doc.text,source.path);
+      const row=host.R.flattenNode(node).find(r=>r.label===String(source.label));
+      return row?{parts:[{items:[row.html],versionTitle:doc.versionTitle,he:['Tanach','Mishnah','Samaritan','Peshitta','Onkelos','Neofiti 1','Pseudo-Jonathan'].includes(source.corpus)}]}:{};
+    }
     function markExact(box, target) {
       const words = [...box.querySelectorAll('.pvp[data-he] .w[data-m]')];
       const signature = words.map(word => word.textContent.replace(/[^א-ת]/gu, '')).join(' ');
@@ -409,6 +419,7 @@ window.LibraryLinks = (() => {
         const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? '\u0003original' : '');
         let r;
         if(pick?.concordance){const html=window.ConcordancePreview.render(pick.concordance,host.esc);if(!html)return;r={previewHtml:host.pvVer(pick.concordance.versionTitle)+html};}
+        else if(pick?.source&&(pick.source.path||pick.source.field)){try{r=await sourcePreview(pick.source);}catch{r={};}}
         else if (pick?.exact) {
           try { r = await exactVerse(pick.exact); } catch { r = {}; }
         } else r = pvCache.get(ck);
@@ -424,7 +435,7 @@ window.LibraryLinks = (() => {
         const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${host.esc(versNote(a))}</div>` : '')
           // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen
           + (pick && r.pickMiss ? `<div class="vnote">${host.esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
-        hov.innerHTML = `<b>${host.esc(ref)}</b>${vn}${html}`;
+        hov.innerHTML = `<b>${host.esc(ref)}</b>${r.sourceNote?`<div class="muted">${host.esc(r.sourceNote)}</div>`:''}${vn}${html}`;
         if (pick?.exact && !markExact(hov, pick.exact)) return;
         if(pick?.masoraPhrase)markMasoraPhrase(hov,pick.masoraPhrase);
         hov.hidden = false;
@@ -439,6 +450,8 @@ window.LibraryLinks = (() => {
         if(pick?.targetForms?.length&&pick.vt)for(const part of hov.querySelectorAll('.pvp[data-vt]')){
           if(!new RegExp(pick.vt).test(part.dataset.vt||''))continue;
           const child=part.firstElementChild;if(!child||part.children.length!==1)continue;
+          const annotated=[...child.querySelectorAll('.wt[data-l],.w[data-m]')];
+          if(annotated.length){for(const word of annotated){const ranges=window.ConcordancePreview.targetRanges(word.textContent,pick.targetForms);if(ranges.some(([start,end])=>start===0&&end===word.textContent.length))word.classList.add('pvhl');}continue;}
           const text=child.textContent,ranges=window.ConcordancePreview.targetRanges(text,pick.targetForms);
           if(!ranges.length)continue;
           const fragment=document.createDocumentFragment();let end=0;
@@ -501,7 +514,7 @@ window.LibraryLinks = (() => {
       let tip = null;
       const hideTip = () => { if (tip) tip.hidden = true; };
       document.addEventListener('mouseover', e => {
-        const a = e.target.closest && e.target.closest('.gab[data-t]'); if (!a || !a.closest('#dictOut, #wcBody, #rOut, #cmtBody, #lkHover')) return;
+        const a = e.target.closest && e.target.closest('.gab[data-t]'); if (!a || !a.closest('#dictOut, #wcBody, #wcDict, #rOut, #cmtBody, #lkHover')) return;
         if (!tip) { tip = document.createElement('div'); tip.id = 'gabTip'; tip.hidden = true; document.body.appendChild(tip); }
         tip.textContent = a.dataset.t; tip.hidden = false;
         const r = a.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;

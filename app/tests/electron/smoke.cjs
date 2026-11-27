@@ -51,6 +51,11 @@ if(process.env.SAFRAN_SMOKE_PSAPP==='1'){add('Ezekiel','he',/^Westminster/);add(
 if(process.env.SAFRAN_SMOKE_VERSION_SESSION==='1'){
  add('Genesis','de',/Philippson/);add('Genesis','other',/^Septuaginta \(CATSS\)/);add('Genesis','other',/^ETCBC Peshitta/);
 }
+if(process.env.SAFRAN_SMOKE_CORPUS_CARDS==='1'){
+ for(const e of manifest.items.filter(e=>/Open Greek Corpus|Samaritanischer Pentateuch|ETCBC Peshitta|ETCBC-CACCHT|Targum|Septuaginta|Westminster/.test(e.versionTitle)||e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri")){
+  const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel)));docs.set(e.rel,{...doc,entry:e,textHash:hash(doc.text)});
+ }
+}
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -76,7 +81,7 @@ const handlers={
    for(const ref of refs){const {book,tail}=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===book&&d.entry.kind==='he'&&/^Westminster/.test(d.versionTitle));if(doc)result[ref]={versionTitle:doc.versionTitle,items:links.resolveText(doc,tail)};}
    return result;
  }, 'links:preview':async(_e,ref,langs,pick,pref)=>{
-   if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1'||process.env.SAFRAN_SMOKE_DICT_CARDS==='1')return require('../production-preview-handler.cjs')({getLibrary:async()=>({list:()=>[...docs.values()].map(d=>d.entry),read:async rel=>docs.get(rel)})})(_e,ref,langs,pick,pref);
+   if(process.env.SAFRAN_SMOKE_WITNESS_REN==='1'||process.env.SAFRAN_SMOKE_DICT_CARDS==='1'||process.env.SAFRAN_SMOKE_CORPUS_CARDS==='1')return require('../production-preview-handler.cjs')({getLibrary:async()=>({list:()=>[...docs.values()].map(d=>d.entry),read:async rel=>docs.get(rel)})})(_e,ref,langs,pick,pref);
    if(process.env.SAFRAN_SMOKE_MASORA!=='1')return {missing:true};const links=require(path.join(root,'links')),parsed=links.splitRef(ref),doc=[...docs.values()].find(d=>d.entry.title===parsed.book&&d.entry.kind==='he');return doc?{parts:[{he:true,versionTitle:doc.entry.versionTitle,items:links.resolveText(doc,parsed.tail)}]}:{missing:true};}, 'topics:section':()=>[],
  'links:versification':()=>require(path.join(root,'bundled/versification.json')),
  'links:mishnahTalmud':()=>require(path.join(root,'bundled/mishnah_talmud.json')),

@@ -973,13 +973,14 @@
     return out;
   }
   // Tov/CATSS: griechische Gruppen ohne hebräisches Gegenstück sind Zusätze, hebräische Gruppen ohne Griechisch fehlen in der LXX.
-  function ilLxxSegs(cell, html) {
+  function ilLxxSegs(cell, html, ctx) {
     ilTpl.innerHTML = html || '';
     const groups = [...ilTpl.content.querySelectorAll('.wg')], hit = ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), groups, true), out = [];
+    let prefix='';
     for (const g of groups) {
-      const t = g.textContent.trim(), idx = hit.get(g);
-      if (idx) { if (t) out.push([idx, t]); else idx.forEach(i => out.push([[i], '—', null, { kind: 'missing' }])); }
-      else if (t && !consOf(g.dataset.h || '')) out.push([[], t, null, { kind: 'addition' }]);
+      const t = g.textContent.trim(), idx = hit.get(g),meta={lxx:ctx?{text:html,group:t,prefix,ctx}:null};prefix+=' '+t;
+      if (idx) { if (t) out.push([idx, t, null, meta]); else idx.forEach(i => out.push([[i], '—', null, { kind: 'missing' }])); }
+      else if (t && !consOf(g.dataset.h || '')) out.push([[], t, null, { ...meta,kind: 'addition' }]);
     }
     return out;
   }
@@ -992,6 +993,7 @@
     $, $$, esc, cache, getView: () => view, portraitOf, mishnah: mishnahReaderUI,
     afterRefresh:()=>{displayUI.taamLayout();updateVersionInterlinear();},
     openSamaritan: w => wordPopupUI.openSamaritanWord(w),
+    openGreek: async (w,source) => {await wordPopupUI.loadGM();return wordPopupUI.openGreekApparatus(w,{...source,start:window.GMorph.words(source.prefix).length});},
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
     sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,

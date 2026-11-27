@@ -1169,6 +1169,8 @@
     'Griechische Wortkarte öffnen': 'Open the Greek word card',
     'Nach der Wort-für-Wort-Zuordnung von CATSS; die griechischen Wörter sind auf ihr Lemma zurückgeführt (lxx-morph), ohne Artikel und – wo das hebräische Wort Vorsilbe oder Suffix hat – ohne Präposition und Pronomen. Klick auf ein Wort öffnet seine Wortkarte.': 'According to the word-by-word alignment of CATSS; the Greek words are reduced to their lemma (lxx-morph), without the article and – where the Hebrew word has a prefix or suffix – without preposition and pronoun. Click a word to open its word card.',
     'Hebräische Vorlage': 'Hebrew source',
+    'Keine Zuordnungen vorhanden.': 'No alignments available.',
+    'Zuordnungen des Lemmas aus den gewählten Übersetzungen, unabhängig vom Korpus- und Grammatikfilter oben. Für Josephus und Philo liegen keine hebräischen Wortzuordnungen vor.': 'Lemma alignments from the selected translations, independent of the corpus and grammar filters above. No Hebrew word alignments are available for Josephus or Philo.',
     '{} Zuordnungen · {} hebräische Wörter': '{} alignments · {} Hebrew words',
     'Hebräische Wortkarte öffnen': 'Open the Hebrew word card',
     'Hebräische Wörter (Westminster-Lemma), denen CATSS dieses griechische Wort Wort für Wort zuordnet – nur Bücher des Tanach mit CATSS-Fassung. Klick auf ein Wort öffnet seine Wortkarte.': 'Hebrew words (Westminster lemma) to which CATSS aligns this Greek word, word by word – only books of the Tanakh with a CATSS version. Click a word to open its word card.',
