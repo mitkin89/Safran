@@ -38,6 +38,7 @@ for(const file of ['mishnah-morph-data.js','mishnah-zeraim-data.js']){
   }));
  }
 }
+require('./build-ancient-card-corpora.cjs')({out,add,load,manifest,root});
 for(const lang of ['greek','hebrew'])for(const key of Object.keys(out[lang]))out[lang][key]=[...out[lang][key].values()];
 out.coverage.mishnah=[...done];
 fs.writeFileSync(path.join(root,'word-card-corpora-data.js'),'window.WORD_CARD_CORPORA='+JSON.stringify(out)+';\n');

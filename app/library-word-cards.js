@@ -577,11 +577,12 @@ window.LibraryWordCards = (() => {
       return `<details class="wcFieldNote" data-hx-source="${id}"><summary>${e(r.ref)} · Field ${r.volume===2?'II':'I'}, ${e(String(r.page))} · <bdi lang="grc">${e(r.head)}</bdi></summary><div class="wcHexOriginal"></div></details>`;
     }).join('');
   }
-  host.$('#wcBody').addEventListener('toggle', async event => {
+  host.$('#formsPanel').addEventListener('toggle', async event => {
     const details = event.target;
     if (!details.matches?.('[data-hx-source]') || !details.open || details.dataset.loaded) return;
     details.dataset.loaded = '1';
-    const row = window.HEXAPLA_WORD_INDEX?.rows[+details.dataset.hxSource];
+    const index=await loadHexRen();
+    const row = index?.rows[+details.dataset.hxSource];
     if (!row) return;
     const match = /^(.*) (\d+:\d+)$/.exec(row.ref), target = details.querySelector('.wcHexOriginal');
     try {
