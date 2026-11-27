@@ -4334,7 +4334,7 @@
         "surface": "הרחובות",
         "lexemes": [
           "ה",
-          "רחוב"
+          "רחוק"
         ],
         "rawTags": [
           "art",
@@ -4344,7 +4344,9 @@
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image246 הרחובות: displayed lexical רחוק (unexpected but retained), Tag fm pl with no cm. First reading added cm; second normalized lexical רחוק to רחוב.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#0"
     },
     {
       "title": "Mishnah Shekalim",
@@ -5606,13 +5608,15 @@
           "אכל"
         ],
         "rawTags": [
-          "qal imprf 3 fm sg"
+          "nif imprf 3 fm sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image249 תאכל visibly nif imprf 3fm sg. Other reading shifted neighboring qal tag.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#3"
     },
     {
       "title": "Mishnah Shekalim",
@@ -5634,13 +5638,15 @@
           "היה"
         ],
         "rawTags": [
-          "nif imprf 3 fm sg"
+          "qal imprf 3 fm sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image249 phrase כליל תהיה לא תאכל: תהיה visibly qal imprf 3fm sg. Other reading shifted neighboring nif tag.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#2"
     },
     {
       "title": "Mishnah Shekalim",
@@ -6008,13 +6014,15 @@
         ],
         "rawTags": [
           "cnj",
-          "nif prt ms sg"
+          "nif prf 3 ms sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image250 ונדב visibly nif prf 3ms sg; second transcription changed finite prf to participle.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#6"
     },
     {
       "title": "Mishnah Shekalim",
@@ -6551,10 +6559,12 @@
       "accordance": {
         "surface": "השותפים",
         "lexemes": [
+          "ו",
           "ה",
           "שותף"
         ],
         "rawTags": [
+          "cnj",
           "art",
           "cm ms pl"
         ],
@@ -6562,7 +6572,9 @@
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image252 השותפים includes editorial ו, separately displayed Lex ו and Tag cnj. Omission in second reading is prefix-scope discrepancy, not noun disagreement.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#8"
     },
     {
       "title": "Mishnah Shekalim",
@@ -7136,13 +7148,15 @@
         ],
         "rawTags": [
           "art",
-          "cm bth pl"
+          "cm ms pl"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image253 הגנבים visibly cm ms pl, not bth pl.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#10"
     },
     {
       "title": "Mishnah Shekalim",
@@ -8384,13 +8398,15 @@
           "יולדה"
         ],
         "rawTags": [
-          "cm fm pl cnst"
+          "cm fm pl"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image257 יולדות: Lex יולדה; Tag cm fm pl with no cnst. Each transcription had a separate error.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#12"
     },
     {
       "title": "Mishnah Shekalim",
@@ -9322,13 +9338,15 @@
         ],
         "rawTags": [
           "cnj",
-          "qal impr ms sg"
+          "qal imprf 3 ms sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image259 ומצא visibly qal imprf 3ms sg; missing f and person in second transcription.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#14"
     },
     {
       "title": "Mishnah Shekalim",
@@ -9350,13 +9368,15 @@
           "כנס"
         ],
         "rawTags": [
-          "qal prt ms sg"
+          "nif prt ms sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image260 נכנס visibly nif prt ms sg, not qal.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#15"
     },
     {
       "title": "Mishnah Shekalim",
@@ -9380,13 +9400,15 @@
         ],
         "rawTags": [
           "cnj",
-          "qal prt ms sg"
+          "qal prt ms sg cnst"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image260 וזורקן visibly includes cnst under participle.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#16"
     },
     {
       "title": "Mishnah Shekalim",
@@ -10662,13 +10684,15 @@
           "גדול"
         ],
         "rawTags": [
-          "cm ms pl"
+          "ms pl"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image263 גדולים visibly ms pl, without cm.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#19"
     },
     {
       "title": "Mishnah Shekalim",
@@ -10690,13 +10714,15 @@
           "כהן"
         ],
         "rawTags": [
-          "cm ms pl cnst"
+          "cm ms pl"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image263 כהנים visibly cm ms pl, without cnst.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#18"
     },
     {
       "title": "Mishnah Shekalim",
@@ -10864,13 +10890,15 @@
         ],
         "rawTags": [
           "prp",
-          "cm ms sg"
+          "cm ms sg cnst"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images264 and265 לקיץ visibly cm ms sg cnst; second reading omitted cnst.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#21"
     },
     {
       "title": "Mishnah Shekalim",
@@ -11931,16 +11959,20 @@
       "accordance": {
         "surface": "מידתו",
         "lexemes": [
+          "מן",
           "מדה"
         ],
         "rawTags": [
+          "prp",
           "cm fm sg cnst"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Image268 מידהו visibly Lex מן מדה with prp separate from cm fm sg cnst. Second reading omitted prefix scope.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#22"
     },
     {
       "title": "Mishnah Shekalim",
@@ -13228,13 +13260,15 @@
           "נסך"
         ],
         "rawTags": [
-          "cm ms sg cnst"
+          "cm ms pl cnst"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images272 and273 נסכי visibly cm ms pl cnst; singular in earlier row was a transcription error.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#23"
     },
     {
       "title": "Mishnah Shekalim",
@@ -14692,13 +14726,15 @@
           "בוא"
         ],
         "rawTags": [
-          "qal prf 3 ms sg"
+          "qal prt ms sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images277 and278 בא visibly qal prt ms sg; first row misread prt as prf 3.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#25"
     },
     {
       "title": "Mishnah Shekalim",
@@ -17760,13 +17796,15 @@
           "טהור"
         ],
         "rawTags": [
-          "cm ms pl"
+          "ms pl"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images289 and290 טהורים visibly ms pl without cm.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#28"
     },
     {
       "title": "Mishnah Shekalim",
@@ -17790,13 +17828,15 @@
         ],
         "rawTags": [
           "art",
-          "cm ms sg"
+          "ms sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images289 and290 העליון visibly ms sg without cm.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#29"
     },
     {
       "title": "Mishnah Shekalim",
@@ -66816,13 +66856,15 @@
           "שנה"
         ],
         "rawTags": [
-          "pul prt fm"
+          "pul prt fm sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images277 and278 משונה visibly pul prt fm sg; second row omitted sg.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#24"
     },
     {
       "title": "Mishnah Shekalim",
@@ -77367,16 +77409,20 @@
       "accordance": {
         "surface": "הראוי",
         "lexemes": [
+          "ה",
           "ראה"
         ],
         "rawTags": [
+          "art",
           "qal pasP ms sg"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images285 and286 הראוי visibly include article ה / art; second row omitted article scope.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#26"
     },
     {
       "title": "Mishnah Shekalim",
@@ -80142,13 +80188,15 @@
         ],
         "rawTags": [
           "art",
-          "cm ms pl"
+          "cm ms sg cnst"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images289 and290 הרוקים visibly cm ms sg cnst, despite plural surface; retain actual printed tag. Second row normalized to plural.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#27"
     },
     {
       "title": "Mishnah Shekalim",
@@ -80758,13 +80806,15 @@
         "rawTags": [
           "cnj",
           "prp",
-          "cm fm sg"
+          "cm fm sg cnst"
         ],
         "observation": "visually-read-lex-and-tag"
       },
       "note": "Only displayed tags transcribed; no unprinted suffix analysis inferred.",
       "observationAgent": "AI visual observation",
-      "humanValidated": false
+      "humanValidated": false,
+      "imageQaNote": "Images289 and290 ובשעת visibly cm fm sg cnst; second row omitted cnst.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#30"
     },
     {
       "title": "Mishnah Shekalim",

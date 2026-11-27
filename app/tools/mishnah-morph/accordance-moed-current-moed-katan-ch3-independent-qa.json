@@ -1,0 +1,197 @@
+{
+  "scope": "Independent QA of root Moed Katan chapter 3 observations",
+  "input": {
+    "file": "accordance-moed-current-moed-katan-ch3-observations.json",
+    "sha256": "f5e9fb299921af8f98ff1d526722905d5a93e72ccb2b10f984e420441ca258c7"
+  },
+  "humanValidated": false,
+  "structuralResult": "All 309 rows resolve to exact current source hash, ref, word ID and index; original image bytes, Drive IDs and hashes valid in independent aggregate audit.",
+  "observations": 309,
+  "surfacePairs": {
+    "consonantEqual": 291,
+    "variantOrGrouped": 18,
+    "variants": [
+      {
+        "ref": "3:1",
+        "sourceWordId": "S07326.2.11.3.1/word/12",
+        "current": "שֶׁהִיתִּירוּ",
+        "observed": "שהתירו",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_477.png",
+        "tags": "rel; hif prf 3 com pl",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:3",
+        "sourceWordId": "S07326.2.11.3.3/word/7",
+        "current": "דְּיָיתֵקֵי",
+        "observed": "דייתיקי",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_479.png",
+        "tags": "cm fm sg",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:3",
+        "sourceWordId": "S07326.2.11.3.3/word/8",
+        "current": "מתנה",
+        "observed": "ומתנה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_479.png",
+        "tags": "cnj; cm fm sg",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:3",
+        "sourceWordId": "S07326.2.11.3.3/word/16",
+        "current": "וּמֵאוּנִים",
+        "observed": "ומיאונים",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_479.png",
+        "tags": "cnj; cm ms pl",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:5",
+        "sourceWordId": "S07326.2.11.3.5/word/7",
+        "current": "בטל",
+        "observed": "בטלה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+        "tags": "qal prf 3 ms sg",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:5",
+        "sourceWordId": "S07326.2.11.3.5/word/8",
+        "current": "ה",
+        "observed": "בטלה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+        "tags": "qal prf 3 ms sg",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:5",
+        "sourceWordId": "S07326.2.11.3.5/word/10",
+        "current": "גזירת",
+        "observed": "גזירות",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+        "tags": "cm fm sg cnst",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:5",
+        "sourceWordId": "S07326.2.11.3.5/word/16",
+        "current": "בטל",
+        "observed": "בטלה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+        "tags": "qal prf 3 ms sg",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:5",
+        "sourceWordId": "S07326.2.11.3.5/word/17",
+        "current": "ה",
+        "observed": "בטלה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+        "tags": "qal prf 3 ms sg",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:5",
+        "sourceWordId": "S07326.2.11.3.5/word/19",
+        "current": "גזירת",
+        "observed": "גזירות",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+        "tags": "cm fm sg cnst",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:7",
+        "sourceWordId": "S07326.2.11.3.7/word/13",
+        "current": "מיטות",
+        "observed": "המיטות",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_483.png",
+        "tags": "art; cm fm sg",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:7",
+        "sourceWordId": "S07326.2.11.3.7/word/30",
+        "current": "אֲבֵילִים",
+        "observed": "אבלים",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_483.png",
+        "tags": "cm ms pl",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:9",
+        "sourceWordId": "S07326.2.11.3.9/word/13",
+        "current": "לא",
+        "observed": "ולא",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_485.png",
+        "tags": "cnj; ng",
+        "alignment": "one-to-one"
+      },
+      {
+        "ref": "3:9",
+        "sourceWordId": "S07326.2.11.3.9/word/17",
+        "current": "אי",
+        "observed": "איזה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_485.png",
+        "tags": "intr",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:9",
+        "sourceWordId": "S07326.2.11.3.9/word/18",
+        "current": "זה",
+        "observed": "איזה",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_485.png",
+        "tags": "intr",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:9",
+        "sourceWordId": "S07326.2.11.3.9/word/21",
+        "current": "שכו",
+        "observed": "שכולן",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_485.png",
+        "tags": "rel; cm ms sg cnst",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:9",
+        "sourceWordId": "S07326.2.11.3.9/word/22",
+        "current": "לן",
+        "observed": "שכולן",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_485.png",
+        "tags": "rel; cm ms sg cnst",
+        "alignment": "many-to-one"
+      },
+      {
+        "ref": "3:9",
+        "sourceWordId": "S07326.2.11.3.9/word/47",
+        "current": "יָיי",
+        "observed": "יי׳",
+        "image": "mischna_2026-11-26_22-48-07_4CB37088_485.png",
+        "tags": "prop",
+        "alignment": "one-to-one"
+      }
+    ]
+  },
+  "visualReview": {
+    "imagesRead": [
+      "mischna_2026-11-26_22-48-07_4CB37088_477.png",
+      "mischna_2026-11-26_22-48-07_4CB37088_479.png",
+      "mischna_2026-11-26_22-48-07_4CB37088_481.png",
+      "mischna_2026-11-26_22-48-07_4CB37088_483.png",
+      "mischna_2026-11-26_22-48-07_4CB37088_485.png"
+    ],
+    "scope": "Original-image check of every nonidentical surface pair, not a complete second transcription of all 309 Tag rows.",
+    "result": "All 18 nonidentical pairs supported as visible orthographic/critical variants or explicit shared-word groups; none calls for silent source correction.",
+    "notes": [
+      "3:5 בטל + ה is one visible בטלה, retained as a group requiring review; raw qal prf 3 ms sg is indeed printed.",
+      "3:5 גזירת versus visible גזיר(ו)ת is a critical-letter variant; cm fm sg cnst is indeed printed.",
+      "3:7 source מיטות versus visible [ה]מיטות preserves visible article.",
+      "3:9 אי + זה and שכו + לן are shared-word groups; do not assign whole printed analysis to each fragment.",
+      "3:9 final וגו remains an unbound continuation marker."
+    ]
+  },
+  "changes": "None to source observations, candidates, text or pointing."
+}

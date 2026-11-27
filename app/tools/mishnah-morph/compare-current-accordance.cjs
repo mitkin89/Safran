@@ -36,10 +36,10 @@ function normalizeObservation(o,document){
  const image=typeof o.image==='string'?(Array.isArray(document.images)?document.images.find(i=>path.basename(i.file||i.name||'')===o.image):document.images?.[o.image])||{file:o.image}:o.image||o.observation||{};
  return {title:o.title||document.title,ref:o.ref,textHash:o.targetTextHash||o.sourceTextHash||document.targetSourceTextHash||document.sourceTextHash,
   wordId:o.targetSourceWordId||o.sourceWordId,wordIndex:o.targetWordIndex??o.sourceWordIndex??o.wordIndex,
-  word:o.observedWord||o.accordance?.surface||o.observation?.surface||o.observedConsonants||o.sourceWord||o.word||'',
+  word:o.observedWord||o.actualObservedWord||o.accordance?.surface||o.observation?.surface||o.observation?.observedWord||o.observed?.word||o.observedConsonants||o.originalWord||o.sourceWord||o.word||'',
   lex:o.lex||o.rawLex||o.observed?.lex||o.observation?.lex||(o.accordance?.lexemes||[]).join(' '),
   tags:o.tags||o.rawTag||o.observed?.tag||o.observation?.tags||(o.accordance?.rawTags||[]).join(' '),
-  confidence:o.confidence||o.readingStatus||(/uncertain|unreadable|unclear|illegible/.test(o.status||'')?'uncertain':'clear'),alignment:o.alignment||((o.sourceWordIds?.length>1||o.sourceBindings?.length>1)?'many-to-one':'one-to-one'),image,observedRef:o.observation?.ref||o.observedRef||o.accordance?.ref||null,observationStatus:o.status||null,notes:o.notes||o.note||null,
+  confidence:o.confidence||o.readingStatus||(/uncertain|unreadable|unclear|illegible|partial-visible/.test(o.status||'')?'uncertain':'clear'),alignment:o.alignment||((o.sourceWordIds?.length>1||o.sourceBindings?.length>1)?'many-to-one':'one-to-one'),groupWordIds:o.sourceWordIds||o.sourceBindings?.map(b=>b.sourceWordId)||[],image,observedRef:o.observation?.ref||o.observed?.accordanceRef||o.observedRef||o.visibleRef||o.accordance?.ref||null,observationStatus:o.status||null,notes:o.notes||o.note||null,
   method:o.comparisonMethod||o.accordance?.observation||o.status||document.method};
 }
 function compareObservation(data,o){
@@ -47,6 +47,10 @@ function compareObservation(data,o){
  const unit=data.units?.[o.ref],match=/\/word\/(\d+)$/.exec(o.wordId||''),index=match?Number(match[1]):o.wordIndex;
  if(o.title!==data.title||o.textHash!==data.source.textHash||!unit||!Number.isInteger(index)||o.wordId!==unit.id+'/word/'+index||!unit.words[index])return {...result,status:'binding-refused'};
  if(o.wordIndex!==undefined&&o.wordIndex!==index)return {...result,status:'binding-refused'};
+ if(o.groupWordIds?.length>1){
+  if(!o.groupWordIds.includes(o.wordId)||o.groupWordIds.some(id=>{const m=/\/word\/(\d+)$/.exec(id);return !m||id!==unit.id+'/word/'+Number(m[1])||!unit.words[Number(m[1])];}))return {...result,status:'binding-refused'};
+  return {...result,status:'reference-needs-review',groupSourceWordIds:[...new Set(o.groupWordIds)]};
+ }
  if(o.confidence!=='clear'||o.alignment!=='one-to-one')return {...result,status:'reference-needs-review'};
  const sourceWord=unit.words[index];
  if(!plain(o.word)||plain(o.word)!==plain(sourceWord.text))return {...result,status:'surface-or-segmentation-difference',targetWord:sourceWord.text};
@@ -69,7 +73,7 @@ function compareObservation(data,o){
 function load(file){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(file,'utf8'),ctx);return Object.values(ctx.window)[0];}
 function summarizePositions(rows){
  const groups=new Map();
- for(const row of rows){if(!row.sourceWordId||['binding-refused','title-not-found'].includes(row.status))continue;const key=row.title+'\0'+row.sourceWordId;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(row);}
+ for(const row of rows){if(!row.sourceWordId||['binding-refused','title-not-found'].includes(row.status))continue;for(const id of row.groupSourceWordIds||[row.sourceWordId]){const key=row.title+'\0'+id;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(id===row.sourceWordId?row:{...row,sourceWordId:id});}}
  const positions=[...groups.values()].map(observations=>{
   const statuses=[...new Set(observations.map(r=>r.status))].sort(),fields=new Map();
   for(const row of observations){if(!row.parsed||row.parsed.unsupported.length)continue;for(const [key,value]of Object.entries(row.parsed.features)){if(!fields.has(key))fields.set(key,new Set());fields.get(key).add(value);}}
@@ -80,20 +84,24 @@ function summarizePositions(rows){
  return {meaning:'Unique source positions, never a sum of overlapping screenshot rows; mixed results and conflicting visible reference features are retained for contextual review.',counts,positions};
 }
 function main(){
+ const sederArg=process.argv.find(a=>a.startsWith('--seder=')),seder=sederArg?sederArg.slice('--seder='.length):'moed';if(!['moed','nashim'].includes(seder))throw Error('Supply --seder=moed or --seder=nashim');
  const draftArg=process.argv.find(a=>a.startsWith('--draft-commit=')),draftRef=draftArg?.slice('--draft-commit='.length);if(draftRef&&!/^[a-f0-9]{7,40}$/.test(draftRef))throw Error('Draft commit must be a hexadecimal Git commit ID');
  const draftCommit=draftRef?cp.execFileSync('git',['rev-parse','--verify',draftRef+'^{commit}'],{cwd:ROOT,encoding:'utf8'}).trim():null,draftHashes=new Map();
  const indexArg=process.argv.find(a=>a.startsWith('--image-index='));if(!indexArg)throw Error('Supply --image-index=/path/to/full-download-index.json to verify original image hashes');
  const imageIndexFile=path.resolve(indexArg.slice('--image-index='.length)),imageIndexBytes=fs.readFileSync(imageIndexFile),imageIndex=new Map(JSON.parse(imageIndexBytes).map(r=>[r.name,r])),verifiedImages=new Map();
  function verifiedImage(o){const name=path.basename(o.image.file||''),record=imageIndex.get(name);if(!record||o.image.sha256!==record.sha256||o.image.driveId!==record.id)return false;if(!verifiedImages.has(name))verifiedImages.set(name,hash(fs.readFileSync(path.join(path.dirname(imageIndexFile),name)))===record.sha256);return verifiedImages.get(name);}
- const files=fs.readdirSync(__dirname).filter(f=>/^accordance-moed-current-.*-observations\.json$/.test(f)),catalog=load(path.join(ROOT,'mishnah-accordance-catalog.js')),books=new Map(),rows=[],inputs=[{imageIndexSha256:hash(imageIndexBytes)}];
+ const files=fs.readdirSync(__dirname).filter(f=>new RegExp('^accordance-'+seder+'-current-.*-observations\\.json$').test(f)),catalog=load(path.join(ROOT,'mishnah-accordance-catalog.js')),books=new Map(),rows=[],inputs=[{imageIndexSha256:hash(imageIndexBytes)}];
  function book(title){if(!books.has(title)){const file=catalog[title].file,bytes=draftCommit?cp.execFileSync('git',['show',draftCommit+':app/'+file],{cwd:ROOT,maxBuffer:128*1024*1024}):fs.readFileSync(path.join(ROOT,file)),ctx={window:{}};vm.runInNewContext(bytes.toString('utf8'),ctx);books.set(title,Object.values(ctx.window)[0]);draftHashes.set(title,hash(bytes));}return books.get(title);}
  for(const file of files){const bytes=fs.readFileSync(path.join(__dirname,file)),doc=JSON.parse(bytes);inputs.push({file,sha256:hash(bytes),observations:doc.observations?.length||0,coverage:doc.coverage||doc.summary||null});
   for(const raw of doc.observations||[]){const o=normalizeObservation(raw,doc),item=catalog[o.title];if(!verifiedImage(o))throw Error('Original image binding refused: '+file+' '+o.ref+' '+o.wordId);if(!item){rows.push({title:o.title,ref:o.ref,status:'title-not-found'});continue;}rows.push({...compareObservation(book(o.title),o),observationFile:file});}
  }
  const counts={};for(const row of rows)counts[row.status]=(counts[row.status]||0)+1;
- const scopeBooks=JSON.parse(fs.readFileSync(path.join(__dirname,'moed-nashim-morphology-completion-moed-audit.json'),'utf8')).books;
- const coverage=scopeBooks.map(({title})=>{const d=book(title),observed=new Set(rows.filter(r=>r.title===title&&r.status!=='binding-refused').map(r=>r.sourceWordId)),all=Object.values(d.units).flatMap(u=>u.words.map((_,i)=>u.id+'/word/'+i));return {title,sourceWords:all.length,positionsWithObservation:all.filter(id=>observed.has(id)).length,withoutObservation:all.filter(id=>!observed.has(id)),wordCoverageComplete:all.every(id=>observed.has(id))};});
- const report={version:1,scope:'Moed available screenshot observations',draftCommit,complete:false,meaning:'Conservative compatibility with visible lexical-head fields only, not an accuracy score, complete morphology check, manuscript check, or human validation. No input cards or source text modified.',inputs,draftFiles:[...books].map(([title])=>({title,file:catalog[title].file,sha256:draftHashes.get(title)})),verifiedOriginalImages:verifiedImages.size,coverage,counts,uniquePositions:summarizePositions(rows),rows};
- const out=path.join(__dirname,'moed-current-accordance-comparison.json');fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n');process.stdout.write(JSON.stringify({output:out,counts})+'\n');
+ const scopeBooks=JSON.parse(fs.readFileSync(path.join(__dirname,'moed-nashim-morphology-completion-'+seder+'-audit.json'),'utf8')).books;
+ const coverage=scopeBooks.map(({title})=>{const d=book(title),valid=rows.filter(r=>r.title===title&&r.status!=='binding-refused'),individual=new Set(valid.filter(r=>!r.groupSourceWordIds).map(r=>r.sourceWordId)),observed=new Set(valid.flatMap(r=>r.groupSourceWordIds||[r.sourceWordId])),all=Object.values(d.units).flatMap(u=>u.words.map((_,i)=>u.id+'/word/'+i));return {title,sourceWords:all.length,positionsWithObservation:all.filter(id=>observed.has(id)).length,positionsWithIndividualObservation:all.filter(id=>individual.has(id)).length,positionsWithGroupOnlyObservation:all.filter(id=>observed.has(id)&&!individual.has(id)).length,withoutObservation:all.filter(id=>!observed.has(id)),wordCoverageComplete:all.every(id=>observed.has(id))};});
+ const report={version:1,scope:seder+' available screenshot observations',draftCommit,complete:false,meaning:'Conservative compatibility with visible lexical-head fields only, not an accuracy score, complete morphology check, manuscript check, or human validation. No input cards or source text modified.',inputs,draftFiles:[...books].map(([title])=>({title,file:catalog[title].file,sha256:draftHashes.get(title)})),verifiedOriginalImages:verifiedImages.size,coverage,counts,uniquePositions:summarizePositions(rows),rows};
+ const outArg=process.argv.find(a=>a.startsWith('--output=')),summaryArg=process.argv.find(a=>a.startsWith('--summary-output='));
+ const out=outArg?path.resolve(outArg.slice('--output='.length)):path.join(__dirname,seder+'-current-accordance-comparison.json'),reportBytes=JSON.stringify(report,null,2)+'\n';fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,reportBytes);
+ if(summaryArg){const summaryPath=path.resolve(summaryArg.slice('--summary-output='.length)),{rows:fullRows,uniquePositions,...summary}=report;summary.fullReportSha256=hash(reportBytes);summary.observationRows=fullRows.length;summary.uniquePositions={meaning:uniquePositions.meaning,counts:uniquePositions.counts,total:uniquePositions.positions.length};summary.reproduction='Run compare-current-accordance.cjs with the pinned draft commit, the exact input ledger hashes and an original image index matching inputs[0].imageIndexSha256; full per-observation results are reproducible and not duplicated in this summary.';fs.mkdirSync(path.dirname(summaryPath),{recursive:true});fs.writeFileSync(summaryPath,JSON.stringify(summary,null,2)+'\n');}
+ process.stdout.write(JSON.stringify({output:out,counts})+'\n');
 }
 module.exports={parseHead,normalizeObservation,compareObservation,summarizePositions};if(require.main===module)main();

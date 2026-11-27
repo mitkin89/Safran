@@ -1,0 +1,2500 @@
+{
+  "scope": "Independent original-image QA of all 31 Shekalim raw-tag disagreement positions",
+  "method": "Visible Lex/Tag reread; no grammatical correction, no source-text or book-module change. AI visual review, not human validation.",
+  "adjudications": [
+    {
+      "queuePosition": 0,
+      "title": "Mishnah Shekalim",
+      "ref": "1:1",
+      "sourceWordId": "S07326.2.4.1.1/word/18",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 18,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+            "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+            "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+          },
+          "sourceWordId": "S07326.2.4.1.1/word/18",
+          "sourceWord": "הָרְחוֹבוֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ה רחוק",
+            "tags": "art; cm fm pl"
+          },
+          "rawCorrected": {
+            "lex": "ה|רחוק",
+            "tags": "art|fm pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 150,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+            "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+            "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+          },
+          "sourceWordId": "S07326.2.4.1.1/word/18",
+          "sourceWord": "הָרְחוֹבוֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "רחוב"
+            ],
+            "tags": [
+              "art",
+              "fm pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|רחוק",
+            "tags": "art|fm pl"
+          }
+        }
+      ],
+      "reason": "Image246 הרחובות: displayed lexical רחוק (unexpected but retained), Tag fm pl with no cm. First reading added cm; second normalized lexical רחוק to רחוב."
+    },
+    {
+      "queuePosition": 1,
+      "title": "Mishnah Shekalim",
+      "ref": "1:1",
+      "sourceWordId": "S07326.2.4.1.1/word/20",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 20,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+            "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+            "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+          },
+          "sourceWordId": "S07326.2.4.1.1/word/20",
+          "sourceWord": "מִקְווֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "מקוה",
+            "tags": "cm fm pl"
+          },
+          "rawCorrected": {
+            "lex": "מקוה",
+            "tags": "cm ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 152,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+            "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+            "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+          },
+          "sourceWordId": "S07326.2.4.1.1/word/20",
+          "sourceWord": "מִקְווֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "מקוה"
+            ],
+            "tags": [
+              "cm ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "מקוה",
+            "tags": "cm ms pl"
+          }
+        }
+      ],
+      "reason": "Image246 מקוות: printed cm ms pl, not fm pl."
+    },
+    {
+      "queuePosition": 2,
+      "title": "Mishnah Shekalim",
+      "ref": "1:4",
+      "sourceWordId": "S07326.2.4.1.4/word/37",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 137,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_249.png",
+            "sha256": "50d1b47b27c2518032a5cb4cc6ecee5dd2286e4d84a1db46de90f9b64d26a9d5",
+            "driveId": "1lxTx8CfbTVZtmz5YZRrjA0NJw6pSc2DO"
+          },
+          "sourceWordId": "S07326.2.4.1.4/word/37",
+          "sourceWord": "תִּהְיֶה",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "היה",
+            "tags": "qal imprf 3 fm sg"
+          },
+          "rawCorrected": {
+            "lex": "היה",
+            "tags": "qal imprf 3 fm sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 195,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_249.png",
+            "sha256": "50d1b47b27c2518032a5cb4cc6ecee5dd2286e4d84a1db46de90f9b64d26a9d5",
+            "driveId": "1lxTx8CfbTVZtmz5YZRrjA0NJw6pSc2DO"
+          },
+          "sourceWordId": "S07326.2.4.1.4/word/37",
+          "sourceWord": "תִּהְיֶה",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "היה"
+            ],
+            "tags": [
+              "nif imprf 3 fm sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "היה",
+            "tags": "qal imprf 3 fm sg"
+          }
+        }
+      ],
+      "reason": "Image249 phrase כליל תהיה לא תאכל: תהיה visibly qal imprf 3fm sg. Other reading shifted neighboring nif tag."
+    },
+    {
+      "queuePosition": 3,
+      "title": "Mishnah Shekalim",
+      "ref": "1:4",
+      "sourceWordId": "S07326.2.4.1.4/word/39",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 139,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_249.png",
+            "sha256": "50d1b47b27c2518032a5cb4cc6ecee5dd2286e4d84a1db46de90f9b64d26a9d5",
+            "driveId": "1lxTx8CfbTVZtmz5YZRrjA0NJw6pSc2DO"
+          },
+          "sourceWordId": "S07326.2.4.1.4/word/39",
+          "sourceWord": "תֵאָכֵל",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "אכל",
+            "tags": "nif imprf 3 fm sg"
+          },
+          "rawCorrected": {
+            "lex": "אכל",
+            "tags": "nif imprf 3 fm sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 194,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_249.png",
+            "sha256": "50d1b47b27c2518032a5cb4cc6ecee5dd2286e4d84a1db46de90f9b64d26a9d5",
+            "driveId": "1lxTx8CfbTVZtmz5YZRrjA0NJw6pSc2DO"
+          },
+          "sourceWordId": "S07326.2.4.1.4/word/39",
+          "sourceWord": "תֵאָכֵל",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "אכל"
+            ],
+            "tags": [
+              "qal imprf 3 fm sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "אכל",
+            "tags": "nif imprf 3 fm sg"
+          }
+        }
+      ],
+      "reason": "Image249 תאכל visibly nif imprf 3fm sg. Other reading shifted neighboring qal tag."
+    },
+    {
+      "queuePosition": 4,
+      "title": "Mishnah Shekalim",
+      "ref": "1:5",
+      "sourceWordId": "S07326.2.4.1.5/word/24",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 174,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+            "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+            "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+          },
+          "sourceWordId": "S07326.2.4.1.5/word/24",
+          "sourceWord": "זָּבִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "זוב",
+            "tags": "qal prt ms pl"
+          },
+          "rawCorrected": {
+            "lex": "זוב",
+            "tags": "qal prt ms pl cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 205,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+            "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+            "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+          },
+          "sourceWordId": "S07326.2.4.1.5/word/24",
+          "sourceWord": "זָּבִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "זוב"
+            ],
+            "tags": [
+              "qal prt ms pl cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "זוב",
+            "tags": "qal prt ms pl cnst"
+          }
+        }
+      ],
+      "reason": "Image250 זבים visibly includes cnst; omitted in first transcription."
+    },
+    {
+      "queuePosition": 5,
+      "title": "Mishnah Shekalim",
+      "ref": "1:5",
+      "sourceWordId": "S07326.2.4.1.5/word/26",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 176,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+            "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+            "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+          },
+          "sourceWordId": "S07326.2.4.1.5/word/26",
+          "sourceWord": "זָבוֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "זוב",
+            "tags": "qal prt fm pl"
+          },
+          "rawCorrected": {
+            "lex": "זוב",
+            "tags": "qal prt fm pl cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 206,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+            "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+            "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+          },
+          "sourceWordId": "S07326.2.4.1.5/word/26",
+          "sourceWord": "זָבוֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "זוב"
+            ],
+            "tags": [
+              "qal prt fm pl cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "זוב",
+            "tags": "qal prt fm pl cnst"
+          }
+        }
+      ],
+      "reason": "Image250 זבות visibly includes cnst; omitted in first transcription."
+    },
+    {
+      "queuePosition": 6,
+      "title": "Mishnah Shekalim",
+      "ref": "1:5",
+      "sourceWordId": "S07326.2.4.1.5/word/38",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 188,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+            "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+            "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+          },
+          "sourceWordId": "S07326.2.4.1.5/word/38",
+          "sourceWord": "וְנִידָּב",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ו נדב",
+            "tags": "cnj; nif prf 3 ms sg"
+          },
+          "rawCorrected": {
+            "lex": "ו|נדב",
+            "tags": "cnj|nif prf 3 ms sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 208,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+            "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+            "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+          },
+          "sourceWordId": "S07326.2.4.1.5/word/38",
+          "sourceWord": "וְנִידָּב",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ו",
+              "נדב"
+            ],
+            "tags": [
+              "cnj",
+              "nif prt ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|נדב",
+            "tags": "cnj|nif prf 3 ms sg"
+          }
+        }
+      ],
+      "reason": "Image250 ונדב visibly nif prf 3ms sg; second transcription changed finite prf to participle."
+    },
+    {
+      "queuePosition": 7,
+      "title": "Mishnah Shekalim",
+      "ref": "1:6",
+      "sourceWordId": "S07326.2.4.1.6/word/0",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 212,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_251.png",
+            "sha256": "26f193e7c3eb5bc7d0d5b2e185fceeefdc745acefe357b1071fd45750d8c7a70",
+            "driveId": "1KQtDjQuVwT_K3ftDRBeKCTwMHJBV1Mb9"
+          },
+          "sourceWordId": "S07326.2.4.1.6/word/0",
+          "sourceWord": "וְאֵילּוּ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ו אלו",
+            "tags": "cnj; cm bth pl"
+          },
+          "rawCorrected": {
+            "lex": "ו|אלו",
+            "tags": "cnj|bth pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 216,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_251.png",
+            "sha256": "26f193e7c3eb5bc7d0d5b2e185fceeefdc745acefe357b1071fd45750d8c7a70",
+            "driveId": "1KQtDjQuVwT_K3ftDRBeKCTwMHJBV1Mb9"
+          },
+          "sourceWordId": "S07326.2.4.1.6/word/0",
+          "sourceWord": "וְאֵילּוּ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ו",
+              "אלו"
+            ],
+            "tags": [
+              "cnj",
+              "bth pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|אלו",
+            "tags": "cnj|bth pl"
+          }
+        }
+      ],
+      "reason": "Image251 ואילו Tag bth pl with no cm; first transcription inserted cm."
+    },
+    {
+      "queuePosition": 8,
+      "title": "Mishnah Shekalim",
+      "ref": "1:7",
+      "sourceWordId": "S07326.2.4.1.7/word/16",
+      "status": "resolved-prefix-scope",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 277,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_252.png",
+            "sha256": "120acd25f59658fd6acc8944580ae6d7c9307feba62d8766c48374e5f817b0f9",
+            "driveId": "1vd423r5j8Vzmwz2oif9eAz5RozJT26T5"
+          },
+          "sourceWordId": "S07326.2.4.1.7/word/16",
+          "sourceWord": "השותפים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ו ה שותף",
+            "tags": "cnj; art; cm ms pl"
+          },
+          "rawCorrected": {
+            "lex": "ו|ה|שותף",
+            "tags": "cnj|art|cm ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 227,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_252.png",
+            "sha256": "120acd25f59658fd6acc8944580ae6d7c9307feba62d8766c48374e5f817b0f9",
+            "driveId": "1vd423r5j8Vzmwz2oif9eAz5RozJT26T5"
+          },
+          "sourceWordId": "S07326.2.4.1.7/word/16",
+          "sourceWord": "השותפים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "שותף"
+            ],
+            "tags": [
+              "art",
+              "cm ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|ה|שותף",
+            "tags": "cnj|art|cm ms pl"
+          }
+        }
+      ],
+      "reason": "Image252 השותפים includes editorial ו, separately displayed Lex ו and Tag cnj. Omission in second reading is prefix-scope discrepancy, not noun disagreement."
+    },
+    {
+      "queuePosition": 9,
+      "title": "Mishnah Shekalim",
+      "ref": "2:1",
+      "sourceWordId": "S07326.2.4.2.1/word/5",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 305,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_253.png",
+            "sha256": "865068e3a0015fe825b5ca52506f19b5fbc7f25dc09b1950db8ad4a1657f7cf9",
+            "driveId": "1O-CwGH79X-RjLtSkKAOCozNvSsy06ZPB"
+          },
+          "sourceWordId": "S07326.2.4.2.1/word/5",
+          "sourceWord": "הַדֶּרֶך",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ה דרך",
+            "tags": "art; cm bth pl"
+          },
+          "rawCorrected": {
+            "lex": "ה|דרך",
+            "tags": "art|cm bth sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 237,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_252.png",
+            "sha256": "120acd25f59658fd6acc8944580ae6d7c9307feba62d8766c48374e5f817b0f9",
+            "driveId": "1vd423r5j8Vzmwz2oif9eAz5RozJT26T5"
+          },
+          "sourceWordId": "S07326.2.4.2.1/word/5",
+          "sourceWord": "הַדֶּרֶך",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "דרך"
+            ],
+            "tags": [
+              "art",
+              "cm bth sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|דרך",
+            "tags": "art|cm bth sg"
+          }
+        }
+      ],
+      "reason": "Images252 and253 הדרך visibly cm bth sg. First reading plural was a transcription error."
+    },
+    {
+      "queuePosition": 10,
+      "title": "Mishnah Shekalim",
+      "ref": "2:1",
+      "sourceWordId": "S07326.2.4.2.1/word/38",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 338,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_253.png",
+            "sha256": "865068e3a0015fe825b5ca52506f19b5fbc7f25dc09b1950db8ad4a1657f7cf9",
+            "driveId": "1O-CwGH79X-RjLtSkKAOCozNvSsy06ZPB"
+          },
+          "sourceWordId": "S07326.2.4.2.1/word/38",
+          "sourceWord": "הַגַּנָּבִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ה גנב",
+            "tags": "art; cm ms pl"
+          },
+          "rawCorrected": {
+            "lex": "ה|גנב",
+            "tags": "art|cm ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 247,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_253.png",
+            "sha256": "865068e3a0015fe825b5ca52506f19b5fbc7f25dc09b1950db8ad4a1657f7cf9",
+            "driveId": "1O-CwGH79X-RjLtSkKAOCozNvSsy06ZPB"
+          },
+          "sourceWordId": "S07326.2.4.2.1/word/38",
+          "sourceWord": "הַגַּנָּבִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "גנב"
+            ],
+            "tags": [
+              "art",
+              "cm bth pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|גנב",
+            "tags": "art|cm ms pl"
+          }
+        }
+      ],
+      "reason": "Image253 הגנבים visibly cm ms pl, not bth pl."
+    },
+    {
+      "queuePosition": 11,
+      "title": "Mishnah Shekalim",
+      "ref": "2:3",
+      "sourceWordId": "S07326.2.4.2.3/word/4",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 382,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_254.png",
+            "sha256": "7bb5d836da0a6dd05efabe9408cc45083dba9c649321d5ab09b8bd9486108440",
+            "driveId": "16c6lVOIwh_jh_es2zBPH2ETj0jMc2BWW"
+          },
+          "sourceWordId": "S07326.2.4.2.3/word/4",
+          "sourceWord": "אֵלּוּ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "אלה",
+            "tags": "cm bth pl"
+          },
+          "rawCorrected": {
+            "lex": "אלה",
+            "tags": "bth pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 261,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_254.png",
+            "sha256": "7bb5d836da0a6dd05efabe9408cc45083dba9c649321d5ab09b8bd9486108440",
+            "driveId": "16c6lVOIwh_jh_es2zBPH2ETj0jMc2BWW"
+          },
+          "sourceWordId": "S07326.2.4.2.3/word/4",
+          "sourceWord": "אֵלּוּ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "אלה"
+            ],
+            "tags": [
+              "bth pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "אלה",
+            "tags": "bth pl"
+          }
+        }
+      ],
+      "reason": "Image254 אלו visibly bth pl with no cm."
+    },
+    {
+      "queuePosition": 12,
+      "title": "Mishnah Shekalim",
+      "ref": "2:5",
+      "sourceWordId": "S07326.2.4.2.5/word/12",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 485,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+            "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+            "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+          },
+          "sourceWordId": "S07326.2.4.2.5/word/12",
+          "sourceWord": "יוֹלְדוֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "יולדת",
+            "tags": "cm fm pl"
+          },
+          "rawCorrected": {
+            "lex": "יולדה",
+            "tags": "cm fm pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 290,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+            "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+            "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+          },
+          "sourceWordId": "S07326.2.4.2.5/word/12",
+          "sourceWord": "יוֹלְדוֹת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "יולדה"
+            ],
+            "tags": [
+              "cm fm pl cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "יולדה",
+            "tags": "cm fm pl"
+          }
+        }
+      ],
+      "reason": "Image257 יולדות: Lex יולדה; Tag cm fm pl with no cnst. Each transcription had a separate error."
+    },
+    {
+      "queuePosition": 13,
+      "title": "Mishnah Shekalim",
+      "ref": "2:5",
+      "sourceWordId": "S07326.2.4.2.5/word/63",
+      "status": "resolved-prefix-scope",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 536,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+            "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+            "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+          },
+          "sourceWordId": "S07326.2.4.2.5/word/63",
+          "sourceWord": "לַמֵּתִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ל מות",
+            "tags": "prpArt; qal prt ms pl"
+          },
+          "rawCorrected": {
+            "lex": "ל|ה|מות",
+            "tags": "prpArt|art|qal prt ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 295,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+            "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+            "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+          },
+          "sourceWordId": "S07326.2.4.2.5/word/63",
+          "sourceWord": "לַמֵּתִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ל",
+              "ה",
+              "מות"
+            ],
+            "tags": [
+              "prpArt",
+              "art",
+              "qal prt ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ל|ה|מות",
+            "tags": "prpArt|art|qal prt ms pl"
+          }
+        }
+      ],
+      "reason": "Image257 למתים prints separate ל and ה alongside מות, with prpArt and art separately visible; preserve printed redundancy."
+    },
+    {
+      "queuePosition": 14,
+      "title": "Mishnah Shekalim",
+      "ref": "3:2",
+      "sourceWordId": "S07326.2.4.3.2/word/66",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 679,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_259.png",
+            "sha256": "0fd312e57aa4d5a43cdf774d4e258adfaba542687a7339adb91f9a7944dd7d72",
+            "driveId": "1oWCUwlCbtcIGxbBbWMTfur36D33eMyS5"
+          },
+          "sourceWordId": "S07326.2.4.3.2/word/66",
+          "sourceWord": "וּמְצָא",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ו מצא",
+            "tags": "cnj; qal imprf 3 ms sg"
+          },
+          "rawCorrected": {
+            "lex": "ו|מצא",
+            "tags": "cnj|qal imprf 3 ms sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 322,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_259.png",
+            "sha256": "0fd312e57aa4d5a43cdf774d4e258adfaba542687a7339adb91f9a7944dd7d72",
+            "driveId": "1oWCUwlCbtcIGxbBbWMTfur36D33eMyS5"
+          },
+          "sourceWordId": "S07326.2.4.3.2/word/66",
+          "sourceWord": "וּמְצָא",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ו",
+              "מצא"
+            ],
+            "tags": [
+              "cnj",
+              "qal impr ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|מצא",
+            "tags": "cnj|qal imprf 3 ms sg"
+          }
+        }
+      ],
+      "reason": "Image259 ומצא visibly qal imprf 3ms sg; missing f and person in second transcription."
+    },
+    {
+      "queuePosition": 15,
+      "title": "Mishnah Shekalim",
+      "ref": "3:3",
+      "sourceWordId": "S07326.2.4.3.3/word/4",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 690,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+            "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+            "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+          },
+          "sourceWordId": "S07326.2.4.3.3/word/4",
+          "sourceWord": "נִכְנָס",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "כנס",
+            "tags": "nif prt ms sg"
+          },
+          "rawCorrected": {
+            "lex": "כנס",
+            "tags": "nif prt ms sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 323,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+            "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+            "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+          },
+          "sourceWordId": "S07326.2.4.3.3/word/4",
+          "sourceWord": "נִכְנָס",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "כנס"
+            ],
+            "tags": [
+              "qal prt ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "כנס",
+            "tags": "nif prt ms sg"
+          }
+        }
+      ],
+      "reason": "Image260 נכנס visibly nif prt ms sg, not qal."
+    },
+    {
+      "queuePosition": 16,
+      "title": "Mishnah Shekalim",
+      "ref": "3:3",
+      "sourceWordId": "S07326.2.4.3.3/word/8",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 694,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+            "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+            "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+          },
+          "sourceWordId": "S07326.2.4.3.3/word/8",
+          "sourceWord": "וְזוֹרְקוֹ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ו זרק",
+            "tags": "cnj; qal prt ms sg cnst"
+          },
+          "rawCorrected": {
+            "lex": "ו|זרק",
+            "tags": "cnj|qal prt ms sg cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 324,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+            "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+            "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+          },
+          "sourceWordId": "S07326.2.4.3.3/word/8",
+          "sourceWord": "וְזוֹרְקוֹ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ו",
+              "זרק"
+            ],
+            "tags": [
+              "cnj",
+              "qal prt ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|זרק",
+            "tags": "cnj|qal prt ms sg cnst"
+          }
+        }
+      ],
+      "reason": "Image260 וזורקן visibly includes cnst under participle."
+    },
+    {
+      "queuePosition": 17,
+      "title": "Mishnah Shekalim",
+      "ref": "3:4",
+      "sourceWordId": "S07326.2.4.3.4/word/31",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 747,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_261.png",
+            "sha256": "67539df7eff52d6d042a521c866594faad5194da133bd952aa09a76e7cff2674",
+            "driveId": "1--ZtbWki5mrNrrJ6Eaago0u9NIs7JRoe"
+          },
+          "sourceWordId": "S07326.2.4.3.4/word/31",
+          "sourceWord": "המוקפים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ה נקף",
+            "tags": "art; hof prt ms pl"
+          },
+          "rawCorrected": {
+            "lex": "ה|נקף",
+            "tags": "art|hof prt ms pl cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 340,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+            "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+            "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+          },
+          "sourceWordId": "S07326.2.4.3.4/word/31",
+          "sourceWord": "המוקפים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "נקף"
+            ],
+            "tags": [
+              "art",
+              "hof prt ms pl cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|נקף",
+            "tags": "art|hof prt ms pl cnst"
+          }
+        }
+      ],
+      "reason": "Images260 and261 המוקפים visibly include cnst; omitted in first reading."
+    },
+    {
+      "queuePosition": 18,
+      "title": "Mishnah Shekalim",
+      "ref": "4:2",
+      "sourceWordId": "S07326.2.4.4.2/word/32",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 831,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_263.png",
+            "sha256": "ee85ed7f4c92e9ff6bff261d0b4efae2334c021d5b14479b7ca12bc6960a269a",
+            "driveId": "1flmGgeeFBVbgR6lHM97ijMMgC-KktlAe"
+          },
+          "sourceWordId": "S07326.2.4.4.2/word/32",
+          "sourceWord": "כֹּהֲנִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "כהן",
+            "tags": "cm ms pl"
+          },
+          "rawCorrected": {
+            "lex": "כהן",
+            "tags": "cm ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 369,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_263.png",
+            "sha256": "ee85ed7f4c92e9ff6bff261d0b4efae2334c021d5b14479b7ca12bc6960a269a",
+            "driveId": "1flmGgeeFBVbgR6lHM97ijMMgC-KktlAe"
+          },
+          "sourceWordId": "S07326.2.4.4.2/word/32",
+          "sourceWord": "כֹּהֲנִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "כהן"
+            ],
+            "tags": [
+              "cm ms pl cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "כהן",
+            "tags": "cm ms pl"
+          }
+        }
+      ],
+      "reason": "Image263 כהנים visibly cm ms pl, without cnst."
+    },
+    {
+      "queuePosition": 19,
+      "title": "Mishnah Shekalim",
+      "ref": "4:2",
+      "sourceWordId": "S07326.2.4.4.2/word/33",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 832,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_263.png",
+            "sha256": "ee85ed7f4c92e9ff6bff261d0b4efae2334c021d5b14479b7ca12bc6960a269a",
+            "driveId": "1flmGgeeFBVbgR6lHM97ijMMgC-KktlAe"
+          },
+          "sourceWordId": "S07326.2.4.4.2/word/33",
+          "sourceWord": "גְּדוֹלִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "גדול",
+            "tags": "ms pl"
+          },
+          "rawCorrected": {
+            "lex": "גדול",
+            "tags": "ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 368,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_263.png",
+            "sha256": "ee85ed7f4c92e9ff6bff261d0b4efae2334c021d5b14479b7ca12bc6960a269a",
+            "driveId": "1flmGgeeFBVbgR6lHM97ijMMgC-KktlAe"
+          },
+          "sourceWordId": "S07326.2.4.4.2/word/33",
+          "sourceWord": "גְּדוֹלִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "גדול"
+            ],
+            "tags": [
+              "cm ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "גדול",
+            "tags": "ms pl"
+          }
+        }
+      ],
+      "reason": "Image263 גדולים visibly ms pl, without cm."
+    },
+    {
+      "queuePosition": 20,
+      "title": "Mishnah Shekalim",
+      "ref": "4:4",
+      "sourceWordId": "S07326.2.4.4.4/word/10",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 874,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_265.png",
+            "sha256": "2be200d45906ebb7ba308cc61f45e7f067c9cd9472eab844512081439bee2a09",
+            "driveId": "1--cqXBV1SDUJ5nQUsvlkgJ3rZjVQPO5c"
+          },
+          "sourceWordId": "S07326.2.4.4.4/word/10",
+          "sourceWord": "קוֹדֶשׁ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "קדש",
+            "tags": "cm ms sg"
+          },
+          "rawCorrected": {
+            "lex": "קדש",
+            "tags": "cm ms sg cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 378,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_264.png",
+            "sha256": "7faa77b125fd36380c2fa4c90a70d89c789dd3fe0b523505e9cf2b5840c687ea",
+            "driveId": "1mSjOwGvQqzy7DBHIC8E_65w8e9y4pgdr"
+          },
+          "sourceWordId": "S07326.2.4.4.4/word/10",
+          "sourceWord": "קוֹדֶשׁ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "קדש"
+            ],
+            "tags": [
+              "cm ms sg cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "קדש",
+            "tags": "cm ms sg cnst"
+          }
+        }
+      ],
+      "reason": "Images264 and265 first קודש in לבית קודש הקודשים visibly cm ms sg cnst; first reading omitted cnst."
+    },
+    {
+      "queuePosition": 21,
+      "title": "Mishnah Shekalim",
+      "ref": "4:4",
+      "sourceWordId": "S07326.2.4.4.4/word/17",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 881,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_265.png",
+            "sha256": "2be200d45906ebb7ba308cc61f45e7f067c9cd9472eab844512081439bee2a09",
+            "driveId": "1--cqXBV1SDUJ5nQUsvlkgJ3rZjVQPO5c"
+          },
+          "sourceWordId": "S07326.2.4.4.4/word/17",
+          "sourceWord": "לְקַיִץ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "ל קיץ",
+            "tags": "prp; cm ms sg cnst"
+          },
+          "rawCorrected": {
+            "lex": "ל|קיץ",
+            "tags": "prp|cm ms sg cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 375,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_264.png",
+            "sha256": "7faa77b125fd36380c2fa4c90a70d89c789dd3fe0b523505e9cf2b5840c687ea",
+            "driveId": "1mSjOwGvQqzy7DBHIC8E_65w8e9y4pgdr"
+          },
+          "sourceWordId": "S07326.2.4.4.4/word/17",
+          "sourceWord": "לְקַיִץ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ל",
+              "קיץ"
+            ],
+            "tags": [
+              "prp",
+              "cm ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ל|קיץ",
+            "tags": "prp|cm ms sg cnst"
+          }
+        }
+      ],
+      "reason": "Images264 and265 לקיץ visibly cm ms sg cnst; second reading omitted cnst."
+    },
+    {
+      "queuePosition": 22,
+      "title": "Mishnah Shekalim",
+      "ref": "4:7",
+      "sourceWordId": "S07326.2.4.4.7/word/67",
+      "status": "resolved-prefix-scope",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+          "row": 1060,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_268.png",
+            "sha256": "32acac0eb4551cff8554a312c8d3c62e2e1e5009f70d38071c2625600886deaf",
+            "driveId": "1yhLuxqJhZk3poGpy9se1JP7ejUBGGPyK"
+          },
+          "sourceWordId": "S07326.2.4.4.7/word/67",
+          "sourceWord": "מִידָּתוֹ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": "מן מדה",
+            "tags": "prp; cm fm sg cnst"
+          },
+          "rawCorrected": {
+            "lex": "מן|מדה",
+            "tags": "prp|cm fm sg cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 412,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_268.png",
+            "sha256": "32acac0eb4551cff8554a312c8d3c62e2e1e5009f70d38071c2625600886deaf",
+            "driveId": "1yhLuxqJhZk3poGpy9se1JP7ejUBGGPyK"
+          },
+          "sourceWordId": "S07326.2.4.4.7/word/67",
+          "sourceWord": "מִידָּתוֹ",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "מדה"
+            ],
+            "tags": [
+              "cm fm sg cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "מן|מדה",
+            "tags": "prp|cm fm sg cnst"
+          }
+        }
+      ],
+      "reason": "Image268 מידהו visibly Lex מן מדה with prp separate from cm fm sg cnst. Second reading omitted prefix scope."
+    },
+    {
+      "queuePosition": 23,
+      "title": "Mishnah Shekalim",
+      "ref": "5:3",
+      "sourceWordId": "S07326.2.4.5.3/word/39",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 457,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_272.png",
+            "sha256": "ab29449deddcc578e0377e3610bd040836011bc26c17ee4443ec4dc7e77349e4",
+            "driveId": "1sHIqlkc5KUUbLV0aPYkMttj81OPJX5Ly"
+          },
+          "sourceWordId": "S07326.2.4.5.3/word/39",
+          "sourceWord": "נסכי",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "נסך"
+            ],
+            "tags": [
+              "cm ms sg cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "נסך",
+            "tags": "cm ms pl cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 460,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_273.png",
+            "sha256": "ee3ebcf728b519a9f1d0f89df07af75eb94fb3339f574d8da00f060d8607b1ed",
+            "driveId": "1VqXW1SXdRvVjZ1V-bNf8ljwJU-fgPP7a"
+          },
+          "sourceWordId": "S07326.2.4.5.3/word/39",
+          "sourceWord": "נסכי",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "נסך"
+            ],
+            "tags": [
+              "cm ms pl cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "נסך",
+            "tags": "cm ms pl cnst"
+          }
+        }
+      ],
+      "reason": "Images272 and273 נסכי visibly cm ms pl cnst; singular in earlier row was a transcription error."
+    },
+    {
+      "queuePosition": 24,
+      "title": "Mishnah Shekalim",
+      "ref": "6:2",
+      "sourceWordId": "S07326.2.4.6.2/word/9",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 507,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_278.png",
+            "sha256": "5592e4fb2789d451796f92dc0894dc250ae04215a7ecd4a1b8ba961a70fd3804",
+            "driveId": "1UBfC754YcWbg6fYcTNb2c4iYZW5MHWgS"
+          },
+          "sourceWordId": "S07326.2.4.6.2/word/9",
+          "sourceWord": "מְשׁוּנָּה",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "שנה"
+            ],
+            "tags": [
+              "pul prt fm sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "שנה",
+            "tags": "pul prt fm sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2308,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_277.png",
+            "sha256": "0ce247230a30414b63258e90940bb6694e2a21404e69e06c6b9faaa18513ab30",
+            "driveId": "1GewGcZmHQiAyvP_qbHczYsmvxnDXPimH"
+          },
+          "sourceWordId": "S07326.2.4.6.2/word/9",
+          "sourceWord": "מְשׁוּנָּה",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "שנה"
+            ],
+            "tags": [
+              "pul prt fm"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "שנה",
+            "tags": "pul prt fm sg"
+          }
+        }
+      ],
+      "reason": "Images277 and278 משונה visibly pul prt fm sg; second row omitted sg."
+    },
+    {
+      "queuePosition": 25,
+      "title": "Mishnah Shekalim",
+      "ref": "6:2",
+      "sourceWordId": "S07326.2.4.6.2/word/11",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 508,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_278.png",
+            "sha256": "5592e4fb2789d451796f92dc0894dc250ae04215a7ecd4a1b8ba961a70fd3804",
+            "driveId": "1UBfC754YcWbg6fYcTNb2c4iYZW5MHWgS"
+          },
+          "sourceWordId": "S07326.2.4.6.2/word/11",
+          "sourceWord": "בָּא",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "בוא"
+            ],
+            "tags": [
+              "qal prf 3 ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "בוא",
+            "tags": "qal prt ms sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2310,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_277.png",
+            "sha256": "0ce247230a30414b63258e90940bb6694e2a21404e69e06c6b9faaa18513ab30",
+            "driveId": "1GewGcZmHQiAyvP_qbHczYsmvxnDXPimH"
+          },
+          "sourceWordId": "S07326.2.4.6.2/word/11",
+          "sourceWord": "בָּא",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "בוא"
+            ],
+            "tags": [
+              "qal prt ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "בוא",
+            "tags": "qal prt ms sg"
+          }
+        }
+      ],
+      "reason": "Images277 and278 בא visibly qal prt ms sg; first row misread prt as prf 3."
+    },
+    {
+      "queuePosition": 26,
+      "title": "Mishnah Shekalim",
+      "ref": "7:4",
+      "sourceWordId": "S07326.2.4.7.4/word/19",
+      "status": "resolved-prefix-scope",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 584,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_286.png",
+            "sha256": "a740b0e909377d65cfc66de388fb6f9701be100a28ec1ec6b97022dd220a9bb0",
+            "driveId": "1773ef55n1IcVzSYaDTFlWS431Pi_3wX7"
+          },
+          "sourceWordId": "S07326.2.4.7.4/word/19",
+          "sourceWord": "הָרָאוּי",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "ראה"
+            ],
+            "tags": [
+              "art",
+              "qal pasP ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|ראה",
+            "tags": "art|qal pasP ms sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2671,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_285.png",
+            "sha256": "745eb27b92d9c4d3da5434ea7e3e389d7cfbea4b122b49f6041d9c8c5fd28ebe",
+            "driveId": "1BkMOGMrk2Up8-IXONZo7M4pSEagVYlsw"
+          },
+          "sourceWordId": "S07326.2.4.7.4/word/19",
+          "sourceWord": "הָרָאוּי",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ראה"
+            ],
+            "tags": [
+              "qal pasP ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|ראה",
+            "tags": "art|qal pasP ms sg"
+          }
+        }
+      ],
+      "reason": "Images285 and286 הראוי visibly include article ה / art; second row omitted article scope."
+    },
+    {
+      "queuePosition": 27,
+      "title": "Mishnah Shekalim",
+      "ref": "8:1",
+      "sourceWordId": "S07326.2.4.8.1/word/1",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 613,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_290.png",
+            "sha256": "c93f70787f2bcb7a13c26cf9e43f844a6466e384805432e0dee7775e85a22e88",
+            "driveId": "1paLLE4ZT2g-HqEvZF3jLyn6JTH-TXY1w"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/1",
+          "sourceWord": "הָרוֹקִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "רוק"
+            ],
+            "tags": [
+              "art",
+              "cm ms sg cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|רוק",
+            "tags": "art|cm ms sg cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2767,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_289.png",
+            "sha256": "bf3aadfe6c9b65ed48932b91e90ad2dfeab528839b344de7a4ddbc1b5b0a49c9",
+            "driveId": "1qiblVH4rSZNg79wcvBXLsv3f-UnB5nXX"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/1",
+          "sourceWord": "הָרוֹקִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "רוק"
+            ],
+            "tags": [
+              "art",
+              "cm ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|רוק",
+            "tags": "art|cm ms sg cnst"
+          }
+        }
+      ],
+      "reason": "Images289 and290 הרוקים visibly cm ms sg cnst, despite plural surface; retain actual printed tag. Second row normalized to plural."
+    },
+    {
+      "queuePosition": 28,
+      "title": "Mishnah Shekalim",
+      "ref": "8:1",
+      "sourceWordId": "S07326.2.4.8.1/word/4",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 614,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_290.png",
+            "sha256": "c93f70787f2bcb7a13c26cf9e43f844a6466e384805432e0dee7775e85a22e88",
+            "driveId": "1paLLE4ZT2g-HqEvZF3jLyn6JTH-TXY1w"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/4",
+          "sourceWord": "טְהוֹרִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "טהור"
+            ],
+            "tags": [
+              "cm ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "טהור",
+            "tags": "ms pl"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2770,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_289.png",
+            "sha256": "bf3aadfe6c9b65ed48932b91e90ad2dfeab528839b344de7a4ddbc1b5b0a49c9",
+            "driveId": "1qiblVH4rSZNg79wcvBXLsv3f-UnB5nXX"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/4",
+          "sourceWord": "טְהוֹרִים",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "טהור"
+            ],
+            "tags": [
+              "ms pl"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "טהור",
+            "tags": "ms pl"
+          }
+        }
+      ],
+      "reason": "Images289 and290 טהורים visibly ms pl without cm."
+    },
+    {
+      "queuePosition": 29,
+      "title": "Mishnah Shekalim",
+      "ref": "8:1",
+      "sourceWordId": "S07326.2.4.8.1/word/7",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 615,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_290.png",
+            "sha256": "c93f70787f2bcb7a13c26cf9e43f844a6466e384805432e0dee7775e85a22e88",
+            "driveId": "1paLLE4ZT2g-HqEvZF3jLyn6JTH-TXY1w"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/7",
+          "sourceWord": "הָעֶלְיוֹן",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "עליון"
+            ],
+            "tags": [
+              "art",
+              "cm ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|עליון",
+            "tags": "art|ms sg"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2773,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_289.png",
+            "sha256": "bf3aadfe6c9b65ed48932b91e90ad2dfeab528839b344de7a4ddbc1b5b0a49c9",
+            "driveId": "1qiblVH4rSZNg79wcvBXLsv3f-UnB5nXX"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/7",
+          "sourceWord": "הָעֶלְיוֹן",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ה",
+              "עליון"
+            ],
+            "tags": [
+              "art",
+              "ms sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ה|עליון",
+            "tags": "art|ms sg"
+          }
+        }
+      ],
+      "reason": "Images289 and290 העליון visibly ms sg without cm."
+    },
+    {
+      "queuePosition": 30,
+      "title": "Mishnah Shekalim",
+      "ref": "8:1",
+      "sourceWordId": "S07326.2.4.8.1/word/22",
+      "status": "resolved-visual-reading-error",
+      "readings": [
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 617,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_290.png",
+            "sha256": "c93f70787f2bcb7a13c26cf9e43f844a6466e384805432e0dee7775e85a22e88",
+            "driveId": "1paLLE4ZT2g-HqEvZF3jLyn6JTH-TXY1w"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/22",
+          "sourceWord": "וּבְשָׁעַת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ו",
+              "ב",
+              "שעה"
+            ],
+            "tags": [
+              "cnj",
+              "prp",
+              "cm fm sg cnst"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|ב|שעה",
+            "tags": "cnj|prp|cm fm sg cnst"
+          }
+        },
+        {
+          "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+          "row": 2788,
+          "image": {
+            "file": "mischna_2026-11-26_22-48-07_4CB37088_289.png",
+            "sha256": "bf3aadfe6c9b65ed48932b91e90ad2dfeab528839b344de7a4ddbc1b5b0a49c9",
+            "driveId": "1qiblVH4rSZNg79wcvBXLsv3f-UnB5nXX"
+          },
+          "sourceWordId": "S07326.2.4.8.1/word/22",
+          "sourceWord": "וּבְשָׁעַת",
+          "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+          "rawBefore": {
+            "lex": [
+              "ו",
+              "ב",
+              "שעה"
+            ],
+            "tags": [
+              "cnj",
+              "prp",
+              "cm fm sg"
+            ]
+          },
+          "rawCorrected": {
+            "lex": "ו|ב|שעה",
+            "tags": "cnj|prp|cm fm sg cnst"
+          }
+        }
+      ],
+      "reason": "Images289 and290 ובשעת visibly cm fm sg cnst; second row omitted cnst."
+    }
+  ],
+  "changes": [
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 18,
+      "sourceWordId": "S07326.2.4.1.1/word/18",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+        "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+        "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+      },
+      "rawBefore": {
+        "lex": "ה רחוק",
+        "tags": "art; cm fm pl"
+      },
+      "rawCorrected": {
+        "lex": "ה|רחוק",
+        "tags": "art|fm pl"
+      },
+      "reason": "Image246 הרחובות: displayed lexical רחוק (unexpected but retained), Tag fm pl with no cm. First reading added cm; second normalized lexical רחוק to רחוב."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 150,
+      "sourceWordId": "S07326.2.4.1.1/word/18",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+        "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+        "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+      },
+      "rawBefore": {
+        "lex": [
+          "ה",
+          "רחוב"
+        ],
+        "tags": [
+          "art",
+          "fm pl"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ה|רחוק",
+        "tags": "art|fm pl"
+      },
+      "reason": "Image246 הרחובות: displayed lexical רחוק (unexpected but retained), Tag fm pl with no cm. First reading added cm; second normalized lexical רחוק to רחוב."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 20,
+      "sourceWordId": "S07326.2.4.1.1/word/20",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
+        "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
+        "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
+      },
+      "rawBefore": {
+        "lex": "מקוה",
+        "tags": "cm fm pl"
+      },
+      "rawCorrected": {
+        "lex": "מקוה",
+        "tags": "cm ms pl"
+      },
+      "reason": "Image246 מקוות: printed cm ms pl, not fm pl."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 195,
+      "sourceWordId": "S07326.2.4.1.4/word/37",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_249.png",
+        "sha256": "50d1b47b27c2518032a5cb4cc6ecee5dd2286e4d84a1db46de90f9b64d26a9d5",
+        "driveId": "1lxTx8CfbTVZtmz5YZRrjA0NJw6pSc2DO"
+      },
+      "rawBefore": {
+        "lex": [
+          "היה"
+        ],
+        "tags": [
+          "nif imprf 3 fm sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "היה",
+        "tags": "qal imprf 3 fm sg"
+      },
+      "reason": "Image249 phrase כליל תהיה לא תאכל: תהיה visibly qal imprf 3fm sg. Other reading shifted neighboring nif tag."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 194,
+      "sourceWordId": "S07326.2.4.1.4/word/39",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_249.png",
+        "sha256": "50d1b47b27c2518032a5cb4cc6ecee5dd2286e4d84a1db46de90f9b64d26a9d5",
+        "driveId": "1lxTx8CfbTVZtmz5YZRrjA0NJw6pSc2DO"
+      },
+      "rawBefore": {
+        "lex": [
+          "אכל"
+        ],
+        "tags": [
+          "qal imprf 3 fm sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "אכל",
+        "tags": "nif imprf 3 fm sg"
+      },
+      "reason": "Image249 תאכל visibly nif imprf 3fm sg. Other reading shifted neighboring qal tag."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 174,
+      "sourceWordId": "S07326.2.4.1.5/word/24",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+        "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+        "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+      },
+      "rawBefore": {
+        "lex": "זוב",
+        "tags": "qal prt ms pl"
+      },
+      "rawCorrected": {
+        "lex": "זוב",
+        "tags": "qal prt ms pl cnst"
+      },
+      "reason": "Image250 זבים visibly includes cnst; omitted in first transcription."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 176,
+      "sourceWordId": "S07326.2.4.1.5/word/26",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+        "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+        "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+      },
+      "rawBefore": {
+        "lex": "זוב",
+        "tags": "qal prt fm pl"
+      },
+      "rawCorrected": {
+        "lex": "זוב",
+        "tags": "qal prt fm pl cnst"
+      },
+      "reason": "Image250 זבות visibly includes cnst; omitted in first transcription."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 208,
+      "sourceWordId": "S07326.2.4.1.5/word/38",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
+        "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
+        "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
+      },
+      "rawBefore": {
+        "lex": [
+          "ו",
+          "נדב"
+        ],
+        "tags": [
+          "cnj",
+          "nif prt ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ו|נדב",
+        "tags": "cnj|nif prf 3 ms sg"
+      },
+      "reason": "Image250 ונדב visibly nif prf 3ms sg; second transcription changed finite prf to participle."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 212,
+      "sourceWordId": "S07326.2.4.1.6/word/0",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_251.png",
+        "sha256": "26f193e7c3eb5bc7d0d5b2e185fceeefdc745acefe357b1071fd45750d8c7a70",
+        "driveId": "1KQtDjQuVwT_K3ftDRBeKCTwMHJBV1Mb9"
+      },
+      "rawBefore": {
+        "lex": "ו אלו",
+        "tags": "cnj; cm bth pl"
+      },
+      "rawCorrected": {
+        "lex": "ו|אלו",
+        "tags": "cnj|bth pl"
+      },
+      "reason": "Image251 ואילו Tag bth pl with no cm; first transcription inserted cm."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 227,
+      "sourceWordId": "S07326.2.4.1.7/word/16",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_252.png",
+        "sha256": "120acd25f59658fd6acc8944580ae6d7c9307feba62d8766c48374e5f817b0f9",
+        "driveId": "1vd423r5j8Vzmwz2oif9eAz5RozJT26T5"
+      },
+      "rawBefore": {
+        "lex": [
+          "ה",
+          "שותף"
+        ],
+        "tags": [
+          "art",
+          "cm ms pl"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ו|ה|שותף",
+        "tags": "cnj|art|cm ms pl"
+      },
+      "reason": "Image252 השותפים includes editorial ו, separately displayed Lex ו and Tag cnj. Omission in second reading is prefix-scope discrepancy, not noun disagreement."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 305,
+      "sourceWordId": "S07326.2.4.2.1/word/5",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_253.png",
+        "sha256": "865068e3a0015fe825b5ca52506f19b5fbc7f25dc09b1950db8ad4a1657f7cf9",
+        "driveId": "1O-CwGH79X-RjLtSkKAOCozNvSsy06ZPB"
+      },
+      "rawBefore": {
+        "lex": "ה דרך",
+        "tags": "art; cm bth pl"
+      },
+      "rawCorrected": {
+        "lex": "ה|דרך",
+        "tags": "art|cm bth sg"
+      },
+      "reason": "Images252 and253 הדרך visibly cm bth sg. First reading plural was a transcription error."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 247,
+      "sourceWordId": "S07326.2.4.2.1/word/38",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_253.png",
+        "sha256": "865068e3a0015fe825b5ca52506f19b5fbc7f25dc09b1950db8ad4a1657f7cf9",
+        "driveId": "1O-CwGH79X-RjLtSkKAOCozNvSsy06ZPB"
+      },
+      "rawBefore": {
+        "lex": [
+          "ה",
+          "גנב"
+        ],
+        "tags": [
+          "art",
+          "cm bth pl"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ה|גנב",
+        "tags": "art|cm ms pl"
+      },
+      "reason": "Image253 הגנבים visibly cm ms pl, not bth pl."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 382,
+      "sourceWordId": "S07326.2.4.2.3/word/4",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_254.png",
+        "sha256": "7bb5d836da0a6dd05efabe9408cc45083dba9c649321d5ab09b8bd9486108440",
+        "driveId": "16c6lVOIwh_jh_es2zBPH2ETj0jMc2BWW"
+      },
+      "rawBefore": {
+        "lex": "אלה",
+        "tags": "cm bth pl"
+      },
+      "rawCorrected": {
+        "lex": "אלה",
+        "tags": "bth pl"
+      },
+      "reason": "Image254 אלו visibly bth pl with no cm."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 485,
+      "sourceWordId": "S07326.2.4.2.5/word/12",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+        "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+        "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+      },
+      "rawBefore": {
+        "lex": "יולדת",
+        "tags": "cm fm pl"
+      },
+      "rawCorrected": {
+        "lex": "יולדה",
+        "tags": "cm fm pl"
+      },
+      "reason": "Image257 יולדות: Lex יולדה; Tag cm fm pl with no cnst. Each transcription had a separate error."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 290,
+      "sourceWordId": "S07326.2.4.2.5/word/12",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+        "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+        "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+      },
+      "rawBefore": {
+        "lex": [
+          "יולדה"
+        ],
+        "tags": [
+          "cm fm pl cnst"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "יולדה",
+        "tags": "cm fm pl"
+      },
+      "reason": "Image257 יולדות: Lex יולדה; Tag cm fm pl with no cnst. Each transcription had a separate error."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 536,
+      "sourceWordId": "S07326.2.4.2.5/word/63",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
+        "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
+        "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
+      },
+      "rawBefore": {
+        "lex": "ל מות",
+        "tags": "prpArt; qal prt ms pl"
+      },
+      "rawCorrected": {
+        "lex": "ל|ה|מות",
+        "tags": "prpArt|art|qal prt ms pl"
+      },
+      "reason": "Image257 למתים prints separate ל and ה alongside מות, with prpArt and art separately visible; preserve printed redundancy."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 322,
+      "sourceWordId": "S07326.2.4.3.2/word/66",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_259.png",
+        "sha256": "0fd312e57aa4d5a43cdf774d4e258adfaba542687a7339adb91f9a7944dd7d72",
+        "driveId": "1oWCUwlCbtcIGxbBbWMTfur36D33eMyS5"
+      },
+      "rawBefore": {
+        "lex": [
+          "ו",
+          "מצא"
+        ],
+        "tags": [
+          "cnj",
+          "qal impr ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ו|מצא",
+        "tags": "cnj|qal imprf 3 ms sg"
+      },
+      "reason": "Image259 ומצא visibly qal imprf 3ms sg; missing f and person in second transcription."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 323,
+      "sourceWordId": "S07326.2.4.3.3/word/4",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+        "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+        "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+      },
+      "rawBefore": {
+        "lex": [
+          "כנס"
+        ],
+        "tags": [
+          "qal prt ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "כנס",
+        "tags": "nif prt ms sg"
+      },
+      "reason": "Image260 נכנס visibly nif prt ms sg, not qal."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 324,
+      "sourceWordId": "S07326.2.4.3.3/word/8",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_260.png",
+        "sha256": "03b1182b5f218a2479e2659e859012f5ed6455d881547dbb53c99a6bf97d311c",
+        "driveId": "11dtCXmm6ZfWyOI_6eB-pCBmkLAQetw5Z"
+      },
+      "rawBefore": {
+        "lex": [
+          "ו",
+          "זרק"
+        ],
+        "tags": [
+          "cnj",
+          "qal prt ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ו|זרק",
+        "tags": "cnj|qal prt ms sg cnst"
+      },
+      "reason": "Image260 וזורקן visibly includes cnst under participle."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 747,
+      "sourceWordId": "S07326.2.4.3.4/word/31",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_261.png",
+        "sha256": "67539df7eff52d6d042a521c866594faad5194da133bd952aa09a76e7cff2674",
+        "driveId": "1--ZtbWki5mrNrrJ6Eaago0u9NIs7JRoe"
+      },
+      "rawBefore": {
+        "lex": "ה נקף",
+        "tags": "art; hof prt ms pl"
+      },
+      "rawCorrected": {
+        "lex": "ה|נקף",
+        "tags": "art|hof prt ms pl cnst"
+      },
+      "reason": "Images260 and261 המוקפים visibly include cnst; omitted in first reading."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 369,
+      "sourceWordId": "S07326.2.4.4.2/word/32",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_263.png",
+        "sha256": "ee85ed7f4c92e9ff6bff261d0b4efae2334c021d5b14479b7ca12bc6960a269a",
+        "driveId": "1flmGgeeFBVbgR6lHM97ijMMgC-KktlAe"
+      },
+      "rawBefore": {
+        "lex": [
+          "כהן"
+        ],
+        "tags": [
+          "cm ms pl cnst"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "כהן",
+        "tags": "cm ms pl"
+      },
+      "reason": "Image263 כהנים visibly cm ms pl, without cnst."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 368,
+      "sourceWordId": "S07326.2.4.4.2/word/33",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_263.png",
+        "sha256": "ee85ed7f4c92e9ff6bff261d0b4efae2334c021d5b14479b7ca12bc6960a269a",
+        "driveId": "1flmGgeeFBVbgR6lHM97ijMMgC-KktlAe"
+      },
+      "rawBefore": {
+        "lex": [
+          "גדול"
+        ],
+        "tags": [
+          "cm ms pl"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "גדול",
+        "tags": "ms pl"
+      },
+      "reason": "Image263 גדולים visibly ms pl, without cm."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-ch1-4-observations.json",
+      "row": 874,
+      "sourceWordId": "S07326.2.4.4.4/word/10",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_265.png",
+        "sha256": "2be200d45906ebb7ba308cc61f45e7f067c9cd9472eab844512081439bee2a09",
+        "driveId": "1--cqXBV1SDUJ5nQUsvlkgJ3rZjVQPO5c"
+      },
+      "rawBefore": {
+        "lex": "קדש",
+        "tags": "cm ms sg"
+      },
+      "rawCorrected": {
+        "lex": "קדש",
+        "tags": "cm ms sg cnst"
+      },
+      "reason": "Images264 and265 first קודש in לבית קודש הקודשים visibly cm ms sg cnst; first reading omitted cnst."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 375,
+      "sourceWordId": "S07326.2.4.4.4/word/17",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_264.png",
+        "sha256": "7faa77b125fd36380c2fa4c90a70d89c789dd3fe0b523505e9cf2b5840c687ea",
+        "driveId": "1mSjOwGvQqzy7DBHIC8E_65w8e9y4pgdr"
+      },
+      "rawBefore": {
+        "lex": [
+          "ל",
+          "קיץ"
+        ],
+        "tags": [
+          "prp",
+          "cm ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ל|קיץ",
+        "tags": "prp|cm ms sg cnst"
+      },
+      "reason": "Images264 and265 לקיץ visibly cm ms sg cnst; second reading omitted cnst."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 412,
+      "sourceWordId": "S07326.2.4.4.7/word/67",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_268.png",
+        "sha256": "32acac0eb4551cff8554a312c8d3c62e2e1e5009f70d38071c2625600886deaf",
+        "driveId": "1yhLuxqJhZk3poGpy9se1JP7ejUBGGPyK"
+      },
+      "rawBefore": {
+        "lex": [
+          "מדה"
+        ],
+        "tags": [
+          "cm fm sg cnst"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "מן|מדה",
+        "tags": "prp|cm fm sg cnst"
+      },
+      "reason": "Image268 מידהו visibly Lex מן מדה with prp separate from cm fm sg cnst. Second reading omitted prefix scope."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 457,
+      "sourceWordId": "S07326.2.4.5.3/word/39",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_272.png",
+        "sha256": "ab29449deddcc578e0377e3610bd040836011bc26c17ee4443ec4dc7e77349e4",
+        "driveId": "1sHIqlkc5KUUbLV0aPYkMttj81OPJX5Ly"
+      },
+      "rawBefore": {
+        "lex": [
+          "נסך"
+        ],
+        "tags": [
+          "cm ms sg cnst"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "נסך",
+        "tags": "cm ms pl cnst"
+      },
+      "reason": "Images272 and273 נסכי visibly cm ms pl cnst; singular in earlier row was a transcription error."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 2308,
+      "sourceWordId": "S07326.2.4.6.2/word/9",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_277.png",
+        "sha256": "0ce247230a30414b63258e90940bb6694e2a21404e69e06c6b9faaa18513ab30",
+        "driveId": "1GewGcZmHQiAyvP_qbHczYsmvxnDXPimH"
+      },
+      "rawBefore": {
+        "lex": [
+          "שנה"
+        ],
+        "tags": [
+          "pul prt fm"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "שנה",
+        "tags": "pul prt fm sg"
+      },
+      "reason": "Images277 and278 משונה visibly pul prt fm sg; second row omitted sg."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 508,
+      "sourceWordId": "S07326.2.4.6.2/word/11",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_278.png",
+        "sha256": "5592e4fb2789d451796f92dc0894dc250ae04215a7ecd4a1b8ba961a70fd3804",
+        "driveId": "1UBfC754YcWbg6fYcTNb2c4iYZW5MHWgS"
+      },
+      "rawBefore": {
+        "lex": [
+          "בוא"
+        ],
+        "tags": [
+          "qal prf 3 ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "בוא",
+        "tags": "qal prt ms sg"
+      },
+      "reason": "Images277 and278 בא visibly qal prt ms sg; first row misread prt as prf 3."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 2671,
+      "sourceWordId": "S07326.2.4.7.4/word/19",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_285.png",
+        "sha256": "745eb27b92d9c4d3da5434ea7e3e389d7cfbea4b122b49f6041d9c8c5fd28ebe",
+        "driveId": "1BkMOGMrk2Up8-IXONZo7M4pSEagVYlsw"
+      },
+      "rawBefore": {
+        "lex": [
+          "ראה"
+        ],
+        "tags": [
+          "qal pasP ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ה|ראה",
+        "tags": "art|qal pasP ms sg"
+      },
+      "reason": "Images285 and286 הראוי visibly include article ה / art; second row omitted article scope."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 2767,
+      "sourceWordId": "S07326.2.4.8.1/word/1",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_289.png",
+        "sha256": "bf3aadfe6c9b65ed48932b91e90ad2dfeab528839b344de7a4ddbc1b5b0a49c9",
+        "driveId": "1qiblVH4rSZNg79wcvBXLsv3f-UnB5nXX"
+      },
+      "rawBefore": {
+        "lex": [
+          "ה",
+          "רוק"
+        ],
+        "tags": [
+          "art",
+          "cm ms pl"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ה|רוק",
+        "tags": "art|cm ms sg cnst"
+      },
+      "reason": "Images289 and290 הרוקים visibly cm ms sg cnst, despite plural surface; retain actual printed tag. Second row normalized to plural."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 614,
+      "sourceWordId": "S07326.2.4.8.1/word/4",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_290.png",
+        "sha256": "c93f70787f2bcb7a13c26cf9e43f844a6466e384805432e0dee7775e85a22e88",
+        "driveId": "1paLLE4ZT2g-HqEvZF3jLyn6JTH-TXY1w"
+      },
+      "rawBefore": {
+        "lex": [
+          "טהור"
+        ],
+        "tags": [
+          "cm ms pl"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "טהור",
+        "tags": "ms pl"
+      },
+      "reason": "Images289 and290 טהורים visibly ms pl without cm."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 615,
+      "sourceWordId": "S07326.2.4.8.1/word/7",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_290.png",
+        "sha256": "c93f70787f2bcb7a13c26cf9e43f844a6466e384805432e0dee7775e85a22e88",
+        "driveId": "1paLLE4ZT2g-HqEvZF3jLyn6JTH-TXY1w"
+      },
+      "rawBefore": {
+        "lex": [
+          "ה",
+          "עליון"
+        ],
+        "tags": [
+          "art",
+          "cm ms sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ה|עליון",
+        "tags": "art|ms sg"
+      },
+      "reason": "Images289 and290 העליון visibly ms sg without cm."
+    },
+    {
+      "ledger": "accordance-moed-current-shekalim-sukkah-observations.json",
+      "row": 2788,
+      "sourceWordId": "S07326.2.4.8.1/word/22",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_289.png",
+        "sha256": "bf3aadfe6c9b65ed48932b91e90ad2dfeab528839b344de7a4ddbc1b5b0a49c9",
+        "driveId": "1qiblVH4rSZNg79wcvBXLsv3f-UnB5nXX"
+      },
+      "rawBefore": {
+        "lex": [
+          "ו",
+          "ב",
+          "שעה"
+        ],
+        "tags": [
+          "cnj",
+          "prp",
+          "cm fm sg"
+        ]
+      },
+      "rawCorrected": {
+        "lex": "ו|ב|שעה",
+        "tags": "cnj|prp|cm fm sg cnst"
+      },
+      "reason": "Images289 and290 ובשעת visibly cm fm sg cnst; second row omitted cnst."
+    }
+  ],
+  "summary": {
+    "reviewedPositions": 31,
+    "totalQueuedPositions": 31,
+    "correctedLedgerRows": 33,
+    "sourceTextChanged": false,
+    "bookModulesChanged": false
+  }
+}

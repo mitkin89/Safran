@@ -1,0 +1,83 @@
+{
+  "scope": "Moed Katan2:2/12 raw tag rereading",
+  "humanValidated": false,
+  "beforeFileSha256": "828595522b1827962908ed8a65806a15f3101cd1917377a179e0eff31db5b353",
+  "afterFileSha256": "e33febbd66ef3960b91820500bc2fd11813713a1113539a55f3b69ed21a0a315",
+  "sourceWordId": "S07326.2.11.2.2/word/12",
+  "before": {
+    "title": "Mishnah Moed Katan",
+    "ref": "2:2",
+    "targetTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+    "targetSourceWordId": "S07326.2.11.2.2/word/12",
+    "targetWordIndex": 12,
+    "observedConsonants": "זולף",
+    "observedWord": "זולף",
+    "lex": "זלף",
+    "tags": "hif prt ms sg",
+    "suffixFeatures": null,
+    "comparisonMethod": "fresh-ai-original-screenshot-lex-tag-transcription",
+    "confidence": "uncertain",
+    "image": {
+      "file": "mischna_2026-11-26_22-48-07_4CB37088_472.png",
+      "sha256": "9aa2743b65e37c7d706b0f8bea5f86fead0181e1aced178616f32f96cad57aab",
+      "driveId": "1QbDmYvQJXZGHUYQ0gmpQNTDoI5dhpRU0"
+    },
+    "notes": [
+      "AI visual reading of original screenshot before morphology comparison; not human validation.",
+      "Visible lexical row transcribed without vocalization; no suffix reconstructed.",
+      "Overlap check: image472 Tag under זולף read hif prt ms sg, while image473 read qal prt ms sg. Retain discrepancy for independent review; no settled Accordance binyan claimed."
+    ],
+    "humanValidated": false,
+    "visibleRef": "2:2",
+    "alternativeVisibleObservation": {
+      "observedWord": "זולף",
+      "lex": "זלף",
+      "tags": "qal prt ms sg",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_473.png",
+        "sha256": "605f842e6325250ab28d61a8db73fe370291e51518fadc6bfcc1cc1c56ff66e6",
+        "driveId": "1uGtR81QObd9ymWtiTXsT6CJ-NHH-c9nF"
+      },
+      "humanValidated": false
+    }
+  },
+  "after": {
+    "title": "Mishnah Moed Katan",
+    "ref": "2:2",
+    "targetTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+    "targetSourceWordId": "S07326.2.11.2.2/word/12",
+    "targetWordIndex": 12,
+    "observedConsonants": "זולף",
+    "observedWord": "זולף",
+    "lex": "זלף",
+    "tags": "qal prt ms sg",
+    "suffixFeatures": null,
+    "comparisonMethod": "fresh-ai-original-screenshot-lex-tag-transcription",
+    "confidence": "clear",
+    "image": {
+      "file": "mischna_2026-11-26_22-48-07_4CB37088_472.png",
+      "sha256": "9aa2743b65e37c7d706b0f8bea5f86fead0181e1aced178616f32f96cad57aab",
+      "driveId": "1QbDmYvQJXZGHUYQ0gmpQNTDoI5dhpRU0"
+    },
+    "notes": [
+      "AI visual reading of original screenshot before morphology comparison; not human validation.",
+      "Visible lexical row transcribed without vocalization; no suffix reconstructed.",
+      "Independent root AI rereading of original472 and473: both print qal prt ms sg under זולף. Earlier hif transcription was a reading error, not a source disagreement."
+    ],
+    "humanValidated": false,
+    "visibleRef": "2:2",
+    "alternativeVisibleObservation": {
+      "observedWord": "זולף",
+      "lex": "זלף",
+      "tags": "qal prt ms sg",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_473.png",
+        "sha256": "605f842e6325250ab28d61a8db73fe370291e51518fadc6bfcc1cc1c56ff66e6",
+        "driveId": "1uGtR81QObd9ymWtiTXsT6CJ-NHH-c9nF"
+      },
+      "humanValidated": false,
+      "notes": "Second original independently re-read, confirms qal prt ms sg."
+    }
+  },
+  "meaning": "AI transcription correction only. Original images independently inspected; no source text or morphology card changed."
+}

@@ -28,12 +28,17 @@ test('unknown source tags and split source groups remain review cases',()=>{
  assert.equal(r.status,'visible-head-feature-difference');assert(r.candidates[0].different.some(d=>d.feature==='stem'));
  const lexical=C.compareObservation(book([{lemma:'גג',morph:'HNcmsc'}]),obs());
  assert.equal(lexical.status,'visible-head-features-compatible');assert.equal(lexical.lexicalComparison.status,'candidate-head-lexeme-differs');
+ const partial=C.normalizeObservation({...obs(),sourceTextHash:'bound',sourceWordId:'K.1/word/0',sourceWordIndex:0,confidence:undefined,status:'partial-visible-raw-observation'},{});
+ assert.equal(C.compareObservation(book([]),partial).status,'reference-needs-review');
 });
 test('screenshot surface and split-span warnings take precedence over the local target spelling',()=>{
  const n=C.normalizeObservation({title:'Mishnah Test',ref:'1:1',sourceTextHash:'bound',sourceWordId:'K.1/word/0',sourceWord:'בית',accordance:{surface:'בת',lexemes:['בית'],rawTags:['cm fm sg']}},{});
  assert.equal(n.word,'בת');assert.equal(C.compareObservation(book([]),n).status,'surface-or-segmentation-difference');
  const grouped=C.normalizeObservation({sourceWordIds:['K.1/word/0','K.1/word/1'],sourceWord:'בית',confidence:'clear'},{});
  assert.equal(grouped.alignment,'many-to-one');
+ for(const literal of [{actualObservedWord:'בת'},{observation:{observedWord:'בת'}},{observed:{word:'בת'}}]){
+  assert.equal(C.normalizeObservation({sourceWord:'בית',word:'בית',...literal},{}).word,'בת','literal observed aliases precede the local target');
+ }
 });
 test('overlapping observations count once and contradictory visible features remain explicit',()=>{
  const one=C.compareObservation(book([{lemma:'בית',morph:'HNcmsc'}]),obs());
@@ -43,4 +48,12 @@ test('overlapping observations count once and contradictory visible features rem
  assert.equal(summary.positions[0].status,'conflicting-visible-reference-features');
  assert.deepEqual(summary.positions[0].conflictingReferenceFeatures,[{feature:'number',values:['p','s']}]);
  assert.deepEqual(C.summarizePositions([one,one]).counts,{'visible-head-features-compatible':1});
+});
+test('a verified visible word group covers its source parts only as review evidence',()=>{
+ const d=book([]);d.units['1:1'].words.push({text:'פי',start:4,end:6});
+ const o=obs({groupWordIds:['K.1/word/0','K.1/word/1'],alignment:'many-to-one'}),r=C.compareObservation(d,o);
+ assert.equal(r.status,'reference-needs-review');assert(!r.candidates);
+ const summary=C.summarizePositions([r]);assert.equal(summary.positions.length,2);
+ assert(summary.positions.every(p=>p.status==='reference-needs-review'));
+ assert.equal(C.compareObservation(d,{...o,groupWordIds:['K.1/word/0','OTHER/word/1']}).status,'binding-refused');
 });

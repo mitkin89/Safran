@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "baselineManifestSha256": "86bef6dd89a7e6536db422e943f27806dec68e5684f180d372f8c7eab1e00c64",
+  "completionAuditSha256": "e72ef4543c6d26b47f36a92c97873617538ce0830df5558eb91a192d96d5ce63",
+  "engineScriptSha256": "0710bf027d43a87706887baddf30aa56f1cc80dc4f71ffd6fa7c709ec42f8c92",
+  "checkedInputs": [
+    {
+      "file": "build.cjs",
+      "sha256": "a224750f0786d5a1fc8925736833a67e9ebbe3cb6dc48012ecef650c5626b4ff",
+      "actualSha256": "a224750f0786d5a1fc8925736833a67e9ebbe3cb6dc48012ecef650c5626b4ff",
+      "valid": true
+    },
+    {
+      "file": "lexical-review-a.json",
+      "sha256": "5085687e7e4b6b32682c3b0468a0a1e02d7e7b6c120a8d5eb289c63b11fbdb93",
+      "actualSha256": "5085687e7e4b6b32682c3b0468a0a1e02d7e7b6c120a8d5eb289c63b11fbdb93",
+      "valid": true
+    },
+    {
+      "file": "lexical-review-b.json",
+      "sha256": "577c63c3972e278ce8dda12bd49da70083df5db79da2c0001c7d9e163264a410",
+      "actualSha256": "577c63c3972e278ce8dda12bd49da70083df5db79da2c0001c7d9e163264a410",
+      "valid": true
+    },
+    {
+      "file": "zeraim-lexicon.json",
+      "sha256": "af0b31ff9daaad59a481fab22c8f82420dee06a2ea26f78970e879c3a2023be9",
+      "actualSha256": "af0b31ff9daaad59a481fab22c8f82420dee06a2ea26f78970e879c3a2023be9",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seed-sources.json",
+      "sha256": "a81e2addb48f49761212fc03c749b9227f06de8153612ba201073d3104aecc1d",
+      "actualSha256": "a81e2addb48f49761212fc03c749b9227f06de8153612ba201073d3104aecc1d",
+      "valid": true
+    },
+    {
+      "file": "app/bavli-morph.js",
+      "sha256": "5b5ffe3778157681e201122d142051f9cc7d97648086d4e0d4626a4ec9401493",
+      "actualSha256": "5b5ffe3778157681e201122d142051f9cc7d97648086d4e0d4626a4ec9401493",
+      "valid": true
+    },
+    {
+      "dictionary": "Jastrow",
+      "dictId": "d895bc1c727b",
+      "sha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268",
+      "actualSha256": "5f2dbf0189e024d5844291582e21e5033bed86c91888dd1fc5cf4af22362b268",
+      "valid": true
+    },
+    {
+      "dictionary": "Levy",
+      "dictId": "e8d290b744f6",
+      "sha256": "caac370b0f8f95463fee20c86158393a3a56af9f3eba5f8cf2fb4a31b36c113c",
+      "actualSha256": "caac370b0f8f95463fee20c86158393a3a56af9f3eba5f8cf2fb4a31b36c113c",
+      "valid": true
+    },
+    {
+      "dictionary": "Krauss",
+      "dictId": "d701423861c6",
+      "sha256": "a821d2e749fed83f2a5991deeb445fb9365c19b40637962109fcea7cb2d88516",
+      "actualSha256": "a821d2e749fed83f2a5991deeb445fb9365c19b40637962109fcea7cb2d88516",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-moedd-a.json",
+      "sha256": "be6962b6d35b58aa6b6b612642976fd03cd7f6547d8e0d79f50307351e9c9470",
+      "actualSha256": "be6962b6d35b58aa6b6b612642976fd03cd7f6547d8e0d79f50307351e9c9470",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-moed-b.json",
+      "sha256": "c724ad9fde2af5ee4b6cec98d80ceaa72399ea8e11d5cf36061c72977e351d19",
+      "actualSha256": "c724ad9fde2af5ee4b6cec98d80ceaa72399ea8e11d5cf36061c72977e351d19",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-moed-c.json",
+      "sha256": "4e47240746f132f9e0bb093ba6c3e6b6add0b58316328d4a32400980c5c942db",
+      "actualSha256": "4e47240746f132f9e0bb093ba6c3e6b6add0b58316328d4a32400980c5c942db",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-a.json",
+      "sha256": "48df46535a579d838187db78949643810fd2799f93003199203dca1f6e048a9f",
+      "actualSha256": "48df46535a579d838187db78949643810fd2799f93003199203dca1f6e048a9f",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-b.json",
+      "sha256": "32c823c350048a8a34830e510b58bc9245523b3497ec546c5f4c0cbc348ad8da",
+      "actualSha256": "32c823c350048a8a34830e510b58bc9245523b3497ec546c5f4c0cbc348ad8da",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-c.json",
+      "sha256": "62c96e575d649e9accdddbe89294cf4126595f2ef5522ae8c0fab306ab1e62e7",
+      "actualSha256": "62c96e575d649e9accdddbe89294cf4126595f2ef5522ae8c0fab306ab1e62e7",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-closed-numerals-adjectives.json",
+      "sha256": "50bc9b211877d05bbd3af0951d0016720d8721cedeea0ae07491783c6e66bbff",
+      "actualSha256": "50bc9b211877d05bbd3af0951d0016720d8721cedeea0ae07491783c6e66bbff",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-moed-round2.json",
+      "sha256": "11d3cf0b92cda1e652bd5b6a3112678f1d1d2feaad99e0e4eef84921cd029713",
+      "actualSha256": "11d3cf0b92cda1e652bd5b6a3112678f1d1d2feaad99e0e4eef84921cd029713",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-c-round2.json",
+      "sha256": "fb4c902d2d7212a013c969096267d53111b6eafa7a3c43126603b08c552daa00",
+      "actualSha256": "fb4c902d2d7212a013c969096267d53111b6eafa7a3c43126603b08c552daa00",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-a-round2.json",
+      "sha256": "dbb18dbde6174c50466536d915bdb906bff5d37932a291ed061c4db0007ebd7e",
+      "actualSha256": "dbb18dbde6174c50466536d915bdb906bff5d37932a291ed061c4db0007ebd7e",
+      "valid": true
+    },
+    {
+      "file": "moed-nashim-seeds-nashim-b-round2.json",
+      "sha256": "e1b46fbc2a1b7b7e83f0398ed71bf44dd73c0feee591f6c248b4b411ac826113",
+      "actualSha256": "e1b46fbc2a1b7b7e83f0398ed71bf44dd73c0feee591f6c248b4b411ac826113",
+      "valid": true
+    }
+  ],
+  "scope": "7 Nashim book modules only",
+  "baselineCommit": "0374c0a",
+  "independent": true,
+  "accordanceCompared": false,
+  "finalFileHashesBound": true,
+  "method": "Independent git-baseline structural equality, source-token/word-ID validation, baseline-empty guards and actual bundled rabbinic dictionary article checks. No book module mutation.",
+  "books": [
+    {
+      "title": "Mishnah Yevamot",
+      "file": "mishnah-kaufmann-accordance-yevamot-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 3280,
+      "newlyFilledCards": 2816,
+      "errors": 0,
+      "observedFileSha256": "5b4ff14b91be4c924d23fbc009ecd2af1842649a925d22115830c51aba7a5bd3",
+      "sourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618",
+      "gitSourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618",
+      "baselineSourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618",
+      "gitBaselineFileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0",
+      "baselineFileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0"
+    },
+    {
+      "title": "Mishnah Ketubot",
+      "file": "mishnah-kaufmann-accordance-ketubot-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 2526,
+      "newlyFilledCards": 1919,
+      "errors": 0,
+      "observedFileSha256": "54cfb5ac36300d75e647e6d7d0b1c6861b43bc10fe8305ce4298a5d12c2b786c",
+      "sourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c",
+      "gitSourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c",
+      "baselineSourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c",
+      "gitBaselineFileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c",
+      "baselineFileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c"
+    },
+    {
+      "title": "Mishnah Nedarim",
+      "file": "mishnah-kaufmann-accordance-nedarim-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 2264,
+      "newlyFilledCards": 1745,
+      "errors": 0,
+      "observedFileSha256": "b6b5284192c735bb715bfabf078a72fb76bacfb2bbe2eb0ae5e29b7620ed5c72",
+      "sourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768",
+      "gitSourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768",
+      "baselineSourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768",
+      "gitBaselineFileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff",
+      "baselineFileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff"
+    },
+    {
+      "title": "Mishnah Nazir",
+      "file": "mishnah-kaufmann-accordance-nazir-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1582,
+      "newlyFilledCards": 1326,
+      "errors": 0,
+      "observedFileSha256": "ad15b6319e9667f7db5238c0154585828344bff367f4914e924a61fe169cd5fb",
+      "sourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324",
+      "gitSourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324",
+      "baselineSourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324",
+      "gitBaselineFileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813",
+      "baselineFileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813"
+    },
+    {
+      "title": "Mishnah Sotah",
+      "file": "mishnah-kaufmann-accordance-sotah-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1866,
+      "newlyFilledCards": 1456,
+      "errors": 0,
+      "observedFileSha256": "77e2241a658628b2c50f2a98017b5eaf8cc0c157b301db71ed3c39473d5bdd78",
+      "sourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a",
+      "gitSourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a",
+      "baselineSourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a",
+      "gitBaselineFileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8",
+      "baselineFileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8"
+    },
+    {
+      "title": "Mishnah Gittin",
+      "file": "mishnah-kaufmann-accordance-gittin-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1895,
+      "newlyFilledCards": 1387,
+      "errors": 0,
+      "observedFileSha256": "23a6c73ae2f0d9fa97e3faead8e22be3f334edd0e047681b77b0762817d14780",
+      "sourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5",
+      "gitSourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5",
+      "baselineSourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5",
+      "gitBaselineFileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8",
+      "baselineFileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8"
+    },
+    {
+      "title": "Mishnah Kiddushin",
+      "file": "mishnah-kaufmann-accordance-kiddushin-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1178,
+      "newlyFilledCards": 802,
+      "errors": 0,
+      "observedFileSha256": "9e13851146ac3fa8a56eab90d77b921e28e50a4e50baff85a87a7158c82d0780",
+      "sourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005",
+      "gitSourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005",
+      "baselineSourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005",
+      "gitBaselineFileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6",
+      "baselineFileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6"
+    }
+  ],
+  "summary": {
+    "bookCount": 7,
+    "preservedExistingCards": 14591,
+    "newlyFilledCards": 11451,
+    "checkedDictionaryReferences": 10789,
+    "partialFeatureAnalyses": 3267,
+    "wordGroupCards": 208,
+    "errorCount": 0,
+    "formsChecked": 29136,
+    "remainingUnresolved": 3094
+  },
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "scopeLimitations": [
+    "Structural/source-preservation and evidence-integrity audit of all seven generated Nashim modules; not independent linguistic confirmation of every candidate.",
+    "All pre-existing populated cards, including analyses, glosses and translation provenance, are byte-equivalent as parsed JSON to Git baseline. Empty-card additions remain candidates or partial analyses.",
+    "All new partialFeatures analyses retain morph H and nominal-gender-only semantics; H alone is never interpreted as a full noun.",
+    "No new Accordance comparison or manuscript-pointing validation; no biblical dictionaries consulted.",
+    "Output file hashes bind the completed current working-tree files and engine audit, not a future draft commit."
+  ]
+}

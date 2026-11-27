@@ -5629,19 +5629,23 @@
       },
       "observed": {
         "lex": "אמר",
-        "tag": "qal prt ms pl",
+        "tag": "qal prt ms sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "1:4"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 99 prints ms sg under אמר; former pl was a reading error.",
       "targetRef": "1:4",
       "sourceFlags": [
         {
           "index": 2,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -5944,19 +5948,23 @@
       },
       "observed": {
         "lex": "אמר",
-        "tag": "qal prt ms pl",
+        "tag": "qal prt ms sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "1:4"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 99 prints ms sg under אמר; former pl was a reading error.",
       "targetRef": "1:4",
       "sourceFlags": [
         {
           "index": 11,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -10364,12 +10372,12 @@
       },
       "observed": {
         "lex": "ש טמא",
-        "tag": "rel ntpal prf 3 com pl",
+        "tag": "rel ntpal prf 3 ms sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "1:6"
       },
       "status": "visible-raw-observation",
-      "note": "The visible Accordance surface שניטמא spans two diplomatic source words; the printed plural tag is retained without correction.",
+      "note": "Image 101 prints ntpal / prf 3 / ms sg. Surface שניטמא spans source words 12–13; no plural is printed.",
       "targetRef": "1:6",
       "sourceFlags": [
         {
@@ -10382,7 +10390,11 @@
             "add"
           ]
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -31260,19 +31272,23 @@
       },
       "observed": {
         "lex": "ו קולן",
-        "tag": "cnj",
+        "tag": "cnj cm ms sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:1"
       },
-      "status": "partial-visible-raw-observation",
-      "note": "Lex קולן and conjunct Tag visible; main-word Tag clipped/unclear at left edge, not supplied.",
+      "status": "visible-raw-observation",
+      "note": "Enlarged original image 111 visibly includes cm ms sg under קולן and cnj under ו; former clipping claim withdrawn.",
       "targetRef": "3:1",
       "sourceFlags": [
         {
           "index": 15,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -31470,19 +31486,23 @@
       },
       "observed": {
         "lex": "טפל",
-        "tag": "qal pasP ms pl",
+        "tag": "qal pasP ms pl cnst",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:1"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 111 visibly prints cnst below ms pl; omitted in first transcription.",
       "targetRef": "3:1",
       "sourceFlags": [
         {
           "index": 21,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -34694,19 +34714,23 @@
       },
       "observed": {
         "lex": "ה טמאה",
-        "tag": "art cm fm sg cnst",
+        "tag": "art cm fm sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:2"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 113 prints cm fm sg with art; no cnst beneath this cell. Previous cnst belonged to another cell.",
       "targetRef": "3:2",
       "sourceFlags": [
         {
           "index": 16,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -36670,19 +36694,23 @@
       },
       "observed": {
         "lex": "פרש",
-        "tag": "hif prt fm sg",
+        "tag": "hif prt fm sg cnst",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:3"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 113 visibly prints cnst below hif prt fm sg; omitted in first transcription.",
       "targetRef": "3:3",
       "sourceFlags": [
         {
           "index": 36,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -36705,19 +36733,23 @@
       },
       "observed": {
         "lex": "ו נוח",
-        "tag": "cnj hif prt fm sg",
+        "tag": "cnj hif prt fm sg cnst",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:3"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 113 visibly prints cnst below hif prt fm sg; omitted in first transcription.",
       "targetRef": "3:3",
       "sourceFlags": [
         {
           "index": 37,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -47047,19 +47079,23 @@
       },
       "observed": {
         "lex": "מי",
-        "tag": "prp",
+        "tag": "intr",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:8"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 118 visibly prints intr under מי, not prp.",
       "targetRef": "3:8",
       "sourceFlags": [
         {
           "index": 1,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -48938,13 +48974,13 @@
         "driveId": "1QR6maeX9FepxDrLU7Pvev9bMBFPQSIyb"
       },
       "observed": {
-        "lex": "זית",
-        "tag": "cm ms sg",
+        "lex": "כך זית",
+        "tag": "adv cm ms sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:8"
       },
       "status": "visible-raw-observation",
-      "note": "Visible prefix cells are ambiguous among כ/ב/כך; only the clearly visible noun זית and its Tag recorded. Do not infer a bound preposition.",
+      "note": "Image 119 visibly prints Lex כך / זית and Tag adv / cm ms sg beneath [בכזית]. This anomalous printed prefix analysis is retained literally, without grammatical correction.",
       "targetRef": "3:8",
       "sourceFlags": [
         {
@@ -48953,7 +48989,11 @@
             "add"
           ]
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -49258,12 +49298,12 @@
       },
       "observed": {
         "lex": "כ ביצה",
-        "tag": "prp cm fm sg",
+        "tag": "prpArt cm fm sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "3:8"
       },
       "status": "visible-editorial-variant",
-      "note": "Visible {כביצה} is editorial alternate beside [בכזית]; source has בכזית.",
+      "note": "Image 119 visibly prints prpArt under כ of {כביצה}; editorial alternate beside [בכזית], not the source reading.",
       "targetRef": "3:8",
       "sourceFlags": [
         {
@@ -49272,7 +49312,11 @@
             "add"
           ]
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -51364,19 +51408,29 @@
       },
       "observed": {
         "lex": "כ יצא",
-        "tag": "prpArt qal prt ms pl",
+        "tag": "prpArt qal prt ms sg",
         "accordanceTitle": "Pesah.",
         "accordanceRef": "4:2"
       },
       "status": "visible-raw-observation",
-      "note": "Visible Lex/Tag cells transcribed independently; no unprinted suffix, person or state inferred.",
+      "note": "Image 120 prints ms sg under יצא, not pl. Source-word scope excludes editorial {ו}, separately printed as Lex ו / Tag cnj.",
       "targetRef": "4:2",
       "sourceFlags": [
         {
           "index": 0,
           "flags": []
         }
-      ]
+      ],
+      "conflictImageQa": {
+        "method": "AI visual rereading of original screenshot",
+        "humanValidated": false
+      },
+      "excludedEditorialPrefix": {
+        "surface": "{ו}",
+        "lex": "ו",
+        "tag": "cnj",
+        "reason": "Printed editorial conjunction absent from current source word כיוצא; not silently appended to source-word scope."
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -52006,7 +52060,13 @@
           "index": 0,
           "flags": []
         }
-      ]
+      ],
+      "excludedEditorialPrefix": {
+        "surface": "{ו}",
+        "lex": "ו",
+        "tag": "cnj",
+        "reason": "Printed editorial conjunction absent from current source word כיוצא; not silently appended to source-word scope."
+      }
     },
     {
       "title": "Mishnah Pesachim",
@@ -200893,7 +200953,7 @@
   "open": [],
   "limitations": [
     "Surface and source binding are separate from grammatical interpretation.",
-    "Accordance sometimes prints a plural participle Tag for abbreviated singular אומר; such raw discrepancies are retained.",
+    "Printed editorial alternatives and printed lexical anomalies are retained as separate image evidence; they are not grammatical corrections to the source.",
     "No suffix is inferred merely from the source surface.",
     "No source text, pointing, source module, seed or original repository changed."
   ],

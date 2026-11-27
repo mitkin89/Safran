@@ -393,7 +393,7 @@
       "observedWord": "הרחובות",
       "observedRef": "Sheqal. 1:1",
       "lex": "ה רחוק",
-      "tags": "art; cm fm pl",
+      "tags": "art; fm pl",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -402,7 +402,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
         "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
         "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
-      }
+      },
+      "imageQaNote": "Image246 הרחובות: displayed lexical רחוק (unexpected but retained), Tag fm pl with no cm. First reading added cm; second normalized lexical רחוק to רחוב.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#0"
     },
     {
       "title": "Mishnah Shekalim",
@@ -435,7 +437,7 @@
       "observedWord": "מקוות",
       "observedRef": "Sheqal. 1:1",
       "lex": "מקוה",
-      "tags": "cm fm pl",
+      "tags": "cm ms pl",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -444,7 +446,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_246.png",
         "sha256": "b920491668e6d73af3af213591ac491891efe7d2c52f577c41aa28ad60f22b87",
         "driveId": "1Ln4ScHzMsdu85I9u5bc_Hz_p1I2SBmOc"
-      }
+      },
+      "imageQaNote": "Image246 מקוות: printed cm ms pl, not fm pl.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#1"
     },
     {
       "title": "Mishnah Shekalim",
@@ -3679,7 +3683,7 @@
       "observedWord": "זבים",
       "observedRef": "Sheqal. 1:5",
       "lex": "זוב",
-      "tags": "qal prt ms pl",
+      "tags": "qal prt ms pl cnst",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -3688,7 +3692,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
         "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
         "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
-      }
+      },
+      "imageQaNote": "Image250 זבים visibly includes cnst; omitted in first transcription.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#4"
     },
     {
       "title": "Mishnah Shekalim",
@@ -3721,7 +3727,7 @@
       "observedWord": "זבות",
       "observedRef": "Sheqal. 1:5",
       "lex": "זוב",
-      "tags": "qal prt fm pl",
+      "tags": "qal prt fm pl cnst",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -3730,7 +3736,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_250.png",
         "sha256": "79d694ae72c24651b3b61a6b93a1aaba1750e5d11f8d7d6013b836c06237a723",
         "driveId": "1TR97FKbMleRdvQxoH54uS_ui23NoZC4J"
-      }
+      },
+      "imageQaNote": "Image250 זבות visibly includes cnst; omitted in first transcription.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#5"
     },
     {
       "title": "Mishnah Shekalim",
@@ -4477,7 +4485,7 @@
       "observedWord": "ואילו",
       "observedRef": "Sheqal. 1:6",
       "lex": "ו אלו",
-      "tags": "cnj; cm bth pl",
+      "tags": "cnj; bth pl",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -4486,7 +4494,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_251.png",
         "sha256": "26f193e7c3eb5bc7d0d5b2e185fceeefdc745acefe357b1071fd45750d8c7a70",
         "driveId": "1KQtDjQuVwT_K3ftDRBeKCTwMHJBV1Mb9"
-      }
+      },
+      "imageQaNote": "Image251 ואילו Tag bth pl with no cm; first transcription inserted cm.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#7"
     },
     {
       "title": "Mishnah Shekalim",
@@ -6430,7 +6440,7 @@
       "observedWord": "הדרך",
       "observedRef": "Sheqal. 2:1",
       "lex": "ה דרך",
-      "tags": "art; cm bth pl",
+      "tags": "art; cm bth sg",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -6439,7 +6449,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_253.png",
         "sha256": "865068e3a0015fe825b5ca52506f19b5fbc7f25dc09b1950db8ad4a1657f7cf9",
         "driveId": "1O-CwGH79X-RjLtSkKAOCozNvSsy06ZPB"
-      }
+      },
+      "imageQaNote": "Images252 and253 הדרך visibly cm bth sg. First reading plural was a transcription error.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#9"
     },
     {
       "title": "Mishnah Shekalim",
@@ -8047,7 +8059,7 @@
       "observedWord": "אלו",
       "observedRef": "Sheqal. 2:3",
       "lex": "אלה",
-      "tags": "cm bth pl",
+      "tags": "bth pl",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -8056,7 +8068,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_254.png",
         "sha256": "7bb5d836da0a6dd05efabe9408cc45083dba9c649321d5ab09b8bd9486108440",
         "driveId": "16c6lVOIwh_jh_es2zBPH2ETj0jMc2BWW"
-      }
+      },
+      "imageQaNote": "Image254 אלו visibly bth pl with no cm.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#11"
     },
     {
       "title": "Mishnah Shekalim",
@@ -10219,7 +10233,7 @@
       "sourceWord": "יוֹלְדוֹת",
       "observedWord": "יולדות",
       "observedRef": "Sheqal. 2:5",
-      "lex": "יולדת",
+      "lex": "יולדה",
       "tags": "cm fm pl",
       "confidence": "clear",
       "alignment": "one-to-one",
@@ -10229,7 +10243,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
         "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
         "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
-      }
+      },
+      "imageQaNote": "Image257 יולדות: Lex יולדה; Tag cm fm pl with no cnst. Each transcription had a separate error.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#12"
     },
     {
       "title": "Mishnah Shekalim",
@@ -11300,8 +11316,8 @@
       "sourceWord": "לַמֵּתִים",
       "observedWord": "למתים",
       "observedRef": "Sheqal. 2:5",
-      "lex": "ל מות",
-      "tags": "prpArt; qal prt ms pl",
+      "lex": "ל ה מות",
+      "tags": "prpArt; art; qal prt ms pl",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -11310,7 +11326,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_257.png",
         "sha256": "6e4694c64685e3d884d2d021a766c89f8e4c55e06f58858cc424ec7119336c29",
         "driveId": "18UZuWRl_Mwn1SKkFMvAdE4bZhOyEVhWt"
-      }
+      },
+      "imageQaNote": "Image257 למתים prints separate ל and ה alongside מות, with prpArt and art separately visible; preserve printed redundancy.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#13"
     },
     {
       "title": "Mishnah Shekalim",
@@ -15733,7 +15751,7 @@
       "observedWord": "המוקפים",
       "observedRef": "Sheqal. 3:4",
       "lex": "ה נקף",
-      "tags": "art; hof prt ms pl",
+      "tags": "art; hof prt ms pl cnst",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -15742,7 +15760,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_261.png",
         "sha256": "67539df7eff52d6d042a521c866594faad5194da133bd952aa09a76e7cff2674",
         "driveId": "1--ZtbWki5mrNrrJ6Eaago0u9NIs7JRoe"
-      }
+      },
+      "imageQaNote": "Images260 and261 המוקפים visibly include cnst; omitted in first reading.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#17"
     },
     {
       "title": "Mishnah Shekalim",
@@ -18410,7 +18430,7 @@
       "observedWord": "קודש",
       "observedRef": "Sheqal. 4:4",
       "lex": "קדש",
-      "tags": "cm ms sg",
+      "tags": "cm ms sg cnst",
       "confidence": "clear",
       "alignment": "one-to-one",
       "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
@@ -18419,7 +18439,9 @@
         "file": "mischna_2026-11-26_22-48-07_4CB37088_265.png",
         "sha256": "2be200d45906ebb7ba308cc61f45e7f067c9cd9472eab844512081439bee2a09",
         "driveId": "1--cqXBV1SDUJ5nQUsvlkgJ3rZjVQPO5c"
-      }
+      },
+      "imageQaNote": "Images264 and265 first קודש in לבית קודש הקודשים visibly cm ms sg cnst; first reading omitted cnst.",
+      "imageQaAdjudication": "accordance-moed-current-shekalim-raw-tag-adjudications.json#20"
     },
     {
       "title": "Mishnah Shekalim",

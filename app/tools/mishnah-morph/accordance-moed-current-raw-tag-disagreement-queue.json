@@ -1,0 +1,1217 @@
+{
+  "scope": "Raw visible tag disagreement review queue",
+  "meaning": "Read against original images; do not pick a candidate analysis or correct a source anomaly silently.",
+  "counts": {
+    "Mishnah Pesachim": 16,
+    "Mishnah Shekalim": 31
+  },
+  "byTitle": {
+    "Mishnah Pesachim": [
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "1:4",
+        "id": "S07326.2.3.1.4/word/2",
+        "variants": [
+          "qal prt ms pl",
+          "qal prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 160,
+            "tags": "qal prt ms pl",
+            "lex": "אמר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_99.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 179,
+            "tags": "qal prt ms sg",
+            "lex": "אמר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_100.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "1:4",
+        "id": "S07326.2.3.1.4/word/11",
+        "variants": [
+          "qal prt ms pl",
+          "qal prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 169,
+            "tags": "qal prt ms pl",
+            "lex": "אמר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_99.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 188,
+            "tags": "qal prt ms sg",
+            "lex": "אמר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_100.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "1:6",
+        "id": "S07326.2.3.1.6/word/12",
+        "variants": [
+          "rel ntpal prf 3 com pl",
+          "rel ntpal prf 3 ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 295,
+            "tags": "rel ntpal prf 3 com pl",
+            "lex": "ש טמא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_101.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 313,
+            "tags": "rel ntpal prf 3 ms sg",
+            "lex": "ש טמא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_102.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "1:6",
+        "id": "S07326.2.3.1.6/word/13",
+        "variants": [
+          "rel ntpal prf 3 com pl",
+          "rel ntpal prf 3 ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 295,
+            "tags": "rel ntpal prf 3 com pl",
+            "lex": "ש טמא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_101.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 313,
+            "tags": "rel ntpal prf 3 ms sg",
+            "lex": "ש טמא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_102.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "2:3",
+        "id": "S07326.2.3.2.3/word/8",
+        "variants": [
+          "hof prt ms sg",
+          "qal pasP ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 509,
+            "tags": "hof prt ms sg",
+            "lex": "נתר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 539,
+            "tags": "qal pasP ms sg",
+            "lex": "אסר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 549,
+            "tags": "hof prt ms sg",
+            "lex": "נתר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 579,
+            "tags": "qal pasP ms sg",
+            "lex": "אסר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "2:3",
+        "id": "S07326.2.3.2.3/word/18",
+        "variants": [
+          "qal pasP ms sg",
+          "hof prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 519,
+            "tags": "qal pasP ms sg",
+            "lex": "אסר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 540,
+            "tags": "hof prt ms sg",
+            "lex": "נתר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 559,
+            "tags": "qal pasP ms sg",
+            "lex": "אסר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 580,
+            "tags": "hof prt ms sg",
+            "lex": "נתר",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:1",
+        "id": "S07326.2.3.3.1/word/15",
+        "variants": [
+          "cnj",
+          "cnj cm ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 889,
+            "tags": "cnj",
+            "lex": "ו קולן",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_111.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 928,
+            "tags": "cnj cm ms sg",
+            "lex": "ו קולן",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_112.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:1",
+        "id": "S07326.2.3.3.1/word/21",
+        "variants": [
+          "qal pasP ms pl",
+          "qal pasP ms pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 895,
+            "tags": "qal pasP ms pl",
+            "lex": "טפל",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_111.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 934,
+            "tags": "qal pasP ms pl cnst",
+            "lex": "טפל",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_112.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:2",
+        "id": "S07326.2.3.3.2/word/16",
+        "variants": [
+          "art cm fm sg",
+          "art cm fm sg cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 969,
+            "tags": "art cm fm sg",
+            "lex": "ה טמאה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_112.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 987,
+            "tags": "art cm fm sg cnst",
+            "lex": "ה טמאה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_113.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:3",
+        "id": "S07326.2.3.3.3/word/36",
+        "variants": [
+          "hif prt fm sg",
+          "hif prt fm sg cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1043,
+            "tags": "hif prt fm sg",
+            "lex": "פרש",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_113.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1083,
+            "tags": "hif prt fm sg cnst",
+            "lex": "פרש",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_114.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:3",
+        "id": "S07326.2.3.3.3/word/37",
+        "variants": [
+          "cnj hif prt fm sg",
+          "cnj hif prt fm sg cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1044,
+            "tags": "cnj hif prt fm sg",
+            "lex": "ו נוח",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_113.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1084,
+            "tags": "cnj hif prt fm sg cnst",
+            "lex": "ו נוח",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_114.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:4",
+        "id": "S07326.2.3.3.4/word/42",
+        "variants": [
+          "prp ms pl",
+          "prp cm bth pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1151,
+            "tags": "prp ms pl",
+            "lex": "ב צונן",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_115.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1152,
+            "tags": "prp cm bth pl",
+            "lex": "ב תנור",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_115.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:8",
+        "id": "S07326.2.3.3.8/word/1",
+        "variants": [
+          "prp",
+          "intr"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1338,
+            "tags": "prp",
+            "lex": "מי",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_118.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1356,
+            "tags": "intr",
+            "lex": "מי",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:8",
+        "id": "S07326.2.3.3.8/word/31",
+        "variants": [
+          "prp cm fm sg",
+          "prpArt cm ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1386,
+            "tags": "prp cm fm sg",
+            "lex": "כ ביצה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1400,
+            "tags": "prpArt cm ms sg",
+            "lex": "כ זית",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "3:8",
+        "id": "S07326.2.3.3.8/word/37",
+        "variants": [
+          "cm ms sg",
+          "prp cm fm sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1392,
+            "tags": "cm ms sg",
+            "lex": "זית",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1401,
+            "tags": "prp cm fm sg",
+            "lex": "כ ביצה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Pesachim",
+        "ref": "4:2",
+        "id": "S07326.2.3.4.2/word/0",
+        "variants": [
+          "prpArt qal prt ms pl",
+          "prpArt qal prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1461,
+            "tags": "prpArt qal prt ms pl",
+            "lex": "כ יצא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_120.png"
+          },
+          {
+            "file": "accordance-moed-current-pesachim-observations.json",
+            "row": 1479,
+            "tags": "prpArt qal prt ms sg",
+            "lex": "כ יצא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_121.png"
+          }
+        ]
+      }
+    ],
+    "Mishnah Shekalim": [
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:1",
+        "id": "S07326.2.4.1.1/word/18",
+        "variants": [
+          "art cm fm pl",
+          "art fm pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 18,
+            "tags": "art; cm fm pl",
+            "lex": "ה רחוק",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_246.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 150,
+            "tags": "art fm pl",
+            "lex": "ה רחוב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_246.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:1",
+        "id": "S07326.2.4.1.1/word/20",
+        "variants": [
+          "cm fm pl",
+          "cm ms pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 20,
+            "tags": "cm fm pl",
+            "lex": "מקוה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_246.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 152,
+            "tags": "cm ms pl",
+            "lex": "מקוה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_246.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:4",
+        "id": "S07326.2.4.1.4/word/37",
+        "variants": [
+          "qal imprf 3 fm sg",
+          "nif imprf 3 fm sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 137,
+            "tags": "qal imprf 3 fm sg",
+            "lex": "היה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_249.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 195,
+            "tags": "nif imprf 3 fm sg",
+            "lex": "היה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_249.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:4",
+        "id": "S07326.2.4.1.4/word/39",
+        "variants": [
+          "nif imprf 3 fm sg",
+          "qal imprf 3 fm sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 139,
+            "tags": "nif imprf 3 fm sg",
+            "lex": "אכל",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_249.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 194,
+            "tags": "qal imprf 3 fm sg",
+            "lex": "אכל",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_249.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:5",
+        "id": "S07326.2.4.1.5/word/24",
+        "variants": [
+          "qal prt ms pl",
+          "qal prt ms pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 174,
+            "tags": "qal prt ms pl",
+            "lex": "זוב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_250.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 205,
+            "tags": "qal prt ms pl cnst",
+            "lex": "זוב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_250.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:5",
+        "id": "S07326.2.4.1.5/word/26",
+        "variants": [
+          "qal prt fm pl",
+          "qal prt fm pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 176,
+            "tags": "qal prt fm pl",
+            "lex": "זוב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_250.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 206,
+            "tags": "qal prt fm pl cnst",
+            "lex": "זוב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_250.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:5",
+        "id": "S07326.2.4.1.5/word/38",
+        "variants": [
+          "cnj nif prf 3 ms sg",
+          "cnj nif prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 188,
+            "tags": "cnj; nif prf 3 ms sg",
+            "lex": "ו נדב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_250.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 208,
+            "tags": "cnj nif prt ms sg",
+            "lex": "ו נדב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_250.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:6",
+        "id": "S07326.2.4.1.6/word/0",
+        "variants": [
+          "cnj cm bth pl",
+          "cnj bth pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 212,
+            "tags": "cnj; cm bth pl",
+            "lex": "ו אלו",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_251.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 216,
+            "tags": "cnj bth pl",
+            "lex": "ו אלו",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_251.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "1:7",
+        "id": "S07326.2.4.1.7/word/16",
+        "variants": [
+          "cnj art cm ms pl",
+          "art cm ms pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 277,
+            "tags": "cnj; art; cm ms pl",
+            "lex": "ו ה שותף",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_252.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 227,
+            "tags": "art cm ms pl",
+            "lex": "ה שותף",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_252.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "2:1",
+        "id": "S07326.2.4.2.1/word/5",
+        "variants": [
+          "art cm bth pl",
+          "art cm bth sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 305,
+            "tags": "art; cm bth pl",
+            "lex": "ה דרך",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_253.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 237,
+            "tags": "art cm bth sg",
+            "lex": "ה דרך",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_252.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "2:1",
+        "id": "S07326.2.4.2.1/word/38",
+        "variants": [
+          "art cm ms pl",
+          "art cm bth pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 338,
+            "tags": "art; cm ms pl",
+            "lex": "ה גנב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_253.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 247,
+            "tags": "art cm bth pl",
+            "lex": "ה גנב",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_253.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "2:3",
+        "id": "S07326.2.4.2.3/word/4",
+        "variants": [
+          "cm bth pl",
+          "bth pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 382,
+            "tags": "cm bth pl",
+            "lex": "אלה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_254.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 261,
+            "tags": "bth pl",
+            "lex": "אלה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_254.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "2:5",
+        "id": "S07326.2.4.2.5/word/12",
+        "variants": [
+          "cm fm pl",
+          "cm fm pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 485,
+            "tags": "cm fm pl",
+            "lex": "יולדת",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_257.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 290,
+            "tags": "cm fm pl cnst",
+            "lex": "יולדה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_257.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "2:5",
+        "id": "S07326.2.4.2.5/word/63",
+        "variants": [
+          "prpArt qal prt ms pl",
+          "prpArt art qal prt ms pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 536,
+            "tags": "prpArt; qal prt ms pl",
+            "lex": "ל מות",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_257.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 295,
+            "tags": "prpArt art qal prt ms pl",
+            "lex": "ל ה מות",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_257.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "3:2",
+        "id": "S07326.2.4.3.2/word/66",
+        "variants": [
+          "cnj qal imprf 3 ms sg",
+          "cnj qal impr ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 679,
+            "tags": "cnj; qal imprf 3 ms sg",
+            "lex": "ו מצא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_259.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 322,
+            "tags": "cnj qal impr ms sg",
+            "lex": "ו מצא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_259.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "3:3",
+        "id": "S07326.2.4.3.3/word/4",
+        "variants": [
+          "nif prt ms sg",
+          "qal prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 690,
+            "tags": "nif prt ms sg",
+            "lex": "כנס",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_260.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 323,
+            "tags": "qal prt ms sg",
+            "lex": "כנס",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_260.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "3:3",
+        "id": "S07326.2.4.3.3/word/8",
+        "variants": [
+          "cnj qal prt ms sg cnst",
+          "cnj qal prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 694,
+            "tags": "cnj; qal prt ms sg cnst",
+            "lex": "ו זרק",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_260.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 324,
+            "tags": "cnj qal prt ms sg",
+            "lex": "ו זרק",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_260.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "3:4",
+        "id": "S07326.2.4.3.4/word/31",
+        "variants": [
+          "art hof prt ms pl",
+          "art hof prt ms pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 747,
+            "tags": "art; hof prt ms pl",
+            "lex": "ה נקף",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_261.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 340,
+            "tags": "art hof prt ms pl cnst",
+            "lex": "ה נקף",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_260.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "4:2",
+        "id": "S07326.2.4.4.2/word/32",
+        "variants": [
+          "cm ms pl",
+          "cm ms pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 831,
+            "tags": "cm ms pl",
+            "lex": "כהן",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_263.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 369,
+            "tags": "cm ms pl cnst",
+            "lex": "כהן",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_263.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "4:2",
+        "id": "S07326.2.4.4.2/word/33",
+        "variants": [
+          "ms pl",
+          "cm ms pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 832,
+            "tags": "ms pl",
+            "lex": "גדול",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_263.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 368,
+            "tags": "cm ms pl",
+            "lex": "גדול",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_263.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "4:4",
+        "id": "S07326.2.4.4.4/word/10",
+        "variants": [
+          "cm ms sg",
+          "cm ms sg cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 874,
+            "tags": "cm ms sg",
+            "lex": "קדש",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_265.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 378,
+            "tags": "cm ms sg cnst",
+            "lex": "קדש",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_264.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "4:4",
+        "id": "S07326.2.4.4.4/word/17",
+        "variants": [
+          "prp cm ms sg cnst",
+          "prp cm ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 881,
+            "tags": "prp; cm ms sg cnst",
+            "lex": "ל קיץ",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_265.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 375,
+            "tags": "prp cm ms sg",
+            "lex": "ל קיץ",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_264.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "4:7",
+        "id": "S07326.2.4.4.7/word/67",
+        "variants": [
+          "prp cm fm sg cnst",
+          "cm fm sg cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-ch1-4-observations.json",
+            "row": 1060,
+            "tags": "prp; cm fm sg cnst",
+            "lex": "מן מדה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_268.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 412,
+            "tags": "cm fm sg cnst",
+            "lex": "מדה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_268.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "5:3",
+        "id": "S07326.2.4.5.3/word/39",
+        "variants": [
+          "cm ms sg cnst",
+          "cm ms pl cnst"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 457,
+            "tags": "cm ms sg cnst",
+            "lex": "נסך",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_272.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 460,
+            "tags": "cm ms pl cnst",
+            "lex": "נסך",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_273.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "6:2",
+        "id": "S07326.2.4.6.2/word/9",
+        "variants": [
+          "pul prt fm sg",
+          "pul prt fm"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 507,
+            "tags": "pul prt fm sg",
+            "lex": "שנה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_278.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2308,
+            "tags": "pul prt fm",
+            "lex": "שנה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_277.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "6:2",
+        "id": "S07326.2.4.6.2/word/11",
+        "variants": [
+          "qal prf 3 ms sg",
+          "qal prt ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 508,
+            "tags": "qal prf 3 ms sg",
+            "lex": "בוא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_278.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2310,
+            "tags": "qal prt ms sg",
+            "lex": "בוא",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_277.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "7:4",
+        "id": "S07326.2.4.7.4/word/19",
+        "variants": [
+          "art qal pasP ms sg",
+          "qal pasP ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 584,
+            "tags": "art qal pasP ms sg",
+            "lex": "ה ראה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_286.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2671,
+            "tags": "qal pasP ms sg",
+            "lex": "ראה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_285.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "8:1",
+        "id": "S07326.2.4.8.1/word/1",
+        "variants": [
+          "art cm ms sg cnst",
+          "art cm ms pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 613,
+            "tags": "art cm ms sg cnst",
+            "lex": "ה רוק",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_290.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2767,
+            "tags": "art cm ms pl",
+            "lex": "ה רוק",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_289.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "8:1",
+        "id": "S07326.2.4.8.1/word/4",
+        "variants": [
+          "cm ms pl",
+          "ms pl"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 614,
+            "tags": "cm ms pl",
+            "lex": "טהור",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_290.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2770,
+            "tags": "ms pl",
+            "lex": "טהור",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_289.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "8:1",
+        "id": "S07326.2.4.8.1/word/7",
+        "variants": [
+          "art cm ms sg",
+          "art ms sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 615,
+            "tags": "art cm ms sg",
+            "lex": "ה עליון",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_290.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2773,
+            "tags": "art ms sg",
+            "lex": "ה עליון",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_289.png"
+          }
+        ]
+      },
+      {
+        "title": "Mishnah Shekalim",
+        "ref": "8:1",
+        "id": "S07326.2.4.8.1/word/22",
+        "variants": [
+          "cnj prp cm fm sg cnst",
+          "cnj prp cm fm sg"
+        ],
+        "rows": [
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 617,
+            "tags": "cnj prp cm fm sg cnst",
+            "lex": "ו ב שעה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_290.png"
+          },
+          {
+            "file": "accordance-moed-current-shekalim-sukkah-observations.json",
+            "row": 2788,
+            "tags": "cnj prp cm fm sg",
+            "lex": "ו ב שעה",
+            "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_289.png"
+          }
+        ]
+      }
+    ]
+  }
+}

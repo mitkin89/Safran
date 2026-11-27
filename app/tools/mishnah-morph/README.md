@@ -288,3 +288,47 @@ ursprüngliche Übereinstimmung erscheinen. Ohne diese Option werden die
 aktuellen Dateien mit ihren jeweiligen Hashes verglichen. Die separate
 Lexemspalte prüft lediglich, ob ein Kandidatenlemma unter den sichtbaren
 Konsonantenkomponenten vorkommt; sie bestätigt keine Homonymbedeutung.
+
+`counts` zählt Beobachtungszeilen, einschließlich überlappender Aufnahmen.
+`uniquePositions` fasst dieselbe Quellwort-ID dagegen genau einmal zusammen.
+Unterschiedliche Ergebnisse bleiben als gemischter Prüfstand sichtbar;
+widersprechende ablesbare Referenzmerkmale werden separat ausgewiesen.
+Weder überlappende Bilder noch wiederholte Altbelege erhöhen somit die
+behauptete Wortabdeckung. Der eingefrorene Entwurf und die Rohbeobachtungen
+bleiben die reproduzierbaren Eingaben des Vergleichs.
+`positionsWithGroupOnlyObservation` bezeichnet sichtbar belegte Wortgruppen,
+deren Fragmente keine Einzelwortbestimmung erhalten. Mit `--output=/pfad/...`
+und `--summary-output=/pfad/...` können der ausführliche reproduzierbare Bericht
+und eine kompakte Zusammenfassung mit dessen Hash getrennt gespeichert werden.
+
+Der verfügbare Moed-Bilddurchgang ist bis zum Traktatende erfolgt.
+`moed-current-accordance-comparison-summary.json` dokumentiert 29.023
+Rohbeobachtungen an 26.513 unterschiedlichen Quellpositionen und 666 tatsächlich
+referenzierte Originalbilder. Für 1.234 der 27.747 diplomatischen Positionen
+liegt keine dort gebundene Bildbeobachtung vor: dazu gehören echte Bildlücken,
+Varianten, Quellfragmente und Marker. Die Rohlesung sowie fünf nach erneuter
+Bildprüfung verbliebene editoriale Tag-Alternativen sind getrennt dokumentiert.
+Dies bestätigt keine vollständige Wortmorphologie oder Manuskriptvokalisation.
+`accordance-moed-current-raw-tag-disagreement-queue.json` bewahrt die ursprüngliche
+Liste der 47 Nachlesefälle als Eingabe der Adjudikationsdateien. Diese historische
+Liste ist kein aktueller offener Fehlerzähler. Der aktuelle strukturelle
+Prüfstand steht in `accordance-moed-current-independent-structure-qa.json`;
+ältere Einzel-QA-Berichte sind an ihren jeweiligen damaligen Ledgerhash gebunden.
+
+Der Ma’agarim-Bestand ist in `maagarim-existing-coverage-inventory.md`
+zusammengefasst. `moed-maagarim-followup-pending.json` ist ausdrücklich eine
+noch nicht abgefragte Forschungsliste; sie zählt weder geprüfte Wörter noch
+bewiesene Fehler.
+
+Für Naschim ist der unabhängige Entwurf in `2cc7eaa` eingefroren:
+29.136 lexikalische Karten, 11.451 zuvor leere Karten ergänzt, davon 1.708
+mit ausschließlich partiellen Analysen; 3.094 Karten bleiben unbestimmt.
+Das unabhängige Audit prüft alle sieben Quellkerne gegen `0374c0a`, alle
+14.591 zuvor vorhandenen Karten unverändert und 10.789 neue rabbinische
+Wörterbuchverweise anhand der tatsächlichen Artikelbytes. Dies ist keine
+Accordance- oder Ma’agarim-Bestätigung. Die Bildlesung verwendet eigene
+`accordance-nashim-current-*-observations.json` und verändert den Entwurf nicht.
+
+```sh
+node tools/mishnah-morph/compare-current-accordance.cjs --seder=nashim --image-index=/path/to/full-download-index.json --draft-commit=2cc7eaa
+```

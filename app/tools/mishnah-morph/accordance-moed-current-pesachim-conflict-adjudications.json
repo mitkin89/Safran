@@ -1,0 +1,1183 @@
+{
+  "version": 1,
+  "title": "Mishnah Pesachim",
+  "method": "AI visual rereading of original screenshots and enlarged crops; raw Lex/Tag evidence only. Not human validation.",
+  "inputQueueSHA256": "4bc7382393ee3bd7a8fe4eda65d2e3bbf2f48e2addb4a141963b9c7cbef71c6b",
+  "ledgerSHA256Before": "bf0f7883fcf3b7d16e054368401e6b5e73634356828ad53a800930f0dd3858dd",
+  "ledgerSHA256After": "633f56768c3c3468bcbdbdc4966b362e620dc91b8d097cfcbcf6785850c91d05",
+  "queueItemsReviewed": 16,
+  "changedLedgerRows": [
+    160,
+    169,
+    295,
+    889,
+    895,
+    987,
+    1043,
+    1044,
+    1338,
+    1392,
+    1401,
+    1461
+  ],
+  "changedLedgerRowCount": 12,
+  "sourceTextAndModulesChanged": false,
+  "adjudications": [
+    {
+      "queueIndex": 0,
+      "sourceID": "S07326.2.3.1.4/word/2",
+      "title": "Mishnah Pesachim",
+      "ref": "1:4",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 160,
+          "sourceWordIds": [
+            "S07326.2.3.1.4/word/2"
+          ],
+          "sourceWordIndexes": [
+            2
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_99.png",
+          "originalImageSHA256": "ee5af7f05a55183068ecbb96b9b4f35335ab551bceacede69a6c6c83026cd90a",
+          "driveId": "1xQhISuTv4cOYLtbgIvylRqsqtaEipMn1",
+          "rawBefore": {
+            "lex": "אמר",
+            "tag": "qal prt ms pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "rawCorrected": {
+            "lex": "אמר",
+            "tag": "qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "changed": true,
+          "reason": "Image 99 prints ms sg under אמר; former pl was a reading error."
+        },
+        {
+          "ledgerRow": 179,
+          "sourceWordIds": [
+            "S07326.2.3.1.4/word/2"
+          ],
+          "sourceWordIndexes": [
+            2
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_100.png",
+          "originalImageSHA256": "478db824d8cc157e4162e1569b75af23d97e16b5ece2fec996fe2f49bedf3efd",
+          "driveId": "1IrOilBX_TEkli7BDs4qxC4xEQRO_unro",
+          "rawBefore": {
+            "lex": "אמר",
+            "tag": "qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "rawCorrected": {
+            "lex": "אמר",
+            "tag": "qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 1,
+      "sourceID": "S07326.2.3.1.4/word/11",
+      "title": "Mishnah Pesachim",
+      "ref": "1:4",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 169,
+          "sourceWordIds": [
+            "S07326.2.3.1.4/word/11"
+          ],
+          "sourceWordIndexes": [
+            11
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_99.png",
+          "originalImageSHA256": "ee5af7f05a55183068ecbb96b9b4f35335ab551bceacede69a6c6c83026cd90a",
+          "driveId": "1xQhISuTv4cOYLtbgIvylRqsqtaEipMn1",
+          "rawBefore": {
+            "lex": "אמר",
+            "tag": "qal prt ms pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "rawCorrected": {
+            "lex": "אמר",
+            "tag": "qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "changed": true,
+          "reason": "Image 99 prints ms sg under אמר; former pl was a reading error."
+        },
+        {
+          "ledgerRow": 188,
+          "sourceWordIds": [
+            "S07326.2.3.1.4/word/11"
+          ],
+          "sourceWordIndexes": [
+            11
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_100.png",
+          "originalImageSHA256": "478db824d8cc157e4162e1569b75af23d97e16b5ece2fec996fe2f49bedf3efd",
+          "driveId": "1IrOilBX_TEkli7BDs4qxC4xEQRO_unro",
+          "rawBefore": {
+            "lex": "אמר",
+            "tag": "qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "rawCorrected": {
+            "lex": "אמר",
+            "tag": "qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:4"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 2,
+      "sourceID": "S07326.2.3.1.6/word/12",
+      "title": "Mishnah Pesachim",
+      "ref": "1:6",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 295,
+          "sourceWordIds": [
+            "S07326.2.3.1.6/word/12",
+            "S07326.2.3.1.6/word/13"
+          ],
+          "sourceWordIndexes": [
+            12,
+            13
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_101.png",
+          "originalImageSHA256": "ecc41926877ab479342f888662eeae480031280e8f3a1cd5066d6c3c1e7ff3c9",
+          "driveId": "1Qy9hbBfClSBAFklR8JJBIvY0sJ7D0kco",
+          "rawBefore": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 com pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "rawCorrected": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "changed": true,
+          "reason": "Image 101 prints ntpal / prf 3 / ms sg. Surface שניטמא spans source words 12–13; no plural is printed."
+        },
+        {
+          "ledgerRow": 313,
+          "sourceWordIds": [
+            "S07326.2.3.1.6/word/12",
+            "S07326.2.3.1.6/word/13"
+          ],
+          "sourceWordIndexes": [
+            12,
+            13
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_102.png",
+          "originalImageSHA256": "5d85a8d1935aacaa4615f6cf100edf576adad2a326f32c1e804c8ab4c4113a36",
+          "driveId": "1dSOH6oWzZXkRKYFvikQEaJ6EkNGZr4DK",
+          "rawBefore": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "rawCorrected": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 3,
+      "sourceID": "S07326.2.3.1.6/word/13",
+      "title": "Mishnah Pesachim",
+      "ref": "1:6",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 295,
+          "sourceWordIds": [
+            "S07326.2.3.1.6/word/12",
+            "S07326.2.3.1.6/word/13"
+          ],
+          "sourceWordIndexes": [
+            12,
+            13
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_101.png",
+          "originalImageSHA256": "ecc41926877ab479342f888662eeae480031280e8f3a1cd5066d6c3c1e7ff3c9",
+          "driveId": "1Qy9hbBfClSBAFklR8JJBIvY0sJ7D0kco",
+          "rawBefore": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 com pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "rawCorrected": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "changed": true,
+          "reason": "Image 101 prints ntpal / prf 3 / ms sg. Surface שניטמא spans source words 12–13; no plural is printed."
+        },
+        {
+          "ledgerRow": 313,
+          "sourceWordIds": [
+            "S07326.2.3.1.6/word/12",
+            "S07326.2.3.1.6/word/13"
+          ],
+          "sourceWordIndexes": [
+            12,
+            13
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_102.png",
+          "originalImageSHA256": "5d85a8d1935aacaa4615f6cf100edf576adad2a326f32c1e804c8ab4c4113a36",
+          "driveId": "1dSOH6oWzZXkRKYFvikQEaJ6EkNGZr4DK",
+          "rawBefore": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "rawCorrected": {
+            "lex": "ש טמא",
+            "tag": "rel ntpal prf 3 ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "1:6"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 4,
+      "sourceID": "S07326.2.3.2.3/word/8",
+      "title": "Mishnah Pesachim",
+      "ref": "2:3",
+      "classification": "editorial-alternatives-distinct-from-source",
+      "decision": "[מותר] has נתר / hof prt ms sg; {אסור} has אסר / qal pasP ms sg. Separate printed alternatives, not contradictory Tags for one reading.",
+      "observations": [
+        {
+          "ledgerRow": 509,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/8"
+          ],
+          "sourceWordIndexes": [
+            8
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png",
+          "originalImageSHA256": "a8fab28d3e7f7ef861a509c533aad7fe090b9302990f0cbe8719051b77025554",
+          "driveId": "17JJ_vK6EIMsltyoxDIjNtgsAJ8WbZHLD",
+          "rawBefore": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 539,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/8"
+          ],
+          "sourceWordIndexes": [
+            8
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png",
+          "originalImageSHA256": "a8fab28d3e7f7ef861a509c533aad7fe090b9302990f0cbe8719051b77025554",
+          "driveId": "17JJ_vK6EIMsltyoxDIjNtgsAJ8WbZHLD",
+          "rawBefore": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 549,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/8"
+          ],
+          "sourceWordIndexes": [
+            8
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png",
+          "originalImageSHA256": "f1977b1e0ecc2ccdae0fe739dd2f185dbf8200a1999ca643fa3f90f58acd300b",
+          "driveId": "14AIpjUxHSH0qvxN7bEQxtXAnA3UdlNL8",
+          "rawBefore": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 579,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/8"
+          ],
+          "sourceWordIndexes": [
+            8
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png",
+          "originalImageSHA256": "f1977b1e0ecc2ccdae0fe739dd2f185dbf8200a1999ca643fa3f90f58acd300b",
+          "driveId": "14AIpjUxHSH0qvxN7bEQxtXAnA3UdlNL8",
+          "rawBefore": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 5,
+      "sourceID": "S07326.2.3.2.3/word/18",
+      "title": "Mishnah Pesachim",
+      "ref": "2:3",
+      "classification": "editorial-alternatives-distinct-from-source",
+      "decision": "[אסור] has אסר / qal pasP ms sg; {מותר} has נתר / hof prt ms sg. Separate printed alternatives.",
+      "observations": [
+        {
+          "ledgerRow": 519,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/18"
+          ],
+          "sourceWordIndexes": [
+            18
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png",
+          "originalImageSHA256": "a8fab28d3e7f7ef861a509c533aad7fe090b9302990f0cbe8719051b77025554",
+          "driveId": "17JJ_vK6EIMsltyoxDIjNtgsAJ8WbZHLD",
+          "rawBefore": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 540,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/18"
+          ],
+          "sourceWordIndexes": [
+            18
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_105.png",
+          "originalImageSHA256": "a8fab28d3e7f7ef861a509c533aad7fe090b9302990f0cbe8719051b77025554",
+          "driveId": "17JJ_vK6EIMsltyoxDIjNtgsAJ8WbZHLD",
+          "rawBefore": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 559,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/18"
+          ],
+          "sourceWordIndexes": [
+            18
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png",
+          "originalImageSHA256": "f1977b1e0ecc2ccdae0fe739dd2f185dbf8200a1999ca643fa3f90f58acd300b",
+          "driveId": "14AIpjUxHSH0qvxN7bEQxtXAnA3UdlNL8",
+          "rawBefore": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "אסר",
+            "tag": "qal pasP ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 580,
+          "sourceWordIds": [
+            "S07326.2.3.2.3/word/18"
+          ],
+          "sourceWordIndexes": [
+            18
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_106.png",
+          "originalImageSHA256": "f1977b1e0ecc2ccdae0fe739dd2f185dbf8200a1999ca643fa3f90f58acd300b",
+          "driveId": "14AIpjUxHSH0qvxN7bEQxtXAnA3UdlNL8",
+          "rawBefore": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "rawCorrected": {
+            "lex": "נתר",
+            "tag": "hof prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "2:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 6,
+      "sourceID": "S07326.2.3.3.1/word/15",
+      "title": "Mishnah Pesachim",
+      "ref": "3:1",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 889,
+          "sourceWordIds": [
+            "S07326.2.3.3.1/word/15"
+          ],
+          "sourceWordIndexes": [
+            15
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_111.png",
+          "originalImageSHA256": "d993634bcf70e5c5447b88f2197ece49b6fe4c23dea6ce0ad6f13224811dc335",
+          "driveId": "1i9noTIvRKOtQ8PmGOPmuRc2tfjk6nOsR",
+          "rawBefore": {
+            "lex": "ו קולן",
+            "tag": "cnj",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "rawCorrected": {
+            "lex": "ו קולן",
+            "tag": "cnj cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "changed": true,
+          "reason": "Enlarged original image 111 visibly includes cm ms sg under קולן and cnj under ו; former clipping claim withdrawn."
+        },
+        {
+          "ledgerRow": 928,
+          "sourceWordIds": [
+            "S07326.2.3.3.1/word/15"
+          ],
+          "sourceWordIndexes": [
+            15
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_112.png",
+          "originalImageSHA256": "03345a6588e058c4b7128f0c86b807c47ff2561fdb48b07de14a9adb41c892ff",
+          "driveId": "1bEamozDLsGAJsZ_7CH-12RKBfnVtGY7U",
+          "rawBefore": {
+            "lex": "ו קולן",
+            "tag": "cnj cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "rawCorrected": {
+            "lex": "ו קולן",
+            "tag": "cnj cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 7,
+      "sourceID": "S07326.2.3.3.1/word/21",
+      "title": "Mishnah Pesachim",
+      "ref": "3:1",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 895,
+          "sourceWordIds": [
+            "S07326.2.3.3.1/word/21"
+          ],
+          "sourceWordIndexes": [
+            21
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_111.png",
+          "originalImageSHA256": "d993634bcf70e5c5447b88f2197ece49b6fe4c23dea6ce0ad6f13224811dc335",
+          "driveId": "1i9noTIvRKOtQ8PmGOPmuRc2tfjk6nOsR",
+          "rawBefore": {
+            "lex": "טפל",
+            "tag": "qal pasP ms pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "rawCorrected": {
+            "lex": "טפל",
+            "tag": "qal pasP ms pl cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "changed": true,
+          "reason": "Image 111 visibly prints cnst below ms pl; omitted in first transcription."
+        },
+        {
+          "ledgerRow": 934,
+          "sourceWordIds": [
+            "S07326.2.3.3.1/word/21"
+          ],
+          "sourceWordIndexes": [
+            21
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_112.png",
+          "originalImageSHA256": "03345a6588e058c4b7128f0c86b807c47ff2561fdb48b07de14a9adb41c892ff",
+          "driveId": "1bEamozDLsGAJsZ_7CH-12RKBfnVtGY7U",
+          "rawBefore": {
+            "lex": "טפל",
+            "tag": "qal pasP ms pl cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "rawCorrected": {
+            "lex": "טפל",
+            "tag": "qal pasP ms pl cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:1"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 8,
+      "sourceID": "S07326.2.3.3.2/word/16",
+      "title": "Mishnah Pesachim",
+      "ref": "3:2",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 969,
+          "sourceWordIds": [
+            "S07326.2.3.3.2/word/16"
+          ],
+          "sourceWordIndexes": [
+            16
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_112.png",
+          "originalImageSHA256": "03345a6588e058c4b7128f0c86b807c47ff2561fdb48b07de14a9adb41c892ff",
+          "driveId": "1bEamozDLsGAJsZ_7CH-12RKBfnVtGY7U",
+          "rawBefore": {
+            "lex": "ה טמאה",
+            "tag": "art cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:2"
+          },
+          "rawCorrected": {
+            "lex": "ה טמאה",
+            "tag": "art cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:2"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 987,
+          "sourceWordIds": [
+            "S07326.2.3.3.2/word/16"
+          ],
+          "sourceWordIndexes": [
+            16
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_113.png",
+          "originalImageSHA256": "a33f90a6e289f5cd159abd0db6c06e73637127fb0fa580166b525fc15fc19803",
+          "driveId": "1J_iEadJKp86mKhsZyq00OrPvUd0YNrqk",
+          "rawBefore": {
+            "lex": "ה טמאה",
+            "tag": "art cm fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:2"
+          },
+          "rawCorrected": {
+            "lex": "ה טמאה",
+            "tag": "art cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:2"
+          },
+          "changed": true,
+          "reason": "Image 113 prints cm fm sg with art; no cnst beneath this cell. Previous cnst belonged to another cell."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 9,
+      "sourceID": "S07326.2.3.3.3/word/36",
+      "title": "Mishnah Pesachim",
+      "ref": "3:3",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 1043,
+          "sourceWordIds": [
+            "S07326.2.3.3.3/word/36"
+          ],
+          "sourceWordIndexes": [
+            36
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_113.png",
+          "originalImageSHA256": "a33f90a6e289f5cd159abd0db6c06e73637127fb0fa580166b525fc15fc19803",
+          "driveId": "1J_iEadJKp86mKhsZyq00OrPvUd0YNrqk",
+          "rawBefore": {
+            "lex": "פרש",
+            "tag": "hif prt fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "rawCorrected": {
+            "lex": "פרש",
+            "tag": "hif prt fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "changed": true,
+          "reason": "Image 113 visibly prints cnst below hif prt fm sg; omitted in first transcription."
+        },
+        {
+          "ledgerRow": 1083,
+          "sourceWordIds": [
+            "S07326.2.3.3.3/word/36"
+          ],
+          "sourceWordIndexes": [
+            36
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_114.png",
+          "originalImageSHA256": "4016ad307c03223310fa9e589c87d8aaf294e44ae43c80293bd542f6e91b8d33",
+          "driveId": "1QNjIpcoxaLVSqmvIjUf04bSpCic7MoZa",
+          "rawBefore": {
+            "lex": "פרש",
+            "tag": "hif prt fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "rawCorrected": {
+            "lex": "פרש",
+            "tag": "hif prt fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 10,
+      "sourceID": "S07326.2.3.3.3/word/37",
+      "title": "Mishnah Pesachim",
+      "ref": "3:3",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 1044,
+          "sourceWordIds": [
+            "S07326.2.3.3.3/word/37"
+          ],
+          "sourceWordIndexes": [
+            37
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_113.png",
+          "originalImageSHA256": "a33f90a6e289f5cd159abd0db6c06e73637127fb0fa580166b525fc15fc19803",
+          "driveId": "1J_iEadJKp86mKhsZyq00OrPvUd0YNrqk",
+          "rawBefore": {
+            "lex": "ו נוח",
+            "tag": "cnj hif prt fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "rawCorrected": {
+            "lex": "ו נוח",
+            "tag": "cnj hif prt fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "changed": true,
+          "reason": "Image 113 visibly prints cnst below hif prt fm sg; omitted in first transcription."
+        },
+        {
+          "ledgerRow": 1084,
+          "sourceWordIds": [
+            "S07326.2.3.3.3/word/37"
+          ],
+          "sourceWordIndexes": [
+            37
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_114.png",
+          "originalImageSHA256": "4016ad307c03223310fa9e589c87d8aaf294e44ae43c80293bd542f6e91b8d33",
+          "driveId": "1QNjIpcoxaLVSqmvIjUf04bSpCic7MoZa",
+          "rawBefore": {
+            "lex": "ו נוח",
+            "tag": "cnj hif prt fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "rawCorrected": {
+            "lex": "ו נוח",
+            "tag": "cnj hif prt fm sg cnst",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:3"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 11,
+      "sourceID": "S07326.2.3.3.4/word/42",
+      "title": "Mishnah Pesachim",
+      "ref": "3:4",
+      "classification": "editorial-alternatives-distinct-from-source",
+      "decision": "[בצונין] has ב צונן / prp ms pl; {בתנורים} has ב תנור / prp cm bth pl. Preserve separate readings.",
+      "observations": [
+        {
+          "ledgerRow": 1151,
+          "sourceWordIds": [
+            "S07326.2.3.3.4/word/42"
+          ],
+          "sourceWordIndexes": [
+            42
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_115.png",
+          "originalImageSHA256": "eab72f092f5b3425d98acfb02f6b974222033ace812f1bd1cb4e084c1096eebc",
+          "driveId": "1WE1c2cG4NxLc-B4b4A-W1Xvoezuq_QP8",
+          "rawBefore": {
+            "lex": "ב צונן",
+            "tag": "prp ms pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:4"
+          },
+          "rawCorrected": {
+            "lex": "ב צונן",
+            "tag": "prp ms pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:4"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 1152,
+          "sourceWordIds": [
+            "S07326.2.3.3.4/word/42"
+          ],
+          "sourceWordIndexes": [
+            42
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_115.png",
+          "originalImageSHA256": "eab72f092f5b3425d98acfb02f6b974222033ace812f1bd1cb4e084c1096eebc",
+          "driveId": "1WE1c2cG4NxLc-B4b4A-W1Xvoezuq_QP8",
+          "rawBefore": {
+            "lex": "ב תנור",
+            "tag": "prp cm bth pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:4"
+          },
+          "rawCorrected": {
+            "lex": "ב תנור",
+            "tag": "prp cm bth pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:4"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 12,
+      "sourceID": "S07326.2.3.3.8/word/1",
+      "title": "Mishnah Pesachim",
+      "ref": "3:8",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 1338,
+          "sourceWordIds": [
+            "S07326.2.3.3.8/word/1"
+          ],
+          "sourceWordIndexes": [
+            1
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_118.png",
+          "originalImageSHA256": "44adb641cb54e7ad5c88314e89187c1ed3b67fe1fa7f527c3b198252e9be389a",
+          "driveId": "1AG_a8YCLXgS3XSqk_dOylNjvXAeCCe_8",
+          "rawBefore": {
+            "lex": "מי",
+            "tag": "prp",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "rawCorrected": {
+            "lex": "מי",
+            "tag": "intr",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "changed": true,
+          "reason": "Image 118 visibly prints intr under מי, not prp."
+        },
+        {
+          "ledgerRow": 1356,
+          "sourceWordIds": [
+            "S07326.2.3.3.8/word/1"
+          ],
+          "sourceWordIndexes": [
+            1
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png",
+          "originalImageSHA256": "e31301ddf9b0b2bb3bc135c651a8842f36303ddb8d7aeec6ec7d904b6f6b6917",
+          "driveId": "1QR6maeX9FepxDrLU7Pvev9bMBFPQSIyb",
+          "rawBefore": {
+            "lex": "מי",
+            "tag": "intr",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "rawCorrected": {
+            "lex": "מי",
+            "tag": "intr",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 13,
+      "sourceID": "S07326.2.3.3.8/word/31",
+      "title": "Mishnah Pesachim",
+      "ref": "3:8",
+      "classification": "editorial-alternatives-distinct-from-source",
+      "decision": "[כביצה] has כ ביצה / prp cm fm sg; {כזית} has כ זית / prpArt cm ms sg. Different editorial surfaces, not one grammatical assertion.",
+      "observations": [
+        {
+          "ledgerRow": 1386,
+          "sourceWordIds": [
+            "S07326.2.3.3.8/word/31"
+          ],
+          "sourceWordIndexes": [
+            31
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png",
+          "originalImageSHA256": "e31301ddf9b0b2bb3bc135c651a8842f36303ddb8d7aeec6ec7d904b6f6b6917",
+          "driveId": "1QR6maeX9FepxDrLU7Pvev9bMBFPQSIyb",
+          "rawBefore": {
+            "lex": "כ ביצה",
+            "tag": "prp cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "rawCorrected": {
+            "lex": "כ ביצה",
+            "tag": "prp cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        },
+        {
+          "ledgerRow": 1400,
+          "sourceWordIds": [
+            "S07326.2.3.3.8/word/31"
+          ],
+          "sourceWordIndexes": [
+            31
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png",
+          "originalImageSHA256": "e31301ddf9b0b2bb3bc135c651a8842f36303ddb8d7aeec6ec7d904b6f6b6917",
+          "driveId": "1QR6maeX9FepxDrLU7Pvev9bMBFPQSIyb",
+          "rawBefore": {
+            "lex": "כ זית",
+            "tag": "prpArt cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "rawCorrected": {
+            "lex": "כ זית",
+            "tag": "prpArt cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 14,
+      "sourceID": "S07326.2.3.3.8/word/37",
+      "title": "Mishnah Pesachim",
+      "ref": "3:8",
+      "classification": "editorial-alternative-and-printed-prefix-anomaly",
+      "decision": "Source [בכזית] literally receives כך / adv plus זית / cm ms sg in the image; retain this printed anomaly. Adjacent editorial {כביצה} separately receives כ ביצה / prpArt cm fm sg.",
+      "observations": [
+        {
+          "ledgerRow": 1392,
+          "sourceWordIds": [
+            "S07326.2.3.3.8/word/37"
+          ],
+          "sourceWordIndexes": [
+            37
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png",
+          "originalImageSHA256": "e31301ddf9b0b2bb3bc135c651a8842f36303ddb8d7aeec6ec7d904b6f6b6917",
+          "driveId": "1QR6maeX9FepxDrLU7Pvev9bMBFPQSIyb",
+          "rawBefore": {
+            "lex": "זית",
+            "tag": "cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "rawCorrected": {
+            "lex": "כך זית",
+            "tag": "adv cm ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "changed": true,
+          "reason": "Image 119 visibly prints Lex כך / זית and Tag adv / cm ms sg beneath [בכזית]. This anomalous printed prefix analysis is retained literally, without grammatical correction."
+        },
+        {
+          "ledgerRow": 1401,
+          "sourceWordIds": [
+            "S07326.2.3.3.8/word/37"
+          ],
+          "sourceWordIndexes": [
+            37
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_119.png",
+          "originalImageSHA256": "e31301ddf9b0b2bb3bc135c651a8842f36303ddb8d7aeec6ec7d904b6f6b6917",
+          "driveId": "1QR6maeX9FepxDrLU7Pvev9bMBFPQSIyb",
+          "rawBefore": {
+            "lex": "כ ביצה",
+            "tag": "prp cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "rawCorrected": {
+            "lex": "כ ביצה",
+            "tag": "prpArt cm fm sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "3:8"
+          },
+          "changed": true,
+          "reason": "Image 119 visibly prints prpArt under כ of {כביצה}; editorial alternate beside [בכזית], not the source reading."
+        }
+      ],
+      "humanValidated": false
+    },
+    {
+      "queueIndex": 15,
+      "sourceID": "S07326.2.3.4.2/word/0",
+      "title": "Mishnah Pesachim",
+      "ref": "4:2",
+      "classification": "transcription-error-corrected",
+      "decision": "Correct literal transcription errors shown by rereading original cells; no feature inferred from expected grammar.",
+      "observations": [
+        {
+          "ledgerRow": 1461,
+          "sourceWordIds": [
+            "S07326.2.3.4.2/word/0"
+          ],
+          "sourceWordIndexes": [
+            0
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_120.png",
+          "originalImageSHA256": "b7909664733524f44b37b5eb01090ce5ea4d19922bb64400e27bc08e31fdc860",
+          "driveId": "1gYtmBzAmHkgWPh5G8eebk99cKobSxvE3",
+          "rawBefore": {
+            "lex": "כ יצא",
+            "tag": "prpArt qal prt ms pl",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "4:2"
+          },
+          "rawCorrected": {
+            "lex": "כ יצא",
+            "tag": "prpArt qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "4:2"
+          },
+          "changed": true,
+          "reason": "Image 120 prints ms sg under יצא, not pl. Source-word scope excludes editorial {ו}, separately printed as Lex ו / Tag cnj."
+        },
+        {
+          "ledgerRow": 1479,
+          "sourceWordIds": [
+            "S07326.2.3.4.2/word/0"
+          ],
+          "sourceWordIndexes": [
+            0
+          ],
+          "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+          "imageFile": "mischna_2026-11-26_22-48-07_4CB37088_121.png",
+          "originalImageSHA256": "e332117d64047e3a0283f937f6a1003b937f3c6f1afb6789925f6a9ff0ebad0c",
+          "driveId": "1OvH41RkM-K-nGGyf_LCyRwCRc_aN3Pnk",
+          "rawBefore": {
+            "lex": "כ יצא",
+            "tag": "prpArt qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "4:2"
+          },
+          "rawCorrected": {
+            "lex": "כ יצא",
+            "tag": "prpArt qal prt ms sg",
+            "accordanceTitle": "Pesah.",
+            "accordanceRef": "4:2"
+          },
+          "changed": false,
+          "reason": "Original visible Lex/Tag reread and retained."
+        }
+      ],
+      "humanValidated": false
+    }
+  ]
+}
