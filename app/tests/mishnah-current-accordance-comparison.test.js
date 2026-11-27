@@ -1,0 +1,27 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const C=require('../tools/mishnah-morph/compare-current-accordance.cjs');
+function book(analyses){return {title:'Mishnah Test',source:{textHash:'bound'},units:{'1:1':{id:'K.1',offsetText:'בית',words:[{text:'בית',start:0,end:3}]}},sources:{'Mishnah Test':{chapters:[[[0]]]}},forms:[{word:'בית',analyses}]};}
+function obs(extra={}){return {title:'Mishnah Test',ref:'1:1',textHash:'bound',wordId:'K.1/word/0',wordIndex:0,word:'בית',lex:'בית',tags:'cm ms sg cnst',confidence:'clear',alignment:'one-to-one',image:{file:'reference.png'},...extra};}
+test('visible tags compare only explicit head features, without inferred suffixes or lexical both-gender range',()=>{
+ assert.deepEqual(C.parseHead('prp; cm bth sg cnst').features,{type:'N',number:'s',state:'c'});
+ const r=C.compareObservation(book([{lemma:'בית',morph:'HNcmsc/Sp3ms'}]),obs());
+ assert.equal(r.status,'visible-head-features-compatible');assert.equal(r.lexicalComparison.status,'not-scored; raw lexical components retained for contextual review');
+ assert(!('suffix' in r.parsed.features));
+});
+test('unresolved source cards are bound through exact source spans, without invented analysis provenance',()=>{
+ assert.equal(C.compareObservation(book([]),obs()).status,'draft-unresolved');
+ assert.equal(C.compareObservation(book([]),obs({textHash:'wrong'})).status,'binding-refused');
+ assert.equal(C.compareObservation(book([]),obs({wordId:'other/word/0'})).status,'binding-refused');
+ assert.equal(C.compareObservation(book([]),obs({word:'בת'})).status,'surface-or-segmentation-difference');
+});
+test('partial nominal gender does not become a complete noun agreement',()=>{
+ const r=C.compareObservation(book([{lemma:'בית',morph:'H',partialFeatures:{gender:'m'}}]),obs());
+ assert.equal(r.status,'draft-partial-visible-features');assert(r.candidates[0].missing.includes('type'));
+});
+test('unknown source tags and split source groups remain review cases',()=>{
+ assert.equal(C.compareObservation(book([]),obs({tags:'unknown-tag'})).status,'reference-features-not-parsed');
+ assert.equal(C.compareObservation(book([]),obs({alignment:'one-to-many'})).status,'reference-needs-review');
+ const r=C.compareObservation(book([{lemma:'בנה',morph:'HVqp3ms'}]),obs({tags:'pi imprf 3 ms sg'}));
+ assert.equal(r.status,'visible-head-feature-difference');assert(r.candidates[0].different.some(d=>d.feature==='stem'));
+});

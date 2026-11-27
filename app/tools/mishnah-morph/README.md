@@ -261,3 +261,24 @@ Bildbereiche und nicht sichtbare Merkmale gelten nicht als geprüft.
 node tools/mishnah-morph/complete-moed-nashim.cjs --seder=moed
 node --test tests/mishnah-moed-nashim-morphology.test.js tests/kaufmann-zeraim-accordance.test.js
 ```
+
+Der laufende Bildabgleich verwendet getrennte Dateien
+`accordance-moed-current-*-observations.json`. Der schreibgeschützte Vergleicher
+prüft zuerst Bildhash und Drive-ID gegen den lokalen Downloadindex, dann
+Textfingerprint, Referenz, Quellwort-ID und die tatsächliche Token-Spanne.
+Fehlende, geteilte oder anders geschriebene Wörter werden nicht durch einen
+ähnlichen Kandidaten ersetzt. Wiederverwendete frühere Bildbeobachtungen
+bleiben von neuen Bildlesungen unterscheidbar.
+
+```sh
+node tools/mishnah-morph/compare-current-accordance.cjs --image-index=/path/to/full-download-index.json
+node --test tests/mishnah-current-accordance-comparison.test.js
+```
+
+Der Bericht `moed-current-accordance-comparison.json` bindet Eingabedateien und
+Entwurfshashes und listet auch unbeobachtete Quellpositionen. Der maschinelle
+Vergleich betrifft ausdrücklich nur ablesbare Merkmale des lexikalischen
+Hauptteils. Präfixe, Suffixe, Lemmagleichsetzung, Genuskonventionen und
+Zahlwortkonventionen benötigen gesonderte Kontextprüfung. „Kompatibel“ ist
+deshalb keine vollständige Bestätigung einer Wortanalyse. Die Beobachtungen
+und die Vergleichsergebnisse verändern keine Wortkarten oder Quelltexte.
