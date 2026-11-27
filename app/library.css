@@ -3194,11 +3194,24 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcCorpusBar progress { width:35%; accent-color:var(--accent); }
 .wcCorpusBar > b { min-width:4em; text-align:end; }
 
-#dictCardMatches { position:fixed; z-index:120; display:flex; flex-direction:column; flex-wrap:nowrap; gap:0; max-height:min(60vh,520px); overflow-y:auto; padding:5px; border:1px solid var(--line); border-radius:7px; background:var(--bg); box-shadow:0 8px 24px #0005; box-sizing:border-box; }
+#dictCardMatches { position:fixed; z-index:120; display:flex; flex-direction:column; flex-wrap:nowrap; gap:4px; max-height:min(70vh,680px); overflow-y:auto; padding:8px; border:1px solid var(--line); border-radius:12px; background:var(--bg); box-shadow:0 8px 24px #0005; box-sizing:border-box; }
 #dictCardMatches[hidden] { display:none!important; }
-#dictCardMatches button { flex:none; width:100%; border:0; border-radius:3px; background:transparent; padding:9px 12px; text-align:start; }
+#dictCardMatches button { font-size:16px; flex:none; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 20px; width:100%; border:1px solid transparent; border-radius:8px; background:transparent; padding:14px 16px; text-align:start; }
 #dictCardMatches button:hover,#dictCardMatches button:focus-visible { background:color-mix(in srgb,var(--accent) 15%,var(--bg)); outline:none; }
-#dictCardMatches small { display:inline; float:inline-end; margin-inline-start:15px; }
+#dictCardMatches button:focus-visible { border-color:var(--accent); }
+#dictCardMatches .dictSuggestWord { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; min-width:0; }
+#dictCardMatches bdi { font-size:1.65em; line-height:1.4; }
+#dictCardMatches .dictSuggestGloss { font-size:1.12em; overflow-wrap:anywhere; }
+#dictCardMatches .dictSuggestMeta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+#dictCardMatches .dictSuggestTag { display:inline-block; padding:3px 9px; border:1px solid color-mix(in srgb,var(--tag-color) 48%,var(--line)); border-radius:6px; background:color-mix(in srgb,var(--tag-color) 12%,var(--bg)); color:color-mix(in srgb,var(--tag-color) 75%,var(--fg)); font-size:.88em; font-weight:600; line-height:1.5; white-space:nowrap; }
+#dictCardMatches [data-tag=lemma] { --tag-color:#488fdb; }
+#dictCardMatches [data-tag=root] { --tag-color:#ab78d4; }
+#dictCardMatches [data-tag=hebrew] { --tag-color:#3ba78d; }
+#dictCardMatches [data-tag=aramaic] { --tag-color:#d6a440; }
+#dictCardMatches [data-tag=greek] { --tag-color:#c47d99; }
+#dictCardMatches :is([data-tag=source],[data-tag=language]) { --tag-color:var(--muted); font-weight:400; }
+#dictCardMatches .dictSuggestDetails { color:var(--muted); font-size:.88em; margin-inline-start:4px; }
+@media(max-width:700px) { #dictCardMatches button { padding:12px; } #dictCardMatches .dictSuggestMeta { width:100%; } }
 #dictCardSources { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
 #dictCardSources:empty { display:none; }
 #dictCardSources [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }

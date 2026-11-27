@@ -11,7 +11,7 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelectorAll('#dictCardMatches button')[1].click()");
  await waitFor("document.querySelectorAll('#dictCardMatches button')[1].getAttribute('aria-pressed')==='true'",'Pick a homonym');
  await js("document.querySelector('#dictQ').value='שוב';document.querySelector('#dictQ').dispatchEvent(new Event('input',{bubbles:true}))");
- await waitFor("document.querySelector('#dictCardMatches [data-kind=root]')&&document.querySelector('#dictCardMatches [data-kind=lemma] small')",'Live mixed root and lemma suggestions');
+ await waitFor("document.querySelector('#dictCardMatches [data-kind=root]')&&document.querySelector('#dictCardMatches [data-kind=lemma] [data-tag=lemma]')",'Live mixed root and lemma suggestions');
  assert(await js("!document.querySelector('#dictCardScope')&&!document.querySelector('#dictCardMatches').hidden"),'Live dropdown without a scope selector');
  await js("document.querySelector('#dictCardMatches [data-kind=root]').click()");
  await waitFor("document.querySelector('#fmHead [data-wc-scope=family][aria-pressed=true]')",'Root family card');

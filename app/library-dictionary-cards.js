@@ -6,7 +6,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  const out=$('#dictCardMatches');$('#dictBar').append(out);out.hidden=true;out.setAttribute('role','listbox');
  const sources=document.createElement('div');sources.id='dictCardSources';$('#dictCardMount').before(sources);
  input.setAttribute('aria-autocomplete','list');input.setAttribute('aria-controls','dictCardMatches');input.setAttribute('aria-expanded','false');
- function position(){const r=input.getBoundingClientRect();out.style.left=r.left+'px';out.style.top=(r.bottom+4)+'px';out.style.width=Math.min(Math.max(r.width,650),window.innerWidth-r.left-16)+'px';}
+ function position(){const r=input.getBoundingClientRect();out.style.left=r.left+'px';out.style.top=(r.bottom+4)+'px';out.style.width=Math.min(Math.max(r.width,920),window.innerWidth-r.left-16)+'px';}
  function showSuggestions(){position();out.hidden=false;input.setAttribute('aria-expanded','true');}
  function hideSuggestions(){out.hidden=true;input.setAttribute('aria-expanded','false');}
  window.addEventListener('resize',position);
@@ -68,7 +68,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
     const roots=(await loadRoots()).roots,families=new Map();
     for(const [id,r] of Object.entries(roots))if(match(r.root)||q===r.id){
      const familyKey=r.lang+'|'+r.id,n=total(D,id);if(!n)continue;
-     if(!families.has(familyKey))families.set(familyKey,{key:familyKey,id,root:true,label:r.root,count:0});
+     if(!families.has(familyKey))families.set(familyKey,{key:familyKey,id,root:true,label:r.root,language:r.lang==='arc'?'Aramäisch':'Hebräisch',source:'Tanach',count:0});
      families.get(familyKey).count+=n;
     }
     matches.push(...families.values());
@@ -86,7 +86,15 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
    matches.sort((a,b)=>Number(fold(b.label)===key)-Number(fold(a.label)===key)||Number(!!a.root)-Number(!!b.root)||b.count-a.count||a.key.localeCompare(b.key));
    if(!matches.length){out.textContent=I18N.t('Kein passendes Lemma oder keine passende Wurzel gefunden.');return true;}
    matches=matches.slice(0,40);
-   out.innerHTML=matches.map(x=>`<button type="button" data-key="${esc(x.key)}" data-member-keys="${esc((x.members||[x]).map(m=>m.key).join(' '))}" data-kind="${x.root?'root':'lemma'}" role="option" aria-selected="false" aria-pressed="false"><bdi>${esc(x.members?[...new Set(x.members.map(m=>m.label))].join(' / '):x.label)}</bdi>${x.gloss?' · '+esc(x.gloss):''}<small>${esc(I18N.t(x.root?'Wurzel':'Lemma'))}${x.language?' · '+esc(I18N.t(x.language)):''}${x.source?' · '+esc(I18N.t(x.source)):x.members?' · '+esc([...new Set(x.members.map(m=>I18N.t(m.source)))].join(' / ')):''}${x.count?' · '+x.count.toLocaleString(I18N.loc):''}${!x.kind&&!x.root?' · Strong '+esc(x.id):''}</small></button>`).join('');
+   const badge=(kind,label)=>`<span class="dictSuggestTag" data-tag="${kind}">${esc(label)}</span>`;
+   out.innerHTML=matches.map(x=>{
+    const language={'Hebräisch':'hebrew','Aramäisch':'aramaic','Griechisch':'greek'}[x.language]||'language';
+    const sources=[...new Set((x.members||[x]).flatMap(m=>(m.source||'').split(' / ')).filter(Boolean))];
+    return `<button type="button" data-key="${esc(x.key)}" data-member-keys="${esc((x.members||[x]).map(m=>m.key).join(' '))}" data-kind="${x.root?'root':'lemma'}" role="option" aria-selected="false" aria-pressed="false">
+     <span class="dictSuggestWord"><bdi>${esc(x.members?[...new Set(x.members.map(m=>m.label))].join(' / '):x.label)}</bdi>${x.gloss?`<span class="dictSuggestGloss">${esc(x.gloss)}</span>`:''}</span>
+     <span class="dictSuggestMeta">${badge(x.root?'root':'lemma',I18N.t(x.root?'Wurzel':'Lemma'))}${x.language?badge(language,I18N.t(x.language)):''}${sources.map(source=>badge('source',I18N.t(source))).join('')}<span class="dictSuggestDetails">${x.count?x.count.toLocaleString(I18N.loc):''}${!x.kind&&!x.root?' · Strong '+esc(x.id):''}</span></span>
+    </button>`;
+   }).join('');
    out.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{input.value=matches[i].label;open(matches[i],serial);});
    if(!live)await open(matches[0],token);
   }catch(error){if(token===serial&&active())out.textContent=I18N.t('Wortkarte konnte nicht geladen werden.');}
