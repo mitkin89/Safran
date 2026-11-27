@@ -1,0 +1,428 @@
+{
+  "kind": "independent-original-input-source-audit",
+  "version": 1,
+  "scope": "Seven provisional Nashim editions",
+  "independence": "Core checks do not call the builders, transferWord, parseReference or uniqueConsonantAnchors. Original inputs are independently inventoried, mapped and tokenized; per-letter marks and mandatory one-to-one LCS anchors recomputed independently.",
+  "originalRawSpanPolicy": "Four original bare-CR private files. Independently reconstructed comparison projection uses only approved exact UTF-16 body spans with separately tracked original-file indices. Every accepted token is byte- and hash-checked against the untouched original file. Source section boundaries remain unchanged. No raw text or private paths in this report.",
+  "policy": {
+    "sourceCharactersMayChange": false,
+    "pointingSource": "Original user-supplied Accordance paste only",
+    "beeriFallbackAllowed": false,
+    "manuscriptImagesCertifiedByThisAudit": false,
+    "morphologyConfirmedByThisAudit": false,
+    "analysesMustRemainCandidates": true,
+    "biblicalDictionaryIdsAllowed": false
+  },
+  "diplomaticXmlSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+  "inputs": [
+    {
+      "fileIndex": 1,
+      "bytes": 104086,
+      "utf16Length": 56417,
+      "sha256": "109f2593aed8ff8e08e345c3667f3498e5c28fedbc191baeae400a128603a355",
+      "crCount": 122,
+      "lfCount": 0,
+      "labelledTractateRanges": [
+        {
+          "title": "Mishnah Yevamot",
+          "firstSuppliedLabel": "1:2",
+          "lastSuppliedLabel": "16:7",
+          "explicitLabelCount": 122
+        }
+      ]
+    },
+    {
+      "fileIndex": 2,
+      "bytes": 126005,
+      "utf16Length": 68110,
+      "sha256": "c911863a9e6283230716625361aff3e005d28660714d9ff2c79ca832be96fe44",
+      "crCount": 170,
+      "lfCount": 0,
+      "labelledTractateRanges": [
+        {
+          "title": "Mishnah Ketubot",
+          "firstSuppliedLabel": "1:1",
+          "lastSuppliedLabel": "13:11",
+          "explicitLabelCount": 111
+        },
+        {
+          "title": "Mishnah Nedarim",
+          "firstSuppliedLabel": "1:1",
+          "lastSuppliedLabel": "8:4",
+          "explicitLabelCount": 57
+        }
+      ]
+    },
+    {
+      "fileIndex": 3,
+      "bytes": 182655,
+      "utf16Length": 98661,
+      "sha256": "e8ac6e852df77d3cf7e37f9add9fa7a946702219711e354c0f57579ac79b157c",
+      "crCount": 230,
+      "lfCount": 0,
+      "labelledTractateRanges": [
+        {
+          "title": "Mishnah Nedarim",
+          "firstSuppliedLabel": "8:6",
+          "lastSuppliedLabel": "11:12",
+          "explicitLabelCount": 32
+        },
+        {
+          "title": "Mishnah Gittin",
+          "firstSuppliedLabel": "1:1",
+          "lastSuppliedLabel": "9:9",
+          "explicitLabelCount": 74
+        },
+        {
+          "title": "Mishnah Nazir",
+          "firstSuppliedLabel": "1:1",
+          "lastSuppliedLabel": "9:5",
+          "explicitLabelCount": 60
+        },
+        {
+          "title": "Mishnah Sotah",
+          "firstSuppliedLabel": "1:1",
+          "lastSuppliedLabel": "9:4",
+          "explicitLabelCount": 55
+        }
+      ]
+    },
+    {
+      "fileIndex": 4,
+      "bytes": 58662,
+      "utf16Length": 31812,
+      "sha256": "f7f9703299276e15cc5e2c4938797b2bd0d3799266e1220a8aee2f80e55fed22",
+      "crCount": 86,
+      "lfCount": 0,
+      "labelledTractateRanges": [
+        {
+          "title": "Mishnah Sotah",
+          "firstSuppliedLabel": "9:5",
+          "lastSuppliedLabel": "9:15",
+          "explicitLabelCount": 11
+        },
+        {
+          "title": "Mishnah Kiddushin",
+          "firstSuppliedLabel": "1:1",
+          "lastSuppliedLabel": "4:14",
+          "explicitLabelCount": 47
+        }
+      ]
+    }
+  ],
+  "books": [
+    {
+      "title": "Mishnah Yevamot",
+      "wordPointingCoreSha256": "3726d04aa08c014ce875c0b049e063042c8feca0e51d86c36f64ba770292fb99",
+      "transferAnchorCoreSha256": "0fa02ddbe46f16b6858d112964ee52c44acf5ddb6fd955b884332b429198ee26",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "2493bad061358169a1bce148587e2a4a0984b2a6f01d859df775ae3eac79aedf",
+      "editionFile": "mishnah-kaufmann-accordance-yevamot-data.js",
+      "editionFileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0",
+      "bundledFileSha256": "f45cd126ae8a9cd10a566bbfa26180c186fc2814df679654e56901b37f95541e",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 124,
+        "sourceWords": 6625,
+        "transferredWords": 5850,
+        "openWords": 775,
+        "addedMarks": 18578,
+        "analyses": 4975,
+        "formsWithCandidateAnalyses": 3280,
+        "sourceAnnotations": 460,
+        "annotatedReferenceTokens": 412,
+        "suspectReferenceTokens": 9,
+        "unpointedReferenceTokens": 146,
+        "sourceCharacters": 72950,
+        "bundledWordSpans": 6625
+      },
+      "errorCount": 0
+    },
+    {
+      "title": "Mishnah Ketubot",
+      "wordPointingCoreSha256": "65e760afc7c273335142fbdec550022e7d4075452e8c50fba7b031427dc510fe",
+      "transferAnchorCoreSha256": "ef4f11804da85d0a8708285e4e9c011607b546bcc2b85991992a997b69c2cbeb",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "abc74526e99ad970a81890803ec74efa07931b840d523cc2da4fbbf5bbfe99e5",
+      "editionFile": "mishnah-kaufmann-accordance-ketubot-data.js",
+      "editionFileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c",
+      "bundledFileSha256": "9dc346b4c5843551449e89705ac8d61e50d40fbea61c95bf48ff9571f51db3cf",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 111,
+        "sourceWords": 5081,
+        "transferredWords": 4404,
+        "openWords": 677,
+        "addedMarks": 14523,
+        "analyses": 3724,
+        "formsWithCandidateAnalyses": 2526,
+        "sourceAnnotations": 364,
+        "annotatedReferenceTokens": 289,
+        "suspectReferenceTokens": 9,
+        "unpointedReferenceTokens": 134,
+        "sourceCharacters": 56815,
+        "bundledWordSpans": 5081
+      },
+      "errorCount": 0
+    },
+    {
+      "title": "Mishnah Nedarim",
+      "wordPointingCoreSha256": "d3920176e0295356f3155ca7ae968e7a6746859c5bc4479f333d1ab6523a906f",
+      "transferAnchorCoreSha256": "8097552bb82997c8cd1f79b10a26efcdc95ec5f6b84155ac6724476b5a81628d",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "36133df70fc5ae3f024f63992a779eaad3ed1695403ae84bf9fdb80a922983e2",
+      "editionFile": "mishnah-kaufmann-accordance-nedarim-data.js",
+      "editionFileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff",
+      "bundledFileSha256": "24e2bdd065add821df1e17049d2068ae754d37a53aaa02c867ad714ac4a1136f",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 90,
+        "sourceWords": 4459,
+        "transferredWords": 3717,
+        "openWords": 742,
+        "addedMarks": 11700,
+        "analyses": 3215,
+        "formsWithCandidateAnalyses": 2264,
+        "sourceAnnotations": 352,
+        "annotatedReferenceTokens": 318,
+        "suspectReferenceTokens": 6,
+        "unpointedReferenceTokens": 128,
+        "sourceCharacters": 49745,
+        "bundledWordSpans": 4459
+      },
+      "errorCount": 0
+    },
+    {
+      "title": "Mishnah Nazir",
+      "wordPointingCoreSha256": "020e9d5d0a7d3788e7d8d7ec892b2224395eb67590ab01a981fc0f6f85d84f0c",
+      "transferAnchorCoreSha256": "ad09b4f121819712ac0040e236f18b43286d340203d28723078b711ce01beb2a",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "7179c97684fe1db4ab3de562e436c62aff9c1fb0cd78f4e80c5a6fb813487e55",
+      "editionFile": "mishnah-kaufmann-accordance-nazir-data.js",
+      "editionFileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813",
+      "bundledFileSha256": "9e6e2c666a2676af84a42f23aea7e6531e267048e564276502e8fbb8fd76ec50",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 60,
+        "sourceWords": 3139,
+        "transferredWords": 2765,
+        "openWords": 374,
+        "addedMarks": 8551,
+        "analyses": 2263,
+        "formsWithCandidateAnalyses": 1582,
+        "sourceAnnotations": 191,
+        "annotatedReferenceTokens": 156,
+        "suspectReferenceTokens": 2,
+        "unpointedReferenceTokens": 62,
+        "sourceCharacters": 32822,
+        "bundledWordSpans": 3139
+      },
+      "errorCount": 0
+    },
+    {
+      "title": "Mishnah Sotah",
+      "wordPointingCoreSha256": "0644339a2f06c9d8babf3c5eaae26939bf476753856396c6fe17981d91148623",
+      "transferAnchorCoreSha256": "82fbef26ed416137e76de48b9a18ddfb9ceb857b2a4ec7bda9da130e071808c9",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "59620bcafe3296a81680be575ac8d04affd63753d03c76be69bd80f108787b55",
+      "editionFile": "mishnah-kaufmann-accordance-sotah-data.js",
+      "editionFileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8",
+      "bundledFileSha256": "1c72eb7cdab5b9ec1ac08dee4ec6d77acb94d5aaf57b11cedb87c9aab8f31c6e",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 66,
+        "sourceWords": 3865,
+        "transferredWords": 3346,
+        "openWords": 519,
+        "addedMarks": 10934,
+        "analyses": 2789,
+        "formsWithCandidateAnalyses": 1866,
+        "sourceAnnotations": 214,
+        "annotatedReferenceTokens": 173,
+        "suspectReferenceTokens": 10,
+        "unpointedReferenceTokens": 135,
+        "sourceCharacters": 41013,
+        "bundledWordSpans": 3865
+      },
+      "errorCount": 0
+    },
+    {
+      "title": "Mishnah Gittin",
+      "wordPointingCoreSha256": "ee0b2519e3f4104426b51ae74cd6c171a8aa5a13cec41ab7f57e4892fc7808d4",
+      "transferAnchorCoreSha256": "8fd1674387447a59a8a3f8cd524d6004b61836df31197d22e80e8d94dc156afc",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "a6ea77b9eb4b5ffe19be76395852124000e9d30f40fc90826f6215fc9dfaa87f",
+      "editionFile": "mishnah-kaufmann-accordance-gittin-data.js",
+      "editionFileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8",
+      "bundledFileSha256": "f62dfde29f976883a589f9a80c5abbb72248fec75517c3998cd0b67b7f147217",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 75,
+        "sourceWords": 3743,
+        "transferredWords": 3256,
+        "openWords": 487,
+        "addedMarks": 10396,
+        "analyses": 2822,
+        "formsWithCandidateAnalyses": 1895,
+        "sourceAnnotations": 242,
+        "annotatedReferenceTokens": 204,
+        "suspectReferenceTokens": 11,
+        "unpointedReferenceTokens": 94,
+        "sourceCharacters": 39326,
+        "bundledWordSpans": 3743
+      },
+      "errorCount": 0
+    },
+    {
+      "title": "Mishnah Kiddushin",
+      "wordPointingCoreSha256": "662f6b407329cc16ce0aa9fc5eb7def8abb677a8788b3639fc3ac705d56e0db6",
+      "transferAnchorCoreSha256": "41a8de5be52d2ee61ae930163b8e9f47c8bcf19bc1bb5b11ad191a4d0b94c08c",
+      "inputId": "four-original-Nashim-inputs",
+      "inputSha256": "a562892ba29c64528eb0ab54cc1898b86eabed72846409ce023529de13c78ed8",
+      "referenceProjectionSha256": "7b5be3436f5293a35e2e5a5cdc50a6404af73f71a53c94b5319d536df01f4213",
+      "editionFile": "mishnah-kaufmann-accordance-kiddushin-data.js",
+      "editionFileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6",
+      "bundledFileSha256": "18150aa7fd115025e665a6d779d006114a201062f253915d9cc62adc8c5cebbf",
+      "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "counts": {
+        "units": 47,
+        "sourceWords": 2246,
+        "transferredWords": 2007,
+        "openWords": 239,
+        "addedMarks": 6620,
+        "analyses": 1737,
+        "formsWithCandidateAnalyses": 1178,
+        "sourceAnnotations": 119,
+        "annotatedReferenceTokens": 78,
+        "suspectReferenceTokens": 11,
+        "unpointedReferenceTokens": 68,
+        "sourceCharacters": 23580,
+        "bundledWordSpans": 2246
+      },
+      "errorCount": 0
+    }
+  ],
+  "summary": {
+    "books": 7,
+    "units": 573,
+    "sourceWords": 29158,
+    "transferredWords": 25345,
+    "openWords": 3813,
+    "addedMarks": 81302,
+    "analyses": 21525,
+    "formsWithCandidateAnalyses": 14591,
+    "sourceAnnotations": 1942,
+    "annotatedReferenceTokens": 1630,
+    "suspectReferenceTokens": 58,
+    "unpointedReferenceTokens": 767,
+    "sourceCharacters": 316251,
+    "bundledWordSpans": 29158,
+    "uniqueSourceWordIds": 29158,
+    "uniqueAcceptedOriginalInputSpans": 25345,
+    "errorCount": 0
+  },
+  "dictionaryAudit": {
+    "structuredDictionaryIdsFound": [],
+    "excludedBiblicalDictionaryIds": [
+      "8e758bfb9dc6",
+      "ccf02860614e"
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "limitations": [
+    "This audit verifies provenance, additive character preservation, reference matching, and candidate transfer mechanics. It does not establish the correctness of Accordance vocalization or a morphology/translation.",
+    "Manuscript-image visual evidence is separate; no image-reading coverage is certified here.",
+    "Machine-generated candidates may be lexically or contextually wrong even with exact position provenance."
+  ],
+  "sourceSpanProjectionSha256": "0a77b26112a21029fe5d15dad7532207def59d65dfbb2174ec2609fded08eb30",
+  "lexicalCandidateSourceFile": "mishnah-nashim-data.js",
+  "lexicalCandidateSourceSha256": "a3384d39a6d5a52fe4a9d0eff427e0a5a6a86c2b797d3e1d1f72c72caafedfa0",
+  "artifactHashesFinalizedAfterImageMetadata": true,
+  "finalCoreComparison": {
+    "booksCompared": 7,
+    "wordPointingCoreHashesUnchanged": true,
+    "transferAnchorCoreHashesUnchanged": true,
+    "changedCoreHashes": []
+  },
+  "independentImageScopeAudit": {
+    "file": "tools/mishnah/accordance-nashim-independent-image-scope-audit.json",
+    "sha256": "e928e6f39a9641b6bda259c70fb0d94c3e25fcd5dfcfe38f4aedcee34536e277",
+    "summary": {
+      "fullColumnReports": 9,
+      "additionalTargetedFeatureReports": 2,
+      "uniqueOriginalPages": 85,
+      "expectedOriginalPages": 85,
+      "sourcePositions": 29158,
+      "uniqueSourcePositionsWithAnyPartialObservation": 24002,
+      "uniquePositionsWithoutObservationButExplicitlyUnresolved": 5156,
+      "uniqueObservedAndUnresolvedAcrossDifferentReports": 24,
+      "uniqueCoveredPositions": 29158,
+      "missingPositions": 0,
+      "extraPositions": 0,
+      "multiplyObservedPositions": 151,
+      "rawObservationRecords": 24154,
+      "rawUnresolvedRecords": 5210,
+      "rawFeatureRecords": 55,
+      "fullWordPointingCertifications": 0,
+      "actualOriginalImageHashesChecked": 85,
+      "errors": 0
+    }
+  },
+  "finalReviewInputs": [
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-gittin-final.json",
+      "sha256": "8fcb78f14d9b44f138cddc25fe8dde882a161ddbc1d309316eac64b0f70f924d"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-gittin-last.json",
+      "sha256": "07e33edd0545fa6a715a46e7a1383cab4868dfea83a19152618a8a4bfefc3781"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-ketubot.json",
+      "sha256": "dbcf05c736aa9f5fc3150fb846c2b485b7a792e74ce0399afcac0939b1fe0993"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-kiddushin.json",
+      "sha256": "27652be2af557b5c33fb8019598979c20afb35b5152c3f133dd6f2dc8f00b6fc"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-nazir-sotah.json",
+      "sha256": "45c6b3cb1db762569651aa1e2024540246e14f597cfc1653a23b708e947cd5b6"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sha256": "950ee10a638bb269be8b15df08f06ff0ee3b6bfc3c71e25663ac01178b191ff5"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-sotah-final.json",
+      "sha256": "6d31c6d9968698c3c95ff49b7912c33bd7c9e1e611baa4c8c472107203042993"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-yevamot-final.json",
+      "sha256": "996605b719eb8056ce52beea66ca1bb28e3db3517508ae8cdee65a1fa98b66d4"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-yevamot.json",
+      "sha256": "b1bff768226d94543aff8fa23880a9fd98d020aa617c64537f7b58a6df2f4eaf"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-point-observations.json",
+      "sha256": "5e0bf2a11487898f90e428ac85c558dde02fd7f42e01c87fa6a0273fb4017d3c"
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-point-countercheck.json",
+      "sha256": "8622cc0110d0d4e1c74736f11a9fac0edd4433c6c39c9f7b170592321e65d891"
+    }
+  ],
+  "finalMetadataHashes": {
+    "catalog": "c73481189cbfc305c0525650343a420b656be3b35abbbe08730b2a3a8a23934c",
+    "lexicalCandidateDonor": "a3384d39a6d5a52fe4a9d0eff427e0a5a6a86c2b797d3e1d1f72c72caafedfa0"
+  }
+}

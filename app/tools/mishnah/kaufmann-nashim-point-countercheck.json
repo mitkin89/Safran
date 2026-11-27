@@ -1,0 +1,67 @@
+{
+  "method": "independent blind AI image countercheck",
+  "observations": [
+    {
+      "sourceWordId": "S07326.3.2.11.1/word/9",
+      "folio": "100v",
+      "column": "right",
+      "bbox": [
+        790,
+        185,
+        1430,
+        1640
+      ],
+      "imagePath": "/workspace/mishnah-kaufmann-archive/fol. 100v     Ketubbot XI.1 - XII.3.jpg",
+      "imageSha256": "4db07518e9aa1234daaa0b189eb909ea90fc4e0809e10b4b03a46d919c0e29ca",
+      "observedFeatures": [
+        {
+          "letterIndex": 0,
+          "marks": [
+            "ִ"
+          ],
+          "certainty": "clear"
+        }
+      ],
+      "notes": [
+        "Under the first ב of בקבורתה a distinct single sublinear point is visible, read as hiriq. Only this positive vowel sign is asserted.",
+        "Independent image observation, positive sign only; no full-pointing verification."
+      ]
+    },
+    {
+      "sourceWordId": "S07326.3.2.13.7/word/18",
+      "folio": "101v",
+      "column": "right",
+      "bbox": [
+        840,
+        185,
+        1445,
+        1610
+      ],
+      "imagePath": "/workspace/mishnah-kaufmann-archive/fol. 101v     Ketubbot XIII.7 - Nedarim I.3.jpg",
+      "imageSha256": "0fa7d8f6ed919633b421cc2062100cb3d20a7001c29ab34da8703482fc1b28c4",
+      "observedFeatures": [
+        {
+          "letterIndex": 1,
+          "marks": [
+            "ֵ"
+          ],
+          "certainty": "clear"
+        }
+      ],
+      "notes": [
+        "Under מ of במאה two separated points on a near-horizontal line are visible, read as tsere. The adjacent word מנה was excluded after locating the target in its full-line context.",
+        "Independent image observation, positive sign only; no full-pointing verification."
+      ]
+    }
+  ],
+  "limitations": [
+    "Only two specified positive vowel signs checked; no whole-word pointing or absence of other signs certified.",
+    "Original pages viewed before lossless nearest-neighbour enlarged line and letter crops. Existing Ketubot feature reports and Accordance were not consulted.",
+    "Whole-column bbox identifies image context and is not a precise glyph rectangle."
+  ],
+  "additionalRereading": {
+    "method": "Primary agent reread original-image top-line crops after the blind result; not an additional blind reading",
+    "result": "Single hiriq point under bet in בקבורתה and horizontal tsere pair under mem in במאה confirmed as positive signs. Earlier sheva/qamats interpretations remain unconfirmed; running text unchanged.",
+    "wholeWordPointingCertified": false
+  }
+}

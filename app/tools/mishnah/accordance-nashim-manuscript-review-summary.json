@@ -1,0 +1,84 @@
+{
+  "books": [
+    {
+      "title": "Mishnah Yevamot",
+      "sourceWords": 6625,
+      "wordsWithIndividualObservation": 5613,
+      "wordsWithoutIndividualObservation": 1012,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 9,
+      "observedFeatures": 17,
+      "featureConflictWords": 0,
+      "pages": 20
+    },
+    {
+      "title": "Mishnah Ketubot",
+      "sourceWords": 5081,
+      "wordsWithIndividualObservation": 4043,
+      "wordsWithoutIndividualObservation": 1038,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 5,
+      "observedFeatures": 10,
+      "featureConflictWords": 0,
+      "pages": 16
+    },
+    {
+      "title": "Mishnah Nedarim",
+      "sourceWords": 4459,
+      "wordsWithIndividualObservation": 3560,
+      "wordsWithoutIndividualObservation": 899,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 3,
+      "observedFeatures": 4,
+      "featureConflictWords": 0,
+      "pages": 14
+    },
+    {
+      "title": "Mishnah Nazir",
+      "sourceWords": 3139,
+      "wordsWithIndividualObservation": 2613,
+      "wordsWithoutIndividualObservation": 526,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 0,
+      "observedFeatures": 0,
+      "featureConflictWords": 0,
+      "pages": 10
+    },
+    {
+      "title": "Mishnah Sotah",
+      "sourceWords": 3865,
+      "wordsWithIndividualObservation": 3281,
+      "wordsWithoutIndividualObservation": 584,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 2,
+      "observedFeatures": 5,
+      "featureConflictWords": 0,
+      "pages": 12
+    },
+    {
+      "title": "Mishnah Gittin",
+      "sourceWords": 3743,
+      "wordsWithIndividualObservation": 3052,
+      "wordsWithoutIndividualObservation": 691,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 11,
+      "observedFeatures": 19,
+      "featureConflictWords": 0,
+      "pages": 11
+    },
+    {
+      "title": "Mishnah Kiddushin",
+      "sourceWords": 2246,
+      "wordsWithIndividualObservation": 1840,
+      "wordsWithoutIndividualObservation": 406,
+      "wordsWithCompletePointing": 0,
+      "wordsWithObservedFeatures": 0,
+      "observedFeatures": 0,
+      "featureConflictWords": 0,
+      "pages": 7
+    }
+  ],
+  "pagesWithOverview": 85,
+  "unboundObservations": [],
+  "completeWordPointingReview": false
+}

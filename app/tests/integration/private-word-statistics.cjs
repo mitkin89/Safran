@@ -53,7 +53,10 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
   assert((await ctx.ren()).tr.Zunz);
   assert.equal(Object.keys((await ctx.ren()).tr.BuberRosenzweig).length, 1);
   const srcStart = js.indexOf('  async function wcTrSources('), srcEnd = js.indexOf('  async function wcTrans(', srcStart);
-  Object.assign(ctx, { loadIlRen: ctx.ren, loadLxxRen: async () => null, loadTgRen: async () => null, loadQRen: async () => null, loadWitnessRen: async () => null, WC_TR_WITNESSES: { Samaritan: 'he', Peshitta: 'syr' }, WC_TR_LABEL: { Zunz: 'Zunz', BuberRosenzweig: 'Buber/Rosenzweig' } });
+  Object.assign(ctx, { loadIlRen: ctx.ren, loadLxxRen: async () => null, loadTgRen: async () => null, loadQRen: async () => null, loadWitnessRen: async () => null, loadHexRen: async () => null, WC_TR_WITNESSES: { Samaritan: 'he', Peshitta: 'syr' }, WC_TR_LABEL: { Zunz: 'Zunz', BuberRosenzweig: 'Buber/Rosenzweig' } });
+  // Load the shared factory constant; the optional Hexapla corpus is absent here.
+  const hexStart = js.indexOf('  const WC_TR_HEX ='), hexEnd = js.indexOf('  function wcFieldNotes(', hexStart);
+  vm.runInNewContext(js.slice(hexStart, hexEnd), ctx);
   vm.runInNewContext(js.slice(srcStart, srcEnd) + '\nglobalThis.sources = wcTrSources;', ctx);
   const sources = await ctx.sources('1');
   assert(sources.keys.includes('BuberRosenzweig'));

@@ -1,0 +1,1529 @@
+{
+  "kind": "Kaufmann Nashim original-image inventory and source locations",
+  "manuscriptSource": "https://archive.org/details/Mishnah_Kaufman_ms",
+  "diplomaticXmlSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+  "policy": "TEI locations bind original words to source pages only. Download verification and source locations are NOT visual reading validation. No vowels or letters inferred or changed.",
+  "visualValidation": false,
+  "wordLocationFile": "/workspace/mishnah-kaufmann-archive/nashim-source-word-locations.json",
+  "summary": {
+    "tractates": 7,
+    "units": 573,
+    "words": 29158,
+    "images": 85,
+    "bytes": 67600179,
+    "incompleteSourceLocations": 0
+  },
+  "tractates": {
+    "Mishnah Yevamot": {
+      "units": 124,
+      "words": 6625,
+      "folios": [
+        "084v",
+        "085r",
+        "085v",
+        "086r",
+        "086v",
+        "087r",
+        "087v",
+        "088r",
+        "088v",
+        "089r",
+        "089v",
+        "090r",
+        "090v",
+        "091r",
+        "091v",
+        "092r",
+        "092v",
+        "093r",
+        "093v",
+        "094r"
+      ]
+    },
+    "Mishnah Ketubot": {
+      "units": 111,
+      "words": 5081,
+      "folios": [
+        "094r",
+        "094v",
+        "095r",
+        "095v",
+        "096r",
+        "096v",
+        "097r",
+        "097v",
+        "098r",
+        "098v",
+        "099r",
+        "099v",
+        "100r",
+        "100v",
+        "101r",
+        "101v"
+      ]
+    },
+    "Mishnah Nedarim": {
+      "units": 90,
+      "words": 4459,
+      "folios": [
+        "101v",
+        "102r",
+        "102v",
+        "103r",
+        "103v",
+        "104r",
+        "104v",
+        "105r",
+        "105v",
+        "106r",
+        "106v",
+        "107r",
+        "107v",
+        "108r"
+      ]
+    },
+    "Mishnah Nazir": {
+      "units": 60,
+      "words": 3139,
+      "folios": [
+        "113r",
+        "113v",
+        "114r",
+        "114v",
+        "115r",
+        "115v",
+        "116r",
+        "116v",
+        "117r",
+        "117v"
+      ]
+    },
+    "Mishnah Sotah": {
+      "units": 66,
+      "words": 3865,
+      "folios": [
+        "117v",
+        "118r",
+        "118v",
+        "119r",
+        "119v",
+        "120r",
+        "120v",
+        "121r",
+        "121v",
+        "122r",
+        "122v",
+        "123r"
+      ]
+    },
+    "Mishnah Gittin": {
+      "units": 75,
+      "words": 3743,
+      "folios": [
+        "108r",
+        "108v",
+        "109r",
+        "109v",
+        "110r",
+        "110v",
+        "111r",
+        "111v",
+        "112r",
+        "112v",
+        "113r"
+      ]
+    },
+    "Mishnah Kiddushin": {
+      "units": 47,
+      "words": 2246,
+      "folios": [
+        "123v",
+        "124r",
+        "124v",
+        "125r",
+        "125v",
+        "126r",
+        "126v"
+      ]
+    }
+  },
+  "images": [
+    {
+      "folio": "084v",
+      "name": "fol. 084v    Yevamot I.1 - II.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20084v%20%20%20%20Yevamot%20I.1%20-%20II.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 084v    Yevamot I.1 - II.1.jpg",
+      "bytes": 777160,
+      "width": 1619,
+      "height": 1953,
+      "sha256": "edd0e5a68b60c2c28cd0e86df8bcbd74c70abcd99032b459fc2a583df0073cef",
+      "archiveMd5": "6566289c4d38ea2551a7f47798f38060",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "085r",
+      "name": "fol. 085r   Yevamot II.1-8.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20085r%20%20%20Yevamot%20II.1-8.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 085r   Yevamot II.1-8.jpg",
+      "bytes": 771615,
+      "width": 1635,
+      "height": 1941,
+      "sha256": "c84432ec990251fe14b58a65d609030823e1c9f21d234866c61d9a09f03d8779",
+      "archiveMd5": "b1a8c0854233c110c69c38a4908ab547",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "085v",
+      "name": "fol. 085v   Yevamot II.9 - III.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20085v%20%20%20Yevamot%20II.9%20-%20III.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 085v   Yevamot II.9 - III.6.jpg",
+      "bytes": 806497,
+      "width": 1610,
+      "height": 1959,
+      "sha256": "13a94d9045ad84e8b9d46dbf489532e810d2a84b2f44b1f08c1289c059c0613b",
+      "archiveMd5": "609787409bbea0757a2279ec46a6de46",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "086r",
+      "name": "fol. 086r   Yevamot III.6 - IV.2.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20086r%20%20%20Yevamot%20III.6%20-%20IV.2.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 086r   Yevamot III.6 - IV.2.jpg",
+      "bytes": 797298,
+      "width": 1623,
+      "height": 1959,
+      "sha256": "4d40c3d211244eb91cbf5300f0b343ae3596ff241098dcdf062a292a00cb71b9",
+      "archiveMd5": "8dab53f4d128cd1147264ca3bd5c6100",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "086v",
+      "name": "fol. 086v   Yevamot IV.2-11.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20086v%20%20%20Yevamot%20IV.2-11.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 086v   Yevamot IV.2-11.jpg",
+      "bytes": 742731,
+      "width": 1616,
+      "height": 1947,
+      "sha256": "3eb431d11c5b43686caf74b65a2b30d3d17fd3cbcb8298314803942559938d06",
+      "archiveMd5": "fd010f147aea90c6641e37b41a619827",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "087r",
+      "name": "fol. 087r   Yevamot IV.11 - V.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20087r%20%20%20Yevamot%20IV.11%20-%20V.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 087r   Yevamot IV.11 - V.6.jpg",
+      "bytes": 752745,
+      "width": 1623,
+      "height": 1947,
+      "sha256": "f79090e753d8126f62d1892225f06a0fbcf9ea81ef31ed7b8b94f46f6f18455c",
+      "archiveMd5": "33e7580f16e7ecbb53f7800b5485f5a2",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "087v",
+      "name": "fol. 087v   Yevamot V.6 - VII.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20087v%20%20%20Yevamot%20V.6%20-%20VII.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 087v   Yevamot V.6 - VII.1.jpg",
+      "bytes": 802496,
+      "width": 1601,
+      "height": 1953,
+      "sha256": "7963fc3f8faaa6e6577b9a8729b981146f83f072bdb0c45276c440f76d1619e2",
+      "archiveMd5": "6f2649558909129288ca08566ffecb07",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "088r",
+      "name": "fol. 088r   Yevamot VII.1 - VIII.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20088r%20%20%20Yevamot%20VII.1%20-%20VIII.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 088r   Yevamot VII.1 - VIII.1.jpg",
+      "bytes": 802224,
+      "width": 1614,
+      "height": 1953,
+      "sha256": "ce8b8694a03933829ec6fc56d2dd8c3249e8f6af7503d4645f76efe140385c78",
+      "archiveMd5": "c57b372a104fd7427ccde7d5646c997e",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "088v",
+      "name": "fol. 088v   Yevamot VIII.2 - IX.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20088v%20%20%20Yevamot%20VIII.2%20-%20IX.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 088v   Yevamot VIII.2 - IX.1.jpg",
+      "bytes": 767764,
+      "width": 1601,
+      "height": 1944,
+      "sha256": "ccba341790a2709328b23a7f4088820be63618d7c8f5273e91c1943f87fbcca0",
+      "archiveMd5": "583935140845bc53822d7ae29f9e1103",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "089r",
+      "name": "fol. 089r   Yevamot IX.1 - X.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20089r%20%20%20Yevamot%20IX.1%20-%20X.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 089r   Yevamot IX.1 - X.1.jpg",
+      "bytes": 734695,
+      "width": 1620,
+      "height": 1941,
+      "sha256": "71c57525c2ebffa81fb38338221dcbf4b732b0ab15df116da65727c32b5cb1e9",
+      "archiveMd5": "ee28989357e61034bd77dc3af7410b9a",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "089v",
+      "name": "fol. 089v   Yevamot X.1-5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20089v%20%20%20Yevamot%20X.1-5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 089v   Yevamot X.1-5.jpg",
+      "bytes": 847096,
+      "width": 1622,
+      "height": 1944,
+      "sha256": "3d2ab7d33f131a7d2069771e98767862fd5ec6aa945b33aff8284aeb9e5e883e",
+      "archiveMd5": "a307ea1d0a2d9f8f9c5ca31c85ae82f2",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "090r",
+      "name": "fol. 090r   Yevamot X.5 - XI.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20090r%20%20%20Yevamot%20X.5%20-%20XI.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 090r   Yevamot X.5 - XI.5.jpg",
+      "bytes": 800942,
+      "width": 1644,
+      "height": 1950,
+      "sha256": "4a248e747b443754b304f733c00afbc19d54fe14e85ddd2f246b612d71dbcaca",
+      "archiveMd5": "08a7f395a8db864ec732e5af2d414d58",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "090v",
+      "name": "fol. 090v   Yevamot XI.5 - XII.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20090v%20%20%20Yevamot%20XI.5%20-%20XII.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 090v   Yevamot XI.5 - XII.3.jpg",
+      "bytes": 777198,
+      "width": 1634,
+      "height": 1941,
+      "sha256": "14f075ccff4ed3cc6057d252bf235ff132ab806113ff60b1082ebb176fd56adb",
+      "archiveMd5": "5fd2b0ccf0c91c7a7595a83ae22acd4b",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "091r",
+      "name": "fol. 091r   Yevamot XII.3 - XIII.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20091r%20%20%20Yevamot%20XII.3%20-%20XIII.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 091r   Yevamot XII.3 - XIII.3.jpg",
+      "bytes": 780317,
+      "width": 1618,
+      "height": 1950,
+      "sha256": "b9b95d295055d073a7aedec2bc1e381cffd18f3f0d89c0b72aa50244709d10ec",
+      "archiveMd5": "1ba47751eaf84533e16e4724574548db",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "091v",
+      "name": "fol. 091v   Yevamot XIII.3-10.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20091v%20%20%20Yevamot%20XIII.3-10.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 091v   Yevamot XIII.3-10.jpg",
+      "bytes": 899684,
+      "width": 1619,
+      "height": 1935,
+      "sha256": "913035f60f7613b0f5d1480666cdeb16ec3493bdc1e64c72acaf52dc8317e75f",
+      "archiveMd5": "110ef9321639c00089a8e99a99113974",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "092r",
+      "name": "fol. 092r   Yevamot XIII.10 - XIV.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20092r%20%20%20Yevamot%20XIII.10%20-%20XIV.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 092r   Yevamot XIII.10 - XIV.4.jpg",
+      "bytes": 930442,
+      "width": 1608,
+      "height": 1950,
+      "sha256": "87c8ec53bc2e0cefc242e2f0ad5af4298af7eb00ae827f6869a72f0296a3fda8",
+      "archiveMd5": "e3487ec9c54ccd8acbd21de8f7e45203",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "092v",
+      "name": "fol. 092v   Yevamot XIV.4 - XV.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20092v%20%20%20Yevamot%20XIV.4%20-%20XV.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 092v   Yevamot XIV.4 - XV.3.jpg",
+      "bytes": 784185,
+      "width": 1601,
+      "height": 1941,
+      "sha256": "27b7c8b69024ae16248b3c86786c593a1019c1379f4675633f413c27e491e1d0",
+      "archiveMd5": "57847ceb8609ba5838e2f9489f3b4571",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "093r",
+      "name": "fol. 093r   Yevamot XV.3-8.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20093r%20%20%20Yevamot%20XV.3-8.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 093r   Yevamot XV.3-8.jpg",
+      "bytes": 723053,
+      "width": 1599,
+      "height": 1944,
+      "sha256": "ab52666d1c03f5d8ba83295bf4369964f466d5170aed0265a1c3b58b065d90d6",
+      "archiveMd5": "d2b102beb2e4401c31a67e1dca6d75e7",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "093v",
+      "name": "fol. 093v   Yevamot XV.9 - XVI.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20093v%20%20%20Yevamot%20XV.9%20-%20XVI.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 093v   Yevamot XV.9 - XVI.5.jpg",
+      "bytes": 935502,
+      "width": 1595,
+      "height": 1944,
+      "sha256": "f40f697e242ea53af8fcc86c34805e64b156c7e6fb3f5ea27c741c8d475f4941",
+      "archiveMd5": "20b99dbda00aaaf7496806c1ae1a8917",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "094r",
+      "name": "fol. 094r   Yevamot XVI.5 - Ketubbot I.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20094r%20%20%20Yevamot%20XVI.5%20-%20Ketubbot%20I.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 094r   Yevamot XVI.5 - Ketubbot I.3.jpg",
+      "bytes": 855719,
+      "width": 1614,
+      "height": 1944,
+      "sha256": "3f9988cdc3390a7d66f96d8c5217d36b17ceaabfa7fc7fe50e50ddc8498d13fa",
+      "archiveMd5": "85cac30501e071a326ff8e96bbe222bc",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot",
+        "Mishnah Yevamot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "094v",
+      "name": "fol. 094v   Ketubbot I.3 - II.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20094v%20%20%20Ketubbot%20I.3%20-%20II.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 094v   Ketubbot I.3 - II.3.jpg",
+      "bytes": 775044,
+      "width": 1610,
+      "height": 1941,
+      "sha256": "c426123f369e3c41cb9bd6e6a1ccf7f4f35f27e8bca21f415354cecc9deeea64",
+      "archiveMd5": "b37b2a502b8b22b89c54415116371599",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "095r",
+      "name": "fol. 095r   Ketubbot II.3 - III.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20095r%20%20%20Ketubbot%20II.3%20-%20III.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 095r   Ketubbot II.3 - III.1.jpg",
+      "bytes": 736866,
+      "width": 1620,
+      "height": 1929,
+      "sha256": "aef5ac5cb4ddf2401a320d127bf39729332ced5f78cd4d3bf261fc8a8a2eacfe",
+      "archiveMd5": "c5f2c98b2b83d624f7277ca02c3aeec6",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "095v",
+      "name": "fol. 095v   Ketubbot III.1-9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20095v%20%20%20Ketubbot%20III.1-9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 095v   Ketubbot III.1-9.jpg",
+      "bytes": 819168,
+      "width": 1616,
+      "height": 1935,
+      "sha256": "07cc10b73562c0abe26f1c692ca3a39ed50d83d4ab497876a7964c575e459461",
+      "archiveMd5": "46651791712bf8f5970f3ab0e006c686",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "096r",
+      "name": "fol. 096r   Ketubbot III.9 - IV.8.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20096r%20%20%20Ketubbot%20III.9%20-%20IV.8.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 096r   Ketubbot III.9 - IV.8.jpg",
+      "bytes": 820694,
+      "width": 1620,
+      "height": 1944,
+      "sha256": "7715f61a2e9c68b96ce9c2dbaefca0dd300815fcc3c8994c8479384a42961bac",
+      "archiveMd5": "5c5647a2f0ba0bb0ceb3c80fdd0b9db1",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "096v",
+      "name": "fol. 096v   Ketubbot IV.8 - V.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20096v%20%20%20Ketubbot%20IV.8%20-%20V.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 096v   Ketubbot IV.8 - V.5.jpg",
+      "bytes": 763248,
+      "width": 1604,
+      "height": 1938,
+      "sha256": "59d94f5edae52dba78b45219b7b59aaf7257e9260f04f04712c2c0b20da98761",
+      "archiveMd5": "8390d411fcb44d441d72f1dad137deeb",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "097r",
+      "name": "fol. 097r   Ketubbot V.5-9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20097r%20%20%20Ketubbot%20V.5-9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 097r   Ketubbot V.5-9.jpg",
+      "bytes": 746506,
+      "width": 1611,
+      "height": 1947,
+      "sha256": "293eb128574c7dc77c8065d1c44184ba7c0a3f54538acb7cf04b2b37a5fa0c97",
+      "archiveMd5": "5795efa0ac58c94b0f5ffe2ff0e3ac2c",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "097v",
+      "name": "fol. 097v   Ketubbot VI.1 - VII.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20097v%20%20%20Ketubbot%20VI.1%20-%20VII.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 097v   Ketubbot VI.1 - VII.3.jpg",
+      "bytes": 824055,
+      "width": 1610,
+      "height": 1941,
+      "sha256": "5c417110213be85f594f5949e6542210007b89b10dbf2fe7c5ca0739cb0f86e6",
+      "archiveMd5": "cc80004f9c8f68c32396620da1fafe8c",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "098r",
+      "name": "fol. 098r   Ketubbot VII.4-10.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20098r%20%20%20Ketubbot%20VII.4-10.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 098r   Ketubbot VII.4-10.jpg",
+      "bytes": 826805,
+      "width": 1617,
+      "height": 1947,
+      "sha256": "1fb675b1dda4c0c3ec33467838b9dbb68fa22627b99b67c157afe4b9069e6b4c",
+      "archiveMd5": "8a5b3aeb882b4c12eb055e63b3a94e29",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "098v",
+      "name": "fol. 098v   Ketubbot VII.10 - VIII.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20098v%20%20%20Ketubbot%20VII.10%20-%20VIII.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 098v   Ketubbot VII.10 - VIII.6.jpg",
+      "bytes": 748551,
+      "width": 1604,
+      "height": 1938,
+      "sha256": "dec6a995bb2dbfa5be2b107e1b24973aed2d9b5b81e553d1f19ec452eb1eb042",
+      "archiveMd5": "3e806c90f3e03d2c4ce2dbe9431017dd",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "099r",
+      "name": "fol. 099r   Ketubbot VIII.6 - IX.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20099r%20%20%20Ketubbot%20VIII.6%20-%20IX.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 099r   Ketubbot VIII.6 - IX.4.jpg",
+      "bytes": 747174,
+      "width": 1626,
+      "height": 1944,
+      "sha256": "c47fd8f600b8807447662d98a53abb0a9a79e5265c488855d0fa90b08b6dcbdd",
+      "archiveMd5": "5f9ff0f8bd72b86e5f44abfbd083b3f6",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "099v",
+      "name": "fol. 099v   Ketubbot IX.4-9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20099v%20%20%20Ketubbot%20IX.4-9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 099v   Ketubbot IX.4-9.jpg",
+      "bytes": 758491,
+      "width": 1610,
+      "height": 1935,
+      "sha256": "f6eb0d656a287a96b50e6557a9f460b143807d2ec6f3aa6d6c3470c67848fc21",
+      "archiveMd5": "a0eca0ab9f4f4198b4bdc3db7285a008",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "100r",
+      "name": "fol. 100r   Ketubbot IX.9 - XI.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20100r%20%20%20Ketubbot%20IX.9%20-%20XI.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 100r   Ketubbot IX.9 - XI.1.jpg",
+      "bytes": 796492,
+      "width": 1621,
+      "height": 1947,
+      "sha256": "c093edecaf79206995b34237efe6d863326323bfcf0e3d31ad600b8706ca8acb",
+      "archiveMd5": "175d52de27a16b3a467e256a24a59213",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "100v",
+      "name": "fol. 100v     Ketubbot XI.1 - XII.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20100v%20%20%20%20%20Ketubbot%20XI.1%20-%20XII.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 100v     Ketubbot XI.1 - XII.3.jpg",
+      "bytes": 779697,
+      "width": 1607,
+      "height": 1947,
+      "sha256": "4db07518e9aa1234daaa0b189eb909ea90fc4e0809e10b4b03a46d919c0e29ca",
+      "archiveMd5": "4cf9bc21272df8a7560eb82d81b88ad1",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "101r",
+      "name": "fol. 101r     Ketubbot XII.3 - XIII.7.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20101r%20%20%20%20%20Ketubbot%20XII.3%20-%20XIII.7.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 101r     Ketubbot XII.3 - XIII.7.jpg",
+      "bytes": 751536,
+      "width": 1599,
+      "height": 1941,
+      "sha256": "2889d3c4c67c1802e044f3574633cab1aad9827762f4b75daf173eb29ce9a8eb",
+      "archiveMd5": "07efa4b656ecd671d8c911abc813ef40",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "101v",
+      "name": "fol. 101v     Ketubbot XIII.7 - Nedarim I.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20101v%20%20%20%20%20Ketubbot%20XIII.7%20-%20Nedarim%20I.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 101v     Ketubbot XIII.7 - Nedarim I.3.jpg",
+      "bytes": 807184,
+      "width": 1625,
+      "height": 1944,
+      "sha256": "0fa7d8f6ed919633b421cc2062100cb3d20a7001c29ab34da8703482fc1b28c4",
+      "archiveMd5": "f7849effe79dca6c04d50bb137901b78",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Ketubot",
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "102r",
+      "name": "fol. 102r     Nedarim I.3 - II.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20102r%20%20%20%20%20Nedarim%20I.3%20-%20II.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 102r     Nedarim I.3 - II.5.jpg",
+      "bytes": 783682,
+      "width": 1605,
+      "height": 1944,
+      "sha256": "804f217ad0d4123820eb94d9b0866e9e88e6c4bb9aae385d8ed1a478fbc20191",
+      "archiveMd5": "b8cb9d438876e0a0b92080b55cb91b06",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "102v",
+      "name": "fol. 102v     Nedarim II.5 - III.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20102v%20%20%20%20%20Nedarim%20II.5%20-%20III.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 102v     Nedarim II.5 - III.6.jpg",
+      "bytes": 777607,
+      "width": 1628,
+      "height": 1935,
+      "sha256": "0f422aa731988de327a0b38aa0009e9319676014855ef39ee3f39d7d9d99101e",
+      "archiveMd5": "b9a374ba76a4af7c5171247e4a3bcbaf",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "103r",
+      "name": "fol. 103r     Nedarim III.6 - IV.2.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20103r%20%20%20%20%20Nedarim%20III.6%20-%20IV.2.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 103r     Nedarim III.6 - IV.2.jpg",
+      "bytes": 744322,
+      "width": 1617,
+      "height": 1956,
+      "sha256": "abd3de303ba78ec529343e9d4fc28b5026831242bb4232d6f62f12cb535a6500",
+      "archiveMd5": "76578b3c4f89a07a571b6651ea7f4a82",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "103v",
+      "name": "fol. 103v     Nedarim IV.3 - V.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20103v%20%20%20%20%20Nedarim%20IV.3%20-%20V.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 103v     Nedarim IV.3 - V.1.jpg",
+      "bytes": 842964,
+      "width": 1604,
+      "height": 1938,
+      "sha256": "4871aa053496d3ac5b7ad85abe440728b3aa92065f6d899274cf3ba8c21e2f06",
+      "archiveMd5": "e0986d8530db284b5b879358453a01c0",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "104r",
+      "name": "fol. 104r     Nedarim V.1 - VI.2.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20104r%20%20%20%20%20Nedarim%20V.1%20-%20VI.2.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 104r     Nedarim V.1 - VI.2.jpg",
+      "bytes": 832787,
+      "width": 1605,
+      "height": 1950,
+      "sha256": "5d6acd6b891c4597d9bb7caa86895af8cb452502cc970bf1b6916aba70ede010",
+      "archiveMd5": "fbb0ed2813ecc38ba29de681e0e13c8b",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "104v",
+      "name": "fol. 104v     Nedarim VI.2-10.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20104v%20%20%20%20%20Nedarim%20VI.2-10.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 104v     Nedarim VI.2-10.jpg",
+      "bytes": 757180,
+      "width": 1607,
+      "height": 1938,
+      "sha256": "69dfc122addc4ab45d6043cc8d56ad800df7910f8609de117906d2aa93ed3ef0",
+      "archiveMd5": "8b7df1658c25150287ff968d9dd6b0ac",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "105r",
+      "name": "fol. 105r     Nedarim VI.10 - VII.9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20105r%20%20%20%20%20Nedarim%20VI.10%20-%20VII.9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 105r     Nedarim VI.10 - VII.9.jpg",
+      "bytes": 790167,
+      "width": 1615,
+      "height": 1953,
+      "sha256": "3366278f223ed63c5ae65cc9623a20faaab6467665dd4c7139d1ceee8ff56c97",
+      "archiveMd5": "26841be588a03ae2274122c504407b3c",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "105v",
+      "name": "fol. 105v     Nedarim VII.9 - VIII.7.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20105v%20%20%20%20%20Nedarim%20VII.9%20-%20VIII.7.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 105v     Nedarim VII.9 - VIII.7.jpg",
+      "bytes": 816011,
+      "width": 1620,
+      "height": 1941,
+      "sha256": "3e0040e6e5f819a9d5a6688b7d199db32e1fdb2c9beb7db92869fa04a4bdcf62",
+      "archiveMd5": "cfe84d14d0c0536b178f9a626b8f14b4",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "106r",
+      "name": "fol. 106r     Nedarim VIII.7 - IX.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20106r%20%20%20%20%20Nedarim%20VIII.7%20-%20IX.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 106r     Nedarim VIII.7 - IX.6.jpg",
+      "bytes": 854854,
+      "width": 1611,
+      "height": 1950,
+      "sha256": "969abc097394026afc6bef271945fd976367cdde7ec137a5d800b1c779430686",
+      "archiveMd5": "055387927205e7a9c77a5f6eada124d8",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "106v",
+      "name": "fol. 106v     Nedarim IX.6 - X.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20106v%20%20%20%20%20Nedarim%20IX.6%20-%20X.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 106v     Nedarim IX.6 - X.4.jpg",
+      "bytes": 772998,
+      "width": 1595,
+      "height": 1944,
+      "sha256": "142c7ccf66bc71f746c653c8f6e8ab15adf7979a78d7c49c04d9fe19445925e9",
+      "archiveMd5": "29d003da686a3eb224047fa387836c47",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "107r",
+      "name": "fol. 107r     Nedarim X.4 - XI.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20107r%20%20%20%20%20Nedarim%20X.4%20-%20XI.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 107r     Nedarim X.4 - XI.4.jpg",
+      "bytes": 791420,
+      "width": 1612,
+      "height": 1944,
+      "sha256": "35f0555187b9924d95a14f07919ccb94f4dfc26782aa5835ec85066d325cf547",
+      "archiveMd5": "bcff4d5e5437151cc55961ef604f4402",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "107v",
+      "name": "fol. 107v     Nedarim X.4-12.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20107v%20%20%20%20%20Nedarim%20X.4-12.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 107v     Nedarim X.4-12.jpg",
+      "bytes": 814136,
+      "width": 1604,
+      "height": 1941,
+      "sha256": "a52a9dd680b2181ad1b8567d0e51e6ca9f2292fae6e340495828e121f8a7e7e9",
+      "archiveMd5": "22f709af10dbd132919e9e15ea7f8db4",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "108r",
+      "name": "fol. 108r     Nedarim XI.12 - Gittin II.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20108r%20%20%20%20%20Nedarim%20XI.12%20-%20Gittin%20II.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 108r     Nedarim XI.12 - Gittin II.1.jpg",
+      "bytes": 774611,
+      "width": 1608,
+      "height": 1953,
+      "sha256": "735546335407de04aa0ea92f7e4ffc96076b7d3176655a71b21a0c76ff7b9881",
+      "archiveMd5": "51cd5fa1af1be1312422150d4d9fb442",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin",
+        "Mishnah Nedarim"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "108v",
+      "name": "fol. 108v     Gittin II.1 - III.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20108v%20%20%20%20%20Gittin%20II.1%20-%20III.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 108v     Gittin II.1 - III.1.jpg",
+      "bytes": 792480,
+      "width": 1601,
+      "height": 1950,
+      "sha256": "63ba374d8d5f9e873970cc73a592f9e87b9b62c7a8d28a530616fb2adc9b2837",
+      "archiveMd5": "dd9a2b633622010a1ec53fcd09fa1138",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "109r",
+      "name": "fol. 109r     Gittin III.2 - IV.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20109r%20%20%20%20%20Gittin%20III.2%20-%20IV.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 109r     Gittin III.2 - IV.1.jpg",
+      "bytes": 744723,
+      "width": 1611,
+      "height": 1953,
+      "sha256": "d81c0a2972278d4438459b8c5c7ef2ae8dbf9db32783ed32021bb45729a73c2c",
+      "archiveMd5": "d8cdf1e3df3c6d69bba2d6e8d82ad373",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "109v",
+      "name": "fol. 109v     Gittin IV.1-7.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20109v%20%20%20%20%20Gittin%20IV.1-7.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 109v     Gittin IV.1-7.jpg",
+      "bytes": 756098,
+      "width": 1598,
+      "height": 1944,
+      "sha256": "f1c9e5e21188b8061c828e33aa72cf38f0627afa1722c984cd49a07fa68fe4aa",
+      "archiveMd5": "f2f7b5e27182e92d8307f54584a3ecf9",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "110r",
+      "name": "fol. 110r     Gittin IV.7 - V.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20110r%20%20%20%20%20Gittin%20IV.7%20-%20V.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 110r     Gittin IV.7 - V.6.jpg",
+      "bytes": 801828,
+      "width": 1596,
+      "height": 1947,
+      "sha256": "cab63031d8b567500898c281dd1685e4e07625708b97029da65e4eadff1f73c3",
+      "archiveMd5": "9322739b8484e4247be66e7a59d17ef1",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "110v",
+      "name": "fol. 110v     Gittin V.6 - VI.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20110v%20%20%20%20%20Gittin%20V.6%20-%20VI.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 110v     Gittin V.6 - VI.3.jpg",
+      "bytes": 792142,
+      "width": 1616,
+      "height": 1950,
+      "sha256": "043f4007617e57b7bdee89572f1795f83084c63ac78f58841e904cc58d46ef48",
+      "archiveMd5": "3005c3164e0b7a50529b0b7243a03b4d",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "111r",
+      "name": "fol. 111r     Gittin VI.3 - VII.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20111r%20%20%20%20%20Gittin%20VI.3%20-%20VII.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 111r     Gittin VI.3 - VII.3.jpg",
+      "bytes": 778352,
+      "width": 1596,
+      "height": 1950,
+      "sha256": "faf7a4d0136745abc0c1593acdc250b3d793b16b5f7ea1981c8ea24f08fed4af",
+      "archiveMd5": "7b2e9045644474426656b9c22461360e",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "111v",
+      "name": "fol. 111v     Gittin VII.3-9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20111v%20%20%20%20%20Gittin%20VII.3-9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 111v     Gittin VII.3-9.jpg",
+      "bytes": 840562,
+      "width": 1592,
+      "height": 1944,
+      "sha256": "c51432c514b7756756ee523529220fd34637a6718220720663a13511ec39fc17",
+      "archiveMd5": "57a7f15e03788ac9e7377636978a9a9c",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "112r",
+      "name": "fol. 112r     Gittin VII.9 - VIII.8.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20112r%20%20%20%20%20Gittin%20VII.9%20-%20VIII.8.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 112r     Gittin VII.9 - VIII.8.jpg",
+      "bytes": 827918,
+      "width": 1599,
+      "height": 1950,
+      "sha256": "181bfa9751096d835f7c692486ed63b2ce6c85dc7b60d46ca953474c45590632",
+      "archiveMd5": "fd319c408a3e6b9513e6de525b9b97e6",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "112v",
+      "name": "fol. 112v     Gittin VIII.8 - IX.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20112v%20%20%20%20%20Gittin%20VIII.8%20-%20IX.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 112v     Gittin VIII.8 - IX.5.jpg",
+      "bytes": 810386,
+      "width": 1592,
+      "height": 1941,
+      "sha256": "ec7d5d2a25c6cad44df4e1a90ba26034dfc765c7b4da08cabf8668d312947e22",
+      "archiveMd5": "72e330498c6ba4b27e6fe4081843875d",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "113r",
+      "name": "fol. 113r     Gittin IX.5 - Nazir I.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20113r%20%20%20%20%20Gittin%20IX.5%20-%20Nazir%20I.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 113r     Gittin IX.5 - Nazir I.1.jpg",
+      "bytes": 760131,
+      "width": 1614,
+      "height": 1947,
+      "sha256": "e762761e52303d383f75f5bae890ab0442e145f4baac56a7880a615ac9913e0b",
+      "archiveMd5": "da9c70ed8a9d5ffec19316ec20c94d08",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Gittin",
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "113v",
+      "name": "fol. 113v     Nazir I.1 - II.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20113v%20%20%20%20%20Nazir%20I.1%20-%20II.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 113v     Nazir I.1 - II.4.jpg",
+      "bytes": 835976,
+      "width": 1598,
+      "height": 1955,
+      "sha256": "499805475bc97fd24fdc9f0020ba247ef8cf3e6b1cf4d4c232711a86876e4aa5",
+      "archiveMd5": "444663a3e3ecd6c8e419e15479c385ec",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "114r",
+      "name": "fol. 114r     Nazir II.4 - III.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20114r%20%20%20%20%20Nazir%20II.4%20-%20III.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 114r     Nazir II.4 - III.3.jpg",
+      "bytes": 822705,
+      "width": 1620,
+      "height": 1950,
+      "sha256": "89bded94c74439d60d306f619e7e993dccd2c7c82f5e336e7594de63abbceea5",
+      "archiveMd5": "777eed1c69a4783282136ff5c661110e",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "114v",
+      "name": "fol. 114v     Nazir III.3 - IV.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20114v%20%20%20%20%20Nazir%20III.3%20-%20IV.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 114v     Nazir III.3 - IV.4.jpg",
+      "bytes": 725871,
+      "width": 1592,
+      "height": 1947,
+      "sha256": "7b4d128bb3091b749603aad1c89e9d16fc06c5193aca716ca84b8d14035d523b",
+      "archiveMd5": "88aa5e383df9390f3be26695a766fe3f",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "115r",
+      "name": "fol. 115r     Nazir IV.4 - V.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20115r%20%20%20%20%20Nazir%20IV.4%20-%20V.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 115r     Nazir IV.4 - V.3.jpg",
+      "bytes": 773885,
+      "width": 1605,
+      "height": 1947,
+      "sha256": "f893a9d2ed47d5f3d52a857717cd26a49d702a694a57465bbc70cda8047afb13",
+      "archiveMd5": "c51dc9eb2e256e789112846fafa16f08",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "115v",
+      "name": "fol. 115v     Nazir V.3 - VI.3.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20115v%20%20%20%20%20Nazir%20V.3%20-%20VI.3.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 115v     Nazir V.3 - VI.3.jpg",
+      "bytes": 871220,
+      "width": 1601,
+      "height": 1953,
+      "sha256": "c996e19f8ccd1c32cf14195f31bc88427136a1836bafba4f27c44af7482f6297",
+      "archiveMd5": "67bbb367028672e1f8e4cd90555c8fbc",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "116r",
+      "name": "fol. 116r     Nazir VI.3-9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20116r%20%20%20%20%20Nazir%20VI.3-9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 116r     Nazir VI.3-9.jpg",
+      "bytes": 858438,
+      "width": 1605,
+      "height": 1953,
+      "sha256": "b31de31bce84edbf838f7ee49bcc4010c974e16d90e5ae2d65825078ca9ff17a",
+      "archiveMd5": "2dd1a77804ae814d735ce51be937217d",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "116v",
+      "name": "fol. 116v     Nazir VI.9 - VII.4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20116v%20%20%20%20%20Nazir%20VI.9%20-%20VII.4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 116v     Nazir VI.9 - VII.4.jpg",
+      "bytes": 749567,
+      "width": 1604,
+      "height": 1947,
+      "sha256": "6382dece3e79a80d2f918a653c4abca829e0ef6061f3a447154e09b1acafb6b2",
+      "archiveMd5": "f0d5e0aed87e04a5700ebcd5cab284e3",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "117r",
+      "name": "fol. 117r     Nazir VII.4 - VIII.2.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20117r%20%20%20%20%20Nazir%20VII.4%20-%20VIII.2.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 117r     Nazir VII.4 - VIII.2.jpg",
+      "bytes": 768486,
+      "width": 1614,
+      "height": 1950,
+      "sha256": "d2d9b36538e1205e83ef524af0d8ca5ca95d9946aa3722fd8262128760a02e97",
+      "archiveMd5": "6339941892d4565a6d978ddb5324543f",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "117v",
+      "name": "fol. 117v     Nazir IX.1 - Sotah I.2.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20117v%20%20%20%20%20Nazir%20IX.1%20-%20Sotah%20I.2.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 117v     Nazir IX.1 - Sotah I.2.jpg",
+      "bytes": 886771,
+      "width": 1601,
+      "height": 1953,
+      "sha256": "551814797cd0b885153e05c2664cd8f5fdd33ac49d152b5d02d3c3d7a3acf556",
+      "archiveMd5": "26da5f9b216e2b444238a703feea757c",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Nazir",
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "118r",
+      "name": "fol. 118r     Sotah I.2-9.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20118r%20%20%20%20%20Sotah%20I.2-9.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 118r     Sotah I.2-9.jpg",
+      "bytes": 854993,
+      "width": 1599,
+      "height": 1950,
+      "sha256": "747ee09c0fe38d68b5649c1352580f4b682c53a8a4347b770e9b25310716dd74",
+      "archiveMd5": "dd1c6acf547be80dce231fb20bb23a4e",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "118v",
+      "name": "fol. 118v     Sotah I.9 - II.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20118v%20%20%20%20%20Sotah%20I.9%20-%20II.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 118v     Sotah I.9 - II.5.jpg",
+      "bytes": 730493,
+      "width": 1601,
+      "height": 1950,
+      "sha256": "2b402be0498b4d1be73257e81fe10be140c89fc5b0c1ed39854eee8ae6ce35a2",
+      "archiveMd5": "9e70d5a3a78c93249d2b0e64147a3941",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "119r",
+      "name": "fol. 119r     Sotah II.5 - III.6.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20119r%20%20%20%20%20Sotah%20II.5%20-%20III.6.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 119r     Sotah II.5 - III.6.jpg",
+      "bytes": 731743,
+      "width": 1605,
+      "height": 1953,
+      "sha256": "1df097b8eda00ab8e9f0612038661f8c51a753def3493f1f80c34028c3f3e975",
+      "archiveMd5": "04f47fd30aa5922079ec6de3da220a57",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "119v",
+      "name": "fol. 119v     Sotah III.6 - IV.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20119v%20%20%20%20%20Sotah%20III.6%20-%20IV.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 119v     Sotah III.6 - IV.5.jpg",
+      "bytes": 841429,
+      "width": 1625,
+      "height": 1941,
+      "sha256": "a1723a71e42bbdbd88e56b8151ae93d046e019d9e9a61fbe15fd046de09047e5",
+      "archiveMd5": "9aaf5336465974a77e9a38ee3b116212",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "120r",
+      "name": "fol. 120r     Sotah V.1 - VI.2.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20120r%20%20%20%20%20Sotah%20V.1%20-%20VI.2.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 120r     Sotah V.1 - VI.2.jpg",
+      "bytes": 840475,
+      "width": 1611,
+      "height": 1944,
+      "sha256": "56b40e3e5658ebb87d387f24dcb5cad8579395df5d49484d02c142793f4ae884",
+      "archiveMd5": "073c1dcd28a100297a0ca77ab1c07dfc",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "120v",
+      "name": "fol. 120v     Sotah VI.2 - VII.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20120v%20%20%20%20%20Sotah%20VI.2%20-%20VII.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 120v     Sotah VI.2 - VII.5.jpg",
+      "bytes": 789602,
+      "width": 1640,
+      "height": 1947,
+      "sha256": "bef4e9bbd02d0118dda85af37707679ac9f2a75f6a57311e86abfd24ae144827",
+      "archiveMd5": "f93eeec75a742851e2aad2acb542cf24",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "121r",
+      "name": "fol. 121r     Sotah VII.5 - VIII.1.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20121r%20%20%20%20%20Sotah%20VII.5%20-%20VIII.1.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 121r     Sotah VII.5 - VIII.1.jpg",
+      "bytes": 775342,
+      "width": 1617,
+      "height": 1947,
+      "sha256": "a726648cd9a197342d2c20fcf73853ae8a1e91c4511da8bb82607439fce26043",
+      "archiveMd5": "909c3e6204135dcb3f1baccc4392dc2b",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "121v",
+      "name": "fol. 121v     Sotah VIII.1-4.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20121v%20%20%20%20%20Sotah%20VIII.1-4.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 121v     Sotah VIII.1-4.jpg",
+      "bytes": 825054,
+      "width": 1607,
+      "height": 1950,
+      "sha256": "e7fbe8c4126bbf8adc4521d0d9ce513b6542164757a2515e2351b2daf6ea5801",
+      "archiveMd5": "74c486e34ae229bfa6998f69d9edd104",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "122r",
+      "name": "fol. 122r     Sotah VIII.4 - IX.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20122r%20%20%20%20%20Sotah%20VIII.4%20-%20IX.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 122r     Sotah VIII.4 - IX.5.jpg",
+      "bytes": 814373,
+      "width": 1629,
+      "height": 1944,
+      "sha256": "5c0664abc4fb84df8dad7739b0fbc1e1df8f2906b5f3e62d43fa4f4c42d19d92",
+      "archiveMd5": "ca2d6a43c471fbfb5e4639cabb794b3e",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "122v",
+      "name": "fol. 122v     Sotah IX.5-14.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20122v%20%20%20%20%20Sotah%20IX.5-14.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 122v     Sotah IX.5-14.jpg",
+      "bytes": 770400,
+      "width": 1622,
+      "height": 1947,
+      "sha256": "8d5be896473dcb37053aaa4b3a9aac849128aa98642709c0038aa3b419801de0",
+      "archiveMd5": "108656fa883d6ab9de75713be900c7ae",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "123r",
+      "name": "fol. 123r     Sotah IX.14-15.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20123r%20%20%20%20%20Sotah%20IX.14-15.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 123r     Sotah IX.14-15.jpg",
+      "bytes": 716848,
+      "width": 1593,
+      "height": 1941,
+      "sha256": "5ad895ef3649a17c757bbbf3970e910be0c2f177af556a78f5fc4ee44b5d607d",
+      "archiveMd5": "525b8d2cd9381e12a4a7d401d89e6a35",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Sotah"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "123v",
+      "name": "fol. 123v     Kiddushin I.1-10.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20123v%20%20%20%20%20Kiddushin%20I.1-10.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 123v     Kiddushin I.1-10.jpg",
+      "bytes": 861817,
+      "width": 1598,
+      "height": 1938,
+      "sha256": "4ab4d3919ef819d7dd037ad76f9a72a4f05e108e268a5f6f334fcfd5e489d145",
+      "archiveMd5": "69cfd53707a07d5f4aae38d14dd95909",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "124r",
+      "name": "fol. 124r     Kiddushin I.10 - II.7.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20124r%20%20%20%20%20Kiddushin%20I.10%20-%20II.7.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 124r     Kiddushin I.10 - II.7.jpg",
+      "bytes": 779001,
+      "width": 1599,
+      "height": 1941,
+      "sha256": "8f584279dd31813f14cf39e3615f4303ec2b6439b45036952b0b9dcdcfeae8fb",
+      "archiveMd5": "86d259c0e9a70508b9efc7c056cf6b24",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "124v",
+      "name": "fol. 124v     Kiddushin II.7 - III.5.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20124v%20%20%20%20%20Kiddushin%20II.7%20-%20III.5.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 124v     Kiddushin II.7 - III.5.jpg",
+      "bytes": 782711,
+      "width": 1604,
+      "height": 1947,
+      "sha256": "462bfd781697915de450dd5b2ca48fceff5f51b4daf5be572b4034bcf85d4c24",
+      "archiveMd5": "f7c5d468dce184985cd86bdf6a85403a",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "125r",
+      "name": "fol. 125r Kiddushin III.5-12.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20125r%20Kiddushin%20III.5-12.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 125r Kiddushin III.5-12.jpg",
+      "bytes": 783186,
+      "width": 1599,
+      "height": 1938,
+      "sha256": "a788a6ae421f9665cfe0cbdee3837f8da691111ffd9cd10af3c646952dce43ec",
+      "archiveMd5": "9e95dcbcd197fe3da2d3f7b6fe2791be",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "125v",
+      "name": "fol. 125v Kiddushin III.12 - IV.7.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20125v%20Kiddushin%20III.12%20-%20IV.7.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 125v Kiddushin III.12 - IV.7.jpg",
+      "bytes": 805207,
+      "width": 1628,
+      "height": 1947,
+      "sha256": "7cddf3a9961477bcb3411c051360408b91591412743f356b2434e497e8fe1dd1",
+      "archiveMd5": "73d5a784775a02739b36b52c57121890",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "126r",
+      "name": "fol. 126r Kiddushin IV.7-14.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20126r%20Kiddushin%20IV.7-14.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 126r Kiddushin IV.7-14.jpg",
+      "bytes": 827168,
+      "width": 1575,
+      "height": 1944,
+      "sha256": "49310c036437c97720c6818c3b096334b85c1154e288953260d978b1b427536d",
+      "archiveMd5": "99cdee7fae3861aa670f4ef41bda3549",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    },
+    {
+      "folio": "126v",
+      "name": "fol. 126v Kiddushin IV.14 - Derek 'Eres Rabba I.jpg",
+      "url": "https://archive.org/download/Mishnah_Kaufman_ms/fol.%20126v%20Kiddushin%20IV.14%20-%20Derek%20%27Eres%20Rabba%20I.jpg",
+      "localPath": "/workspace/mishnah-kaufmann-archive/fol. 126v Kiddushin IV.14 - Derek 'Eres Rabba I.jpg",
+      "bytes": 729185,
+      "width": 1607,
+      "height": 1947,
+      "sha256": "7d0e0ba61dfab59b90e461f498fcbf03b7a2f17cd3bd36975e0f1b48c7c975e3",
+      "archiveMd5": "a190953efe998e854151c343ad0ac4fb",
+      "md5Verified": true,
+      "tractates": [
+        "Mishnah Kiddushin"
+      ],
+      "visualReviewStatus": "not-reviewed"
+    }
+  ],
+  "preparationScript": "/workspace/mishnah-kaufmann-archive/prepare-nashim-images.py",
+  "wordLocationSha256": "db69528f76616c9fc669cbbd7eb4360339a176dc7e4f73d2c8b8e19c63f8d73f",
+  "validation": {
+    "archiveByteCountsChecked": true,
+    "archiveMd5Checked": true,
+    "localSha256Checked": true,
+    "wordIdsUnique": true,
+    "sourceMapComplete": true,
+    "visualReadingsPerformed": false,
+    "errors": []
+  },
+  "bundledWordLocationFile": "app/tools/mishnah/sources/kaufmann-nashim-word-locations.json.gz"
+}

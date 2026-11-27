@@ -1,0 +1,1044 @@
+{
+  "version": 1,
+  "method": "Positive individual AI image signs against unchanged original private reference tokens; not complete word or corpus vowel validation",
+  "policy": "No automatic source correction. Different or absent reference signs remain open observations for review; uncertain image features are never confirmed conflicts.",
+  "reports": [
+    {
+      "file": "kaufmann-nashim-image-review-gittin-final.json",
+      "sha256": "8fcb78f14d9b44f138cddc25fe8dde882a161ddbc1d309316eac64b0f70f924d"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-gittin-last.json",
+      "sha256": "07e33edd0545fa6a715a46e7a1383cab4868dfea83a19152618a8a4bfefc3781"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-ketubot.json",
+      "sha256": "dbcf05c736aa9f5fc3150fb846c2b485b7a792e74ce0399afcac0939b1fe0993"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-kiddushin.json",
+      "sha256": "27652be2af557b5c33fb8019598979c20afb35b5152c3f133dd6f2dc8f00b6fc"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-nazir-sotah.json",
+      "sha256": "45c6b3cb1db762569651aa1e2024540246e14f597cfc1653a23b708e947cd5b6"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sha256": "950ee10a638bb269be8b15df08f06ff0ee3b6bfc3c71e25663ac01178b191ff5"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-sotah-final.json",
+      "sha256": "6d31c6d9968698c3c95ff49b7912c33bd7c9e1e611baa4c8c472107203042993"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-yevamot-final.json",
+      "sha256": "996605b719eb8056ce52beea66ca1bb28e3db3517508ae8cdee65a1fa98b66d4"
+    },
+    {
+      "file": "kaufmann-nashim-image-review-yevamot.json",
+      "sha256": "b1bff768226d94543aff8fa23880a9fd98d020aa617c64537f7b58a6df2f4eaf"
+    },
+    {
+      "file": "kaufmann-nashim-point-observations.json",
+      "sha256": "5e0bf2a11487898f90e428ac85c558dde02fd7f42e01c87fa6a0273fb4017d3c"
+    },
+    {
+      "file": "kaufmann-nashim-point-countercheck.json",
+      "sha256": "8622cc0110d0d4e1c74736f11a9fac0edd4433c6c39c9f7b170592321e65d891"
+    }
+  ],
+  "summary": {
+    "agree": 50,
+    "uncertain-image-feature": 3,
+    "reference-not-safely-comparable": 2
+  },
+  "checks": [
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.3.5/word/7",
+      "title": "Mishnah Gittin",
+      "ref": "3:5",
+      "folio": "109r",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "772d6b34be38cff851426a4d2e457274e9c654d3aafdecee712018e76673b08e"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.3.5/word/8",
+      "title": "Mishnah Gittin",
+      "ref": "3:5",
+      "folio": "109r",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "uncertain",
+      "targetTransferStatus": "transferred",
+      "status": "uncertain-image-feature",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "bd94cdf18e38a4f6e5b15726fa1077f8d9b0895ac5b34205488f5ec49d7afe58"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.4.1/word/8",
+      "title": "Mishnah Gittin",
+      "ref": "4:1",
+      "folio": "109v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "468c64ebae03d5f2d742ae120dba3ebacb34c92953c9e4b047201027cf272e16"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.4.1/word/8",
+      "title": "Mishnah Gittin",
+      "ref": "4:1",
+      "folio": "109v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "468c64ebae03d5f2d742ae120dba3ebacb34c92953c9e4b047201027cf272e16"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.4.4/word/26",
+      "title": "Mishnah Gittin",
+      "ref": "4:4",
+      "folio": "109v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ַ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ַ"
+      ],
+      "originalTokenSha256": "8e445cb6c3475415443af2e63117e5d62233899ac29ef51018d7905eb77e8f05"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.4.4/word/26",
+      "title": "Mishnah Gittin",
+      "ref": "4:4",
+      "folio": "109v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ֵ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "8e445cb6c3475415443af2e63117e5d62233899ac29ef51018d7905eb77e8f05"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.4.7/word/38",
+      "title": "Mishnah Gittin",
+      "ref": "4:7",
+      "folio": "110r",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "996b6bc2d94ba1e58bf716b8331b7843d312be62c24c871a8836721645e63cf4"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.4/word/8",
+      "title": "Mishnah Gittin",
+      "ref": "5:4",
+      "folio": "110r",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "0565397beda086400bf90b3477e692f16edefcf7e29760fd2e3f6b0c4443c0cb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.4/word/8",
+      "title": "Mishnah Gittin",
+      "ref": "5:4",
+      "folio": "110r",
+      "letterIndex": 3,
+      "imageMarks": [
+        "ֶ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֶ"
+      ],
+      "originalTokenSha256": "0565397beda086400bf90b3477e692f16edefcf7e29760fd2e3f6b0c4443c0cb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.6/word/79",
+      "title": "Mishnah Gittin",
+      "ref": "5:6",
+      "folio": "110v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "943524fc476ea2469c79f3e2ffef35774f312b5e05e4c5cd875b26c9e308d790"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.9/word/58",
+      "title": "Mishnah Gittin",
+      "ref": "5:9",
+      "folio": "110v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "bf65bb6ec1dbde157c0feba7f51e9412616a8eaf04c8807298028c81ef7cfa8a"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.9/word/58",
+      "title": "Mishnah Gittin",
+      "ref": "5:9",
+      "folio": "110v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "bf65bb6ec1dbde157c0feba7f51e9412616a8eaf04c8807298028c81ef7cfa8a"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.9/word/58",
+      "title": "Mishnah Gittin",
+      "ref": "5:9",
+      "folio": "110v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ֵ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "bf65bb6ec1dbde157c0feba7f51e9412616a8eaf04c8807298028c81ef7cfa8a"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.9/word/59",
+      "title": "Mishnah Gittin",
+      "ref": "5:9",
+      "folio": "110v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ַ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "open",
+      "status": "agree",
+      "referenceMarks": [
+        "ַ"
+      ],
+      "originalTokenSha256": "912e7f2268e14ec4ec0a6920f8d1bfe1b6956f2a51a46f46d4709318aa4e40a7"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.9/word/59",
+      "title": "Mishnah Gittin",
+      "ref": "5:9",
+      "folio": "110v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "open",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "912e7f2268e14ec4ec0a6920f8d1bfe1b6956f2a51a46f46d4709318aa4e40a7"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-gittin-final.json",
+      "sourceWordId": "S07326.3.6.5.9/word/59",
+      "title": "Mishnah Gittin",
+      "ref": "5:9",
+      "folio": "110v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ֵ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "open",
+      "status": "agree",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "912e7f2268e14ec4ec0a6920f8d1bfe1b6956f2a51a46f46d4709318aa4e40a7"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.11.1/word/9",
+      "title": "Mishnah Ketubot",
+      "ref": "11:1",
+      "folio": "100v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "uncertain",
+      "targetTransferStatus": "transferred",
+      "status": "uncertain-image-feature",
+      "initialCertainty": "clear",
+      "adjudication": "Earlier image interpretation not independently confirmed; countercheck is retained separately.",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "7c5038c9168aa5bf5084a17d51ce5eff631b56fa0bafc1dc2e4ed20d2dd0e952"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.11.1/word/10",
+      "title": "Mishnah Ketubot",
+      "ref": "11:1",
+      "folio": "100v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "934226f8ec959527b464df42a60703109a3bb5dfef540c9b852e56a3ae57a2c9"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.13.7/word/15",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "5f702bac3c0f4393e38e8b51a2de37402d397b2937207b95575764fb083081e7"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.13.7/word/15",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ַ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ַ"
+      ],
+      "originalTokenSha256": "5f702bac3c0f4393e38e8b51a2de37402d397b2937207b95575764fb083081e7"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.13.7/word/17",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ֶ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֶ"
+      ],
+      "originalTokenSha256": "f10cdc6b402daf321d7f40de26539c96946f2a249922c1d4ae641d40ebf4eaad"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.13.7/word/17",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ֶ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֶ"
+      ],
+      "originalTokenSha256": "f10cdc6b402daf321d7f40de26539c96946f2a249922c1d4ae641d40ebf4eaad"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.13.7/word/18",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "cd3647a8c608a5e59b867768fd0beeaa601e093800cb93e58c630916a1527b36"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-ketubot.json",
+      "sourceWordId": "S07326.3.2.13.7/word/18",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "uncertain",
+      "targetTransferStatus": "transferred",
+      "status": "uncertain-image-feature",
+      "initialCertainty": "clear",
+      "adjudication": "Earlier image interpretation not independently confirmed; countercheck is retained separately.",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "cd3647a8c608a5e59b867768fd0beeaa601e093800cb93e58c630916a1527b36"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.3.9.6/word/4",
+      "title": "Mishnah Nedarim",
+      "ref": "9:6",
+      "folio": "106v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "06334bdbe3688b4bf8fc87a189b1badd66b362fec23cfc51e2ca74d5b1ffca26"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.3.9.6/word/5",
+      "title": "Mishnah Nedarim",
+      "ref": "9:6",
+      "folio": "106v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "50e3863bdb042a5f516851121b613c0a4ff85160ce1de18ba74edba7309530cf"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.3.9.6/word/8",
+      "title": "Mishnah Nedarim",
+      "ref": "9:6",
+      "folio": "106v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ַ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ַ"
+      ],
+      "originalTokenSha256": "0e134fb763730e9001b68a21cd0c2af66fef0e971aab5e7b049bc4f3b25b00a8"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.3.9.6/word/8",
+      "title": "Mishnah Nedarim",
+      "ref": "9:6",
+      "folio": "106v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "0e134fb763730e9001b68a21cd0c2af66fef0e971aab5e7b049bc4f3b25b00a8"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.6.2.1/word/24",
+      "title": "Mishnah Gittin",
+      "ref": "2:1",
+      "folio": "108v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "1b4987a906ed6c24babdcd7879ffab8b89a80448c1e9456f5ac896e38a6e2637"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.6.2.1/word/24",
+      "title": "Mishnah Gittin",
+      "ref": "2:1",
+      "folio": "108v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "1b4987a906ed6c24babdcd7879ffab8b89a80448c1e9456f5ac896e38a6e2637"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sourceWordId": "S07326.3.6.2.1/word/30",
+      "title": "Mishnah Gittin",
+      "ref": "2:1",
+      "folio": "108v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "50da4809fa4c7328b969a9f103de6bdb8a345aff6b245d73097fa8d1004189f1"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-sotah-final.json",
+      "sourceWordId": "S07326.3.5.9.13/word/46",
+      "title": "Mishnah Sotah",
+      "ref": "9:13",
+      "folio": "122v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "open",
+      "status": "reference-not-safely-comparable"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-sotah-final.json",
+      "sourceWordId": "S07326.3.5.9.13/word/46",
+      "title": "Mishnah Sotah",
+      "ref": "9:13",
+      "folio": "122v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "open",
+      "status": "reference-not-safely-comparable"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.1.2/word/21",
+      "title": "Mishnah Yevamot",
+      "ref": "1:2",
+      "folio": "084v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "9c5251560456d6cc9b66892e6c887677e1045b5575c234418e163026060df824"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.1.2/word/21",
+      "title": "Mishnah Yevamot",
+      "ref": "1:2",
+      "folio": "084v",
+      "letterIndex": 3,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "9c5251560456d6cc9b66892e6c887677e1045b5575c234418e163026060df824"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.2.6/word/34",
+      "title": "Mishnah Yevamot",
+      "ref": "2:6",
+      "folio": "085r",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "7c53fb55e989f669f2da596e986e5158c8ae06be7f5503be56ab46283bf721fb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.2.6/word/34",
+      "title": "Mishnah Yevamot",
+      "ref": "2:6",
+      "folio": "085r",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ֵ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "7c53fb55e989f669f2da596e986e5158c8ae06be7f5503be56ab46283bf721fb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.3.9/word/29",
+      "title": "Mishnah Yevamot",
+      "ref": "3:9",
+      "folio": "086r",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ֶ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֶ"
+      ],
+      "originalTokenSha256": "c899030999378169e6818ee424f575924852ee85c9e546aaf363e52080d885a0"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.3.9/word/29",
+      "title": "Mishnah Yevamot",
+      "ref": "3:9",
+      "folio": "086r",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "c899030999378169e6818ee424f575924852ee85c9e546aaf363e52080d885a0"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.4.7/word/37",
+      "title": "Mishnah Yevamot",
+      "ref": "4:7",
+      "folio": "086v",
+      "letterIndex": 3,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "476696944c27bc13233487158a939142e6b7d46213ae47c34fcd0dfe963a6453"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.5.1/word/30",
+      "title": "Mishnah Yevamot",
+      "ref": "5:1",
+      "folio": "087r",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "a2aea9ae41162ad27f5db284fba6b26e2a1b945a3d04241c6afb31c439e3e79e"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.5.1/word/30",
+      "title": "Mishnah Yevamot",
+      "ref": "5:1",
+      "folio": "087r",
+      "letterIndex": 3,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "a2aea9ae41162ad27f5db284fba6b26e2a1b945a3d04241c6afb31c439e3e79e"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.6.4/word/40",
+      "title": "Mishnah Yevamot",
+      "ref": "6:4",
+      "folio": "087v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "d1107404557108abbf53b96fbfe251143e0fe3546feb902280651985dfa1a0cb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.6.4/word/40",
+      "title": "Mishnah Yevamot",
+      "ref": "6:4",
+      "folio": "087v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "d1107404557108abbf53b96fbfe251143e0fe3546feb902280651985dfa1a0cb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.8.4/word/38",
+      "title": "Mishnah Yevamot",
+      "ref": "8:4",
+      "folio": "088v",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "28e1d1aa1610b79c0b8c486c78977ee661c32cf5630919877ed477a2fd0d7f42"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.8.4/word/38",
+      "title": "Mishnah Yevamot",
+      "ref": "8:4",
+      "folio": "088v",
+      "letterIndex": 3,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "28e1d1aa1610b79c0b8c486c78977ee661c32cf5630919877ed477a2fd0d7f42"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.9.4/word/5",
+      "title": "Mishnah Yevamot",
+      "ref": "9:4",
+      "folio": "089r",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "33b51d5985b53ac0459676672ec647071bc39499b7c013bbbad31b2ef2c07755"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.9.4/word/5",
+      "title": "Mishnah Yevamot",
+      "ref": "9:4",
+      "folio": "089r",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ֵ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "33b51d5985b53ac0459676672ec647071bc39499b7c013bbbad31b2ef2c07755"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.10.3/word/15",
+      "title": "Mishnah Yevamot",
+      "ref": "10:3",
+      "folio": "089v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "ac037cfaca6c9b542ecfde54dedff265bf2e4531a37a0a98d1747acfce1b9bcb"
+    },
+    {
+      "report": "kaufmann-nashim-image-review-yevamot.json",
+      "sourceWordId": "S07326.3.1.10.3/word/15",
+      "title": "Mishnah Yevamot",
+      "ref": "10:3",
+      "folio": "089v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "ac037cfaca6c9b542ecfde54dedff265bf2e4531a37a0a98d1747acfce1b9bcb"
+    },
+    {
+      "report": "kaufmann-nashim-point-observations.json",
+      "sourceWordId": "S07326.3.5.9.3/word/0",
+      "title": "Mishnah Sotah",
+      "ref": "9:3",
+      "folio": "122r",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "c1f3d7eeea53695d94ee432d451dfe4fd49620f8b4e275da31c8974186749a54"
+    },
+    {
+      "report": "kaufmann-nashim-point-observations.json",
+      "sourceWordId": "S07326.3.5.9.3/word/0",
+      "title": "Mishnah Sotah",
+      "ref": "9:3",
+      "folio": "122r",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ְ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ְ"
+      ],
+      "originalTokenSha256": "c1f3d7eeea53695d94ee432d451dfe4fd49620f8b4e275da31c8974186749a54"
+    },
+    {
+      "report": "kaufmann-nashim-point-observations.json",
+      "sourceWordId": "S07326.3.5.9.3/word/0",
+      "title": "Mishnah Sotah",
+      "ref": "9:3",
+      "folio": "122r",
+      "letterIndex": 2,
+      "imageMarks": [
+        "ָ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ָ"
+      ],
+      "originalTokenSha256": "c1f3d7eeea53695d94ee432d451dfe4fd49620f8b4e275da31c8974186749a54"
+    },
+    {
+      "report": "kaufmann-nashim-point-countercheck.json",
+      "sourceWordId": "S07326.3.2.11.1/word/9",
+      "title": "Mishnah Ketubot",
+      "ref": "11:1",
+      "folio": "100v",
+      "letterIndex": 0,
+      "imageMarks": [
+        "ִ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ִ"
+      ],
+      "originalTokenSha256": "7c5038c9168aa5bf5084a17d51ce5eff631b56fa0bafc1dc2e4ed20d2dd0e952"
+    },
+    {
+      "report": "kaufmann-nashim-point-countercheck.json",
+      "sourceWordId": "S07326.3.2.13.7/word/18",
+      "title": "Mishnah Ketubot",
+      "ref": "13:7",
+      "folio": "101v",
+      "letterIndex": 1,
+      "imageMarks": [
+        "ֵ"
+      ],
+      "certainty": "clear",
+      "targetTransferStatus": "transferred",
+      "status": "agree",
+      "referenceMarks": [
+        "ֵ"
+      ],
+      "originalTokenSha256": "cd3647a8c608a5e59b867768fd0beeaa601e093800cb93e58c630916a1527b36"
+    }
+  ]
+}

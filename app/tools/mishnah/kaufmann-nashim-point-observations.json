@@ -1,0 +1,71 @@
+{
+  "kind": "targeted AI positive point observations",
+  "version": 1,
+  "method": "Direct original-image inspection, then literal Accordance comparison; positive point signs only",
+  "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+  "sourceLocationSha256": "db69528f76616c9fc669cbbd7eb4360339a176dc7e4f73d2c8b8e19c63f8d73f",
+  "pages": [],
+  "observations": [
+    {
+      "sourceWordId": "S07326.3.5.9.3/word/0",
+      "title": "Mishnah Sotah",
+      "ref": "9:3",
+      "folio": "122r",
+      "column": "left",
+      "sourceLine": "23",
+      "line": 23,
+      "bbox": [
+        240,
+        1270,
+        410,
+        1330
+      ],
+      "bboxScope": "individual word and immediate adjacent context; original image pixel coordinates",
+      "imageSha256": "5c0664abc4fb84df8dad7739b0fbc1e1df8f2906b5f3e62d43fa4f4c42d19d92",
+      "observedConsonants": "נמצא",
+      "reading": null,
+      "status": "uncertain",
+      "fullPointingVerified": false,
+      "observedFeatures": [
+        {
+          "letterIndex": 0,
+          "marks": [
+            "ִ"
+          ],
+          "certainty": "clear"
+        },
+        {
+          "letterIndex": 1,
+          "marks": [
+            "ְ"
+          ],
+          "certainty": "clear"
+        },
+        {
+          "letterIndex": 2,
+          "marks": [
+            "ָ"
+          ],
+          "certainty": "clear"
+        }
+      ],
+      "literalReferenceComparison": {
+        "word": "נִמְצָא",
+        "status": "all three positive vowel observations agree; absence of other signs not certified"
+      },
+      "notes": [
+        "Original 1629×1944 image inspected first, then an enlarged crop for the three visible vowel signs; enlargement adds no source resolution.",
+        "Hiriq under nun, two vertically separated sheva dots under mem, and qamats bar plus point under tsadi are individually visible.",
+        "Positive signs only: no whole-word pointing certification and no automatic source correction."
+      ]
+    }
+  ],
+  "summary": {
+    "wordsWithObservedFeatures": 1,
+    "positivePointFeatures": 3,
+    "completeWordPointingVerified": 0
+  },
+  "limitations": [
+    "AI observation, not human manuscript confirmation. The full surrounding page is covered by the separately recorded Sotah column review."
+  ]
+}

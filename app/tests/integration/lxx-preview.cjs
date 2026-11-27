@@ -19,6 +19,8 @@ Object.assign(ctx, { fmCur: { greek: true, lemma: 'ἀδελφός' }, fmTrData:
   WC_TR_VT: { LXX: /^Septuaginta/ }, WC_TR_LABEL: { LXX: 'Septuaginta' }, IL_VT: {}, I18N: { lang: 'de', t: s => s },
   esc: s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;'), fmBook: s => s, wcNum: n => String(n),
 });
+// This sliced function shares the real factory's Hexapla source-key constant.
+vm.runInContext(part(ui, '  const WC_TR_HEX =', '  function wcFieldNotes('), ctx);
 vm.runInContext(part(ui, '  function wcHovPick(a)', '  const WC_TR_PIC'), ctx);
 vm.runInContext(part(ui, '  function wcRefList(rs, head, all)', '  function wcBookRefs'), ctx);
 const anchor = { isConnected: true, dataset: { gvt: reference.vt }, closest: s => ['.fmRL', '#wcBody'].includes(s) ? {} : null, getBoundingClientRect: () => ({ left: 400, right: 420, top: 200, bottom: 220 }) };

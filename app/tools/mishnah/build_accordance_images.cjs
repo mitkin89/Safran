@@ -18,12 +18,16 @@ function build(locationFile,inventoryFile,reviewFiles){
    const list=observations.get(o.sourceWordId)||[];list.push({...normalized,status:o.fullPointingVerified===true&&o.status==='clear'&&typeof o.reading==='string'&&o.reading.trim()?'clear':'uncertain',method:'AI visual manuscript observation; not human confirmation'});observations.set(o.sourceWordId,list);
   }
  }
+ const pointCategory=m=>/[\u05b0-\u05bb\u05c7]/u.test(m)?'vowel':m==='ּ'?'dot':/[ׁׂ]/u.test(m)?'shin-sin':m;
  for(const c of counterchecks)for(const feature of c.observedFeatures||[]){
-  if(feature.certainty!=='uncertain'||feature.marks?.length)continue;
+  const marks=typeof feature.marks==='string'?[...feature.marks]:feature.marks||[],uncertain=feature.certainty==='uncertain'&&!marks.length;
+  if(!uncertain&&!(feature.certainty==='clear'&&marks.length))continue;
   for(const review of observations.get(c.sourceWordId)||[])for(const f of review.observedFeatures||[]){
    if(f.letterIndex!==feature.letterIndex||f.certainty!=='clear')continue;
-   f.initialCertainty='clear';f.certainty='uncertain';f.adjudication='A blind second image reading could not isolate this positive mark. It remains uncertain; absence is not asserted.';
-   review.notes=[...(review.notes||[]),'Blinde zweite Bildlesung bestätigt dieses Einzelzeichen nicht sicher; Befund bleibt offen. Keine Aussage über das Fehlen eines Zeichens.'];
+   const cats=new Set(marks.map(pointCategory)),previous=(f.marks||[]).filter(m=>cats.has(pointCategory(m))).sort(),contrary=!uncertain&&previous.length&&JSON.stringify(previous)!==JSON.stringify([...marks].sort());
+   if(!uncertain&&!contrary)continue;
+   f.initialCertainty='clear';f.certainty='uncertain';f.adjudication=uncertain?'A blind second image reading could not isolate this positive mark. It remains uncertain; absence is not asserted.':'A blind second image reading identifies a different positive mark. This earlier interpretation remains unconfirmed; the independent reading is retained separately.';
+   review.notes=[...(review.notes||[]),uncertain?'Blinde zweite Bildlesung bestätigt dieses Einzelzeichen nicht sicher; Befund bleibt offen. Keine Aussage über das Fehlen eines Zeichens.':'Blinde zweite Bildlesung liest ein anderes Einzelzeichen; diese frühere Interpretation bleibt unsicher. Der Gegenbefund ist separat dokumentiert.'];
   }
  }
  const summary={books:[],pagesWithOverview:pages.size,unboundObservations:unbound,completeWordPointingReview:false};
@@ -46,6 +50,6 @@ function build(locationFile,inventoryFile,reviewFiles){
   summary.books.push({title,sourceWords:Object.keys(words).length,wordsWithIndividualObservation:observed,wordsWithoutIndividualObservation:Object.keys(words).length-observed,wordsWithCompletePointing:clear,wordsWithObservedFeatures:featureWords,observedFeatures:features,featureConflictWords:conflicts,pages:used.size});
  }
  fs.writeFileSync(path.join(ROOT,'mishnah-accordance-catalog.js'),'// Source-bound provisional editions with separate image evidence.\nwindow.MISHNAH_ACCORDANCE_CATALOG='+JSON.stringify(items)+';\n');
- fs.writeFileSync(path.join(__dirname,inventoryFile.includes('moed')?'accordance-moed-manuscript-review-summary.json':'accordance-zeraim-manuscript-review-summary.json'),JSON.stringify(summary,null,2)+'\n');console.log(JSON.stringify(summary));return summary;
+ fs.writeFileSync(path.join(__dirname,inventoryFile.includes('nashim')?'accordance-nashim-manuscript-review-summary.json':inventoryFile.includes('moed')?'accordance-moed-manuscript-review-summary.json':'accordance-zeraim-manuscript-review-summary.json'),JSON.stringify(summary,null,2)+'\n');console.log(JSON.stringify(summary));return summary;
 }
 module.exports={build};if(require.main===module)try{build(process.argv[2],process.argv[3],process.argv.slice(4));}catch(e){console.error(e.stack);process.exitCode=1;}

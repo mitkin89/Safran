@@ -1,0 +1,693 @@
+{
+  "kind": "independent-global-Nashim-image-report-scope-audit",
+  "version": 1,
+  "scope": "Nine full-column reports plus targeted positive-feature and blind-countercheck reports; original folios 084v–126v as inventoried",
+  "policy": "Report coverage is an inventory of partial observations and explicit unresolved positions, never complete vowel/word certification. Repeated page readings and repeated source IDs are counted once.",
+  "sourceLocationSha256": "db69528f76616c9fc669cbbd7eb4360339a176dc7e4f73d2c8b8e19c63f8d73f",
+  "inventorySha256": "29704b481219f4600c8fac71491fca8309cb281d9fe4dd25cdfcb8f47766bfeb",
+  "reports": [
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-gittin-final.json",
+      "sha256": "8fcb78f14d9b44f138cddc25fe8dde882a161ddbc1d309316eac64b0f70f924d",
+      "originalPages": [
+        "109r",
+        "109v",
+        "110r",
+        "110v"
+      ],
+      "uniqueObservationIds": 1150,
+      "uniqueUnresolvedIds": 181,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-gittin-last.json",
+      "sha256": "07e33edd0545fa6a715a46e7a1383cab4868dfea83a19152618a8a4bfefc3781",
+      "originalPages": [
+        "111r",
+        "111v",
+        "112r",
+        "112v",
+        "113r"
+      ],
+      "uniqueObservationIds": 1375,
+      "uniqueUnresolvedIds": 380,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-ketubot.json",
+      "sha256": "dbcf05c736aa9f5fc3150fb846c2b485b7a792e74ce0399afcac0939b1fe0993",
+      "originalPages": [
+        "094r",
+        "094v",
+        "095r",
+        "095v",
+        "096r",
+        "096v",
+        "097r",
+        "097v",
+        "098r",
+        "098v",
+        "099r",
+        "099v",
+        "100r",
+        "100v",
+        "101r",
+        "101v"
+      ],
+      "uniqueObservationIds": 4035,
+      "uniqueUnresolvedIds": 1046,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-kiddushin.json",
+      "sha256": "27652be2af557b5c33fb8019598979c20afb35b5152c3f133dd6f2dc8f00b6fc",
+      "originalPages": [
+        "123v",
+        "124r",
+        "124v",
+        "125r",
+        "125v",
+        "126r",
+        "126v"
+      ],
+      "uniqueObservationIds": 1840,
+      "uniqueUnresolvedIds": 406,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-nazir-sotah.json",
+      "sha256": "45c6b3cb1db762569651aa1e2024540246e14f597cfc1653a23b708e947cd5b6",
+      "originalPages": [
+        "113r",
+        "113v",
+        "114r",
+        "114v",
+        "115r",
+        "115v",
+        "116r",
+        "116v",
+        "117r",
+        "117v",
+        "118r",
+        "118v",
+        "119r",
+        "119v"
+      ],
+      "uniqueObservationIds": 3816,
+      "uniqueUnresolvedIds": 750,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-nedarim-gittin.json",
+      "sha256": "950ee10a638bb269be8b15df08f06ff0ee3b6bfc3c71e25663ac01178b191ff5",
+      "originalPages": [
+        "101v",
+        "102r",
+        "102v",
+        "103r",
+        "103v",
+        "104r",
+        "104v",
+        "105r",
+        "105v",
+        "106r",
+        "106v",
+        "107r",
+        "107v",
+        "108r",
+        "108v"
+      ],
+      "uniqueObservationIds": 4244,
+      "uniqueUnresolvedIds": 1075,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-sotah-final.json",
+      "sha256": "6d31c6d9968698c3c95ff49b7912c33bd7c9e1e611baa4c8c472107203042993",
+      "originalPages": [
+        "120r",
+        "120v",
+        "121r",
+        "121v",
+        "122r",
+        "122v",
+        "123r"
+      ],
+      "uniqueObservationIds": 2078,
+      "uniqueUnresolvedIds": 360,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-yevamot-final.json",
+      "sha256": "996605b719eb8056ce52beea66ca1bb28e3db3517508ae8cdee65a1fa98b66d4",
+      "originalPages": [
+        "090r",
+        "090v",
+        "091r",
+        "091v",
+        "092r",
+        "092v",
+        "093r",
+        "093v",
+        "094r"
+      ],
+      "uniqueObservationIds": 2359,
+      "uniqueUnresolvedIds": 597,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-image-review-yevamot.json",
+      "sha256": "b1bff768226d94543aff8fa23880a9fd98d020aa617c64537f7b58a6df2f4eaf",
+      "originalPages": [
+        "084v",
+        "085r",
+        "085v",
+        "086r",
+        "086v",
+        "087r",
+        "087v",
+        "088r",
+        "088v",
+        "089r",
+        "089v"
+      ],
+      "uniqueObservationIds": 3254,
+      "uniqueUnresolvedIds": 415,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-point-observations.json",
+      "sha256": "5e0bf2a11487898f90e428ac85c558dde02fd7f42e01c87fa6a0273fb4017d3c",
+      "originalPages": [],
+      "uniqueObservationIds": 1,
+      "uniqueUnresolvedIds": 0,
+      "fullWordPointingCertifications": 0
+    },
+    {
+      "file": "tools/mishnah/kaufmann-nashim-point-countercheck.json",
+      "sha256": "8622cc0110d0d4e1c74736f11a9fac0edd4433c6c39c9f7b170592321e65d891",
+      "originalPages": [],
+      "uniqueObservationIds": 2,
+      "uniqueUnresolvedIds": 0,
+      "fullWordPointingCertifications": 0
+    }
+  ],
+  "actualOriginalImageHashes": [
+    {
+      "folio": "084v",
+      "sha256": "edd0e5a68b60c2c28cd0e86df8bcbd74c70abcd99032b459fc2a583df0073cef",
+      "bytes": 777160
+    },
+    {
+      "folio": "085r",
+      "sha256": "c84432ec990251fe14b58a65d609030823e1c9f21d234866c61d9a09f03d8779",
+      "bytes": 771615
+    },
+    {
+      "folio": "085v",
+      "sha256": "13a94d9045ad84e8b9d46dbf489532e810d2a84b2f44b1f08c1289c059c0613b",
+      "bytes": 806497
+    },
+    {
+      "folio": "086r",
+      "sha256": "4d40c3d211244eb91cbf5300f0b343ae3596ff241098dcdf062a292a00cb71b9",
+      "bytes": 797298
+    },
+    {
+      "folio": "086v",
+      "sha256": "3eb431d11c5b43686caf74b65a2b30d3d17fd3cbcb8298314803942559938d06",
+      "bytes": 742731
+    },
+    {
+      "folio": "087r",
+      "sha256": "f79090e753d8126f62d1892225f06a0fbcf9ea81ef31ed7b8b94f46f6f18455c",
+      "bytes": 752745
+    },
+    {
+      "folio": "087v",
+      "sha256": "7963fc3f8faaa6e6577b9a8729b981146f83f072bdb0c45276c440f76d1619e2",
+      "bytes": 802496
+    },
+    {
+      "folio": "088r",
+      "sha256": "ce8b8694a03933829ec6fc56d2dd8c3249e8f6af7503d4645f76efe140385c78",
+      "bytes": 802224
+    },
+    {
+      "folio": "088v",
+      "sha256": "ccba341790a2709328b23a7f4088820be63618d7c8f5273e91c1943f87fbcca0",
+      "bytes": 767764
+    },
+    {
+      "folio": "089r",
+      "sha256": "71c57525c2ebffa81fb38338221dcbf4b732b0ab15df116da65727c32b5cb1e9",
+      "bytes": 734695
+    },
+    {
+      "folio": "089v",
+      "sha256": "3d2ab7d33f131a7d2069771e98767862fd5ec6aa945b33aff8284aeb9e5e883e",
+      "bytes": 847096
+    },
+    {
+      "folio": "090r",
+      "sha256": "4a248e747b443754b304f733c00afbc19d54fe14e85ddd2f246b612d71dbcaca",
+      "bytes": 800942
+    },
+    {
+      "folio": "090v",
+      "sha256": "14f075ccff4ed3cc6057d252bf235ff132ab806113ff60b1082ebb176fd56adb",
+      "bytes": 777198
+    },
+    {
+      "folio": "091r",
+      "sha256": "b9b95d295055d073a7aedec2bc1e381cffd18f3f0d89c0b72aa50244709d10ec",
+      "bytes": 780317
+    },
+    {
+      "folio": "091v",
+      "sha256": "913035f60f7613b0f5d1480666cdeb16ec3493bdc1e64c72acaf52dc8317e75f",
+      "bytes": 899684
+    },
+    {
+      "folio": "092r",
+      "sha256": "87c8ec53bc2e0cefc242e2f0ad5af4298af7eb00ae827f6869a72f0296a3fda8",
+      "bytes": 930442
+    },
+    {
+      "folio": "092v",
+      "sha256": "27b7c8b69024ae16248b3c86786c593a1019c1379f4675633f413c27e491e1d0",
+      "bytes": 784185
+    },
+    {
+      "folio": "093r",
+      "sha256": "ab52666d1c03f5d8ba83295bf4369964f466d5170aed0265a1c3b58b065d90d6",
+      "bytes": 723053
+    },
+    {
+      "folio": "093v",
+      "sha256": "f40f697e242ea53af8fcc86c34805e64b156c7e6fb3f5ea27c741c8d475f4941",
+      "bytes": 935502
+    },
+    {
+      "folio": "094r",
+      "sha256": "3f9988cdc3390a7d66f96d8c5217d36b17ceaabfa7fc7fe50e50ddc8498d13fa",
+      "bytes": 855719
+    },
+    {
+      "folio": "094v",
+      "sha256": "c426123f369e3c41cb9bd6e6a1ccf7f4f35f27e8bca21f415354cecc9deeea64",
+      "bytes": 775044
+    },
+    {
+      "folio": "095r",
+      "sha256": "aef5ac5cb4ddf2401a320d127bf39729332ced5f78cd4d3bf261fc8a8a2eacfe",
+      "bytes": 736866
+    },
+    {
+      "folio": "095v",
+      "sha256": "07cc10b73562c0abe26f1c692ca3a39ed50d83d4ab497876a7964c575e459461",
+      "bytes": 819168
+    },
+    {
+      "folio": "096r",
+      "sha256": "7715f61a2e9c68b96ce9c2dbaefca0dd300815fcc3c8994c8479384a42961bac",
+      "bytes": 820694
+    },
+    {
+      "folio": "096v",
+      "sha256": "59d94f5edae52dba78b45219b7b59aaf7257e9260f04f04712c2c0b20da98761",
+      "bytes": 763248
+    },
+    {
+      "folio": "097r",
+      "sha256": "293eb128574c7dc77c8065d1c44184ba7c0a3f54538acb7cf04b2b37a5fa0c97",
+      "bytes": 746506
+    },
+    {
+      "folio": "097v",
+      "sha256": "5c417110213be85f594f5949e6542210007b89b10dbf2fe7c5ca0739cb0f86e6",
+      "bytes": 824055
+    },
+    {
+      "folio": "098r",
+      "sha256": "1fb675b1dda4c0c3ec33467838b9dbb68fa22627b99b67c157afe4b9069e6b4c",
+      "bytes": 826805
+    },
+    {
+      "folio": "098v",
+      "sha256": "dec6a995bb2dbfa5be2b107e1b24973aed2d9b5b81e553d1f19ec452eb1eb042",
+      "bytes": 748551
+    },
+    {
+      "folio": "099r",
+      "sha256": "c47fd8f600b8807447662d98a53abb0a9a79e5265c488855d0fa90b08b6dcbdd",
+      "bytes": 747174
+    },
+    {
+      "folio": "099v",
+      "sha256": "f6eb0d656a287a96b50e6557a9f460b143807d2ec6f3aa6d6c3470c67848fc21",
+      "bytes": 758491
+    },
+    {
+      "folio": "100r",
+      "sha256": "c093edecaf79206995b34237efe6d863326323bfcf0e3d31ad600b8706ca8acb",
+      "bytes": 796492
+    },
+    {
+      "folio": "100v",
+      "sha256": "4db07518e9aa1234daaa0b189eb909ea90fc4e0809e10b4b03a46d919c0e29ca",
+      "bytes": 779697
+    },
+    {
+      "folio": "101r",
+      "sha256": "2889d3c4c67c1802e044f3574633cab1aad9827762f4b75daf173eb29ce9a8eb",
+      "bytes": 751536
+    },
+    {
+      "folio": "101v",
+      "sha256": "0fa7d8f6ed919633b421cc2062100cb3d20a7001c29ab34da8703482fc1b28c4",
+      "bytes": 807184
+    },
+    {
+      "folio": "102r",
+      "sha256": "804f217ad0d4123820eb94d9b0866e9e88e6c4bb9aae385d8ed1a478fbc20191",
+      "bytes": 783682
+    },
+    {
+      "folio": "102v",
+      "sha256": "0f422aa731988de327a0b38aa0009e9319676014855ef39ee3f39d7d9d99101e",
+      "bytes": 777607
+    },
+    {
+      "folio": "103r",
+      "sha256": "abd3de303ba78ec529343e9d4fc28b5026831242bb4232d6f62f12cb535a6500",
+      "bytes": 744322
+    },
+    {
+      "folio": "103v",
+      "sha256": "4871aa053496d3ac5b7ad85abe440728b3aa92065f6d899274cf3ba8c21e2f06",
+      "bytes": 842964
+    },
+    {
+      "folio": "104r",
+      "sha256": "5d6acd6b891c4597d9bb7caa86895af8cb452502cc970bf1b6916aba70ede010",
+      "bytes": 832787
+    },
+    {
+      "folio": "104v",
+      "sha256": "69dfc122addc4ab45d6043cc8d56ad800df7910f8609de117906d2aa93ed3ef0",
+      "bytes": 757180
+    },
+    {
+      "folio": "105r",
+      "sha256": "3366278f223ed63c5ae65cc9623a20faaab6467665dd4c7139d1ceee8ff56c97",
+      "bytes": 790167
+    },
+    {
+      "folio": "105v",
+      "sha256": "3e0040e6e5f819a9d5a6688b7d199db32e1fdb2c9beb7db92869fa04a4bdcf62",
+      "bytes": 816011
+    },
+    {
+      "folio": "106r",
+      "sha256": "969abc097394026afc6bef271945fd976367cdde7ec137a5d800b1c779430686",
+      "bytes": 854854
+    },
+    {
+      "folio": "106v",
+      "sha256": "142c7ccf66bc71f746c653c8f6e8ab15adf7979a78d7c49c04d9fe19445925e9",
+      "bytes": 772998
+    },
+    {
+      "folio": "107r",
+      "sha256": "35f0555187b9924d95a14f07919ccb94f4dfc26782aa5835ec85066d325cf547",
+      "bytes": 791420
+    },
+    {
+      "folio": "107v",
+      "sha256": "a52a9dd680b2181ad1b8567d0e51e6ca9f2292fae6e340495828e121f8a7e7e9",
+      "bytes": 814136
+    },
+    {
+      "folio": "108r",
+      "sha256": "735546335407de04aa0ea92f7e4ffc96076b7d3176655a71b21a0c76ff7b9881",
+      "bytes": 774611
+    },
+    {
+      "folio": "108v",
+      "sha256": "63ba374d8d5f9e873970cc73a592f9e87b9b62c7a8d28a530616fb2adc9b2837",
+      "bytes": 792480
+    },
+    {
+      "folio": "109r",
+      "sha256": "d81c0a2972278d4438459b8c5c7ef2ae8dbf9db32783ed32021bb45729a73c2c",
+      "bytes": 744723
+    },
+    {
+      "folio": "109v",
+      "sha256": "f1c9e5e21188b8061c828e33aa72cf38f0627afa1722c984cd49a07fa68fe4aa",
+      "bytes": 756098
+    },
+    {
+      "folio": "110r",
+      "sha256": "cab63031d8b567500898c281dd1685e4e07625708b97029da65e4eadff1f73c3",
+      "bytes": 801828
+    },
+    {
+      "folio": "110v",
+      "sha256": "043f4007617e57b7bdee89572f1795f83084c63ac78f58841e904cc58d46ef48",
+      "bytes": 792142
+    },
+    {
+      "folio": "111r",
+      "sha256": "faf7a4d0136745abc0c1593acdc250b3d793b16b5f7ea1981c8ea24f08fed4af",
+      "bytes": 778352
+    },
+    {
+      "folio": "111v",
+      "sha256": "c51432c514b7756756ee523529220fd34637a6718220720663a13511ec39fc17",
+      "bytes": 840562
+    },
+    {
+      "folio": "112r",
+      "sha256": "181bfa9751096d835f7c692486ed63b2ce6c85dc7b60d46ca953474c45590632",
+      "bytes": 827918
+    },
+    {
+      "folio": "112v",
+      "sha256": "ec7d5d2a25c6cad44df4e1a90ba26034dfc765c7b4da08cabf8668d312947e22",
+      "bytes": 810386
+    },
+    {
+      "folio": "113r",
+      "sha256": "e762761e52303d383f75f5bae890ab0442e145f4baac56a7880a615ac9913e0b",
+      "bytes": 760131
+    },
+    {
+      "folio": "113v",
+      "sha256": "499805475bc97fd24fdc9f0020ba247ef8cf3e6b1cf4d4c232711a86876e4aa5",
+      "bytes": 835976
+    },
+    {
+      "folio": "114r",
+      "sha256": "89bded94c74439d60d306f619e7e993dccd2c7c82f5e336e7594de63abbceea5",
+      "bytes": 822705
+    },
+    {
+      "folio": "114v",
+      "sha256": "7b4d128bb3091b749603aad1c89e9d16fc06c5193aca716ca84b8d14035d523b",
+      "bytes": 725871
+    },
+    {
+      "folio": "115r",
+      "sha256": "f893a9d2ed47d5f3d52a857717cd26a49d702a694a57465bbc70cda8047afb13",
+      "bytes": 773885
+    },
+    {
+      "folio": "115v",
+      "sha256": "c996e19f8ccd1c32cf14195f31bc88427136a1836bafba4f27c44af7482f6297",
+      "bytes": 871220
+    },
+    {
+      "folio": "116r",
+      "sha256": "b31de31bce84edbf838f7ee49bcc4010c974e16d90e5ae2d65825078ca9ff17a",
+      "bytes": 858438
+    },
+    {
+      "folio": "116v",
+      "sha256": "6382dece3e79a80d2f918a653c4abca829e0ef6061f3a447154e09b1acafb6b2",
+      "bytes": 749567
+    },
+    {
+      "folio": "117r",
+      "sha256": "d2d9b36538e1205e83ef524af0d8ca5ca95d9946aa3722fd8262128760a02e97",
+      "bytes": 768486
+    },
+    {
+      "folio": "117v",
+      "sha256": "551814797cd0b885153e05c2664cd8f5fdd33ac49d152b5d02d3c3d7a3acf556",
+      "bytes": 886771
+    },
+    {
+      "folio": "118r",
+      "sha256": "747ee09c0fe38d68b5649c1352580f4b682c53a8a4347b770e9b25310716dd74",
+      "bytes": 854993
+    },
+    {
+      "folio": "118v",
+      "sha256": "2b402be0498b4d1be73257e81fe10be140c89fc5b0c1ed39854eee8ae6ce35a2",
+      "bytes": 730493
+    },
+    {
+      "folio": "119r",
+      "sha256": "1df097b8eda00ab8e9f0612038661f8c51a753def3493f1f80c34028c3f3e975",
+      "bytes": 731743
+    },
+    {
+      "folio": "119v",
+      "sha256": "a1723a71e42bbdbd88e56b8151ae93d046e019d9e9a61fbe15fd046de09047e5",
+      "bytes": 841429
+    },
+    {
+      "folio": "120r",
+      "sha256": "56b40e3e5658ebb87d387f24dcb5cad8579395df5d49484d02c142793f4ae884",
+      "bytes": 840475
+    },
+    {
+      "folio": "120v",
+      "sha256": "bef4e9bbd02d0118dda85af37707679ac9f2a75f6a57311e86abfd24ae144827",
+      "bytes": 789602
+    },
+    {
+      "folio": "121r",
+      "sha256": "a726648cd9a197342d2c20fcf73853ae8a1e91c4511da8bb82607439fce26043",
+      "bytes": 775342
+    },
+    {
+      "folio": "121v",
+      "sha256": "e7fbe8c4126bbf8adc4521d0d9ce513b6542164757a2515e2351b2daf6ea5801",
+      "bytes": 825054
+    },
+    {
+      "folio": "122r",
+      "sha256": "5c0664abc4fb84df8dad7739b0fbc1e1df8f2906b5f3e62d43fa4f4c42d19d92",
+      "bytes": 814373
+    },
+    {
+      "folio": "122v",
+      "sha256": "8d5be896473dcb37053aaa4b3a9aac849128aa98642709c0038aa3b419801de0",
+      "bytes": 770400
+    },
+    {
+      "folio": "123r",
+      "sha256": "5ad895ef3649a17c757bbbf3970e910be0c2f177af556a78f5fc4ee44b5d607d",
+      "bytes": 716848
+    },
+    {
+      "folio": "123v",
+      "sha256": "4ab4d3919ef819d7dd037ad76f9a72a4f05e108e268a5f6f334fcfd5e489d145",
+      "bytes": 861817
+    },
+    {
+      "folio": "124r",
+      "sha256": "8f584279dd31813f14cf39e3615f4303ec2b6439b45036952b0b9dcdcfeae8fb",
+      "bytes": 779001
+    },
+    {
+      "folio": "124v",
+      "sha256": "462bfd781697915de450dd5b2ca48fceff5f51b4daf5be572b4034bcf85d4c24",
+      "bytes": 782711
+    },
+    {
+      "folio": "125r",
+      "sha256": "a788a6ae421f9665cfe0cbdee3837f8da691111ffd9cd10af3c646952dce43ec",
+      "bytes": 783186
+    },
+    {
+      "folio": "125v",
+      "sha256": "7cddf3a9961477bcb3411c051360408b91591412743f356b2434e497e8fe1dd1",
+      "bytes": 805207
+    },
+    {
+      "folio": "126r",
+      "sha256": "49310c036437c97720c6818c3b096334b85c1154e288953260d978b1b427536d",
+      "bytes": 827168
+    },
+    {
+      "folio": "126v",
+      "sha256": "7d0e0ba61dfab59b90e461f498fcbf03b7a2f17cd3bd36975e0f1b48c7c975e3",
+      "bytes": 729185
+    }
+  ],
+  "books": {
+    "Mishnah Gittin": {
+      "sourcePositions": 3743,
+      "withAnyPartialObservation": 3052,
+      "withoutObservationButExplicitlyUnresolved": 691,
+      "missing": 0
+    },
+    "Mishnah Ketubot": {
+      "sourcePositions": 5081,
+      "withAnyPartialObservation": 4043,
+      "withoutObservationButExplicitlyUnresolved": 1038,
+      "missing": 0
+    },
+    "Mishnah Kiddushin": {
+      "sourcePositions": 2246,
+      "withAnyPartialObservation": 1840,
+      "withoutObservationButExplicitlyUnresolved": 406,
+      "missing": 0
+    },
+    "Mishnah Nazir": {
+      "sourcePositions": 3139,
+      "withAnyPartialObservation": 2613,
+      "withoutObservationButExplicitlyUnresolved": 526,
+      "missing": 0
+    },
+    "Mishnah Nedarim": {
+      "sourcePositions": 4459,
+      "withAnyPartialObservation": 3560,
+      "withoutObservationButExplicitlyUnresolved": 899,
+      "missing": 0
+    },
+    "Mishnah Sotah": {
+      "sourcePositions": 3865,
+      "withAnyPartialObservation": 3281,
+      "withoutObservationButExplicitlyUnresolved": 584,
+      "missing": 0
+    },
+    "Mishnah Yevamot": {
+      "sourcePositions": 6625,
+      "withAnyPartialObservation": 5613,
+      "withoutObservationButExplicitlyUnresolved": 1012,
+      "missing": 0
+    }
+  },
+  "summary": {
+    "fullColumnReports": 9,
+    "additionalTargetedFeatureReports": 2,
+    "uniqueOriginalPages": 85,
+    "expectedOriginalPages": 85,
+    "sourcePositions": 29158,
+    "uniqueSourcePositionsWithAnyPartialObservation": 24002,
+    "uniquePositionsWithoutObservationButExplicitlyUnresolved": 5156,
+    "uniqueObservedAndUnresolvedAcrossDifferentReports": 24,
+    "uniqueCoveredPositions": 29158,
+    "missingPositions": 0,
+    "extraPositions": 0,
+    "multiplyObservedPositions": 151,
+    "rawObservationRecords": 24154,
+    "rawUnresolvedRecords": 5210,
+    "rawFeatureRecords": 55,
+    "fullWordPointingCertifications": 0,
+    "actualOriginalImageHashesChecked": 85,
+    "errors": 0
+  },
+  "errors": [],
+  "warnings": [],
+  "limitations": [
+    "No original image was newly interpreted by this global structural QA; individual visual evidence remains in its original report.",
+    "Coverage of all pages means each page has an inspection report; coverage of all source IDs means partial observation OR explicit unresolved inventory, not every word read or vocalization established.",
+    "Raw positive-feature records can subsequently be qualified or downgraded by the canonical independent countercheck pipeline."
+  ]
+}

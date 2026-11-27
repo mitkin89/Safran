@@ -217,3 +217,39 @@ preservation and image-binding checks. Electron uses
 focused checks. `accordance-independent-source-audit.json` documents the
 independent comparison with the original private input spans; it is not a
 claim of complete manuscript-pointing validation.
+
+For Seder Nashim, `build_nashim_accordance.cjs PRIVATE_AUDIT_JSON` consumes an
+independently checked projection of the four private source files. It requires
+`approvedForBuild`, unchanged input/catalog hashes and exact UTF-16 body spans.
+It maps 573 Kaufmann sections to 580 non-overlapping spans, including joined,
+split and unlabelled continuations. Original labels remain in transfer/card
+provenance. Arayot and subsequent material are excluded from the seven tractates.
+`accordance-nashim-supplied-scope-audit.json` publishes metadata without local
+private input paths; each transferred token also retains its original file hash,
+span and token hash. No whole copied reference file is bundled.
+
+`../mishnah-morph/build-nashim.cjs` builds form-level grammar and rabbinic lexical
+candidates on the existing reading-edition alignment positions. These are neither
+Accordance morphology tags nor confirmed Naschim context analyses. Source-bound
+occurrence corrections from another tractate are not generalized. The separate
+interlinear transfer guards still reject ambiguous or incompatible positions;
+Be'eri pointing is never used for the working edition. Original pointing already
+present in a Digital Mishnah source word remains untouched.
+
+Nashim manuscript locations use `sources/kaufmann-nashim-word-locations.json.gz`.
+The physical manuscript places Gittin before Nazir/Sotah. New image reports retain
+actual page/column reading attempts, conservative anchors and unresolved readings,
+without certifying complete word pointing. The independent Naschim source audit
+checks the generated transfer against the unchanged private token spans and
+original Kaufmann text; its final-artifact flag is set only after image metadata
+has been incorporated and checked.
+
+`compare_nashim_image_points.cjs PRIVATE_AUDIT_JSON REVIEW...` compares only
+positive individual signs against the exact unchanged private reference token.
+The aggregate distinguishes agreement, uncertain image features and unsafe
+reference comparisons. It never infers absence in an image. Blind counterchecks
+can leave an earlier sign uncertain while retaining its initial interpretation
+and the independent positive reading separately. The first two Ketubot apparent
+differences were not confirmed by the blind countercheck and an additional image
+rereading; the running text was not edited to settle them. These sign-level
+counts are not a corpus-wide vowel accuracy estimate.

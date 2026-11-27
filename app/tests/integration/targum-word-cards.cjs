@@ -67,6 +67,9 @@ vm.runInContext(part('  let targumFormsP =', '  // Belegstellen als Zeilen'), ct
 vm.runInContext(part('  async function wcDicts(token)', '  // Septuaginta: häufigste griechische Lemmata'), ctx);
 vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
 const dictionaryUI = fs.readFileSync(path.join(repoRoot, 'library-dictionary.js'), 'utf8');
+// The real factory receives this optional host callback even when absent.
+ctx.beforeLookup = undefined;
+ctx.corpora = { reset() {} };
 ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
 ctx.lsGet = () => []; ctx.lsSet = () => {};
 vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('    let dictSedraId='), dictionaryUI.indexOf('    let dictOnly =')), ctx);
