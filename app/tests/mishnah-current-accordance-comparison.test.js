@@ -6,7 +6,7 @@ function obs(extra={}){return {title:'Mishnah Test',ref:'1:1',textHash:'bound',w
 test('visible tags compare only explicit head features, without inferred suffixes or lexical both-gender range',()=>{
  assert.deepEqual(C.parseHead('prp; cm bth sg cnst').features,{type:'N',number:'s',state:'c'});
  const r=C.compareObservation(book([{lemma:'בית',morph:'HNcmsc/Sp3ms'}]),obs());
- assert.equal(r.status,'visible-head-features-compatible');assert.equal(r.lexicalComparison.status,'not-scored; raw lexical components retained for contextual review');
+ assert.equal(r.status,'visible-head-features-compatible');assert.equal(r.lexicalComparison.status,'candidate-head-lexeme-present-in-visible-components');
  assert(!('suffix' in r.parsed.features));
 });
 test('unresolved source cards are bound through exact source spans, without invented analysis provenance',()=>{
@@ -24,4 +24,12 @@ test('unknown source tags and split source groups remain review cases',()=>{
  assert.equal(C.compareObservation(book([]),obs({alignment:'one-to-many'})).status,'reference-needs-review');
  const r=C.compareObservation(book([{lemma:'בנה',morph:'HVqp3ms'}]),obs({tags:'pi imprf 3 ms sg'}));
  assert.equal(r.status,'visible-head-feature-difference');assert(r.candidates[0].different.some(d=>d.feature==='stem'));
+ const lexical=C.compareObservation(book([{lemma:'גג',morph:'HNcmsc'}]),obs());
+ assert.equal(lexical.status,'visible-head-features-compatible');assert.equal(lexical.lexicalComparison.status,'candidate-head-lexeme-differs');
+});
+test('screenshot surface and split-span warnings take precedence over the local target spelling',()=>{
+ const n=C.normalizeObservation({title:'Mishnah Test',ref:'1:1',sourceTextHash:'bound',sourceWordId:'K.1/word/0',sourceWord:'בית',accordance:{surface:'בת',lexemes:['בית'],rawTags:['cm fm sg']}},{});
+ assert.equal(n.word,'בת');assert.equal(C.compareObservation(book([]),n).status,'surface-or-segmentation-difference');
+ const grouped=C.normalizeObservation({sourceWordIds:['K.1/word/0','K.1/word/1'],sourceWord:'בית',confidence:'clear'},{});
+ assert.equal(grouped.alignment,'many-to-one');
 });

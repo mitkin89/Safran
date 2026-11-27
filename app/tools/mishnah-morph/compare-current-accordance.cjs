@@ -35,14 +35,14 @@ function normalizeObservation(o,document){
  const image=typeof o.image==='string'?(Array.isArray(document.images)?document.images.find(i=>path.basename(i.file||i.name||'')===o.image):document.images?.[o.image])||{file:o.image}:o.image||o.observation||{};
  return {title:o.title||document.title,ref:o.ref,textHash:o.targetTextHash||o.sourceTextHash||document.targetSourceTextHash||document.sourceTextHash,
   wordId:o.targetSourceWordId||o.sourceWordId,wordIndex:o.targetWordIndex??o.sourceWordIndex??o.wordIndex,
-  word:o.observedWord||o.sourceWord||o.word||o.accordance?.surface||'',
+  word:o.observedWord||o.accordance?.surface||o.observation?.surface||o.observedConsonants||o.sourceWord||o.word||'',
   lex:o.lex||o.rawLex||o.observed?.lex||o.observation?.lex||(o.accordance?.lexemes||[]).join(' '),
   tags:o.tags||o.rawTag||o.observed?.tag||o.observation?.tags||(o.accordance?.rawTags||[]).join(' '),
-  confidence:o.confidence||o.readingStatus||'clear',alignment:o.alignment||'one-to-one',image,
+  confidence:o.confidence||o.readingStatus||(/uncertain|unreadable|unclear|illegible/.test(o.status||'')?'uncertain':'clear'),alignment:o.alignment||((o.sourceWordIds?.length>1||o.sourceBindings?.length>1)?'many-to-one':'one-to-one'),image,observedRef:o.observation?.ref||o.observedRef||o.accordance?.ref||null,observationStatus:o.status||null,notes:o.notes||o.note||null,
   method:o.comparisonMethod||o.accordance?.observation||o.status||document.method};
 }
 function compareObservation(data,o){
- const result={title:o.title,ref:o.ref,sourceWordId:o.wordId,reference:{word:o.word,lex:o.lex,tags:o.tags,image:o.image,method:o.method}};
+ const result={title:o.title,ref:o.ref,sourceWordId:o.wordId,reference:{word:o.word,lex:o.lex,tags:o.tags,observedRef:o.observedRef||null,image:o.image,method:o.method,observationStatus:o.observationStatus||null,notes:o.notes||null}};
  const unit=data.units?.[o.ref],match=/\/word\/(\d+)$/.exec(o.wordId||''),index=match?Number(match[1]):o.wordIndex;
  if(o.title!==data.title||o.textHash!==data.source.textHash||!unit||!Number.isInteger(index)||o.wordId!==unit.id+'/word/'+index||!unit.words[index])return {...result,status:'binding-refused'};
  if(o.wordIndex!==undefined&&o.wordIndex!==index)return {...result,status:'binding-refused'};
@@ -60,9 +60,10 @@ function compareObservation(data,o){
   for(const [key,v]of Object.entries(expected)){const actual=head[key];if(actual===undefined)missing.push(key);else if(key==='form'&&v==='participle'? !['r','s'].includes(actual):actual!==v)different.push({feature:key,expected:v,actual});}
   return {lemma:a.lemma,morph:a.morph,partial:!!a.partialFeatures,missing,different};
  });
+ const visibleLexemes=String(o.lex||'').split(/[\s;|/]+/).map(plain).filter(Boolean),candidateHeads=analyses.map(a=>({lemma:a.lemma,head:plain(a.lemma.split('/').at(-1))})),lexicalMatches=candidateHeads.filter(a=>visibleLexemes.includes(a.head));
  const matches=reports.filter(r=>!r.missing.length&&!r.different.length),partial=reports.filter(r=>!r.different.length&&r.missing.length);
  return {...result,targetWord:f.word,status:!analyses.length?'draft-unresolved':matches.length?'visible-head-features-compatible':partial.length?'draft-partial-visible-features':'visible-head-feature-difference',parsed,
-  lexicalComparison:{observed:o.lex,candidateLemmas:analyses.map(a=>a.lemma),status:'not-scored; raw lexical components retained for contextual review'},candidates:reports};
+  lexicalComparison:{observed:o.lex,visibleLexemes,candidateLemmas:analyses.map(a=>a.lemma),candidateHeads,matchingCandidateLemmas:lexicalMatches.map(a=>a.lemma),status:!visibleLexemes.length?'not-readable':!analyses.length?'draft-unresolved':lexicalMatches.length?'candidate-head-lexeme-present-in-visible-components':'candidate-head-lexeme-differs',limitations:'Exact consonantal component comparison only. Prefix order, homonym sense, spelling equivalence and root equivalence require separate contextual review.'},candidates:reports};
 }
 function load(file){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(file,'utf8'),ctx);return Object.values(ctx.window)[0];}
 function main(){

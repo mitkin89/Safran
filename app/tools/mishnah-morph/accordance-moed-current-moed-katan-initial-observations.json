@@ -1,0 +1,556 @@
+{
+  "version": 1,
+  "scope": "Mishnah Moed Katan 1:1",
+  "method": "All visible Lex/Tag cells read from original screenshot; no draft analyses used as transcription source. AI visual observation, not human validation.",
+  "coverage": {
+    "sourceWords": 27,
+    "observedWords": 27,
+    "completeForRef": true,
+    "completeForTractate": false
+  },
+  "observations": [
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/0",
+      "sourceWordIndex": 0,
+      "sourceWord": "מַשְׁקִין",
+      "observedConsonants": "משקין",
+      "lex": "שקה",
+      "tags": "hif prt ms pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/1",
+      "sourceWordIndex": 1,
+      "sourceWord": "בֵּית",
+      "observedConsonants": "בית",
+      "lex": "בית",
+      "tags": "cm ms sg cnst",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/2",
+      "sourceWordIndex": 2,
+      "sourceWord": "הַשְּׁלָחִים",
+      "observedConsonants": "השלחים",
+      "lex": "ה שלח",
+      "tags": "art; cm ms pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/3",
+      "sourceWordIndex": 3,
+      "sourceWord": "בַּמּוֹעֵד",
+      "observedConsonants": "במועד",
+      "lex": "ב מועד",
+      "tags": "prp; cm ms sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/4",
+      "sourceWordIndex": 4,
+      "sourceWord": "וּבַשְּׁבִיעִית",
+      "observedConsonants": "ובשביעית",
+      "lex": "ו ב שביעי",
+      "tags": "cnj; prpArt; fm sg abs ord",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/5",
+      "sourceWordIndex": 5,
+      "sourceWord": "בֵּין",
+      "observedConsonants": "בין",
+      "lex": "בין",
+      "tags": "prp",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/6",
+      "sourceWordIndex": 6,
+      "sourceWord": "מִמַּעְיָין",
+      "observedConsonants": "ממעיין",
+      "lex": "מן מעין",
+      "tags": "prp; cm ms sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/7",
+      "sourceWordIndex": 7,
+      "sourceWord": "שֶׁיָּצָא",
+      "observedConsonants": "שיצא",
+      "lex": "ש יצא",
+      "tags": "rel; qal prf 3 ms sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/8",
+      "sourceWordIndex": 8,
+      "sourceWord": "כַתְּחִילָּה",
+      "observedConsonants": "כתחילה",
+      "lex": "כ תחילה",
+      "tags": "prpArt; cm fm sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/9",
+      "sourceWordIndex": 9,
+      "sourceWord": "וּבֵין",
+      "observedConsonants": "ובין",
+      "lex": "ו בין",
+      "tags": "cnj; prp",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/10",
+      "sourceWordIndex": 10,
+      "sourceWord": "מִמַּעְיָין",
+      "observedConsonants": "ממעיין",
+      "lex": "מן מעין",
+      "tags": "prp; cm ms sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/11",
+      "sourceWordIndex": 11,
+      "sourceWord": "שֶׁלֹּא",
+      "observedConsonants": "שלא",
+      "lex": "ש לא",
+      "tags": "rel; ng",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/12",
+      "sourceWordIndex": 12,
+      "sourceWord": "יָצָא",
+      "observedConsonants": "יצא",
+      "lex": "יצא",
+      "tags": "qal prf 3 ms sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/13",
+      "sourceWordIndex": 13,
+      "sourceWord": "כַתְּחִילָה",
+      "observedConsonants": "כתחילה",
+      "lex": "כ תחילה",
+      "tags": "prpArt; cm fm sg",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/14",
+      "sourceWordIndex": 14,
+      "sourceWord": "אֲבַל",
+      "observedConsonants": "אבל",
+      "lex": "אבל",
+      "tags": "adv",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/15",
+      "sourceWordIndex": 15,
+      "sourceWord": "אֵין",
+      "observedConsonants": "אין",
+      "lex": "אין",
+      "tags": "adv",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/16",
+      "sourceWordIndex": 16,
+      "sourceWord": "מַשְׁקִין",
+      "observedConsonants": "משקין",
+      "lex": "שקה",
+      "tags": "hif prt ms pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/17",
+      "sourceWordIndex": 17,
+      "sourceWord": "לֹא",
+      "observedConsonants": "לא",
+      "lex": "לא",
+      "tags": "ng",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/18",
+      "sourceWordIndex": 18,
+      "sourceWord": "מִימֵּי",
+      "observedConsonants": "מימי",
+      "lex": "מן מים",
+      "tags": "prp; cm ms pl cnst",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/19",
+      "sourceWordIndex": 19,
+      "sourceWord": "גְּשָׁמִים",
+      "observedConsonants": "גשמים",
+      "lex": "גשם",
+      "tags": "cm ms pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/20",
+      "sourceWordIndex": 20,
+      "sourceWord": "ולֹא",
+      "observedConsonants": "ולא",
+      "lex": "ו לא",
+      "tags": "cnj; ng",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/21",
+      "sourceWordIndex": 21,
+      "sourceWord": "מִימֵּי",
+      "observedConsonants": "מימי",
+      "lex": "מן מים",
+      "tags": "prp; cm ms pl cnst",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/22",
+      "sourceWordIndex": 22,
+      "sourceWord": "הַקִּילוֹן",
+      "observedConsonants": "הקילון",
+      "lex": "ה קילון",
+      "tags": "art; cm ms pl cnst",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": [
+        "Displayed plural construct tag retained literally; not silently changed to contextual singular."
+      ]
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/23",
+      "sourceWordIndex": 23,
+      "sourceWord": "וְאֵין",
+      "observedConsonants": "ואין",
+      "lex": "ו אין",
+      "tags": "cnj; adv",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/24",
+      "sourceWordIndex": 24,
+      "sourceWord": "עוֹשִׂין",
+      "observedConsonants": "עושין",
+      "lex": "עשה",
+      "tags": "qal prt ms pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/25",
+      "sourceWordIndex": 25,
+      "sourceWord": "עוּגִיּוֹת",
+      "observedConsonants": "עוגיות",
+      "lex": "עוגיא",
+      "tags": "cm fm pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "ref": "1:1",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceWordId": "S07326.2.11.1.1/word/26",
+      "sourceWordIndex": 26,
+      "sourceWord": "לַגְּפָנִים",
+      "observedConsonants": "לגפנים",
+      "lex": "ל גפן",
+      "tags": "prpArt; cm bth pl",
+      "confidence": "clear",
+      "alignment": "one-to-one",
+      "comparisonMethod": "fresh-AI-visual-reading-of-original-Lex-and-Tag-rows",
+      "image": {
+        "file": "mischna_2026-11-26_22-48-07_4CB37088_462.png",
+        "sha256": "4d5ca47b32a7a9067b8f8d350921fd37a1bc19787b201ae06ff78f48c6192b13",
+        "driveId": "122a7iLeZPhD9xp-5lIdt03mBtbxcXEW-"
+      },
+      "notes": []
+    }
+  ],
+  "open": []
+}
