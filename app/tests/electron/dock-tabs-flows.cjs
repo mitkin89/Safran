@@ -50,6 +50,8 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#wcBody .wcSec')",'Wortkarte bereit');
  await js("if(!document.querySelector('#formsPanel .pinB').classList.contains('on'))document.querySelector('#formsPanel .pinB').click()");
  await waitFor("document.querySelector('#dockTabs [data-panel=forms]')",'Wortkarte als Panel-Tab');
+ await js("document.querySelector('#rTitle').dispatchEvent(new MouseEvent('mousedown',{bubbles:true,button:0}))");
+ assert(await js("!document.querySelector('#formsPanel').hidden"),'Outside click keeps pinned word card open');
  const card=await js("document.querySelector('#fmHead').textContent");
  await js("document.querySelector('#dockTabs [data-panel=textcrit]').click();document.querySelector('#dockTabs [data-panel=forms]').click()");
  await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte über Tab zurück');assert.equal(await js("document.querySelector('#fmHead').textContent"),card,'Wortkarteninhalt bleibt erhalten');
@@ -57,11 +59,25 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#dockTabs [role=tab][aria-selected=true]')===document.querySelector('#dockTabs [data-panel]')",'Tabwechsel mit Tastatur');
  await js("document.querySelector('#dockTabs [data-panel=forms]').click()");await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte aktiv vor Lösen');
  await js("document.querySelector('#formsPanel .pinB').click()");await waitFor("!!document.querySelector('#dockTabs [data-panel=forms]')&&!document.querySelector('#formsPanel').classList.contains('docked')",'Gelöstes Panel behält seinen Werkzeug-Tab');
+ await js("document.querySelector('#fmHead').dispatchEvent(new MouseEvent('mousedown',{bubbles:true,button:0}));document.querySelector('#dockTabs [data-panel=forms]').dispatchEvent(new MouseEvent('mousedown',{bubbles:true,button:0}))");
+ assert(await js("!document.querySelector('#formsPanel').hidden"),'Inside and toolbar clicks keep floating word card open');
+ await js("document.querySelector('#rTitle').dispatchEvent(new MouseEvent('mousedown',{bubbles:true,button:0}))");
+ await waitFor("document.querySelector('#formsPanel').hidden&&document.querySelector('#dockTabs').hidden",'Outside click closes floating word card and toolbar');
+ await js("document.querySelector('#studyBtn').click()");
+ await waitFor("!document.querySelector('#formsPanel').hidden",'Word card reopens after outside click');
+ assert.equal(await js("document.querySelector('#fmHead').textContent"),card,'Outside dismissal retains the word card content');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");
  await waitFor("document.querySelector('#formsPanel').hidden&&document.querySelector('#dockTabs').hidden",'Esc schließt die gelöste Seitenleiste');
  await js("document.querySelector('#dockTabs [data-panel=textcrit]').click()");await waitFor("!document.querySelector('#textcritPanel').hidden",'Textkritik für Sichtprüfung');
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
  await waitFor("document.querySelector('#dockTabs').getBoundingClientRect().bottom<=document.querySelector('#textcritPanel').getBoundingClientRect().top+2",'Tab-Leiste überdeckt keinen Panel-Kopf');
  if(process.env.SAFRAN_DOCK_TABS_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_DOCK_TABS_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+ for(const key of ['cmt','forms','dict','all','outline','link','topic','textcrit','masora','map']) {
+  if(await js(`document.querySelector('#dockTabs [data-panel=${key}]').disabled`))continue;
+  await js(`document.querySelector('#dockTabs [data-panel=${key}]').click()`);
+  await waitFor(`!document.getElementById(document.querySelector('#dockTabs [data-panel=${key}]').getAttribute('aria-controls')).hidden`,'Floating tool '+key);
+  await js("document.querySelector('#rTitle').dispatchEvent(new MouseEvent('mousedown',{bubbles:true,button:0}))");
+  await waitFor("document.querySelector('#dockTabs').hidden",'Outside click dismisses entire floating pane: '+key);
+ }
  console.log('Electron: Gemeinsame Panel-Tabs für Kommentare, Textkritik, Überblick, Gliederung, Verknüpfungen, Themen, Karte und Wortkarte; Zustand, Tastatur und Lösen bestanden.');
 };

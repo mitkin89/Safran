@@ -16,6 +16,9 @@ module.exports=async({js,waitFor,win})=>{
  await js("document.querySelector('#wcTr .wcTrR.can').click()");
  await waitFor("document.querySelectorAll('#wcTr .wcTrFm .fm').length===19",'Alle 19 Originalformen');
  assert(await js("document.querySelector('#wcTr .wcTrForms')?.open===false"),'Originalformen zunächst eingeklappt');
+ const samaritanSizes=await js("(()=>{const row=document.querySelector('#wcTr .wcTrCx .ln'),mt=getComputedStyle(row.querySelector('.he')),smr=getComputedStyle(row.querySelector('.de[lang=he]'));return [mt.fontSize,smr.fontSize,mt.fontFamily,smr.fontFamily]})()");
+ assert.equal(samaritanSizes[0],samaritanSizes[1],'Samaritanus und MT haben dieselbe Schriftgröße');
+ assert.equal(samaritanSizes[2],samaritanSizes[3],'Samaritanus und MT verwenden dieselbe Schrift');
  await js("document.querySelector('#wcTr [data-src=O]').click();document.querySelector('#wcTr .wcTrR.can').click()");
  await waitFor("document.querySelector('#wcTr .wcTrCx .ln .de')",'Onkelos-Belege');
  assert(await js("(()=>{const row=document.querySelector('#wcTr .wcTrCx .ln'),he=row.querySelector('.he').getBoundingClientRect(),ar=row.querySelector('.de').getBoundingClientRect();return ar.width<150&&Math.abs(ar.left-he.right)<30})()"),'Onkelos steht direkt neben dem Hebräischen');
