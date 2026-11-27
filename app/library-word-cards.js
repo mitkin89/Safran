@@ -386,7 +386,6 @@ window.LibraryWordCards = (() => {
       <section class="wcSec"><h4>${host.esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${host.esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
       <section class="wcSec" id="wcTr" hidden></section>
-      <section class="wcSec" id="wcHex" hidden></section>
       <section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>
       <section class="wcSec" id="wcLxx" hidden></section>
       <section class="wcSec" id="wcTgR" hidden></section>
@@ -411,7 +410,6 @@ window.LibraryWordCards = (() => {
     if (greek) wcHeb(token);
     else if (!targum) {
       wcTrans(token);
-      wcHexapla(token);
       if (!family) { wcLxx(token); wcTgRen(token); wcPeshittaRen(token); wcQumran(token); wcTargum(token); }
     }
   }
@@ -506,31 +504,16 @@ window.LibraryWordCards = (() => {
     };
     done([...by].map(([id,d])=>`<div class="wcD" data-sy-dict="${host.esc(id)}"><div class="wcDH"><span>${host.esc(d.name)}</span><small>${d.xs.length}</small></div>${d.xs.slice(0,3).map(entry).join('')}${d.xs.length>3?`<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length-3}">${host.esc(I18N.t('+ {} weitere',d.xs.length-3))}</button>`:''}</div>`).join(''));
   }
-  // Field fragments keep their source attribution and phrase-level anchors.
+  // Field supplies lexical statistics only for exact, single-word MT anchors.
   let wcHexP = null;
-  async function wcHexapla(token) {
-    const card = fmCur;
-    let index;
-    try { index = await (wcHexP ||= lazyScript('hexapla-word-index.js', () => window.HEXAPLA_WORD_INDEX)); }
-    catch { wcHexP = null; return; }
-    const box = host.$('#wcHex');
-    if (token !== wcToken || card !== fmCur || !box || !index) return;
-    const ids = [...new Set((card.family?.ids || [card.lemma]).flatMap(id => index.lemmas[id] || []))];
-    if (!ids.length) return;
-    const e = host.esc, t = s => e(I18N.t(s));
-    const row = id => {
-      const r = index.rows[id];
-      return `<article class="wcHexRow"><div class="fmRL"><a data-ref="${e(r.ref)}">${e(r.ref)}</a> · <small>Field ${r.volume === 2 ? 'II' : 'I'}, ${e(String(r.page))}${r.field !== r.ref.split(' ').at(-1) ? ' · Field ' + e(r.field) : ''}</small></div>
-        <div><bdi lang="he" dir="rtl">${e(r.he)}</bdi>${r.phrase ? ` <small class="muted">${t('Wortgruppe – Zuordnung zum Kontext')}</small>` : ''}</div>
-        <p lang="grc">${e(r.head)} ${r.forWord ? '(' + e(r.forWord) + ') ' : ''}${e(r.reading)}</p>
-        <details data-hx-source="${id}"><summary>${t('Field: Original und Fußnoten')}</summary><div class="wcHexOriginal"></div></details></article>`;
-    };
-    box.innerHTML = `<h4>Field Hexapla</h4><p class="muted">${t('Erhaltene Lesarten zu diesem Wort und seinem Kontext; keine vollständige Übersetzung und keine durchgehende Wort-für-Wort-Zuordnung.')}</p>` +
-      ['Aquila','Symmachus','Theodotion'].map(source => {
-        const members = ids.filter(id => index.rows[id].sources.includes(source));
-        return `<details class="wcHexSource"><summary>${e(source)} <small>${wcNum(members.length)} ${t('Lesarten')}</small></summary>${members.slice(0,30).map(row).join('')}${members.length > 30 ? `<details><summary>${t('Weitere Lesarten')}</summary>${members.slice(30).map(row).join('')}</details>` : ''}</details>`;
-      }).join('');
-    box.hidden = false;
+  const loadHexRen = () => wcHexP || (wcHexP = lazyScript('hexapla-word-index.js', () => window.HEXAPLA_WORD_INDEX).catch(() => { wcHexP = null; return null; }));
+  const WC_TR_HEX = new Set(['Aquila','Symmachus','Theodotion']);
+  function wcFieldNotes(refs) {
+    const index=window.HEXAPLA_WORD_INDEX,e=host.esc;
+    return [...new Set((refs||[]).flatMap(r=>r.fieldIds||[]))].map(id=>{
+      const r=index?.rows[id];if(!r)return '';
+      return `<details class="wcFieldNote" data-hx-source="${id}"><summary>${e(r.ref)} · Field ${r.volume===2?'II':'I'}, ${e(String(r.page))} · <bdi lang="grc">${e(r.head)}</bdi></summary><div class="wcHexOriginal"></div></details>`;
+    }).join('');
   }
   host.$('#wcBody').addEventListener('toggle', async event => {
     const details = event.target;
@@ -585,7 +568,7 @@ window.LibraryWordCards = (() => {
     return all;
   })().catch(() => { ilRenP = null; return null; }));
   const WC_TR_DE = new Set(['Mendelssohn', 'BuberRosenzweig', 'Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Wolf']);
-  const WC_TR_LABEL = { Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1', Q: 'Qumran-Rollen', Samaritan: 'Samaritanus', Peshitta: 'Peschitta' };
+  const WC_TR_LABEL = { Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Aquila:'Aquila', Symmachus:'Symmachus', Theodotion:'Theodotion', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1', Q: 'Qumran-Rollen', Samaritan: 'Samaritanus', Peshitta: 'Peschitta' };
   // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne
   // Vers-Vorschau in der Wortkarte: Text aus der dort gewählten Fassung (Tabelle: „Übersetzung unter den Formen“, Überblick: Quell-Chip der Übersetzungsstatistik);
   // der Versionstitel wird wie in der Interlinear-Ansicht über IL_VT erkannt. „aus“ oder keine Auswahl: wie überall (null)
@@ -593,7 +576,6 @@ window.LibraryWordCards = (() => {
   function wcDefaultSource(keys){const title=host.getBibleTranslation?.()||'';return keys.find(k=>(host.IL_VT[k]||WC_TR_VT[k])?.test(title))||keys[0];}
   const RTL = l => l === 'arc' || l === 'he' || l === 'syr';
   function wcHovPick(a) {
-    if (a.closest('#wcHex')) return fmCur?.family ? null : {lem:fmCur?.lemma};
     if (fmCur && fmCur.targum && a.closest('.fmRL') && a.dataset.gvt) {
       return { vt: '^' + a.dataset.gvt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$', rtl: true, label: 'Targum', targum: fmCur.targum };
     }
@@ -602,6 +584,7 @@ window.LibraryWordCards = (() => {
       return { vt: vt ? '^' + vt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$' : '^Septuaginta', rtl: false, label: 'Septuaginta', greek: fmCur.lemma };
     }
     const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
+    if(WC_TR_HEX.has(k))return {lem:a.dataset.sameLemma||fmCur?.lemma};
     const sameLemma=a.dataset.sameLemma;
     const lem = sameLemma || (fmCur && !fmCur.family && !fmCur.greek && !fmCur.targum ? fmCur.lemma : null); // das Wort der Wortkarte wird in der Vorschau markiert
     if (!k || k === 'off' || (fmCur && fmCur.greek)) return lem ? { lem } : null;
@@ -632,7 +615,7 @@ window.LibraryWordCards = (() => {
   // Quellen der Übersetzungsstatistik für ein Lemma: {src: {Fassung: {lang, labels, cells}}, keys, IR}
   // labels[g].forms: deutsche Fassungen [Grundform, [Form, Anzahl], …]; Septuaginta und Targumim [Lemma]
   async function wcTrSources(lemma) {
-    const [IR, LR, TR, QR, WR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen(), loadQRen(), loadWitnessRen()]);
+    const [IR, LR, TR, QR, WR, HR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen(), loadQRen(), loadWitnessRen(), loadHexRen()]);
     const src = {};
     if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })), para: x[2] || {} }; }
     const lx = LR && LR[lemma];
@@ -652,8 +635,12 @@ window.LibraryWordCards = (() => {
           cells: cells.map(([g, code, n, refs, form]) => ({ g, code, n, refs, form })) };
       }
     }
+    if(HR && (!IR || JSON.stringify(IR.books)===JSON.stringify(HR.books)))for(const key of WC_TR_HEX){
+      const entry=HR.renderings[key]?.[lemma];if(!entry)continue;
+      src[key]={lang:'grc',grouped:true,labels:entry[0],cells:entry[1].map(([g,code,n,refs,form,fieldIds])=>({g,code,n,refs,form,fieldIds}))};
+    }
     for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
-    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k]?.total >= (Object.hasOwn(WC_TR_WITNESSES, k) ? 1 : 2));
+    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k]?.total >= (Object.hasOwn(WC_TR_WITNESSES, k) || WC_TR_HEX.has(k) ? 1 : 2));
     return { src, keys, IR: IR || WR && { books: WR.books } };
   }
   function wcScopeSources(card) {
@@ -765,7 +752,7 @@ window.LibraryWordCards = (() => {
   function wcSameHtml(S,D){
     if(S.same==null)return '';
     const label=D.labels[+S.same]?.forms[0];if(!label)return '';
-    const matches=D.lang==='de' ? window.RenderingSearch.find(S.IR,S.cur,label) : window.RenderingSearch.findAncient({LXX:window.LXX_REN,targum:window.TARGUM_REN,witness:window.WITNESS_REN},S.cur,D.labels[+S.same]);
+    const matches=D.lang==='de' ? window.RenderingSearch.find(S.IR,S.cur,label) : window.RenderingSearch.findAncient({LXX:window.LXX_REN,targum:window.TARGUM_REN,witness:window.WITNESS_REN,hexapla:window.HEXAPLA_WORD_INDEX},S.cur,D.labels[+S.same]);
     const LEM=window.OSHB_LEMMAS||{};
     const t=(s,...a)=>host.esc(I18N.t(s,...a));
     return `<section class="wcSame"><h5>${t('Gleiche Wiedergabe')}: <bdi lang="${D.lang}" dir="${RTL(D.lang)?'rtl':'ltr'}">${host.esc(label)}</bdi> · ${t(WC_TR_LABEL[S.cur])}<button type="button" class="wcSameClose" aria-label="${t('Schließen')}">✕</button></h5>
@@ -796,7 +783,7 @@ window.LibraryWordCards = (() => {
     }).filter(d => d.vals.length > 1 || S.f[d.k]);
     // Gruppen unter dem Filter; Stellen je Gruppe in der Reihenfolge des Tanach (Doppelte bleiben: zwei Vorkommen im Vers = zwei Zeilen)
     const gn = new Map(), grefs = new Map();
-    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach((num,j) => a.push({ num, code: c.code, g: c.g, lemma: c.lemma, form:c.targets?.[j]?.[1] || c.form, position:c.targets?.[j]?.[0] })); } });
+    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach((num,j) => a.push({ num, code: c.code, g: c.g, lemma: c.lemma, form:c.targets?.[j]?.[1] || c.form, position:c.targets?.[j]?.[0], fieldIds:c.fieldIds })); } });
     grefs.forEach(a => a.sort((x, y) => x.num - y.num));
     const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.labels[g] && D.labels[g].same ? I18N.lang : D.lang, refs: grefs.get(g) }))  /* Qumran „gleich …“: Text der Oberfläche, nicht hebräisch */.sort((a, b) => (!!a.other - !!b.other) || b.n - a.n);
     const tot = gs.reduce((a, g) => a + g.n, 0), all = D.total;
@@ -845,7 +832,7 @@ window.LibraryWordCards = (() => {
       const fm = g.forms.slice(1), sum = fm.reduce((a, f) => a + f[1], 0), gAll = D.cells.reduce((a, c) => a + (c.g === g.g ? c.n : 0), 0), h = hint(g);
       return `<div class="wcTrX">${h ? `<p class="wcTrHint" dir="auto">${host.esc(h)} <span class="muted">– ${host.esc(I18N.t('diese Wiedergabe ist bei dem gleich geschriebenen Wort deutlich häufiger.'))}</span></p>` : ''}
         ${fm.length ? `${D.grouped ? `<details class="wcTrForms"><summary>${host.esc(I18N.t('{} belegte Originalformen',wcNum(fm.length)))}</summary>` : ''}<div class="wcTrFm"><span class="muted">${host.esc(I18N.t('Formen:'))}</span>${fm.map(([f, n]) => `<span class="fm" lang="${D.lang}" dir="${RTL(D.lang) ? 'rtl' : 'ltr'}">${host.esc(f)} <small>${wcNum(n)}</small></span>`).join('')}${sum < gAll ? `<span class="muted">${host.esc(I18N.t('… und weitere Formen'))}</span>` : ''}${fk.length ? `<span class="muted">(${host.esc(I18N.t('ohne Filter gezählt'))})</span>` : ''}</div>${D.grouped ? '</details>' : ''}` : ''}
-        ${g.refs ? ctx(g.refs, String(g.g)) : ''}</div>`;
+        ${g.refs ? ctx(g.refs, String(g.g)) : ''}${WC_TR_HEX.has(S.cur)?wcFieldNotes(g.refs):''}</div>`;
     };
     // Ring: die häufigsten Wiedergaben (bis 7, ohne die zusammengefassten Einzelbelege) in den Kategorienfarben, der Rest grau; dieselbe Farbe trägt die Zeile in der Liste
     const TOP = 7, slices = main.filter(g => !g.other).slice(0, TOP).map((g, i) => ({ g, n: g.n, c: i + 1, k: String(g.g), t: lab(g) }));
@@ -865,7 +852,7 @@ window.LibraryWordCards = (() => {
     const chev = can => `<span class="chev" aria-hidden="true">${can ? '›' : ''}</span>`;
     const sw = '<i class="sw" aria-hidden="true"></i>';
     const bar = n => `<span class="b"><i style="width:${(n / tot * 100).toFixed(1)}%"></i></span>`;
-    const name = g => (de || ['Peshitta','LXX','O','Samaritan'].includes(S.cur))&&!g.other ? `<button type="button" class="wcSamePick" data-g="${g.g}" aria-pressed="${S.same===String(g.g)}" title="${host.esc(I18N.t('Andere hebräische Wörter mit dieser Wiedergabe zeigen'))}">${host.esc(lab(g))}</button>` : g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
+    const name = g => (de || ['Peshitta','LXX','O','Samaritan',...WC_TR_HEX].includes(S.cur))&&!g.other ? `<button type="button" class="wcSamePick" data-g="${g.g}" aria-pressed="${S.same===String(g.g)}" title="${host.esc(I18N.t('Andere hebräische Wörter mit dieser Wiedergabe zeigen'))}">${host.esc(lab(g))}</button>` : g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
     const row = g => {
       const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
       return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${g.targumLex ? ` data-tg-lexeme="${host.esc(g.targumLex)}"` : ''}${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${host.esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${host.esc(g.gl)}</small>` : ''}${D.grouped ? ` <small class="muted wcTrKind">${host.esc(I18N.t(g.type === 'lemma' ? 'Lemma' : g.type === 'phrase' ? 'Wortgruppe' : 'Wortform ohne sichere Lemma-Zuordnung'))}</small>` : ''}${h ? ` <small class="hint" title="${host.esc(h)}">${host.esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
@@ -887,7 +874,7 @@ window.LibraryWordCards = (() => {
     // ----- Vergleich zweier Fassungen: an denselben Stellen gibt A das Wort mit X wieder, B mit Y (Paare nach A gruppiert); Klick auf ein Paar zeigt die Stellen mit beiden Wiedergaben -----
     function cmpView() {
       const kB = S.cmp, B = S.src[kB], deB = B.lang === 'de';
-      const per = Dx => { const m = new Map(); let n = 0; Dx.cells.forEach(c => { if (!match(c)) return; n += c.n; unB36(c.refs).forEach((num,j) => (m.get(num) || m.set(num, []).get(num)).push({ g: c.g, code: c.code, lemma: c.lemma, form:c.targets?.[j]?.[1] || c.form, position:c.targets?.[j]?.[0] })); }); return { m, n }; };
+      const per = Dx => { const m = new Map(); let n = 0; Dx.cells.forEach(c => { if (!match(c)) return; n += c.n; unB36(c.refs).forEach((num,j) => (m.get(num) || m.set(num, []).get(num)).push({ g: c.g, code: c.code, lemma: c.lemma, form:c.targets?.[j]?.[1] || c.form, position:c.targets?.[j]?.[0], fieldIds:c.fieldIds })); }); return { m, n }; };
       const PA = per(D), PB = per(B), pairs = new Map(); let np = 0;
       PA.m.forEach((as, num) => { // mehrere Vorkommen im Vers: erst die mit gleicher Bestimmung zusammen, dann der Reihe nach
         const bs = PB.m.get(num); if (!bs) return; const free = bs.slice(), pr = [], left = [];
@@ -949,7 +936,7 @@ window.LibraryWordCards = (() => {
       ['lemma','{} Lemma','{} Lemmata'], ['form','{} Wortform ohne Lemma','{} Wortformen ohne Lemma'], ['phrase','{} Wortgruppe','{} Wortgruppen']
     ].flatMap(([type,singular,plural])=>{const n=gs.filter(g=>g.type===type).length;return n?[I18N.t(n===1?singular:plural,wcNum(n))]:[];})].join(' · ') : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length));
     const sum = `<div class="wcTrSum${X ? ' cmp' : ''}">${X ? X.head : `<span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${host.esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : groupSummary)}</span>`}${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${host.esc(S.f[k])}" title="${host.esc(I18N.t('Filter entfernen'))}">${host.esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${host.esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${host.esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
-    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : S.cur === 'Q' ? 'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.' : S.cur === 'Samaritan' ? 'Samaritanus: nach belegten Lexemen der eigenen Wortanalysen gruppiert. Originalformen und Fundstellen bleiben erhalten; Wörter ohne sichere Zuordnung und Wortgruppen stehen separat.' : S.cur === 'Peshitta' ? 'Peschitta: nach belegten Lexemen der eigenen Wortanalysen gruppiert. Originalformen und Fundstellen bleiben erhalten; Wörter ohne sichere Zuordnung und Wortgruppen stehen separat.' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
+    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : WC_TR_HEX.has(S.cur) ? 'Field Hexapla (1875): nur erhaltene Lesarten mit eindeutiger Zuordnung zu einem einzelnen hebräischen Wort. Mehrdeutige Wortgruppen und bloße Verweise sind nicht gezählt; alternative Lesarten können dasselbe Wort mehrfach belegen. Quellen und Fußnoten stehen bei den Belegen.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : S.cur === 'Q' ? 'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.' : S.cur === 'Samaritan' ? 'Samaritanus: nach belegten Lexemen der eigenen Wortanalysen gruppiert. Originalformen und Fundstellen bleiben erhalten; Wörter ohne sichere Zuordnung und Wortgruppen stehen separat.' : S.cur === 'Peshitta' ? 'Peschitta: nach belegten Lexemen der eigenen Wortanalysen gruppiert. Originalformen und Fundstellen bleiben erhalten; Wörter ohne sichere Zuordnung und Wortgruppen stehen separat.' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
     { // was gerade eingeklappt ist (Formen einer Zeile, Einzelbelege, weitere Wiedergaben, weitere Merkmale) – die Suche im Fenster (wcFind) findet es und klappt es beim Springen auf
       const hid = [], gtxt = g => lab(g) + (g.gl ? ' ' + g.gl : '');
       if (X) { if (X.hidden) hid.push({ act: 'rows', sel: '.wcTrAllRows', text: X.hidden }); }

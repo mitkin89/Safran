@@ -23,9 +23,10 @@
   // Keep witness lexeme IDs distinct from unresolved forms and phrases.
   function findAncient(indices, source, selected) {
     if (!selected || selected.other || selected.forms[0] === '*') return [];
-    const witness = source === 'Peshitta' || source === 'Samaritan';
+    const field = ['Aquila','Symmachus','Theodotion'].includes(source);
+    const witness = source === 'Peshitta' || source === 'Samaritan' || field;
     const entries = source === 'LXX' ? indices.LXX : source === 'O' ? indices.targum
-      : witness ? (indices.witness?.groups?.[source] || indices.witness?.[source]) : null;
+      : field ? indices.hexapla?.renderings?.[source] : witness ? (indices.witness?.groups?.[source] || indices.witness?.[source]) : null;
     const exact = value => String(value || '').normalize('NFC');
     const matches = label => source === 'LXX' ? exact(label) === exact(selected.forms[0])
       : source === 'O' ? (selected.targumLex != null ? label[2] === selected.targumLex : label[2] == null && exact(label[0]) === exact(selected.forms[0]))

@@ -66,7 +66,7 @@ module.exports=async({win,js,waitFor})=>{
  await waitFor(fillWord,'Hebräisches Wort für die Wurzelsuche');
  await js(fillWord + ".dispatchEvent(new MouseEvent('dblclick',{bubbles:true}))");
  await waitFor("document.querySelector('#wcBody .wcAct .wcRoot[data-root=מלא]')",'Wurzelsuche im Wortkarten-Überblick');
- for(const source of ['Peshitta','LXX','O','Samaritan']){
+ for(const source of ['Peshitta','LXX','O','Samaritan','Aquila','Symmachus','Theodotion']){
   await waitFor(`document.querySelector('#wcTr [data-src="${source}"]')`,source+' available');
   await js(`document.querySelector('#wcTr [data-src="${source}"]').click()`);
   await waitFor("document.querySelector('#wcTr .wcSamePick')",source+' reverse lookup button');
@@ -76,11 +76,15 @@ module.exports=async({win,js,waitFor})=>{
   await js("document.querySelector('#wcTr .wcSameClose').click()");
   assert(await js("!document.querySelector('#wcTr .wcSame')"));
  }
- await waitFor("document.querySelector('#wcHex:not([hidden]) .wcHexSource')",'Field Hexapla in Hebrew word card');
- assert.equal(await js("document.querySelectorAll('#wcHex .wcHexSource').length"),3);
- await js("document.querySelector('#wcHex .wcHexSource').open=true;document.querySelector('#wcHex [data-hx-source]').open=true");
- await waitFor("document.querySelector('#wcHex .wcHexOriginal p')",'Field original loaded on demand');
- assert(await js("document.querySelector('#wcHex a[data-ref]')"),'Field verse links available');
+ assert(await js("!document.querySelector('#wcHex')"),'Field uses the common source picker');
+ await js("document.querySelector('#wcTr [data-src=Aquila]').click();document.querySelector('#wcTr .wcTrR.can').click()");
+ await waitFor("document.querySelector('#wcTr .wcFieldNote')",'Field citation in rendering details');
+ await js("document.querySelector('#wcTr .wcFieldNote').open=true");
+ await waitFor("document.querySelector('#wcTr .wcHexOriginal p')",'Field original and notes');
+ assert(await js("document.querySelector('#wcTr .wcTrRing')"),'Field uses the rendering chart');
+ await js("document.querySelector('#wcTr .wcTrCmpB').click();document.querySelector('#wcTr [data-src=LXX]').click()");
+ assert(await js("document.querySelector('#wcTr .wcTrP')"),'Aquila compares with LXX');
+ await js("document.querySelector('#wcTr .wcTrCmpX').click()");
  await js("document.querySelector('#fmHead [data-wc-scope=family]').click()");
  await waitFor("document.querySelector('#fmHead .fmCnt')?.textContent.includes('373') && document.querySelector('#wcTr [data-src=Zunz]')",'373 Belege und Übersetzungen im Wortfamilien-Überblick');
  assert.equal(await js("document.documentElement.dataset.tab"),'read');

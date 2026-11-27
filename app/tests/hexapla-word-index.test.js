@@ -33,3 +33,19 @@ test('collective Three attribution remains visible and distinct from individual 
  assert(index.rows.some(r=>r.sources.length===1&&r.sources[0]==='Aquila'));
  assert(index.lemmas['4390'].length>0);
 });
+
+test('lexical Field statistics only count single MT anchors with original forms and reversible source identities',()=>{
+ const {findAncient}=require('../rendering-search');
+ for(const [source,entries] of Object.entries(index.renderings)){
+  assert(Object.keys(entries).length>500);
+  for(const [lemma,[labels,cells]] of Object.entries(entries)){
+   for(const [g,code,n,ref,form,ids] of cells){
+    assert(labels[g]);assert(/^[HA]/.test(code));assert.equal(n,1);assert(form);assert(Number.isSafeInteger(parseInt(ref,36)));assert(ids.length);
+    for(const id of ids){const row=index.rows[id];assert.equal(row.phrase,false);assert(row.sources.includes(source));assert(index.lemmas[lemma].includes(id));}
+   }
+  }
+  const entry=entries['4390'];assert(entry);
+  const reversed=findAncient({hexapla:index},source,entry[0][0]);
+  assert(reversed.some(r=>r.lemma==='4390'&&r.forms.length&&r.refs.length));
+ }
+});

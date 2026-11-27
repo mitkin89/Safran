@@ -927,6 +927,7 @@
     "Erhaltene Lesarten zu diesem Wort und seinem Kontext; keine vollständige Übersetzung und keine durchgehende Wort-für-Wort-Zuordnung.": "Surviving readings for this word and its context; not a complete translation or a continuous word-for-word alignment.",
     "Lesarten": "readings",
     "Weitere Lesarten": "More readings",
+    "Field Hexapla (1875): nur erhaltene Lesarten mit eindeutiger Zuordnung zu einem einzelnen hebräischen Wort. Mehrdeutige Wortgruppen und bloße Verweise sind nicht gezählt; alternative Lesarten können dasselbe Wort mehrfach belegen. Quellen und Fußnoten stehen bei den Belegen.": "Field Hexapla (1875): surviving readings with an unambiguous single Hebrew word anchor only. Ambiguous word groups and cross-references are excluded; alternative readings can attest the same word more than once. Sources and footnotes are available with the occurrences.",
     "Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.": "Same German base form in this translation, across all indexed Tanakh passages. This does not imply identical meaning in context; word-form filters do not apply here.",
     "{} Wörter · {} zugeordnete Belege": "{} words · {} aligned occurrences",
     "1 Beleg": "1 occurrence",
