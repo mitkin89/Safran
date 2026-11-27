@@ -69,5 +69,67 @@ module.exports=async({win,js,waitFor})=>{
  assert(await js("document.querySelector('#fmCorpusBody .wcDistBar[data-corpus=Samaritan]')!==null"));
  await js("document.querySelector('#fmTabs [data-t=concordance]').click()");
  assert(await js("document.querySelector('#fmCorpusBody [data-hit]').dataset.hoverVersion.includes('Tal–Florentin')"));
+ async function preview(source){
+  await js(`document.querySelector('#fmCorpusControls [data-corpus="${source==='LXX'?'all':source}"]').click();document.querySelector('#fmTabs [data-t=concordance]').click()`);
+  await waitFor("document.querySelector('#fmCorpusBody [data-hover-ref]')",source+' references');
+  await new Promise(resolve=>setTimeout(resolve,350));
+  await js("document.querySelector('#fmCorpusBody [data-hover-ref]').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+  try{await waitFor("document.querySelector('#lkHover:not([hidden]) .pvhl')",source+' marked preview');}catch(e){console.log(await js("({link:document.querySelector('#fmCorpusBody [data-hover-ref]').outerHTML,preview:document.querySelector('#lkHover')?.innerHTML})"));throw e;}
+  const actual=await js("({forms:JSON.parse(document.querySelector('#fmCorpusBody [data-hover-ref]').dataset.targetForms),marked:[...document.querySelectorAll('#lkHover .pvhl')].map(n=>n.textContent)})");
+  assert(actual.marked.some(w=>actual.forms.includes(w)),source+' marks its attested form: '+JSON.stringify(actual));
+  await js("document.querySelector('#fmCorpusBody [data-hover-ref]').dispatchEvent(new MouseEvent('mouseout',{bubbles:true}))");
+ }
+ await preview('Samaritan');
+ await js("document.querySelector('#dictQ').value='אמר';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('אמר')",'Hebrew preview card');
+ await preview('Mishnah');
+ await js("document.querySelector('#dictQ').value='ὀρθρίζω';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#fmCorpusControls [data-corpus=Aquila]')",'Greek preview card');
+ for(const k of ['LXX','Aquila','Symmachus','Theodotion'])await preview(k);
+ await js("document.querySelector('#dictQ').value='λαλέω';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('λαλέω')",'Frequent Greek lemma');
+ for(const k of ['Josephus','Philo'])await preview(k);
+ await js("document.querySelector('#dictQ').value='חסד';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#dictCardMatches [data-key=\"arc:חסד\"]')",'Aramaic root');
+ await js("document.querySelector('#dictCardMatches [data-key=\"arc:חסד\"]').click()");
+ await waitFor("document.querySelector('#fmCorpusControls [data-corpus=Onkelos]')",'Aramaic sources');
+ await js("document.querySelector('#fmTabs [data-t=card]').click()");
+ await waitFor("document.querySelector('#wcDict:not([hidden]) .wcDE')",'Aramaic root dictionary entries');
+ assert(await js("document.querySelectorAll('#wcDict').length===1&&!document.querySelector('#wcDict').closest('#wcBody')"),'Dictionary section is visible outside hidden legacy card');
+ await js("document.querySelector('#wcDict .wcDE').open=true");
+ assert(await js("document.querySelector('#wcDict .wcDE[open] .dbody').textContent.includes('fixture')"),'Complete lexical article opens');
+ for(const k of ['Onkelos','Neofiti 1','Pseudo-Jonathan','Peshitta'])await preview(k);
+ await js("document.querySelector('#fmTabs [data-t=card]').click()");
+ assert(await js("document.querySelector('#wcDict:not([hidden]) .wcDE')!==null"),'Lexicon entries remain visible after source switching');
+ await js("document.querySelector('#wcDict .wcDGo').click()");
+ await waitFor("document.querySelector('#dictOut .dentry')?.textContent.includes('fixture')",'Dictionary link opens the complete article');
+ await js("document.querySelector('#dictViewCard').click();document.querySelector('#dictQ').value='δοκέω';document.querySelector('#dictCardSearch').click()");
+ await waitFor("document.querySelector('#wcHebrew .wcHebEntry')&&document.querySelector('#wcDict .wcDE')",'Greek dictionary and Hebrew equivalents');
+ for(const source of ['all','Josephus','Philo','LXX']){
+  await js(`document.querySelector('#fmCorpusControls [data-corpus=${source}]').click()`);
+  assert(await js("!document.querySelector('#wcDict').hidden&&!document.querySelector('#wcHebrew').hidden"),'Lexicon and Hebrew equivalents stay visible for '+source);
+  assert.equal(await js("document.querySelectorAll('#wcHebrew .wcHebEntry').length"),4,'All four aligned Hebrew lemmas are shown');
+ }
+ await js("document.querySelector('#wcHebrew .wcHebEntry').open=true");
+ assert(await js("document.querySelector('#wcHebrew .wcHebEntry[open] [data-same-lemma]')!==null"),'Hebrew equivalents include linked occurrences');
+ await js("document.querySelector('#fmTabs [data-t=forms]').click()");
+ assert(await js("document.querySelector('#wcDict').hidden&&document.querySelector('#wcHebrew').hidden"),'Supplementary sections are confined to overview');
+ await js("document.querySelector('#dictQ').value='ὀρθρίζω';document.querySelector('#dictCardSearch').click()");
+ await waitFor("Number(document.querySelector('#wcHebrew [data-hebrew-source=Aquila] small')?.textContent)>0",'Field reverse alignments');
+ assert(await js("document.querySelector('#wcHebrew [data-hebrew-source=all]').getAttribute('aria-pressed')==='true'"),'Hebrew equivalents are combined by default');
+ for(const source of ['Aquila','Symmachus','Theodotion']){
+  await js(`document.querySelector('#wcHebrew [data-hebrew-source=${source}]').click()`);
+  assert(await js("document.querySelector('#wcHebrew .wcHebEntry').textContent.includes('שָׁכַם')||document.querySelector('#wcHebrew .wcHL').dataset.hl==='7925'"),'Field source opens the corresponding Hebrew lemma');
+ }
+ await js("document.querySelector('nav [data-tab=read]').click();document.querySelector('#ilBtn').click()");
+ await waitFor("document.querySelector('#ilPop input[value=LXX]')",'LXX interlinear option');
+ await js("{const c=document.querySelector('#ilPop input[value=LXX]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");
+ await waitFor("document.querySelector('#rOut .il-lxx-word')",'Clickable Septuagint interlinear');
+ await js("document.querySelector('#rOut .il-lxx-word').click()");
+ await waitFor("document.querySelector('.wcard[data-gr-lemma]')",'Interlinear Greek word offers its word card');
+ const selectedLemma=await js("document.querySelector('.wcard[data-gr-lemma]').dataset.grLemma");
+ await js("document.querySelector('.wcard[data-gr-lemma]').click()");
+ await waitFor("!document.querySelector('#formsPanel').hidden",'Greek word card opens from interlinear');
+ assert(await js(`document.querySelector('#fmHead').textContent.includes(${JSON.stringify(selectedLemma)})`),'Interlinear opens the selected Greek lemma');
  console.log('Electron: Greek/Hebrew corpus selection, combined grammar filters, forms, concordance and header recovery passed.');
 };

@@ -482,6 +482,8 @@
     <div id="wcBody"></div>
     <div id="fmBody" hidden></div>
     <div id="fmConcordanceBody" role="tabpanel" aria-labelledby="fmConcordance" hidden></div>
+    <section id="wcHebrew" class="wcSec" hidden></section>
+    <section id="wcDict" class="wcSec" hidden></section>
   </aside>
 
   <div id="audioBar" hidden><div class="auSeekRow"><span id="auCur" class="muted">0:00</span><input type="range" id="auSeek" min="0" max="1000" value="0" step="1" title="Vor- und zurückspulen"><span id="auDur" class="muted">0:00</span></div><div class="auCtl"><span id="auTitle"></span> <button id="auPrev" title="Vorheriger Vers">⏮</button><button id="auPlay" title="Pause / Weiter">⏸</button><button id="auNext" title="Nächster Vers">⏭</button><button id="auStop" title="Beenden">⏹</button> <select id="auSpeed" title="Geschwindigkeit"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select></div></div>
@@ -652,6 +654,7 @@
   <script src="portraits/index.js"></script>
   <div id="ilPop" class="ilpop" role="dialog" aria-label="Interlinear" hidden></div>
   <script src="rendering-search.js"></script>
+  <script src="word-card-hebrew.js"></script>
   <script src="concordance-preview.js"></script>
   <script src="word-card-chart.js"></script>
   <script src="library-word-card-corpora.js"></script>

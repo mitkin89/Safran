@@ -25,7 +25,7 @@ window.LibraryWordCards = (() => {
   }
   async function openAramaicRoot(item,tab='card',rest){
     const lemma='arc:'+item.spelling;fmHistOpen(false,lemma,{aramaicRoot:item},tab,rest);corpora.reset();
-    const token=++wcToken;fmCur={lemma,lem:[item.spelling],corpusOnly:true};fmTrData=null;
+    const token=++wcToken;fmCur={lemma,lem:[item.spelling],corpusOnly:true,aramaicRoot:item,dictQueries:[item.spelling,...item.members.map(m=>m.label)]};fmTrData=null;
     host.$('#formsPanel').hidden=false;host.$('#fmHead').innerHTML='<span class="fmLem" dir="rtl">'+host.esc(item.spelling)+'</span><span class="fmGloss">'+host.esc(I18N.t('Wurzel'))+' · '+host.esc(I18N.t('Aramäisch'))+'</span>';
     host.$('#wcBody').replaceChildren();host.$('#fmBody').replaceChildren();host.$('#fmConcordanceBody').replaceChildren();fmShowTab(tab);
     const api=await corpora.model(),rows=[];
@@ -92,6 +92,11 @@ window.LibraryWordCards = (() => {
     host.$('#fmConcordance').disabled = !fmCur?.lem?.[0];
     host.$('#fmConcordanceBody').hidden = fmTab !== 'concordance';
     corpora.render();
+    const dictionaries=host.$('#wcDict');
+    if(dictionaries)dictionaries.hidden=fmTab!=='card'||!fmCur;
+    if(fmCur?.lem?.[0])wcDicts(wcToken);
+    host.$('#wcHebrew').hidden=fmTab!=='card'||!fmCur?.greek;
+    if(fmCur?.greek)wcHeb(wcToken);
     if (fmTab === 'concordance' && !fmCur?.peshitta && !fmCur?.corpusOnly && !corpora.enabled()) wcLoadConcordance(wcConcordance?.token === wcToken ? wcConcordance.mode : fmCur?.family ? 'root' : 'lemma');
     host.hovApi && host.hovApi.hide();
     wcFindSoon();
@@ -190,7 +195,7 @@ window.LibraryWordCards = (() => {
       fmCur={syriac:true,greek:false,lemma:key,lem:[query],model,id,query};
       fmShowTab();
       host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}"${id?` data-sedra-id="${id}"`:''}>${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
-      host.$('#wcBody').innerHTML=(info.apparatusSource?`<p class="sc-apparatus-source muted"><bdi lang="syr" dir="rtl">${host.esc(info.apparatusSource.form)}</bdi> · ${host.esc(I18N.t('Peschitta-Zählung'))}: ${host.esc(info.apparatusSource.book)} ${host.esc(info.apparatusSource.ref)}${info.apparatusSource.ref!==info.apparatusSource.mtRef?' · '+host.esc(I18N.t('MT-Zählung'))+': '+host.esc(info.apparatusSource.mtRef):''}</p>`:'')+out.card+`<section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`;host.$('#fmBody').innerHTML=out.forms;
+      host.$('#wcBody').innerHTML=(info.apparatusSource?`<p class="sc-apparatus-source muted"><bdi lang="syr" dir="rtl">${host.esc(info.apparatusSource.form)}</bdi> · ${host.esc(I18N.t('Peschitta-Zählung'))}: ${host.esc(info.apparatusSource.book)} ${host.esc(info.apparatusSource.ref)}${info.apparatusSource.ref!==info.apparatusSource.mtRef?' · '+host.esc(I18N.t('MT-Zählung'))+': '+host.esc(info.apparatusSource.mtRef):''}</p>`:'')+out.card;host.$('#fmBody').innerHTML=out.forms;
       host.$('#wcBody').insertAdjacentHTML('beforeend',`<section class="wcSec" id="wcSyriacMentions"><h4>${host.esc(I18N.t('Syrische Belege in anderen Wörterbüchern'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`);
       wcSyriacMentions(token);
       wcDicts(token);
@@ -448,7 +453,6 @@ window.LibraryWordCards = (() => {
       <section class="wcSec"><h4>${host.esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${host.esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
       <section class="wcSec" id="wcTr" hidden></section>
-      <section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>
       <section class="wcSec" id="wcLxx" hidden></section>
       <section class="wcSec" id="wcTgR" hidden></section>
       <section class="wcSec" id="wcPsR" hidden></section>
@@ -507,12 +511,23 @@ window.LibraryWordCards = (() => {
     box.innerHTML = wcRefList(fmCur.F.refs(D, mdl, chip.dataset.i), `<span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.targum ? 'arc' : fmCur.greek ? 'grc' : 'he'}">${host.esc(chip.querySelector('span').textContent)}</span>`, all);
   }
   // Wörterbücher: Einträge zum Lemma aus den eingebundenen Wörterbüchern (dieselbe Suche wie „Im Wörterbuch nachschlagen“), je Wörterbuch die ersten Treffer
+  let dictToken=-1;
   async function wcDicts(token) {
-    const { lem, greek, targum, syriac, id } = fmCur; const box = () => host.$('#wcDict');
+    if(dictToken===token||!fmCur?.lem?.[0])return;
+    dictToken=token;
+    const card=fmCur,{ lem, greek, targum, syriac, id } = card;
+    const section=host.$('#wcDict');
+    section.hidden=fmTab!=='card';
+    section.innerHTML='<h4>'+host.esc(I18N.t('Wörterbücher'))+'</h4><p class="muted">'+host.esc(I18N.t('Lädt …'))+'</p>';
+    const box = () => host.$('#wcDict');
+    const queries=[...new Set((card.dictQueries||[lem[0]]).filter(Boolean))];
     const done = html => { if (token === wcToken && box()) box().innerHTML = `<h4>${host.esc(I18N.t('Wörterbücher'))}</h4>` + html; };
     if (!lem) return done(`<p class="muted">${host.esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
     let r = null;
-    try { r = await host.O.dictLookup(lem[0], host.dictSel && host.dictSel.length ? host.dictSel : null, false); } catch { r = null; }
+    try {
+      const answers=await Promise.all(queries.map(q=>host.O.dictLookup(q,host.dictSel?.length?host.dictSel:null,false).catch(()=>null)));
+      const seen=new Set();r={results:answers.flatMap((a,i)=>(a?.results||[]).map(x=>({...x,query:queries[i]}))).filter(x=>{const key=x.dictId+':'+x.k;if(seen.has(key))return false;seen.add(key);return true;})};
+    } catch { r = null; }
     if (token !== wcToken) return;
     let res = (r && r.results) || [];
     if (targum && (!host.dictSel || !host.dictSel.length || host.dictSel.includes('9ce7ea6c00f1'))) {
@@ -531,8 +546,9 @@ window.LibraryWordCards = (() => {
       const exact=res.filter(x=>x.dictId==='7fab63c14df2'||String(x.head).split(/[·,;/]/).some(h=>want.has(fold(h))));
       if(exact.length)res=exact;
     }else { // für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
-      const cons = greek ? t => window.GMorph.fold(t) : targum ? window.TargumForms.fold : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
-      const exact = res.filter(x => String(x.head).split(/[·,;/]/).some(h => cons(h) === want));
+      const cons = greek ? t => window.GMorph.fold(t) : targum ? window.TargumForms.fold : t => String(t).replace(/[^\u05D0-\u05EA]/g, '');
+      const wanted=new Set(queries.map(q=>/[\u0710-\u074f]/u.test(q)?q.normalize('NFD').replace(/[\u0730-\u074a]/gu,''):cons(q)).filter(Boolean));
+      const exact = res.filter(x => String(x.head).split(/[·,;/]/).some(h => wanted.has(/[\u0710-\u074f]/u.test(h)?h.normalize('NFD').replace(/[\u0730-\u074a]/gu,'').trim():cons(h))));
       if (exact.length) res = exact;
     }
     if (!res.length) return done(`<p class="muted">${host.esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
@@ -540,10 +556,10 @@ window.LibraryWordCards = (() => {
     const by = new Map(); for (const x of res) { if (!by.has(x.dictId)) by.set(x.dictId, { id: x.dictId, name: x.dict, xs: [] }); by.get(x.dictId).xs.push(x); }
     const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
     const snip = h => { const t = String(h).replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim(); return t.length > 190 ? t.slice(0, 190).replace(/\s+\S*$/, '') + ' …' : t; };
-    const entry = x => `<details class="wcDE"><summary><b dir="auto"${syriac?' lang="syr"':''}>${host.esc(x.head)}</b> <span class="snip" dir="ltr">${host.heFix(snip(x.html))}</span></summary><div class="dbody" dir="ltr">${host.heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : window.GreekAbbreviations?window.GreekAbbreviations.mark(x.html,x.dict):x.html)}</div></details>`;
+    const entry = x => `<details class="wcDE"><summary><b dir="auto"${/[\u0710-\u074f]/u.test(x.head)?' lang="syr"':''}>${host.esc(x.head)}</b> <span class="snip" dir="ltr">${host.heFix(snip(x.html))}</span></summary><div class="dbody" dir="ltr">${host.heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : window.GreekAbbreviations?window.GreekAbbreviations.mark(x.html,x.dict):x.html)}</div></details>`;
     done([...by.values()].map(d => {
       const pic = host.portraitOf(d.name);
-      return `<div class="wcD" style="--dh:${hue(d.id)}"><div class="wcDH"><span>${pic ? `<img class="vpic" src="portraits/${encodeURIComponent(pic.img)}" alt="" data-title="${host.esc(pic.name || '')}" loading="lazy">` : ''}${host.esc(d.name)}</span><button type="button" class="wcDGo" data-id="${host.esc(d.id)}" data-name="${host.esc(d.name)}" title="${host.esc(I18N.t('Im Reiter „Wörterbuch“ öffnen'))}">↗ ${host.esc(I18N.t('Wörterbuch'))}</button></div>${d.xs.slice(0, 3).map(entry).join('')}${d.xs.length > 3 ? `<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length - 3}">${host.esc(I18N.t('+ {} weitere', d.xs.length - 3))}</button>` : ''}</div>`;
+      return `<div class="wcD" style="--dh:${hue(d.id)}"><div class="wcDH"><span>${pic ? `<img class="vpic" src="portraits/${encodeURIComponent(pic.img)}" alt="" data-title="${host.esc(pic.name || '')}" loading="lazy">` : ''}${host.esc(d.name)}</span><button type="button" class="wcDGo" data-q="${host.esc(d.xs[0].query||lem[0])}" data-id="${host.esc(d.id)}" data-name="${host.esc(d.name)}" title="${host.esc(I18N.t('Im Reiter „Wörterbuch“ öffnen'))}">↗ ${host.esc(I18N.t('Wörterbuch'))}</button></div>${d.xs.slice(0, 3).map(entry).join('')}${d.xs.length > 3 ? `<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length - 3}">${host.esc(I18N.t('+ {} weitere', d.xs.length - 3))}</button>` : ''}</div>`;
     }).join(''));
   }
   async function wcSyriacMentions(token){
@@ -1095,18 +1111,35 @@ window.LibraryWordCards = (() => {
       <p class="muted wcLxN">${host.esc(I18N.t('Targum Onkelos (O, Ausgabe Sperber), Neofiti 1 (N) und Pseudo-Jonathan (PJ), ETCBC Targum Corpus (CC BY-NC 4.0); gezählt nach Lexem oder Wurzel des aramäischen Wortes in Konsonantenschrift, daher können verwandte oder gleich geschriebene Wörter mitgezählt sein.'))}</p>`;
   }
   // Griechische Karte: welche hebräischen Wörter gibt dieses Lemma wieder? (Gegenrichtung desselben Index); Klick öffnet die hebräische Wortkarte
+  let hebToken=-1,hebState=null;
   async function wcHeb(token) {
-    const { lemma } = fmCur;
-    const X = await loadLxx();
-    if (token !== wcToken || !X || !window.Lxx) return;
-    const r = window.Lxx.hebrew(X, lemma), box = host.$('#wcLxx'), LEM = window.OSHB_LEMMAS || {};
-    if (!r || !r.list.length || !box) return;
-    const mx = r.list[0].n;
-    box.hidden = false;
-    box.innerHTML = `<h4>${host.esc(I18N.t('Hebräische Vorlage'))} <small>${host.esc(I18N.t('{} Zuordnungen · {} hebräische Wörter', wcNum(r.total), wcNum(r.kinds)))}</small></h4>
-      <div class="wcLx wcHb">${r.list.slice(0, 10).map(x => { const l = LEM[x.h]; return `<div class="wcLxR"><button type="button" class="g wcHL" data-hl="${host.esc(x.h)}" title="${host.esc(I18N.t('Hebräische Wortkarte öffnen'))}"><span lang="he" dir="rtl">${host.esc(l ? l[0] : x.h)}</span> <span class="muted">${host.esc(l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : '')}</span></button><span class="b"><i style="width:${Math.max(2, x.n / mx * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`; }).join('')}</div>
-      <p class="muted wcLxN">${host.esc(I18N.t('Hebräische Wörter (Westminster-Lemma), denen CATSS dieses griechische Wort Wort für Wort zuordnet – nur Bücher des Tanach mit CATSS-Fassung. Klick auf ein Wort öffnet seine Wortkarte.'))}</p>`;
+    if(hebToken===token||!fmCur?.greek)return;
+    hebToken=token;hebState=null;
+    const head=fmCur.lem[0],box=host.$('#wcHebrew');
+    box.innerHTML='<p class="muted">'+host.esc(I18N.t('Lädt …'))+'</p>';
+    const [LXX,hexapla,books]=await Promise.all([loadLxxRen(),loadHexRen(),loadWitnessRen()]);
+    if(token!==wcToken)return;
+    const groups=window.WordCardHebrew.collect({LXX,hexapla},head,window.GMorph.fold,window.RenderingSearch.findAncient);
+    hebState={head,groups,books:books?.books||hexapla?.books||[],source:'all'};
+    renderHebrew();
   }
+  function renderHebrew(){
+    if(!hebState)return;
+    const S=hebState,e=host.esc,t=(s,...args)=>e(I18N.t(s,...args)),box=host.$('#wcHebrew'),rows=S.groups[S.source],total=rows.reduce((n,r)=>n+r.count,0),LEM=window.OSHB_LEMMAS||{};
+    const name=k=>k==='all'?I18N.t('Alle'):k==='LXX'?'Septuaginta':k,colors=['#3688e8','#d95420','#179e78','#cc9100','#cc4c86','#16a400','#9683dc'];
+    let pos=0;const stops=rows.map((r,i)=>{const start=pos;pos+=r.count/total*100;return colors[i%colors.length]+' '+start+'% '+pos+'%';}).join(',');
+    box.innerHTML='<h4>'+t('Hebräische Vorlage')+'</h4><div class="wcHebSources">'+Object.entries(S.groups).map(([k,rs])=>'<button type="button" data-hebrew-source="'+k+'" aria-pressed="'+(k===S.source)+'">'+name(k)+' <small>'+wcNum(rs.reduce((n,r)=>n+r.count,0))+'</small></button>').join('')+'</div>'+
+      '<p class="muted">'+e(name(S.source))+' · '+t('{} Zuordnungen · {} hebräische Wörter',wcNum(total),wcNum(rows.length))+'</p>'+
+      (rows.length?'<div class="wcHebViz"><div class="wcHebRing" role="img" aria-label="'+t('Hebräische Vorlage')+'" style="background:conic-gradient('+stops+')"><div><b dir="auto">'+e(S.head)+'</b><span>'+wcNum(total)+'</span></div></div><div class="wcHebRows">'+rows.map((r,i)=>{
+       const lemma=LEM[r.lemma],label=lemma?.[0]||r.lemma,gloss=lemma?(I18N.lang==='de'&&lemma[2]?lemma[2]:lemma[1]):'',percent=r.count/total*100;
+       return '<details class="wcHebEntry" style="--hc:'+colors[i%colors.length]+'"><summary><span class="wcHebLabel"><bdi lang="he" dir="rtl">'+e(label)+'</bdi> <small>'+e(gloss||'')+'</small></span><span class="wcHebBar"><i style="width:'+percent+'%"></i></span><span>'+wcNum(r.count)+'</span><small>'+(percent<1?'&lt; 1':Math.round(percent))+' %</small></summary><button type="button" class="wcHL" data-hl="'+e(r.lemma)+'">'+t('Hebräische Wortkarte öffnen')+'</button>'+(r.sources?'<p class="muted">'+r.sources.map(x=>e(name(x.source))+' '+wcNum(x.count)).join(' · ')+'</p>':'')+'<div class="fmRL">'+r.refs.map(n=>{
+         const book=S.books[Math.floor(n/1e6)],ch=Math.floor(n/1000)%1000,v=n%1000,ref=book+' '+ch+':'+v;
+         return '<a href="#" data-ref="'+e(ref)+'" data-same-lemma="'+e(r.lemma)+'">'+e(fmBook(book))+' '+ch+':'+v+'</a>';
+       }).join(' · ')+'</div></details>';
+      }).join('')+'</div></div>':'<p class="muted">'+t('Keine Zuordnungen vorhanden.')+'</p>')+
+      '<p class="muted">'+t('Zuordnungen des Lemmas aus den gewählten Übersetzungen, unabhängig vom Korpus- und Grammatikfilter oben. Für Josephus und Philo liegen keine hebräischen Wortzuordnungen vor.')+'</p>';
+  }
+  host.$('#wcHebrew').addEventListener('click',e=>{const b=e.target.closest('[data-hebrew-source]');if(b&&hebState){hebState.source=b.dataset.hebrewSource;renderHebrew();}});
   // Lemma-Suche griechisch: Sprache „Andere“, Treffer „Alle Formen“
   function gSearchAll(lemma) {
     closeForms(); host.showTab('search');
@@ -1256,7 +1289,7 @@ window.LibraryWordCards = (() => {
     wcF.hits = []; wcF.idx = -1; wcFHl('wcfind', []); wcFHl('wcfind-active', []); cnt.textContent = ''; cnt.title = '';
     if (host.$('#fmFind').hidden || p.hidden || !q) return;
     const hits = [];
-    for (const root of [host.$('#fmHead'), host.$(corpora.enabled()?'#fmCorpusBody':{ forms: '#fmBody', card: '#wcBody', concordance: '#fmConcordanceBody' }[fmTab])]) {
+    for (const root of [host.$('#fmHead'), host.$(corpora.enabled()?'#fmCorpusBody':{ forms: '#fmBody', card: '#wcBody', concordance: '#fmConcordanceBody' }[fmTab]),...(fmTab==='card'?[host.$('#wcDict'),host.$('#wcHebrew')]:[])]) {
       const groups = new Map(), walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       for (let node = walker.nextNode(); node; node = walker.nextNode()) {
         const el = node.parentElement; if (!el || el.closest('svg, script, style')) continue;
@@ -1344,7 +1377,7 @@ window.LibraryWordCards = (() => {
   host.$('#fmFindNext').onclick = () => wcFindStep(true);
   host.$('#fmFindPrev').onclick = () => wcFindStep(false);
   host.$('#fmFindX').onclick = wcFindClose;
-  { const mo = new MutationObserver(wcFindSoon); ['#fmHead', '#wcBody', '#fmBody'].forEach(s => mo.observe(host.$(s), { childList: true, subtree: true, characterData: true })); }
+  { const mo = new MutationObserver(wcFindSoon); ['#fmHead', '#wcBody', '#fmBody', '#wcDict', '#wcHebrew'].forEach(s => mo.observe(host.$(s), { childList: true, subtree: true, characterData: true })); }
   // Tasten der Wortkarte: Zurück/Vor (Alt+←/→, Cmd/Strg+[ / ]), Suche (Cmd/Strg+F), Escape schließt zuerst die Suche – alles nur, solange die Wortkarte aktiv ist
   document.addEventListener('keydown', e => {
     const p = host.$('#formsPanel'); if (p.hidden || document.querySelector('dialog[open]')) return;
@@ -1360,7 +1393,8 @@ window.LibraryWordCards = (() => {
   const closeForms = () => { fmHistSave(); wcFindClose(); fmActive = false; host.$('#formsPanel').hidden = true; host.hovApi && host.hovApi.hide(); wcToken++; };
   host.$('#fmClose').onclick = closeForms;
   host.$('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmStep(() => { fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = host.$('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else host.$('#formsPanel').scrollTop = 0; }); });
-  host.$('#wcBody').addEventListener('click', e => {
+  host.$('#formsPanel').addEventListener('click', e => {
+    if(!e.target.closest('#wcBody,#wcDict,#wcHebrew'))return;
     if (!fmCur) return;
     if(fmCur.syriac){const b=e.target.closest('[data-sid],[data-family-id]');if(b){const id=b.dataset.sid||b.dataset.familyId,query=b.dataset.familyId?window.SEDRA_DATA.lexemes[id].form:fmCur.query;openSForms(query,{id},'card');return;}if(!e.target.closest('#wcDict,#wcSyriacMentions'))return;}
 
@@ -1369,7 +1403,7 @@ window.LibraryWordCards = (() => {
     if (src) { e.preventDefault(); host.hovApi && host.hovApi.hide(); host.jumpTo(src.dataset.sref, host.BG(e)); return; }
     const dr = e.target.closest('.dbody .dref[data-q]'); if (dr) { closeForms(); host.openDict(dr.dataset.q); return; }
     const a = e.target.closest('.fmRL a[data-ref]');
-    if (a) { host.hovApi && host.hovApi.hide(); host.jumpTo(a.dataset.ref, host.BG(e)); return; }
+    if (a) { e.preventDefault();host.hovApi && host.hovApi.hide(); host.jumpTo(a.dataset.ref, host.BG(e)); return; }
     const rx = e.target.closest('.fmRX'); if (rx) { if (rx.closest('#wcBookRefs')) wcBookRefs(null); else wcFormRefs(null); return; }
     const mb = e.target.closest('.wcDMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', mb.dataset.n) : I18N.t('weniger'); return; }
     const al = e.target.closest('.fmAll'); if (al) { if (al.closest('#wcBookRefs')) wcBookRefs(host.$('#wcBookRefs').dataset.b, true); else wcFormRefs(host.$('#wcBody .wcForms .fmF.sel'), true); return; }
@@ -1402,7 +1436,7 @@ window.LibraryWordCards = (() => {
     const tr = e.target.closest('.wcTrR.can[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(tr.dataset.g); return; }
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
     const go = e.target.closest('.wcLink[data-go]'); if (go) { fmStep(() => { fmShowTab(go.dataset.go); host.$('#formsPanel').scrollTop = 0; }); return; }
-    const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); host.showTab('dict'); host.dictLookup(q, only, false, fmCur.syriac ? fmCur.id : undefined); return; }
+    const dg = e.target.closest('.wcDGo'); if (dg) { const q = dg.dataset.q||fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); host.showTab('dict'); host.dictLookup(q, only, false, fmCur.syriac ? fmCur.id : undefined); return; }
     const bar = e.target.closest('.wcBar[data-b], .wcTop a[data-b]'); if (bar) { wcBookRefs(host.$('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
     const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
   });
@@ -1453,12 +1487,12 @@ window.LibraryWordCards = (() => {
     host.$('#wcBody').addEventListener('focusout', e => { const b = e.target.closest('.wcBar[data-b]'); if (b) tip(b, false); });
   }
   { const refOf = e => { const a = e.target.closest('.fmRL a[data-ref], .dbody .dsrc[data-sref]'); return a ? [a, (a.dataset.ref || a.dataset.sref).replace(/-.*$/, '')] : [null, '']; };
-    host.$('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !host.hovApi || ref === host.hovApi.current()) return; host.hovApi.start(a, ref, true, false, wcHovPick(a)); });
-    host.$('#wcBody').addEventListener('mouseout', e => { const [a] = refOf(e); if (a && host.hovApi && !a.contains(e.relatedTarget)) host.hovApi.hide(); }); }
+    host.$('#formsPanel').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !host.hovApi || ref === host.hovApi.current()) return; host.hovApi.start(a, ref, true, false, wcHovPick(a)); });
+    host.$('#formsPanel').addEventListener('mouseout', e => { const [a] = refOf(e); if (a && host.hovApi && !a.contains(e.relatedTarget)) host.hovApi.hide(); }); }
   { let z = 1; try { z = +localStorage.getItem('fmZoom') || 1; } catch { /* egal */ }
     const apz = () => {
       z = Math.max(0.7, Math.min(2, Math.round(z * 20) / 20));
-      for (const selector of ['#fmHead', '#wcBody', '#fmBody', '#fmConcordanceBody']) {
+      for (const selector of ['#fmHead', '#wcBody', '#fmBody', '#fmConcordanceBody', '#wcDict', '#wcHebrew']) {
         host.$(selector).style.zoom = z;
       }
       try { localStorage.setItem('fmZoom', String(z)); } catch { /* egal */ }
@@ -1516,7 +1550,7 @@ window.LibraryWordCards = (() => {
   host.$('#fmBody').addEventListener('click', e => {
     const closeRefs = () => { host.$$('#fmBody .fmRefRow').forEach(x => x.remove()); host.$$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel', 'trsel')); };
     const a = e.target.closest('.fmRL a[data-ref]');
-    if (a) { host.hovApi && host.hovApi.hide(); host.jumpTo(a.dataset.ref, host.BG(e)); return; }
+    if (a) { e.preventDefault();host.hovApi && host.hovApi.hide(); host.jumpTo(a.dataset.ref, host.BG(e)); return; }
     if (e.target.closest('.fmRX')) { closeRefs(); return; }
     if (e.target.closest('.fmAll')) { const c = host.$('#fmBody .fmF.sel'); if (c && fmCur) { host.$$('#fmBody .fmRefRow').forEach(x => x.remove()); fmRefs(c, true); } return; }
     const mb = e.target.closest('.fmMoreB');
@@ -1539,7 +1573,7 @@ window.LibraryWordCards = (() => {
     const start=e=>{const a=e.target.closest(selector);if(!a||a.contains(e.relatedTarget)||!host.hovApi)return;
       const ref=a.dataset.peshRef||a.dataset.hoverRef,version=a.dataset.gvt||a.dataset.hoverVersion;
       const vt=version==='Westminster'?'^Westminster':'^'+version.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$';
-      host.hovApi.start(a,ref,true,false,{vt,rtl:!!a.dataset.peshRef||!fmCur?.greek,label:version,targetForms:a.dataset.targetForms?JSON.parse(a.dataset.targetForms):null});
+      host.hovApi.start(a,ref,true,false,{vt,rtl:!!a.dataset.peshRef||!fmCur?.greek,label:version,source:a.dataset.previewSource?JSON.parse(a.dataset.previewSource):null,targetForms:a.dataset.targetForms?JSON.parse(a.dataset.targetForms):null});
     };
     const stop=e=>{const a=e.target.closest(selector);if(a&&!a.contains(e.relatedTarget))host.hovApi?.hide();};
     box.addEventListener('mouseover',start);box.addEventListener('focusin',start);box.addEventListener('mouseout',stop);box.addEventListener('focusout',stop);

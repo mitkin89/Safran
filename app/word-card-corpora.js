@@ -19,7 +19,7 @@ function create(D,{GM,Forms,Morph}){
  }
  function base(ctx){
   if(!ctx.mdl)return [];
-  return ctx.mdl.forms.map((f,i)=>({form:f.f,features:features(f.key,ctx.greek),corpus:ctx.greek?'LXX':'Tanach',status:'indexed',hits:ctx.F.refs(ctx.D,ctx.mdl,String(i)).map((r,j)=>({id:'b'+i+':'+j,title:r.title||r.book,version:r.vt||'Westminster',path:[r.ch-1],label:String(r.v),n:r.n,corpus:ctx.greek?'LXX':'Tanach'}))}));
+  return ctx.mdl.forms.map((f,i)=>({form:f.f,features:features(f.key,ctx.greek),corpus:ctx.greek?'LXX':'Tanach',status:'indexed',hits:ctx.F.refs(ctx.D,ctx.mdl,String(i)).map((r,j)=>({id:'b'+i+':'+j,title:r.title||r.book,version:r.vt||'Westminster',path:[r.ch-1],label:String(r.v),n:r.n,targetForms:[f.f],corpus:ctx.greek?'LXX':'Tanach'}))}));
  }
  function unique(rows){const hits=new Map();for(const row of rows)for(const h of row.hits)if(!hits.has(h.id))hits.set(h.id,h);return [...hits.values()];}
  const count=rows=>unique(rows).reduce((n,h)=>n+h.n,0);
