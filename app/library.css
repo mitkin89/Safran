@@ -3150,3 +3150,25 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 
 #wcTr .wcFieldNote { margin: 6px 0; }
 #wcTr .wcHexOriginal { padding-inline-start: 12px; }
+
+/* Dictionary workspace: reuse the complete card without a floating study pane. */
+#dictViewSwitch { display:inline-flex; gap:2px; flex:none; }
+#dictViewSwitch [aria-pressed=true] { color:var(--accent); border-color:var(--accent); background:color-mix(in srgb,var(--accent) 12%,transparent); }
+#dictPanel.word-card-mode #dictBar :is(#dictGo,#dictSelW,#dictFullL,#dictNoteMode,#dictCut,#dictMore,#dictTabs,#dictSug) { display:none!important; }
+#dictCardWorkspace { flex:1 1 auto; min-height:0; overflow:auto; }
+#dictCardWorkspace[hidden] { display:none; }
+#dictCardMatches { display:flex; flex-wrap:wrap; gap:6px; padding:10px 0; }
+#dictCardMatches [aria-pressed=true] { border-color:var(--accent); color:var(--accent); }
+#dictCardMatches bdi { font-size:1.2em; }
+#dictCardMount #formsPanel[data-embedded] { position:relative!important; inset:auto!important; width:100%!important; height:auto!important; max-width:none!important; max-height:none!important; box-sizing:border-box; border:0; box-shadow:none; padding:0 0 24px; overflow:visible; background:var(--bg); }
+#dictCardMount #formsPanel[hidden] { display:none!important; }
+#dictCardMount #formsPanel .lhead { position:static; }
+#dictCardMount #formsPanel :is(.pinB,.panel-resize-handle,#fmWide,#fmClose) { display:none!important; }
+#dictCardMount #formsPanel #wcBody { --wcbg:var(--bg); }
+#dictPanel.word-card-mode #dictQ { order:1; }
+#dictPanel.word-card-mode #dictCardScope { order:2; }
+#dictPanel.word-card-mode #dictCardSearch { order:3; }
+#dictPanel.word-card-mode #dictStar { order:4; }
+@media(max-width:900px){#dictPanel.word-card-mode #dictBar{flex-wrap:wrap}#dictPanel.word-card-mode #dictQ{flex-basis:45%}}
+
+#dictPanel.word-card-mode #dictHead > .lhead .dtools { visibility:hidden; }

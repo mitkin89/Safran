@@ -4,7 +4,7 @@ window.LibraryDictionary = (() => {
   'use strict';
   function create({ $, esc, heFix, lemIdsFor, portraitOf, loadGM, loadTForms, loadForms,
     openTForms, openGForms, openSForms, openForms, panelScrollTo, lsGet, lsSet,
-    getSelection, setSelection, getSource, setDictSrc }) {
+    getSelection, setSelection, getSource, setDictSrc, cardSearch, beforeLookup }) {
     const O = window.offline;
     let dictSedraId=null;
     let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
@@ -28,6 +28,7 @@ window.LibraryDictionary = (() => {
     async function dictLookup(q, only = null, fromHist = false, sedraId = null) {
       q = String(q || '').trim();
       if (!q) return;
+      beforeLookup?.();
       const token = ++dictLookupToken;
       dictSedraId=/^[1-9][0-9]*$/.test(String(sedraId))?String(sedraId):null;
       const preferredId=dictSedraId;
@@ -136,13 +137,14 @@ window.LibraryDictionary = (() => {
       const paint = () => { box.innerHTML = sugItems.map((x, i) => `<div class="sg${i === sugSel ? ' on' : ''}" data-i="${i}"><b dir="auto">${esc(x.head)}</b><small>${esc(x.dict)}</small></div>`).join(''); box.hidden = !sugItems.length; };
       const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; manualSearch(x.head); };
       $('#dictQ').addEventListener('input', () => {
+        if($('#dictPanel').classList.contains('word-card-mode')){hideSug();return;}
         clearTimeout(sugTimer);++sugSeq;
         const v = $('#dictQ').value.trim();
         if (!v) { hideSug(); return; }
         sugTimer = setTimeout(async () => {
           const my = ++sugSeq;
           const r=await O.dictSuggest(v);
-          if(my!==sugSeq||$('#dictQ').value.trim()!==v)return;
+          if(my!==sugSeq||$('#dictQ').value.trim()!==v||$('#dictPanel').classList.contains('word-card-mode'))return;
           sugItems = r.list || []; sugSel = -1; paint();
         }, 80);
       });
@@ -202,7 +204,7 @@ window.LibraryDictionary = (() => {
       if (!dictSrc || dictSrc.q !== q) setDictSrc(null);
       syncSaved();
       if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
-      dictLookup(q, only); renderSaved();
+      if(!cardSearch?.(q))dictLookup(q, only); renderSaved();
     };
     $('#dictStar').onclick = () => {
       const q = $('#dictQ').value.trim(); if (!q) return;
@@ -304,6 +306,7 @@ window.LibraryDictionary = (() => {
 
     return {
       lookup: dictLookup,
+      search: manualSearch,
       renderList: renderDictList,
       renderSaved,
       addTab: dtabAdd,

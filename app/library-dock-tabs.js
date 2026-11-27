@@ -28,8 +28,8 @@ function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=
  const pin=document.createElement('button');pin.type='button';pin.className='dock-pin';pin.innerHTML='<span class="dock-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 3h6l-1 6.5 3.2 3.2V15H13v7h-2v-7H6.8v-2.3L10 9.5z"/></svg></span><span class="dock-tab-label"></span>';
  pin.onclick=()=>{onFocus(side);if(preferred)$(panels[preferred][0]).querySelector('.pinB')?.click();};
  const header=document.querySelector('header');
- const visible=()=>order.filter(k=>sideOf(k)===side&&!$(panels[k][0]).hidden);
- const usable=k=>available(k)&&!(!$(panels[k][0]).hidden&&sideOf(k)!==side);
+ const visible=()=>order.filter(k=>sideOf(k)===side&&!$(panels[k][0]).hidden&&!$(panels[k][0]).dataset.embedded);
+ const usable=k=>!$(panels[k][0]).dataset.embedded&&available(k)&&!(!$(panels[k][0]).hidden&&sideOf(k)!==side);
  for(const event of ['pointerdown','focusin'])bar.addEventListener(event,()=>onFocus(side));
  function remember(k){const el=$(panels[k][0]);if(el.hidden)return;scrolls.set(k,[el,...el.querySelectorAll('*')].filter(e=>e.scrollTop||e.scrollLeft).map(e=>[e,e.scrollTop,e.scrollLeft]));}
  function layout(){frame=0;const shown=visible();if(!shown.length)return;const head=Math.max(0,header?.getBoundingClientRect().bottom||0);document.documentElement.style.setProperty('--study-top',head+'px');

@@ -3,6 +3,7 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const R = window.Reader;
   const O = window.offline;
+  let dictionaryCardsUI=null;
 
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const KIND_LABEL = { he: 'Hebr.', en: 'Engl.', de: 'Deutsch', other: 'Andere' };
@@ -60,6 +61,7 @@
     $('#tab-notes').hidden=t!=='notes';$('#tab-research').hidden=t!=='research';
     $$('#notesViews button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.notesView===t)));
     document.documentElement.dataset.tab = t;
+    dictionaryCardsUI?.sync();
     if (prevTab !== t && typeof window.hdShow === 'function') window.hdShow(); // beim Reiterwechsel ist die Tableiste immer zu sehen (Kapitelwechsel im selben Reiter lässt sie, wie sie ist)
     dictPlace();
     try { renderTabs(); } catch { /* beim ersten Aufruf sind die Tabs noch nicht angelegt */ } // Fenstertitel neu setzen
@@ -2629,7 +2631,10 @@
     openTForms: wordCardsUI.openTForms, openGForms: wordCardsUI.openGForms, openSForms: wordCardsUI.openSForms, openForms: wordCardsUI.openForms, panelScrollTo, lsGet, lsSet,
     getSelection: () => dictSel, setSelection: ids => { dictSel = ids; },
     getSource: () => dictSrc, setDictSrc,
+    cardSearch:q=>{if(!dictionaryCardsUI?.active())return false;void dictionaryCardsUI.search(q);return true;},
+    beforeLookup:()=>dictionaryCardsUI?.beforeLookup(),
   });
+  dictionaryCardsUI=window.LibraryDictionaryCards.create({$,esc,cards:wordCardsUI,submit:dictionaryUI.search,loadRoots:()=>loadPassageStats(),loadGreek:loadGM});
   function dictLookup(q, only, fromHist, sedraId) { return dictionaryUI.lookup(q, only, fromHist, sedraId); }
   function renderDictList() { return dictionaryUI.renderList(); }
   function renderSaved() { return dictionaryUI.renderSaved(); }
@@ -3271,14 +3276,14 @@
   function pinSync(anchor, preferredKey) {
     if (pinBusy) return; pinBusy = true;
     try {
-      for(const k in PINS){const shown=!$(PINS[k][0]).hidden;if(shown&&!panelVisible[k]&&k!==preferredKey)pins[k]=(panelSide(k)==='left'?leftDockTabs:dockTabs).pinMode;panelVisible[k]=shown;}
+      for(const k in PINS){const shown=!$(PINS[k][0]).hidden&&!$(PINS[k][0]).dataset.embedded;if(shown&&!panelVisible[k]&&k!==preferredKey)pins[k]=(panelSide(k)==='left'?leftDockTabs:dockTabs).pinMode;panelVisible[k]=shown;}
       { // beide nicht angepinnt: öffnet man das eine, schließt sich das andere (schwebend nie untereinander)
         const vis = {}; for (const k of ['cmt', 'dict']) vis[k] = !$(PINS[k][0]).hidden;
         if (anchor !== false) for (const k of ['cmt', 'dict']) { const o = k === 'cmt' ? 'dict' : 'cmt'; if (panelSide(k)===panelSide(o) && vis[k] && !pinVis[k] && !pins[k] && vis[o] && !pins[o]) { vis[o] = false; $(PINS[o][1]).click(); } }
         Object.assign(pinVis, vis);
       }
       const was = {}, now = {};
-      for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
+      for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && !el.dataset.embedded && pins[k]; }
       const candidates=Object.keys(PINS).filter(k=>now[k]&&!was[k]);
       const fresh = preferredKey&&now[preferredKey]?[preferredKey]:candidates.slice(-1);
       for (const k of fresh) for (const o in PINS) if (panelSide(k)===panelSide(o) && o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
@@ -3307,7 +3312,7 @@
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
     if (e.target.closest('.pinp, #dockTabs, #leftDockTabs, #cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
-    for (const k of Object.keys(PINS)) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
+    for (const k of Object.keys(PINS)) { const el = $(PINS[k][0]); if (!el.hidden && !el.dataset.embedded && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); cmtFromBtn(); } });
   // Vers, den man gerade liest: Zeile im oberen Viertel des Textes

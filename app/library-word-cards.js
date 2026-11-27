@@ -1396,7 +1396,7 @@ window.LibraryWordCards = (() => {
     box.addEventListener('mouseout',stop);box.addEventListener('focusout',stop);
   }
   host.$('#fmHead').addEventListener('click', e => { const scope=e.target.closest('[data-wc-scope]');if(scope){wcScope(scope.dataset.wcScope==='family');return;}const hom=e.target.closest('.wcTrHm[data-lem]');if(hom){wcTrLemma(hom.dataset.lem);return;}const b = e.target.closest('.wdict'); if (b) host.openDict(b.dataset.q,null,b.dataset.sedraId); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !host.$('#formsPanel').hidden && !host.$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !host.$('#formsPanel').dataset.embedded && !host.$('#formsPanel').hidden && !host.$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
   // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile
   function fmBook(b) { // griechische Bücher in zwei Fassungen tragen ein Kennzeichen: „Judges (B)“, „Daniel (Theodotion)“
     const m = /^(.*?)( \((?:A|B|Theodotion|Sinaiticus|Onkelos|Neofiti 1|Pseudo-Jonathan)\))?$/.exec(b), base = m[1];
@@ -1440,6 +1440,7 @@ window.LibraryWordCards = (() => {
 
     return {
       get canReopen(){return !!fmCur||fmHi>=0;},
+      async openRoot(lemma) { fmHistSave(); const next={greek:false,lemma,family:true,info:null,tab:'card',scroll:0,tr:null}; fmHistPush(next); return openForms(lemma,null,'card',next); },
       reopen() { if(!fmCur&&fmHi<0)return false;host.$('#formsPanel').hidden=false;fmActive=true;if(!fmCur)fmHistGo(0);return true; },
       get gSearchAll() { return gSearchAll; },
       get ilRenP() { return ilRenP; }, set ilRenP(value) { ilRenP = value; },
