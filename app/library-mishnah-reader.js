@@ -15,14 +15,16 @@ function create(host){
  const active=()=>window.LibraryMishnahTextCrit.supports(getView()?.group?.title);
  const DERIVED_VERSION="Kaufmann A50 (Digital Mishnah), vocalized after Be'eri",DERIVED_LABEL="Digital Mishnah · Punktierung nach Be’eri · teilweise/offen";
  const ACCORDANCE_VERSION='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing',ACCORDANCE_LABEL='Digital Mishnah · vorläufige Accordance-Punktierung · nicht am Manuskript geprüft';
- const derivedVersion=v=>v===DERIVED_VERSION||v===ACCORDANCE_VERSION;
- const readingLabel=v=>v===ACCORDANCE_VERSION?ACCORDANCE_LABEL:v===DERIVED_VERSION?DERIVED_LABEL:'Kaufmann · vokalisierte Lesefassung';
+ const SCAFFOLD_VERSION='Kaufmann A50 (Digital Mishnah), diplomatic scaffold';
+ const workingVersion=v=>v===ACCORDANCE_VERSION||v===SCAFFOLD_VERSION;
+ const derivedVersion=v=>v===DERIVED_VERSION||workingVersion(v);
+ const readingLabel=v=>v===SCAFFOLD_VERSION?'Digital Mishnah · Kaufmann · ohne ergänzte Punktierung':v===ACCORDANCE_VERSION?ACCORDANCE_LABEL:v===DERIVED_VERSION?DERIVED_LABEL:'Kaufmann · vokalisierte Lesefassung';
  const preferredViews=new WeakSet();
  const VERSION="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
- const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title];
- const isReadingEntry=e=>e?.versionTitle===VERSION||e?.title==='Mishnah Berakhot'&&derivedVersion(e?.versionTitle)||e?.versionTitle===ACCORDANCE_VERSION&&!!accordanceItem(e?.title)&&e.rel===accordanceItem(e.title).rel;
+ const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title]||window.MISHNAH_KAUFMANN_KODASHIM_CATALOG?.[title];
+ const isReadingEntry=e=>e?.versionTitle===VERSION||e?.title==='Mishnah Berakhot'&&derivedVersion(e?.versionTitle)||workingVersion(e?.versionTitle)&&!!accordanceItem(e?.title)&&accordanceItem(e.title).versionTitle===e.versionTitle&&e.rel===accordanceItem(e.title).rel;
  const readings=()=>getView()?.group?.versions.filter(isReadingEntry)||[];
- const reading=()=>readings().find(e=>e.versionTitle===ACCORDANCE_VERSION&&getView()?.selected.has(e.rel))||readings().find(e=>getView()?.selected.has(e.rel))||readings().find(e=>e.versionTitle===ACCORDANCE_VERSION)||readings().find(e=>e.versionTitle===VERSION)||readings()[0];
+ const reading=()=>readings().find(e=>workingVersion(e.versionTitle)&&getView()?.selected.has(e.rel))||readings().find(e=>getView()?.selected.has(e.rel))||readings().find(e=>workingVersion(e.versionTitle))||readings().find(e=>e.versionTitle===VERSION)||readings()[0];
  const hasReading=()=>readings().some(e=>getView()?.selected.has(e.rel));
  const hasK=()=>getView()?.selected.has(prefix(getView()?.group?.title)+'K');
  const name=s=>s==='K'?'Kaufmann':s==='D'?'Kaufmann · Digital Mishnah':s==='P'?'Parma':'Cambridge';
@@ -63,8 +65,8 @@ function create(host){
  async function refresh(){
   const token=++generation;hide();observer?.disconnect();if(!active())return;
   const view=getView(),chapter=view.sections[view.idx]?.path?.[0];if(!Number.isInteger(chapter))return;
-  if(!preferredViews.has(view)){preferredViews.add(view);const work=readings().find(e=>e.versionTitle===ACCORDANCE_VERSION);if(work&&!view.selected.has(work.rel)){view.selected.add(work.rel);host.remember();await host.reload(view);return;}}
-  const preferred=reading();if(preferred&&hasK()&&preferred.versionTitle!==ACCORDANCE_VERSION){view.selected.delete(prefix(view.group.title)+'K');view.selected.add(preferred.rel);host.remember();await host.reload(view);return;}
+  if(!preferredViews.has(view)){preferredViews.add(view);const work=readings().find(e=>workingVersion(e.versionTitle));if(work&&!view.selected.has(work.rel)){view.selected.add(work.rel);host.remember();await host.reload(view);return;}}
+  const preferred=reading();if(preferred&&hasK()&&!workingVersion(preferred.versionTitle)){view.selected.delete(prefix(view.group.title)+'K');view.selected.add(preferred.rel);host.remember();await host.reload(view);return;}
   $('#ilBtn').hidden=false;$('#ilBtn').classList.toggle('on',(hasReading()||hasK())&&picks.length>0);$('#bavliIlBtn').hidden=true;
   const data=await adapter.load(view.group.title),vocalized=new Map();
   for(const doc of view.loaded.filter(d=>isReadingEntry(d.entry))){const v=await adapter.loadVocalized(view.group.title,doc.entry.versionTitle);if(v)vocalized.set(doc.entry.rel,v);}
@@ -110,8 +112,8 @@ function create(host){
  }
  async function choose(value,on){
   if(!active())return;const view=getView();
-  if(value==='K'){const e=reading(),rel=e?.rel||prefix(view.group.title)+'K';if(on){view.selected.add(rel);if(e&&e.versionTitle!==ACCORDANCE_VERSION)view.selected.delete(prefix(view.group.title)+'K');}else if(view.selected.size>1)view.selected.delete(rel);}
-  else{if(value==='all')picks=comparisonAvailable(view.group.title);else if(value==='none')picks=[];else picks=on?[...new Set([...picks,value])]:picks.filter(s=>s!==value);if(picks.length){const e=reading();view.selected.add(e?.rel||prefix(view.group.title)+'K');if(e&&e.versionTitle!==ACCORDANCE_VERSION)view.selected.delete(prefix(view.group.title)+'K');}}
+  if(value==='K'){const e=reading(),rel=e?.rel||prefix(view.group.title)+'K';if(on){view.selected.add(rel);if(e&&!workingVersion(e.versionTitle))view.selected.delete(prefix(view.group.title)+'K');}else if(view.selected.size>1)view.selected.delete(rel);}
+  else{if(value==='all')picks=comparisonAvailable(view.group.title);else if(value==='none')picks=[];else picks=on?[...new Set([...picks,value])]:picks.filter(s=>s!==value);if(picks.length){const e=reading();view.selected.add(e?.rel||prefix(view.group.title)+'K');if(e&&!workingVersion(e.versionTitle))view.selected.delete(prefix(view.group.title)+'K');}}
   try{localStorage.setItem('mishnahReaderWitnessesV2',JSON.stringify(picks));}catch{}
   host.remember();await host.reload(view);
   if(getView()===view&&!$('#ilPop').hidden)$('#ilPop').innerHTML=menu();

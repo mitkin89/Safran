@@ -31,6 +31,7 @@ if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){for(const title of require('..
 if(process.env.SAFRAN_SMOKE_KAUFMANN_BERAKHOT==='1'||process.env.SAFRAN_SMOKE_KAUFMANN_IMAGES==='1'){add('Mishnah Berakhot','he',/^Kaufmann A50 \(Digital Mishnah\), vocalized after/);add('Mishnah Berakhot','he',/^Mishnah based on/);}
 if(process.env.SAFRAN_SMOKE_KAUFMANN_ACCORDANCE==='1'){add('Mishnah Berakhot','he',/^Kaufmann A50 \(Digital Mishnah\), provisional Accordance pointing$/);add('Mishnah Berakhot','he',/^Kaufmann A50 \(Digital Mishnah\), vocalized after/);add('Mishnah Berakhot','he',/^Mishnah based on/);}
 if(process.env.SAFRAN_SMOKE_KAUFMANN_ZERAIM_ACCORDANCE==='1'){const ctx={window:{}};require('node:vm').runInNewContext(fs.readFileSync(path.join(root,'mishnah-accordance-catalog.js'),'utf8'),ctx);for(const title of Object.keys(ctx.window.MISHNAH_ACCORDANCE_CATALOG).filter(t=>t!=='Mishnah Berakhot')){add(title,'he',/^Kaufmann A50 \(Digital Mishnah\), provisional Accordance pointing$/);if(manifest.items.some(e=>e.title===title&&/^Mishnah based on/.test(e.versionTitle)))add(title,'he',/^Mishnah based on/);}}
+if(process.env.SAFRAN_SMOKE_KODASHIM==='1'){for(const title of Object.keys(require('../../mishnah-kaufmann-kodashim-catalog')))add(title,'he',/diplomatic scaffold$/);}
 if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){add('Mishnah Berakhot','he',/Kaufmann/);add('Mishnah Berakhot','de',/Goldschmidt/);}
 if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
  for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);
@@ -189,6 +190,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  }
  if(process.env.SAFRAN_SMOKE_MISHNAH_CORPUS==='1'){await require('./mishnah-corpus-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){await require('./mishnah-zeraim-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_KODASHIM==='1'){await require('./kodashim-kaufmann-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_KAUFMANN_ZERAIM_ACCORDANCE==='1'){await require('./kaufmann-zeraim-accordance-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_KAUFMANN_ACCORDANCE==='1'){await require('./kaufmann-accordance-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_KAUFMANN_IMAGES==='1'){await require('./kaufmann-image-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}

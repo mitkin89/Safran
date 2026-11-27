@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "reviewKind": "Independent source/code and VM-test review; not a human linguistic validation",
+  "humanValidated": false,
+  "files": {
+    "library-mishnah-morph.js": "f7bdbd0b1c6c78c919e1379abc2c48c92c9f2bbe1c6c480504d9dfd980938f2f",
+    "library-mishnah-reader.js": "96ed584af9904179597b3caae877cea02e8aef5e103c58a0677efe6ae705dde9",
+    "library-mishnah-textcrit.js": "7050831fb875fd1e213b5a5f43d4b65467b8d00316423f9a8f8cd332e0bd355e",
+    "library.js": "4b9b2cb5ee11ea149e5a47dfc8c36077554d6eba33bc4572e25b77234d471039",
+    "library.html": "7819fbfbf462d96a0554e2edb967011682615ab01c3b55563d7e0d504ae2ef7a",
+    "tools/mishnah/publish_kodashim_kaufmann.cjs": "7979e1cbb53244e5803d6e9d657ce7b254b353ebdf3571b5cfe04b4bafe05737",
+    "tests/mishnah-kodashim-working-ui.test.js": "9a9e467c8242f5cdb4ebb5b155b7f7a2e3df8e4e5d1605c879322d82426d1ffe"
+  },
+  "books": [
+    {
+      "title": "Mishnah Zevachim",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "33ce68c5890334698aae82161de4bf837a508a4dfa9e2badbf66531806b8aa34",
+      "publishedSha256": "5a846a4a193e7a7620d7c6ed234f3d597c3cf5ba3fe71479d030c2150b14587d"
+    },
+    {
+      "title": "Mishnah Menachot",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "1ca42ad6a5ea12ff988ef2275bf750d0ecab5aec4f100814ce2fe988d29d3c81",
+      "publishedSha256": "e06df82c89ce939da2353dfc164c405cd0ecc3918d4d00d0f9b784351f7062be"
+    },
+    {
+      "title": "Mishnah Chullin",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "84851e04887adfbf5189e4012951c88656397825607c4e69f7c8635c10d02f1d",
+      "publishedSha256": "8ef9af8c15d944f03e92e63673d6c249d8bfa89ae90451ee00d7e36849677767"
+    },
+    {
+      "title": "Mishnah Bekhorot",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "9a177cc1f275354dfed52cd69d16b240c56d3c0ef4dff89fe633f2b720c453df",
+      "publishedSha256": "34e416d070523f6169377281191a45813157832b3f7d2b39a2a74f45b854e347"
+    },
+    {
+      "title": "Mishnah Arakhin",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "b3fa81c80191e6a6bafa747ea692f8809cc1531c2ff8df420b2ac4709a9fe579",
+      "publishedSha256": "b88862d390125d50862f63f43b416a36dd2dcf4c64c2afd81fc762902c30b840"
+    },
+    {
+      "title": "Mishnah Temurah",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "d01a5a5711998facfbd69d87f54b085fc735fc5bbbaca41212fa7ae788ffdd65",
+      "publishedSha256": "ca80cdc72cd922ad91c380d8b9845b16c20bb4db1f49a2e2f9c4f96c2f36fa25"
+    },
+    {
+      "title": "Mishnah Keritot",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "711edb1d3f6db5cebf3651c55ca40f725bf3e5803abb7c2668b1ae4956e93d30",
+      "publishedSha256": "156b873ceeca66099fe488049bb041ddeb1241c5788f1897782bff9b2c6782e5"
+    },
+    {
+      "title": "Mishnah Meilah",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "f210bf929c5dcf7e037681305e569030806af58053584742fe0198ec25f3f80e",
+      "publishedSha256": "51c12e11c47c3ba5641b2e942fbd499cef003eb1cc4fbeaa0d596d24f20251a7"
+    },
+    {
+      "title": "Mishnah Tamid",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "cc8fb3aac0bd76ce65f8c123d16eb7bb0cd33e5ada8b942139670018ca172581",
+      "publishedSha256": "623b9d3955544fb1149b259fbf2828e2828237c219097b35175275cc66a040ff"
+    },
+    {
+      "title": "Mishnah Middot",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "5d1d691c939a3d0cc0bd8f0221f36551a50dd51d1b0676a55d0b62fe6dbda0e5",
+      "publishedSha256": "e68f3324f3e396c75470611abc21f4f94493dfb481477ea79e63478abf317c87"
+    },
+    {
+      "title": "Mishnah Kinnim",
+      "sourceVocalized": false,
+      "pointingDonor": null,
+      "referenceSha256": null,
+      "sourceTextHash": "e20d1b5cc4a8a3b3e3a4723e1fab7349445ef86cda85b23ac21fbbf637379721",
+      "publishedSha256": "4a9a324fc6f8f1410990d2a14d6ed3dd2d47cedee06c90d42a2c5f67bcc94965"
+    }
+  ],
+  "tests": {
+    "command": "node --test app/tests/mishnah-kodashim-working-ui.test.js app/tests/kaufmann-image-ui.test.js app/tests/kaufmann-accordance.test.js app/tests/kaufmann-berakhot.test.js app/tests/kaufmann-pointing-comparison.test.js",
+    "passed": 31,
+    "failed": 0,
+    "logSha256": "d6f55497cd41ce8825d063301209b0644a2bba0ef6040b12c060700fa3cb59f5"
+  },
+  "findings": [
+    {
+      "status": "corrected",
+      "finding": "Internal textcrit scaffold view previously set source.vocalized:true. Root now retains false and uses a separate projected() predicate for rendering."
+    },
+    {
+      "status": "corrected",
+      "finding": "Root added explicit source.vocalized===false and referenceSha256===null guards in loadVocalized and Morph refresh; new manipulation tests pass. Visible library version label now says Digital Mishnah · Kaufmann · ohne ergänzte Punktierung."
+    }
+  ],
+  "scopeLimit": "Does not assert full Electron user-flow coverage or verified morphology; no UI or book changes by reviewer.",
+  "openFindings": 0
+}

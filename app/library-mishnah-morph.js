@@ -4,10 +4,12 @@ window.LibraryMishnahMorph=(()=>{
  const TITLES=['Mishnah Berakhot','Mishnah Peah','Mishnah Demai','Mishnah Kilayim','Mishnah Sheviit','Mishnah Terumot','Mishnah Maasrot','Mishnah Maaser Sheni','Mishnah Challah','Mishnah Orlah','Mishnah Bikkurim'],VERSION="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri";
  const DERIVED_VERSION="Kaufmann A50 (Digital Mishnah), vocalized after Be'eri";
  const ACCORDANCE_VERSION='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing';
- const derivedVersion=v=>v===DERIVED_VERSION||v===ACCORDANCE_VERSION;
- const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title]||(title==='Mishnah Berakhot'?{file:'mishnah-kaufmann-accordance-data.js',global:'MISHNAH_KAUFMANN_ACCORDANCE_DATA'}:null);
- const supportedDerived=(title,version)=>version===ACCORDANCE_VERSION&&!!accordanceItem(title)||title==='Mishnah Berakhot'&&version===DERIVED_VERSION;
- const editionLabel=v=>v===ACCORDANCE_VERSION?'Digital Mishnah · vorläufige Accordance-Punktierung · nicht am Manuskript geprüft':'Digital Mishnah · Punktierung nach Be’eri · teilweise/offen';
+ const SCAFFOLD_VERSION='Kaufmann A50 (Digital Mishnah), diplomatic scaffold';
+ const workingVersion=v=>v===ACCORDANCE_VERSION||v===SCAFFOLD_VERSION;
+ const derivedVersion=v=>v===DERIVED_VERSION||workingVersion(v);
+ const accordanceItem=title=>window.MISHNAH_ACCORDANCE_CATALOG?.[title]||window.MISHNAH_KAUFMANN_KODASHIM_CATALOG?.[title]||(title==='Mishnah Berakhot'?{file:'mishnah-kaufmann-accordance-data.js',global:'MISHNAH_KAUFMANN_ACCORDANCE_DATA'}:null);
+ const supportedDerived=(title,version)=>workingVersion(version)&&!!accordanceItem(title)&&(accordanceItem(title).versionTitle||ACCORDANCE_VERSION)===version||title==='Mishnah Berakhot'&&version===DERIVED_VERSION;
+ const editionLabel=v=>v===SCAFFOLD_VERSION?'Digital Mishnah · Kaufmann · ohne ergänzte Punktierung':v===ACCORDANCE_VERSION?'Digital Mishnah · vorläufige Accordance-Punktierung · nicht am Manuskript geprüft':'Digital Mishnah · Punktierung nach Be’eri · teilweise/offen';
  const RABBINIC_DICTIONARIES=['d895bc1c727b','e8d290b744f6','d701423861c6']; // Jastrow, Levy, Krauss
  const IGNORE='small,sup,.note,.footnote,a.aref,.aref,.mci-labels,.mci-witness,.mci-open,.mci-insertion,.mci-note,.mci-coverage-notice,.mci-unbased-notice';
  function imageURL(url){
@@ -31,7 +33,7 @@ window.LibraryMishnahMorph=(()=>{
   function closeForms(){if(formsDialog){if(formsDialog.open)formsDialog.close();formsDialog.remove();}formsDialog=null;formsAnchor=null;}
   function close(){closePopup();closeForms();}
   function ready(title,version){
-   const berakhot=title==='Mishnah Berakhot',work=accordanceItem(title),derived=supportedDerived(title,version),accordance=derived&&version===ACCORDANCE_VERSION,key=accordance?title+'/accordance':derived?'berakhot-derived':berakhot?'berakhot':'zeraim';
+   const berakhot=title==='Mishnah Berakhot',work=accordanceItem(title),derived=supportedDerived(title,version),accordance=derived&&workingVersion(version),key=accordance?title+'/'+version:derived?'berakhot-derived':berakhot?'berakhot':'zeraim';
    if(pending.has(key))return pending.get(key);
    const image=derived&&(accordance&&work?.imageFile&&work?.imageGlobal?{file:work.imageFile,global:work.imageGlobal}:berakhot?{file:accordance?'mishnah-kaufmann-accordance-image-data.js':'mishnah-kaufmann-image-data.js',global:accordance?'MISHNAH_KAUFMANN_ACCORDANCE_IMAGE_DATA':'MISHNAH_KAUFMANN_IMAGE_DATA'}:null);
    const promise=Promise.all([
@@ -89,7 +91,7 @@ window.LibraryMishnahMorph=(()=>{
     let selected;try{selected=await ready(view.group.title,version);}catch{mismatch(cell);continue;}
     if(token!==generation||getView()!==view||view.sections?.[view.idx]?.path?.[0]!==path[0])return;
     data=selected.data;dictionaryData=selected.dictionary;selectedImages=selected.images;const source=data?.sources?.[view.group.title];
-    if(!source||doc.textHash!==source.textHash||version===ACCORDANCE_VERSION&&accordanceItem(view.group.title)?.rel&&(source.rel!==accordanceItem(view.group.title).rel||source.textHash!==accordanceItem(view.group.title).textHash)||derivedVersion(version)&&(doc.entry.rel!==source.rel||data.source?.versionTitle!==version||version===ACCORDANCE_VERSION&&(!data.source.provisional||data.source.pointingDonor!=='Accordance'))){mismatch(cell);continue;}
+    if(!source||version===SCAFFOLD_VERSION&&(data.source?.vocalized!==false||data.source?.referenceSha256!==null)||doc.textHash!==source.textHash||workingVersion(version)&&accordanceItem(view.group.title)?.rel&&(source.rel!==accordanceItem(view.group.title).rel||source.textHash!==accordanceItem(view.group.title).textHash)||derivedVersion(version)&&(doc.entry.rel!==source.rel||data.source?.versionTitle!==version||workingVersion(version)&&(!data.source.provisional||data.source.pointingDonor!==(version===SCAFFOLD_VERSION?null:'Accordance')))){mismatch(cell);continue;}
     const label=cell.closest('.row')?.dataset.l;if(!/^[1-9]\d*$/.test(label||''))continue;
     decorate(cell,doc,path[0]+1,Number(label));
    }
