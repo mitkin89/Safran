@@ -57,3 +57,19 @@ test('a verified visible word group covers its source parts only as review evide
  assert(summary.positions.every(p=>p.status==='reference-needs-review'));
  assert.equal(C.compareObservation(d,{...o,groupWordIds:['K.1/word/0','OTHER/word/1']}).status,'binding-refused');
 });
+
+test('Kodashim scope uses exactly its own eleven catalog entries and observation prefix',()=>{
+ const path=require('node:path'),fs=require('node:fs'),vm=require('node:vm'),root=path.resolve(__dirname,'..'),ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'mishnah-kaufmann-kodashim-catalog.js'),'utf8'),ctx);
+ const expected=Object.values(ctx.window)[0],scope=C.selectScope('kodashim');
+ assert.equal(scope.catalogFile,'mishnah-kaufmann-kodashim-catalog.js');assert.equal(scope.scopeBooks.length,11);assert.deepEqual(scope.scopeBooks.map(x=>x.title),Object.keys(expected));
+ for(const {title}of scope.scopeBooks)assert.equal(scope.catalog[title].file,expected[title].file);
+ assert(!scope.catalog['Mishnah Sotah']);assert(!scope.catalog['Mishnah Shabbat']);
+ assert(scope.observationPattern.test('accordance-kodashim-current-menachot-b-observations.json'));assert(!scope.observationPattern.test('accordance-nashim-current-sotah-observations.json'));assert(!scope.observationPattern.test('accordance-kodashim-current-menachot-b-observationsXjson'));
+ assert.throws(()=>C.selectScope('zeraim'),/Supply --seder/);
+});
+test('existing Moed and Nashim scope selection retains completion-audit order and original catalog',()=>{
+ const fs=require('node:fs'),path=require('node:path');for(const seder of ['moed','nashim']){const scope=C.selectScope(seder),expected=JSON.parse(fs.readFileSync(path.join(__dirname,'../tools/mishnah-morph/moed-nashim-morphology-completion-'+seder+'-audit.json'))).books;assert.equal(scope.catalogFile,'mishnah-accordance-catalog.js');assert.deepEqual(scope.scopeBooks.map(x=>x.title),expected.map(x=>x.title));}
+});
+test('Kodashim selection refuses incomplete and foreign catalog projections',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),dir=fs.mkdtempSync(path.join(os.tmpdir(),'kodashim-scope-'));try{const cat=C.selectScope('kodashim').catalog;for(const entries of [Object.entries(cat).slice(1),Object.entries(cat).map(([title,item],i)=>[title,{...item,file:i?'mishnah-kaufmann-kodashim-fixture-data.js':'mishnah-kaufmann-accordance-sotah-data.js'}])]){fs.writeFileSync(path.join(dir,'mishnah-kaufmann-kodashim-catalog.js'),'window.C='+JSON.stringify(Object.fromEntries(entries)));assert.throws(()=>C.selectScope('kodashim',dir),/Incomplete or foreign/);}}finally{fs.rmSync(dir,{recursive:true,force:true});}
+});
