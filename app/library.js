@@ -3301,11 +3301,11 @@
   }
   pinSync(false);
   window.LibraryPanelResize.create({panels:Object.values(PINS).map(p=>p[0]),setDockWidth:(w,el)=>el?.dataset.studySide==='left'?setLeftWidth(w):window.setPanelW(w)});
-  // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
+  // Die gesamte nicht angepinnte Studien-Pane beim Klick außerhalb schließen.
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
     if (e.target.closest('.pinp, #dockTabs, #leftDockTabs, #cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
-    for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
+    for (const k of Object.keys(PINS)) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); cmtFromBtn(); } });
   // Vers, den man gerade liest: Zeile im oberen Viertel des Textes
