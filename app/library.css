@@ -1621,6 +1621,10 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #wcBody .wcTrR .f { min-width: 0; overflow-wrap: anywhere; font-size: 1.3em; line-height: 1.3; }
 #wcBody .wcTrR .f [lang="arc"] { font-family: var(--he-font, "SBL Hebrew", serif); font-size: 1.15em; }
 #wcBody .wcTrR .f [lang="grc"] { font-family: var(--gr-font); }
+#wcBody .wcTrR .f [lang="syr"] { display: inline-block; font-size: 2em; line-height: 1.6; vertical-align: middle; }
+#wcBody .wcTrR .wcTrKind { display:block; font:11px/1.4 var(--ui-font,system-ui,sans-serif); }
+#wcBody .wcTrUnresolved { margin:10px 0; }
+#wcBody .wcTrUnresolved > summary { cursor:pointer; color:var(--muted); padding:6px; }
 #wcBody .wcTrR .f .hint, #wcBody .wcTrCx .de .hint { font-style: italic; margin-inline-start: 4px; }
 #wcBody .wcTrR.ones .f { color: var(--muted, #888); }
 #wcBody .wcTrR .b { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--fg) 7%, transparent); overflow: hidden; }
@@ -1635,6 +1639,9 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #wcBody .wcTrHint { margin: 0 0 6px; font-size: 12.5px; font-style: italic; }
 #wcBody .wcTrFm { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin: 0 0 6px; font-size: 12.5px; }
 #wcBody .wcTrFm .fm { white-space: nowrap; }
+#wcBody .wcTrFm .fm[lang="syr"] { font-size: 2.5em; line-height: 1.6; white-space: normal; overflow-wrap: anywhere; }
+#wcBody .wcTrFm .fm[lang="syr"] small { font:12px/1.4 var(--ui-font,system-ui,sans-serif); }
+#wcBody .wcTrForms > summary { cursor:pointer; color:var(--muted); padding:4px 0 8px; }
 #wcBody .wcTrCx { max-height: none; overflow: visible; line-height: 1.45; }
 #wcBody .wcTrCx > div { padding-left: 0; text-indent: 0; }
 #wcBody .wcTrCx .bk { margin-top: 5px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; color: var(--muted, #888); }
@@ -1643,6 +1650,9 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #wcBody .wcTrCx .ln > a { font-variant-numeric: tabular-nums; white-space: nowrap; }
 #wcBody .wcTrCx .ln .he { font-family: "HeDict", var(--he-font); font-size: 17px; line-height: 1.3; text-align: start; overflow-wrap: anywhere; }
 #wcBody .wcTrCx .ln .de { min-width: 0; overflow-wrap: anywhere; }
+#wcBody .wcTrCx .ln .de[lang="arc"] { font-family:"HeDict",var(--he-font); font-size:17px; line-height:1.3; }
+#wcBody .wcTrCx .ln .de[dir="rtl"] { justify-self:start; text-align:start; }
+#wcBody .wcTrCx .ln .de[lang="syr"] { font-size: 2em; line-height: 1.6; }
 #wcBody .wcTrCx .mr { margin-top: 6px; }
 @container (max-width: 430px) {
   #wcBody .wcTrBody { grid-template-columns: minmax(0, 1fr); gap: 10px; }
@@ -1720,8 +1730,10 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #fmBody .wcTrCx .mr { margin-top: 6px; }
 #fmBody .fmTrMore { padding: 0 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--muted); cursor: pointer; font: inherit; font-size: 11.5px; }
 #fmBody .fmTrMore:hover { color: var(--accent); border-color: var(--accent); }
-#fmBody .fmF > .fmTrL[lang="grc"] { font-family: var(--gr-font); font-size: .66em; }
-#fmBody .fmF > .fmTrL[lang="arc"] { font-family: var(--he-font, "SBL Hebrew", serif); font-size: .72em; }
+#fmBody .fmF > .fmTrL[lang="grc"] { font-family: var(--gr-font); font-size: 1em; }
+#fmBody .fmF > .fmTrL[lang="arc"], #fmBody .fmF > .fmTrL[lang="he"] { font-family: "HeDict", var(--he-font); font-size: 1em; }
+#fmBody .fmF > .fmTrL[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.4em; line-height: 1.5; }
+#fmBody .fmF > .fmTrL:is([lang="grc"], [lang="arc"], [lang="he"], [lang="syr"]) small { font: 12px/1.3 var(--ui-font, system-ui, sans-serif); direction: ltr; unicode-bidi: isolate; }
 
 /* Goldschmidt: eigene Farbe, bestehende Werkfarben bleiben stabil. */
 :root { --il9: #cf94b8; }
@@ -2208,6 +2220,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #fmHead .fmHomonyms{display:inline-flex;flex-wrap:wrap;gap:5px;align-items:center;margin-inline:10px;font:13px system-ui,sans-serif}
 #fmHead .fmHomonyms button{padding:4px 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
 #fmHead .fmHomonyms button.on{border-color:var(--accent);background:var(--chip);color:var(--accent)}
+#fmHead .fmHomonyms .fmLemma{font-family:"HeDict",var(--he-font);font-size:1.2em;margin-inline-end:4px}
 #fmHead .fmHomonyms small{color:var(--muted);font-size:11px}
 
 #wcTr .wcSamePick{border:0;border-bottom:1px dotted var(--accent);padding:0;background:transparent;color:inherit;font:inherit;cursor:pointer}
@@ -2567,6 +2580,7 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 
 #lkHover .concordancePreview { font-size: 1.25em; line-height: 1.65; }
 #lkHover .concordancePreview[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.6em; }
+#lkHover .pvp[lang="syr"] { font-family:"Safran Syriac",sans-serif; font-size:1.6em; line-height:1.7; }
 
 #lkHover .concordancePreview[lang="he"] { font-family: var(--he-font); }
 
@@ -3123,3 +3137,8 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 
 /* Preserve source spelling while marking unresolved editorial pointing. */
 .kpt-open { text-decoration: underline dotted; text-underline-offset: .16em; }
+
+#wcBody .wcPsW { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+#wcBody .wcPsX .g[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 30px; line-height: 1.5; max-width: 100%; }
+#wcBody .wcPsW small { font: 11px/1.3 var(--ui-font, system-ui, sans-serif); color: var(--muted); text-align: start; }
+#wcBody .wcPsMore summary { cursor: pointer; color: var(--muted); margin: 6px 0; }

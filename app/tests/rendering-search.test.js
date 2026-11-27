@@ -38,3 +38,25 @@ test('word-family renderings combine counts while preserving the source lemma of
  assert.equal(merged.Philippson.total,2);
  assert.equal(a.cells[0].lemma,undefined);
 });
+test('witness families preserve lexical identities even when displayed lemmas are identical',()=>{
+ const {familySources}=require('../rendering-search');
+ const entry=key=>({lang:'syr',grouped:true,total:1,labels:[{key,type:'lemma',forms:['ܡܝ',['ܡ̈ܝܐ',1]]}],cells:[{g:0,n:1,code:'HN',refs:'rt',form:'ܡ̈ܝܐ'}]});
+ const merged=familySources([['1',{src:{Peshitta:entry('MJ')}}],['2',{src:{Peshitta:entry('MJ=')}}]]).Peshitta;
+ assert.equal(merged.grouped,true);assert.equal(merged.labels.length,2);assert.equal(merged.total,2);
+ assert(merged.cells.every(c=>c.form==='ܡ̈ܝܐ'));
+});
+
+test('paradigm renderings count attested surface forms by morphology and verse, retaining repetitions',()=>{
+ const {surfaceIndex}=require('../rendering-search');
+ const aggregate=surfaceIndex([
+  {g:0,code:'perfect',refs:enc([1001,1001,1002]),targets:[[1,'εἶπα'],[3,'εἶπα'],[2,'εἶπον']]},
+  {g:0,code:'imperfect',refs:enc([1001]),targets:[[4,'λέγει']]},
+  {g:1,code:'perfect',refs:enc([1001]),form:'אמרית'},
+  {g:2,code:'perfect',refs:enc([1001])}
+ ]);
+ const entry=aggregate(new Set(['perfect']),new Set([1001]));
+ assert.equal(entry.n,3);
+ assert.deepEqual(entry.cores.map(x=>[x.t,x.c]),[['εἶπα',2],['אמרית',1]]);
+ assert.equal(aggregate(new Set(['perfect']),new Set([1002])).cores[0].t,'εἶπον');
+ assert.equal(aggregate(new Set(['absent']),null),null);
+});

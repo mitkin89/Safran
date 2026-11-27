@@ -110,7 +110,7 @@
       const t = tabs[i];
       if (!t.group) continue;
       const ng = groupsByKey.get(t.group.key);
-      if (ng) { t.group = ng; if (t.selected) { t.selected = new Set([...t.selected].filter(r => ng.versions.some(v => v.rel === r))); if (!t.selected.size && ng.versions[0]) t.selected.add(ng.versions[0].rel); } } else { tabs.splice(i, 1); if (i < tabIdx) tabIdx--; }
+      if (ng) { const saved = window.BibleVersions.snapshot(t.group.versions, t.selected || []); t.group = ng; if (t.selected) { t.selected = window.BibleVersions.restore(ng.versions, saved); if (!t.selected.size && ng.versions[0]) t.selected.add(ng.versions[0].rel); } } else { tabs.splice(i, 1); if (i < tabIdx) tabIdx--; }
     }
     if (!tabs.length) tabIdx = -1; else tabIdx = Math.min(Math.max(0, tabIdx), tabs.length - 1);
     view = tabs[tabIdx] || null; // view zeigt immer auf den aktiven Tab
@@ -292,9 +292,14 @@
   // gemerkte Fassungen: je Sprache die Titel der Versionen, die man zuletzt ausgewählt hat; sie werden in jedem Buch, das sie hat, wieder geöffnet
   let prefVer = {};
   try { const p = JSON.parse(localStorage.getItem('prefVer') || '{}'); if (p && typeof p === 'object' && !Array.isArray(p)) prefVer = p; } catch { /* egal */ }
+  const bookVersionsKey = document.documentElement.classList.contains('pane2') ? 'bookVersions2' : 'bookVersions';
+  let bookVersions = {};
+  try { const saved = JSON.parse(localStorage.getItem(bookVersionsKey) || '{}'); if (saved && typeof saved === 'object' && !Array.isArray(saved)) bookVersions = saved; } catch { /* egal */ }
+  function saveBookVersions() { try { localStorage.setItem(bookVersionsKey, JSON.stringify(bookVersions)); } catch { /* egal */ } }
   const kindKey = v => (['he', 'en', 'de'].includes(v.kind) ? v.kind : 'other');
   function rememberVersions() {
     if (!view || !view.group) return;
+    navigationUI.saveSession();
     for (const k of new Set(view.group.versions.map(kindKey))) {
       // in der Reihenfolge der Spalten (view.selected), damit Ersetzen/Tauschen im Spaltenmenü auch im nächsten Buch gilt
       const titles = [...new Set([...view.selected].map(rel => view.group.versions.find(v => v.rel === rel)).filter(v => v && kindKey(v) === k).map(v => v.versionTitle))];
@@ -313,9 +318,12 @@
           if(!preferred)continue;
           for(const rel of tab.selected)if(tab.group.versions.find(v=>v.rel===rel)?.kind==='de')tab.selected.delete(rel);
           tab.selected.add(preferred.rel);
+          bookVersions[tab.group.key] = window.BibleVersions.snapshot(tab.group.versions, tab.selected);
         }
       }
     }
+    bookVersions[view.group.key] = window.BibleVersions.snapshot(view.group.versions, view.selected);
+    saveBookVersions();
   }
   function rememberKinds() {
     if (!view || !view.group) return;
@@ -331,6 +339,8 @@
   // Reihenfolge der hebräischen Fassungen als Vorgabe: Westminster, vokalisierte Ausgabe, andere, zuletzt „zusammengeführt“
   function heRank(t) { return t==='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing'?-1:/^Kaufmann A50 · Digital Mishnah$/.test(t)?0:/Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
   function pickVersions(g) {
+    const remembered = window.BibleVersions.restore(g.versions, bookVersions[g.key]);
+    if (remembered.size) return remembered;
     const sel = new Set();
     // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
     // Sefarias zusammengeführte Fassung nur, wenn es keine andere gibt
@@ -1056,7 +1066,6 @@
   const wordCardsUI = window.LibraryWordCards.create({
     concordanceCoverageHtml,
     getBibleTranslation: () => disp.pvDe==='*'?'':disp.pvDe||'Zunz',
-    syntaxSection: context => wordPopupUI.syntaxSection(context),
     get $() { return $; },
     get $$() { return $$; },
     get BG() { return BG; },
@@ -2880,7 +2889,11 @@
     renderSection, olInlineOn: outlineUI.olInlineOn, olInline: outlineUI.olInline, withAnchor,
     onBibleVersionsChanged: id => {
       if(id==='dPvDe')try{localStorage.removeItem('wcTrSrc');localStorage.removeItem('fmTrSrc');}catch{}
+      // Explicit Bible defaults replace remembered choices; ordinary startup does not.
+      for (const key of Object.keys(bookVersions)) if (/^Tanakh\//.test(key)) delete bookVersions[key];
+      saveBookVersions();
       for(const tab of tabs)if(tab.group&&/^Tanakh\//.test(tab.group.key||''))tab.selected=pickVersions(tab.group);
+      navigationUI.saveSession();
       if(view?.group&&/^Tanakh\//.test(view.group.key||''))void loadView();
     },
   });

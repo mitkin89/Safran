@@ -11,5 +11,24 @@
   if(extra){if(extra.kind==='he'||extra.kind==='de')result.add(extra.rel);else replace(extra.kind,extra);}
   return result;
  }
- const api={select};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.BibleVersions=api;
+ // Remember exact ordered editions, with a stable identity if an import moves its file.
+ function snapshot(versions,selected){
+  return [...selected].map(rel=>versions.find(v=>v.rel===rel)).filter(Boolean)
+   .map(({rel,kind,language,versionTitle})=>({rel,kind,language,versionTitle}));
+ }
+ function restore(versions,saved){
+  const result=new Set();
+  for(const item of Array.isArray(saved)?saved:[]){
+   const record=typeof item==='string'?{rel:item}:item;
+   if(!record||typeof record!=='object')continue;
+   let match=versions.find(v=>v.rel===record.rel);
+   if(!match&&typeof record.versionTitle==='string'){
+    const candidates=versions.filter(v=>v.versionTitle===record.versionTitle&&v.kind===record.kind&&v.language===record.language);
+    if(candidates.length===1)match=candidates[0];
+   }
+   if(match)result.add(match.rel);
+  }
+  return result;
+ }
+ const api={select,snapshot,restore};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.BibleVersions=api;
 })(typeof window==='undefined'?globalThis:window);

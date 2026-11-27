@@ -60,7 +60,7 @@ window.LibrarySearch = (() => {
       modeTabs[next].click();
       modeTabs[next].focus();
     });
-    const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
+    const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['exact', 'lemma', 'root'];
     // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
     function sKinds() {
       const l = $('#sLang').value, v = $('#sq').value;
@@ -71,35 +71,35 @@ window.LibrarySearch = (() => {
       return /\p{L}/u.test(v) ? ['en', 'de'] : S_KINDS.slice();
     }
     let concordanceRoot = '', concordanceLemma = '';
-    const isConcordance = () => $('#sConcordance').checked;
+    const isConcordance = () => ['lemma', 'root'].includes($('#sMode').value) || $('#sConcordanceCross').checked;
     const S_GREEK = /[\u0370-\u03FF\u1F00-\u1FFF]/;
     // Für welche Texte gilt die Treffer-Art? 'he' = hebräisch, 'gr' = griechische Eingabe in „Andere“/„Alle“ (Lemma-Suche in der Septuaginta), 'ot' = alles Übrige
     const sSlot = () => { const k = sKinds(); return k.includes('he') ? 'he' : k.includes('other') && S_GREEK.test($('#sq').value) ? 'gr' : 'ot'; };
     // Treffer-Art, getrennt gemerkt für hebräische, griechische und andere Suche („Alle Formen“ gibt es hebräisch und griechisch, „Wort mit Vorsilben“ nur hebräisch)
-    const sModeSel = { he: 'lemma', gr: 'lemma', ot: 'part' };
-    const sModeOk = (m, slot) => S_MODES.includes(m) && (slot === 'he' || slot === true || m === 'exact' || m === 'part' || (slot === 'gr' && m === 'lemma'));
-    // Treffer-Art -> Parameter des Suchkerns (parse: Suchfeld zerlegen – mehrere Wörter in der Nähe, "…" = Wortfolge)
-    const sMatchParams = () => { const m = $('#sMode').value; return { prefix: m === 'lemma' || m === 'prefix', exact: m === 'exact', lemma: m === 'lemma', partial: m === 'part', parse: true }; };
-    // Suchfeld grob zerlegen (nur für die Hinweiszeile; die eigentliche Zerlegung macht der Suchkern)
-    const sShape = v => { let ph = 0; const rest = v.replace(/(^|\s)["“„«»].+?["“”»«](?=\s|$)/gu, () => { ph++; return ' '; }); return { n: ph + rest.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length, ph }; };
+    const sModeSel = { he: 'exact', gr: 'exact', ot: 'exact' };
+    const sModeOk = (m, slot) => S_MODES.includes(m) && (m !== 'root' || slot === 'he');
+    const sMatchParams = () => {
+      const m = $('#sWordMode').value;
+      return { prefix: m === 'prefix', exact: m === 'exact', lemma: false, partial: m === 'part', parse: true };
+    };
     function sRefresh() {
-      const cc = isConcordance();
-      $('#sConcordanceMode').hidden = !cc; $('#sConcordanceCrossLabel').hidden = !cc; $('#sMode').disabled = cc; $('#sMode').closest('label').hidden = cc; $('#sAdv').hidden = cc;
-      const kinds = sKinds(), he = kinds.includes('he'), l = $('#sLang').value, v = $('#sq').value.trim(), gram = null;
       const slot = sSlot();
       for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
+      if (!sModeOk(sModeSel[slot], slot)) sModeSel[slot] = 'exact';
       $('#sMode').value = sModeSel[slot];
-      const m = $('#sMode').value, fuzzy = $('#sFuzzy').checked, d = +$('#sDist').value, sh = sShape(v), p = [];
-      if (gram) p.push(I18N.t('Grammatik-Suche: Tanach (Westminster)'));
-      else p.push(I18N.t(l === 'auto' && !v ? 'Sprache richtet sich nach der Schrift der Eingabe' : kinds.length > 2 ? 'Sucht in allen Sprachen' : kinds.length === 2 ? 'Sucht deutsch und englisch' : kinds[0] === 'he' ? 'Sucht hebräisch' : kinds[0] === 'de' ? 'Sucht deutsch' : kinds[0] === 'en' ? 'Sucht englisch' : 'Sucht in anderen Sprachen'));
-      if (!gram) p.push(I18N.t(m === 'lemma' && slot === 'gr' ? 'alle Wortformen in der Septuaginta (Lemma), sonst ganze Wörter' : m === 'lemma' ? 'alle Wortformen im Tanach, sonst ganze Wörter (mit Vorsilben)' : m === 'prefix' ? 'ganze Wörter, hebräische Vorsilben erlaubt' : m === 'exact' ? 'nur genau dieses Wort' : fuzzy ? 'ganze Wörter' : 'auch Wortteile'));
-      if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
-      if (sh.ph && !gram) p.push(I18N.t('"…" = genau diese Wortfolge'));
-      if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
-      const rootMode = cc && $('#sConcordanceMode').value === 'root';
-      const exactLemma = cc && $('#sConcordanceMode').value === 'lemma' && concordanceLemma;
-      $('#sHint').textContent = rootMode ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).') : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma) : cc ? I18N.t('Ein Wort in lokalen Werken; optional zugeordnete Bibeltexte in Hebräisch, Griechisch und Syrisch. Grundformen nur aus passenden Wortanalysen, sonst genaue Wortform. Ohne Fußnoten. Fassungen zählen getrennt.') : p.join(' · ');
-      const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
+      const m = $('#sMode').value, cc = isConcordance();
+      $('#sMode').disabled = false; $('#sMode').closest('label').hidden = false;
+      $('#sAdv').hidden = cc;
+      $('#sWordMode option[value="prefix"]').disabled = slot !== 'he';
+      $('#sWordMode option[value="prefix"]').hidden = slot !== 'he';
+      if (slot !== 'he' && $('#sWordMode').value === 'prefix') $('#sWordMode').value = 'exact';
+      const exactLemma = m === 'lemma' && concordanceLemma;
+      $('#sHint').textContent = m === 'root'
+        ? I18N.t('Wurzelsuche nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).')
+        : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma)
+        : m === 'lemma' ? I18N.t('Lemma-Suche: nur Fassungen mit nutzbaren Lemma-Zuordnungen und nur belegte Lemmata. Für andere Werke die Wortformsuche verwenden.')
+        : I18N.t('Wortformsuche in den rechts ausgewählten Werken. Erweiterte Optionen erlauben Vorsilben, Wortteile und Wortfolgen.');
+      const act = +$('#sOrd').checked + +$('#sFuzzy').checked + +!$('#sWlc').checked + +(+$('#sDist').value !== 10) + +($('#sWordMode').value !== 'exact');
       $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
     }
     O.onSearchProgress(p => {
@@ -377,6 +377,7 @@ window.LibrarySearch = (() => {
       $('#sxFilterCount').textContent = active ? ' ' + I18N.t('({#} aktiv)', active) : '';
     });
     $('#sxExample').onclick = () => examplesUI.load('god-speaks');
+    const searchCount = n => Number(n || 0).toLocaleString(I18N.loc);
     async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
       const wordMode=syntax?.word===true;
@@ -402,7 +403,7 @@ window.LibrarySearch = (() => {
         ...(!syntax ? { distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked,
           ...sMatchParams(), wlc: $('#sWlc').checked } : {}),
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
-        ...(cc ? { concordance: true, concordanceRoot: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '', concordanceLemma: $('#sConcordanceMode').value === 'lemma' ? concordanceLemma : '', crossLanguage: $('#sConcordanceCross').checked, lemma: $('#sConcordanceMode').value === 'lemma', gram: null, fuzzy: false, prefix: false, exact: false, partial: false, wlc: false, countAll: true } : {}),
+        ...(cc ? { concordance: true, concordanceRoot: $('#sMode').value === 'root' ? concordanceRoot : '', concordanceFamily: $('#sMode').value === 'root', concordanceLemma: $('#sMode').value === 'lemma' ? concordanceLemma : '', crossLanguage: $('#sConcordanceCross').checked, lemma: ['lemma', 'root'].includes($('#sMode').value), gram: null, fuzzy: false, prefix: false, exact: false, partial: false, wlc: false, countAll: true } : {}),
       };
       lastSearch = { ...sp, wordMode };
       const fkey = JSON.stringify({ ...sp, titles, perFile: 0, limit: 0, countAll: 0 });
@@ -419,20 +420,24 @@ window.LibrarySearch = (() => {
       sResults = res.results;
       $('#sOut').classList.toggle('concordance', !!res.concordance);
       $('#sSyntaxCoverage').innerHTML=window.SyntaxCoverage.render(res.syntaxCoverage,{esc,t:(...args)=>I18N.t(...args)});
-      const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
-      $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
-      if (res.concordance) $('#sInfo').textContent = I18N.t('{} Vorkommen · {} · {} Belege angezeigt · {} von {} Dateien durchsucht', totalHits, I18N.t(res.stats.length === 1 ? '{} Werk' : '{} Werke', res.stats.length), sResults.length, res.scanned, res.total)
+      const wordCount = (res.dist || []).reduce((n, x) => n + x.o, 0);
+      const passageCount = (res.dist || []).reduce((n, x) => n + x.h, 0);
+      const summary = I18N.t('{} Wortvorkommen in {} Versen/Absätzen · {} Werke', searchCount(wordCount), searchCount(passageCount), searchCount(res.stats.length));
+      $('#sInfo').textContent = summary + ' · ' + I18N.t('{} von {} Dateien durchsucht', res.scanned, res.total)
+        + (res.capped && !onlyTitle ? ' · ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '');
+      if (res.concordance) $('#sInfo').textContent = summary + ' · ' + I18N.t('{} Belege angezeigt · {} von {} Dateien durchsucht', sResults.length, res.scanned, res.total)
         + (res.cancelled ? ' · ' + I18N.t('– abgebrochen') : '')
         + (res.truncated || res.capped ? ' · ' + I18N.t('Anzeige begrenzt; Häufigkeiten zählen alle durchsuchten Stellen. Werk auswählen, um weitere Belege zu sehen.') : '')
-        + (res.lemmaCoverage && !res.hitsByBasis.root && !sp.concordanceRoot
-          ? ' · ' + I18N.t('{} Lemmatreffer · {} Wortformtreffer', res.hitsByBasis.lemma.toLocaleString(I18N.loc), res.hitsByBasis.surface.toLocaleString(I18N.loc))
+        + (res.lemmaCoverage && !res.hitsByBasis.root && !sp.concordanceRoot && !sp.concordanceFamily
+          ? ' · ' + I18N.t('{} Lemmatreffer', res.hitsByBasis.lemma.toLocaleString(I18N.loc))
           : '')
+        + (res.excludedWithoutLemma ? ' · ' + I18N.t('{} Fassungen ohne nutzbare Lemma-Zuordnungen ausgeschlossen.', res.excludedWithoutLemma) : '')
         + (res.crossLanguage ? ' · ' + I18N.t('Entsprechungen aus Wortzuordnungen; getrennt von den Vorkommenszahlen.') : '')
         + (res.errors ? ' · ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
       if (res.concordance) $('#sLemmaCoverage').innerHTML = concordanceCoverageHtml(res);
       sSumState = { res, onlyTitle, n: 40 };
       renderSum();
-      if (res.concordance) $('#sChart').hidden = true; else if (!onlyTitle) renderDist(res);
+      if (!onlyTitle) renderDist(res);
       $('#sExport').hidden = !sResults.length;
       $('#sReadBtn').hidden = !sResults.length;
       $('#sGroupBtn').hidden = !sResults.length || !!res.concordance;
@@ -442,7 +447,7 @@ window.LibrarySearch = (() => {
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
-      if (r.concordance) return `<div class="sres ccRow" tabindex="0" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wortfamilie' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" tabindex="0" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
+      if (r.concordance) return `<div class="sres ccRow" tabindex="0" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wurzel' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" tabindex="0" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
       const roles = (r.syntax || []).map(pair => {
         const parts = [[I18N.t('Verb'), pair.verb ? [{ text: pair.verb }] : []], [I18N.t('Subjekt'), pair.subjects],
           [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
@@ -513,26 +518,23 @@ window.LibrarySearch = (() => {
     // oder { q, l: Sprache, m: Treffer-Art }, wenn etwas anderes eingestellt war.
     const sEntQ = e => (typeof e === 'string' ? e : e && typeof e.q === 'string' ? e.q : '');
     const sLabel = (sel, v) => { const o = [...$(sel).options].find(x => x.value === v); return o ? o.textContent.trim() : ''; };
-    const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), e.cc ? I18N.t('Werkübergreifende Konkordanz') + ' · ' + I18N.t(e.cm === 'root' ? 'Wortfamilie' : e.cm === 'lemma' ? 'Grundform' : 'Wortform') : sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
-    const sEntNow = () => {
-      const q = $('#sq').value.trim(), l = $('#sLang').value, m = $('#sMode').value;
-      if (isConcordance()) return { q, l, m, cc: true, cm: $('#sConcordanceMode').value, cx: $('#sConcordanceCross').checked, cr: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '', cl: $('#sConcordanceMode').value === 'lemma' ? concordanceLemma : '' };
-      return l === 'auto' && m === (sSlot() === 'ot' ? 'part' : 'lemma') ? q : { q, l, m };
-    };
-    function sRootScope(id) {
-      concordanceRoot = id || '';
-      $('#sConcordanceMode option[value="root"]').hidden = !concordanceRoot;
-      if (!concordanceRoot && $('#sConcordanceMode').value === 'root') $('#sConcordanceMode').value = 'lemma';
-    }
+    const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), sLabel('#sMode', e.cc ? e.cm === 'root' ? 'root' : e.cm === 'lemma' ? 'lemma' : 'exact' : e.m)].filter(Boolean).join(' · ') : '');
+    const sEntNow = () => ({ q: $('#sq').value.trim(), l: $('#sLang').value, m: $('#sMode').value,
+      wm: $('#sWordMode').value, cx: $('#sConcordanceCross').checked, cr: concordanceRoot, cl: concordanceLemma, unified: true });
+    function sRootScope(id) { concordanceRoot = id || ''; }
     function sEntApply(e) {
       setSearchMode('text');
-      sRootScope(e?.cc ? e.cr : '');
-      concordanceLemma = e?.cc ? e.cl || '' : '';
-      $('#sConcordance').checked = !!e?.cc; $('#sConcordanceCross').checked = e?.cx !== false; $('#sConcordanceMode').value = e?.cm === 'root' && concordanceRoot ? 'root' : e?.cm === 'lemma' ? 'lemma' : 'surface'; // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
+      sRootScope(e?.cr || ''); concordanceLemma = e?.cl || '';
       $('#sq').value = sEntQ(e);
       $('#sLang').value = e && typeof e === 'object' && S_LANGS.includes(e.l) ? e.l : 'auto';
-      const slot = sSlot(), m = e && typeof e === 'object' ? e.m : '';
-      sModeSel[slot] = sModeOk(m, slot) ? m : slot === 'ot' ? 'part' : 'lemma';
+      const slot = sSlot();
+      // Existing favorites and history keep their search semantics in the unified menu.
+      const previous = typeof e === 'object' && e ? e : {};
+      const m = previous.cc ? previous.cm === 'root' ? 'root' : previous.cm === 'lemma' ? 'lemma' : 'exact'
+        : ['part', 'prefix'].includes(previous.m) ? 'exact' : previous.m;
+      sModeSel[slot] = sModeOk(m, slot) ? m : 'exact';
+      $('#sWordMode').value = ['part', 'prefix'].includes(previous.m) ? previous.m : ['exact', 'prefix', 'part'].includes(previous.wm) ? previous.wm : 'exact';
+      $('#sConcordanceCross').checked = previous.unified ? !!previous.cx : previous.cc ? previous.cx !== false : false;
       sRefresh();
     }
     const manualFind = () => {
@@ -553,14 +555,10 @@ window.LibrarySearch = (() => {
       if (a) { syncSS(); const ent = (a.closest('#sFavL') ? sFavs : sRecent)[+a.dataset.i]; if (!sEntQ(ent)) return; sEntApply(ent); renderSearchSaved(); runSearch(); }
     });
     $('#sq').addEventListener('input', () => { sRootScope(''); concordanceLemma = ''; sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
-    $('#sConcordance').addEventListener('change', sRefresh);
-    $('#sConcordanceMode').addEventListener('change', sRefresh);
     $('#sConcordanceCross').addEventListener('change', sRefresh);
     $('#sLang').addEventListener('change', () => { sRefresh(); renderSearchSaved(); });
     $('#sMode').addEventListener('change', () => {
-      const m = $('#sMode').value;
-      if (m === 'exact') sModeSel.he = sModeSel.gr = sModeSel.ot = m; // „Genau dieses Wort“ gilt in jeder Sprache weiter
-      else { sModeSel[sSlot()] = m; if (sModeSel.he === 'exact') sModeSel.he = 'lemma'; if (sModeSel.gr === 'exact') sModeSel.gr = 'lemma'; if (sModeSel.ot === 'exact') sModeSel.ot = 'part'; }
+      sModeSel[sSlot()] = $('#sMode').value;
       sRefresh(); renderSearchSaved();
     });
     $('#sAdv').addEventListener('change', sRefresh);

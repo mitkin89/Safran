@@ -109,7 +109,7 @@ window.LibraryNavigation = (() => {
     } catch { /* beim Start noch nicht alles angelegt */ }
     return {
       idx: host.tabIdx,
-      tabs: host.tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t === host.view ? window.scrollY : (t.scroll || 0), hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
+      tabs: host.tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], editions: window.BibleVersions.snapshot(t.group.versions, t.selected), sk: t.key, label: t.label || '', scroll: t === host.view ? window.scrollY : (t.scroll || 0), hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
       ui,
     };
   }
@@ -131,7 +131,7 @@ window.LibraryNavigation = (() => {
       if (t.empty) { host.tabs.push({ group: null }); continue; }
       const g = host.groupsByKey.get(t.key);
       if (!g) continue;
-      const sel = new Set((t.rels || []).filter(r => g.versions.some(v => v.rel === r)));
+      const sel = window.BibleVersions.restore(g.versions, t.editions || t.rels);
       if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
       host.tabs.push({ group: g, selected: sel, loaded: [], sections: [], idx: 0, key: t.sk || null, label: t.label || '', scroll: t.scroll || 0, hit: t.hit && typeof t.hit.k === 'string' ? t.hit : null, lazy: true });
     }
