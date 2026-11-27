@@ -339,3 +339,6 @@ html[data-tab=research] #moreMenu { margin-inline-start: 0; }
 .rw-note-sources { padding:10px 0; margin-bottom:12px; border-bottom:1px solid var(--line); }
 .rw-note-sources small { color:var(--muted); font-size:11px; }
 .rw-note-sources blockquote { white-space:pre-wrap; unicode-bidi:plaintext; margin:6px 0 12px; font-family:Georgia,'SBL Hebrew',serif; line-height:1.8; }
+
+/* Shared word stacks mirror the reader for captured ancient witnesses. */
+.rw-stacked{gap:14px 20px;align-items:flex-start}.rw-stacked .rw-wordgroup{break-inside:avoid;page-break-inside:avoid;gap:4px;max-width:100%}.rw-stacked .rw-original{line-height:1.7}.rw-stacked .rw-gloss{font-size:.7em;display:block;min-height:1.7em;line-height:1.7;white-space:pre-wrap}.rw-stacked .rw-gloss[lang=syr]{font-family:"Safran Syriac",serif;min-height:3.1em}.rw-transliteration{display:block;font-family:"SBL Hebrew",serif;font-size:.8em;line-height:1.4;color:#777}.rw-stacked .rw-verse{align-self:flex-start}.rw-bilingual .rw-pair-editions{flex-wrap:wrap}.rw-bilingual .rw-pair-editions span{min-width:100px}

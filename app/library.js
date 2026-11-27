@@ -3063,9 +3063,11 @@
           const lines=[...n.querySelectorAll('.ilt')].filter(l=>witnesses.includes(l.dataset.tr)).map(l=>{
             const copy=l.cloneNode(true);
             copy.querySelectorAll('summary').forEach(node=>node.remove());
+            const transliteration=[...copy.querySelectorAll('.ps-translit')].map(node=>node.textContent.trim()).join(' ');
+            copy.querySelectorAll('.ps-translit').forEach(node=>node.remove());
             const sigil=copy.querySelector('.ilsig');
             if(sigil)sigil.after(' ');
-            return {name:l.dataset.tr,text:copy.textContent.trim()};
+            return {name:l.dataset.tr,text:copy.textContent.trim(),...(transliteration?{transliteration}:{})};
           }).filter(l=>l.text);
           return {original,lines};
         });
