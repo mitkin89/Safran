@@ -3270,9 +3270,15 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcHebSources { display:flex; flex-wrap:wrap; gap:8px; }
 .wcHebSources [aria-pressed="true"] { border-color:var(--accent); color:var(--accent); }
 .wcHebViz { display:flex; align-items:flex-start; gap:24px; }
-.wcHebRing { width:210px; height:210px; flex:none; border-radius:50%; display:grid; place-items:center; }
-.wcHebRing > div { border-radius:50%; width:65%; height:65%; background:var(--bg,#1e1e1e); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; }
-.wcHebRing b { font-size:24px; }
+.wcHebRing { width:210px; height:auto; aspect-ratio:1; flex:none; position:sticky; top:44px; overflow:visible; }
+.wcHebRing text { fill:var(--fg,currentColor); text-anchor:middle; pointer-events:none; }
+.wcHebCenter { font-family:var(--gr-font); font-size:22px; }
+.wcHebTotal { font-size:12px; }
+.wcHebSlice { cursor:pointer; transition:opacity .15s,filter .15s; }
+.wcHebSlice.dim,.wcHebEntry.dim { opacity:.35; }
+.wcHebSlice:is(.highlight,.selected,:focus-visible) { filter:brightness(1.2); stroke:var(--fg); stroke-width:1.5; outline:none; }
+.wcHebEntry { transition:opacity .15s; }
+.wcHebEntry:is(.highlight,[open]) > summary { background:color-mix(in srgb,var(--accent) 13%,transparent); border-radius:6px; }
 .wcHebRows { flex:1; min-width:0; }
 .wcHebEntry { margin-bottom:8px; }
 .wcHebEntry > summary { display:flex; gap:12px; align-items:center; cursor:pointer; padding:8px; }
@@ -3284,7 +3290,7 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 .wcHebBar { width:28%; background:var(--line); height:10px; border-radius:8px; overflow:hidden; }
 .wcHebBar i { display:block; background:var(--hc); height:100%; }
 .wcHebEntry > .fmRL { margin:10px 20px; line-height:1.8; }
-@container (max-width:650px) { .wcHebViz { flex-wrap:wrap; } .wcHebRows { flex-basis:100%; } }
+@container (max-width:650px) { .wcHebViz { flex-wrap:wrap; } .wcHebRing { position:static; } .wcHebRows { flex-basis:100%; } }
 .wcHebWord { padding:0; border:0; border-bottom:1px dotted var(--accent); background:none; color:inherit; cursor:pointer; }
 .wcHebReverse { margin:12px 0; padding:12px; border-inline-start:3px solid var(--accent); background:color-mix(in srgb,var(--accent) 6%,transparent); }
 .wcHebReverse > details { margin:8px 0; }
