@@ -74,6 +74,36 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#wcBody .wcBar[data-b=Genesis]').click()");
  assert(await js("document.querySelector('#wcBookRefs [data-ref=\"Genesis 1:22\"][data-same-lemma=\"4390\"]')"));
  await js("document.querySelector('#wcTr [data-src=Zunz]').click()");
+ assert.equal(await js("document.querySelector('#fmHead .fmLem').textContent"),'מלא','Family heading shows the root');
+ assert(await js("!document.querySelector('#wcBookFilter').hidden && !!document.querySelector('#wcTr .wcTrBook [data-clear-book]')"));
+ win.showInactive();
+ win.setSize(1250,901);
+ await new Promise(r=>setTimeout(r,300));
+ await js("Theme.set('dark');document.querySelector('#fmWide').click();document.querySelector('#formsPanel').scrollTop=0");
+ await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+ await win.webContents.capturePage({x:0,y:0,width:1250,height:900}).then(i=>fs.writeFileSync('/tmp/safran-word-card-overview.png',i.toPNG()));
+
+ await js("document.querySelector('#wcTr').scrollIntoView({block:'start'})");
+ await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+ await win.webContents.capturePage({x:0,y:0,width:1250,height:900}).then(i=>fs.writeFileSync('/tmp/safran-word-card-renderings.png',i.toPNG()));
+ const scopedTotal = await js("Number(document.querySelector('#wcTr [data-src=Zunz] small').textContent.replace(/[^0-9]/g,''))");
+ assert(scopedTotal>0&&scopedTotal<244,'Book filter limits translation counts');
+ assert.equal(await js("document.querySelector('#wcTr .wcTrRingW').open"),false);
+ await js("document.querySelector('#wcTr .wcTrR[data-g]').click()");
+ await waitFor("document.querySelector('#wcTr .ln a[data-ref]')",'Book-filtered rendering references');
+ assert(await js("[...document.querySelectorAll('#wcTr .ln a[data-ref]')].every(a=>a.dataset.ref.startsWith('Genesis '))"));
+ await js("document.querySelector('#fmHead .fmHomonyms [data-lem]').click()");
+ await waitFor("document.querySelector('#fmHead [data-wc-scope=lemma][aria-pressed=true]')",'Switch to individual lemma');
+ await js("document.querySelector('#fmBack').click()");
+ await waitFor("document.querySelector('#fmHead [data-wc-scope=family][aria-pressed=true]') && document.querySelector('#wcTr .ln a[data-ref]')",'Restore family with expanded rendering');
+ assert(await js("!document.querySelector('#wcBookFilter').hidden && [...document.querySelectorAll('#wcTr .ln a[data-ref]')].every(a=>a.dataset.ref.startsWith('Genesis '))"),'Back restores the book filter and expanded references');
+ await js("document.querySelector('#wcTr .wcTrCmpB').click();document.querySelector('#wcTr [data-src=Philippson]').click();document.querySelector('#wcTr .wcTrP').click()");
+ await waitFor("document.querySelector('#wcTr .ln2 a[data-ref]')",'Book-filtered comparison references');
+ assert(await js("[...document.querySelectorAll('#wcTr .ln2 a[data-ref]')].every(a=>a.dataset.ref.startsWith('Genesis '))"));
+ await js("document.querySelector('#wcTr [data-clear-book]').click()");
+ assert(await js("document.querySelector('#wcBookFilter').hidden"));
+ // Return to the single-source view for the existing morphology/comparison checks.
+ await js("document.querySelector('#wcTr [data-src=Philippson]').dispatchEvent(new MouseEvent('click',{bubbles:true,ctrlKey:true}))");
  const zunzTotal = await js("Number(document.querySelector('#wcTr [data-src=Zunz] small').textContent.replace(/[^0-9]/g,''))");
  assert(zunzTotal>244,'Zunz deckt zusätzliche Mitglieder der Wortfamilie ab');
  await js("document.querySelector('#wcTr .wcTrFV[data-dim=stem]').click()");
