@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "scope": "12 Moed book modules only",
+  "baselineCommit": "0374c0a",
+  "independent": true,
+  "accordanceCompared": false,
+  "finalFileHashesBound": true,
+  "method": "Independent git-baseline structural equality, source-token/word-ID validation, baseline-empty guards and actual bundled rabbinic dictionary article checks. No book module mutation.",
+  "books": [
+    {
+      "title": "Mishnah Shabbat",
+      "file": "mishnah-kaufmann-accordance-shabbat-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 3823,
+      "newlyFilledCards": 1011,
+      "errors": 0,
+      "observedFileSha256": "11b0670fb830a93c182d497f4105454253fc0ee88603dbc10ea8f545f74bf943",
+      "finalFileSha256": "11b0670fb830a93c182d497f4105454253fc0ee88603dbc10ea8f545f74bf943",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Eruvin",
+      "file": "mishnah-kaufmann-accordance-eruvin-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 2040,
+      "newlyFilledCards": 1360,
+      "errors": 0,
+      "observedFileSha256": "8cfeab749fec986ca7c95359d21c7b0e83bec9b37e1f754e9cf7014d9f2d1ba8",
+      "finalFileSha256": "8cfeab749fec986ca7c95359d21c7b0e83bec9b37e1f754e9cf7014d9f2d1ba8",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Pesachim",
+      "file": "mishnah-kaufmann-accordance-pesachim-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1841,
+      "newlyFilledCards": 1358,
+      "errors": 0,
+      "observedFileSha256": "31fa8abe4f1aa741aeb31d93520b3a8121d2aea721daacbb50f3bd3a93b416dc",
+      "finalFileSha256": "31fa8abe4f1aa741aeb31d93520b3a8121d2aea721daacbb50f3bd3a93b416dc",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Shekalim",
+      "file": "mishnah-kaufmann-accordance-shekalim-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1060,
+      "newlyFilledCards": 993,
+      "errors": 0,
+      "observedFileSha256": "0ff2c2de04565f2aec3fe5aed0dbdf914d5e3bc904f6344c437fc5d270b182da",
+      "finalFileSha256": "0ff2c2de04565f2aec3fe5aed0dbdf914d5e3bc904f6344c437fc5d270b182da",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Yoma",
+      "file": "mishnah-kaufmann-accordance-yoma-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1363,
+      "newlyFilledCards": 946,
+      "errors": 0,
+      "observedFileSha256": "2128eeb1cc816993ae468d037530b85a67b8803b60f33ece7fc97f04b83b8b85",
+      "finalFileSha256": "2128eeb1cc816993ae468d037530b85a67b8803b60f33ece7fc97f04b83b8b85",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Sukkah",
+      "file": "mishnah-kaufmann-accordance-sukkah-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 1023,
+      "newlyFilledCards": 749,
+      "errors": 0,
+      "observedFileSha256": "c9297cc29c566eb77c8fcdb369221ed3f3acc2079bdbffeef5bb7bbf040b0b0d",
+      "finalFileSha256": "c9297cc29c566eb77c8fcdb369221ed3f3acc2079bdbffeef5bb7bbf040b0b0d",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Beitzah",
+      "file": "mishnah-kaufmann-accordance-beitzah-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 846,
+      "newlyFilledCards": 437,
+      "errors": 0,
+      "observedFileSha256": "89de3d13d707ffdaaaf3fe58c348e18174ae97f12d941c505395b28abc589e3e",
+      "finalFileSha256": "89de3d13d707ffdaaaf3fe58c348e18174ae97f12d941c505395b28abc589e3e",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Rosh Hashanah",
+      "file": "mishnah-kaufmann-accordance-rosh-hashanah-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 817,
+      "newlyFilledCards": 542,
+      "errors": 0,
+      "observedFileSha256": "0dfa59c4ee40fccd58df7f0711a12bc26aad8c8d1b96203dd6c908d9e10b1c73",
+      "finalFileSha256": "0dfa59c4ee40fccd58df7f0711a12bc26aad8c8d1b96203dd6c908d9e10b1c73",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Ta'anit",
+      "file": "mishnah-kaufmann-accordance-ta-anit-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 890,
+      "newlyFilledCards": 638,
+      "errors": 0,
+      "observedFileSha256": "3493722249ac96b2803e096be71eb2d9407c9135268659da202c36e36a9ea6b0",
+      "finalFileSha256": "3493722249ac96b2803e096be71eb2d9407c9135268659da202c36e36a9ea6b0",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Megillah",
+      "file": "mishnah-kaufmann-accordance-megillah-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 659,
+      "newlyFilledCards": 466,
+      "errors": 0,
+      "observedFileSha256": "b6753fc6159e3694ba9b87f633ba7164dcd0a6585b311fc46347e1409c06c38b",
+      "finalFileSha256": "b6753fc6159e3694ba9b87f633ba7164dcd0a6585b311fc46347e1409c06c38b",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Moed Katan",
+      "file": "mishnah-kaufmann-accordance-moed-katan-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 389,
+      "newlyFilledCards": 262,
+      "errors": 0,
+      "observedFileSha256": "b8903590d322bd8102ef4b79ec71de9af4f01a74c79bcbae047471e779bf2e85",
+      "finalFileSha256": "b8903590d322bd8102ef4b79ec71de9af4f01a74c79bcbae047471e779bf2e85",
+      "matchesFinalBuildAudit": true
+    },
+    {
+      "title": "Mishnah Chagigah",
+      "file": "mishnah-kaufmann-accordance-chagigah-data.js",
+      "sourceFieldsUnchanged": true,
+      "preservedExistingCards": 442,
+      "newlyFilledCards": 306,
+      "errors": 0,
+      "observedFileSha256": "c8c9800bcbfe1d221d821f84cbceaf0461a7adb0d9c8f5061950693ec5fc1bf8",
+      "finalFileSha256": "c8c9800bcbfe1d221d821f84cbceaf0461a7adb0d9c8f5061950693ec5fc1bf8",
+      "matchesFinalBuildAudit": true
+    }
+  ],
+  "summary": {
+    "bookCount": 12,
+    "preservedExistingCards": 15193,
+    "newlyFilledCards": 9068,
+    "checkedDictionaryReferences": 8501,
+    "partialFeatureAnalyses": 3719,
+    "wordGroupCards": 215,
+    "errorCount": 0
+  },
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "finalBuildAuditSha256": "e6f59c1dd353bbd00322c24d8f88f505b9309b6e9d9d713d850e0c2069a5e362",
+  "finalBaselineFileSha256": "86bef6dd89a7e6536db422e943f27806dec68e5684f180d372f8c7eab1e00c64",
+  "validationStage": "Full independent QA rerun after final frozen Moed generation; every observed book hash matched final completion audit."
+}

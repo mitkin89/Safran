@@ -226,3 +226,38 @@ Lesarten-/Genus-/Statusfragen und fehlende Suffixangaben bleiben sichtbar.
 
 Die Regressionstests prüfen alle 226 eindeutigen Stellen, den Textfingerprint,
 die Vorher-/Nachher-Zuordnung und die Vollständigkeit der Entscheidungen.
+
+## Kaufmann: Moed und Naschim
+
+`complete-moed-nashim.cjs --seder=moed` ergänzt ausschließlich bisher leere
+Wortkarten. `--seder=nashim` ist der anschließende Durchgang. Die explizite
+Seed-Liste steht in `moed-nashim-seed-sources.json`; Entwurfsdateien außerhalb
+dieser Liste werden nicht eingelesen. Wörterbuchbelege stammen ausschließlich
+aus Jastrow, Levy und Krauss. Die Ergänzung ist eine vorläufige Analyse, keine
+neue Bestätigung durch Accordance.
+
+Positionsentscheidungen sind an Quellhash, Referenz, Token und Wort gebunden.
+Eine Analyse mehrerer Quellteile setzt eine eindeutige vorhandene
+Interlinear-Verknüpfung und passende zusammengefügte Konsonanten voraus.
+Die Teile bleiben im Text getrennt; die Wortkarte benennt die gemeinsame
+Analyse ausdrücklich. Nicht lesbare oder uneindeutige Fragmente bleiben offen.
+Ein Wörterbuchhinweis auf Genus allein belegt keine Wortart: solche Karten
+tragen `partialFeatures`, den neutralen Code `H` und eine sichtbare
+Teilbestimmung statt einer vollständigen Nomenanalyse.
+
+`moed-nashim-morphology-baseline.json` fixiert die Ausgangsdateien auf Commit
+`0374c0a`. Der Ergänzungsbericht und die unabhängige Moed-Prüfung binden die
+endgültigen Dateihashes. Quelltext, Punktierung, Wortgrenzen, Quellen-IDs,
+Transferdaten, Interlinear und sämtliche vorher vorhandenen Analysen bleiben
+unverändert. Vorherige Prüfberichte beschreiben ihre jeweiligen historischen
+Dateistände; der neue Bericht ersetzt deren Morphologie-Zählungen für Moed.
+
+Moed enthält nach diesem Durchgang 9.068 ergänzte Karten, davon 2.047 reine
+Teilbestimmungen; 3.477 Karten bleiben offen. Der anschließende Vergleich
+erfasst sichtbare Accordance-Lex-/Tag-Angaben getrennt vom Entwurf. Fehlende
+Bildbereiche und nicht sichtbare Merkmale gelten nicht als geprüft.
+
+```sh
+node tools/mishnah-morph/complete-moed-nashim.cjs --seder=moed
+node --test tests/mishnah-moed-nashim-morphology.test.js tests/kaufmann-zeraim-accordance.test.js
+```

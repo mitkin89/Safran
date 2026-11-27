@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "commit": "0374c0a8e9a47ecd82792db3c6b37c49b5b85b8a",
+  "method": "Immutable published working-edition baseline before the morphology supplement; no copied reference texts",
+  "books": {
+    "Mishnah Shabbat": {
+      "file": "mishnah-kaufmann-accordance-shabbat-data.js",
+      "fileSha256": "2929dd450d63ee356109d03cdc94dac11aa5f1dcb48600ac884f0ce1bc5f17c4",
+      "sourceTextHash": "a55b0d05d426def2d7ff39946041bbdeccb08e36711439b252891d8aaad15e3b",
+      "sourceCoreSha256": "9635dd22eb457b355566190d21e6ff233ff879dcb6be01cf7de05b11e57568b2"
+    },
+    "Mishnah Eruvin": {
+      "file": "mishnah-kaufmann-accordance-eruvin-data.js",
+      "fileSha256": "05b87c06a8e2d93c8f75d8f3252de5994c1482d1cdf9c44f0095b1e9be67281a",
+      "sourceTextHash": "8e3c56f00028f1bbdf50894b40f941566dca97c17e6ada4cbe9808897f8d0cca",
+      "sourceCoreSha256": "517f4927288940a39c949d0d656308fdabcfe6e28c4f7c61784b22fb6438a1a1"
+    },
+    "Mishnah Pesachim": {
+      "file": "mishnah-kaufmann-accordance-pesachim-data.js",
+      "fileSha256": "a4a2675182df15fb4a185abad2faef226cac92debb2d830353e20e25b73d7f38",
+      "sourceTextHash": "f860b7ddebfaee6b58976a0c774b13a3593160f21060d57dce5f0d8f831db3a6",
+      "sourceCoreSha256": "8ca6f092a3c0c9ea4d60cf41fd9ffd82c34978cedcc114d6f54542cea88b764d"
+    },
+    "Mishnah Shekalim": {
+      "file": "mishnah-kaufmann-accordance-shekalim-data.js",
+      "fileSha256": "994cd4acd56d71233585b20141888dba70b5402f40d45ff3902d0bc005ffb2db",
+      "sourceTextHash": "8e0fb7bf3ccbe489c2e110750482a141eb5fefb04918e67822ce40371963cdd4",
+      "sourceCoreSha256": "2b10c7204bfc4d616a58bb379493346a98ddaebc78a03ab8e765253f77da9bcd"
+    },
+    "Mishnah Yoma": {
+      "file": "mishnah-kaufmann-accordance-yoma-data.js",
+      "fileSha256": "d80473d33ce9e9e7ff3e2db8b71fb8e50c08ebf3199d0aafe7f47c0e3292e788",
+      "sourceTextHash": "7fa00deab1e94a5175b6cb91739222df1ef94197257566ff3265cb3424dad303",
+      "sourceCoreSha256": "b915663c5f05deac1a3967858ba6aeada3c85b4b0267a5b308937f9343e50593"
+    },
+    "Mishnah Sukkah": {
+      "file": "mishnah-kaufmann-accordance-sukkah-data.js",
+      "fileSha256": "4a777a2f469f6f2ad90cbf9d33b7b10389a43acd7f0eefb5d4e6ed3179a23147",
+      "sourceTextHash": "8da6843eefdde0640e624c13763578835b90dc40ee9786bb62b64bc2531c99ef",
+      "sourceCoreSha256": "cec12d83bce947f8c117fa43c8b2296ed16f9238586c87e16aca6954a1835315"
+    },
+    "Mishnah Beitzah": {
+      "file": "mishnah-kaufmann-accordance-beitzah-data.js",
+      "fileSha256": "11358be4de1720a050f80959dabc1ab088320d052eb7502e678ef8c7ebffa001",
+      "sourceTextHash": "b34a31d9112dacf71f3b9b282887d7a2c39ce19f66918b825382df679dc62760",
+      "sourceCoreSha256": "f228f9ba203a8984d40973d22b513026f48a06701f5006bf8eb977a3c9bbc936"
+    },
+    "Mishnah Rosh Hashanah": {
+      "file": "mishnah-kaufmann-accordance-rosh-hashanah-data.js",
+      "fileSha256": "48a96ec4ad037e7a3fe069c7a87095d551bc402c4aaf3428c32ba999c5d05e4b",
+      "sourceTextHash": "5d6cac401fa244abf674000e9dabe97c494d81e64ae363d76ba163aa18f32d1d",
+      "sourceCoreSha256": "e2826f8d6d4fc2302f929cb81c066411ff4f626fc72153106f29aa17956881ad"
+    },
+    "Mishnah Ta'anit": {
+      "file": "mishnah-kaufmann-accordance-ta-anit-data.js",
+      "fileSha256": "53fc49b997c012d73754396c994d61a27451de47846c8976458a96f3cfad748e",
+      "sourceTextHash": "2e3c7b8f1c62c44d141726f48bb0a123cbd488bd41e982e538b52fc5c52fa8a1",
+      "sourceCoreSha256": "05eb39260d4a199c65c76223281899b1f7e9074106b9258141d2d012cfe9eeab"
+    },
+    "Mishnah Megillah": {
+      "file": "mishnah-kaufmann-accordance-megillah-data.js",
+      "fileSha256": "a61f79f1d8581dbeb09355defc18530165a1f9bcd7684763c45b439ef89c4c9b",
+      "sourceTextHash": "d1789f0e825fd3f69267f40b8bf7e34df4e0d215d99db398e06a21cc0be5f33d",
+      "sourceCoreSha256": "f5e338bccb171378a99bb9657b498a62c4220b75cb190beddb3a19bbe2edc746"
+    },
+    "Mishnah Moed Katan": {
+      "file": "mishnah-kaufmann-accordance-moed-katan-data.js",
+      "fileSha256": "5d5d7b28adf0d84544e9bd1195396722550ae77d53df63e2477a015c3940457c",
+      "sourceTextHash": "04f19b54c1ad057f012f136b865c6ff07b62b9fa30db67294e7450ed1e239e51",
+      "sourceCoreSha256": "f49aab0740cb51ff658185382764cd86561dce3c1cda72bc11951dbcb519c19a"
+    },
+    "Mishnah Chagigah": {
+      "file": "mishnah-kaufmann-accordance-chagigah-data.js",
+      "fileSha256": "703b0f4adeeeb93057348bfa5b9ecda2dc9103604d5f02b657abfb6e01b47fcb",
+      "sourceTextHash": "1976f26028d12af26b9ce0916c7c995f2b4469b945d72b1f39bb217cddf10abb",
+      "sourceCoreSha256": "8f69d391023eb969ce04adc324e4aeb343c4f0b41a2db47b6eda6972ba12031e"
+    },
+    "Mishnah Yevamot": {
+      "file": "mishnah-kaufmann-accordance-yevamot-data.js",
+      "fileSha256": "b59ad527c0f98e4ff207851ffd8a4ef2014b519a409baff1fb345573682e96f0",
+      "sourceTextHash": "c984ddd4920a1ff7548f14884ef173000fcdb0714956f6974d1a649c2c517d05",
+      "sourceCoreSha256": "b881bc7d47059cc6cd626eaaf81eb2287b7ed4cad634f61a2925af499461d618"
+    },
+    "Mishnah Ketubot": {
+      "file": "mishnah-kaufmann-accordance-ketubot-data.js",
+      "fileSha256": "bad38d1e1901be670f00995594948bef7cbcc6cd540173a6e9251a644547238c",
+      "sourceTextHash": "00f0c57ee76f1f3a61d89cbb8c6efaf2ac2797fc3fa0c2eb4f2dd8b33c3b4904",
+      "sourceCoreSha256": "089bb2321303cd78bdf3332ff3cae4c385d61fe6e80d36b270e06338849cb09c"
+    },
+    "Mishnah Nedarim": {
+      "file": "mishnah-kaufmann-accordance-nedarim-data.js",
+      "fileSha256": "20626928f7db735425a35546943f3f26a34a8bc970a6351cb700f809b6b95dff",
+      "sourceTextHash": "acb75e2d0d840992dd08356fd92d9e5e8aa5d190c53682b98ec5572dd5529147",
+      "sourceCoreSha256": "c6c46940b37142bcb0734d7913b7a8f67631064fceed8d7bc9e2058a341eb768"
+    },
+    "Mishnah Nazir": {
+      "file": "mishnah-kaufmann-accordance-nazir-data.js",
+      "fileSha256": "88b6d856f92bc87aea9bb965134a263473900a3a7f0309c09195e3dec9e96813",
+      "sourceTextHash": "c947eaa8ddc31f63c8b84ad139405c89b9ab59912d2ca82472f1a783ec957f07",
+      "sourceCoreSha256": "bc32c70025417aa6cb7780e6f310f852ad206c3c93d25debb74fd629f25bf324"
+    },
+    "Mishnah Sotah": {
+      "file": "mishnah-kaufmann-accordance-sotah-data.js",
+      "fileSha256": "a091fed5e4469edd046834f3db9528d5d03b55f5d8606467a9103c26a5b4f8c8",
+      "sourceTextHash": "127e80dc5a619c62d689a1974afa898735260932f9cb16be0655be75937d0525",
+      "sourceCoreSha256": "0f827568f22e389ad057e69368687b828d0f78a772f661ec2d638c619bdcf97a"
+    },
+    "Mishnah Gittin": {
+      "file": "mishnah-kaufmann-accordance-gittin-data.js",
+      "fileSha256": "d572412a0545d8eb5402d69ebfbef1638fe2f5dc75a0d4c7e0b19b8227078de8",
+      "sourceTextHash": "06f54d261466c279f9df655509b7beb136fbdb669ce5bdd1c09d61296ff52ab0",
+      "sourceCoreSha256": "ada7bd8ff3d97b1cf7b85354b5fe950c357d8900a9407b81c2b97c78686610a5"
+    },
+    "Mishnah Kiddushin": {
+      "file": "mishnah-kaufmann-accordance-kiddushin-data.js",
+      "fileSha256": "0960184c3ff8d099898c485d0667a87cb9f81f525a9b616bb7240f15ad6286d6",
+      "sourceTextHash": "481b6d93d1d21ec7428dfcc1d5c5a41c98c9802c6ea2874127ecab54c92f8034",
+      "sourceCoreSha256": "a9c8c0c8f1ed4aff50399fd3c4d7716b389814b4b94eed400c43dde3081fd005"
+    }
+  }
+}

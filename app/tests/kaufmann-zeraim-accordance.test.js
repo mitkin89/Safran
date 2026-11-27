@@ -21,13 +21,13 @@ test('all 29 new working editions preserve all 1852 source units and 78262 diplo
  }
  assert.equal(units,1852);assert.equal(words,78262);
 });
-test('new word cards bind exact words and inherit analyses only through guarded interlinear positions',()=>{
+test('word cards bind exact words and guard interlinear transfer or source-bound lexical completion',()=>{
  for(const[title,item]of Object.entries(catalog)){
   const d=require(path.join(root,item.file)),donor=donors[sourceCatalog[title].coordinate[0]];assert.equal(d.interlinearAnalysisTransfer.spellingReview,null,'Berakhot decisions cannot leak into another tractate');
   for(const[ref,u]of Object.entries(d.units)){
    const[c,m]=ref.split(':').map(Number),tokens=M.tokens(u.offsetText),ids=d.sources[title].chapters[c-1][m-1];assert.equal(tokens.length,ids.length);
    ids.forEach((id,i)=>{const f=d.forms[id];assert.equal(f.word,tokens[i].word);assert.equal(f.key,tokens[i].key);assert.equal(f.provenance.pointing.source,'Vom Nutzer kopierter Accordance-Text');assert.equal(f.provenance.analysis.reviewed,false);
-    if(f.analyses.length){const p=f.provenance.analysis,[sc,sm]=p.sourceRef.split(':').map(Number),source=donor.forms[donor.sources[title].chapters[sc-1][sm-1][p.sourceTokenIndex]];assert.equal(p.sourceTextHash,donor.sources[title].textHash);assert.equal(p.sourceWord,source.word);assert.deepEqual(f.analyses.map(a=>[a.lemma,a.morph]),source.analyses.map(a=>[a.lemma,a.morph]));assert.ok(['same-consonants','aligned-abbreviation'].includes(p.compatibility));}
+    if(f.analyses.length&&f.morphologyBeforeCompletion){const p=f.provenance.analysis,wi=u.words.findIndex(w=>w.start<=tokens[i].start&&w.end>=tokens[i].end);assert.deepEqual(f.morphologyBeforeCompletion.analyses,[]);assert(['rabbinic-grammar-candidate','contextual-rabbinic-lexicon','interlinear-word-group'].includes(p.kind));assert.equal(p.sourceTextHash,d.source.textHash);assert.equal(p.sourceWordId,u.id+'/word/'+wi);assert.equal(p.sourceWord,u.words[wi].originalWord);assert.equal(p.sourceRef,ref);assert.equal(p.sourceTokenIndex,i);assert(f.analyses.every(a=>a.rules.includes('moed-nashim-draft-morphology')));if(f.status==='partial')assert(f.analyses.every(a=>a.partialFeatures&&a.morph==='H'));for(const e of f.dictionaryEvidence||[])assert(['d895bc1c727b','e8d290b744f6','d701423861c6'].includes(e.dictId));}else if(f.analyses.length){const p=f.provenance.analysis,[sc,sm]=p.sourceRef.split(':').map(Number),source=donor.forms[donor.sources[title].chapters[sc-1][sm-1][p.sourceTokenIndex]];assert.equal(p.sourceTextHash,donor.sources[title].textHash);assert.equal(p.sourceWord,source.word);assert.deepEqual(f.analyses.map(a=>[a.lemma,a.morph]),source.analyses.map(a=>[a.lemma,a.morph]));assert.ok(['same-consonants','aligned-abbreviation'].includes(p.compatibility));}
    });
   }
  }

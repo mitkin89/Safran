@@ -1,0 +1,5799 @@
+{
+  "scopeTitles": [
+    "Mishnah Nedarim",
+    "Mishnah Nazir"
+  ],
+  "method": "Second-round exact form seeds from actual rabbinic dictionary entries and explicit inflection; no biblical dictionary or Accordance verification",
+  "entries": [
+    {
+      "word": "מִמָּךְ",
+      "key": "מִמָּךְ",
+      "analyses": [
+        {
+          "lemma": "מן",
+          "morph": "HR/Sp2ms",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "von dir (männlicher Adressat im Kontext)",
+            "en": "from you (masculine contextual addressee)"
+          },
+          "note": "Kaufmann-Form mit finalem Schewa; männliche Anrede im Kontext, keine Änderung der Punktierung."
+        },
+        {
+          "lemma": "מן",
+          "morph": "HR/Sp2fs",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "von dir (formal auch weibliche Suffixlesung)",
+            "en": "from you (possible feminine suffix reading)"
+          },
+          "note": "Die Form bleibt hinsichtlich des Suffixgeschlechts ohne Einzelprüfung mehrdeutig."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 1192,
+          "head": "מִן",
+          "entrySha256": "29a2b32bf44d2b0a6ecfebee471f23efc895fd48fc0dcd19306341ba6b4e545b"
+        }
+      ]
+    },
+    {
+      "word": "אֵצֶל",
+      "key": "אֵצֶל",
+      "analyses": [
+        {
+          "lemma": "אצל",
+          "morph": "HR",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "bei; neben",
+            "en": "by; beside"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 15768,
+          "head": "אֵצֶל",
+          "entrySha256": "f7e747f85411491d21c3b116429d239d4c42d7e315419a60c043e98ff24e0c43"
+        }
+      ]
+    },
+    {
+      "word": "תַּחַת",
+      "key": "תַּחַת",
+      "analyses": [
+        {
+          "lemma": "תחת",
+          "morph": "HR",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "unter; anstelle von",
+            "en": "under; instead of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 592,
+          "head": "תַּחַת",
+          "entrySha256": "320ee95aebb7d9186690a6ef78705fd35ac40824aa5dc6a40c3d73d4110d1f0e"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁמֵּא",
+      "key": "שֶׁמֵּא",
+      "analyses": [
+        {
+          "lemma": "שמא",
+          "morph": "HD",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "vielleicht; damit nicht",
+            "en": "perhaps; lest"
+          },
+          "note": "Kaufmann-Variante der lexikalischen Partikel שמא, keine Zerlegung als Relativpräfix."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 31711,
+          "head": "שֶׁמָּא",
+          "entrySha256": "68de30ab49210d4b8680e9a0aff6d43172efa3704f32d5dbd834938b24b68c99"
+        }
+      ]
+    },
+    {
+      "word": "הֶילֵּל",
+      "key": "הֶילֵּל",
+      "analyses": [
+        {
+          "lemma": "הלל",
+          "morph": "HNp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Hillel (Eigenname)",
+            "en": "Hillel (personal name)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3977,
+          "head": "הִלֵּל",
+          "entrySha256": "710c95949764a40ec29272aa4743ac7f78009f2f3698b02fbc3f9eff6972946e"
+        }
+      ]
+    },
+    {
+      "word": "הִילֵּל",
+      "key": "הִילֵּל",
+      "analyses": [
+        {
+          "lemma": "הלל",
+          "morph": "HNp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Hillel (Eigenname)",
+            "en": "Hillel (personal name)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3977,
+          "head": "הִלֵּל",
+          "entrySha256": "710c95949764a40ec29272aa4743ac7f78009f2f3698b02fbc3f9eff6972946e"
+        }
+      ]
+    },
+    {
+      "word": "הַגָּלִיל",
+      "key": "הַגָּלִיל",
+      "analyses": [
+        {
+          "lemma": "ה/גליל",
+          "morph": "HTd/Np",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Galiläa",
+            "en": "Galilee"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 11214,
+          "head": "גָּלִיל",
+          "entrySha256": "cf1c65a3cc16448690b0928202463dc4157955c8afd264e56dc40294a11d30a9"
+        }
+      ]
+    },
+    {
+      "word": "וּבַגָּלִיל",
+      "key": "וּבַגָּלִיל",
+      "analyses": [
+        {
+          "lemma": "ו/ב/ה/גליל",
+          "morph": "HC/R/Td/Np",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und in Galiläa",
+            "en": "and in Galilee"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 11214,
+          "head": "גָּלִיל",
+          "entrySha256": "cf1c65a3cc16448690b0928202463dc4157955c8afd264e56dc40294a11d30a9"
+        }
+      ]
+    },
+    {
+      "word": "בָבֶל",
+      "key": "בָבֶל",
+      "analyses": [
+        {
+          "lemma": "בבל",
+          "morph": "HNp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Babylonien; Babylon",
+            "en": "Babylonia; Babylon"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25521,
+          "head": "בָּבֶל",
+          "entrySha256": "817331e3c6374486c23c993b8f98648654a3a4fc850f3dc6c2d947d38c5a33ec"
+        }
+      ]
+    },
+    {
+      "word": "בָּבֶל",
+      "key": "בָּבֶל",
+      "analyses": [
+        {
+          "lemma": "בבל",
+          "morph": "HNp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Babylonien; Babylon",
+            "en": "Babylonia; Babylon"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25521,
+          "head": "בָּבֶל",
+          "entrySha256": "817331e3c6374486c23c993b8f98648654a3a4fc850f3dc6c2d947d38c5a33ec"
+        }
+      ]
+    },
+    {
+      "word": "שִׁמְשׁוֹן",
+      "key": "שִׁמְשׁוֹן",
+      "analyses": [
+        {
+          "lemma": "שמשון",
+          "morph": "HNp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Simson",
+            "en": "Samson"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 895,
+          "head": "שִׁמְשׁוֹן",
+          "entrySha256": "9077d46b1ba38431ece45c2925402d04b4b8d3dd1292b51caac7d800401a9048"
+        }
+      ]
+    },
+    {
+      "word": "נְהוֹרַיִי",
+      "key": "נְהוֹרַיִי",
+      "analyses": [
+        {
+          "lemma": "נהוראי",
+          "morph": "HNp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Nehorai (Eigenname)",
+            "en": "Nehorai (personal name)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 14041,
+          "head": "נְהוֹרַאי",
+          "entrySha256": "939de1ef417898ec8e987f572c7599b412eaa3a23ab98a5b83200e3518f42b7a"
+        }
+      ]
+    },
+    {
+      "word": "אַנְשֵׁי",
+      "key": "אַנְשֵׁי",
+      "analyses": [
+        {
+          "lemma": "איש",
+          "morph": "HNcmpc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Männer von; Leute von",
+            "en": "men of; people of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7122,
+          "head": "אִישׁ",
+          "entrySha256": "7a00116f34f3a885c0ad076e274bbf888ee899115d7348f1efa3ae020118f416"
+        }
+      ]
+    },
+    {
+      "word": "הטהרה",
+      "key": "הטהרה",
+      "analyses": [
+        {
+          "lemma": "ה/טהרה",
+          "morph": "HTd/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die rituelle Reinheit",
+            "en": "ritual purity"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 11033,
+          "head": "טָהֳרָה",
+          "entrySha256": "8c22ff5c7e05a57692deb28e1b6a69749ecb4ad43d19ff689c54641db23c04ce"
+        }
+      ]
+    },
+    {
+      "word": "הזגים",
+      "key": "הזגים",
+      "analyses": [
+        {
+          "lemma": "ה/זג",
+          "morph": "HTd/Ncmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Traubenbestandteile (Schalen oder Kerne)",
+            "en": "the grape parts (skins or kernels)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 10602,
+          "head": "זָג",
+          "entrySha256": "454449109bd66dcae3ee909cca6736855e07375601e5dc359852be0c4f729f2b"
+        }
+      ]
+    },
+    {
+      "word": "וְטַלֵּת",
+      "key": "וְטַלֵּת",
+      "analyses": [
+        {
+          "lemma": "ו/טלית",
+          "morph": "HC/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und ein Tuch; und ein Kleid",
+            "en": "and a cloth; and a garment"
+          },
+          "note": "Die Variante טלת ist im Mischna-Kontext ein Substantiv; keine Ergänzung eines Jod im Text."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24405,
+          "head": "טַלִּית",
+          "entrySha256": "6edabc8d8e2d55007469d3d773c4d13dcf7823281af397557a8f6783d8a5b2c7"
+        }
+      ]
+    },
+    {
+      "word": "טַלֵּת",
+      "key": "טַלֵּת",
+      "analyses": [
+        {
+          "lemma": "טלית",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Tuch; Kleid",
+            "en": "cloth; garment"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24405,
+          "head": "טַלִּית",
+          "entrySha256": "6edabc8d8e2d55007469d3d773c4d13dcf7823281af397557a8f6783d8a5b2c7"
+        }
+      ]
+    },
+    {
+      "word": "לֶחָצֵר",
+      "key": "לֶחָצֵר",
+      "analyses": [
+        {
+          "lemma": "ל/חצר",
+          "morph": "HR/Ncbsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "in den Hof; zum Hof",
+            "en": "into/to the courtyard"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 10149,
+          "head": "חָצֵר",
+          "entrySha256": "610dec7d8dc11275af8180d76ab954ad012937c0002585f8817fa05982a16e7a"
+        }
+      ]
+    },
+    {
+      "word": "פֵּירוֹת",
+      "key": "פֵּירוֹת",
+      "analyses": [
+        {
+          "lemma": "פרי",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Früchte; Erträge",
+            "en": "fruits; produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 2466,
+          "head": "פְּרִי",
+          "entrySha256": "a480b43bf9b2cc4bdcd4d5e18c108b0585fa5d3aa6a4244c5f8c9031582f31a0"
+        }
+      ]
+    },
+    {
+      "word": "פֵירוֹת",
+      "key": "פֵירוֹת",
+      "analyses": [
+        {
+          "lemma": "פרי",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Früchte; Erträge",
+            "en": "fruits; produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 2466,
+          "head": "פְּרִי",
+          "entrySha256": "a480b43bf9b2cc4bdcd4d5e18c108b0585fa5d3aa6a4244c5f8c9031582f31a0"
+        }
+      ]
+    },
+    {
+      "word": "פִּירוֹת",
+      "key": "פִּירוֹת",
+      "analyses": [
+        {
+          "lemma": "פרי",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Früchte; Erträge",
+            "en": "fruits; produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 2466,
+          "head": "פְּרִי",
+          "entrySha256": "a480b43bf9b2cc4bdcd4d5e18c108b0585fa5d3aa6a4244c5f8c9031582f31a0"
+        }
+      ]
+    },
+    {
+      "word": "הֶחָג",
+      "key": "הֶחָג",
+      "analyses": [
+        {
+          "lemma": "ה/חג",
+          "morph": "HTd/Ncmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "das Fest",
+            "en": "the festival"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9631,
+          "head": "חָג ²",
+          "entrySha256": "1646db5830d22dc5ed364949de6d60b7d62ffdcb2f048520b777a6cda5091a84"
+        }
+      ]
+    },
+    {
+      "word": "חוֹדֶשׁ",
+      "key": "חוֹדֶשׁ",
+      "analyses": [
+        {
+          "lemma": "חדש",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Monat; Neumond",
+            "en": "month; new moon"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9376,
+          "head": "חֹדֶשׁ",
+          "entrySha256": "ac2599fb7f3fa69aba1069b42249d00dadc6382050b17cfe0f74491fdfd8372a"
+        }
+      ]
+    },
+    {
+      "word": "חודש",
+      "key": "חודש",
+      "analyses": [
+        {
+          "lemma": "חדש",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Monat; Neumond",
+            "en": "month; new moon"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9376,
+          "head": "חֹדֶשׁ",
+          "entrySha256": "ac2599fb7f3fa69aba1069b42249d00dadc6382050b17cfe0f74491fdfd8372a"
+        }
+      ]
+    },
+    {
+      "word": "הַקַּיִץ",
+      "key": "הַקַּיִץ",
+      "analyses": [
+        {
+          "lemma": "ה/קיץ",
+          "morph": "HTd/Ncmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Sommerernte; die Feigenerntezeit",
+            "en": "summer harvest; fig season"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 14595,
+          "head": "קַיִץ",
+          "entrySha256": "4f176ac911c8bba7a3f8e6ebfb55f88da48acbd0535f54c75c870df1037e154e"
+        }
+      ]
+    },
+    {
+      "word": "לֵילֵי",
+      "key": "לֵילֵי",
+      "analyses": [
+        {
+          "lemma": "ליל",
+          "morph": "HNcmpc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Nächte von",
+            "en": "nights of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 6180,
+          "head": "לַיִל",
+          "entrySha256": "5ac0ebd8e6819fce2fa603e18ffdf29032e11cd71062a2d99ba46c8f70d634db"
+        }
+      ]
+    },
+    {
+      "word": "יְהוּדִים",
+      "key": "יְהוּדִים",
+      "analyses": [
+        {
+          "lemma": "יהודי",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Juden; Judäer",
+            "en": "Jews; Judaeans"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21992,
+          "head": "יְהוּדִי",
+          "entrySha256": "8c64571aa2bebf48eb97e3208f0a7afd4680ceb87243c3bab2b7417fd78ce44f"
+        }
+      ]
+    },
+    {
+      "word": "הַיְּהוּדִים",
+      "key": "הַיְּהוּדִים",
+      "analyses": [
+        {
+          "lemma": "ה/יהודי",
+          "morph": "HTd/Ncmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Juden",
+            "en": "the Jews"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21992,
+          "head": "יְהוּדִי",
+          "entrySha256": "8c64571aa2bebf48eb97e3208f0a7afd4680ceb87243c3bab2b7417fd78ce44f"
+        }
+      ]
+    },
+    {
+      "word": "וּזְבָחָיו",
+      "key": "וּזְבָחָיו",
+      "analyses": [
+        {
+          "lemma": "ו/זבח",
+          "morph": "HC/Ncmpc/Sp3ms",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und seine Schlachtopfer",
+            "en": "and his sacrifices"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27367,
+          "head": "זֶבַח",
+          "entrySha256": "802aa1372c8042aa8b0dd433c9ed713eb2039097dcc35d8563e817f30478e85f"
+        }
+      ]
+    },
+    {
+      "word": "זְבָחָיו",
+      "key": "זְבָחָיו",
+      "analyses": [
+        {
+          "lemma": "זבח",
+          "morph": "HNcmpc/Sp3ms",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "seine Schlachtopfer",
+            "en": "his sacrifices"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27367,
+          "head": "זֶבַח",
+          "entrySha256": "802aa1372c8042aa8b0dd433c9ed713eb2039097dcc35d8563e817f30478e85f"
+        }
+      ]
+    },
+    {
+      "word": "רִפְאוּת",
+      "key": "רִפְאוּת",
+      "analyses": [
+        {
+          "lemma": "רפאות",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Heilung; medizinische Behandlung",
+            "en": "healing; medical treatment"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 29588,
+          "head": "רִפְאוּת",
+          "entrySha256": "3b7a3eea24f732fc2e15f56f659f47c9a0576908675d71150cee9bde735cd120"
+        }
+      ]
+    },
+    {
+      "word": "הַמִּיטָּה",
+      "key": "הַמִּיטָּה",
+      "analyses": [
+        {
+          "lemma": "ה/מטה",
+          "morph": "HTd/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "das Bett; das Lager",
+            "en": "the bed; couch"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7439,
+          "head": "מִטָּה",
+          "entrySha256": "6b205c30bfe8a35e40e00b317bd4493085a9c8cbd7cb0749675c5bb4528f08d1"
+        }
+      ]
+    },
+    {
+      "word": "הַתַּמְחוּיִ",
+      "key": "הַתַּמְחוּיִ",
+      "analyses": [
+        {
+          "lemma": "ה/תמחוי",
+          "morph": "HTd/Ncbsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Schüssel; der gemeinschaftliche Speiseteller",
+            "en": "the tray; shared food dish"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25367,
+          "head": "תַּמְחוּי",
+          "entrySha256": "1c9044228e56964f2b6526d588ff48b29f95c3bad9dbaa6acba9eda3a3feb2e7"
+        }
+      ]
+    },
+    {
+      "word": "הַחַנְוָונִי",
+      "key": "הַחַנְוָונִי",
+      "analyses": [
+        {
+          "lemma": "ה/חנוני",
+          "morph": "HTd/Ncmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "der Krämer; Ladeninhaber",
+            "en": "the shopkeeper"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9949,
+          "head": "חֶנְוָונִי",
+          "entrySha256": "2f71fa8c9bc6fb2c69ce8ec93ee394af983880fc598c2efa83aa96b43c8a1c91"
+        }
+      ]
+    },
+    {
+      "word": "תְּפִיסַת",
+      "key": "תְּפִיסַת",
+      "analyses": [
+        {
+          "lemma": "תפיסה",
+          "morph": "HNcfsc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Besitz; Verfügungsrecht von",
+            "en": "possession; control of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24210,
+          "head": "תְּפִיסָה",
+          "entrySha256": "a1609e212e629f22a769bcdaa79e9b615d2ff9c12cc983568549c47a9b62b801"
+        }
+      ]
+    },
+    {
+      "word": "קְדֵירָה",
+      "key": "קְדֵירָה",
+      "analyses": [
+        {
+          "lemma": "קדרה",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Kochtopf; Topfinhalt",
+            "en": "cooking pot; contents of pot"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 17331,
+          "head": "קְדֵרָה",
+          "entrySha256": "c19195403d0c95fcd520a59a8a929c5193ab12d9eb796a147b2c1f1d746af2b5"
+        }
+      ]
+    },
+    {
+      "word": "בִּטְרִית",
+      "key": "בִּטְרִית",
+      "analyses": [
+        {
+          "lemma": "ב/טרית",
+          "morph": "HR/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "an/in eingesalzenem Fisch",
+            "en": "in salted fish"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24597,
+          "head": "טָרִית",
+          "entrySha256": "c811d6883c05fbd6dc9ebf0ec91765d3c82fa974e7e4020de9958e538e7ae42d"
+        }
+      ]
+    },
+    {
+      "word": "חִיטִּים",
+      "key": "חִיטִּים",
+      "analyses": [
+        {
+          "lemma": "חטה",
+          "morph": "HNcfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Weizenkörner; Weizen",
+            "en": "wheat grains; wheat"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9414,
+          "head": "חִטָּה",
+          "entrySha256": "771155e123d65ace27ab22b88795b3554340f48d618fbe7f5ee0881c650270af"
+        }
+      ]
+    },
+    {
+      "word": "הַדַּרְגֵּשׁ",
+      "key": "הַדַּרְגֵּשׁ",
+      "analyses": [
+        {
+          "lemma": "ה/דרגש",
+          "morph": "HTd/Ncbsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "der Dargesch; besondere Bett- oder Fußbankart",
+            "en": "the dargesh; a kind of bed or footstool"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 6712,
+          "head": "דַּרְגֵּשׁ",
+          "entrySha256": "4e1436d01e765696e5d6c04410e6272551f36e0e1b77c071f92cfd225b633fcb"
+        }
+      ]
+    },
+    {
+      "word": "בְּחִילּוּפֵיהֶם",
+      "key": "בְּחִילּוּפֵיהֶם",
+      "analyses": [
+        {
+          "lemma": "ב/חילוף",
+          "morph": "HR/Ncmpc/Sp3mp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "gegen ihre Ersatzwerte; gegen ihre Austauschprodukte",
+            "en": "for their substitutes; for their exchange value"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27013,
+          "head": "חִילּוּף",
+          "entrySha256": "da60210b4b12f4e5ea745f06cef2e07c329a8694fd320ac6a934a50c384ee7f9"
+        }
+      ]
+    },
+    {
+      "word": "גִּידּוּלֵי",
+      "key": "גִּידּוּלֵי",
+      "analyses": [
+        {
+          "lemma": "גידול",
+          "morph": "HNcmpc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Zuwächse von; Erträge von",
+            "en": "growths of; produce of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "גִידּוּלֵי",
+      "key": "גִידּוּלֵי",
+      "analyses": [
+        {
+          "lemma": "גידול",
+          "morph": "HNcmpc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Zuwächse von; Erträge von",
+            "en": "growths of; produce of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "גִידּוּלִין",
+      "key": "גִידּוּלִין",
+      "analyses": [
+        {
+          "lemma": "גידול",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Zuwächse; Erträge",
+            "en": "growths; produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "גִּידּוּלִין",
+      "key": "גִּידּוּלִין",
+      "analyses": [
+        {
+          "lemma": "גידול",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Zuwächse; Erträge",
+            "en": "growths; produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "וּבְגִידּוּלֵיהֶם",
+      "key": "וּבְגִידּוּלֵיהֶם",
+      "analyses": [
+        {
+          "lemma": "ו/ב/גידול",
+          "morph": "HC/R/Ncmpc/Sp3mp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und an ihren Erträgen",
+            "en": "and in their produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "ובגידוליהן",
+      "key": "ובגידוליהן",
+      "analyses": [
+        {
+          "lemma": "ו/ב/גידול",
+          "morph": "HC/R/Ncmpc/Sp3fp",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und an ihren Erträgen (weiblicher Bezug)",
+            "en": "and in their produce (feminine referent)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "קְצִיר",
+      "key": "קְצִיר",
+      "analyses": [
+        {
+          "lemma": "קציר",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Ernte; Getreideernte",
+            "en": "harvest; grain harvest"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 17400,
+          "head": "קָצִיר",
+          "entrySha256": "21af88966849e564c09d93a8702221bc306029d93e1a42549ed60d1a51bd4e33"
+        }
+      ]
+    },
+    {
+      "word": "חֲבִיּוֹת",
+      "key": "חֲבִיּוֹת",
+      "analyses": [
+        {
+          "lemma": "חבית",
+          "morph": "HNcfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Krüge; Fässer",
+            "en": "jugs; jars"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9196,
+          "head": "חָבִית",
+          "entrySha256": "138aa0e8394b4509f1e77a056bc6a93eb5efd8636440fd0602dd342e445fd25c"
+        }
+      ]
+    },
+    {
+      "word": "כוֹחַ",
+      "key": "כוֹחַ",
+      "analyses": [
+        {
+          "lemma": "כח",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Kraft; rechtliche Befugnis",
+            "en": "strength; legal power"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 26039,
+          "head": "כֹּחַ",
+          "entrySha256": "9c7b3cbc42bef4a5233ecc6f7105463ae2c52979b830a90cb8ab6cef5b1b61bd"
+        }
+      ]
+    },
+    {
+      "word": "מִכּוֹחַ",
+      "key": "מִכּוֹחַ",
+      "analyses": [
+        {
+          "lemma": "מן/כח",
+          "morph": "HR/Ncmsc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "aus der Befugnis von",
+            "en": "by the power of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 26039,
+          "head": "כֹּחַ",
+          "entrySha256": "9c7b3cbc42bef4a5233ecc6f7105463ae2c52979b830a90cb8ab6cef5b1b61bd"
+        }
+      ]
+    },
+    {
+      "word": "בְּאָהֵל",
+      "key": "בְּאָהֵל",
+      "analyses": [
+        {
+          "lemma": "ב/אהל",
+          "morph": "HR/Ncmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "in einem Zelt; durch Überdachung",
+            "en": "in a tent; by overhanging shelter"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27900,
+          "head": "אֹהֶל",
+          "entrySha256": "41736477002f8f97e52c5c2c9e02e0fb261a60d9de078d15a516d85d8f89e719"
+        }
+      ]
+    },
+    {
+      "word": "בספק",
+      "key": "בספק",
+      "analyses": [
+        {
+          "lemma": "ב/ספק",
+          "morph": "HR/Ncmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "im Zweifelsfall; bei Unsicherheit",
+            "en": "in case of doubt"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7500,
+          "head": "סָפֵק",
+          "entrySha256": "c97edb8cf2813679e7b57bb8907dc90267fca837c16b6be33ffb94bb7411913b"
+        }
+      ]
+    },
+    {
+      "word": "תִּיגְלַחְתּוֹ",
+      "key": "תִּיגְלַחְתּוֹ",
+      "analyses": [
+        {
+          "lemma": "תגלחת",
+          "morph": "HNcfsc/Sp3ms",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "seine Haarschur",
+            "en": "his haircut"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 60,
+          "head": "תַּגְלַחַת",
+          "entrySha256": "c81694637bfd24d0589c3bc599e095fccfd9ab2ed292d46cb01530c38136a6d8"
+        }
+      ]
+    },
+    {
+      "word": "קרבנותיו",
+      "key": "קרבנותיו",
+      "analyses": [
+        {
+          "lemma": "קרבן",
+          "morph": "HNcmpc/Sp3ms",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "seine Opfergaben",
+            "en": "his offerings"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16137,
+          "head": "קָרְבָּן",
+          "entrySha256": "eeea50129bc050347e80cdbf69036f671af6fdbac7f1316e296c111f4fc88361"
+        }
+      ]
+    },
+    {
+      "word": "טְעוּנִין",
+      "key": "טְעוּנִין",
+      "analyses": [
+        {
+          "lemma": "טען",
+          "morph": "HVqsmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "bedürfen; erfordern",
+            "en": "require"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24279,
+          "head": "טָעַן I",
+          "entrySha256": "04feaabda2cae845a24d8861a8f484816a8f5d3bdaa916cd65fff88961e5da26"
+        }
+      ]
+    },
+    {
+      "word": "סְתוּמִים",
+      "key": "סְתוּמִים",
+      "analyses": [
+        {
+          "lemma": "סתם",
+          "morph": "HVqsmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "nicht näher bestimmt; unbestimmt gewidmet",
+            "en": "unspecified; unallocated"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27816,
+          "head": "סָתַם",
+          "entrySha256": "82b4581acd0c6dd13a4902e9a84a59a08dea9fbca19aa6314ff41bac322220e9"
+        }
+      ]
+    },
+    {
+      "word": "עָלוּ",
+      "key": "עָלוּ",
+      "analyses": [
+        {
+          "lemma": "עלה",
+          "morph": "HVqp3cp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie stiegen auf; wurden angerechnet",
+            "en": "they ascended; counted as"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19826,
+          "head": "עלי",
+          "entrySha256": "40fddd0705abe85892c94c5273ce2f85a363cee151dd052378290f877121dd09"
+        }
+      ]
+    },
+    {
+      "word": "יִטַּמֵּא",
+      "key": "יִטַּמֵּא",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVti3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird/soll unrein werden",
+            "en": "he will/shall become impure"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "תִּטַּמֵּא",
+      "key": "תִּטַּמֵּא",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVti3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wird/soll unrein werden",
+            "en": "she will/shall become impure"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "וְנוֹדַע",
+      "key": "וְנוֹדַע",
+      "analyses": [
+        {
+          "lemma": "ו/ידע",
+          "morph": "HC/VNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und es wurde bekannt",
+            "en": "and it became known"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 22084,
+          "head": "יָדַע",
+          "entrySha256": "ed11663ee7d5841d0f21f0ac1e6b0a8b5ce62a02cc37a7996d61902c137b2713"
+        }
+      ]
+    },
+    {
+      "word": "לְכַסּוֹת",
+      "key": "לְכַסּוֹת",
+      "analyses": [
+        {
+          "lemma": "ל/כסה",
+          "morph": "HR/Vpc",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sich bedecken; bedecken",
+            "en": "to cover oneself; to cover"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7238,
+          "head": "כסי ²",
+          "entrySha256": "92870b751bc789ef211e6889c0e756cf05c17fa4fcd6e99708a734a078945a17"
+        }
+      ]
+    },
+    {
+      "word": "וְנֶעְשֵׂת",
+      "key": "וְנֶעְשֵׂת",
+      "analyses": [
+        {
+          "lemma": "ו/עשה",
+          "morph": "HC/VNrfsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sie wird; und sie ist geworden",
+            "en": "and she becomes; has become"
+          },
+          "note": "Die Form נעשית ist im Mischnahebräischen auch resultativ; Tempus/Funktion bleibt kontextabhängig."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "יוֹדֵיַע",
+      "key": "יוֹדֵיַע",
+      "analyses": [
+        {
+          "lemma": "ידע",
+          "morph": "HVqrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wissend",
+            "en": "knowing"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 22084,
+          "head": "יָדַע",
+          "entrySha256": "ed11663ee7d5841d0f21f0ac1e6b0a8b5ce62a02cc37a7996d61902c137b2713"
+        }
+      ]
+    },
+    {
+      "word": "וְתִרְעֶה",
+      "key": "וְתִרְעֶה",
+      "analyses": [
+        {
+          "lemma": "ו/רעה",
+          "morph": "HC/Vqi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sie soll weiden",
+            "en": "and it shall graze"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 4473,
+          "head": "רעי",
+          "entrySha256": "86df40f6c793bf3898aac975f485523b852e280d02937f082e4d209649828764"
+        }
+      ]
+    },
+    {
+      "word": "יבוא",
+      "key": "יבוא",
+      "analyses": [
+        {
+          "lemma": "בוא",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er/es wird kommen",
+            "en": "he/it will come"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "יָבוֹא",
+      "key": "יָבוֹא",
+      "analyses": [
+        {
+          "lemma": "בוא",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er/es wird kommen",
+            "en": "he/it will come"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "תָּבִיא",
+      "key": "תָּבִיא",
+      "analyses": [
+        {
+          "lemma": "בוא",
+          "morph": "HVhi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wird bringen",
+            "en": "she will bring"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "וְנִימְצָא",
+      "key": "וְנִימְצָא",
+      "analyses": [
+        {
+          "lemma": "ו/מצא",
+          "morph": "HC/VNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und es wurde festgestellt; vorgefunden",
+            "en": "and it was found"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 22361,
+          "head": "מצי",
+          "entrySha256": "7b963e4397fbc95b56c3dd7b541cbba80c0142266acab65ba89a97eac7dce50f"
+        }
+      ]
+    },
+    {
+      "word": "נִימְצָא",
+      "key": "נִימְצָא",
+      "analyses": [
+        {
+          "lemma": "מצא",
+          "morph": "HVNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde vorgefunden",
+            "en": "was found"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        },
+        {
+          "lemma": "מצא",
+          "morph": "HVNrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "vorhanden; sich ergebend",
+            "en": "being found; present"
+          },
+          "note": "Ohne Einzelkontext bleibt die Alternative Partizip/Perfekt erhalten."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 22361,
+          "head": "מצי",
+          "entrySha256": "7b963e4397fbc95b56c3dd7b541cbba80c0142266acab65ba89a97eac7dce50f"
+        }
+      ]
+    },
+    {
+      "word": "קְרוּיָה",
+      "key": "קְרוּיָה",
+      "analyses": [
+        {
+          "lemma": "קרא",
+          "morph": "HVqsfsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "genannt (weiblich)",
+            "en": "called (feminine)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7171,
+          "head": "קרי ²",
+          "entrySha256": "70cd54dea5a67d47d4f5faaf51d6922c10e198f9df0a53d5d993c3f93dc86ec2"
+        }
+      ]
+    },
+    {
+      "word": "דוֹחָה",
+      "key": "דוֹחָה",
+      "analyses": [
+        {
+          "lemma": "דחה",
+          "morph": "HVqrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "verdrängt; setzt außer Kraft",
+            "en": "overrides; sets aside"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 4406,
+          "head": "דחי",
+          "entrySha256": "e0430ddd1454f47c20e17c6d2eb5930e3f92ad8998d6e0a33bc9f28f4bed341a"
+        }
+      ]
+    },
+    {
+      "word": "דּוֹחָה",
+      "key": "דּוֹחָה",
+      "analyses": [
+        {
+          "lemma": "דחה",
+          "morph": "HVqrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "verdrängt; setzt außer Kraft",
+            "en": "overrides; sets aside"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 4406,
+          "head": "דחי",
+          "entrySha256": "e0430ddd1454f47c20e17c6d2eb5930e3f92ad8998d6e0a33bc9f28f4bed341a"
+        }
+      ]
+    },
+    {
+      "word": "נֶהְנִין",
+      "key": "נֶהְנִין",
+      "analyses": [
+        {
+          "lemma": "הנה",
+          "morph": "HVNrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "genießend; Nutzen habend (Mehrzahl)",
+            "en": "enjoying; benefiting (plural)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30249,
+          "head": "הני",
+          "entrySha256": "1ae5e765f4d067825006545ea674fbab8f169d3d5e2dd540d5c58b6d44e93602"
+        }
+      ]
+    },
+    {
+      "word": "נְתוּנִין",
+      "key": "נְתוּנִין",
+      "analyses": [
+        {
+          "lemma": "נתן",
+          "morph": "HVqsmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "gegeben; überlassen (Mehrzahl)",
+            "en": "given; handed over (plural)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19448,
+          "head": "נָתַן",
+          "entrySha256": "2de69f9afcf3d9a073c576478a7ba86708385ac2d5a8adbbd025ba9949225539"
+        }
+      ]
+    },
+    {
+      "word": "מַשִּׂיא",
+      "key": "מַשִּׂיא",
+      "analyses": [
+        {
+          "lemma": "נשא",
+          "morph": "HVhrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "verheiratet; verheiratend",
+            "en": "gives in marriage"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19069,
+          "head": "נָשָׂא",
+          "entrySha256": "c9165f3dfcb9a5e59fa4c78c6a3ff1e76f2e13493fb789f7417d2ee3ca54b920"
+        }
+      ]
+    },
+    {
+      "word": "מְבוּשָּׁלִים",
+      "key": "מְבוּשָּׁלִים",
+      "analyses": [
+        {
+          "lemma": "בשל",
+          "morph": "HVPrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "gekocht (Mehrzahl)",
+            "en": "cooked (plural)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 8343,
+          "head": "בָּשַׁל",
+          "entrySha256": "cc93d3dcc911226585b2222c06aee557b8bec0741cd547c6ca4b66c63098f348"
+        }
+      ]
+    },
+    {
+      "word": "נִיתְרוֹקְנָה",
+      "key": "נִיתְרוֹקְנָה",
+      "analyses": [
+        {
+          "lemma": "רוקן",
+          "morph": "HVDp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde entleert; die Befugnis fiel zurück",
+            "en": "was emptied; the authority reverted"
+          },
+          "note": "Jastrow nennt die konkrete Form in Ned. X,2 Nithpael; vorhandener Stammcode D. Kein Eingriff in Quelltext oder Punktierung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 8111,
+          "head": "רוֹקֵן",
+          "entrySha256": "fb63aecbeedbd2838c18bb797cb1058cf711372bc120bdc6fc66a016c1a5a647"
+        }
+      ]
+    },
+    {
+      "word": "אֶתְקַשֵּׁט",
+      "key": "אֶתְקַשֵּׁט",
+      "analyses": [
+        {
+          "lemma": "קשט",
+          "morph": "HVti1cs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ich werde mich schmücken",
+            "en": "I will adorn myself"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 15230,
+          "head": "קָשַׁט",
+          "entrySha256": "cdccc9821beb97e4b1dd8aca9ca60295767b68f202bbea4664d893f11d661ec7"
+        }
+      ]
+    },
+    {
+      "word": "יִטְּלוּ",
+      "key": "יִטְּלוּ",
+      "analyses": [
+        {
+          "lemma": "נטל",
+          "morph": "HVqi3mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie sollen nehmen",
+            "en": "they shall take"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23332,
+          "head": "נָטַל",
+          "entrySha256": "74b7e8ec5367f9e8f237d10733badd6ed50aee6a7875b792e2ff8a133489d003"
+        }
+      ]
+    },
+    {
+      "word": "הִיכְבִּיד",
+      "key": "הִיכְבִּיד",
+      "analyses": [
+        {
+          "lemma": "כבד",
+          "morph": "HVhp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er ließ schwer werden; beschwerte",
+            "en": "he made heavy"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 26839,
+          "head": "כָּבֵד I",
+          "entrySha256": "7c1d134b872c1e23ddd32bd4db6433a091d356d2bede9e63bdf39b09ceeec74a"
+        }
+      ]
+    },
+    {
+      "word": "הִיתְחִיל",
+      "key": "הִיתְחִיל",
+      "analyses": [
+        {
+          "lemma": "תחל",
+          "morph": "HVhp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er begann",
+            "en": "he began"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 842,
+          "head": "תָּחַל",
+          "entrySha256": "439869bacb75dd0d00e77d7ae7f74d9e464df70f088363ce167013a936bcea5d"
+        }
+      ]
+    },
+    {
+      "word": "תֵּצֵא",
+      "key": "תֵּצֵא",
+      "analyses": [
+        {
+          "lemma": "יצא",
+          "morph": "HVqi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wird hinausgehen",
+            "en": "she will go out"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21410,
+          "head": "יָצָא",
+          "entrySha256": "5f78bd558389a45f57cb5aa43ab9b8103864be1f808b2ca0af6c3d49fddce3a2"
+        }
+      ]
+    },
+    {
+      "word": "תָּמוּת",
+      "key": "תָּמוּת",
+      "analyses": [
+        {
+          "lemma": "מות",
+          "morph": "HVqi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wird sterben",
+            "en": "she will die"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 4259,
+          "head": "מוֹת",
+          "entrySha256": "3c7a491e6548ea14ca4d7e79be1bc12356540eec29ef3c604b6955ca2055b8f1"
+        }
+      ]
+    },
+    {
+      "word": "תִיקָּרֵב",
+      "key": "תִיקָּרֵב",
+      "analyses": [
+        {
+          "lemma": "קרב",
+          "morph": "HVNi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie soll geopfert werden",
+            "en": "it shall be offered"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16284,
+          "head": "קָרֵב",
+          "entrySha256": "f5c5a4f87488354e69af9ec335bb66af5542293644ecb9cadec39576b3c3c320"
+        }
+      ]
+    },
+    {
+      "word": "וְנֶאֱכָלִים",
+      "key": "וְנֶאֱכָלִים",
+      "analyses": [
+        {
+          "lemma": "ו/אכל",
+          "morph": "HC/VNrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sie werden gegessen",
+            "en": "and they are eaten"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 8930,
+          "head": "אָכַל",
+          "entrySha256": "4f9f037133260ddc0b091669e2b497aff52be5fe394ddc6c6048e7bee3178936"
+        }
+      ]
+    },
+    {
+      "word": "מְפוֹרָשִׁים",
+      "key": "מְפוֹרָשִׁים",
+      "analyses": [
+        {
+          "lemma": "פרש",
+          "morph": "HVPrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ausdrücklich bestimmt; einzeln gewidmet",
+            "en": "specified; individually designated"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3189,
+          "head": "פָּרַשׁ",
+          "entrySha256": "d504e65fd201e1e5a94b05c069c2100bf880a81682d03eb7336a09a7a4fd47f4"
+        }
+      ]
+    },
+    {
+      "word": "מועלין",
+      "key": "מועלין",
+      "analyses": [
+        {
+          "lemma": "מעל",
+          "morph": "HVqrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "begehen Veruntreuung von Heiligtumsgut",
+            "en": "misappropriate consecrated property"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19906,
+          "head": "מָעַל",
+          "entrySha256": "067bc99c121b673647c0750326d2776f96baefeb96fbceeb3169ebad2962810a"
+        }
+      ]
+    },
+    {
+      "word": "מוֹעֲלִין",
+      "key": "מוֹעֲלִין",
+      "analyses": [
+        {
+          "lemma": "מעל",
+          "morph": "HVqrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "begehen Veruntreuung von Heiligtumsgut",
+            "en": "misappropriate consecrated property"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19906,
+          "head": "מָעַל",
+          "entrySha256": "067bc99c121b673647c0750326d2776f96baefeb96fbceeb3169ebad2962810a"
+        }
+      ]
+    },
+    {
+      "word": "וּמוֹעֲלִין",
+      "key": "וּמוֹעֲלִין",
+      "analyses": [
+        {
+          "lemma": "ו/מעל",
+          "morph": "HC/Vqrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sie veruntreuen Heiligtumsgut",
+            "en": "and they misappropriate consecrated property"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19906,
+          "head": "מָעַל",
+          "entrySha256": "067bc99c121b673647c0750326d2776f96baefeb96fbceeb3169ebad2962810a"
+        }
+      ]
+    },
+    {
+      "word": "מוּפְרֶשֶׁת",
+      "key": "מוּפְרֶשֶׁת",
+      "analyses": [
+        {
+          "lemma": "פרש",
+          "morph": "HVHrfsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "abgesondert; bestimmt (weiblich)",
+            "en": "set aside; designated (feminine)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3189,
+          "head": "פָּרַשׁ",
+          "entrySha256": "d504e65fd201e1e5a94b05c069c2100bf880a81682d03eb7336a09a7a4fd47f4"
+        }
+      ]
+    },
+    {
+      "word": "מוּפְרָשׁ",
+      "key": "מוּפְרָשׁ",
+      "analyses": [
+        {
+          "lemma": "פרש",
+          "morph": "HVHrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "abgesondert",
+            "en": "set aside"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3189,
+          "head": "פָּרַשׁ",
+          "entrySha256": "d504e65fd201e1e5a94b05c069c2100bf880a81682d03eb7336a09a7a4fd47f4"
+        }
+      ]
+    },
+    {
+      "word": "וְהִפְרִישׁ",
+      "key": "וְהִפְרִישׁ",
+      "analyses": [
+        {
+          "lemma": "ו/פרש",
+          "morph": "HC/Vhp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und er sonderte ab",
+            "en": "and he set aside"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3189,
+          "head": "פָּרַשׁ",
+          "entrySha256": "d504e65fd201e1e5a94b05c069c2100bf880a81682d03eb7336a09a7a4fd47f4"
+        }
+      ]
+    },
+    {
+      "word": "תִּשְׁתֶּה",
+      "key": "תִּשְׁתֶּה",
+      "analyses": [
+        {
+          "lemma": "שתה",
+          "morph": "HVqi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wird trinken",
+            "en": "she will drink"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 624,
+          "head": "שתי",
+          "entrySha256": "02cce7e76d72cde51fa45397cf448e3003ee8b55d7146a516a5c24a78f71eb6f"
+        }
+      ]
+    },
+    {
+      "word": "יִשְׁתֶּה",
+      "key": "יִשְׁתֶּה",
+      "analyses": [
+        {
+          "lemma": "שתה",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird trinken",
+            "en": "he will drink"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 624,
+          "head": "שתי",
+          "entrySha256": "02cce7e76d72cde51fa45397cf448e3003ee8b55d7146a516a5c24a78f71eb6f"
+        }
+      ]
+    },
+    {
+      "word": "לִשְׁתּוֹת",
+      "key": "לִשְׁתּוֹת",
+      "analyses": [
+        {
+          "lemma": "ל/שתה",
+          "morph": "HR/Vqc",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "trinken",
+            "en": "to drink"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 624,
+          "head": "שתי",
+          "entrySha256": "02cce7e76d72cde51fa45397cf448e3003ee8b55d7146a516a5c24a78f71eb6f"
+        }
+      ]
+    },
+    {
+      "word": "מְשַׁלֵּיַח",
+      "key": "מְשַׁלֵּיַח",
+      "analyses": [
+        {
+          "lemma": "שלח",
+          "morph": "HVprmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "aussendend; unter den Kessel werfend",
+            "en": "sending away; casting under the pot"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3280,
+          "head": "שָׁלַח",
+          "entrySha256": "a361e911d6e468ad3be424228f3e118d138334c1718a313ca5659ddc88ec0081"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁנִּיזְרַק",
+      "key": "שֶׁנִּיזְרַק",
+      "analyses": [
+        {
+          "lemma": "ש/זרק",
+          "morph": "HTr/VNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "das geworfen/gesprengt wurde",
+            "en": "which was cast/sprinkled"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23828,
+          "head": "זָרַק",
+          "entrySha256": "62a83411da8edf2abfc86f6fcd6bbc7a8518436e9530090698d60d17f1ad9a76"
+        }
+      ]
+    },
+    {
+      "word": "נוֹטְלוֹ",
+      "key": "נוֹטְלוֹ",
+      "analyses": [
+        {
+          "lemma": "נטל",
+          "morph": "HVqrmsc/Sp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "nimmt es; nimmt ihn",
+            "en": "takes it; takes him"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23332,
+          "head": "נָטַל",
+          "entrySha256": "74b7e8ec5367f9e8f237d10733badd6ed50aee6a7875b792e2ff8a133489d003"
+        }
+      ]
+    },
+    {
+      "word": "בּוֹדֵק",
+      "key": "בּוֹדֵק",
+      "analyses": [
+        {
+          "lemma": "בדק",
+          "morph": "HVqrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "prüfend; untersuchend",
+            "en": "examining"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27544,
+          "head": "בָּדַק",
+          "entrySha256": "572869b6ab2b9dd82ab055ec8e57b1e6724d749903ad33e2ecc865baec2e5a40"
+        }
+      ]
+    },
+    {
+      "word": "בּוֹדְקִים",
+      "key": "בּוֹדְקִים",
+      "analyses": [
+        {
+          "lemma": "בדק",
+          "morph": "HVqrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "prüfend (Mehrzahl)",
+            "en": "examining (plural)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27544,
+          "head": "בָּדַק",
+          "entrySha256": "572869b6ab2b9dd82ab055ec8e57b1e6724d749903ad33e2ecc865baec2e5a40"
+        }
+      ]
+    },
+    {
+      "word": "נִיזְקַק",
+      "key": "נִיזְקַק",
+      "analyses": [
+        {
+          "lemma": "זקק",
+          "morph": "HVNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde betroffen; wurde gebunden",
+            "en": "became affected; was bound"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 22841,
+          "head": "זָקַק",
+          "entrySha256": "86e2429ff093d561a05432c5a563b150528d8b26c34eface520f75b1d160be18"
+        }
+      ]
+    },
+    {
+      "word": "אֲמוּרָה",
+      "key": "אֲמוּרָה",
+      "analyses": [
+        {
+          "lemma": "אמר",
+          "morph": "HVqsfsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "gesagt; erwähnt (weiblich)",
+            "en": "said; mentioned (feminine)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 11497,
+          "head": "אָמַר I",
+          "entrySha256": "740e9b19927440f0df1e057c8e2d5e7ebb9b157656aedd9d6fd67ca91a760d66"
+        }
+      ]
+    },
+    {
+      "word": "טַלִּית",
+      "key": "טַלִּית",
+      "analyses": [
+        {
+          "lemma": "טלית",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Tuch; Mantel",
+            "en": "cloth; cloak"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24405,
+          "head": "טַלִּית",
+          "entrySha256": "6edabc8d8e2d55007469d3d773c4d13dcf7823281af397557a8f6783d8a5b2c7"
+        }
+      ]
+    },
+    {
+      "word": "רְפוּאָה",
+      "key": "רְפוּאָה",
+      "analyses": [
+        {
+          "lemma": "רפואה",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Heilung; Arznei",
+            "en": "healing; medicine"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 29587,
+          "head": "רְפוּאָה",
+          "entrySha256": "24cdcb18d2b848305a8177de198ff357332589e27f73d0093f2e4716ac0f6d4e"
+        }
+      ]
+    },
+    {
+      "word": "חֶנְוָונִי",
+      "key": "חֶנְוָונִי",
+      "analyses": [
+        {
+          "lemma": "חנוני",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Krämer; Ladeninhaber",
+            "en": "shopkeeper"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9949,
+          "head": "חֶנְוָונִי",
+          "entrySha256": "2f71fa8c9bc6fb2c69ce8ec93ee394af983880fc598c2efa83aa96b43c8a1c91"
+        }
+      ]
+    },
+    {
+      "word": "קְדֵירוֹת",
+      "key": "קְדֵירוֹת",
+      "analyses": [
+        {
+          "lemma": "קדרה",
+          "morph": "HNcfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Kochtöpfe",
+            "en": "cooking pots"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 17331,
+          "head": "קְדֵרָה",
+          "entrySha256": "c19195403d0c95fcd520a59a8a929c5193ab12d9eb796a147b2c1f1d746af2b5"
+        }
+      ]
+    },
+    {
+      "word": "טָרִית",
+      "key": "טָרִית",
+      "analyses": [
+        {
+          "lemma": "טרית",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "eingesalzener Fisch",
+            "en": "salted fish"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24597,
+          "head": "טָרִית",
+          "entrySha256": "c811d6883c05fbd6dc9ebf0ec91765d3c82fa974e7e4020de9958e538e7ae42d"
+        }
+      ]
+    },
+    {
+      "word": "חִטָּה",
+      "key": "חִטָּה",
+      "analyses": [
+        {
+          "lemma": "חטה",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Weizenkorn; Weizen",
+            "en": "wheat grain; wheat"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9414,
+          "head": "חִטָּה",
+          "entrySha256": "771155e123d65ace27ab22b88795b3554340f48d618fbe7f5ee0881c650270af"
+        }
+      ]
+    },
+    {
+      "word": "דַּרְגֵּשׁ",
+      "key": "דַּרְגֵּשׁ",
+      "analyses": [
+        {
+          "lemma": "דרגש",
+          "morph": "HNcbsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Bett- oder Fußbankart",
+            "en": "kind of bed or footstool"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 6712,
+          "head": "דַּרְגֵּשׁ",
+          "entrySha256": "4e1436d01e765696e5d6c04410e6272551f36e0e1b77c071f92cfd225b633fcb"
+        }
+      ]
+    },
+    {
+      "word": "חִילּוּפִים",
+      "key": "חִילּוּפִים",
+      "analyses": [
+        {
+          "lemma": "חילוף",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Ersatzwerte; Austauschprodukte",
+            "en": "substitutes; exchange value"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27013,
+          "head": "חִילּוּף",
+          "entrySha256": "da60210b4b12f4e5ea745f06cef2e07c329a8694fd320ac6a934a50c384ee7f9"
+        }
+      ]
+    },
+    {
+      "word": "גִּידּוּל",
+      "key": "גִּידּוּל",
+      "analyses": [
+        {
+          "lemma": "גידול",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Wachstum; Ertrag",
+            "en": "growth; produce"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 12797,
+          "head": "גִּידּוּל",
+          "entrySha256": "97fc93f12a94ee29d70b4815a35880fd5c40b17745f9139cb860a6206d0a29d3"
+        }
+      ]
+    },
+    {
+      "word": "חָבִית",
+      "key": "חָבִית",
+      "analyses": [
+        {
+          "lemma": "חבית",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Krug; Fass",
+            "en": "jar"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9196,
+          "head": "חָבִית",
+          "entrySha256": "138aa0e8394b4509f1e77a056bc6a93eb5efd8636440fd0602dd342e445fd25c"
+        }
+      ]
+    },
+    {
+      "word": "כּוֹחַ",
+      "key": "כּוֹחַ",
+      "analyses": [
+        {
+          "lemma": "כח",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Kraft; Befugnis",
+            "en": "strength; power"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 26039,
+          "head": "כֹּחַ",
+          "entrySha256": "9c7b3cbc42bef4a5233ecc6f7105463ae2c52979b830a90cb8ab6cef5b1b61bd"
+        }
+      ]
+    },
+    {
+      "word": "סָפֵק",
+      "key": "סָפֵק",
+      "analyses": [
+        {
+          "lemma": "ספק",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Zweifel",
+            "en": "doubt"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7500,
+          "head": "סָפֵק",
+          "entrySha256": "c97edb8cf2813679e7b57bb8907dc90267fca837c16b6be33ffb94bb7411913b"
+        }
+      ]
+    },
+    {
+      "word": "הַלִּשְׁכָּה",
+      "key": "הַלִּשְׁכָּה",
+      "analyses": [
+        {
+          "lemma": "ה/לשכה",
+          "morph": "HTd/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Tempelkammer",
+            "en": "the Temple chamber"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 32117,
+          "head": "לִשְׁכָּה",
+          "entrySha256": "087910d563c3ae5607334400a8ad33b81241d2b339d6e2371128ef2f1857456d"
+        }
+      ]
+    },
+    {
+      "word": "תְּאֵינִים",
+      "key": "תְּאֵינִים",
+      "analyses": [
+        {
+          "lemma": "תאנה",
+          "morph": "HNcfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Feigen",
+            "en": "figs"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 126,
+          "head": "תְּאֵנָה",
+          "entrySha256": "9a0b6607a4823b2fbd248c28d91be52baebb3463c993e74c2f6f235c46052037"
+        }
+      ]
+    },
+    {
+      "word": "תאינים",
+      "key": "תאינים",
+      "analyses": [
+        {
+          "lemma": "תאנה",
+          "morph": "HNcfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Feigen",
+            "en": "figs"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 126,
+          "head": "תְּאֵנָה",
+          "entrySha256": "9a0b6607a4823b2fbd248c28d91be52baebb3463c993e74c2f6f235c46052037"
+        }
+      ]
+    },
+    {
+      "word": "הַתְּאֵינִים",
+      "key": "הַתְּאֵינִים",
+      "analyses": [
+        {
+          "lemma": "ה/תאנה",
+          "morph": "HTd/Ncfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Feigen",
+            "en": "the figs"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 126,
+          "head": "תְּאֵנָה",
+          "entrySha256": "9a0b6607a4823b2fbd248c28d91be52baebb3463c993e74c2f6f235c46052037"
+        }
+      ]
+    },
+    {
+      "word": "התאינים",
+      "key": "התאינים",
+      "analyses": [
+        {
+          "lemma": "ה/תאנה",
+          "morph": "HTd/Ncfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Feigen",
+            "en": "the figs"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 126,
+          "head": "תְּאֵנָה",
+          "entrySha256": "9a0b6607a4823b2fbd248c28d91be52baebb3463c993e74c2f6f235c46052037"
+        }
+      ]
+    },
+    {
+      "word": "תְּאֵינָה",
+      "key": "תְּאֵינָה",
+      "analyses": [
+        {
+          "lemma": "תאנה",
+          "morph": "HNcfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Feige; Feigenbaum",
+            "en": "fig; fig tree"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 126,
+          "head": "תְּאֵנָה",
+          "entrySha256": "9a0b6607a4823b2fbd248c28d91be52baebb3463c993e74c2f6f235c46052037"
+        }
+      ]
+    },
+    {
+      "word": "לַתְּאֵינִים",
+      "key": "לַתְּאֵינִים",
+      "analyses": [
+        {
+          "lemma": "ל/ה/תאנה",
+          "morph": "HR/Td/Ncfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "zu den Feigen",
+            "en": "to the figs"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 126,
+          "head": "תְּאֵנָה",
+          "entrySha256": "9a0b6607a4823b2fbd248c28d91be52baebb3463c993e74c2f6f235c46052037"
+        }
+      ]
+    },
+    {
+      "word": "קִינֵּי",
+      "key": "קִינֵּי",
+      "analyses": [
+        {
+          "lemma": "קן",
+          "morph": "HNcbpc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Vogelpaare von",
+            "en": "pairs of birds of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 15662,
+          "head": "קֵן",
+          "entrySha256": "c7051de7007ba78635ea929fc3fac8634aa4413aaa1844b72ea81d89413f7124"
+        }
+      ]
+    },
+    {
+      "word": "וְקִינֵּי",
+      "key": "וְקִינֵּי",
+      "analyses": [
+        {
+          "lemma": "ו/קן",
+          "morph": "HC/Ncbpc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und Vogelpaare von",
+            "en": "and pairs of birds of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 15662,
+          "head": "קֵן",
+          "entrySha256": "c7051de7007ba78635ea929fc3fac8634aa4413aaa1844b72ea81d89413f7124"
+        }
+      ]
+    },
+    {
+      "word": "וגופה",
+      "key": "וגופה",
+      "analyses": [
+        {
+          "lemma": "ו/גוף",
+          "morph": "HC/Ncmsc/Sp3fs",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und ihr Körper; und sie selbst",
+            "en": "and her body; and she herself"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 13508,
+          "head": "גּוּף II",
+          "entrySha256": "f71d700d206e658068d024d7afaf196ba3cfb3ad90972ebc306ea04ca0ade0eb"
+        }
+      ]
+    },
+    {
+      "word": "שָׂדֵיהוּ",
+      "key": "שָׂדֵיהוּ",
+      "analyses": [
+        {
+          "lemma": "שדה",
+          "morph": "HNcbsc/Sp3ms",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sein Feld",
+            "en": "his field"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 2063,
+          "head": "שָׂדֶה",
+          "entrySha256": "2afe32d242496f51ebf82e2aad313ce031f00797dfb1025ac9b198e162c32582"
+        }
+      ]
+    },
+    {
+      "word": "בֵּינִי",
+      "key": "בֵּינִי",
+      "analyses": [
+        {
+          "lemma": "בין",
+          "morph": "HR/Sp1cs",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "zwischen mir",
+            "en": "between me"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25683,
+          "head": "בַּיִן",
+          "entrySha256": "b19eaa466c3f6e9bf12172ee322d4820282f1b09d03d2ff7d4fc579110217afa"
+        }
+      ]
+    },
+    {
+      "word": "לְבֵינָךְ",
+      "key": "לְבֵינָךְ",
+      "analyses": [
+        {
+          "lemma": "ל/בין",
+          "morph": "HR/R/Sp2fs",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "zwischen dir (weiblich)",
+            "en": "between you (feminine)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        },
+        {
+          "lemma": "ל/בין",
+          "morph": "HR/R/Sp2ms",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "zwischen dir (männlicher Adressat)",
+            "en": "between you (masculine addressee)"
+          },
+          "note": "Kaufmanns finales Schewa erlaubt im Mischna-Kontext männliche Anrede; keine automatische Entscheidung zwischen den beiden Suffixlesungen."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25683,
+          "head": "בַּיִן",
+          "entrySha256": "b19eaa466c3f6e9bf12172ee322d4820282f1b09d03d2ff7d4fc579110217afa"
+        }
+      ]
+    },
+    {
+      "word": "לבינך",
+      "key": "לבינך",
+      "analyses": [
+        {
+          "lemma": "ל/בין",
+          "morph": "HR/R/Sp2fs",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "zwischen dir (weiblich)",
+            "en": "between you (feminine)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        },
+        {
+          "lemma": "ל/בין",
+          "morph": "HR/R/Sp2ms",
+          "rules": [
+            "prefix"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "zwischen dir (männlicher Adressat)",
+            "en": "between you (masculine addressee)"
+          },
+          "note": "Kaufmanns finales Schewa erlaubt im Mischna-Kontext männliche Anrede; keine automatische Entscheidung zwischen den beiden Suffixlesungen."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25683,
+          "head": "בַּיִן",
+          "entrySha256": "b19eaa466c3f6e9bf12172ee322d4820282f1b09d03d2ff7d4fc579110217afa"
+        }
+      ]
+    },
+    {
+      "word": "וְכַעֲפַר",
+      "key": "וְכַעֲפַר",
+      "analyses": [
+        {
+          "lemma": "ו/כ/עפר",
+          "morph": "HC/R/Ncmsc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und wie Staub von",
+            "en": "and like the dust of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 17997,
+          "head": "עָפָר",
+          "entrySha256": "90f4d21179b97a1f9184f68e3b38d6b962fa5e9f27ae36ef2be750adea733ffb"
+        }
+      ]
+    },
+    {
+      "word": "לַמֵּעַיִים",
+      "key": "לַמֵּעַיִים",
+      "analyses": [
+        {
+          "lemma": "ל/ה/מעה",
+          "morph": "HR/Td/Ncmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "für die Eingeweide",
+            "en": "for the intestines"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 20273,
+          "head": "מֵעֶה",
+          "entrySha256": "09de29ca3b04cc7970e1df3132ff2629c540ac5a70cf763e88856f00bd9346c0"
+        }
+      ]
+    },
+    {
+      "word": "שְׂעַר",
+      "key": "שְׂעַר",
+      "analyses": [
+        {
+          "lemma": "שער",
+          "morph": "HNcmsc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Haar von",
+            "en": "hair of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19791,
+          "head": "שֵׂעָר",
+          "entrySha256": "8f385c0bdd8c5d006ea32ec8993976f322c1545ec71c81d5e2b589a184b01cc1"
+        }
+      ]
+    },
+    {
+      "word": "כִּשְׂעַר",
+      "key": "כִּשְׂעַר",
+      "analyses": [
+        {
+          "lemma": "כ/שער",
+          "morph": "HR/Ncmsc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wie das Haar von",
+            "en": "like the hair of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19791,
+          "head": "שֵׂעָר",
+          "entrySha256": "8f385c0bdd8c5d006ea32ec8993976f322c1545ec71c81d5e2b589a184b01cc1"
+        }
+      ]
+    },
+    {
+      "word": "אֶבֶר",
+      "key": "אֶבֶר",
+      "analyses": [
+        {
+          "lemma": "אבר",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Körperglied",
+            "en": "limb"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9996,
+          "head": "אֵבֶר",
+          "entrySha256": "89e95a232e54741f710cd91d939933a805f355471f5e0da121b3dd8a3f9157b0"
+        }
+      ]
+    },
+    {
+      "word": "עֲצָמוֹת",
+      "key": "עֲצָמוֹת",
+      "analyses": [
+        {
+          "lemma": "עצם",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Knochen",
+            "en": "bones"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 17439,
+          "head": "עֶצֶם",
+          "entrySha256": "76d9576b1d4269e318fb7f71f0d0918debe07aac243b79c1b4e65002ba53514e"
+        }
+      ]
+    },
+    {
+      "word": "קְדוּשַּׁת",
+      "key": "קְדוּשַּׁת",
+      "analyses": [
+        {
+          "lemma": "קדושה",
+          "morph": "HNcfsc",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Heiligkeit von",
+            "en": "sanctity of"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 17645,
+          "head": "קְדוּשָּׁה",
+          "entrySha256": "cfd7e380c001561e9a6ba82dbd2e10ca838731495815b4b2cb9aa39b05c434d5"
+        }
+      ]
+    },
+    {
+      "word": "פִּידֵיוֹן",
+      "key": "פִּידֵיוֹן",
+      "analyses": [
+        {
+          "lemma": "פדיון",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Auslösung; Lösegeld",
+            "en": "redemption; ransom"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 26635,
+          "head": "פִּדְיוֹן",
+          "entrySha256": "c8dc0db4885e03f347d59bc743406b180455a9d610b393fe20d4bb56a075af56"
+        }
+      ]
+    },
+    {
+      "word": "פִּידִיוֹן",
+      "key": "פִּידִיוֹן",
+      "analyses": [
+        {
+          "lemma": "פדיון",
+          "morph": "HNcmsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Auslösung; Lösegeld",
+            "en": "redemption; ransom"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 26635,
+          "head": "פִּדְיוֹן",
+          "entrySha256": "c8dc0db4885e03f347d59bc743406b180455a9d610b393fe20d4bb56a075af56"
+        }
+      ]
+    },
+    {
+      "word": "דִילּוּעִים",
+      "key": "דִילּוּעִים",
+      "analyses": [
+        {
+          "lemma": "דלעת",
+          "morph": "HNcfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Kürbisse",
+            "en": "gourds"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 29631,
+          "head": "דְּלַעַת",
+          "entrySha256": "a8a30df1de244488b3ddc730303c8edd8a77082eb19c6c101b4b51d9bd05bf8c"
+        }
+      ]
+    },
+    {
+      "word": "בַּדִּילּוּעִים",
+      "key": "בַּדִּילּוּעִים",
+      "analyses": [
+        {
+          "lemma": "ב/ה/דלעת",
+          "morph": "HR/Td/Ncfpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "bei den Kürbissen",
+            "en": "among the gourds"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 29631,
+          "head": "דְּלַעַת",
+          "entrySha256": "a8a30df1de244488b3ddc730303c8edd8a77082eb19c6c101b4b51d9bd05bf8c"
+        }
+      ]
+    },
+    {
+      "word": "וּבַדַּלַּעַת",
+      "key": "וּבַדַּלַּעַת",
+      "analyses": [
+        {
+          "lemma": "ו/ב/ה/דלעת",
+          "morph": "HC/R/Td/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und beim Kürbis",
+            "en": "and with the gourd"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 29631,
+          "head": "דְּלַעַת",
+          "entrySha256": "a8a30df1de244488b3ddc730303c8edd8a77082eb19c6c101b4b51d9bd05bf8c"
+        }
+      ]
+    },
+    {
+      "word": "קמח",
+      "key": "קמח",
+      "analyses": [
+        {
+          "lemma": "קמח",
+          "morph": "HNcbsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Mehl",
+            "en": "flour"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 14410,
+          "head": "קֶמַח",
+          "entrySha256": "204334c8bdb3270bf72062a4845f7f79cd5204a52eef770212c92722b37b3730"
+        }
+      ]
+    },
+    {
+      "word": "הַכְּסוּת",
+      "key": "הַכְּסוּת",
+      "analyses": [
+        {
+          "lemma": "ה/כסות",
+          "morph": "HTd/Ncfsa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Bekleidung",
+            "en": "the clothing"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 7316,
+          "head": "כְּסוּת",
+          "entrySha256": "6b5088fb9fd272ba86ed22553c9df01565715f089d86ccd5ab176fce161c1f01"
+        }
+      ]
+    },
+    {
+      "word": "קְבָרוֹת",
+      "key": "קְבָרוֹת",
+      "analyses": [
+        {
+          "lemma": "קבר",
+          "morph": "HNcmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "Gräber",
+            "en": "graves"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 32361,
+          "head": "קֶבֶר",
+          "entrySha256": "70ecd56036a0159b95cb34529d4f71ca61d9701e8e71461d18798d5388b97d30"
+        }
+      ]
+    },
+    {
+      "word": "הַקְּבָרוֹת",
+      "key": "הַקְּבָרוֹת",
+      "analyses": [
+        {
+          "lemma": "ה/קבר",
+          "morph": "HTd/Ncmpa",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die Gräber",
+            "en": "the graves"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 32361,
+          "head": "קֶבֶר",
+          "entrySha256": "70ecd56036a0159b95cb34529d4f71ca61d9701e8e71461d18798d5388b97d30"
+        }
+      ]
+    },
+    {
+      "word": "עֵינָיו",
+      "key": "עֵינָיו",
+      "analyses": [
+        {
+          "lemma": "עין",
+          "morph": "HNcfdc/Sp3ms",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "seine Augen",
+            "en": "his eyes"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19984,
+          "head": "עַיִן",
+          "entrySha256": "0dacaba46bfb1a3b1cc365f7bdcd4ff04cb704f9927ee54b996bd11587f4ce4f"
+        }
+      ]
+    },
+    {
+      "word": "עֵינֶיהָ",
+      "key": "עֵינֶיהָ",
+      "analyses": [
+        {
+          "lemma": "עין",
+          "morph": "HNcfdc/Sp3fs",
+          "rules": [
+            "nominal"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ihre Augen",
+            "en": "her eyes"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19984,
+          "head": "עַיִן",
+          "entrySha256": "0dacaba46bfb1a3b1cc365f7bdcd4ff04cb704f9927ee54b996bd11587f4ce4f"
+        }
+      ]
+    },
+    {
+      "word": "אֶרְחַץ",
+      "key": "אֶרְחַץ",
+      "analyses": [
+        {
+          "lemma": "רחץ",
+          "morph": "HVqi1cs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ich werde mich waschen",
+            "en": "I will wash/bathe"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16906,
+          "head": "רָחַץ",
+          "entrySha256": "68ffbbf51972d49e48429e8caa7ecc3eaef0e612c17c76a3b6faeb706e8dc920"
+        }
+      ]
+    },
+    {
+      "word": "אֶרְחָץ",
+      "key": "אֶרְחָץ",
+      "analyses": [
+        {
+          "lemma": "רחץ",
+          "morph": "HVqi1cs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ich werde mich waschen",
+            "en": "I will wash/bathe"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16906,
+          "head": "רָחַץ",
+          "entrySha256": "68ffbbf51972d49e48429e8caa7ecc3eaef0e612c17c76a3b6faeb706e8dc920"
+        }
+      ]
+    },
+    {
+      "word": "יַחְזוֹר",
+      "key": "יַחְזוֹר",
+      "analyses": [
+        {
+          "lemma": "חזר",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird zurückkehren",
+            "en": "he will return"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9081,
+          "head": "חָזַר",
+          "entrySha256": "2b6b861980d26020f8326d4c2042cbd5798e0c06321f18a7679a9c661180e0cb"
+        }
+      ]
+    },
+    {
+      "word": "וְהֶחְזִירָהּ",
+      "key": "וְהֶחְזִירָהּ",
+      "analyses": [
+        {
+          "lemma": "ו/חזר",
+          "morph": "HC/Vhp3ms/Sp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und er nahm sie zurück",
+            "en": "and he took her back"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9081,
+          "head": "חָזַר",
+          "entrySha256": "2b6b861980d26020f8326d4c2042cbd5798e0c06321f18a7679a9c661180e0cb"
+        }
+      ]
+    },
+    {
+      "word": "יִפְתְּחוּ",
+      "key": "יִפְתְּחוּ",
+      "analyses": [
+        {
+          "lemma": "פתח",
+          "morph": "HVqi3mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie werden öffnen",
+            "en": "they will open"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 18079,
+          "head": "פָּתַח",
+          "entrySha256": "27680a450b9f12423bbefc517bd3eafc6c2758d80dccbb466f38a9412b4dea05"
+        }
+      ]
+    },
+    {
+      "word": "נִיפְתַּח",
+      "key": "נִיפְתַּח",
+      "analyses": [
+        {
+          "lemma": "פתח",
+          "morph": "HVNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde geöffnet",
+            "en": "was opened"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 18079,
+          "head": "פָּתַח",
+          "entrySha256": "27680a450b9f12423bbefc517bd3eafc6c2758d80dccbb466f38a9412b4dea05"
+        }
+      ]
+    },
+    {
+      "word": "נִכְרְתוּ",
+      "key": "נִכְרְתוּ",
+      "analyses": [
+        {
+          "lemma": "כרת",
+          "morph": "HVNp3cp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurden geschlossen/geschnitten",
+            "en": "were cut/concluded"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 8546,
+          "head": "כָּרַת",
+          "entrySha256": "61648fabe6c867e6fb064e06f48f3b58ced6ee359d37fc2ea43b8c31438012b4"
+        }
+      ]
+    },
+    {
+      "word": "כָּרַת",
+      "key": "כָּרַת",
+      "analyses": [
+        {
+          "lemma": "כרת",
+          "morph": "HVqp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er schloss; schnitt",
+            "en": "he cut; concluded"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 8546,
+          "head": "כָּרַת",
+          "entrySha256": "61648fabe6c867e6fb064e06f48f3b58ced6ee359d37fc2ea43b8c31438012b4"
+        }
+      ]
+    },
+    {
+      "word": "תִּיפּוֹל",
+      "key": "תִּיפּוֹל",
+      "analyses": [
+        {
+          "lemma": "נפל",
+          "morph": "HVqi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wird fallen; anfallen",
+            "en": "it will fall; accrue"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19712,
+          "head": "נָפַל",
+          "entrySha256": "26699e82ee3eb4844cef51baec4ec95f36521d58d713c8e5eb704077de741de6"
+        }
+      ]
+    },
+    {
+      "word": "יָזוֹן",
+      "key": "יָזוֹן",
+      "analyses": [
+        {
+          "lemma": "זון",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er soll ernähren",
+            "en": "he shall sustain"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23749,
+          "head": "זוּן",
+          "entrySha256": "902182473e6be46bb455c25bdb7bb1b451f3760c3180fdf5a7f18da32501fbcd"
+        }
+      ]
+    },
+    {
+      "word": "יִרְצֶה",
+      "key": "יִרְצֶה",
+      "analyses": [
+        {
+          "lemma": "רצה",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird wollen; zustimmen",
+            "en": "he will wish; consent"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16680,
+          "head": "רצי",
+          "entrySha256": "486375442cf5955c47504d3cfce18026a6bb99343ae6ec470c53dc5653977c82"
+        }
+      ]
+    },
+    {
+      "word": "יַעֲשֶׂה",
+      "key": "יַעֲשֶׂה",
+      "analyses": [
+        {
+          "lemma": "עשה",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird tun; machen",
+            "en": "he will do; make"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "יעשו",
+      "key": "יעשו",
+      "analyses": [
+        {
+          "lemma": "עשה",
+          "morph": "HVqi3mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie werden tun",
+            "en": "they will do"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "יִמְכּוֹר",
+      "key": "יִמְכּוֹר",
+      "analyses": [
+        {
+          "lemma": "מכר",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird verkaufen",
+            "en": "he will sell"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25408,
+          "head": "מָכַר",
+          "entrySha256": "c456e841d8d2b8e369a212480dc663cf5dcc8404f923e5e47f0412703de93df8"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁיִּמְכּוֹר",
+      "key": "שֶׁיִּמְכּוֹר",
+      "analyses": [
+        {
+          "lemma": "ש/מכר",
+          "morph": "HTr/Vqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "dass er verkaufen wird",
+            "en": "that he will sell"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 25408,
+          "head": "מָכַר",
+          "entrySha256": "c456e841d8d2b8e369a212480dc663cf5dcc8404f923e5e47f0412703de93df8"
+        }
+      ]
+    },
+    {
+      "word": "יִקַּח",
+      "key": "יִקַּח",
+      "analyses": [
+        {
+          "lemma": "לקח",
+          "morph": "HVqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird nehmen; kaufen",
+            "en": "he will take; buy"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 32345,
+          "head": "לָקַח",
+          "entrySha256": "dcd339358bb025480d7ffb723a494ea15d5e71d0704adc2bfb9e72713e531dca"
+        }
+      ]
+    },
+    {
+      "word": "לַחֲרוֹשׁ",
+      "key": "לַחֲרוֹשׁ",
+      "analyses": [
+        {
+          "lemma": "ל/חרש",
+          "morph": "HR/Vqc",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "pflügen",
+            "en": "to plough"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 140,
+          "head": "חָרַשׁ I",
+          "entrySha256": "053c8562265032f0b36d86c7b995574b28258bef45d2ea4f50d12ce3bb92bef3"
+        }
+      ]
+    },
+    {
+      "word": "לחרוש",
+      "key": "לחרוש",
+      "analyses": [
+        {
+          "lemma": "ל/חרש",
+          "morph": "HR/Vqc",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "pflügen",
+            "en": "to plough"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 140,
+          "head": "חָרַשׁ I",
+          "entrySha256": "053c8562265032f0b36d86c7b995574b28258bef45d2ea4f50d12ce3bb92bef3"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁיַּחְפּוֹץ",
+      "key": "שֶׁיַּחְפּוֹץ",
+      "analyses": [
+        {
+          "lemma": "ש/חפץ",
+          "morph": "HTr/Vqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "dass er wünschen wird",
+            "en": "that he will desire"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 9645,
+          "head": "חָפַץ",
+          "entrySha256": "237ac3958a919f56dc72995910940a14fa68f9ecc836f6d1a8cf5fc18afb97fe"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁיֵּצֵא",
+      "key": "שֶׁיֵּצֵא",
+      "analyses": [
+        {
+          "lemma": "ש/יצא",
+          "morph": "HTr/Vqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "dass er hinausgeht",
+            "en": "that he goes out"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21410,
+          "head": "יָצָא",
+          "entrySha256": "5f78bd558389a45f57cb5aa43ab9b8103864be1f808b2ca0af6c3d49fddce3a2"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁתֵּצֵא",
+      "key": "שֶׁתֵּצֵא",
+      "analyses": [
+        {
+          "lemma": "ש/יצא",
+          "morph": "HTr/Vqi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "dass sie hinausgeht",
+            "en": "that she goes out"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21410,
+          "head": "יָצָא",
+          "entrySha256": "5f78bd558389a45f57cb5aa43ab9b8103864be1f808b2ca0af6c3d49fddce3a2"
+        }
+      ]
+    },
+    {
+      "word": "שֶּׁיָּבוֹא",
+      "key": "שֶּׁיָּבוֹא",
+      "analyses": [
+        {
+          "lemma": "ש/בוא",
+          "morph": "HTr/Vqi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "dass er kommen wird",
+            "en": "that he will come"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "יביא",
+      "key": "יביא",
+      "analyses": [
+        {
+          "lemma": "בוא",
+          "morph": "HVhi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird bringen",
+            "en": "he will bring"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "יָבִיא",
+      "key": "יָבִיא",
+      "analyses": [
+        {
+          "lemma": "בוא",
+          "morph": "HVhi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird bringen",
+            "en": "he will bring"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "וְיָבִיא",
+      "key": "וְיָבִיא",
+      "analyses": [
+        {
+          "lemma": "ו/בוא",
+          "morph": "HC/Vhi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und er wird bringen",
+            "en": "and he will bring"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "ויביא",
+      "key": "ויביא",
+      "analyses": [
+        {
+          "lemma": "ו/בוא",
+          "morph": "HC/Vhi3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und er wird bringen",
+            "en": "and he will bring"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27537,
+          "head": "בּוֹא",
+          "entrySha256": "0c14410668ea78f8b1bd16771f11e22114e4c70adaa94359e2086b379eae2973"
+        }
+      ]
+    },
+    {
+      "word": "נָתַתָּה",
+      "key": "נָתַתָּה",
+      "analyses": [
+        {
+          "lemma": "נתן",
+          "morph": "HVqp2ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "du hast gegeben",
+            "en": "you gave"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19448,
+          "head": "נָתַן",
+          "entrySha256": "2de69f9afcf3d9a073c576478a7ba86708385ac2d5a8adbbd025ba9949225539"
+        }
+      ]
+    },
+    {
+      "word": "לָתֶת",
+      "key": "לָתֶת",
+      "analyses": [
+        {
+          "lemma": "ל/נתן",
+          "morph": "HR/Vqc",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "geben",
+            "en": "to give"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 19448,
+          "head": "נָתַן",
+          "entrySha256": "2de69f9afcf3d9a073c576478a7ba86708385ac2d5a8adbbd025ba9949225539"
+        }
+      ]
+    },
+    {
+      "word": "הִקְדִּישָׁהּ",
+      "key": "הִקְדִּישָׁהּ",
+      "analyses": [
+        {
+          "lemma": "קדש",
+          "morph": "HVhp3ms/Sp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er weihte sie",
+            "en": "he consecrated it (feminine object)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16136,
+          "head": "קָדַשׁ",
+          "entrySha256": "05a395965c0a1507c43c9b15d27872514b8f511c71e01050c4368a17acb1ce55"
+        }
+      ]
+    },
+    {
+      "word": "הִפְרִישָׁה",
+      "key": "הִפְרִישָׁה",
+      "analyses": [
+        {
+          "lemma": "פרש",
+          "morph": "HVhp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie sonderte ab",
+            "en": "she set aside"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 3189,
+          "head": "פָּרַשׁ",
+          "entrySha256": "d504e65fd201e1e5a94b05c069c2100bf880a81682d03eb7336a09a7a4fd47f4"
+        }
+      ]
+    },
+    {
+      "word": "מְקוּדֶּשֶׁת",
+      "key": "מְקוּדֶּשֶׁת",
+      "analyses": [
+        {
+          "lemma": "קדש",
+          "morph": "HVPrfsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "geheiligt; angetraut",
+            "en": "consecrated; betrothed"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16136,
+          "head": "קָדַשׁ",
+          "entrySha256": "05a395965c0a1507c43c9b15d27872514b8f511c71e01050c4368a17acb1ce55"
+        }
+      ]
+    },
+    {
+      "word": "מְקוּדָּשׁ",
+      "key": "מְקוּדָּשׁ",
+      "analyses": [
+        {
+          "lemma": "קדש",
+          "morph": "HVPrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "geheiligt",
+            "en": "consecrated"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16136,
+          "head": "קָדַשׁ",
+          "entrySha256": "05a395965c0a1507c43c9b15d27872514b8f511c71e01050c4368a17acb1ce55"
+        }
+      ]
+    },
+    {
+      "word": "קִידֵּשׁ",
+      "key": "קִידֵּשׁ",
+      "analyses": [
+        {
+          "lemma": "קדש",
+          "morph": "HVpp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er heiligte; traute an",
+            "en": "he consecrated; betrothed"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16136,
+          "head": "קָדַשׁ",
+          "entrySha256": "05a395965c0a1507c43c9b15d27872514b8f511c71e01050c4368a17acb1ce55"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁקִידֵּשׁ",
+      "key": "שֶׁקִידֵּשׁ",
+      "analyses": [
+        {
+          "lemma": "ש/קדש",
+          "morph": "HTr/Vpp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "der heiligte; antraute",
+            "en": "who consecrated; betrothed"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16136,
+          "head": "קָדַשׁ",
+          "entrySha256": "05a395965c0a1507c43c9b15d27872514b8f511c71e01050c4368a17acb1ce55"
+        }
+      ]
+    },
+    {
+      "word": "קִידְּשׁוֹ",
+      "key": "קִידְּשׁוֹ",
+      "analyses": [
+        {
+          "lemma": "קדש",
+          "morph": "HVpp3ms/Sp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er heiligte es",
+            "en": "he consecrated it"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16136,
+          "head": "קָדַשׁ",
+          "entrySha256": "05a395965c0a1507c43c9b15d27872514b8f511c71e01050c4368a17acb1ce55"
+        }
+      ]
+    },
+    {
+      "word": "נִיגְנְבָה",
+      "key": "נִיגְנְבָה",
+      "analyses": [
+        {
+          "lemma": "גנב",
+          "morph": "HVNp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde gestohlen",
+            "en": "was stolen"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 31381,
+          "head": "גָּנַב",
+          "entrySha256": "493ee27adb781dbae097b954b8ba68ea6414cf0bea31dd00113230315415b8f6"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁנִּיגְנָבָה",
+      "key": "שֶׁנִּיגְנָבָה",
+      "analyses": [
+        {
+          "lemma": "ש/גנב",
+          "morph": "HTr/VNp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "die gestohlen wurde",
+            "en": "which was stolen"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 31381,
+          "head": "גָּנַב",
+          "entrySha256": "493ee27adb781dbae097b954b8ba68ea6414cf0bea31dd00113230315415b8f6"
+        }
+      ]
+    },
+    {
+      "word": "מִשֶּׁנִּיגְנְבָה",
+      "key": "מִשֶּׁנִּיגְנְבָה",
+      "analyses": [
+        {
+          "lemma": "מן/ש/גנב",
+          "morph": "HR/Tr/VNp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "seitdem sie gestohlen wurde",
+            "en": "since it was stolen"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 31381,
+          "head": "גָּנַב",
+          "entrySha256": "493ee27adb781dbae097b954b8ba68ea6414cf0bea31dd00113230315415b8f6"
+        }
+      ]
+    },
+    {
+      "word": "שׁוֹמֶרֶת",
+      "key": "שׁוֹמֶרֶת",
+      "analyses": [
+        {
+          "lemma": "שמר",
+          "morph": "HVqrfsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "hütend; wartend",
+            "en": "guarding; waiting"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 1036,
+          "head": "שָׁמַר",
+          "entrySha256": "730885d125692cba347dbfb233016a7b02dd9c7a801262af3b1831c394e8157d"
+        }
+      ]
+    },
+    {
+      "word": "הָיִיתָה",
+      "key": "הָיִיתָה",
+      "analyses": [
+        {
+          "lemma": "היה",
+          "morph": "HVqp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie war; wurde",
+            "en": "she was; became"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30177,
+          "head": "הוי",
+          "entrySha256": "38525c9d7bdbbecb6407ed20427fe9d5102f152802f78892d3616d55afb63ac3"
+        }
+      ]
+    },
+    {
+      "word": "וְהָיְיתָה",
+      "key": "וְהָיְיתָה",
+      "analyses": [
+        {
+          "lemma": "ו/היה",
+          "morph": "HC/Vqp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sie war; wurde",
+            "en": "and she was; became"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30177,
+          "head": "הוי",
+          "entrySha256": "38525c9d7bdbbecb6407ed20427fe9d5102f152802f78892d3616d55afb63ac3"
+        }
+      ]
+    },
+    {
+      "word": "הֱיִיתֶם",
+      "key": "הֱיִיתֶם",
+      "analyses": [
+        {
+          "lemma": "היה",
+          "morph": "HVqp2mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ihr wart",
+            "en": "you were"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30177,
+          "head": "הוי",
+          "entrySha256": "38525c9d7bdbbecb6407ed20427fe9d5102f152802f78892d3616d55afb63ac3"
+        }
+      ]
+    },
+    {
+      "word": "אֱהֶא",
+      "key": "אֱהֶא",
+      "analyses": [
+        {
+          "lemma": "היה",
+          "morph": "HVqi1cs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ich werde sein",
+            "en": "I will be"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30177,
+          "head": "הוי",
+          "entrySha256": "38525c9d7bdbbecb6407ed20427fe9d5102f152802f78892d3616d55afb63ac3"
+        }
+      ]
+    },
+    {
+      "word": "אֱהֵא",
+      "key": "אֱהֵא",
+      "analyses": [
+        {
+          "lemma": "היה",
+          "morph": "HVqi1cs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "ich werde sein",
+            "en": "I will be"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30177,
+          "head": "הוי",
+          "entrySha256": "38525c9d7bdbbecb6407ed20427fe9d5102f152802f78892d3616d55afb63ac3"
+        }
+      ]
+    },
+    {
+      "word": "יְהוּ",
+      "key": "יְהוּ",
+      "analyses": [
+        {
+          "lemma": "היה",
+          "morph": "HVqi3mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie werden sein",
+            "en": "they will be"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 30177,
+          "head": "הוי",
+          "entrySha256": "38525c9d7bdbbecb6407ed20427fe9d5102f152802f78892d3616d55afb63ac3"
+        }
+      ]
+    },
+    {
+      "word": "נֶעְשָׂה",
+      "key": "נֶעְשָׂה",
+      "analyses": [
+        {
+          "lemma": "עשה",
+          "morph": "HVNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde; wurde gemacht",
+            "en": "became; was done"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "נֶעֱשָׂה",
+      "key": "נֶעֱשָׂה",
+      "analyses": [
+        {
+          "lemma": "עשה",
+          "morph": "HVNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde; wurde gemacht",
+            "en": "became; was done"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "וְנֶעְשָׂה",
+      "key": "וְנֶעְשָׂה",
+      "analyses": [
+        {
+          "lemma": "ו/עשה",
+          "morph": "HC/VNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und wurde",
+            "en": "and became"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "וְנֶעֱשָׂה",
+      "key": "וְנֶעֱשָׂה",
+      "analyses": [
+        {
+          "lemma": "ו/עשה",
+          "morph": "HC/VNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und wurde",
+            "en": "and became"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 21039,
+          "head": "עשי",
+          "entrySha256": "c5bb2b19734a69ff05e842b8ba08c62af3dd94973c4061db2efedb0253161040"
+        }
+      ]
+    },
+    {
+      "word": "נִיזְרַק",
+      "key": "נִיזְרַק",
+      "analyses": [
+        {
+          "lemma": "זרק",
+          "morph": "HVNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "wurde gesprengt; geworfen",
+            "en": "was sprinkled; cast"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23828,
+          "head": "זָרַק",
+          "entrySha256": "62a83411da8edf2abfc86f6fcd6bbc7a8518436e9530090698d60d17f1ad9a76"
+        }
+      ]
+    },
+    {
+      "word": "שֶׁנִּיזְרָק",
+      "key": "שֶׁנִּיזְרָק",
+      "analyses": [
+        {
+          "lemma": "ש/זרק",
+          "morph": "HTr/VNp3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "das gesprengt wurde",
+            "en": "which was sprinkled"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23828,
+          "head": "זָרַק",
+          "entrySha256": "62a83411da8edf2abfc86f6fcd6bbc7a8518436e9530090698d60d17f1ad9a76"
+        }
+      ]
+    },
+    {
+      "word": "תִּקָּרֵב",
+      "key": "תִּקָּרֵב",
+      "analyses": [
+        {
+          "lemma": "קרב",
+          "morph": "HVNi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie soll geopfert werden",
+            "en": "it shall be offered"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16284,
+          "head": "קָרֵב",
+          "entrySha256": "f5c5a4f87488354e69af9ec335bb66af5542293644ecb9cadec39576b3c3c320"
+        }
+      ]
+    },
+    {
+      "word": "תִּיקָּרֵב",
+      "key": "תִּיקָּרֵב",
+      "analyses": [
+        {
+          "lemma": "קרב",
+          "morph": "HVNi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie soll geopfert werden",
+            "en": "it shall be offered"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16284,
+          "head": "קָרֵב",
+          "entrySha256": "f5c5a4f87488354e69af9ec335bb66af5542293644ecb9cadec39576b3c3c320"
+        }
+      ]
+    },
+    {
+      "word": "תיקרב",
+      "key": "תיקרב",
+      "analyses": [
+        {
+          "lemma": "קרב",
+          "morph": "HVNi3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie soll geopfert werden",
+            "en": "it shall be offered"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16284,
+          "head": "קָרֵב",
+          "entrySha256": "f5c5a4f87488354e69af9ec335bb66af5542293644ecb9cadec39576b3c3c320"
+        }
+      ]
+    },
+    {
+      "word": "יִקָרְבוּ",
+      "key": "יִקָרְבוּ",
+      "analyses": [
+        {
+          "lemma": "קרב",
+          "morph": "HVNi3mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie sollen geopfert werden",
+            "en": "they shall be offered"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16284,
+          "head": "קָרֵב",
+          "entrySha256": "f5c5a4f87488354e69af9ec335bb66af5542293644ecb9cadec39576b3c3c320"
+        }
+      ]
+    },
+    {
+      "word": "יקרבו",
+      "key": "יקרבו",
+      "analyses": [
+        {
+          "lemma": "קרב",
+          "morph": "HVNi3mp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie sollen geopfert werden",
+            "en": "they shall be offered"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 16284,
+          "head": "קָרֵב",
+          "entrySha256": "f5c5a4f87488354e69af9ec335bb66af5542293644ecb9cadec39576b3c3c320"
+        }
+      ]
+    },
+    {
+      "word": "ונאכלין",
+      "key": "ונאכלין",
+      "analyses": [
+        {
+          "lemma": "ו/אכל",
+          "morph": "HC/VNrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sie werden gegessen",
+            "en": "and they are eaten"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 8930,
+          "head": "אָכַל",
+          "entrySha256": "4f9f037133260ddc0b091669e2b497aff52be5fe394ddc6c6048e7bee3178936"
+        }
+      ]
+    },
+    {
+      "word": "בּוֹדְקִין",
+      "key": "בּוֹדְקִין",
+      "analyses": [
+        {
+          "lemma": "בדק",
+          "morph": "HVqrmpa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "prüfend (Mehrzahl)",
+            "en": "examining (plural)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 27544,
+          "head": "בָּדַק",
+          "entrySha256": "572869b6ab2b9dd82ab055ec8e57b1e6724d749903ad33e2ecc865baec2e5a40"
+        }
+      ]
+    },
+    {
+      "word": "נוֹטְלָן",
+      "key": "נוֹטְלָן",
+      "analyses": [
+        {
+          "lemma": "נטל",
+          "morph": "HVqrmsc/Sp3fp",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "nimmt sie (weibliche Mehrzahl)",
+            "en": "takes them (feminine plural)"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 23332,
+          "head": "נָטַל",
+          "entrySha256": "74b7e8ec5367f9e8f237d10733badd6ed50aee6a7875b792e2ff8a133489d003"
+        }
+      ]
+    },
+    {
+      "word": "יִיטַּמֵּא",
+      "key": "יִיטַּמֵּא",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVti3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird unrein werden",
+            "en": "he will become impure"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "יִיטָּמֵּא",
+      "key": "יִיטָּמֵּא",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVti3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird unrein werden",
+            "en": "he will become impure"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "יִטָּמֵּא",
+      "key": "יִטָּמֵּא",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVti3ms",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "er wird unrein werden",
+            "en": "he will become impure"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "נִיטָּמָּאת",
+      "key": "נִיטָּמָּאת",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVNp3fs",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sie wurde unrein",
+            "en": "she became impure"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "מִיטַּמֵּא",
+      "key": "מִיטַּמֵּא",
+      "analyses": [
+        {
+          "lemma": "טמא",
+          "morph": "HVtrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sich verunreinigend",
+            "en": "defiling himself"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "וּמִיטַּמֵּא",
+      "key": "וּמִיטַּמֵּא",
+      "analyses": [
+        {
+          "lemma": "ו/טמא",
+          "morph": "HC/Vtrmsa",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "und sich verunreinigend",
+            "en": "and defiling himself"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24277,
+          "head": "טָמֵא I",
+          "entrySha256": "9afe66195517f99baeb732507fd2bd9138465e7f39d4bc07dd607ec89acd75e7"
+        }
+      ]
+    },
+    {
+      "word": "לִיטַּהֵר",
+      "key": "לִיטַּהֵר",
+      "analyses": [
+        {
+          "lemma": "ל/טהר",
+          "morph": "HR/Vtc",
+          "rules": [
+            "verb"
+          ],
+          "method": "rabbinic-form-candidate",
+          "gloss": {
+            "de": "sich reinigen",
+            "en": "to purify oneself"
+          },
+          "note": "Formbezogener Kandidat nach rabbinischem Wörterbuch und expliziter Flexion; keine Accordance-Bestätigung."
+        }
+      ],
+      "evidence": [
+        {
+          "dictId": "d895bc1c727b",
+          "entry": 24594,
+          "head": "טָהֵר",
+          "entrySha256": "100daf9a537434bd090e829e85b5b1996bf8faa5c8a180aaf5f2350a0b1f1a2c"
+        }
+      ]
+    }
+  ],
+  "remaining": {
+    "inputPositions": 1109,
+    "exactCoveredPositions": 337,
+    "uncoveredPositions": 772,
+    "contextValidation": false,
+    "exactKeyMatchPositions": 337,
+    "applicationMayBeLowerBecauseCriticalSourceGuards": true
+  },
+  "limitations": [
+    "Diplomatic fragments, choice/gap uncertainty and editorial markers are not forcibly analyzed.",
+    "Proper names are scoped to Nedarim/Nazir; short glosses are editorial.",
+    "All source text, punctuation, pointing and word identities remain untouched.",
+    "Exact-key match counts are an upper bound before parent source guards; add/del annotation requires source-note and choice/gap/unclear remains blocked."
+  ]
+}
