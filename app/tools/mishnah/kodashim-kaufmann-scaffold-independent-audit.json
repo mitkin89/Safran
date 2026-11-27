@@ -1,0 +1,135 @@
+{
+  "method": "Independent direct comparison with original unchanged witnesses.K; checks all diplomatic word identities, offsets and empty analysis/pointing imports",
+  "humanValidated": false,
+  "books": [
+    {
+      "title": "Mishnah Zevachim",
+      "file": "mishnah-kaufmann-kodashim-zevachim-data.js",
+      "fileSha256": "0a9fc35a214519bacee9562150151a2b0c4cd80d6e23fc8e3b5079008ed6e8de",
+      "sourceFile": "mishnah-textcrit/mishnah-zevachim.js",
+      "sourceFileSha256": "f7e7b41db80c168445f77577549223f24bee226813536e9eba162fd8deebe4a9",
+      "sourceTextHash": "33ce68c5890334698aae82161de4bf837a508a4dfa9e2badbf66531806b8aa34",
+      "units": 101,
+      "sourceWords": 5013,
+      "forms": 5005
+    },
+    {
+      "title": "Mishnah Menachot",
+      "file": "mishnah-kaufmann-kodashim-menachot-data.js",
+      "fileSha256": "8610a44ef2b989f9141626417b9ebeb90809396f2cd488a63087a2fb96767307",
+      "sourceFile": "mishnah-textcrit/mishnah-menachot.js",
+      "sourceFileSha256": "2015f33b691805f90bbddd2a7fac895c0833c0a008e1382ea5902f733917d143",
+      "sourceTextHash": "1ca42ad6a5ea12ff988ef2275bf750d0ecab5aec4f100814ce2fe988d29d3c81",
+      "units": 93,
+      "sourceWords": 5216,
+      "forms": 5216
+    },
+    {
+      "title": "Mishnah Chullin",
+      "file": "mishnah-kaufmann-kodashim-chullin-data.js",
+      "fileSha256": "83e628a4e0899d4dc3ccb237729480ef743ca7cbe90e164c494a7e867f273556",
+      "sourceFile": "mishnah-textcrit/mishnah-chullin.js",
+      "sourceFileSha256": "d8e95d81355bd24b649cc8fa9ec51eb0305bf971d7642ef128836858d9f1c725",
+      "sourceTextHash": "84851e04887adfbf5189e4012951c88656397825607c4e69f7c8635c10d02f1d",
+      "units": 74,
+      "sourceWords": 3734,
+      "forms": 3732
+    },
+    {
+      "title": "Mishnah Bekhorot",
+      "file": "mishnah-kaufmann-kodashim-bekhorot-data.js",
+      "fileSha256": "94b3cd7200e100d891756e171b8fbd046f3bcea0c318cf4f5dc4fadcc1e5e95e",
+      "sourceFile": "mishnah-textcrit/mishnah-bekhorot.js",
+      "sourceFileSha256": "c6c4818e8c37a25f98257b947715cfbc19bfcf66c04eeb2c571c351b6559b8c5",
+      "sourceTextHash": "9a177cc1f275354dfed52cd69d16b240c56d3c0ef4dff89fe633f2b720c453df",
+      "units": 73,
+      "sourceWords": 3708,
+      "forms": 3702
+    },
+    {
+      "title": "Mishnah Arakhin",
+      "file": "mishnah-kaufmann-kodashim-arakhin-data.js",
+      "fileSha256": "cfaaae995fd972331ad36d61593bb3e81ae12257c5b3ce70b064c2a659f6008d",
+      "sourceFile": "mishnah-textcrit/mishnah-arakhin.js",
+      "sourceFileSha256": "d2616fca24816e6cf7aa32d56ecd38293f501dadf7bccb6f182e1460791b7045",
+      "sourceTextHash": "b3fa81c80191e6a6bafa747ea692f8809cc1531c2ff8df420b2ac4709a9fe579",
+      "units": 50,
+      "sourceWords": 2577,
+      "forms": 2574
+    },
+    {
+      "title": "Mishnah Temurah",
+      "file": "mishnah-kaufmann-kodashim-temurah-data.js",
+      "fileSha256": "84b34c49ade192c7c66ed6dda454a5349f7a34a867a20a34929bd70f4868c6ab",
+      "sourceFile": "mishnah-textcrit/mishnah-temurah.js",
+      "sourceFileSha256": "64bc1a6588ecd2d9da7a6ab5e6cf9754ce14893d9f3fcdc3ad0f47643343b609",
+      "sourceTextHash": "d01a5a5711998facfbd69d87f54b085fc735fc5bbbaca41212fa7ae788ffdd65",
+      "units": 34,
+      "sourceWords": 1798,
+      "forms": 1798
+    },
+    {
+      "title": "Mishnah Keritot",
+      "file": "mishnah-kaufmann-kodashim-keritot-data.js",
+      "fileSha256": "b0ba4333544e1e06efdda3239bd8da033825ce2e202e8068a977cf79bcc5f3df",
+      "sourceFile": "mishnah-textcrit/mishnah-keritot.js",
+      "sourceFileSha256": "87109f6c5cd9be2f4df6089d2f9117f65c9167cd632e4c5fba12d5b0f7b5fb79",
+      "sourceTextHash": "711edb1d3f6db5cebf3651c55ca40f725bf3e5803abb7c2668b1ae4956e93d30",
+      "units": 36,
+      "sourceWords": 1993,
+      "forms": 1993
+    },
+    {
+      "title": "Mishnah Meilah",
+      "file": "mishnah-kaufmann-kodashim-meilah-data.js",
+      "fileSha256": "f7679a62ad2aaff799a789902492495b1c69df9c20fe97633c16b7ba85896730",
+      "sourceFile": "mishnah-textcrit/mishnah-meilah.js",
+      "sourceFileSha256": "b73ccfa3426c410156675431b1defcfada510130a4c387a623663606fec69d43",
+      "sourceTextHash": "f210bf929c5dcf7e037681305e569030806af58053584742fe0198ec25f3f80e",
+      "units": 38,
+      "sourceWords": 1750,
+      "forms": 1750
+    },
+    {
+      "title": "Mishnah Tamid",
+      "file": "mishnah-kaufmann-kodashim-tamid-data.js",
+      "fileSha256": "42aeef3d5a7c6ad010309a98bb34854c5a15d063b229c3e2c240e473ca630e56",
+      "sourceFile": "mishnah-textcrit/mishnah-tamid.js",
+      "sourceFileSha256": "160a7189cb150aaa22002f6eb38f57544d61f898adad09615b3f912dd61bc12a",
+      "sourceTextHash": "cc8fb3aac0bd76ce65f8c123d16eb7bb0cd33e5ada8b942139670018ca172581",
+      "units": 34,
+      "sourceWords": 2115,
+      "forms": 2111
+    },
+    {
+      "title": "Mishnah Middot",
+      "file": "mishnah-kaufmann-kodashim-middot-data.js",
+      "fileSha256": "f2ce394865e888ca3da9bfa0ba680a3b0b673feb15251278cc89c4bd5e31c110",
+      "sourceFile": "mishnah-textcrit/mishnah-middot.js",
+      "sourceFileSha256": "c845efa767a5f9822658a94b61580e8d78beaf1c0efdd6bfd9ea319416816da4",
+      "sourceTextHash": "5d1d691c939a3d0cc0bd8f0221f36551a50dd51d1b0676a55d0b62fe6dbda0e5",
+      "units": 34,
+      "sourceWords": 2260,
+      "forms": 2260
+    },
+    {
+      "title": "Mishnah Kinnim",
+      "file": "mishnah-kaufmann-kodashim-kinnim-data.js",
+      "fileSha256": "e3e70fad74b1b459b52db5895286b79675be7c6f7baaae8b4ab02d152d2111a1",
+      "sourceFile": "mishnah-textcrit/mishnah-kinnim.js",
+      "sourceFileSha256": "05d1de62b75a7216a62c2bad9869bcb98e5f7366fd010a33c382877e1b2dbf3e",
+      "sourceTextHash": "e20d1b5cc4a8a3b3e3a4723e1fab7349445ef86cda85b23ac21fbbf637379721",
+      "units": 15,
+      "sourceWords": 901,
+      "forms": 901
+    }
+  ],
+  "counts": {
+    "books": 11,
+    "units": 582,
+    "sourceWords": 31065,
+    "forms": 31042
+  },
+  "errors": [],
+  "sourcePointingAndAnalysesImported": false
+}
