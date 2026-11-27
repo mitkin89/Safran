@@ -921,6 +921,7 @@
 
     "Gleiche Wiedergabe": "Same rendering",
     "Andere hebräische Wörter mit dieser Wiedergabe zeigen": "Show other Hebrew words with this rendering",
+    "Gleiches Lexem bzw. gleiche Wortform oder Wortgruppe in dieser Quelle, über alle erfassten Tanachstellen. Wortformfilter gelten hier nicht.": "Same lexeme, word form or phrase in this source, across all indexed Tanakh passages. Word-form filters do not apply here.",
     "Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.": "Same German base form in this translation, across all indexed Tanakh passages. This does not imply identical meaning in context; word-form filters do not apply here.",
     "{} Wörter · {} zugeordnete Belege": "{} words · {} aligned occurrences",
     "1 Beleg": "1 occurrence",

@@ -66,6 +66,16 @@ module.exports=async({win,js,waitFor})=>{
  await waitFor(fillWord,'Hebräisches Wort für die Wurzelsuche');
  await js(fillWord + ".dispatchEvent(new MouseEvent('dblclick',{bubbles:true}))");
  await waitFor("document.querySelector('#wcBody .wcAct .wcRoot[data-root=מלא]')",'Wurzelsuche im Wortkarten-Überblick');
+ for(const source of ['Peshitta','LXX','O','Samaritan']){
+  await waitFor(`document.querySelector('#wcTr [data-src="${source}"]')`,source+' available');
+  await js(`document.querySelector('#wcTr [data-src="${source}"]').click()`);
+  await waitFor("document.querySelector('#wcTr .wcSamePick')",source+' reverse lookup button');
+  await js("document.querySelector('#wcTr .wcSamePick').click()");
+  assert(await js("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"4390\"] a[data-ref]')"),source+' reverse lookup contains current Hebrew lemma and references');
+  assert(await js("document.querySelector('#wcTr .wcSame .wcHL')"),source+' opens other word cards');
+  await js("document.querySelector('#wcTr .wcSameClose').click()");
+  assert(await js("!document.querySelector('#wcTr .wcSame')"));
+ }
  await js("document.querySelector('#fmHead [data-wc-scope=family]').click()");
  await waitFor("document.querySelector('#fmHead .fmCnt')?.textContent.includes('373') && document.querySelector('#wcTr [data-src=Zunz]')",'373 Belege und Übersetzungen im Wortfamilien-Überblick');
  assert.equal(await js("document.documentElement.dataset.tab"),'read');
