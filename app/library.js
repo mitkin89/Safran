@@ -27,7 +27,7 @@
     }).map(([s]) => s);
   }
   const fmtSize = b => (b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' GB' : (b / 1048576).toFixed(1) + ' MB');
-  const kaufmannLabel = v => v === "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri" ? I18N.t('Kaufmann A50 · vokalisiert (Dan Be’eri)') : null;
+  const kaufmannLabel = v => v === 'Kaufmann A50 (Digital Mishnah), provisional Accordance pointing' ? I18N.t('Digital Mishnah · vorläufige Accordance-Punktierung') : v === "Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri" ? I18N.t('Kaufmann A50 · vokalisiert (Dan Be’eri)') : null;
   const shortVer = v => {
     if (kaufmannLabel(v)) return kaufmannLabel(v);
     if (v === 'merged') return 'zusammengeführt';
@@ -329,7 +329,7 @@
   }
   // Voreinstellung der Versionen eines Buchs (Hebräisch immer, dazu die Sprache der Oberfläche)
   // Reihenfolge der hebräischen Fassungen als Vorgabe: Westminster, vokalisierte Ausgabe, andere, zuletzt „zusammengeführt“
-  function heRank(t) { return /^Kaufmann A50 · Digital Mishnah$/.test(t)?0:/Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
+  function heRank(t) { return t==='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing'?-1:/^Kaufmann A50 · Digital Mishnah$/.test(t)?0:/Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
   function pickVersions(g) {
     const sel = new Set();
     // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
@@ -348,6 +348,7 @@
     }
     if (!sel.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) sel.add(v.rel); });
     if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
+    if(g.title==='Mishnah Berakhot'){const work=g.versions.find(v=>v.versionTitle==='Kaufmann A50 (Digital Mishnah), provisional Accordance pointing');if(work)sel.add(work.rel);}
     return /^Tanakh\//.test(g.key||'')?window.BibleVersions.select(g.versions,sel,disp,I18N.lang):sel;
   }
   async function openGroup(g, target = {}, inNewTab = false) {
@@ -1098,6 +1099,7 @@
   const mishnahMorphUI=window.LibraryMishnahMorph.create({
     $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
     openDict:(...args)=>openDict(...args),closeOther:()=>wordPopupUI.close(),
+    openExternal:url=>window.api.openExternal(url),
   });
 
   const textcritUI = window.LibraryTextCrit.create({

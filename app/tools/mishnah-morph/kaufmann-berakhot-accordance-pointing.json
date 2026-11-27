@@ -1,0 +1,1126 @@
+{
+  "kind": "independent-kaufmann-berakhot-surface-pointing-comparison",
+  "version": 1,
+  "reference": {
+    "kind": "independent user-pasted vocalized Accordance surface text",
+    "sha256": "47fdd2eb361a960f1c7a42dcb6b8e6091caf1b7665bfb0ecfd90debed64e3f78",
+    "units": 57,
+    "inferredOpeningRef": "1:1",
+    "usedAsDonor": false
+  },
+  "target": {
+    "datasetSha256": "f75f91678c6e393ed2e607342ae384af824322c58e1e671d07c90086bc8dbbd8",
+    "hashBasis": "exact dataset file bytes",
+    "textHash": "cbe965860a3b7692196eb163f659136a1d46677aa55bb2dd38e40bcf5f9dd17f",
+    "textHashVerifiedAgainstEdition": true,
+    "donorTextHash": "eed07ea0084761b208e406d581924f88eca4379dbc6c720889a37a70ecb40337",
+    "alignmentSha256": "84b480fa4aeb3da5409063d253183308ad96bc552fa27a6d43f1605391fcedc6",
+    "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102"
+  },
+  "method": {
+    "alignment": "Consonants only, by ref; mandatory 1:1 LCS edges unique at both indices across all optimal alignments; vowels never select anchors.",
+    "comparison": "NFD sets of Hebrew pointing marks per letter; no vowel normalization or point deletion beyond canonical NFD/set order.",
+    "annotations": "All markup preserved privately; touched tokens stay open, without assigning any annotation to a base hand.",
+    "offsets": "UTF-16 offsets into unchanged raw input"
+  },
+  "referenceInventory": {
+    "tokens": 2174,
+    "annotationSpans": 117,
+    "annotationTouchedTokens": 127,
+    "unbalancedAnnotations": 0,
+    "invalidPointingTokens": 7,
+    "floatingMarkRanges": 0,
+    "suspectTokensIncludingAdjacentFloatingMarks": 7
+  },
+  "counts": {
+    "match": 1468,
+    "different": 115,
+    "reference-suspect": 0,
+    "annotation-open": 3,
+    "alignment-open": 35,
+    "target-open": 549
+  },
+  "differencesByMarkCategory": {
+    "vowel": {
+      "positions": 89,
+      "letterDifferences": 100,
+      "targetMissing": 23,
+      "referenceMissing": 28,
+      "differingNonemptySets": 49
+    },
+    "shin-dot": {
+      "positions": 4,
+      "letterDifferences": 4,
+      "targetMissing": 0,
+      "referenceMissing": 0,
+      "differingNonemptySets": 4
+    },
+    "dagesh": {
+      "positions": 34,
+      "letterDifferences": 41,
+      "targetMissing": 15,
+      "referenceMissing": 26,
+      "differingNonemptySets": 0
+    },
+    "meteg": {
+      "positions": 0,
+      "letterDifferences": 0,
+      "targetMissing": 0,
+      "referenceMissing": 0,
+      "differingNonemptySets": 0
+    },
+    "rafe": {
+      "positions": 0,
+      "letterDifferences": 0,
+      "targetMissing": 0,
+      "referenceMissing": 0,
+      "differingNonemptySets": 0
+    }
+  },
+  "differenceShapes": {
+    "onlyMissingMarks": 63,
+    "hasDifferingNonemptySets": 52
+  },
+  "markCategoryMeaning": "Category positions overlap; letterDifferences are counted per letter/category. targetMissing/referenceMissing mean an empty mark set on that side; differingNonemptySets means both sides carry different marks. None is an editorial error judgment.",
+  "perUnit": [
+    {
+      "ref": "1:1",
+      "match": 76,
+      "different": 5,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 12
+    },
+    {
+      "ref": "1:2",
+      "match": 28,
+      "different": 5,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 8
+    },
+    {
+      "ref": "1:3",
+      "match": 42,
+      "different": 6,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 4,
+      "target-open": 17
+    },
+    {
+      "ref": "1:4",
+      "match": 22,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 12
+    },
+    {
+      "ref": "1:5",
+      "match": 42,
+      "different": 4,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 3,
+      "target-open": 8
+    },
+    {
+      "ref": "2:1",
+      "match": 40,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 4
+    },
+    {
+      "ref": "2:2",
+      "match": 47,
+      "different": 3,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 21
+    },
+    {
+      "ref": "2:3",
+      "match": 24,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 9
+    },
+    {
+      "ref": "2:4",
+      "match": 9,
+      "different": 3,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 1
+    },
+    {
+      "ref": "2:5",
+      "match": 35,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 6
+    },
+    {
+      "ref": "2:6",
+      "match": 16,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 3
+    },
+    {
+      "ref": "2:7",
+      "match": 21,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 3
+    },
+    {
+      "ref": "2:8",
+      "match": 14,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 7
+    },
+    {
+      "ref": "3:1",
+      "match": 17,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 1,
+      "target-open": 20
+    },
+    {
+      "ref": "3:2",
+      "match": 21,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 2
+    },
+    {
+      "ref": "3:3",
+      "match": 8,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 6
+    },
+    {
+      "ref": "3:4",
+      "match": 20,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 2
+    },
+    {
+      "ref": "3:5",
+      "match": 45,
+      "different": 3,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 2
+    },
+    {
+      "ref": "3:6",
+      "match": 11,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 3
+    },
+    {
+      "ref": "4:1",
+      "match": 20,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 13
+    },
+    {
+      "ref": "4:2",
+      "match": 25,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 7
+    },
+    {
+      "ref": "4:3",
+      "match": 20,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 1,
+      "target-open": 8
+    },
+    {
+      "ref": "4:4",
+      "match": 15,
+      "different": 4,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 17
+    },
+    {
+      "ref": "4:5",
+      "match": 20,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 3
+    },
+    {
+      "ref": "4:6",
+      "match": 9,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 4
+    },
+    {
+      "ref": "4:7",
+      "match": 20,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 9
+    },
+    {
+      "ref": "5:1",
+      "match": 25,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 6
+    },
+    {
+      "ref": "5:2",
+      "match": 17,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 6
+    },
+    {
+      "ref": "5:3",
+      "match": 24,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 8
+    },
+    {
+      "ref": "5:4",
+      "match": 23,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 6
+    },
+    {
+      "ref": "5:5",
+      "match": 36,
+      "different": 4,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 13
+    },
+    {
+      "ref": "6:1",
+      "match": 41,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 13
+    },
+    {
+      "ref": "6:2",
+      "match": 19,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 5
+    },
+    {
+      "ref": "6:3",
+      "match": 20,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 2,
+      "target-open": 10
+    },
+    {
+      "ref": "6:4",
+      "match": 12,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 1,
+      "target-open": 9
+    },
+    {
+      "ref": "6:5",
+      "match": 32,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 7
+    },
+    {
+      "ref": "6:6",
+      "match": 33,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 4
+    },
+    {
+      "ref": "6:7",
+      "match": 20,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 7
+    },
+    {
+      "ref": "6:8",
+      "match": 21,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 20
+    },
+    {
+      "ref": "7:1",
+      "match": 30,
+      "different": 3,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 9
+    },
+    {
+      "ref": "7:2",
+      "match": 14,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 2
+    },
+    {
+      "ref": "7:3",
+      "match": 46,
+      "different": 10,
+      "reference-suspect": 0,
+      "annotation-open": 3,
+      "alignment-open": 1,
+      "target-open": 51
+    },
+    {
+      "ref": "7:4",
+      "match": 15,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 3
+    },
+    {
+      "ref": "7:5",
+      "match": 0,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 39
+    },
+    {
+      "ref": "8:1",
+      "match": 24,
+      "different": 3,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 3
+    },
+    {
+      "ref": "8:2",
+      "match": 14,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 4
+    },
+    {
+      "ref": "8:3",
+      "match": 0,
+      "different": 0,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 15
+    },
+    {
+      "ref": "8:4",
+      "match": 3,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 13,
+      "target-open": 3
+    },
+    {
+      "ref": "8:5",
+      "match": 18,
+      "different": 3,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 5
+    },
+    {
+      "ref": "8:6",
+      "match": 30,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 1,
+      "target-open": 1
+    },
+    {
+      "ref": "8:7",
+      "match": 18,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 1,
+      "target-open": 5
+    },
+    {
+      "ref": "8:8",
+      "match": 40,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 7
+    },
+    {
+      "ref": "9:1",
+      "match": 14,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 8
+    },
+    {
+      "ref": "9:2",
+      "match": 48,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 3,
+      "target-open": 14
+    },
+    {
+      "ref": "9:3",
+      "match": 47,
+      "different": 2,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 1,
+      "target-open": 12
+    },
+    {
+      "ref": "9:4",
+      "match": 16,
+      "different": 1,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 0,
+      "target-open": 6
+    },
+    {
+      "ref": "9:5",
+      "match": 101,
+      "different": 10,
+      "reference-suspect": 0,
+      "annotation-open": 0,
+      "alignment-open": 3,
+      "target-open": 41
+    }
+  ],
+  "differencePositions": [
+    {
+      "ref": "1:1",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 26
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 32
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 44
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 47
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 5
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 14
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 17
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 40
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 1
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 9
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 14
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 31
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 52
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 62
+    },
+    {
+      "ref": "1:4",
+      "targetWordIndex": 19
+    },
+    {
+      "ref": "1:4",
+      "targetWordIndex": 22
+    },
+    {
+      "ref": "1:5",
+      "targetWordIndex": 21
+    },
+    {
+      "ref": "1:5",
+      "targetWordIndex": 44
+    },
+    {
+      "ref": "1:5",
+      "targetWordIndex": 53
+    },
+    {
+      "ref": "1:5",
+      "targetWordIndex": 54
+    },
+    {
+      "ref": "2:1",
+      "targetWordIndex": 3
+    },
+    {
+      "ref": "2:1",
+      "targetWordIndex": 20
+    },
+    {
+      "ref": "2:2",
+      "targetWordIndex": 5
+    },
+    {
+      "ref": "2:2",
+      "targetWordIndex": 39
+    },
+    {
+      "ref": "2:2",
+      "targetWordIndex": 56
+    },
+    {
+      "ref": "2:3",
+      "targetWordIndex": 4
+    },
+    {
+      "ref": "2:4",
+      "targetWordIndex": 3
+    },
+    {
+      "ref": "2:4",
+      "targetWordIndex": 9
+    },
+    {
+      "ref": "2:4",
+      "targetWordIndex": 10
+    },
+    {
+      "ref": "2:6",
+      "targetWordIndex": 15
+    },
+    {
+      "ref": "2:7",
+      "targetWordIndex": 20
+    },
+    {
+      "ref": "3:1",
+      "targetWordIndex": 14
+    },
+    {
+      "ref": "3:4",
+      "targetWordIndex": 9
+    },
+    {
+      "ref": "3:5",
+      "targetWordIndex": 5
+    },
+    {
+      "ref": "3:5",
+      "targetWordIndex": 20
+    },
+    {
+      "ref": "3:5",
+      "targetWordIndex": 30
+    },
+    {
+      "ref": "3:6",
+      "targetWordIndex": 14
+    },
+    {
+      "ref": "4:1",
+      "targetWordIndex": 19
+    },
+    {
+      "ref": "4:2",
+      "targetWordIndex": 6
+    },
+    {
+      "ref": "4:2",
+      "targetWordIndex": 28
+    },
+    {
+      "ref": "4:3",
+      "targetWordIndex": 21
+    },
+    {
+      "ref": "4:4",
+      "targetWordIndex": 3
+    },
+    {
+      "ref": "4:4",
+      "targetWordIndex": 5
+    },
+    {
+      "ref": "4:4",
+      "targetWordIndex": 12
+    },
+    {
+      "ref": "4:4",
+      "targetWordIndex": 23
+    },
+    {
+      "ref": "4:5",
+      "targetWordIndex": 3
+    },
+    {
+      "ref": "4:5",
+      "targetWordIndex": 21
+    },
+    {
+      "ref": "4:6",
+      "targetWordIndex": 10
+    },
+    {
+      "ref": "4:7",
+      "targetWordIndex": 8
+    },
+    {
+      "ref": "4:7",
+      "targetWordIndex": 24
+    },
+    {
+      "ref": "5:1",
+      "targetWordIndex": 13
+    },
+    {
+      "ref": "5:3",
+      "targetWordIndex": 31
+    },
+    {
+      "ref": "5:4",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "5:4",
+      "targetWordIndex": 17
+    },
+    {
+      "ref": "5:5",
+      "targetWordIndex": 2
+    },
+    {
+      "ref": "5:5",
+      "targetWordIndex": 10
+    },
+    {
+      "ref": "5:5",
+      "targetWordIndex": 23
+    },
+    {
+      "ref": "5:5",
+      "targetWordIndex": 24
+    },
+    {
+      "ref": "6:1",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "6:3",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "6:4",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "6:4",
+      "targetWordIndex": 10
+    },
+    {
+      "ref": "6:5",
+      "targetWordIndex": 34
+    },
+    {
+      "ref": "6:6",
+      "targetWordIndex": 5
+    },
+    {
+      "ref": "6:6",
+      "targetWordIndex": 36
+    },
+    {
+      "ref": "6:7",
+      "targetWordIndex": 8
+    },
+    {
+      "ref": "6:8",
+      "targetWordIndex": 35
+    },
+    {
+      "ref": "6:8",
+      "targetWordIndex": 40
+    },
+    {
+      "ref": "7:1",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "7:1",
+      "targetWordIndex": 21
+    },
+    {
+      "ref": "7:1",
+      "targetWordIndex": 36
+    },
+    {
+      "ref": "7:2",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 4
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 5
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 8
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 16
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 30
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 33
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 41
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 54
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 85
+    },
+    {
+      "ref": "7:4",
+      "targetWordIndex": 0
+    },
+    {
+      "ref": "7:4",
+      "targetWordIndex": 10
+    },
+    {
+      "ref": "8:1",
+      "targetWordIndex": 4
+    },
+    {
+      "ref": "8:1",
+      "targetWordIndex": 9
+    },
+    {
+      "ref": "8:1",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "8:2",
+      "targetWordIndex": 1
+    },
+    {
+      "ref": "8:2",
+      "targetWordIndex": 6
+    },
+    {
+      "ref": "8:4",
+      "targetWordIndex": 1
+    },
+    {
+      "ref": "8:5",
+      "targetWordIndex": 1
+    },
+    {
+      "ref": "8:5",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "8:5",
+      "targetWordIndex": 15
+    },
+    {
+      "ref": "8:6",
+      "targetWordIndex": 24
+    },
+    {
+      "ref": "8:7",
+      "targetWordIndex": 6
+    },
+    {
+      "ref": "8:7",
+      "targetWordIndex": 18
+    },
+    {
+      "ref": "8:8",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "9:1",
+      "targetWordIndex": 2
+    },
+    {
+      "ref": "9:1",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "9:2",
+      "targetWordIndex": 51
+    },
+    {
+      "ref": "9:3",
+      "targetWordIndex": 2
+    },
+    {
+      "ref": "9:3",
+      "targetWordIndex": 29
+    },
+    {
+      "ref": "9:4",
+      "targetWordIndex": 10
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 11
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 24
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 26
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 62
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 64
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 74
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 80
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 82
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 139
+    },
+    {
+      "ref": "9:5",
+      "targetWordIndex": 143
+    }
+  ],
+  "examples": [
+    {
+      "ref": "1:1",
+      "targetWordIndex": 0,
+      "markDifferences": [
+        {
+          "letterIndex": 4,
+          "target": [],
+          "reference": [
+            "U+5B4"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 26,
+      "markDifferences": [
+        {
+          "letterIndex": 1,
+          "target": [
+            "U+5BC"
+          ],
+          "reference": []
+        }
+      ]
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 32,
+      "markDifferences": [
+        {
+          "letterIndex": 1,
+          "target": [
+            "U+5B4",
+            "U+5BC"
+          ],
+          "reference": [
+            "U+5B4"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 44,
+      "markDifferences": [
+        {
+          "letterIndex": 1,
+          "target": [
+            "U+5BC"
+          ],
+          "reference": []
+        }
+      ]
+    }
+  ],
+  "meaning": "A difference is an observed independent surface-mark difference, not a proof of error or philological approval; this text has not supplied morphology tags.",
+  "limitations": [
+    "Only completed transfers with identical consonants, unique anchors, unannotated reference tokens and valid pointing clusters are compared.",
+    "Reference numerals, labels and bidi marks are removed only in the search projection; raw input and offsets remain unchanged.",
+    "Suspect abbreviation/export pointing is blocked; it is never moved to another letter.",
+    "No complete reference lines or private reference text are included in this public aggregate report."
+  ]
+}

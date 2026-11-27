@@ -1,0 +1,5499 @@
+{
+  "edition": "Kaufmann A50 (Digital Mishnah), vocalized after Be'eri",
+  "source": {
+    "rel": "own/Mishnah Berakhot/he/Kaufmann A50 (Digital Mishnah), vocalized after Be'eri.json",
+    "textHash": "cbe965860a3b7692196eb163f659136a1d46677aa55bb2dd38e40bcf5f9dd17f",
+    "versionTitle": "Kaufmann A50 (Digital Mishnah), vocalized after Be'eri",
+    "donorTextHash": "eed07ea0084761b208e406d581924f88eca4379dbc6c720889a37a70ecb40337",
+    "donorRel": "own/Mishnah Berakhot/he/Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri.json",
+    "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+    "alignmentSha256": "84b480fa4aeb3da5409063d253183308ad96bc552fa27a6d43f1605391fcedc6",
+    "witnessSha256": {
+      "D": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "P": "b0b2c7b8e76ae49579b909ef3587cf0ddc6c9429965e2ab3badb1a4b926256c0",
+      "C": "e3dc0ee0ad5bcc2508105f3aa1e2be0ee17ca01a2cb02e7c4ad9804c5868e35a"
+    },
+    "vocalized": true,
+    "transferred": true
+  },
+  "sourceSummary": {
+    "totalWords": 2170,
+    "transferredWords": 1621,
+    "openWords": 549,
+    "chapters": 9,
+    "mishnayot": 57,
+    "meaning": "Technical candidate transfer; no philological validation and no Accordance vowel approval implied"
+  },
+  "originalFiles": {
+    "diplomatic": "6b149eebcf5bd128950809c2327d35a9c4eeb108296f5c95d2b0792e7b363690",
+    "alignment": "84b480fa4aeb3da5409063d253183308ad96bc552fa27a6d43f1605391fcedc6",
+    "donor": "8cc9a3b8692e0082a4ab1503aace1875da44d76406d63d4e1851b3436a4cf5d7"
+  },
+  "openReasons": {
+    "Non-pointing characters differ": 361,
+    "diplomatic-annotation:add": 81,
+    "word-group-or-missing-counterpart": 86,
+    "diplomatic-annotation:add,choice": 2,
+    "unit-has-source-damage-or-uncertainty": 39,
+    "diplomatic-annotation:del": 6
+  },
+  "open": [
+    {
+      "id": "S07326.1.1.1.1/word/12",
+      "targetRef": "1:1",
+      "targetWordIndex": 12,
+      "originalWord": "האשמורת",
+      "donorWord": "הָאַשְׁמֹרֶת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/14",
+      "targetRef": "1:1",
+      "targetWordIndex": 14,
+      "originalWord": "דבר",
+      "donorWord": "דִּבְרֵי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/15",
+      "targetRef": "1:1",
+      "targetWordIndex": 15,
+      "originalWord": "י",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/17",
+      "targetRef": "1:1",
+      "targetWordIndex": 17,
+      "originalWord": "וחכ'",
+      "donorWord": "וַחֲכָמִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/18",
+      "targetRef": "1:1",
+      "targetWordIndex": 18,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/23",
+      "targetRef": "1:1",
+      "targetWordIndex": 23,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/46",
+      "targetRef": "1:1",
+      "targetWordIndex": 46,
+      "originalWord": "מותרין",
+      "donorWord": "מֻתָּרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/48",
+      "targetRef": "1:1",
+      "targetWordIndex": 48,
+      "originalWord": "ליקרות",
+      "donorWord": "לִקְרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/55",
+      "targetRef": "1:1",
+      "targetWordIndex": 55,
+      "originalWord": "חכמ'",
+      "donorWord": "חֲכָמִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/66",
+      "targetRef": "1:1",
+      "targetWordIndex": 66,
+      "originalWord": "מצוותן",
+      "donorWord": "מִצְוָתָן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/75",
+      "targetRef": "1:1",
+      "targetWordIndex": 75,
+      "originalWord": "מצוותן",
+      "donorWord": "מִצְוָתָן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/84",
+      "targetRef": "1:1",
+      "targetWordIndex": 84,
+      "originalWord": "חכמ'",
+      "donorWord": "חֲכָמִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/9",
+      "targetRef": "1:2",
+      "targetWordIndex": 9,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/10",
+      "targetRef": "1:2",
+      "targetWordIndex": 10,
+      "originalWord": "אליע",
+      "donorWord": "אֱלִיעֶזֶר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/11",
+      "targetRef": "1:2",
+      "targetWordIndex": 11,
+      "originalWord": "ז'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/12",
+      "targetRef": "1:2",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/19",
+      "targetRef": "1:2",
+      "targetWordIndex": 19,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/21",
+      "targetRef": "1:2",
+      "targetWordIndex": 21,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/29",
+      "targetRef": "1:2",
+      "targetWordIndex": 29,
+      "originalWord": "לעמוד",
+      "donorWord": "לַעֲמֹד",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/34",
+      "targetRef": "1:2",
+      "targetWordIndex": 34,
+      "originalWord": "ואילך",
+      "donorWord": "וְאֶלָּךְ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/2",
+      "targetRef": "1:3",
+      "targetWordIndex": 2,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/4",
+      "targetRef": "1:3",
+      "targetWordIndex": 4,
+      "originalWord": "כל",
+      "donorWord": "כָּל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/5",
+      "targetRef": "1:3",
+      "targetWordIndex": 5,
+      "originalWord": "אדם",
+      "donorWord": "הָאָדָם",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/6",
+      "targetRef": "1:3",
+      "targetWordIndex": 6,
+      "originalWord": "ייטו",
+      "donorWord": "יַטּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/10",
+      "targetRef": "1:3",
+      "targetWordIndex": 10,
+      "originalWord": "שנ'",
+      "donorWord": "שֶׁנֶּאֱמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/15",
+      "targetRef": "1:3",
+      "targetWordIndex": 15,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/17",
+      "targetRef": "1:3",
+      "targetWordIndex": 17,
+      "originalWord": "אד",
+      "donorWord": "הָאָדָם",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/18",
+      "targetRef": "1:3",
+      "targetWordIndex": 18,
+      "originalWord": "ם",
+      "donorWord": "הָאָדָם",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/21",
+      "targetRef": "1:3",
+      "targetWordIndex": 21,
+      "originalWord": "שנ'",
+      "donorWord": "שֶׁנֶּאֱמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/41",
+      "targetRef": "1:3",
+      "targetWordIndex": 41,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/42",
+      "targetRef": "1:3",
+      "targetWordIndex": 42,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/53",
+      "targetRef": "1:3",
+      "targetWordIndex": 53,
+      "originalWord": "וס",
+      "donorWord": "וְסִכַּנְתִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/54",
+      "targetRef": "1:3",
+      "targetWordIndex": 54,
+      "originalWord": "יכנתי",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/60",
+      "targetRef": "1:3",
+      "targetWordIndex": 60,
+      "originalWord": "כדיי",
+      "donorWord": "כְּדַי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/61",
+      "targetRef": "1:3",
+      "targetWordIndex": 61,
+      "originalWord": "הייתה",
+      "donorWord": "הָיִיתָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/64",
+      "targetRef": "1:3",
+      "targetWordIndex": 64,
+      "originalWord": "שעברתה",
+      "donorWord": "שֶׁעָבַרְתָּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/68",
+      "targetRef": "1:3",
+      "targetWordIndex": 68,
+      "originalWord": "הילל",
+      "donorWord": "הֶלֵּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/6",
+      "targetRef": "1:4",
+      "targetWordIndex": 6,
+      "originalWord": "ובערב",
+      "donorWord": "וּבָעֶרֶב",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/7",
+      "targetRef": "1:4",
+      "targetWordIndex": 7,
+      "originalWord": "מברך",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/13",
+      "targetRef": "1:4",
+      "targetWordIndex": 13,
+      "originalWord": "ארוכה",
+      "donorWord": "אֲרֻכָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/20",
+      "targetRef": "1:4",
+      "targetWordIndex": 20,
+      "originalWord": "רשיי",
+      "donorWord": "רַשַּׁי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/24",
+      "targetRef": "1:4",
+      "targetWordIndex": 24,
+      "originalWord": "רשיי",
+      "donorWord": "רַשַּׁי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/26",
+      "targetRef": "1:4",
+      "targetWordIndex": 26,
+      "originalWord": "לחתום",
+      "donorWord": "לַחְתֹּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/28",
+      "targetRef": "1:4",
+      "targetWordIndex": 28,
+      "originalWord": "רשיי",
+      "donorWord": "רַשַּׁי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/30",
+      "targetRef": "1:4",
+      "targetWordIndex": 30,
+      "originalWord": "לחתום",
+      "donorWord": "לַחְתֹּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/31",
+      "targetRef": "1:4",
+      "targetWordIndex": 31,
+      "originalWord": "ושלא",
+      "donorWord": "וְשֶׁלֹּא",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/32",
+      "targetRef": "1:4",
+      "targetWordIndex": 32,
+      "originalWord": "לחתום",
+      "donorWord": "לַחְתֹּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/34",
+      "targetRef": "1:4",
+      "targetWordIndex": 34,
+      "originalWord": "רשיי",
+      "donorWord": "רַשַּׁי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/35",
+      "targetRef": "1:4",
+      "targetWordIndex": 35,
+      "originalWord": "לחתום",
+      "donorWord": "לַחְתֹּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/4",
+      "targetRef": "1:5",
+      "targetWordIndex": 4,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/5",
+      "targetRef": "1:5",
+      "targetWordIndex": 5,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/24",
+      "targetRef": "1:5",
+      "targetWordIndex": 24,
+      "originalWord": "שנ'",
+      "donorWord": "שֶׁנֶּאֱמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/26",
+      "targetRef": "1:5",
+      "targetWordIndex": 26,
+      "originalWord": "תזכור",
+      "donorWord": "תִּזְכֹּר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/31",
+      "targetRef": "1:5",
+      "targetWordIndex": 31,
+      "originalWord": "מצר'",
+      "donorWord": "מִצְרַיִם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/43",
+      "targetRef": "1:5",
+      "targetWordIndex": 43,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/55",
+      "targetRef": "1:5",
+      "targetWordIndex": 55,
+      "originalWord": "העולם",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/56",
+      "targetRef": "1:5",
+      "targetWordIndex": 56,
+      "originalWord": "הבא",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/7",
+      "targetRef": "2:1",
+      "targetWordIndex": 7,
+      "originalWord": "כיוון",
+      "donorWord": "כִּוֵּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/26",
+      "targetRef": "2:1",
+      "targetWordIndex": 26,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/28",
+      "targetRef": "2:1",
+      "targetWordIndex": 28,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/30",
+      "targetRef": "2:1",
+      "targetWordIndex": 30,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/6",
+      "targetRef": "2:2",
+      "targetWordIndex": 6,
+      "originalWord": "לשנייה",
+      "donorWord": "לַשְּׁנִיָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/8",
+      "targetRef": "2:2",
+      "targetWordIndex": 8,
+      "originalWord": "שנייה",
+      "donorWord": "שְׁנִיָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/9",
+      "targetRef": "2:2",
+      "targetWordIndex": 9,
+      "originalWord": "לשמע",
+      "donorWord": "לִ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/12",
+      "targetRef": "2:2",
+      "targetWordIndex": 12,
+      "originalWord": "לוהיה",
+      "donorWord": "לִ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/14",
+      "targetRef": "2:2",
+      "targetWordIndex": 14,
+      "originalWord": "שמוע",
+      "donorWord": "שָׁמֹעַ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/18",
+      "targetRef": "2:2",
+      "targetWordIndex": 18,
+      "originalWord": "שמוע",
+      "donorWord": "שָׁמֹעַ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/19",
+      "targetRef": "2:2",
+      "targetWordIndex": 19,
+      "originalWord": "לויאמר",
+      "donorWord": "לְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/22",
+      "targetRef": "2:2",
+      "targetWordIndex": 22,
+      "originalWord": "לאמת",
+      "donorWord": "לֶ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/24",
+      "targetRef": "2:2",
+      "targetWordIndex": 24,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/26",
+      "targetRef": "2:2",
+      "targetWordIndex": 26,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/29",
+      "targetRef": "2:2",
+      "targetWordIndex": 29,
+      "originalWord": "לאמת",
+      "donorWord": "לֶ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/33",
+      "targetRef": "2:2",
+      "targetWordIndex": 33,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/34",
+      "targetRef": "2:2",
+      "targetWordIndex": 34,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/41",
+      "targetRef": "2:2",
+      "targetWordIndex": 41,
+      "originalWord": "לוהיה",
+      "donorWord": "לִ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/49",
+      "targetRef": "2:2",
+      "targetWordIndex": 49,
+      "originalWord": "תחילה",
+      "donorWord": "תְּחִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/54",
+      "targetRef": "2:2",
+      "targetWordIndex": 54,
+      "originalWord": "עול",
+      "donorWord": "עֹל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/55",
+      "targetRef": "2:2",
+      "targetWordIndex": 55,
+      "originalWord": "מצוות",
+      "donorWord": "מִצְוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/58",
+      "targetRef": "2:2",
+      "targetWordIndex": 58,
+      "originalWord": "שמוע",
+      "donorWord": "שָׁמֹעַ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/59",
+      "targetRef": "2:2",
+      "targetWordIndex": 59,
+      "originalWord": "לויאמר",
+      "donorWord": "לְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/60",
+      "targetRef": "2:2",
+      "targetWordIndex": 60,
+      "originalWord": "שוהיה",
+      "donorWord": "וַיֹּאמֶר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/62",
+      "targetRef": "2:2",
+      "targetWordIndex": 62,
+      "originalWord": "שמוע",
+      "donorWord": "שָׁמֹעַ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/7",
+      "targetRef": "2:3",
+      "targetWordIndex": 7,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/9",
+      "targetRef": "2:3",
+      "targetWordIndex": 9,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/14",
+      "targetRef": "2:3",
+      "targetWordIndex": 14,
+      "originalWord": "דיקדק",
+      "donorWord": "דִקְדֵּק",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/15",
+      "targetRef": "2:3",
+      "targetWordIndex": 15,
+      "originalWord": "באתותיה",
+      "donorWord": "בְּאוֹתוֹתֶיהָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/16",
+      "targetRef": "2:3",
+      "targetWordIndex": 16,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/18",
+      "targetRef": "2:3",
+      "targetWordIndex": 18,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/20",
+      "targetRef": "2:3",
+      "targetWordIndex": 20,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/22",
+      "targetRef": "2:3",
+      "targetWordIndex": 22,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/31",
+      "targetRef": "2:3",
+      "targetWordIndex": 31,
+      "originalWord": "יחזור",
+      "donorWord": "יַחְזֹר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.4/word/12",
+      "targetRef": "2:4",
+      "targetWordIndex": 12,
+      "originalWord": "בתפילה",
+      "donorWord": "בַּתְּפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/2",
+      "targetRef": "2:5",
+      "targetWordIndex": 2,
+      "originalWord": "מקריית",
+      "donorWord": "מִקִּרְיַת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/15",
+      "targetRef": "2:5",
+      "targetWordIndex": 15,
+      "originalWord": "גמליא'",
+      "donorWord": "גַּמְלִיאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/16",
+      "targetRef": "2:5",
+      "targetWordIndex": 16,
+      "originalWord": "שנשא",
+      "donorWord": "שֶׁקָּרָא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/17",
+      "targetRef": "2:5",
+      "targetWordIndex": 17,
+      "originalWord": "וקרא",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/23",
+      "targetRef": "2:5",
+      "targetWordIndex": 23,
+      "originalWord": "לימדתנו",
+      "donorWord": "לִמַּדְתָּנוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/30",
+      "targetRef": "2:5",
+      "targetWordIndex": 30,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.6/word/8",
+      "targetRef": "2:6",
+      "targetWordIndex": 8,
+      "originalWord": "לימדתנו",
+      "donorWord": "לִמַּדְתָּנוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.6/word/11",
+      "targetRef": "2:6",
+      "targetWordIndex": 11,
+      "originalWord": "מלרחוץ",
+      "donorWord": "לִרְחוֹץ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.6/word/12",
+      "targetRef": "2:6",
+      "targetWordIndex": 12,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.7/word/3",
+      "targetRef": "2:7",
+      "targetWordIndex": 3,
+      "originalWord": "קיבל",
+      "donorWord": "קִבֵּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.7/word/9",
+      "targetRef": "2:7",
+      "targetWordIndex": 9,
+      "originalWord": "לימדתנו",
+      "donorWord": "לִמַּדְתָּנוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.7/word/15",
+      "targetRef": "2:7",
+      "targetWordIndex": 15,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/9",
+      "targetRef": "2:8",
+      "targetWordIndex": 9,
+      "originalWord": "רבן",
+      "donorWord": "רַבָּן",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/10",
+      "targetRef": "2:8",
+      "targetWordIndex": 10,
+      "originalWord": "שמעון",
+      "donorWord": "שִׁמְעוֹן",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/11",
+      "targetRef": "2:8",
+      "targetWordIndex": 11,
+      "originalWord": "בן",
+      "donorWord": "בֶּן",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/12",
+      "targetRef": "2:8",
+      "targetWordIndex": 12,
+      "originalWord": "גמליאל",
+      "donorWord": "גַּמְלִיאֵל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/13",
+      "targetRef": "2:8",
+      "targetWordIndex": 13,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/17",
+      "targetRef": "2:8",
+      "targetWordIndex": 17,
+      "originalWord": "ליטול",
+      "donorWord": "לִטּוֹל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/20",
+      "targetRef": "2:8",
+      "targetWordIndex": 20,
+      "originalWord": "יטול",
+      "donorWord": "יִטֹּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/2",
+      "targetRef": "3:1",
+      "targetWordIndex": 2,
+      "originalWord": "מוטל",
+      "donorWord": "מֻטָּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/5",
+      "targetRef": "3:1",
+      "targetWordIndex": 5,
+      "originalWord": "מקריית",
+      "donorWord": "מִקִּרְיַת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/8",
+      "targetRef": "3:1",
+      "targetWordIndex": 8,
+      "originalWord": "התפילין",
+      "donorWord": "הַתְּפִלִּין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/11",
+      "targetRef": "3:1",
+      "targetWordIndex": 11,
+      "originalWord": "וחילופיהן",
+      "donorWord": "וְחִלּוּפֵיהֶן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/12",
+      "targetRef": "3:1",
+      "targetWordIndex": 12,
+      "originalWord": "וחילופי",
+      "donorWord": "וְחִלּוּפֵי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/13",
+      "targetRef": "3:1",
+      "targetWordIndex": 13,
+      "originalWord": "חילופיהן",
+      "donorWord": "חִלּוּפֵיהֶן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/20",
+      "targetRef": "3:1",
+      "targetWordIndex": 20,
+      "originalWord": "נ׳א׳",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add,choice"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/21",
+      "targetRef": "3:1",
+      "targetWordIndex": 21,
+      "originalWord": "את",
+      "donorWord": "אֶת",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/22",
+      "targetRef": "3:1",
+      "targetWordIndex": 22,
+      "originalWord": "שלמטה",
+      "donorWord": "שֶׁלַּמִּטָּה",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/23",
+      "targetRef": "3:1",
+      "targetWordIndex": 23,
+      "originalWord": "המטה",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/24",
+      "targetRef": "3:1",
+      "targetWordIndex": 24,
+      "originalWord": "צורך",
+      "donorWord": "צֹרֶךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/27",
+      "targetRef": "3:1",
+      "targetWordIndex": 27,
+      "originalWord": "נ׳א׳",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add,choice"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/28",
+      "targetRef": "3:1",
+      "targetWordIndex": 28,
+      "originalWord": "ואת",
+      "donorWord": "וְאֶת",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/29",
+      "targetRef": "3:1",
+      "targetWordIndex": 29,
+      "originalWord": "שלאחר",
+      "donorWord": "שֶׁאֵין",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/30",
+      "targetRef": "3:1",
+      "targetWordIndex": 30,
+      "originalWord": "המטה",
+      "donorWord": "לַמִּטָּה",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/31",
+      "targetRef": "3:1",
+      "targetWordIndex": 31,
+      "originalWord": "צורך",
+      "donorWord": "צֹרֶךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/33",
+      "targetRef": "3:1",
+      "targetWordIndex": 33,
+      "originalWord": "חייבין",
+      "donorWord": "חַיָּבִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/34",
+      "targetRef": "3:1",
+      "targetWordIndex": 34,
+      "originalWord": "אילו",
+      "donorWord": "אֵלּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/35",
+      "targetRef": "3:1",
+      "targetWordIndex": 35,
+      "originalWord": "ואילו",
+      "donorWord": "וָאֵלּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/38",
+      "targetRef": "3:1",
+      "targetWordIndex": 38,
+      "originalWord": "התפילה",
+      "donorWord": "הַתְּפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.2/word/10",
+      "targetRef": "3:2",
+      "targetWordIndex": 10,
+      "originalWord": "יגיעו",
+      "donorWord": "יַגִּיעוּ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.2/word/22",
+      "targetRef": "3:2",
+      "targetWordIndex": 22,
+      "originalWord": "חייבין",
+      "donorWord": "חַיָּבִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/3",
+      "targetRef": "3:3",
+      "targetWordIndex": 3,
+      "originalWord": "פטורי",
+      "donorWord": "פְּטוּרִין",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/4",
+      "targetRef": "3:3",
+      "targetWordIndex": 4,
+      "originalWord": "ם",
+      "donorWord": "פְּטוּרִין",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/5",
+      "targetRef": "3:3",
+      "targetWordIndex": 5,
+      "originalWord": "מקריית",
+      "donorWord": "מִקִּרְיַת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/8",
+      "targetRef": "3:3",
+      "targetWordIndex": 8,
+      "originalWord": "התפילין",
+      "donorWord": "הַתְּפִלִּין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/9",
+      "targetRef": "3:3",
+      "targetWordIndex": 9,
+      "originalWord": "וחייבין",
+      "donorWord": "וְחַיָּבִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/10",
+      "targetRef": "3:3",
+      "targetWordIndex": 10,
+      "originalWord": "בתפילה",
+      "donorWord": "בַּתְּפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.4/word/17",
+      "targetRef": "3:4",
+      "targetWordIndex": 17,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.4/word/19",
+      "targetRef": "3:4",
+      "targetWordIndex": 19,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.5/word/2",
+      "targetRef": "3:5",
+      "targetWordIndex": 2,
+      "originalWord": "בתפילה",
+      "donorWord": "בַּתְּפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.5/word/17",
+      "targetRef": "3:5",
+      "targetWordIndex": 17,
+      "originalWord": "ולקראות",
+      "donorWord": "וְלִקְרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.6/word/3",
+      "targetRef": "3:6",
+      "targetWordIndex": 3,
+      "originalWord": "והנידה",
+      "donorWord": "וְנִדָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.6/word/9",
+      "targetRef": "3:6",
+      "targetWordIndex": 9,
+      "originalWord": "נידה",
+      "donorWord": "נִדָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.6/word/12",
+      "targetRef": "3:6",
+      "targetWordIndex": 12,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/0",
+      "targetRef": "4:1",
+      "targetWordIndex": 0,
+      "originalWord": "תפילת",
+      "donorWord": "תְּפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/4",
+      "targetRef": "4:1",
+      "targetWordIndex": 4,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/6",
+      "targetRef": "4:1",
+      "targetWordIndex": 6,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/10",
+      "targetRef": "4:1",
+      "targetWordIndex": 10,
+      "originalWord": "תפילת",
+      "donorWord": "תְּפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/14",
+      "targetRef": "4:1",
+      "targetWordIndex": 14,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/16",
+      "targetRef": "4:1",
+      "targetWordIndex": 16,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/20",
+      "targetRef": "4:1",
+      "targetWordIndex": 20,
+      "originalWord": "תפילת",
+      "donorWord": "תְּפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/28",
+      "targetRef": "4:1",
+      "targetWordIndex": 28,
+      "originalWord": "ר'",
+      "donorWord": "רְבִּי",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/29",
+      "targetRef": "4:1",
+      "targetWordIndex": 29,
+      "originalWord": "יהודה",
+      "donorWord": "יְהוּדָה",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/30",
+      "targetRef": "4:1",
+      "targetWordIndex": 30,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/31",
+      "targetRef": "4:1",
+      "targetWordIndex": 31,
+      "originalWord": "עד",
+      "donorWord": "עַד",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/32",
+      "targetRef": "4:1",
+      "targetWordIndex": 32,
+      "originalWord": "שבע",
+      "donorWord": "שֶׁבַע",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/33",
+      "targetRef": "4:1",
+      "targetWordIndex": 33,
+      "originalWord": "שעות",
+      "donorWord": "שָׁעוֹת",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/0",
+      "targetRef": "4:2",
+      "targetWordIndex": 0,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/1",
+      "targetRef": "4:2",
+      "targetWordIndex": 1,
+      "originalWord": "נחונייא",
+      "donorWord": "נְחוֹנְיָא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/9",
+      "targetRef": "4:2",
+      "targetWordIndex": 9,
+      "originalWord": "וביציאתו",
+      "donorWord": "וּבִיצִיאָתוֹ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/10",
+      "targetRef": "4:2",
+      "targetWordIndex": 10,
+      "originalWord": "תפילה",
+      "donorWord": "תְפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/16",
+      "targetRef": "4:2",
+      "targetWordIndex": 16,
+      "originalWord": "לתפילה",
+      "donorWord": "לִתְפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/18",
+      "targetRef": "4:2",
+      "targetWordIndex": 18,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/31",
+      "targetRef": "4:2",
+      "targetWordIndex": 31,
+      "originalWord": "הודייה",
+      "donorWord": "הוֹדָיָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/1",
+      "targetRef": "4:3",
+      "targetWordIndex": 1,
+      "originalWord": "גמליא'",
+      "donorWord": "גַּמְלִיאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/2",
+      "targetRef": "4:3",
+      "targetWordIndex": 2,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/5",
+      "targetRef": "4:3",
+      "targetWordIndex": 5,
+      "originalWord": "אדם",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/9",
+      "targetRef": "4:3",
+      "targetWordIndex": 9,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/11",
+      "targetRef": "4:3",
+      "targetWordIndex": 11,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/15",
+      "targetRef": "4:3",
+      "targetWordIndex": 15,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/17",
+      "targetRef": "4:3",
+      "targetWordIndex": 17,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/20",
+      "targetRef": "4:3",
+      "targetWordIndex": 20,
+      "originalWord": "תפילתו",
+      "donorWord": "תְפִלָּתוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/0",
+      "targetRef": "4:4",
+      "targetWordIndex": 0,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/1",
+      "targetRef": "4:4",
+      "targetWordIndex": 1,
+      "originalWord": "אליעזר",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/2",
+      "targetRef": "4:4",
+      "targetWordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/4",
+      "targetRef": "4:4",
+      "targetWordIndex": 4,
+      "originalWord": "תפילתו",
+      "donorWord": "תְפִלָּתוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/7",
+      "targetRef": "4:4",
+      "targetWordIndex": 7,
+      "originalWord": "תפילתו",
+      "donorWord": "תְּפִלָּתוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/9",
+      "targetRef": "4:4",
+      "targetWordIndex": 9,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/11",
+      "targetRef": "4:4",
+      "targetWordIndex": 11,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/16",
+      "targetRef": "4:4",
+      "targetWordIndex": 16,
+      "originalWord": "תפילה",
+      "donorWord": "תְּפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/18",
+      "targetRef": "4:4",
+      "targetWordIndex": 18,
+      "originalWord": "ואומ'",
+      "donorWord": "מֵעֵין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/20",
+      "targetRef": "4:4",
+      "targetWordIndex": 20,
+      "originalWord": "ייי",
+      "donorWord": "הַשֵּׁם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/24",
+      "targetRef": "4:4",
+      "targetWordIndex": 24,
+      "originalWord": "ישרא'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/27",
+      "targetRef": "4:4",
+      "targetWordIndex": 27,
+      "originalWord": "ה",
+      "donorWord": "הָעִבּוּר",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/28",
+      "targetRef": "4:4",
+      "targetWordIndex": 28,
+      "originalWord": "עיבור",
+      "donorWord": "הָעִבּוּר",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/29",
+      "targetRef": "4:4",
+      "targetWordIndex": 29,
+      "originalWord": "צורכיהם",
+      "donorWord": "צָרְכֵיהֶם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/30",
+      "targetRef": "4:4",
+      "targetWordIndex": 30,
+      "originalWord": "מלפניך",
+      "donorWord": "לְפָנֶיךָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/33",
+      "targetRef": "4:4",
+      "targetWordIndex": 33,
+      "originalWord": "ייי",
+      "donorWord": "יי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/35",
+      "targetRef": "4:4",
+      "targetWordIndex": 35,
+      "originalWord": "תפילה",
+      "donorWord": "תְּפִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.5/word/18",
+      "targetRef": "4:5",
+      "targetWordIndex": 18,
+      "originalWord": "יכוון",
+      "donorWord": "יְכַוֵּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.5/word/22",
+      "targetRef": "4:5",
+      "targetWordIndex": 22,
+      "originalWord": "בית",
+      "donorWord": "בֵּית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.5/word/23",
+      "targetRef": "4:5",
+      "targetWordIndex": 23,
+      "originalWord": "קודש",
+      "donorWord": "קֹדֶשׁ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.6/word/3",
+      "targetRef": "4:6",
+      "targetWordIndex": 3,
+      "originalWord": "או",
+      "donorWord": "אוֹ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.6/word/4",
+      "targetRef": "4:6",
+      "targetWordIndex": 4,
+      "originalWord": "בקרון",
+      "donorWord": "בְקָרוֹן",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.6/word/6",
+      "targetRef": "4:6",
+      "targetWordIndex": 6,
+      "originalWord": "באסדה",
+      "donorWord": "בְאַסְדָּא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.6/word/7",
+      "targetRef": "4:6",
+      "targetWordIndex": 7,
+      "originalWord": "יכוון",
+      "donorWord": "יְכַוֵּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/0",
+      "targetRef": "4:7",
+      "targetWordIndex": 0,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/3",
+      "targetRef": "4:7",
+      "targetWordIndex": 3,
+      "originalWord": "עזרייה",
+      "donorWord": "עֲזַרְיָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/4",
+      "targetRef": "4:7",
+      "targetWordIndex": 4,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/6",
+      "targetRef": "4:7",
+      "targetWordIndex": 6,
+      "originalWord": "תפילת",
+      "donorWord": "תְּפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/11",
+      "targetRef": "4:7",
+      "targetWordIndex": 11,
+      "originalWord": "וחכמ'",
+      "donorWord": "וַחֲכָמִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/12",
+      "targetRef": "4:7",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/18",
+      "targetRef": "4:7",
+      "targetWordIndex": 18,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/20",
+      "targetRef": "4:7",
+      "targetWordIndex": 20,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/29",
+      "targetRef": "4:7",
+      "targetWordIndex": 29,
+      "originalWord": "מתפילת",
+      "donorWord": "מִתְּפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.1/word/5",
+      "targetRef": "5:1",
+      "targetWordIndex": 5,
+      "originalWord": "כובד",
+      "donorWord": "כֹּבֶד",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.1/word/8",
+      "targetRef": "5:1",
+      "targetWordIndex": 8,
+      "originalWord": "הראשנים",
+      "donorWord": "הָרִאשׁוֹנִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.1/word/15",
+      "targetRef": "5:1",
+      "targetWordIndex": 15,
+      "originalWord": "שייכוונו",
+      "donorWord": "שֶׁיְּכַוְּנוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.1/word/19",
+      "targetRef": "5:1",
+      "targetWordIndex": 19,
+      "originalWord": "ואפילו",
+      "donorWord": "וַאֲפִלּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.1/word/25",
+      "targetRef": "5:1",
+      "targetWordIndex": 25,
+      "originalWord": "אפילו",
+      "donorWord": "אֲפִלּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.1/word/29",
+      "targetRef": "5:1",
+      "targetWordIndex": 29,
+      "originalWord": "עקיבו",
+      "donorWord": "עֲקֵבוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/3",
+      "targetRef": "5:2",
+      "targetWordIndex": 3,
+      "originalWord": "בתחיית",
+      "donorWord": "בִּתְּחַיַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/12",
+      "targetRef": "5:2",
+      "targetWordIndex": 12,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/14",
+      "targetRef": "5:2",
+      "targetWordIndex": 14,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/19",
+      "targetRef": "5:2",
+      "targetWordIndex": 19,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/21",
+      "targetRef": "5:2",
+      "targetWordIndex": 21,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/22",
+      "targetRef": "5:2",
+      "targetWordIndex": 22,
+      "originalWord": "בהודייה",
+      "donorWord": "בַּהוֹדָיָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/3",
+      "targetRef": "5:3",
+      "targetWordIndex": 3,
+      "originalWord": "ציפור",
+      "donorWord": "צִפּוֹר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/4",
+      "targetRef": "5:3",
+      "targetWordIndex": 4,
+      "originalWord": "יגיעו",
+      "donorWord": "יַגִּיעוּ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/6",
+      "targetRef": "5:3",
+      "targetWordIndex": 6,
+      "originalWord": "ועל",
+      "donorWord": "עַל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/16",
+      "targetRef": "5:3",
+      "targetWordIndex": 16,
+      "originalWord": "התיבה",
+      "donorWord": "הַתֵּבָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/22",
+      "targetRef": "5:3",
+      "targetWordIndex": 22,
+      "originalWord": "יהי",
+      "donorWord": "יְהֵא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/23",
+      "targetRef": "5:3",
+      "targetWordIndex": 23,
+      "originalWord": "סורבן",
+      "donorWord": "סָרְבָן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/26",
+      "targetRef": "5:3",
+      "targetWordIndex": 26,
+      "originalWord": "מניין",
+      "donorWord": "מְנַיִן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/29",
+      "targetRef": "5:3",
+      "targetWordIndex": 29,
+      "originalWord": "מתחילת",
+      "donorWord": "מִתְּחִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/2",
+      "targetRef": "5:4",
+      "targetWordIndex": 2,
+      "originalWord": "התיבה",
+      "donorWord": "הַתֵּבָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/9",
+      "targetRef": "5:4",
+      "targetWordIndex": 9,
+      "originalWord": "הטירוף",
+      "donorWord": "הַטֵּרוּף",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/22",
+      "targetRef": "5:4",
+      "targetWordIndex": 22,
+      "originalWord": "ה",
+      "donorWord": "הִיא",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/23",
+      "targetRef": "5:4",
+      "targetWordIndex": 23,
+      "originalWord": "יא",
+      "donorWord": "הִיא",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/29",
+      "targetRef": "5:4",
+      "targetWordIndex": 29,
+      "originalWord": "לתפילתו",
+      "donorWord": "לִתְפִלָּתוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/30",
+      "targetRef": "5:4",
+      "targetWordIndex": 30,
+      "originalWord": "רשיי",
+      "donorWord": "רַשַּׁי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/6",
+      "targetRef": "5:5",
+      "targetWordIndex": 6,
+      "originalWord": "של",
+      "donorWord": "שְׁלִיחַ",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/7",
+      "targetRef": "5:5",
+      "targetWordIndex": 7,
+      "originalWord": "יח",
+      "donorWord": "שְׁלִיחַ",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/8",
+      "targetRef": "5:5",
+      "targetWordIndex": 8,
+      "originalWord": "ציבור",
+      "donorWord": "צִבּוּר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/19",
+      "targetRef": "5:5",
+      "targetWordIndex": 19,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/27",
+      "targetRef": "5:5",
+      "targetWordIndex": 27,
+      "originalWord": "ואומ'",
+      "donorWord": "וְאוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/29",
+      "targetRef": "5:5",
+      "targetWordIndex": 29,
+      "originalWord": "חיי",
+      "donorWord": "חַי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/30",
+      "targetRef": "5:5",
+      "targetWordIndex": 30,
+      "originalWord": "וזה",
+      "donorWord": "זֶה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/34",
+      "targetRef": "5:5",
+      "targetWordIndex": 34,
+      "originalWord": "מניין",
+      "donorWord": "מְנַיִן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/36",
+      "targetRef": "5:5",
+      "targetWordIndex": 36,
+      "originalWord": "יודע",
+      "donorWord": "יוֹדֵעַ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/37",
+      "targetRef": "5:5",
+      "targetWordIndex": 37,
+      "originalWord": "אמ'",
+      "donorWord": "אָמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/41",
+      "targetRef": "5:5",
+      "targetWordIndex": 41,
+      "originalWord": "תפילתי",
+      "donorWord": "תְפִלָּתִי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/46",
+      "targetRef": "5:5",
+      "targetWordIndex": 46,
+      "originalWord": "מקובל",
+      "donorWord": "מְקֻבָּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/52",
+      "targetRef": "5:5",
+      "targetWordIndex": 52,
+      "originalWord": "מטורף",
+      "donorWord": "מְטֹרָף",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/3",
+      "targetRef": "6:1",
+      "targetWordIndex": 3,
+      "originalWord": "הפירות",
+      "donorWord": "הַפֵּרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/5",
+      "targetRef": "6:1",
+      "targetWordIndex": 5,
+      "originalWord": "פירות",
+      "donorWord": "פֵּרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/8",
+      "targetRef": "6:1",
+      "targetWordIndex": 8,
+      "originalWord": "או'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/18",
+      "targetRef": "6:1",
+      "targetWordIndex": 18,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/23",
+      "targetRef": "6:1",
+      "targetWordIndex": 23,
+      "originalWord": "פירות",
+      "donorWord": "פֵּרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/26",
+      "targetRef": "6:1",
+      "targetWordIndex": 26,
+      "originalWord": "או'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/36",
+      "targetRef": "6:1",
+      "targetWordIndex": 36,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/42",
+      "targetRef": "6:1",
+      "targetWordIndex": 42,
+      "originalWord": "היירקות",
+      "donorWord": "הַיְרָקוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/44",
+      "targetRef": "6:1",
+      "targetWordIndex": 44,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/48",
+      "targetRef": "6:1",
+      "targetWordIndex": 48,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/49",
+      "targetRef": "6:1",
+      "targetWordIndex": 49,
+      "originalWord": "י",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/50",
+      "targetRef": "6:1",
+      "targetWordIndex": 50,
+      "originalWord": "הודה",
+      "donorWord": "יְהוּדָה",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/51",
+      "targetRef": "6:1",
+      "targetWordIndex": 51,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.2/word/0",
+      "targetRef": "6:2",
+      "targetWordIndex": 0,
+      "originalWord": "בירך",
+      "donorWord": "בֵּרַךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.2/word/2",
+      "targetRef": "6:2",
+      "targetWordIndex": 2,
+      "originalWord": "פירות",
+      "donorWord": "פֵּרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.2/word/8",
+      "targetRef": "6:2",
+      "targetWordIndex": 8,
+      "originalWord": "ועל",
+      "donorWord": "וְעַל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.2/word/9",
+      "targetRef": "6:2",
+      "targetWordIndex": 9,
+      "originalWord": "פירות",
+      "donorWord": "פֵּרוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.2/word/17",
+      "targetRef": "6:2",
+      "targetWordIndex": 17,
+      "originalWord": "כולם",
+      "donorWord": "כֻּלָּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/3",
+      "targetRef": "6:3",
+      "targetWordIndex": 3,
+      "originalWord": "גידול",
+      "donorWord": "גִּדּוּלָיו",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/4",
+      "targetRef": "6:3",
+      "targetWordIndex": 4,
+      "originalWord": "יו",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/7",
+      "targetRef": "6:3",
+      "targetWordIndex": 7,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/12",
+      "targetRef": "6:3",
+      "targetWordIndex": 12,
+      "originalWord": "החומץ",
+      "donorWord": "הַחֹמֶץ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/14",
+      "targetRef": "6:3",
+      "targetWordIndex": 14,
+      "originalWord": "הגוביי",
+      "donorWord": "הַגּוֹבַאי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/18",
+      "targetRef": "6:3",
+      "targetWordIndex": 18,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/22",
+      "targetRef": "6:3",
+      "targetWordIndex": 22,
+      "originalWord": "ר'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/23",
+      "targetRef": "6:3",
+      "targetWordIndex": 23,
+      "originalWord": "י",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/24",
+      "targetRef": "6:3",
+      "targetWordIndex": 24,
+      "originalWord": "הודה",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/25",
+      "targetRef": "6:3",
+      "targetWordIndex": 25,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/1",
+      "targetRef": "6:4",
+      "targetWordIndex": 1,
+      "originalWord": "לפני",
+      "donorWord": "לְפָנָיו",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/2",
+      "targetRef": "6:4",
+      "targetWordIndex": 2,
+      "originalWord": "ו",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/5",
+      "targetRef": "6:4",
+      "targetWordIndex": 5,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/6",
+      "targetRef": "6:4",
+      "targetWordIndex": 6,
+      "originalWord": "י",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/7",
+      "targetRef": "6:4",
+      "targetWordIndex": 7,
+      "originalWord": "הודה",
+      "donorWord": "יְהוּדָה",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/8",
+      "targetRef": "6:4",
+      "targetWordIndex": 8,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/17",
+      "targetRef": "6:4",
+      "targetWordIndex": 17,
+      "originalWord": "וחכמ'",
+      "donorWord": "וַחֲכָמִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/18",
+      "targetRef": "6:4",
+      "targetWordIndex": 18,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/19",
+      "targetRef": "6:4",
+      "targetWordIndex": 19,
+      "originalWord": "מברך",
+      "donorWord": "מְבָרֵךְ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/0",
+      "targetRef": "6:5",
+      "targetWordIndex": 0,
+      "originalWord": "בירך",
+      "donorWord": "בֵּרַךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/10",
+      "targetRef": "6:5",
+      "targetWordIndex": 10,
+      "originalWord": "בירך",
+      "donorWord": "בֵּרַךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/20",
+      "targetRef": "6:5",
+      "targetWordIndex": 20,
+      "originalWord": "בירך",
+      "donorWord": "בֵּרַךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/25",
+      "targetRef": "6:5",
+      "targetWordIndex": 25,
+      "originalWord": "הפרפר",
+      "donorWord": "הַפַּרְפְּרָיוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/26",
+      "targetRef": "6:5",
+      "targetWordIndex": 26,
+      "originalWord": "יות",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/35",
+      "targetRef": "6:5",
+      "targetWordIndex": 35,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/39",
+      "targetRef": "6:5",
+      "targetWordIndex": 39,
+      "originalWord": "קדירה",
+      "donorWord": "קְדֵרָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.6/word/1",
+      "targetRef": "6:6",
+      "targetWordIndex": 1,
+      "originalWord": "יושבים",
+      "donorWord": "יוֹשְׁבִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.6/word/10",
+      "targetRef": "6:6",
+      "targetWordIndex": 10,
+      "originalWord": "לכולם",
+      "donorWord": "לְכֻלָּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.6/word/25",
+      "targetRef": "6:6",
+      "targetWordIndex": 25,
+      "originalWord": "לכולם",
+      "donorWord": "לְכֻלָּם",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.6/word/26",
+      "targetRef": "6:6",
+      "targetWordIndex": 26,
+      "originalWord": "ואומ'",
+      "donorWord": "וְאוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/3",
+      "targetRef": "6:7",
+      "targetWordIndex": 3,
+      "originalWord": "כתחילה",
+      "donorWord": "כַּתְּחִלָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/13",
+      "targetRef": "6:7",
+      "targetWordIndex": 13,
+      "originalWord": "טפילה",
+      "donorWord": "טְפֵלָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/19",
+      "targetRef": "6:7",
+      "targetWordIndex": 19,
+      "originalWord": "עיקר",
+      "donorWord": "עִקָּר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/20",
+      "targetRef": "6:7",
+      "targetWordIndex": 20,
+      "originalWord": "ועימו",
+      "donorWord": "וְעִמּוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/21",
+      "targetRef": "6:7",
+      "targetWordIndex": 21,
+      "originalWord": "טפילה",
+      "donorWord": "טְפֵלָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/24",
+      "targetRef": "6:7",
+      "targetWordIndex": 24,
+      "originalWord": "העיקר",
+      "donorWord": "הָעִקָּר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.7/word/27",
+      "targetRef": "6:7",
+      "targetWordIndex": 27,
+      "originalWord": "הטפילה",
+      "donorWord": "הַטְּפֵלָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/1",
+      "targetRef": "6:8",
+      "targetWordIndex": 1,
+      "originalWord": "תאינים",
+      "donorWord": "תְּאֵנִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/3",
+      "targetRef": "6:8",
+      "targetWordIndex": 3,
+      "originalWord": "ורימונים",
+      "donorWord": "וְרִמּוֹנִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/8",
+      "targetRef": "6:8",
+      "targetWordIndex": 8,
+      "originalWord": "דב'",
+      "donorWord": "דִּבְרֵי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/9",
+      "targetRef": "6:8",
+      "targetWordIndex": 9,
+      "originalWord": "ר'",
+      "donorWord": "רַבָּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/10",
+      "targetRef": "6:8",
+      "targetWordIndex": 10,
+      "originalWord": "גמליא'",
+      "donorWord": "גַּמְלִיאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/11",
+      "targetRef": "6:8",
+      "targetWordIndex": 11,
+      "originalWord": "וחכ'",
+      "donorWord": "וַחֲכָמִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/12",
+      "targetRef": "6:8",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/15",
+      "targetRef": "6:8",
+      "targetWordIndex": 15,
+      "originalWord": "ר'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/17",
+      "targetRef": "6:8",
+      "targetWordIndex": 17,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/18",
+      "targetRef": "6:8",
+      "targetWordIndex": 18,
+      "originalWord": "אפילו",
+      "donorWord": "אֲפִלּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/21",
+      "targetRef": "6:8",
+      "targetWordIndex": 21,
+      "originalWord": "וה",
+      "donorWord": "וְהוּא",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/22",
+      "targetRef": "6:8",
+      "targetWordIndex": 22,
+      "originalWord": "וא",
+      "donorWord": "וְהוּא",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/25",
+      "targetRef": "6:8",
+      "targetWordIndex": 25,
+      "originalWord": "עליו",
+      "donorWord": "אַחֲרָיו",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/26",
+      "targetRef": "6:8",
+      "targetWordIndex": 26,
+      "originalWord": "של",
+      "donorWord": "שָׁלֹשׁ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/27",
+      "targetRef": "6:8",
+      "targetWordIndex": 27,
+      "originalWord": "ש",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/31",
+      "targetRef": "6:8",
+      "targetWordIndex": 31,
+      "originalWord": "לצימאו",
+      "donorWord": "לְצִמְאוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/32",
+      "targetRef": "6:8",
+      "targetWordIndex": 32,
+      "originalWord": "או'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/36",
+      "targetRef": "6:8",
+      "targetWordIndex": 36,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/38",
+      "targetRef": "6:8",
+      "targetWordIndex": 38,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/41",
+      "targetRef": "6:8",
+      "targetWordIndex": 41,
+      "originalWord": "רבות",
+      "donorWord": "רַבּוֹת",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/3",
+      "targetRef": "7:1",
+      "targetWordIndex": 3,
+      "originalWord": "חייבין",
+      "donorWord": "חַיָּבִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/4",
+      "targetRef": "7:1",
+      "targetWordIndex": 4,
+      "originalWord": "לזמין",
+      "donorWord": "לְזַמֵּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/6",
+      "targetRef": "7:1",
+      "targetWordIndex": 6,
+      "originalWord": "דמיי",
+      "donorWord": "דְּמַאי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/9",
+      "targetRef": "7:1",
+      "targetWordIndex": 9,
+      "originalWord": "שניטלה",
+      "donorWord": "שֶׁנִּטְּלָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/12",
+      "targetRef": "7:1",
+      "targetWordIndex": 12,
+      "originalWord": "שיני",
+      "donorWord": "שֵׁנִי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/14",
+      "targetRef": "7:1",
+      "targetWordIndex": 14,
+      "originalWord": "שניפדו",
+      "donorWord": "שֶׁנִּפְדּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/27",
+      "targetRef": "7:1",
+      "targetWordIndex": 27,
+      "originalWord": "ניטלה",
+      "donorWord": "נִטְּלָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/30",
+      "targetRef": "7:1",
+      "targetWordIndex": 30,
+      "originalWord": "שיני",
+      "donorWord": "שֵׁנִי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.1/word/33",
+      "targetRef": "7:1",
+      "targetWordIndex": 33,
+      "originalWord": "ניפדו",
+      "donorWord": "נִפְדּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.2/word/12",
+      "targetRef": "7:2",
+      "targetWordIndex": 12,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.2/word/14",
+      "targetRef": "7:2",
+      "targetWordIndex": 14,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/2",
+      "targetRef": "7:3",
+      "targetWordIndex": 2,
+      "originalWord": "בשלשה",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/3",
+      "targetRef": "7:3",
+      "targetWordIndex": 3,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/6",
+      "targetRef": "7:3",
+      "targetWordIndex": 6,
+      "originalWord": "והוא",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/7",
+      "targetRef": "7:3",
+      "targetWordIndex": 7,
+      "originalWord": "או'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/9",
+      "targetRef": "7:3",
+      "targetWordIndex": 9,
+      "originalWord": "בעשרה",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/10",
+      "targetRef": "7:3",
+      "targetWordIndex": 10,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/14",
+      "targetRef": "7:3",
+      "targetWordIndex": 14,
+      "originalWord": "והוא",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/15",
+      "targetRef": "7:3",
+      "targetWordIndex": 15,
+      "originalWord": "אומר",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/19",
+      "targetRef": "7:3",
+      "targetWordIndex": 19,
+      "originalWord": "ואחד",
+      "donorWord": "וְאֶחָד",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/21",
+      "targetRef": "7:3",
+      "targetWordIndex": 21,
+      "originalWord": "ריבוא",
+      "donorWord": "רִבּוֹא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/22",
+      "targetRef": "7:3",
+      "targetWordIndex": 22,
+      "originalWord": "במאה",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/23",
+      "targetRef": "7:3",
+      "targetWordIndex": 23,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/25",
+      "targetRef": "7:3",
+      "targetWordIndex": 25,
+      "originalWord": "לייי",
+      "donorWord": "לַיי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/26",
+      "targetRef": "7:3",
+      "targetWordIndex": 26,
+      "originalWord": "אלהינו",
+      "donorWord": "לַיי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/29",
+      "targetRef": "7:3",
+      "targetWordIndex": 29,
+      "originalWord": "אומרין",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/31",
+      "targetRef": "7:3",
+      "targetWordIndex": 31,
+      "originalWord": "באלף",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/32",
+      "targetRef": "7:3",
+      "targetWordIndex": 32,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/34",
+      "targetRef": "7:3",
+      "targetWordIndex": 34,
+      "originalWord": "לייי",
+      "donorWord": "לַיי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/35",
+      "targetRef": "7:3",
+      "targetWordIndex": 35,
+      "originalWord": "אלהינו",
+      "donorWord": "לַיי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/37",
+      "targetRef": "7:3",
+      "targetWordIndex": 37,
+      "originalWord": "ישרא'",
+      "donorWord": "יִשְׂרָאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/39",
+      "targetRef": "7:3",
+      "targetWordIndex": 39,
+      "originalWord": "והוא",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/40",
+      "targetRef": "7:3",
+      "targetWordIndex": 40,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/42",
+      "targetRef": "7:3",
+      "targetWordIndex": 42,
+      "originalWord": "בריבוא",
+      "donorWord": "בָּרִבּוֹא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/43",
+      "targetRef": "7:3",
+      "targetWordIndex": 43,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/45",
+      "targetRef": "7:3",
+      "targetWordIndex": 45,
+      "originalWord": "לייי",
+      "donorWord": "לַיי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/46",
+      "targetRef": "7:3",
+      "targetWordIndex": 46,
+      "originalWord": "אלהינו",
+      "donorWord": "לַיי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/48",
+      "targetRef": "7:3",
+      "targetWordIndex": 48,
+      "originalWord": "ישרא'",
+      "donorWord": "יִשְׂרָאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/51",
+      "targetRef": "7:3",
+      "targetWordIndex": 51,
+      "originalWord": "בריבו",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/53",
+      "targetRef": "7:3",
+      "targetWordIndex": 53,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/55",
+      "targetRef": "7:3",
+      "targetWordIndex": 55,
+      "originalWord": "כעיניין",
+      "donorWord": "כְּעִנְיָן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/61",
+      "targetRef": "7:3",
+      "targetWordIndex": 61,
+      "originalWord": "ב'",
+      "donorWord": "בָּרוּךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/62",
+      "targetRef": "7:3",
+      "targetWordIndex": 62,
+      "originalWord": "ייי",
+      "donorWord": "אֱלֹהֵינוּ",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/63",
+      "targetRef": "7:3",
+      "targetWordIndex": 63,
+      "originalWord": "אלהינו",
+      "donorWord": "אֱלֹהֵינוּ",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/65",
+      "targetRef": "7:3",
+      "targetWordIndex": 65,
+      "originalWord": "ישר'",
+      "donorWord": "יִשְׂרָאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/73",
+      "targetRef": "7:3",
+      "targetWordIndex": 73,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/76",
+      "targetRef": "7:3",
+      "targetWordIndex": 76,
+      "originalWord": "או'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/78",
+      "targetRef": "7:3",
+      "targetWordIndex": 78,
+      "originalWord": "רוב",
+      "donorWord": "רֹב",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/82",
+      "targetRef": "7:3",
+      "targetWordIndex": 82,
+      "originalWord": "שנ'",
+      "donorWord": "שֶׁנֶּאֱמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/86",
+      "targetRef": "7:3",
+      "targetWordIndex": 86,
+      "originalWord": "ייי",
+      "donorWord": "אֲדֹנָי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/88",
+      "targetRef": "7:3",
+      "targetWordIndex": 88,
+      "originalWord": "ישרא'",
+      "donorWord": "יִשְׂרָאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/89",
+      "targetRef": "7:3",
+      "targetWordIndex": 89,
+      "originalWord": "אמ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/90",
+      "targetRef": "7:3",
+      "targetWordIndex": 90,
+      "originalWord": "ר'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/97",
+      "targetRef": "7:3",
+      "targetWordIndex": 97,
+      "originalWord": "מרובים",
+      "donorWord": "מְרֻבִּים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/99",
+      "targetRef": "7:3",
+      "targetWordIndex": 99,
+      "originalWord": "ממועטים",
+      "donorWord": "מְמֻעָטִים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/100",
+      "targetRef": "7:3",
+      "targetWordIndex": 100,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/103",
+      "targetRef": "7:3",
+      "targetWordIndex": 103,
+      "originalWord": "ייי",
+      "donorWord": "יי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/104",
+      "targetRef": "7:3",
+      "targetWordIndex": 104,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/105",
+      "targetRef": "7:3",
+      "targetWordIndex": 105,
+      "originalWord": "ישמעא'",
+      "donorWord": "יִשְׁמָעֵאל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/106",
+      "targetRef": "7:3",
+      "targetWordIndex": 106,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/109",
+      "targetRef": "7:3",
+      "targetWordIndex": 109,
+      "originalWord": "ייי",
+      "donorWord": "יי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/110",
+      "targetRef": "7:3",
+      "targetWordIndex": 110,
+      "originalWord": "המבורך",
+      "donorWord": "הַמְּבֹרָךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.4/word/11",
+      "targetRef": "7:4",
+      "targetWordIndex": 11,
+      "originalWord": "נחלקים",
+      "donorWord": "נֶחְלָקִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.4/word/14",
+      "targetRef": "7:4",
+      "targetWordIndex": 14,
+      "originalWord": "ועשרה",
+      "donorWord": "וַעֲשָׂרָה",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.4/word/18",
+      "targetRef": "7:4",
+      "targetWordIndex": 18,
+      "originalWord": "שיהוא",
+      "donorWord": "שֶׁיְּהוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/0",
+      "targetRef": "7:5",
+      "targetWordIndex": 0,
+      "originalWord": "שתי",
+      "donorWord": "שְׁתֵּי",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/1",
+      "targetRef": "7:5",
+      "targetWordIndex": 1,
+      "originalWord": "חבורות",
+      "donorWord": "חֲבוֹרוֹת",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/2",
+      "targetRef": "7:5",
+      "targetWordIndex": 2,
+      "originalWord": "שהיו",
+      "donorWord": "שֶׁהָיוּ",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/3",
+      "targetRef": "7:5",
+      "targetWordIndex": 3,
+      "originalWord": "אוכלות",
+      "donorWord": "אוֹכְלוֹת",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/4",
+      "targetRef": "7:5",
+      "targetWordIndex": 4,
+      "originalWord": "בבית",
+      "donorWord": "בְּבַיִת",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/5",
+      "targetRef": "7:5",
+      "targetWordIndex": 5,
+      "originalWord": "אחד",
+      "donorWord": "אֶחָד",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/6",
+      "targetRef": "7:5",
+      "targetWordIndex": 6,
+      "originalWord": "בזמן",
+      "donorWord": "בִּזְמַן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/7",
+      "targetRef": "7:5",
+      "targetWordIndex": 7,
+      "originalWord": "שמקצתן",
+      "donorWord": "שֶׁמִּקְצָתָן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/8",
+      "targetRef": "7:5",
+      "targetWordIndex": 8,
+      "originalWord": "רואים",
+      "donorWord": "רוֹאִים",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/9",
+      "targetRef": "7:5",
+      "targetWordIndex": 9,
+      "originalWord": "אלו",
+      "donorWord": "אֵלּוּ",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/10",
+      "targetRef": "7:5",
+      "targetWordIndex": 10,
+      "originalWord": "את",
+      "donorWord": "אֶת",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/11",
+      "targetRef": "7:5",
+      "targetWordIndex": 11,
+      "originalWord": "אלו",
+      "donorWord": "אֵלּוּ",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/12",
+      "targetRef": "7:5",
+      "targetWordIndex": 12,
+      "originalWord": "הרי",
+      "donorWord": "הֲרֵי",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/13",
+      "targetRef": "7:5",
+      "targetWordIndex": 13,
+      "originalWord": "אלו",
+      "donorWord": "אֵלּוּ",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/14",
+      "targetRef": "7:5",
+      "targetWordIndex": 14,
+      "originalWord": "מצטרפין",
+      "donorWord": "מִצְטָרְפִין",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/15",
+      "targetRef": "7:5",
+      "targetWordIndex": 15,
+      "originalWord": "לזימון",
+      "donorWord": "לַזִּמּוּן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/16",
+      "targetRef": "7:5",
+      "targetWordIndex": 16,
+      "originalWord": "אם",
+      "donorWord": "אִם",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/17",
+      "targetRef": "7:5",
+      "targetWordIndex": 17,
+      "originalWord": "לאו",
+      "donorWord": "לָאו",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/18",
+      "targetRef": "7:5",
+      "targetWordIndex": 18,
+      "originalWord": "אילו",
+      "donorWord": "אֵלּוּ",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/19",
+      "targetRef": "7:5",
+      "targetWordIndex": 19,
+      "originalWord": "מזמנין",
+      "donorWord": "מְזַמְּנִין",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/20",
+      "targetRef": "7:5",
+      "targetWordIndex": 20,
+      "originalWord": "לעצמן",
+      "donorWord": "לְעַצְמָן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/21",
+      "targetRef": "7:5",
+      "targetWordIndex": 21,
+      "originalWord": "ואילו",
+      "donorWord": "וְאֵלּוּ",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/22",
+      "targetRef": "7:5",
+      "targetWordIndex": 22,
+      "originalWord": "מזמנין",
+      "donorWord": "מְזַמְּנִין",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/23",
+      "targetRef": "7:5",
+      "targetWordIndex": 23,
+      "originalWord": "לעצמן",
+      "donorWord": "לְעַצְמָן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/24",
+      "targetRef": "7:5",
+      "targetWordIndex": 24,
+      "originalWord": "אי",
+      "donorWord": "אֵין",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/25",
+      "targetRef": "7:5",
+      "targetWordIndex": 25,
+      "originalWord": "ן",
+      "donorWord": "אֵין",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add",
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/26",
+      "targetRef": "7:5",
+      "targetWordIndex": 26,
+      "originalWord": "מברכין",
+      "donorWord": "מְבָרְכִין",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/27",
+      "targetRef": "7:5",
+      "targetWordIndex": 27,
+      "originalWord": "על",
+      "donorWord": "עַל",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/28",
+      "targetRef": "7:5",
+      "targetWordIndex": 28,
+      "originalWord": "היין",
+      "donorWord": "הַיַּיִן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/29",
+      "targetRef": "7:5",
+      "targetWordIndex": 29,
+      "originalWord": "עד",
+      "donorWord": "עַד",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/30",
+      "targetRef": "7:5",
+      "targetWordIndex": 30,
+      "originalWord": "שיתן",
+      "donorWord": "שֶׁיִּתֵּן",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/31",
+      "targetRef": "7:5",
+      "targetWordIndex": 31,
+      "originalWord": "לתוכו",
+      "donorWord": "לְתוֹכוֹ",
+      "reasons": [
+        "diplomatic-annotation:add",
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/32",
+      "targetRef": "7:5",
+      "targetWordIndex": 32,
+      "originalWord": "מים",
+      "donorWord": "מַיִם",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/33",
+      "targetRef": "7:5",
+      "targetWordIndex": 33,
+      "originalWord": "דברי",
+      "donorWord": "דִּבְרֵי",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/34",
+      "targetRef": "7:5",
+      "targetWordIndex": 34,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/35",
+      "targetRef": "7:5",
+      "targetWordIndex": 35,
+      "originalWord": "אליעזר",
+      "donorWord": "אֱלִיעֶזֶר",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/36",
+      "targetRef": "7:5",
+      "targetWordIndex": 36,
+      "originalWord": "וחכמ'",
+      "donorWord": "וַחֲכָמִים",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/37",
+      "targetRef": "7:5",
+      "targetWordIndex": 37,
+      "originalWord": "אומרין",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/38",
+      "targetRef": "7:5",
+      "targetWordIndex": 38,
+      "originalWord": "מברכין",
+      "donorWord": "מְבָרְכִין",
+      "reasons": [
+        "unit-has-source-damage-or-uncertainty"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.1/word/19",
+      "targetRef": "8:1",
+      "targetWordIndex": 19,
+      "originalWord": "ובית",
+      "donorWord": "וּבֵית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.1/word/20",
+      "targetRef": "8:1",
+      "targetWordIndex": 20,
+      "originalWord": "הילל",
+      "donorWord": "הֶלֵּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.1/word/21",
+      "targetRef": "8:1",
+      "targetWordIndex": 21,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/2",
+      "targetRef": "8:2",
+      "targetWordIndex": 2,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/10",
+      "targetRef": "8:2",
+      "targetWordIndex": 10,
+      "originalWord": "ובית",
+      "donorWord": "וּבֵית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/11",
+      "targetRef": "8:2",
+      "targetWordIndex": 11,
+      "originalWord": "הילל",
+      "donorWord": "הֶלֵּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/12",
+      "targetRef": "8:2",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/0",
+      "targetRef": "8:3",
+      "targetWordIndex": 0,
+      "originalWord": "בית",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/1",
+      "targetRef": "8:3",
+      "targetWordIndex": 1,
+      "originalWord": "שמי",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/2",
+      "targetRef": "8:3",
+      "targetWordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/3",
+      "targetRef": "8:3",
+      "targetWordIndex": 3,
+      "originalWord": "מקניח",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/4",
+      "targetRef": "8:3",
+      "targetWordIndex": 4,
+      "originalWord": "את",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/5",
+      "targetRef": "8:3",
+      "targetWordIndex": 5,
+      "originalWord": "ידיו",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/6",
+      "targetRef": "8:3",
+      "targetWordIndex": 6,
+      "originalWord": "במפה",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/7",
+      "targetRef": "8:3",
+      "targetWordIndex": 7,
+      "originalWord": "ומניחה",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/8",
+      "targetRef": "8:3",
+      "targetWordIndex": 8,
+      "originalWord": "על",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/9",
+      "targetRef": "8:3",
+      "targetWordIndex": 9,
+      "originalWord": "השולחן",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/10",
+      "targetRef": "8:3",
+      "targetWordIndex": 10,
+      "originalWord": "ובית",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/11",
+      "targetRef": "8:3",
+      "targetWordIndex": 11,
+      "originalWord": "הלל",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/12",
+      "targetRef": "8:3",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/13",
+      "targetRef": "8:3",
+      "targetWordIndex": 13,
+      "originalWord": "על",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/14",
+      "targetRef": "8:3",
+      "targetWordIndex": 14,
+      "originalWord": "הכסת",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/2",
+      "targetRef": "8:4",
+      "targetWordIndex": 2,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/10",
+      "targetRef": "8:4",
+      "targetWordIndex": 10,
+      "originalWord": "ובית",
+      "donorWord": "וּבֵית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/12",
+      "targetRef": "8:4",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/7",
+      "targetRef": "8:5",
+      "targetWordIndex": 7,
+      "originalWord": "ובית",
+      "donorWord": "וּבֵית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/9",
+      "targetRef": "8:5",
+      "targetWordIndex": 9,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/16",
+      "targetRef": "8:5",
+      "targetWordIndex": 16,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/21",
+      "targetRef": "8:5",
+      "targetWordIndex": 21,
+      "originalWord": "הילל",
+      "donorWord": "הֶלֵּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/22",
+      "targetRef": "8:5",
+      "targetWordIndex": 22,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.6/word/9",
+      "targetRef": "8:6",
+      "targetWordIndex": 9,
+      "originalWord": "ע'ע'ז'",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/4",
+      "targetRef": "8:7",
+      "targetWordIndex": 4,
+      "originalWord": "בירך",
+      "donorWord": "בֵרַךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/7",
+      "targetRef": "8:7",
+      "targetWordIndex": 7,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/8",
+      "targetRef": "8:7",
+      "targetWordIndex": 8,
+      "originalWord": "יחזור",
+      "donorWord": "יַחְזֹר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/11",
+      "targetRef": "8:7",
+      "targetWordIndex": 11,
+      "originalWord": "ובית",
+      "donorWord": "וּבֵית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/13",
+      "targetRef": "8:7",
+      "targetWordIndex": 13,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/12",
+      "targetRef": "8:8",
+      "targetWordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/21",
+      "targetRef": "8:8",
+      "targetWordIndex": 21,
+      "originalWord": "ובית",
+      "donorWord": "וּבֵית",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/22",
+      "targetRef": "8:8",
+      "targetWordIndex": 22,
+      "originalWord": "הילל",
+      "donorWord": "הֶלֵּל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/23",
+      "targetRef": "8:8",
+      "targetWordIndex": 23,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמְרִין",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/35",
+      "targetRef": "8:8",
+      "targetWordIndex": 35,
+      "originalWord": "ישרא'",
+      "donorWord": "יִשְׂרָאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/37",
+      "targetRef": "8:8",
+      "targetWordIndex": 37,
+      "originalWord": "ואין",
+      "donorWord": "וְאֵין",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/45",
+      "targetRef": "8:8",
+      "targetWordIndex": 45,
+      "originalWord": "את",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/3",
+      "targetRef": "9:1",
+      "targetWordIndex": 3,
+      "originalWord": "בו",
+      "donorWord": "בוֹ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/4",
+      "targetRef": "9:1",
+      "targetWordIndex": 4,
+      "originalWord": "ניסים",
+      "donorWord": "נִסִּים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/5",
+      "targetRef": "9:1",
+      "targetWordIndex": 5,
+      "originalWord": "לישרא'",
+      "donorWord": "לְיִשְׂרָאֵל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/6",
+      "targetRef": "9:1",
+      "targetWordIndex": 6,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/9",
+      "targetRef": "9:1",
+      "targetWordIndex": 9,
+      "originalWord": "ניסים",
+      "donorWord": "נִסִּים",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/10",
+      "targetRef": "9:1",
+      "targetWordIndex": 10,
+      "originalWord": "לאבתינו",
+      "donorWord": "לַאֲבוֹתֵינוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/18",
+      "targetRef": "9:1",
+      "targetWordIndex": 18,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/23",
+      "targetRef": "9:1",
+      "targetWordIndex": 23,
+      "originalWord": "מארצינו",
+      "donorWord": "מֵאַרְצֵנוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/4",
+      "targetRef": "9:2",
+      "targetWordIndex": 4,
+      "originalWord": "ועל",
+      "donorWord": "וְעַל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/13",
+      "targetRef": "9:2",
+      "targetWordIndex": 13,
+      "originalWord": "שכוחו",
+      "donorWord": "שֶׁכּחוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/24",
+      "targetRef": "9:2",
+      "targetWordIndex": 24,
+      "originalWord": "ועל",
+      "donorWord": "וְעַל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/27",
+      "targetRef": "9:2",
+      "targetWordIndex": 27,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/31",
+      "targetRef": "9:2",
+      "targetWordIndex": 31,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/33",
+      "targetRef": "9:2",
+      "targetWordIndex": 33,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/38",
+      "targetRef": "9:2",
+      "targetWordIndex": 38,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/46",
+      "targetRef": "9:2",
+      "targetWordIndex": 46,
+      "originalWord": "רואהו",
+      "donorWord": "רוֹאֶהוּ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/54",
+      "targetRef": "9:2",
+      "targetWordIndex": 54,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/55",
+      "targetRef": "9:2",
+      "targetWordIndex": 55,
+      "originalWord": "ב'",
+      "donorWord": "בָּרוּךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/58",
+      "targetRef": "9:2",
+      "targetWordIndex": 58,
+      "originalWord": "ועל",
+      "donorWord": "וְעַל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/62",
+      "targetRef": "9:2",
+      "targetWordIndex": 62,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/63",
+      "targetRef": "9:2",
+      "targetWordIndex": 63,
+      "originalWord": "ב'",
+      "donorWord": "בָּרוּךְ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/64",
+      "targetRef": "9:2",
+      "targetWordIndex": 64,
+      "originalWord": "דיין",
+      "donorWord": "דַּיַּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/6",
+      "targetRef": "9:3",
+      "targetWordIndex": 6,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/8",
+      "targetRef": "9:3",
+      "targetWordIndex": 8,
+      "originalWord": "שהיגיענו",
+      "donorWord": "שֶׁהִגִּיעָנוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/16",
+      "targetRef": "9:3",
+      "targetWordIndex": 16,
+      "originalWord": "הט",
+      "donorWord": "הַטּוֹבָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/17",
+      "targetRef": "9:3",
+      "targetWordIndex": 17,
+      "originalWord": "ובה",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/18",
+      "targetRef": "9:3",
+      "targetWordIndex": 18,
+      "originalWord": "ועל",
+      "donorWord": "וְעַל",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/27",
+      "targetRef": "9:3",
+      "targetWordIndex": 27,
+      "originalWord": "תפילת",
+      "donorWord": "תְפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/32",
+      "targetRef": "9:3",
+      "targetWordIndex": 32,
+      "originalWord": "מעוברת",
+      "donorWord": "מְעֻבֶּרֶת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/33",
+      "targetRef": "9:3",
+      "targetWordIndex": 33,
+      "originalWord": "ואמ'",
+      "donorWord": "וְאָמַר",
+      "reasons": [
+        "diplomatic-annotation:del"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/41",
+      "targetRef": "9:3",
+      "targetWordIndex": 41,
+      "originalWord": "תפילת",
+      "donorWord": "תְפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/48",
+      "targetRef": "9:3",
+      "targetWordIndex": 48,
+      "originalWord": "צווחות",
+      "donorWord": "צְוָחוֹת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/50",
+      "targetRef": "9:3",
+      "targetWordIndex": 50,
+      "originalWord": "ואמ'",
+      "donorWord": "וְאָמַר",
+      "reasons": [
+        "diplomatic-annotation:del"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/60",
+      "targetRef": "9:3",
+      "targetWordIndex": 60,
+      "originalWord": "תפילת",
+      "donorWord": "תְפִלַּת",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/0",
+      "targetRef": "9:4",
+      "targetWordIndex": 0,
+      "originalWord": "הניכנס",
+      "donorWord": "הַנִּכְנָס",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/6",
+      "targetRef": "9:4",
+      "targetWordIndex": 6,
+      "originalWord": "ואח",
+      "donorWord": "וְאַחַת",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/7",
+      "targetRef": "9:4",
+      "targetWordIndex": 7,
+      "originalWord": "ת",
+      "donorWord": "וְאַחַת",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/11",
+      "targetRef": "9:4",
+      "targetWordIndex": 11,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/18",
+      "targetRef": "9:4",
+      "targetWordIndex": 18,
+      "originalWord": "הודייה",
+      "donorWord": "הוֹדָיָה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/22",
+      "targetRef": "9:4",
+      "targetWordIndex": 22,
+      "originalWord": "לבוא",
+      "donorWord": "לָבֹא",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/0",
+      "targetRef": "9:5",
+      "targetWordIndex": 0,
+      "originalWord": "חייב",
+      "donorWord": "חַיָּב",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/4",
+      "targetRef": "9:5",
+      "targetWordIndex": 4,
+      "originalWord": "כשם",
+      "donorWord": "כַּשֵּׁם",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/9",
+      "targetRef": "9:5",
+      "targetWordIndex": 9,
+      "originalWord": "שנ'",
+      "donorWord": "שֶׁנֶּאֱמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/12",
+      "targetRef": "9:5",
+      "targetWordIndex": 12,
+      "originalWord": "ייי",
+      "donorWord": "אֱלהֶיךָ",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/13",
+      "targetRef": "9:5",
+      "targetWordIndex": 13,
+      "originalWord": "אלהיך",
+      "donorWord": "אֱלהֶיךָ",
+      "reasons": [
+        "word-group-or-missing-counterpart"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/19",
+      "targetRef": "9:5",
+      "targetWordIndex": 19,
+      "originalWord": "מאודיך",
+      "donorWord": "מְאֹדֶךָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/30",
+      "targetRef": "9:5",
+      "targetWordIndex": 30,
+      "originalWord": "אפיל",
+      "donorWord": "אֲפִלּוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/31",
+      "targetRef": "9:5",
+      "targetWordIndex": 31,
+      "originalWord": "ו",
+      "reasons": [
+        "word-group-or-missing-counterpart",
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/37",
+      "targetRef": "9:5",
+      "targetWordIndex": 37,
+      "originalWord": "מאודיך",
+      "donorWord": "מְאֹדֶךָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/39",
+      "targetRef": "9:5",
+      "targetWordIndex": 39,
+      "originalWord": "ממוניך",
+      "donorWord": "מָמוֹנֶךָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/43",
+      "targetRef": "9:5",
+      "targetWordIndex": 43,
+      "originalWord": "מאודיך",
+      "donorWord": "מְאֹדֶךָ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/45",
+      "targetRef": "9:5",
+      "targetWordIndex": 45,
+      "originalWord": "מידה",
+      "donorWord": "מִדָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/46",
+      "targetRef": "9:5",
+      "targetWordIndex": 46,
+      "originalWord": "ומידה",
+      "donorWord": "וּמִדָּה",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/51",
+      "targetRef": "9:5",
+      "targetWordIndex": 51,
+      "originalWord": "הווי",
+      "donorWord": "הֱוֵי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/66",
+      "targetRef": "9:5",
+      "targetWordIndex": 66,
+      "originalWord": "מכוון",
+      "donorWord": "מְכֻוָּן",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/77",
+      "targetRef": "9:5",
+      "targetWordIndex": 77,
+      "originalWord": "ובאפונדתו",
+      "donorWord": "וּבַאֲפֻנְדָּתוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/83",
+      "targetRef": "9:5",
+      "targetWordIndex": 83,
+      "originalWord": "קפנדרייה",
+      "donorWord": "קַפַּנְדַּרְיָה",
+      "reasons": [
+        "diplomatic-annotation:del"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/85",
+      "targetRef": "9:5",
+      "targetWordIndex": 85,
+      "originalWord": "מקל",
+      "donorWord": "מִקַּל",
+      "reasons": [
+        "diplomatic-annotation:del"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/86",
+      "targetRef": "9:5",
+      "targetWordIndex": 86,
+      "originalWord": "וחומר",
+      "donorWord": "וָחֹמֶר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/95",
+      "targetRef": "9:5",
+      "targetWordIndex": 95,
+      "originalWord": "משקלקלו",
+      "donorWord": "מִשֶּׁקִּלְקְלוּ",
+      "reasons": [
+        "diplomatic-annotation:del"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/97",
+      "targetRef": "9:5",
+      "targetWordIndex": 97,
+      "originalWord": "ואמרו",
+      "donorWord": "וְאָמְרוּ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/102",
+      "targetRef": "9:5",
+      "targetWordIndex": 102,
+      "originalWord": "היתקינו",
+      "donorWord": "הִתְקִינוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/109",
+      "targetRef": "9:5",
+      "targetWordIndex": 109,
+      "originalWord": "התקינו",
+      "donorWord": "וְהִתְקִינוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/110",
+      "targetRef": "9:5",
+      "targetWordIndex": 110,
+      "originalWord": "שיהא",
+      "donorWord": "שֶׁיְּהֵא",
+      "reasons": [
+        "diplomatic-annotation:del"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/115",
+      "targetRef": "9:5",
+      "targetWordIndex": 115,
+      "originalWord": "חבירו",
+      "donorWord": "חֲבֵרוֹ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/117",
+      "targetRef": "9:5",
+      "targetWordIndex": 117,
+      "originalWord": "שנ'",
+      "donorWord": "שֶׁנֶּאֱמַר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/125",
+      "targetRef": "9:5",
+      "targetWordIndex": 125,
+      "originalWord": "ייי",
+      "donorWord": "יי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/127",
+      "targetRef": "9:5",
+      "targetWordIndex": 127,
+      "originalWord": "ויאמר",
+      "donorWord": "וַיֹּאמְרוּ",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/130",
+      "targetRef": "9:5",
+      "targetWordIndex": 130,
+      "originalWord": "ייי",
+      "donorWord": "יי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/131",
+      "targetRef": "9:5",
+      "targetWordIndex": 131,
+      "originalWord": "ואומ'",
+      "donorWord": "וְאוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/132",
+      "targetRef": "9:5",
+      "targetWordIndex": 132,
+      "originalWord": "ייי",
+      "donorWord": "יי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/136",
+      "targetRef": "9:5",
+      "targetWordIndex": 136,
+      "originalWord": "ואומ'",
+      "donorWord": "וְאוֹמֵר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/144",
+      "targetRef": "9:5",
+      "targetWordIndex": 144,
+      "originalWord": "לייי",
+      "donorWord": "לַיי",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/147",
+      "targetRef": "9:5",
+      "targetWordIndex": 147,
+      "originalWord": "ר'",
+      "donorWord": "רֶבִּי",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/148",
+      "targetRef": "9:5",
+      "targetWordIndex": 148,
+      "originalWord": "נתן",
+      "donorWord": "נָתָן",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/149",
+      "targetRef": "9:5",
+      "targetWordIndex": 149,
+      "originalWord": "אומ'",
+      "donorWord": "אוֹמֵר",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/150",
+      "targetRef": "9:5",
+      "targetWordIndex": 150,
+      "originalWord": "הפרו",
+      "donorWord": "הֵפֵרוּ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/151",
+      "targetRef": "9:5",
+      "targetWordIndex": 151,
+      "originalWord": "תורתך",
+      "donorWord": "תוֹרָתֶךָ",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/152",
+      "targetRef": "9:5",
+      "targetWordIndex": 152,
+      "originalWord": "עת",
+      "donorWord": "עֵת",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/153",
+      "targetRef": "9:5",
+      "targetWordIndex": 153,
+      "originalWord": "לעשות",
+      "donorWord": "לַעֲשׁוֹת",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/154",
+      "targetRef": "9:5",
+      "targetWordIndex": 154,
+      "originalWord": "לייי",
+      "donorWord": "לַיי",
+      "reasons": [
+        "diplomatic-annotation:add"
+      ]
+    }
+  ],
+  "note": "No consonants, punctuation, abbreviations, deletions or raw XML have been repaired or replaced. Clearing the recorded insertions recovers the exact original offset text."
+}

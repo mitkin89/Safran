@@ -1,0 +1,4245 @@
+{
+  "folio": "004r",
+  "imageName": "fol. 004r    Berakhot VI.7 - VII.5.jpg",
+  "imageSha256": "0612456fea98b6854c114132d0e1b26068907f26c773bbf9f4e37177f0551ca4",
+  "method": "direct visual image reading; source text used only for alignment",
+  "scope": "Berakhot only",
+  "lines": [
+    {
+      "column": "right",
+      "line": 1,
+      "bbox": [
+        925,
+        198,
+        1505,
+        254
+      ],
+      "transcription": "עִמּוֹ מְבָרֵךְ עַל הַמֶּלִיחַ וּפוֹטֵר אֶת",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 2,
+      "bbox": [
+        925,
+        252,
+        1505,
+        305
+      ],
+      "transcription": "הַפַּת שֶׁהַפַּת טְפֵילָה לוֹ זֶה הַכְּלָל כָּל",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 3,
+      "bbox": [
+        925,
+        302,
+        1505,
+        356
+      ],
+      "transcription": "שֶׁהוּא עִיקָּר וְעִימוֹ טְפֵילָה מְבָרֵךְ",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 4,
+      "bbox": [
+        925,
+        350,
+        1505,
+        404
+      ],
+      "transcription": "עַל הָעִיקָּר וּפוֹטֵר אֶת הַטְּפֵילָה ח׳",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 5,
+      "bbox": [
+        925,
+        400,
+        1505,
+        460
+      ],
+      "transcription": "אָכַל תְּאֵינִים וַעֲנָבִים וְרִימּוֹנִים מְבָרֵךְ",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 6,
+      "bbox": [
+        925,
+        454,
+        1505,
+        509
+      ],
+      "transcription": "עֲלֵיהֶן שָׁלוֹשׁ בְּרָכוֹת דב׳ ר׳ גַּמְלִיא׳ וַחֲכ׳",
+      "notes": [
+        "Abbreviation after ברכות resembles דב׳; not expanded. Name ends in an abbreviation stroke."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 7,
+      "bbox": [
+        925,
+        504,
+        1505,
+        561
+      ],
+      "transcription": "אוֹמ׳ בְּרָכָה אַחַת ר׳ עֲקִיבָה אוֹמ׳ אֲפִילּוּ",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 8,
+      "bbox": [
+        925,
+        558,
+        1505,
+        617
+      ],
+      "transcription": "שֶׁאָכַל שֶׁלֶק וְהוּא מְזוֹנוֹ מְבָרֵךְ עָלָיו",
+      "notes": [
+        "Source splits one visual word after וה; separation in this transcription is alignment-only."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 9,
+      "bbox": [
+        925,
+        616,
+        1505,
+        674
+      ],
+      "transcription": "שָׁלֹשׁ בְּרָכוֹת הַשּׁוֹתֶה מַיִם לִצִימְאוֹ אוֹ׳",
+      "notes": [
+        "Source splits the first visual word שלש into של/ש; pointing near the join is not independently isolable."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 10,
+      "bbox": [
+        925,
+        672,
+        1505,
+        729
+      ],
+      "transcription": "שֶׁהַכֹּל נִהְיָה בִּדְבָרוֹ ר׳ טַרְפוֹן אוֹמ׳ בּוֹרֵא",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 11,
+      "bbox": [
+        925,
+        726,
+        1505,
+        779
+      ],
+      "transcription": "נְפָשׁוֹת רַבּוֹת וְחֶסְרוֹנָן פ׳ ז׳ □",
+      "notes": [
+        "Chapter-end/start ornament and short lettering beside the line; final small letters not reliably read."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 12,
+      "bbox": [
+        925,
+        777,
+        1505,
+        834
+      ],
+      "transcription": "שְׁלֹשָׁה שֶׁאָכְלוּ כְּאַחַת חַיָּיבִין לְזַמֵּין",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 13,
+      "bbox": [
+        925,
+        833,
+        1505,
+        896
+      ],
+      "transcription": "אָכַל דְּמַיי וּמַעֲשֵׂר רִאשׁוֹן שֶׁנִּיטְּלָה",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 14,
+      "bbox": [
+        925,
+        894,
+        1505,
+        950
+      ],
+      "transcription": "תְּרוּמָתוֹ וּמַעֲשֵׂר שֵׁינִי וְהַקְדֵּשׁ",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 15,
+      "bbox": [
+        925,
+        944,
+        1505,
+        1002
+      ],
+      "transcription": "שֶׁנִּיפְדּוּ הַשַּׁמָּשׁ שֶׁאָכַל כְּזַיִת וְהַכּוּתִי",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 16,
+      "bbox": [
+        925,
+        997,
+        1505,
+        1060
+      ],
+      "transcription": "מְזַמְּנִין עֲלֵיהֶן ב׳ אַבָל אָכַל טֶבֶל",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 17,
+      "bbox": [
+        925,
+        1057,
+        1505,
+        1114
+      ],
+      "transcription": "וּמַעֲשֵׂר רִאשׁוֹן שֶׁלֹּא נִיטְּלָה תְּרוּמָתוֹ",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 18,
+      "bbox": [
+        925,
+        1118,
+        1505,
+        1179
+      ],
+      "transcription": "וּמַעֲשֵׂר שֵׁינִי וְהַקְדֵּשׁ שֶׁלֹּא נִיפְדּוּ",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 19,
+      "bbox": [
+        925,
+        1180,
+        1505,
+        1239
+      ],
+      "transcription": "הַשַּׁמָּשׁ שֶׁאָכַל פָּחוֹת מִכְּזַיִת וְהַנָּכְרִי",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 20,
+      "bbox": [
+        925,
+        1233,
+        1505,
+        1296
+      ],
+      "transcription": "אֵין מְזַמְּנִין עֲלֵיהֶן נָשִׁים וַעֲבָדִים",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 21,
+      "bbox": [
+        925,
+        1295,
+        1505,
+        1355
+      ],
+      "transcription": "וּקְטַנִּים אֵין מְזַמְּנִין עֲלֵיהֶן עַד כַּמָּה",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 22,
+      "bbox": [
+        925,
+        1352,
+        1505,
+        1414
+      ],
+      "transcription": "הֵן מְזַמְּנִין עַד כְּזַיִת ר׳ יְהוּדָה אוֹמ׳",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 23,
+      "bbox": [
+        925,
+        1416,
+        1505,
+        1476
+      ],
+      "transcription": "עַד כְּבֵיצָה ד׳ כֵּיצַד מְזַמְּנִין",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 24,
+      "bbox": [
+        925,
+        1475,
+        1505,
+        1535
+      ],
+      "transcription": "בִּשְׁלֹשָׁה אוֹמ׳ נְבָרֵךְ בִּשְׁלֹשָׁה וְהוּא אוֹ׳",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 25,
+      "bbox": [
+        925,
+        1540,
+        1505,
+        1600
+      ],
+      "transcription": "בָּרְכוּ בַּעֲשָׂרָה אוֹמ׳ נְבָרֵךְ לֵאלֹהֵינוּ ב׳",
+      "notes": []
+    },
+    {
+      "column": "right",
+      "line": 26,
+      "bbox": [
+        925,
+        1598,
+        1505,
+        1655
+      ],
+      "transcription": "בַּעֲשָׂרָה וְהוּא אוֹמְרִין בָּרְכוּ אַחַד",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 1,
+      "bbox": [
+        245,
+        160,
+        835,
+        220
+      ],
+      "transcription": "עֲשָׂרָה וְאַחַד עֶשֶׂר רִיבּוֹא ה׳",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 2,
+      "bbox": [
+        245,
+        214,
+        835,
+        274
+      ],
+      "transcription": "בְּמֵאָה אוֹמ׳ נְבָרֵךְ לַייי אֱלֹהֵינוּ בְּמֵאָה",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 3,
+      "bbox": [
+        245,
+        270,
+        835,
+        324
+      ],
+      "transcription": "וְהוּא אוֹמְרִין בָּרְכוּ בְּאֶלֶף אוֹמ׳ נְבָרֵךְ",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 4,
+      "bbox": [
+        245,
+        321,
+        835,
+        377
+      ],
+      "transcription": "לַייי אֱלֹהֵינוּ אֱלֹהֵי יִשְׂרָא׳ בְּאֶלֶף וְהוּא",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 5,
+      "bbox": [
+        245,
+        375,
+        835,
+        431
+      ],
+      "transcription": "אוֹמ׳ בָּרְכוּ בְּרִיבּוֹא אוֹמ׳ נְבָרֵךְ לַייי אֱלֹהֵינוּ",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 6,
+      "bbox": [
+        245,
+        427,
+        835,
+        482
+      ],
+      "transcription": "אֱלֹהֵי יִשְׂרָא׳ אֱלֹהֵי צְבָאוֹת בְּרִיבּוֹ וְהוּא",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 7,
+      "bbox": [
+        245,
+        478,
+        835,
+        538
+      ],
+      "transcription": "אוֹמ׳ בָּרְכוּ כְּעִינְיָין שֶׁהוּא מְבָרֵךְ כָּךְ",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 8,
+      "bbox": [
+        245,
+        533,
+        835,
+        593
+      ],
+      "transcription": "עוֹנִין אַחֲרָיו ב׳ ייי אֱלֹהֵינוּ אֱלֹהֵי יִשְׂר׳",
+      "notes": [
+        "Divine-name sign is three yod-like marks; nearby dots/lines are not expanded into a standard divine-name vocalization."
+      ]
+    },
+    {
+      "column": "left",
+      "line": 9,
+      "bbox": [
+        245,
+        591,
+        835,
+        650
+      ],
+      "transcription": "אֱלֹהֵי צְבָאוֹת יוֹשֵׁב הַכְּרוּבִים עַל",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 10,
+      "bbox": [
+        245,
+        645,
+        835,
+        701
+      ],
+      "transcription": "הַמָּזוֹן שֶׁאָכַלְנוּ ר׳ יוֹסָה הַגְּלִילִי אוֹ׳",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 11,
+      "bbox": [
+        245,
+        696,
+        835,
+        752
+      ],
+      "transcription": "לְפִי רוֹב הַקָּהָל הֵם מְבָרְכִין שֶׁנ׳",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 12,
+      "bbox": [
+        245,
+        755,
+        835,
+        814
+      ],
+      "transcription": "בְּמַקְהֵלוֹת בָּרְכוּ אֱלֹהִים ייי מִמְּקוֹר",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 13,
+      "bbox": [
+        245,
+        815,
+        835,
+        870
+      ],
+      "transcription": "יִשְׂרָא׳ ו׳ אָמ׳ ר׳ עֲקִיבָה מַה מָצִינוּ",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 14,
+      "bbox": [
+        245,
+        870,
+        835,
+        930
+      ],
+      "transcription": "בְּבֵית הַכְּנֶסֶת אַחַד מְרֻבִּים וְאַחַד",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 15,
+      "bbox": [
+        245,
+        923,
+        835,
+        979
+      ],
+      "transcription": "מְמוּעָטִים אוֹמ׳ בָּרְכוּ אֶת ייי ר׳ יִשְׁמָעֵא׳",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 16,
+      "bbox": [
+        245,
+        978,
+        835,
+        1037
+      ],
+      "transcription": "אוֹמ׳ בָּרְכוּ אֶת ייי הַמְּבוֹרָךְ ז׳",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 17,
+      "bbox": [
+        245,
+        1035,
+        835,
+        1095
+      ],
+      "transcription": "שְׁלֹשָׁה שֶׁאָכְלוּ כְּאַחַת אֵינָן רַשָּׁיִים",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 18,
+      "bbox": [
+        245,
+        1100,
+        835,
+        1158
+      ],
+      "transcription": "לֵחָלֵק וְכֵן אַרְבָּעָה וְכֵן חֲמִשָּׁה שִׁשָּׁה",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 19,
+      "bbox": [
+        245,
+        1157,
+        835,
+        1219
+      ],
+      "transcription": "נֶחְלָקִים עַד עֲשָׂרָה וַעֲשָׂרָה אֵינָן",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 20,
+      "bbox": [
+        245,
+        1216,
+        835,
+        1269
+      ],
+      "transcription": "נֶחְלָקִין עַד שֶׁיְּהוּא עֶשְׂרִים ח׳",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 21,
+      "bbox": [
+        245,
+        1270,
+        835,
+        1331
+      ],
+      "transcription": "שְׁתֵּי חֲבוּרוֹת שֶׁהָיוּ אוֹכְלוֹת בְּבַיִת",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 22,
+      "bbox": [
+        245,
+        1330,
+        835,
+        1390
+      ],
+      "transcription": "אַחַד בִּזְמָן שֶׁמִּקְצָתָן רוֹאִים אֵלּוּ",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 23,
+      "bbox": [
+        245,
+        1391,
+        835,
+        1453
+      ],
+      "transcription": "אֶת אֵלּוּ הֲרֵי אֵלּוּ מִצְטָרְפִין לְזִימּוּן",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 24,
+      "bbox": [
+        245,
+        1455,
+        835,
+        1517
+      ],
+      "transcription": "אִם לָאו אֵילּוּ מְזַמְּנִין לְעַצְמָן וְאֵילּוּ",
+      "notes": []
+    },
+    {
+      "column": "left",
+      "line": 25,
+      "bbox": [
+        245,
+        1519,
+        835,
+        1581
+      ],
+      "transcription": "מְזַמְּנִין לְעַצְמָן אֵין מְבָרְכִין עַל",
+      "notes": [
+        "Source splits the visible word אין into אי/ן; no separate word boundary is certified."
+      ]
+    },
+    {
+      "column": "left",
+      "line": 26,
+      "bbox": [
+        245,
+        1578,
+        835,
+        1634
+      ],
+      "transcription": "הַיַּיִן עַד שֶׁיִּתֵּן לְתוֹכוֹ מַיִם דִּבְרֵי ר׳",
+      "notes": []
+    }
+  ],
+  "words": [
+    {
+      "ref": "6:7",
+      "wordIndex": 5,
+      "originalWord": "עמו",
+      "column": "right",
+      "line": 1,
+      "reading": "עִמּוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 6,
+      "originalWord": "מברך",
+      "column": "right",
+      "line": 1,
+      "reading": "מְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 7,
+      "originalWord": "על",
+      "column": "right",
+      "line": 1,
+      "reading": "עַל",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 8,
+      "originalWord": "המליח",
+      "column": "right",
+      "line": 1,
+      "reading": "הַמֶּלִיחַ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 9,
+      "originalWord": "ופוטר",
+      "column": "right",
+      "line": 1,
+      "reading": "וּפוֹטֵר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 10,
+      "originalWord": "את",
+      "column": "right",
+      "line": 1,
+      "reading": "אֶת",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 11,
+      "originalWord": "הפת",
+      "column": "right",
+      "line": 2,
+      "reading": "הַפַּת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 12,
+      "originalWord": "שהפת",
+      "column": "right",
+      "line": 2,
+      "reading": "שֶׁהַפַּת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 13,
+      "originalWord": "טפילה",
+      "column": "right",
+      "line": 2,
+      "reading": "טְפֵילָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 14,
+      "originalWord": "לו",
+      "column": "right",
+      "line": 2,
+      "reading": "לוֹ",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 15,
+      "originalWord": "זה",
+      "column": "right",
+      "line": 2,
+      "reading": "זֶה",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 16,
+      "originalWord": "הכלל",
+      "column": "right",
+      "line": 2,
+      "reading": "הַכְּלָל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 17,
+      "originalWord": "כל",
+      "column": "right",
+      "line": 2,
+      "reading": "כָּל",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 18,
+      "originalWord": "שהוא",
+      "column": "right",
+      "line": 3,
+      "reading": "שֶׁהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 19,
+      "originalWord": "עיקר",
+      "column": "right",
+      "line": 3,
+      "reading": "עִיקָּר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 20,
+      "originalWord": "ועימו",
+      "column": "right",
+      "line": 3,
+      "reading": "וְעִימוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 21,
+      "originalWord": "טפילה",
+      "column": "right",
+      "line": 3,
+      "reading": "טְפֵילָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 22,
+      "originalWord": "מברך",
+      "column": "right",
+      "line": 3,
+      "reading": "מְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 23,
+      "originalWord": "על",
+      "column": "right",
+      "line": 4,
+      "reading": "עַל",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 24,
+      "originalWord": "העיקר",
+      "column": "right",
+      "line": 4,
+      "reading": "הָעִיקָּר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 25,
+      "originalWord": "ופוטר",
+      "column": "right",
+      "line": 4,
+      "reading": "וּפוֹטֵר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 26,
+      "originalWord": "את",
+      "column": "right",
+      "line": 4,
+      "reading": "אֶת",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:7",
+      "wordIndex": 27,
+      "originalWord": "הטפילה",
+      "column": "right",
+      "line": 4,
+      "reading": "הַטְּפֵילָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 0,
+      "originalWord": "אכל",
+      "column": "right",
+      "line": 5,
+      "reading": "אָכַל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 1,
+      "originalWord": "תאינים",
+      "column": "right",
+      "line": 5,
+      "reading": "תְּאֵינִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 2,
+      "originalWord": "וענבים",
+      "column": "right",
+      "line": 5,
+      "reading": "וַעֲנָבִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 3,
+      "originalWord": "ורימונים",
+      "column": "right",
+      "line": 5,
+      "reading": "וְרִימּוֹנִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 4,
+      "originalWord": "מברך",
+      "column": "right",
+      "line": 5,
+      "reading": "מְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 5,
+      "originalWord": "עליהן",
+      "column": "right",
+      "line": 6,
+      "reading": "עֲלֵיהֶן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 6,
+      "originalWord": "שלוש",
+      "column": "right",
+      "line": 6,
+      "reading": "שָׁלוֹשׁ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 7,
+      "originalWord": "ברכות",
+      "column": "right",
+      "line": 6,
+      "reading": "בְּרָכוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 8,
+      "originalWord": "דב'",
+      "column": "right",
+      "line": 6,
+      "reading": "דב׳",
+      "status": "uncertain",
+      "notes": [
+        "Abkürzungsstrich bzw. kleine Buchstaben am Wortende sichtbar; keine Expansion und keine vollständige Punktierung zertifiziert. Bei דב׳ zusätzlich engstehende Zeichen nach ברכות."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 9,
+      "originalWord": "ר'",
+      "column": "right",
+      "line": 6,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Abkürzungsstrich bzw. kleine Buchstaben am Wortende sichtbar; keine Expansion und keine vollständige Punktierung zertifiziert. Bei דב׳ zusätzlich engstehende Zeichen nach ברכות."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 10,
+      "originalWord": "גמליא'",
+      "column": "right",
+      "line": 6,
+      "reading": "גַּמְלִיא׳",
+      "status": "uncertain",
+      "notes": [
+        "Abkürzungsstrich bzw. kleine Buchstaben am Wortende sichtbar; keine Expansion und keine vollständige Punktierung zertifiziert. Bei דב׳ zusätzlich engstehende Zeichen nach ברכות."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 11,
+      "originalWord": "וחכ'",
+      "column": "right",
+      "line": 6,
+      "reading": "וַחֲכ׳",
+      "status": "uncertain",
+      "notes": [
+        "Abkürzungsstrich bzw. kleine Buchstaben am Wortende sichtbar; keine Expansion und keine vollständige Punktierung zertifiziert. Bei דב׳ zusätzlich engstehende Zeichen nach ברכות."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "column": "right",
+      "line": 7,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 13,
+      "originalWord": "ברכה",
+      "column": "right",
+      "line": 7,
+      "reading": "בְּרָכָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 14,
+      "originalWord": "אחת",
+      "column": "right",
+      "line": 7,
+      "reading": "אַחַת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 15,
+      "originalWord": "ר'",
+      "column": "right",
+      "line": 7,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 16,
+      "originalWord": "עקיבה",
+      "column": "right",
+      "line": 7,
+      "reading": "עֲקִיבָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 17,
+      "originalWord": "אומ'",
+      "column": "right",
+      "line": 7,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 18,
+      "originalWord": "אפילו",
+      "column": "right",
+      "line": 7,
+      "reading": "אֲפִילּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 19,
+      "originalWord": "שאכל",
+      "column": "right",
+      "line": 8,
+      "reading": "שֶׁאָכַל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 20,
+      "originalWord": "שלק",
+      "column": "right",
+      "line": 8,
+      "reading": "שֶׁלֶק",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 21,
+      "originalWord": "וה",
+      "column": "right",
+      "line": 8,
+      "reading": "וְה",
+      "status": "uncertain",
+      "notes": [
+        "Diplomatischer Quellindex teilt ein zusammenhängendes visuelles Wort וה/וא. Die hier notierte Teilfolge darf nicht als eigenständiges Wort oder vollständige Punktierung behandelt werden."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 22,
+      "originalWord": "וא",
+      "column": "right",
+      "line": 8,
+      "reading": "וּא",
+      "status": "uncertain",
+      "notes": [
+        "Diplomatischer Quellindex teilt ein zusammenhängendes visuelles Wort וה/וא. Die hier notierte Teilfolge darf nicht als eigenständiges Wort oder vollständige Punktierung behandelt werden."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 23,
+      "originalWord": "מזונו",
+      "column": "right",
+      "line": 8,
+      "reading": "מְזוֹנוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 24,
+      "originalWord": "מברך",
+      "column": "right",
+      "line": 8,
+      "reading": "מְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 25,
+      "originalWord": "עליו",
+      "column": "right",
+      "line": 8,
+      "reading": "עָלָיו",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 26,
+      "originalWord": "של",
+      "column": "right",
+      "line": 9,
+      "reading": "שָׁלֹ",
+      "status": "uncertain",
+      "notes": [
+        "Diplomatischer Quellindex teilt die zusammenhängende sichtbare Form שלש in של/ש. Cholam und eventuelle Mater im engen Schriftzug nicht abschließend auflösbar."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 27,
+      "originalWord": "ש",
+      "column": "right",
+      "line": 9,
+      "reading": "שׁ",
+      "status": "uncertain",
+      "notes": [
+        "Diplomatischer Quellindex teilt die zusammenhängende sichtbare Form שלש in של/ש. Cholam und eventuelle Mater im engen Schriftzug nicht abschließend auflösbar."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 28,
+      "originalWord": "ברכות",
+      "column": "right",
+      "line": 9,
+      "reading": "בְּרָכוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 29,
+      "originalWord": "השותה",
+      "column": "right",
+      "line": 9,
+      "reading": "הַשּׁוֹתֶה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 30,
+      "originalWord": "מים",
+      "column": "right",
+      "line": 9,
+      "reading": "מַיִם",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 31,
+      "originalWord": "לצימאו",
+      "column": "right",
+      "line": 9,
+      "reading": "לִצִימְאוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Yod im engen Mittelteil mitgelesen; Verhältnis von Hiriq/Mater und folgendem Schwa im schwachen Punktbild unsicher. Keine Normalisierung zu לצמאו."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 32,
+      "originalWord": "או'",
+      "column": "right",
+      "line": 9,
+      "reading": "אוֹ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 33,
+      "originalWord": "שהכל",
+      "column": "right",
+      "line": 10,
+      "reading": "שֶׁהַכֹּל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 34,
+      "originalWord": "נהיה",
+      "column": "right",
+      "line": 10,
+      "reading": "נִהְיָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 35,
+      "originalWord": "בדברו",
+      "column": "right",
+      "line": 10,
+      "reading": "בִּדְבָרוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 36,
+      "originalWord": "ר'",
+      "column": "right",
+      "line": 10,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 37,
+      "originalWord": "טרפון",
+      "column": "right",
+      "line": 10,
+      "reading": "טַרְפוֹן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 38,
+      "originalWord": "אומ'",
+      "column": "right",
+      "line": 10,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 39,
+      "originalWord": "בורא",
+      "column": "right",
+      "line": 10,
+      "reading": "בּוֹרֵא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 40,
+      "originalWord": "נפשות",
+      "column": "right",
+      "line": 11,
+      "reading": "נְפָשׁוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 41,
+      "originalWord": "רבות",
+      "column": "right",
+      "line": 11,
+      "reading": "רַבּוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "6:8",
+      "wordIndex": 42,
+      "originalWord": "וחסרונן",
+      "column": "right",
+      "line": 11,
+      "reading": "וְחֶסְרוֹנָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 0,
+      "originalWord": "שלשה",
+      "column": "right",
+      "line": 12,
+      "reading": "שְׁלֹשָׁה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 1,
+      "originalWord": "שאכלו",
+      "column": "right",
+      "line": 12,
+      "reading": "שֶׁאָכְלוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 2,
+      "originalWord": "כאחת",
+      "column": "right",
+      "line": 12,
+      "reading": "כְּאַחַת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 3,
+      "originalWord": "חייבין",
+      "column": "right",
+      "line": 12,
+      "reading": "חַיָּיבִין",
+      "status": "uncertain",
+      "notes": [
+        "Zwei yodartige Buchstabenkörper im Schriftzug; Verteilung von Dagesch/Vokal an ihnen nicht vollständig gesichert. Keine Reduktion auf ein geschriebenes Yod."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 4,
+      "originalWord": "לזמין",
+      "column": "right",
+      "line": 12,
+      "reading": "לְזַמֵּין",
+      "status": "uncertain",
+      "notes": [
+        "Schlussfolge מין mit kleinem Yod gesehen; feine Punkte bei Zayin/Mem nicht vollständig gesichert. Nicht in die defektive Standardform לזמן geändert."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 5,
+      "originalWord": "אכל",
+      "column": "right",
+      "line": 13,
+      "reading": "אָכַל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 6,
+      "originalWord": "דמיי",
+      "column": "right",
+      "line": 13,
+      "reading": "דְּמַיי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 7,
+      "originalWord": "ומעשר",
+      "column": "right",
+      "line": 13,
+      "reading": "וּמַעֲשֵׂר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 8,
+      "originalWord": "ראשון",
+      "column": "right",
+      "line": 13,
+      "reading": "רִאשׁוֹן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 9,
+      "originalWord": "שניטלה",
+      "column": "right",
+      "line": 13,
+      "reading": "שֶׁנִּיטְּלָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 10,
+      "originalWord": "תרומתו",
+      "column": "right",
+      "line": 14,
+      "reading": "תְּרוּמָתוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 11,
+      "originalWord": "ומעשר",
+      "column": "right",
+      "line": 14,
+      "reading": "וּמַעֲשֵׂר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 12,
+      "originalWord": "שיני",
+      "column": "right",
+      "line": 14,
+      "reading": "שֵׁינִי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 13,
+      "originalWord": "והקדש",
+      "column": "right",
+      "line": 14,
+      "reading": "וְהַקְדֵּשׁ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 14,
+      "originalWord": "שניפדו",
+      "column": "right",
+      "line": 15,
+      "reading": "שֶׁנִּיפְדּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 15,
+      "originalWord": "השמש",
+      "column": "right",
+      "line": 15,
+      "reading": "הַשַּׁמָּשׁ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 16,
+      "originalWord": "שאכל",
+      "column": "right",
+      "line": 15,
+      "reading": "שֶׁאָכַל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 17,
+      "originalWord": "כזית",
+      "column": "right",
+      "line": 15,
+      "reading": "כְּזַיִת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 18,
+      "originalWord": "והכותי",
+      "column": "right",
+      "line": 15,
+      "reading": "וְהַכּוּתִי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 19,
+      "originalWord": "מזמנין",
+      "column": "right",
+      "line": 16,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 20,
+      "originalWord": "עליהן",
+      "column": "right",
+      "line": 16,
+      "reading": "עֲלֵיהֶן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 21,
+      "originalWord": "אבל",
+      "column": "right",
+      "line": 16,
+      "reading": "אַבָל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 22,
+      "originalWord": "אכל",
+      "column": "right",
+      "line": 16,
+      "reading": "אָכַל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 23,
+      "originalWord": "טבל",
+      "column": "right",
+      "line": 16,
+      "reading": "טֶבֶל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 24,
+      "originalWord": "ומעשר",
+      "column": "right",
+      "line": 17,
+      "reading": "וּמַעֲשֵׂר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 25,
+      "originalWord": "ראשון",
+      "column": "right",
+      "line": 17,
+      "reading": "רִאשׁוֹן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 26,
+      "originalWord": "שלא",
+      "column": "right",
+      "line": 17,
+      "reading": "שֶׁלֹּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 27,
+      "originalWord": "ניטלה",
+      "column": "right",
+      "line": 17,
+      "reading": "נִיטְּלָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 28,
+      "originalWord": "תרומתו",
+      "column": "right",
+      "line": 17,
+      "reading": "תְּרוּמָתוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 29,
+      "originalWord": "ומעשר",
+      "column": "right",
+      "line": 18,
+      "reading": "וּמַעֲשֵׂר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 30,
+      "originalWord": "שיני",
+      "column": "right",
+      "line": 18,
+      "reading": "שֵׁינִי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 31,
+      "originalWord": "והקדש",
+      "column": "right",
+      "line": 18,
+      "reading": "וְהַקְדֵּשׁ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 32,
+      "originalWord": "שלא",
+      "column": "right",
+      "line": 18,
+      "reading": "שֶׁלֹּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 33,
+      "originalWord": "ניפדו",
+      "column": "right",
+      "line": 18,
+      "reading": "נִיפְדּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 34,
+      "originalWord": "השמש",
+      "column": "right",
+      "line": 19,
+      "reading": "הַשַּׁמָּשׁ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 35,
+      "originalWord": "שאכל",
+      "column": "right",
+      "line": 19,
+      "reading": "שֶׁאָכַל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 36,
+      "originalWord": "פחות",
+      "column": "right",
+      "line": 19,
+      "reading": "פָּחוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 37,
+      "originalWord": "מכזית",
+      "column": "right",
+      "line": 19,
+      "reading": "מִכְּזַיִת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 38,
+      "originalWord": "והנכרי",
+      "column": "right",
+      "line": 19,
+      "reading": "וְהַנָּכְרִי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 39,
+      "originalWord": "אין",
+      "column": "right",
+      "line": 20,
+      "reading": "אֵין",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 40,
+      "originalWord": "מזמנין",
+      "column": "right",
+      "line": 20,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:1",
+      "wordIndex": 41,
+      "originalWord": "עליהן",
+      "column": "right",
+      "line": 20,
+      "reading": "עֲלֵיהֶן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 0,
+      "originalWord": "נשים",
+      "column": "right",
+      "line": 20,
+      "reading": "נָשִׁים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 1,
+      "originalWord": "ועבדים",
+      "column": "right",
+      "line": 20,
+      "reading": "וַעֲבָדִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 2,
+      "originalWord": "וקטנים",
+      "column": "right",
+      "line": 21,
+      "reading": "וּקְטַנִּים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 3,
+      "originalWord": "אין",
+      "column": "right",
+      "line": 21,
+      "reading": "אֵין",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 4,
+      "originalWord": "מזמנין",
+      "column": "right",
+      "line": 21,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 5,
+      "originalWord": "עליהן",
+      "column": "right",
+      "line": 21,
+      "reading": "עֲלֵיהֶן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 6,
+      "originalWord": "עד",
+      "column": "right",
+      "line": 21,
+      "reading": "עַד",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 7,
+      "originalWord": "כמה",
+      "column": "right",
+      "line": 21,
+      "reading": "כַּמָּה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 8,
+      "originalWord": "הן",
+      "column": "right",
+      "line": 22,
+      "reading": "הֵן",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 9,
+      "originalWord": "מזמנין",
+      "column": "right",
+      "line": 22,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 10,
+      "originalWord": "עד",
+      "column": "right",
+      "line": 22,
+      "reading": "עַד",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 11,
+      "originalWord": "כזית",
+      "column": "right",
+      "line": 22,
+      "reading": "כְּזַיִת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 12,
+      "originalWord": "ר'",
+      "column": "right",
+      "line": 22,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 13,
+      "originalWord": "יהודה",
+      "column": "right",
+      "line": 22,
+      "reading": "יְהוּדָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 14,
+      "originalWord": "אומ'",
+      "column": "right",
+      "line": 22,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 15,
+      "originalWord": "עד",
+      "column": "right",
+      "line": 23,
+      "reading": "עַד",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:2",
+      "wordIndex": 16,
+      "originalWord": "כביצה",
+      "column": "right",
+      "line": 23,
+      "reading": "כְּבֵיצָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 0,
+      "originalWord": "כיצד",
+      "column": "right",
+      "line": 23,
+      "reading": "כֵּיצַד",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 1,
+      "originalWord": "מזמנין",
+      "column": "right",
+      "line": 23,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 2,
+      "originalWord": "בשלשה",
+      "column": "right",
+      "line": 24,
+      "reading": "בִּשְׁלֹשָׁה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 3,
+      "originalWord": "אומ'",
+      "column": "right",
+      "line": 24,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 4,
+      "originalWord": "נברך",
+      "column": "right",
+      "line": 24,
+      "reading": "נְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 5,
+      "originalWord": "בשלשה",
+      "column": "right",
+      "line": 24,
+      "reading": "בִּשְׁלֹשָׁה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 6,
+      "originalWord": "והוא",
+      "column": "right",
+      "line": 24,
+      "reading": "וְהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 7,
+      "originalWord": "או'",
+      "column": "right",
+      "line": 24,
+      "reading": "אוֹ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 8,
+      "originalWord": "ברכו",
+      "column": "right",
+      "line": 25,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 9,
+      "originalWord": "בעשרה",
+      "column": "right",
+      "line": 25,
+      "reading": "בַּעֲשָׂרָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 10,
+      "originalWord": "אומ'",
+      "column": "right",
+      "line": 25,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 11,
+      "originalWord": "נברך",
+      "column": "right",
+      "line": 25,
+      "reading": "נְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 12,
+      "originalWord": "לאלהינו",
+      "column": "right",
+      "line": 25,
+      "reading": "לֵאלֹהֵינוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 13,
+      "originalWord": "בעשרה",
+      "column": "right",
+      "line": 26,
+      "reading": "בַּעֲשָׂרָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 14,
+      "originalWord": "והוא",
+      "column": "right",
+      "line": 26,
+      "reading": "וְהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 15,
+      "originalWord": "אומר",
+      "column": "right",
+      "line": 26,
+      "reading": "אוֹמְרִין",
+      "status": "uncertain",
+      "notes": [
+        "Am Zeilenende visuell אומרין, einschließlich kleiner Schlussfolge ין; Quellposition originalWord אומר ist kürzer. Basiskonsonantenabweichung bleibt ausdrücklich offen."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 16,
+      "originalWord": "ברכו",
+      "column": "right",
+      "line": 26,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 17,
+      "originalWord": "אחד",
+      "column": "right",
+      "line": 26,
+      "reading": "אֶחָד",
+      "status": "uncertain",
+      "notes": [
+        "Unabhängige zweite KI-Sichtlesung: Zweite unabhängige Sichtlesung sieht Segol unter א und Qamatz unter ח. Widerspruch zur ersten KI-Lesung; vor endgültiger Freigabe am besseren Bild zu entscheiden.",
+        "Dokumentierte Erstablesung: אַחַד; unabhängige Gegenlesung: אֶחָד. Keine automatische Textkorrektur."
+      ],
+      "initialReading": "אַחַד",
+      "initialStatus": "clear",
+      "secondaryObservation": {
+        "method": "Independent direct image spotcheck; original followed by lossless crops with expanded vertical context",
+        "reading": "אֶחָד",
+        "status": "partial/uncertain",
+        "note": "Zweite unabhängige Sichtlesung sieht Segol unter א und Qamatz unter ח. Widerspruch zur ersten KI-Lesung; vor endgültiger Freigabe am besseren Bild zu entscheiden."
+      }
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 18,
+      "originalWord": "עשרה",
+      "column": "left",
+      "line": 1,
+      "reading": "עֲשָׂרָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 19,
+      "originalWord": "ואחד",
+      "column": "left",
+      "line": 1,
+      "reading": "וְאַחַד",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 20,
+      "originalWord": "עשר",
+      "column": "left",
+      "line": 1,
+      "reading": "עֶשֶׂר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 21,
+      "originalWord": "ריבוא",
+      "column": "left",
+      "line": 1,
+      "reading": "רִיבּוֹא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 22,
+      "originalWord": "במאה",
+      "column": "left",
+      "line": 2,
+      "reading": "בְּמֵאָה",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 23,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 2,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 24,
+      "originalWord": "נברך",
+      "column": "left",
+      "line": 2,
+      "reading": "נְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 25,
+      "originalWord": "לייי",
+      "column": "left",
+      "line": 2,
+      "reading": "לַייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 26,
+      "originalWord": "אלהינו",
+      "column": "left",
+      "line": 2,
+      "reading": "אֱלֹהֵינוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 27,
+      "originalWord": "במאה",
+      "column": "left",
+      "line": 2,
+      "reading": "בְּמֵאָה",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 28,
+      "originalWord": "והוא",
+      "column": "left",
+      "line": 3,
+      "reading": "וְהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 29,
+      "originalWord": "אומרין",
+      "column": "left",
+      "line": 3,
+      "reading": "אוֹמְרִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 30,
+      "originalWord": "ברכו",
+      "column": "left",
+      "line": 3,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 31,
+      "originalWord": "באלף",
+      "column": "left",
+      "line": 3,
+      "reading": "בָאלֶף",
+      "status": "uncertain",
+      "notes": [
+        "Blindbild-Gegenlesung nach dem Accordance-Vergleich: Qamatz unter ב und Segol unter ל deutlich. Erste Schwa-Lesung korrigiert. Vokal unter א sowie Dagesch im ב bleiben offen.",
+        "Erstablesung: בְּאֶלֶף; nun ausdrücklich partielle Lesung: בָאלֶף."
+      ],
+      "initialReading": "בְּאֶלֶף",
+      "initialStatus": "clear",
+      "observedFeatures": [
+        {
+          "letterIndex": 0,
+          "marks": [
+            "ָ"
+          ],
+          "certainty": "clear"
+        },
+        {
+          "letterIndex": 2,
+          "marks": [
+            "ֶ"
+          ],
+          "certainty": "clear"
+        }
+      ],
+      "accordanceCountercheck": {
+        "method": "Blind second image reading before consulting Accordance expected marks",
+        "initialReading": "בְּאֶלֶף",
+        "reading": "בָאלֶף",
+        "note": "Qamatz unter ב und Segol unter ל deutlich. Erste Schwa-Lesung korrigiert. Vokal unter א sowie Dagesch im ב bleiben offen.",
+        "result": "own-vowel-corrected"
+      }
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 32,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 3,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 33,
+      "originalWord": "נברך",
+      "column": "left",
+      "line": 3,
+      "reading": "נְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 34,
+      "originalWord": "לייי",
+      "column": "left",
+      "line": 4,
+      "reading": "לַייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 35,
+      "originalWord": "אלהינו",
+      "column": "left",
+      "line": 4,
+      "reading": "אֱלֹהֵינוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 36,
+      "originalWord": "אלהי",
+      "column": "left",
+      "line": 4,
+      "reading": "אֱלֹהֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 37,
+      "originalWord": "ישרא'",
+      "column": "left",
+      "line": 4,
+      "reading": "יִשְׂרָא׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 38,
+      "originalWord": "באלף",
+      "column": "left",
+      "line": 4,
+      "reading": "בָאֶלֶף",
+      "status": "uncertain",
+      "notes": [
+        "Unabhängige zweite KI-Sichtlesung: Zweite Sichtlesung sieht Qamatz unter ב und Segol unter א/ל; möglicher Dagesh im ב. Widerspruch zur ersten KI-Lesung; ganze Form bleibt unsicher.",
+        "Dokumentierte Erstablesung: בְּאֶלֶף; unabhängige Gegenlesung: בָאֶלֶף. Keine automatische Textkorrektur."
+      ],
+      "initialReading": "בְּאֶלֶף",
+      "initialStatus": "clear",
+      "secondaryObservation": {
+        "method": "Independent direct image spotcheck; original followed by lossless crops with expanded vertical context",
+        "reading": "בָאֶלֶף",
+        "status": "partial/uncertain",
+        "note": "Zweite Sichtlesung sieht Qamatz unter ב und Segol unter א/ל; möglicher Dagesh im ב. Widerspruch zur ersten KI-Lesung; ganze Form bleibt unsicher."
+      }
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 39,
+      "originalWord": "והוא",
+      "column": "left",
+      "line": 4,
+      "reading": "וְהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 40,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 5,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 41,
+      "originalWord": "ברכו",
+      "column": "left",
+      "line": 5,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 42,
+      "originalWord": "בריבוא",
+      "column": "left",
+      "line": 5,
+      "reading": "בְּרִיבּוֹא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 43,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 5,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 44,
+      "originalWord": "נברך",
+      "column": "left",
+      "line": 5,
+      "reading": "נְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 45,
+      "originalWord": "לייי",
+      "column": "left",
+      "line": 5,
+      "reading": "לַייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 46,
+      "originalWord": "אלהינו",
+      "column": "left",
+      "line": 5,
+      "reading": "אֱלֹהֵינוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 47,
+      "originalWord": "אלהי",
+      "column": "left",
+      "line": 6,
+      "reading": "אֱלֹהֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 48,
+      "originalWord": "ישרא'",
+      "column": "left",
+      "line": 6,
+      "reading": "יִשְׂרָא׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 49,
+      "originalWord": "אלהי",
+      "column": "left",
+      "line": 6,
+      "reading": "אֱלֹהֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 50,
+      "originalWord": "צבאות",
+      "column": "left",
+      "line": 6,
+      "reading": "צְבָאוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 51,
+      "originalWord": "בריבו",
+      "column": "left",
+      "line": 6,
+      "reading": "בְּרִיבּוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 52,
+      "originalWord": "והוא",
+      "column": "left",
+      "line": 6,
+      "reading": "וְהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 53,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 7,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 54,
+      "originalWord": "ברכו",
+      "column": "left",
+      "line": 7,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 55,
+      "originalWord": "כעיניין",
+      "column": "left",
+      "line": 7,
+      "reading": "כְּעִינְיָין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 56,
+      "originalWord": "שהוא",
+      "column": "left",
+      "line": 7,
+      "reading": "שֶׁהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 57,
+      "originalWord": "מברך",
+      "column": "left",
+      "line": 7,
+      "reading": "מְבָרֵךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 58,
+      "originalWord": "כך",
+      "column": "left",
+      "line": 7,
+      "reading": "כָּךְ",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 59,
+      "originalWord": "עונין",
+      "column": "left",
+      "line": 8,
+      "reading": "עוֹנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 60,
+      "originalWord": "אחריו",
+      "column": "left",
+      "line": 8,
+      "reading": "אַחֲרָיו",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 61,
+      "originalWord": "ב'",
+      "column": "left",
+      "line": 8,
+      "reading": "ב׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 62,
+      "originalWord": "ייי",
+      "column": "left",
+      "line": 8,
+      "reading": "ייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 63,
+      "originalWord": "אלהינו",
+      "column": "left",
+      "line": 8,
+      "reading": "אֱלֹהֵינוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 64,
+      "originalWord": "אלהי",
+      "column": "left",
+      "line": 8,
+      "reading": "אֱלֹהֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 65,
+      "originalWord": "ישר'",
+      "column": "left",
+      "line": 8,
+      "reading": "יִשְׂר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 66,
+      "originalWord": "אלהי",
+      "column": "left",
+      "line": 9,
+      "reading": "אֱלֹהֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 67,
+      "originalWord": "צבאות",
+      "column": "left",
+      "line": 9,
+      "reading": "צְבָאוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 68,
+      "originalWord": "יושב",
+      "column": "left",
+      "line": 9,
+      "reading": "יוֹשֵׁב",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 69,
+      "originalWord": "הכרובים",
+      "column": "left",
+      "line": 9,
+      "reading": "הַכְּרוּבִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 70,
+      "originalWord": "על",
+      "column": "left",
+      "line": 9,
+      "reading": "עַל",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 71,
+      "originalWord": "המזון",
+      "column": "left",
+      "line": 10,
+      "reading": "הַמָּזוֹן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 72,
+      "originalWord": "שאכלנו",
+      "column": "left",
+      "line": 10,
+      "reading": "שֶׁאָכַלְנוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 73,
+      "originalWord": "ר'",
+      "column": "left",
+      "line": 10,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 74,
+      "originalWord": "יוסה",
+      "column": "left",
+      "line": 10,
+      "reading": "יוֹסָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 75,
+      "originalWord": "הגלילי",
+      "column": "left",
+      "line": 10,
+      "reading": "הַגְּלִילִי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 76,
+      "originalWord": "או'",
+      "column": "left",
+      "line": 10,
+      "reading": "אוֹ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 77,
+      "originalWord": "לפי",
+      "column": "left",
+      "line": 11,
+      "reading": "לְפִי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 78,
+      "originalWord": "רוב",
+      "column": "left",
+      "line": 11,
+      "reading": "רוֹב",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 79,
+      "originalWord": "הקהל",
+      "column": "left",
+      "line": 11,
+      "reading": "הַקָּהָל",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 80,
+      "originalWord": "הם",
+      "column": "left",
+      "line": 11,
+      "reading": "הֵם",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 81,
+      "originalWord": "מברכין",
+      "column": "left",
+      "line": 11,
+      "reading": "מְבָרְכִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 82,
+      "originalWord": "שנ'",
+      "column": "left",
+      "line": 11,
+      "reading": "שֶׁנ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 83,
+      "originalWord": "במקהלות",
+      "column": "left",
+      "line": 12,
+      "reading": "בְּמַקְהֵלוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 84,
+      "originalWord": "ברכו",
+      "column": "left",
+      "line": 12,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 85,
+      "originalWord": "אלהים",
+      "column": "left",
+      "line": 12,
+      "reading": "אֱלֹהִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 86,
+      "originalWord": "ייי",
+      "column": "left",
+      "line": 12,
+      "reading": "ייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 87,
+      "originalWord": "ממקור",
+      "column": "left",
+      "line": 12,
+      "reading": "מִמְּקוֹר",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 88,
+      "originalWord": "ישרא'",
+      "column": "left",
+      "line": 13,
+      "reading": "יִשְׂרָא׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 89,
+      "originalWord": "אמ'",
+      "column": "left",
+      "line": 13,
+      "reading": "אָמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 90,
+      "originalWord": "ר'",
+      "column": "left",
+      "line": 13,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 91,
+      "originalWord": "עקיבה",
+      "column": "left",
+      "line": 13,
+      "reading": "עֲקִיבָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 92,
+      "originalWord": "מה",
+      "column": "left",
+      "line": 13,
+      "reading": "מַה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 93,
+      "originalWord": "מצינו",
+      "column": "left",
+      "line": 13,
+      "reading": "מָצִינוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 94,
+      "originalWord": "בבית",
+      "column": "left",
+      "line": 14,
+      "reading": "בְּבֵית",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 95,
+      "originalWord": "הכנסת",
+      "column": "left",
+      "line": 14,
+      "reading": "הַכְּנֶסֶת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 96,
+      "originalWord": "אחד",
+      "column": "left",
+      "line": 14,
+      "reading": "אֶחָד",
+      "status": "uncertain",
+      "notes": [
+        "Unabhängige zweite KI-Sichtlesung: Zweite unabhängige Sichtlesung sieht Segol unter א und Qamatz unter ח. Widerspruch zur ersten KI-Lesung; vor endgültiger Freigabe am besseren Bild zu entscheiden.",
+        "Dokumentierte Erstablesung: אַחַד; unabhängige Gegenlesung: אֶחָד. Keine automatische Textkorrektur."
+      ],
+      "initialReading": "אַחַד",
+      "initialStatus": "clear",
+      "secondaryObservation": {
+        "method": "Independent direct image spotcheck; original followed by lossless crops with expanded vertical context",
+        "reading": "אֶחָד",
+        "status": "partial/uncertain",
+        "note": "Zweite unabhängige Sichtlesung sieht Segol unter א und Qamatz unter ח. Widerspruch zur ersten KI-Lesung; vor endgültiger Freigabe am besseren Bild zu entscheiden."
+      }
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 97,
+      "originalWord": "מרובים",
+      "column": "left",
+      "line": 14,
+      "reading": "מְרֻבִּים",
+      "status": "uncertain",
+      "notes": [
+        "Im Bild enger Schriftzug מרבים mit Punkten unter dem Resch; separates Waw des originalWord מרובים nicht eindeutig isolierbar. Konsonanten-/Punktierungsabweichung nicht entschieden."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 98,
+      "originalWord": "ואחד",
+      "column": "left",
+      "line": 14,
+      "reading": "וְאַחַד",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 99,
+      "originalWord": "ממועטים",
+      "column": "left",
+      "line": 15,
+      "reading": "מְמוּעָטִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 100,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 15,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 101,
+      "originalWord": "ברכו",
+      "column": "left",
+      "line": 15,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 102,
+      "originalWord": "את",
+      "column": "left",
+      "line": 15,
+      "reading": "אֶת",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 103,
+      "originalWord": "ייי",
+      "column": "left",
+      "line": 15,
+      "reading": "ייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 104,
+      "originalWord": "ר'",
+      "column": "left",
+      "line": 15,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 105,
+      "originalWord": "ישמעא'",
+      "column": "left",
+      "line": 15,
+      "reading": "יִשְׁמָעֵא׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 106,
+      "originalWord": "אומ'",
+      "column": "left",
+      "line": 16,
+      "reading": "אוֹמ׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 107,
+      "originalWord": "ברכו",
+      "column": "left",
+      "line": 16,
+      "reading": "בָּרְכוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 108,
+      "originalWord": "את",
+      "column": "left",
+      "line": 16,
+      "reading": "אֶת",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 109,
+      "originalWord": "ייי",
+      "column": "left",
+      "line": 16,
+      "reading": "ייי",
+      "status": "uncertain",
+      "notes": [
+        "Dreiteiliges Jod-Zeichen direkt gesehen. Zugehörigkeit kleiner Punkte/Unterstriche und vorausgehender Lamed-Vokal nicht vollständig gesichert; keine normalisierte Aussprache eingesetzt."
+      ]
+    },
+    {
+      "ref": "7:3",
+      "wordIndex": 110,
+      "originalWord": "המבורך",
+      "column": "left",
+      "line": 16,
+      "reading": "הַמְּבוֹרָךְ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 0,
+      "originalWord": "שלשה",
+      "column": "left",
+      "line": 17,
+      "reading": "שְׁלֹשָׁה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 1,
+      "originalWord": "שאכלו",
+      "column": "left",
+      "line": 17,
+      "reading": "שֶׁאָכְלוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 2,
+      "originalWord": "כאחת",
+      "column": "left",
+      "line": 17,
+      "reading": "כְּאַחַת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 3,
+      "originalWord": "אינן",
+      "column": "left",
+      "line": 17,
+      "reading": "אֵינָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 4,
+      "originalWord": "רשיים",
+      "column": "left",
+      "line": 17,
+      "reading": "רַשָּׁיִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 5,
+      "originalWord": "לחלק",
+      "column": "left",
+      "line": 18,
+      "reading": "לֵחָלֵק",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 6,
+      "originalWord": "וכן",
+      "column": "left",
+      "line": 18,
+      "reading": "וְכֵן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 7,
+      "originalWord": "ארבעה",
+      "column": "left",
+      "line": 18,
+      "reading": "אַרְבָּעָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 8,
+      "originalWord": "וכן",
+      "column": "left",
+      "line": 18,
+      "reading": "וְכֵן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 9,
+      "originalWord": "חמשה",
+      "column": "left",
+      "line": 18,
+      "reading": "חֲמִשָּׁה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 10,
+      "originalWord": "ששה",
+      "column": "left",
+      "line": 18,
+      "reading": "שִׁשָּׁה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 11,
+      "originalWord": "נחלקים",
+      "column": "left",
+      "line": 19,
+      "reading": "נֶחְלָקִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 12,
+      "originalWord": "עד",
+      "column": "left",
+      "line": 19,
+      "reading": "עַד",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 13,
+      "originalWord": "עשרה",
+      "column": "left",
+      "line": 19,
+      "reading": "עֲשָׂרָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 14,
+      "originalWord": "ועשרה",
+      "column": "left",
+      "line": 19,
+      "reading": "וַעֲשָׂרָה",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 15,
+      "originalWord": "אינן",
+      "column": "left",
+      "line": 19,
+      "reading": "אֵינָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 16,
+      "originalWord": "נחלקין",
+      "column": "left",
+      "line": 20,
+      "reading": "נֶחְלָקִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 17,
+      "originalWord": "עד",
+      "column": "left",
+      "line": 20,
+      "reading": "עַד",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 18,
+      "originalWord": "שיהוא",
+      "column": "left",
+      "line": 20,
+      "reading": "שֶׁיְּהוּא",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:4",
+      "wordIndex": 19,
+      "originalWord": "עשרים",
+      "column": "left",
+      "line": 20,
+      "reading": "עֶשְׂרִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 0,
+      "originalWord": "שתי",
+      "column": "left",
+      "line": 21,
+      "reading": "שְׁתֵּי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 1,
+      "originalWord": "חבורות",
+      "column": "left",
+      "line": 21,
+      "reading": "חֲבוּרוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 2,
+      "originalWord": "שהיו",
+      "column": "left",
+      "line": 21,
+      "reading": "שֶׁהָיוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 3,
+      "originalWord": "אוכלות",
+      "column": "left",
+      "line": 21,
+      "reading": "אוֹכְלוֹת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 4,
+      "originalWord": "בבית",
+      "column": "left",
+      "line": 21,
+      "reading": "בְּבַיִת",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 5,
+      "originalWord": "אחד",
+      "column": "left",
+      "line": 22,
+      "reading": "אֶחָד",
+      "status": "uncertain",
+      "notes": [
+        "Blindbild-Gegenlesung nach dem Accordance-Vergleich: Segol unter א und Qamatz unter ח deutlich. Erste Patach-Lesung korrigiert; Rafe-artiger Strich über ד bleibt gesondert zu prüfen.",
+        "Erstablesung: אַחַד; nun ausdrücklich partielle Lesung: אֶחָד."
+      ],
+      "initialReading": "אַחַד",
+      "initialStatus": "clear",
+      "observedFeatures": [
+        {
+          "letterIndex": 0,
+          "marks": [
+            "ֶ"
+          ],
+          "certainty": "clear"
+        },
+        {
+          "letterIndex": 1,
+          "marks": [
+            "ָ"
+          ],
+          "certainty": "clear"
+        }
+      ],
+      "accordanceCountercheck": {
+        "method": "Blind second image reading before consulting Accordance expected marks",
+        "initialReading": "אַחַד",
+        "reading": "אֶחָד",
+        "note": "Segol unter א und Qamatz unter ח deutlich. Erste Patach-Lesung korrigiert; Rafe-artiger Strich über ד bleibt gesondert zu prüfen.",
+        "result": "own-vowel-corrected"
+      }
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 6,
+      "originalWord": "בזמן",
+      "column": "left",
+      "line": 22,
+      "reading": "בִּזְמָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 7,
+      "originalWord": "שמקצתן",
+      "column": "left",
+      "line": 22,
+      "reading": "שֶׁמִּקְצָתָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 8,
+      "originalWord": "רואים",
+      "column": "left",
+      "line": 22,
+      "reading": "רוֹאִים",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 9,
+      "originalWord": "אלו",
+      "column": "left",
+      "line": 22,
+      "reading": "אֵלּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 10,
+      "originalWord": "את",
+      "column": "left",
+      "line": 23,
+      "reading": "אֶת",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 11,
+      "originalWord": "אלו",
+      "column": "left",
+      "line": 23,
+      "reading": "אֵלּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 12,
+      "originalWord": "הרי",
+      "column": "left",
+      "line": 23,
+      "reading": "הֲרֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 13,
+      "originalWord": "אלו",
+      "column": "left",
+      "line": 23,
+      "reading": "אֵלּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 14,
+      "originalWord": "מצטרפין",
+      "column": "left",
+      "line": 23,
+      "reading": "מִצְטָרְפִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 15,
+      "originalWord": "לזימון",
+      "column": "left",
+      "line": 23,
+      "reading": "לְזִימּוּן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 16,
+      "originalWord": "אם",
+      "column": "left",
+      "line": 24,
+      "reading": "אִם",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 17,
+      "originalWord": "לאו",
+      "column": "left",
+      "line": 24,
+      "reading": "לָאו",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 18,
+      "originalWord": "אילו",
+      "column": "left",
+      "line": 24,
+      "reading": "אֵילּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 19,
+      "originalWord": "מזמנין",
+      "column": "left",
+      "line": 24,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 20,
+      "originalWord": "לעצמן",
+      "column": "left",
+      "line": 24,
+      "reading": "לְעַצְמָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 21,
+      "originalWord": "ואילו",
+      "column": "left",
+      "line": 24,
+      "reading": "וְאֵילּוּ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 22,
+      "originalWord": "מזמנין",
+      "column": "left",
+      "line": 25,
+      "reading": "מְזַמְּנִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 23,
+      "originalWord": "לעצמן",
+      "column": "left",
+      "line": 25,
+      "reading": "לְעַצְמָן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 24,
+      "originalWord": "אי",
+      "column": "left",
+      "line": 25,
+      "reading": "אֵי",
+      "status": "uncertain",
+      "notes": [
+        "Eine sichtbare Form אין ist im Quellindex künstlich in אי/ן aufgeteilt; Punktierung des Gesamtwortes nicht sicher getrennt auf die Fragmente verteilbar."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 25,
+      "originalWord": "ן",
+      "column": "left",
+      "line": 25,
+      "reading": "ן",
+      "status": "uncertain",
+      "notes": [
+        "Eine sichtbare Form אין ist im Quellindex künstlich in אי/ן aufgeteilt; Punktierung des Gesamtwortes nicht sicher getrennt auf die Fragmente verteilbar."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 26,
+      "originalWord": "מברכין",
+      "column": "left",
+      "line": 25,
+      "reading": "מְבָרְכִין",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 27,
+      "originalWord": "על",
+      "column": "left",
+      "line": 25,
+      "reading": "עַל",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 28,
+      "originalWord": "היין",
+      "column": "left",
+      "line": 26,
+      "reading": "הַיַּיִן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 29,
+      "originalWord": "עד",
+      "column": "left",
+      "line": 26,
+      "reading": "עַד",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 30,
+      "originalWord": "שיתן",
+      "column": "left",
+      "line": 26,
+      "reading": "שֶׁיִּתֵּן",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 31,
+      "originalWord": "לתוכו",
+      "column": "left",
+      "line": 26,
+      "reading": "לְתוֹכוֹ",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 32,
+      "originalWord": "מים",
+      "column": "left",
+      "line": 26,
+      "reading": "מַיִם",
+      "status": "clear",
+      "notes": []
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 33,
+      "originalWord": "דברי",
+      "column": "left",
+      "line": 26,
+      "reading": "דִּבְרֵי",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    },
+    {
+      "ref": "7:5",
+      "wordIndex": 34,
+      "originalWord": "ר'",
+      "column": "left",
+      "line": 26,
+      "reading": "ר׳",
+      "status": "uncertain",
+      "notes": [
+        "Beobachtete Teilpunktierung. Vollständigkeit der feinen Binnen-/Schlusszeichen im JPEG nicht sicher; fehlende Transkriptionszeichen bedeuten keinen Nachweis ihrer Abwesenheit."
+      ]
+    }
+  ],
+  "unmapped": [
+    {
+      "column": "right",
+      "line": 4,
+      "reading": "ח׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 11,
+      "reading": "פ׳ ז׳ □",
+      "notes": [
+        "Ornamentierte Kapitelgliederung; Schlussgruppe der kleinen Buchstaben nicht sicher gelesen."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 16,
+      "reading": "ב׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 23,
+      "reading": "ד׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "right",
+      "line": 25,
+      "reading": "ב׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "left",
+      "line": 1,
+      "reading": "ה׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "left",
+      "line": 13,
+      "reading": "ו׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "left",
+      "line": 16,
+      "reading": "ז׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    },
+    {
+      "column": "left",
+      "line": 20,
+      "reading": "ח׳",
+      "notes": [
+        "Gliederungszeichen/Ornament außerhalb der diplomatischen Wortindizes."
+      ]
+    }
+  ],
+  "limitations": [
+    "AI visual review for human inspection; no claim of complete human manuscript verification. Original JPEG, all six full-column lossless crops and eleven additional close crops inspected.",
+    "Every physically present aligned diplomatic position is recorded, including positions whose candidate pointing agreed elsewhere. No Be’eri or Accordance reading was used to transcribe this image.",
+    "Uncertain readings are observed partial pointing, not complete normalized vocalizations. Unwritten vowels are not inferred; the absence of an untranscribed weak dot is not asserted. Close combinations of dagesh/rafe, vocalic dots and pen/scan specks often prevent a full certification.",
+    "Column/line numbers refer to 26 main text lines in each column. Chapter/mishnah labels and the ornamental chapter division are noted separately; no attribution of correcting hands is attempted.",
+    "The page begins inside 6:7, at diplomatic word 5 עמו, and ends inside 7:5, after word 34 ר'. Other words of these units are on adjacent folios and are not assigned records here.",
+    "Source token splits וה/וא, של/ש and אי/ן do not denote separate clearly isolated manuscript words; their fragment records explicitly preserve this alignment limitation.",
+    "Acht Stellen des Gesamtprojekts erhielten eine unabhängige Gegenlesung. Betroffene zunächst klare Lesungen sind hier wegen unvollständiger Zeichenfreigabe bzw. Widerspruch ausdrücklich unsicher; Erstlesungen bleiben dokumentiert."
+  ]
+}

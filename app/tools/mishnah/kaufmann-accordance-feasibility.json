@@ -1,0 +1,1206 @@
+{
+  "kind": "strict-accordance-pointing-transfer-feasibility",
+  "version": 1,
+  "scope": "All 57 Berakhot units; audit of Digital Mishnah originalWord only. Existing Be’eri-derived text/pointedWord fields are never donors or anchor criteria.",
+  "reference": {
+    "provenance": "Independent user-pasted Accordance surface text",
+    "sha256": "47fdd2eb361a960f1c7a42dcb6b8e6091caf1b7665bfb0ecfd90debed64e3f78",
+    "bytes": 34603,
+    "units": 57,
+    "explicitReferenceLabels": 56,
+    "inferredOpeningRef": "1:1",
+    "writtenIntoEdition": false,
+    "transferSimulationOnly": true
+  },
+  "source": {
+    "existingDatasetSha256": "f75f91678c6e393ed2e607342ae384af824322c58e1e671d07c90086bc8dbbd8",
+    "originalWordSequenceSha256": "37801de750899a9fc32204dc0719186fcd25dbbaf611ab73653161abb0987086",
+    "snapshotEditionTextHash": "cbe965860a3b7692196eb163f659136a1d46677aa55bb2dd38e40bcf5f9dd17f",
+    "snapshotEditionTextHashVerified": true,
+    "digitalMishnahDiplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+    "alignmentSha256": "84b480fa4aeb3da5409063d253183308ad96bc552fa27a6d43f1605391fcedc6",
+    "workingDatasetSha256": "865cba5546a6d22c69fe2bc9d703052a6da7b8367da05dcd56d9187724b39e6b",
+    "workingDatasetFile": "app/mishnah-kaufmann-accordance-data.js",
+    "workingEditionTextHash": "058d53e43ba2d78a1393553a7b03993ecf1ca7c4525adb9ef43494d95a31ba6e",
+    "workingEditionTextHashVerified": true,
+    "workingReferenceSha256": "47fdd2eb361a960f1c7a42dcb6b8e6091caf1b7665bfb0ecfd90debed64e3f78",
+    "workingSourceSummary": {
+      "chapters": 9,
+      "mishnayot": 57,
+      "totalWords": 2170,
+      "transferredWords": 1844,
+      "openWords": 326,
+      "meaning": "Provisional exact-character transfer from user-supplied Accordance pointing; no complete manuscript validation."
+    }
+  },
+  "method": {
+    "anchor": "Mandatory unique consonant-only LCS anchors per ref; both indices have one possible partner and cannot be skipped by an optimal alignment. No vowel equality selects anchors.",
+    "target": "Only originalWord; any target flag skips that word, not its unit.",
+    "reference": "Reject annotation-touched or suspect reference tokens; preserve raw offsets/markup. Numeric labels and bidi are search projection only.",
+    "transfer": "P.transferWord(originalWord, reference.raw), exact non-pointing characters, no apostrophe normalization. Unpointed reference words remain open.",
+    "indices": "targetWordIndex and referenceTokenIndex are zero-based within their respective unit word arrays.",
+    "statusPriority": [
+      "target-flagged-open",
+      "alignment-open",
+      "reference-annotation-open",
+      "reference-suspect-open",
+      "strict-character-mismatch-open",
+      "pointing-conflict-open",
+      "reference-unpointed-open",
+      "transferable",
+      "unchanged"
+    ]
+  },
+  "totals": {
+    "targetWords": 2170,
+    "mandatoryUniqueConsonantAnchors": 2072,
+    "targetWordsAlreadyPointed": 0,
+    "referenceTokens": 2174
+  },
+  "counts": {
+    "transferable": 1844,
+    "unchanged": 0,
+    "target-flagged-open": 89,
+    "alignment-open": 67,
+    "reference-annotation-open": 9,
+    "reference-suspect-open": 6,
+    "strict-character-mismatch-open": 151,
+    "pointing-conflict-open": 0,
+    "reference-unpointed-open": 4
+  },
+  "targetFlagCounts": {
+    "add": 83,
+    "choice": 2,
+    "del": 6
+  },
+  "strictCharacterMismatchNonLetterCodeGroups": {
+    "U+27, U+5F3": 149,
+    "U+5F3": 2
+  },
+  "pointingConflictReasons": {},
+  "referenceInventory": {
+    "annotationSpans": 117,
+    "annotationTouchedTokens": 127,
+    "invalidPointingTokens": 7,
+    "floatingMarkRanges": 0,
+    "unpointedTokens": 41,
+    "unpointedCleanTokens": 8,
+    "unpointedCleanKinds": {
+      "abbreviations": 4,
+      "ordinaryTokens": 4
+    },
+    "unpointedCleanPositions": [
+      {
+        "ref": "1:3",
+        "referenceTokenIndex": 20,
+        "rawStart": 1311,
+        "rawEnd": 1314
+      },
+      {
+        "ref": "2:1",
+        "referenceTokenIndex": 28,
+        "rawStart": 2811,
+        "rawEnd": 2813
+      },
+      {
+        "ref": "3:4",
+        "referenceTokenIndex": 19,
+        "rawStart": 5846,
+        "rawEnd": 5850
+      },
+      {
+        "ref": "7:3",
+        "referenceTokenIndex": 16,
+        "rawStart": 12743,
+        "rawEnd": 12747
+      },
+      {
+        "ref": "7:3",
+        "referenceTokenIndex": 30,
+        "rawStart": 12863,
+        "rawEnd": 12867
+      },
+      {
+        "ref": "7:3",
+        "referenceTokenIndex": 41,
+        "rawStart": 12955,
+        "rawEnd": 12959
+      },
+      {
+        "ref": "7:3",
+        "referenceTokenIndex": 54,
+        "rawStart": 13075,
+        "rawEnd": 13079
+      },
+      {
+        "ref": "7:3",
+        "referenceTokenIndex": 100,
+        "rawStart": 13467,
+        "rawEnd": 13471
+      }
+    ],
+    "strictlyEligibleUnpointedTargetPositions": [
+      {
+        "ref": "7:3",
+        "targetWordIndex": 16
+      },
+      {
+        "ref": "7:3",
+        "targetWordIndex": 30
+      },
+      {
+        "ref": "7:3",
+        "targetWordIndex": 41
+      },
+      {
+        "ref": "7:3",
+        "targetWordIndex": 54
+      }
+    ],
+    "unpointedSamples": [
+      {
+        "ref": "1:1",
+        "referenceTokenIndex": 65,
+        "annotationTouched": true,
+        "rawStart": 542,
+        "rawEnd": 548
+      },
+      {
+        "ref": "1:1",
+        "referenceTokenIndex": 66,
+        "annotationTouched": true,
+        "rawStart": 549,
+        "rawEnd": 554
+      },
+      {
+        "ref": "1:3",
+        "referenceTokenIndex": 20,
+        "annotationTouched": false,
+        "rawStart": 1311,
+        "rawEnd": 1314
+      },
+      {
+        "ref": "1:5",
+        "referenceTokenIndex": 1,
+        "annotationTouched": true,
+        "rawStart": 2126,
+        "rawEnd": 2131
+      },
+      {
+        "ref": "1:5",
+        "referenceTokenIndex": 49,
+        "annotationTouched": true,
+        "rawStart": 2509,
+        "rawEnd": 2514
+      },
+      {
+        "ref": "1:5",
+        "referenceTokenIndex": 50,
+        "annotationTouched": true,
+        "rawStart": 2515,
+        "rawEnd": 2518
+      },
+      {
+        "ref": "2:1",
+        "referenceTokenIndex": 28,
+        "annotationTouched": false,
+        "rawStart": 2811,
+        "rawEnd": 2813
+      },
+      {
+        "ref": "3:1",
+        "referenceTokenIndex": 23,
+        "annotationTouched": true,
+        "rawStart": 5118,
+        "rawEnd": 5121
+      },
+      {
+        "ref": "3:1",
+        "referenceTokenIndex": 24,
+        "annotationTouched": true,
+        "rawStart": 5122,
+        "rawEnd": 5124
+      },
+      {
+        "ref": "3:1",
+        "referenceTokenIndex": 25,
+        "annotationTouched": true,
+        "rawStart": 5125,
+        "rawEnd": 5130
+      },
+      {
+        "ref": "3:1",
+        "referenceTokenIndex": 32,
+        "annotationTouched": true,
+        "rawStart": 5184,
+        "rawEnd": 5187
+      },
+      {
+        "ref": "3:1",
+        "referenceTokenIndex": 33,
+        "annotationTouched": true,
+        "rawStart": 5188,
+        "rawEnd": 5191
+      }
+    ]
+  },
+  "perUnit": [
+    {
+      "ref": "1:1",
+      "words": 93,
+      "transferable": 87,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 1,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "1:2",
+      "words": 41,
+      "transferable": 34,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 1,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "1:3",
+      "words": 69,
+      "transferable": 53,
+      "unchanged": 0,
+      "target-flagged-open": 4,
+      "alignment-open": 6,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 6,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "1:4",
+      "words": 36,
+      "transferable": 34,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "1:5",
+      "words": 57,
+      "transferable": 47,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 3,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 1,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:1",
+      "words": 46,
+      "transferable": 43,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 3,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:2",
+      "words": 71,
+      "transferable": 67,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:3",
+      "words": 34,
+      "transferable": 28,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 6,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:4",
+      "words": 13,
+      "transferable": 13,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:5",
+      "words": 41,
+      "transferable": 39,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:6",
+      "words": 20,
+      "transferable": 19,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:7",
+      "words": 25,
+      "transferable": 24,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "2:8",
+      "words": 21,
+      "transferable": 16,
+      "unchanged": 0,
+      "target-flagged-open": 4,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "3:1",
+      "words": 39,
+      "transferable": 30,
+      "unchanged": 0,
+      "target-flagged-open": 7,
+      "alignment-open": 2,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "3:2",
+      "words": 23,
+      "transferable": 22,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "3:3",
+      "words": 14,
+      "transferable": 12,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "3:4",
+      "words": 23,
+      "transferable": 21,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "3:5",
+      "words": 50,
+      "transferable": 50,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "3:6",
+      "words": 15,
+      "transferable": 14,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:1",
+      "words": 34,
+      "transferable": 24,
+      "unchanged": 0,
+      "target-flagged-open": 6,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:2",
+      "words": 34,
+      "transferable": 31,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:3",
+      "words": 30,
+      "transferable": 23,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 6,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:4",
+      "words": 36,
+      "transferable": 28,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 6,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:5",
+      "words": 25,
+      "transferable": 23,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:6",
+      "words": 14,
+      "transferable": 12,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "4:7",
+      "words": 31,
+      "transferable": 25,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 6,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "5:1",
+      "words": 32,
+      "transferable": 32,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "5:2",
+      "words": 23,
+      "transferable": 19,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "5:3",
+      "words": 33,
+      "transferable": 32,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "5:4",
+      "words": 31,
+      "transferable": 29,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "5:5",
+      "words": 53,
+      "transferable": 46,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 2,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 3,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:1",
+      "words": 55,
+      "transferable": 46,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 7,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:2",
+      "words": 24,
+      "transferable": 23,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:3",
+      "words": 33,
+      "transferable": 23,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 4,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:4",
+      "words": 24,
+      "transferable": 14,
+      "unchanged": 0,
+      "target-flagged-open": 3,
+      "alignment-open": 3,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 4,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:5",
+      "words": 40,
+      "transferable": 37,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:6",
+      "words": 39,
+      "transferable": 37,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:7",
+      "words": 28,
+      "transferable": 28,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "6:8",
+      "words": 43,
+      "transferable": 28,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 3,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 1,
+      "strict-character-mismatch-open": 9,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "7:1",
+      "words": 42,
+      "transferable": 42,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "7:2",
+      "words": 17,
+      "transferable": 15,
+      "unchanged": 0,
+      "target-flagged-open": 0,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "7:3",
+      "words": 111,
+      "transferable": 75,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 2,
+      "reference-annotation-open": 7,
+      "reference-suspect-open": 2,
+      "strict-character-mismatch-open": 20,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 4
+    },
+    {
+      "ref": "7:4",
+      "words": 20,
+      "transferable": 19,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "7:5",
+      "words": 39,
+      "transferable": 34,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:1",
+      "words": 30,
+      "transferable": 28,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:2",
+      "words": 20,
+      "transferable": 17,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:3",
+      "words": 15,
+      "transferable": 4,
+      "unchanged": 0,
+      "target-flagged-open": 2,
+      "alignment-open": 8,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:4",
+      "words": 20,
+      "transferable": 4,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 13,
+      "reference-annotation-open": 1,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:5",
+      "words": 26,
+      "transferable": 22,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 3,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:6",
+      "words": 33,
+      "transferable": 31,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 0,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:7",
+      "words": 26,
+      "transferable": 22,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "8:8",
+      "words": 48,
+      "transferable": 43,
+      "unchanged": 0,
+      "target-flagged-open": 3,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 2,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "9:1",
+      "words": 24,
+      "transferable": 20,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 0,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 3,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "9:2",
+      "words": 66,
+      "transferable": 51,
+      "unchanged": 0,
+      "target-flagged-open": 4,
+      "alignment-open": 3,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 8,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "9:3",
+      "words": 62,
+      "transferable": 54,
+      "unchanged": 0,
+      "target-flagged-open": 4,
+      "alignment-open": 3,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "9:4",
+      "words": 23,
+      "transferable": 20,
+      "unchanged": 0,
+      "target-flagged-open": 1,
+      "alignment-open": 1,
+      "reference-annotation-open": 0,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 1,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    },
+    {
+      "ref": "9:5",
+      "words": 155,
+      "transferable": 130,
+      "unchanged": 0,
+      "target-flagged-open": 15,
+      "alignment-open": 3,
+      "reference-annotation-open": 1,
+      "reference-suspect-open": 0,
+      "strict-character-mismatch-open": 6,
+      "pointing-conflict-open": 0,
+      "reference-unpointed-open": 0
+    }
+  ],
+  "sampleOpenPositions": [
+    {
+      "ref": "1:1",
+      "targetWordIndex": 15,
+      "status": "target-flagged-open",
+      "reason": "Diplomatic target flags: add",
+      "targetFlags": [
+        "add"
+      ],
+      "referenceRange": null,
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 11,
+      "status": "target-flagged-open",
+      "reason": "Diplomatic target flags: add",
+      "targetFlags": [
+        "add"
+      ],
+      "referenceRange": null,
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 34,
+      "status": "target-flagged-open",
+      "reason": "Diplomatic target flags: add",
+      "targetFlags": [
+        "add"
+      ],
+      "referenceRange": {
+        "start": 1063,
+        "end": 1074
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 17,
+      "status": "alignment-open",
+      "reason": "No mandatory unique consonant-only 1:1 LCS edge.",
+      "targetFlags": [],
+      "referenceRange": null,
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 33,
+      "status": "alignment-open",
+      "reason": "No mandatory unique consonant-only 1:1 LCS edge.",
+      "targetFlags": [],
+      "referenceRange": null,
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:3",
+      "targetWordIndex": 38,
+      "status": "alignment-open",
+      "reason": "No mandatory unique consonant-only 1:1 LCS edge.",
+      "targetFlags": [],
+      "referenceRange": null,
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 26,
+      "status": "reference-annotation-open",
+      "reason": "Reference token touches preserved markup; no base-hand assumption.",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 12826,
+        "end": 12838
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 35,
+      "status": "reference-annotation-open",
+      "reason": "Reference token touches preserved markup; no base-hand assumption.",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 12900,
+        "end": 12912
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 46,
+      "status": "reference-annotation-open",
+      "reason": "Reference token touches preserved markup; no base-hand assumption.",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 12995,
+        "end": 13007
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 17,
+      "status": "reference-suspect-open",
+      "reason": "Pointing without a Hebrew-letter anchor",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 156,
+        "end": 164
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:2",
+      "targetWordIndex": 10,
+      "status": "reference-suspect-open",
+      "reason": "Pointing without a Hebrew-letter anchor",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 879,
+        "end": 888
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:5",
+      "targetWordIndex": 43,
+      "status": "reference-suspect-open",
+      "reason": "Pointing without a Hebrew-letter anchor",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 2469,
+        "end": 2476
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 18,
+      "status": "strict-character-mismatch-open",
+      "reason": "Non-pointing characters differ; punctuation/apostrophes are not normalized. Involved non-letter codes: U+27, U+5F3",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 165,
+        "end": 171
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 23,
+      "status": "strict-character-mismatch-open",
+      "reason": "Non-pointing characters differ; punctuation/apostrophes are not normalized. Involved non-letter codes: U+27, U+5F3",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 202,
+        "end": 208
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "1:1",
+      "targetWordIndex": 55,
+      "status": "strict-character-mismatch-open",
+      "reason": "Non-pointing characters differ; punctuation/apostrophes are not normalized. Involved non-letter codes: U+27, U+5F3",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 445,
+        "end": 452
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 16,
+      "status": "reference-unpointed-open",
+      "reason": "Strictly aligned reference contains no pointing marks; it cannot supply a vocalized word.",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 12743,
+        "end": 12747
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 30,
+      "status": "reference-unpointed-open",
+      "reason": "Strictly aligned reference contains no pointing marks; it cannot supply a vocalized word.",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 12863,
+        "end": 12867
+      },
+      "sourceAlreadyPointed": false
+    },
+    {
+      "ref": "7:3",
+      "targetWordIndex": 41,
+      "status": "reference-unpointed-open",
+      "reason": "Strictly aligned reference contains no pointing marks; it cannot supply a vocalized word.",
+      "targetFlags": [],
+      "referenceRange": {
+        "start": 12955,
+        "end": 12959
+      },
+      "sourceAlreadyPointed": false
+    }
+  ],
+  "warnings": [],
+  "limitations": [
+    "This is a mechanical feasibility audit, not a new edition, manuscript reading or philological approval.",
+    "No source words or punctuation were changed, and no pointing was copied into the dataset during this audit.",
+    "Whole units are never rejected because of one problematic token. Open words remain independent local gaps.",
+    "No complete pasted reference lines, pointed reference words, or raw private annotations are reproduced in this public aggregate."
+  ]
+}

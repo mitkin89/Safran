@@ -28,6 +28,8 @@ if(process.env.SAFRAN_SMOKE_MACC_ALIGNMENT==='1'){
 }
 if(process.env.SAFRAN_SMOKE_MISHNAH_CORPUS==='1'){for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);}
 if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){for(const title of require('../../mishnah-morph').titles)add(title,'he',/Kaufmann/);}
+if(process.env.SAFRAN_SMOKE_KAUFMANN_BERAKHOT==='1'||process.env.SAFRAN_SMOKE_KAUFMANN_IMAGES==='1'){add('Mishnah Berakhot','he',/^Kaufmann A50 \(Digital Mishnah\), vocalized after/);add('Mishnah Berakhot','he',/^Mishnah based on/);}
+if(process.env.SAFRAN_SMOKE_KAUFMANN_ACCORDANCE==='1'){add('Mishnah Berakhot','he',/^Kaufmann A50 \(Digital Mishnah\), provisional Accordance pointing$/);add('Mishnah Berakhot','he',/^Kaufmann A50 \(Digital Mishnah\), vocalized after/);add('Mishnah Berakhot','he',/^Mishnah based on/);}
 if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){add('Mishnah Berakhot','he',/Kaufmann/);add('Mishnah Berakhot','de',/Goldschmidt/);}
 if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
  for(const e of manifest.items.filter(e=>e.versionTitle==="Mishnah based on the Kaufmann manuscript, edited by Dan Be'eri"))add(e.title,'he',/Kaufmann/);
@@ -153,6 +155,9 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  }
  if(process.env.SAFRAN_SMOKE_MISHNAH_CORPUS==='1'){await require('./mishnah-corpus-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MISHNAH_ZERAIM==='1'){await require('./mishnah-zeraim-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_KAUFMANN_ACCORDANCE==='1'){await require('./kaufmann-accordance-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_KAUFMANN_IMAGES==='1'){await require('./kaufmann-image-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
+ if(process.env.SAFRAN_SMOKE_KAUFMANN_BERAKHOT==='1'){await require('./kaufmann-berakhot-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_MISHNAH_MORPH==='1'){await require('./mishnah-morph-flows.cjs')({docs,win,js,waitFor,book,dictionaryRequests:dictionaryFlows.requests});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_KAUFMANN==='1'){
   await require('./kaufmann-flows.cjs')({docs,win,js,waitFor,book});

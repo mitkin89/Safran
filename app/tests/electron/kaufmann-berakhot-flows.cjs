@@ -1,0 +1,32 @@
+'use strict';
+const assert=require('node:assert/strict'),D=require('../../mishnah-kaufmann-berakhot-data'),B=require('../../mishnah-morph-data'),M=require('../../mishnah-morph');
+module.exports=async({docs,win,js,waitFor,book})=>{
+ const title='Mishnah Berakhot',derived=[...docs.values()].find(d=>d.entry.versionTitle===D.edition),legacy=[...docs.values()].find(d=>d.entry.title===title&&d.entry.versionTitle===B.edition);
+ assert(derived&&legacy,'both actual editions loaded');
+ await book(title);await waitFor("document.querySelector('#rTitle').textContent.includes('Mishnah Berakhot')",'Berakhot');
+ const rels=[derived.entry.rel,legacy.entry.rel];
+ for(let n=0;n<8;n++){
+  const change=await js(`(()=>{const wanted=${JSON.stringify(rels)};return [...document.querySelectorAll('#verList input')].map(c=>({rel:c.dataset.rel,checked:c.checked,want:wanted.includes(c.dataset.rel)})).find(x=>x.want&&!x.checked)||[...document.querySelectorAll('#verList input')].map(c=>({rel:c.dataset.rel,checked:c.checked,want:wanted.includes(c.dataset.rel)})).find(x=>!x.want&&x.checked)})()`);
+  if(!change)break;
+  await js(`{const c=[...document.querySelectorAll('#verList input')].find(c=>c.dataset.rel===${JSON.stringify(change.rel)});c.click();}new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+ }
+ async function chapter(c){await js(`document.querySelector('#rSection').value='${c-1}';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))`);await waitFor(`document.querySelectorAll('#rOut .cell[data-mishnah-morph-ready]').length===${D.sources[title].chapters[c-1].length*2}`,'both editions chapter '+c).catch(async e=>{console.error(await js("[...document.querySelectorAll('#rOut .cell')].map(c=>({rel:c.dataset.rel,state:c.dataset.mishnahMorphState,ready:c.dataset.mishnahMorphReady,edition:c.dataset.mciEdition,words:c.querySelectorAll('.mhw').length}))"));throw e;});}
+ let units=0,cards=0,open=0,legacyCards=0;
+ for(let c=1;c<=9;c++){
+  await chapter(c);
+  const result=await js(`(()=>{const ds=window.MISHNAH_KAUFMANN_BERAKHOT_DATA,bs=window.MISHNAH_MORPH_DATA,rels=${JSON.stringify(rels)},out=[];for(const cell of document.querySelectorAll('#rOut .cell[data-mishnah-morph]')){const fresh=cell.dataset.rel===rels[0],m=Number(cell.closest('.row').dataset.l),d=fresh?ds:bs,ids=d.sources['Mishnah Berakhot'].chapters[${c-1}][m-1],ws=[...cell.querySelectorAll('.mhw')];if(ws.length!==ids.length)throw Error('token count '+m);const words=ws.map(w=>w.textContent);let opened=0;for(let i=0;i<ws.length;i++){ws[i].click();const p=document.querySelector('#mishnahMorphPopup');if(!p||p.querySelector('.mhm-word').textContent!==d.forms[ids[i]].word)throw Error('card position '+m+':'+i);if(fresh&&!p.textContent.includes('Digital Mishnah · Punktierung nach Be’eri · teilweise/offen'))throw Error('derived label');if(!fresh&&p.textContent.includes('Digital Mishnah · Punktierung nach Be’eri · teilweise/offen'))throw Error('legacy card crossed edition');if(fresh&&(()=>{const u=ds.units['${c}:'+m],t=window.MishnahMorph.tokens(u.offsetText)[i];return u.words.find(w=>w.start<=t.start&&w.end>=t.end)?.pointingStatus==='open'})()){if(!p.textContent.includes('Punktierung offen'))throw Error('missing open card');opened++;}else if(fresh&&p.querySelector('.mhm-analysis-note')?.textContent.includes(' · Punktierung offen'))throw Error('transferred card incorrectly open '+m+':'+i);}out.push({fresh,m,words,opened,base:[...cell.querySelectorAll('.mci-base-word')].map(w=>w.textContent),openMarks:cell.querySelectorAll('.mci-base-word[data-pointing-status=open]').length,witnesses:[...new Set([...cell.querySelectorAll('[data-tc-mishnah]')].map(w=>w.dataset.tcMishnah.split('|')[0]))]});}return out;})()`);
+  console.log('Electron derived Berakhot chapter '+c+': '+result.length+' edition cells checked.');
+  for(const r of result){const data=r.fresh?D:B,expected=data.sources[title].chapters[c-1][r.m-1].map(id=>data.forms[id].word);assert.deepEqual(r.words,expected,'exact source words '+c+':'+r.m);if(r.fresh){assert.deepEqual(r.base,D.units[c+':'+r.m].words.map(w=>w.text));assert.equal(r.openMarks,D.units[c+':'+r.m].words.filter(w=>w.pointingStatus==='open').length);for(const sig of ['D','P','C'])assert(r.witnesses.includes(sig),'witness '+sig);units++;cards+=r.words.length;open+=r.opened;}else legacyCards+=r.words.length;}
+ }
+ assert.equal(units,57);assert.equal(cards,2171);assert.equal(open,550);
+ // A stale derived index disables only its own cards; legacy stays available.
+ const savedHash=derived.textHash;derived.textHash='changed';await win.reload();await waitFor("document.querySelector('#rOut .cell[data-mishnah-morph]')",'reload changed source');
+ await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor(`(()=>{const cs=[...document.querySelectorAll('#rOut .cell[data-mishnah-morph]')];return cs.some(c=>c.dataset.rel===${JSON.stringify(derived.entry.rel)}&&c.dataset.mishnahMorphState==='source-mismatch'&&!c.querySelector('.mhw'))&&cs.some(c=>c.dataset.rel===${JSON.stringify(legacy.entry.rel)}&&c.querySelector('.mhw'));})()`,'edition-specific hash guard');
+ derived.textHash=savedHash;await win.reload();await waitFor("document.querySelector('#rOut .cell[data-mishnah-morph-ready]')",'reload restored source');await chapter(1);
+ // Plain reading and interlinear are the same source, with no lost open markers.
+ await js("document.querySelector('#ilBtn').click()");await waitFor("!document.querySelector('#ilPop').hidden",'witness menu');await js("document.querySelector('#ilPop [data-a=none]').click()");await waitFor("!document.querySelector('#rOut .mci-grid')&&document.querySelector('#rOut .mhw')",'plain source view');
+ const plain=await js(`(()=>{const c=[...document.querySelectorAll('#rOut .row[data-l="1"] .cell')].find(c=>c.dataset.rel===${JSON.stringify(derived.entry.rel)});return {words:[...c.querySelectorAll('.mhw')].map(w=>w.textContent),open:c.querySelectorAll('.kpt-open').length};})()`);
+ assert.deepEqual(plain.words,M.tokens(D.units['1:1'].offsetText).map(w=>w.word));assert.equal(plain.open,D.units['1:1'].words.filter(w=>w.pointingStatus==='open').length);
+ console.log('Electron derived Berakhot: '+units+' units, '+cards+' derived cards, '+legacyCards+' simultaneous legacy cards, '+open+' open markers, D/P/C and edition-specific hash guard passed.');
+};

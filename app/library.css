@@ -3120,3 +3120,6 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 
 .mci-note{margin:.6em 0;padding:.4em .6em;border-inline-start:2px solid var(--border,#444);font-size:.8em}
 .mci-note>summary{cursor:pointer;color:var(--muted,#999);font:14px/1.6 system-ui,sans-serif}
+
+/* Preserve source spelling while marking unresolved editorial pointing. */
+.kpt-open { text-decoration: underline dotted; text-underline-offset: .16em; }

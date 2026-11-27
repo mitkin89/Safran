@@ -1,0 +1,3097 @@
+{
+  "edition": "Kaufmann A50 (Digital Mishnah), provisional Accordance pointing",
+  "source": {
+    "rel": "own/Mishnah Berakhot/he/Kaufmann A50 (Digital Mishnah), provisional Accordance pointing.json",
+    "versionTitle": "Kaufmann A50 (Digital Mishnah), provisional Accordance pointing",
+    "textHash": "058d53e43ba2d78a1393553a7b03993ecf1ca7c4525adb9ef43494d95a31ba6e",
+    "diplomaticSha256": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+    "witnessSha256": {
+      "D": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+      "P": "b0b2c7b8e76ae49579b909ef3587cf0ddc6c9429965e2ab3badb1a4b926256c0",
+      "C": "e3dc0ee0ad5bcc2508105f3aa1e2be0ee17ca01a2cb02e7c4ad9804c5868e35a"
+    },
+    "vocalized": true,
+    "transferred": true,
+    "provisional": true,
+    "pointingDonor": "Accordance",
+    "referenceSha256": "47fdd2eb361a960f1c7a42dcb6b8e6091caf1b7665bfb0ecfd90debed64e3f78",
+    "analysisSourceTextHash": "cbe965860a3b7692196eb163f659136a1d46677aa55bb2dd38e40bcf5f9dd17f"
+  },
+  "summary": {
+    "chapters": 9,
+    "mishnayot": 57,
+    "totalWords": 2170,
+    "transferredWords": 1844,
+    "openWords": 326,
+    "meaning": "Provisional exact-character transfer from user-supplied Accordance pointing; no complete manuscript validation."
+  },
+  "coverage": {
+    "chapters": 9,
+    "mishnayot": 57,
+    "sourceWords": 2170,
+    "words": 2171,
+    "statuses": {
+      "partial": 153,
+      "candidate": 1051,
+      "ambiguous": 417,
+      "unresolved": 550
+    }
+  },
+  "openReasons": {
+    "no-unique-reference-anchor": 98,
+    "source-word-annotation": 89,
+    "reference-pointing-suspect": 7,
+    "Non-pointing characters differ": 151,
+    "reference-editorial-annotation": 65,
+    "reference-has-no-pointing": 4
+  },
+  "open": [
+    {
+      "id": "S07326.1.1.1.1/word/15",
+      "ref": "1:1",
+      "wordIndex": 15,
+      "originalWord": "י",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/17",
+      "ref": "1:1",
+      "wordIndex": 17,
+      "originalWord": "וחכ'",
+      "reasons": [
+        "reference-pointing-suspect"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/18",
+      "ref": "1:1",
+      "wordIndex": 18,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/23",
+      "ref": "1:1",
+      "wordIndex": 23,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/55",
+      "ref": "1:1",
+      "wordIndex": 55,
+      "originalWord": "חכמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.1/word/84",
+      "ref": "1:1",
+      "wordIndex": 84,
+      "originalWord": "חכמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/9",
+      "ref": "1:2",
+      "wordIndex": 9,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/10",
+      "ref": "1:2",
+      "wordIndex": 10,
+      "originalWord": "אליע",
+      "reasons": [
+        "reference-pointing-suspect"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/11",
+      "ref": "1:2",
+      "wordIndex": 11,
+      "originalWord": "ז'",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/12",
+      "ref": "1:2",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/19",
+      "ref": "1:2",
+      "wordIndex": 19,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/21",
+      "ref": "1:2",
+      "wordIndex": 21,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.2/word/34",
+      "ref": "1:2",
+      "wordIndex": 34,
+      "originalWord": "ואילך",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/2",
+      "ref": "1:3",
+      "wordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/4",
+      "ref": "1:3",
+      "wordIndex": 4,
+      "originalWord": "כל",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/5",
+      "ref": "1:3",
+      "wordIndex": 5,
+      "originalWord": "אדם",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/10",
+      "ref": "1:3",
+      "wordIndex": 10,
+      "originalWord": "שנ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/15",
+      "ref": "1:3",
+      "wordIndex": 15,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/17",
+      "ref": "1:3",
+      "wordIndex": 17,
+      "originalWord": "אד",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/18",
+      "ref": "1:3",
+      "wordIndex": 18,
+      "originalWord": "ם",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/21",
+      "ref": "1:3",
+      "wordIndex": 21,
+      "originalWord": "שנ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/33",
+      "ref": "1:3",
+      "wordIndex": 33,
+      "originalWord": "בני",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/38",
+      "ref": "1:3",
+      "wordIndex": 38,
+      "originalWord": "בני",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/41",
+      "ref": "1:3",
+      "wordIndex": 41,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/42",
+      "ref": "1:3",
+      "wordIndex": 42,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/53",
+      "ref": "1:3",
+      "wordIndex": 53,
+      "originalWord": "וס",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/54",
+      "ref": "1:3",
+      "wordIndex": 54,
+      "originalWord": "יכנתי",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/66",
+      "ref": "1:3",
+      "wordIndex": 66,
+      "originalWord": "דברי",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.3/word/67",
+      "ref": "1:3",
+      "wordIndex": 67,
+      "originalWord": "בית",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/6",
+      "ref": "1:4",
+      "wordIndex": 6,
+      "originalWord": "ובערב",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.4/word/31",
+      "ref": "1:4",
+      "wordIndex": 31,
+      "originalWord": "ושלא",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/1",
+      "ref": "1:5",
+      "wordIndex": 1,
+      "originalWord": "יציאת",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/4",
+      "ref": "1:5",
+      "wordIndex": 4,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/5",
+      "ref": "1:5",
+      "wordIndex": 5,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/24",
+      "ref": "1:5",
+      "wordIndex": 24,
+      "originalWord": "שנ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/31",
+      "ref": "1:5",
+      "wordIndex": 31,
+      "originalWord": "מצר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/43",
+      "ref": "1:5",
+      "wordIndex": 43,
+      "originalWord": "אומ'",
+      "reasons": [
+        "reference-pointing-suspect"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/46",
+      "ref": "1:5",
+      "wordIndex": 46,
+      "originalWord": "העולם",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/47",
+      "ref": "1:5",
+      "wordIndex": 47,
+      "originalWord": "הזה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/55",
+      "ref": "1:5",
+      "wordIndex": 55,
+      "originalWord": "העולם",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.1.5/word/56",
+      "ref": "1:5",
+      "wordIndex": 56,
+      "originalWord": "הבא",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/26",
+      "ref": "2:1",
+      "wordIndex": 26,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/28",
+      "ref": "2:1",
+      "wordIndex": 28,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.1/word/30",
+      "ref": "2:1",
+      "wordIndex": 30,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/24",
+      "ref": "2:2",
+      "wordIndex": 24,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/26",
+      "ref": "2:2",
+      "wordIndex": 26,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/33",
+      "ref": "2:2",
+      "wordIndex": 33,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.2/word/34",
+      "ref": "2:2",
+      "wordIndex": 34,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/7",
+      "ref": "2:3",
+      "wordIndex": 7,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/9",
+      "ref": "2:3",
+      "wordIndex": 9,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/16",
+      "ref": "2:3",
+      "wordIndex": 16,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/18",
+      "ref": "2:3",
+      "wordIndex": 18,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/20",
+      "ref": "2:3",
+      "wordIndex": 20,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.3/word/22",
+      "ref": "2:3",
+      "wordIndex": 22,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/15",
+      "ref": "2:5",
+      "wordIndex": 15,
+      "originalWord": "גמליא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.5/word/30",
+      "ref": "2:5",
+      "wordIndex": 30,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.6/word/12",
+      "ref": "2:6",
+      "wordIndex": 12,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.7/word/15",
+      "ref": "2:7",
+      "wordIndex": 15,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/9",
+      "ref": "2:8",
+      "wordIndex": 9,
+      "originalWord": "רבן",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/10",
+      "ref": "2:8",
+      "wordIndex": 10,
+      "originalWord": "שמעון",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/11",
+      "ref": "2:8",
+      "wordIndex": 11,
+      "originalWord": "בן",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/12",
+      "ref": "2:8",
+      "wordIndex": 12,
+      "originalWord": "גמליאל",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.2.8/word/13",
+      "ref": "2:8",
+      "wordIndex": 13,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/19",
+      "ref": "3:1",
+      "wordIndex": 19,
+      "originalWord": "המטה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/20",
+      "ref": "3:1",
+      "wordIndex": 20,
+      "originalWord": "נ׳א׳",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/21",
+      "ref": "3:1",
+      "wordIndex": 21,
+      "originalWord": "את",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/22",
+      "ref": "3:1",
+      "wordIndex": 22,
+      "originalWord": "שלמטה",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/23",
+      "ref": "3:1",
+      "wordIndex": 23,
+      "originalWord": "המטה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/27",
+      "ref": "3:1",
+      "wordIndex": 27,
+      "originalWord": "נ׳א׳",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/28",
+      "ref": "3:1",
+      "wordIndex": 28,
+      "originalWord": "ואת",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/29",
+      "ref": "3:1",
+      "wordIndex": 29,
+      "originalWord": "שלאחר",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.1/word/30",
+      "ref": "3:1",
+      "wordIndex": 30,
+      "originalWord": "המטה",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.2/word/10",
+      "ref": "3:2",
+      "wordIndex": 10,
+      "originalWord": "יגיעו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "reference-pointing-suspect",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/3",
+      "ref": "3:3",
+      "wordIndex": 3,
+      "originalWord": "פטורי",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.3/word/4",
+      "ref": "3:3",
+      "wordIndex": 4,
+      "originalWord": "ם",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.4/word/17",
+      "ref": "3:4",
+      "wordIndex": 17,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.4/word/19",
+      "ref": "3:4",
+      "wordIndex": 19,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.3.6/word/12",
+      "ref": "3:6",
+      "wordIndex": 12,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/4",
+      "ref": "4:1",
+      "wordIndex": 4,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/6",
+      "ref": "4:1",
+      "wordIndex": 6,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/14",
+      "ref": "4:1",
+      "wordIndex": 14,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/16",
+      "ref": "4:1",
+      "wordIndex": 16,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/28",
+      "ref": "4:1",
+      "wordIndex": 28,
+      "originalWord": "ר'",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/29",
+      "ref": "4:1",
+      "wordIndex": 29,
+      "originalWord": "יהודה",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/30",
+      "ref": "4:1",
+      "wordIndex": 30,
+      "originalWord": "אומ'",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/31",
+      "ref": "4:1",
+      "wordIndex": 31,
+      "originalWord": "עד",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/32",
+      "ref": "4:1",
+      "wordIndex": 32,
+      "originalWord": "שבע",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.1/word/33",
+      "ref": "4:1",
+      "wordIndex": 33,
+      "originalWord": "שעות",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/0",
+      "ref": "4:2",
+      "wordIndex": 0,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/9",
+      "ref": "4:2",
+      "wordIndex": 9,
+      "originalWord": "וביציאתו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.2/word/18",
+      "ref": "4:2",
+      "wordIndex": 18,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/1",
+      "ref": "4:3",
+      "wordIndex": 1,
+      "originalWord": "גמליא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/2",
+      "ref": "4:3",
+      "wordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/9",
+      "ref": "4:3",
+      "wordIndex": 9,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/11",
+      "ref": "4:3",
+      "wordIndex": 11,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/15",
+      "ref": "4:3",
+      "wordIndex": 15,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/16",
+      "ref": "4:3",
+      "wordIndex": 16,
+      "originalWord": "עקיבה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.3/word/17",
+      "ref": "4:3",
+      "wordIndex": 17,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/0",
+      "ref": "4:4",
+      "wordIndex": 0,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/2",
+      "ref": "4:4",
+      "wordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/9",
+      "ref": "4:4",
+      "wordIndex": 9,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/11",
+      "ref": "4:4",
+      "wordIndex": 11,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/18",
+      "ref": "4:4",
+      "wordIndex": 18,
+      "originalWord": "ואומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/24",
+      "ref": "4:4",
+      "wordIndex": 24,
+      "originalWord": "ישרא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/27",
+      "ref": "4:4",
+      "wordIndex": 27,
+      "originalWord": "ה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.4/word/28",
+      "ref": "4:4",
+      "wordIndex": 28,
+      "originalWord": "עיבור",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.5/word/22",
+      "ref": "4:5",
+      "wordIndex": 22,
+      "originalWord": "בית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.5/word/23",
+      "ref": "4:5",
+      "wordIndex": 23,
+      "originalWord": "קודש",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.6/word/3",
+      "ref": "4:6",
+      "wordIndex": 3,
+      "originalWord": "או",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.6/word/4",
+      "ref": "4:6",
+      "wordIndex": 4,
+      "originalWord": "בקרון",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/0",
+      "ref": "4:7",
+      "wordIndex": 0,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/4",
+      "ref": "4:7",
+      "wordIndex": 4,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/11",
+      "ref": "4:7",
+      "wordIndex": 11,
+      "originalWord": "וחכמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/12",
+      "ref": "4:7",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/18",
+      "ref": "4:7",
+      "wordIndex": 18,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.4.7/word/20",
+      "ref": "4:7",
+      "wordIndex": 20,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/12",
+      "ref": "5:2",
+      "wordIndex": 12,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/14",
+      "ref": "5:2",
+      "wordIndex": 14,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/19",
+      "ref": "5:2",
+      "wordIndex": 19,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.2/word/21",
+      "ref": "5:2",
+      "wordIndex": 21,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.3/word/4",
+      "ref": "5:3",
+      "wordIndex": 4,
+      "originalWord": "יגיעו",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/22",
+      "ref": "5:4",
+      "wordIndex": 22,
+      "originalWord": "ה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.4/word/23",
+      "ref": "5:4",
+      "wordIndex": 23,
+      "originalWord": "יא",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/6",
+      "ref": "5:5",
+      "wordIndex": 6,
+      "originalWord": "של",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/7",
+      "ref": "5:5",
+      "wordIndex": 7,
+      "originalWord": "יח",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/19",
+      "ref": "5:5",
+      "wordIndex": 19,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/27",
+      "ref": "5:5",
+      "wordIndex": 27,
+      "originalWord": "ואומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/29",
+      "ref": "5:5",
+      "wordIndex": 29,
+      "originalWord": "חיי",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/36",
+      "ref": "5:5",
+      "wordIndex": 36,
+      "originalWord": "יודע",
+      "reasons": [
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.5.5/word/37",
+      "ref": "5:5",
+      "wordIndex": 37,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/8",
+      "ref": "6:1",
+      "wordIndex": 8,
+      "originalWord": "או'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/18",
+      "ref": "6:1",
+      "wordIndex": 18,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/26",
+      "ref": "6:1",
+      "wordIndex": 26,
+      "originalWord": "או'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/36",
+      "ref": "6:1",
+      "wordIndex": 36,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/44",
+      "ref": "6:1",
+      "wordIndex": 44,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/48",
+      "ref": "6:1",
+      "wordIndex": 48,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/49",
+      "ref": "6:1",
+      "wordIndex": 49,
+      "originalWord": "י",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/50",
+      "ref": "6:1",
+      "wordIndex": 50,
+      "originalWord": "הודה",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.1/word/51",
+      "ref": "6:1",
+      "wordIndex": 51,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.2/word/8",
+      "ref": "6:2",
+      "wordIndex": 8,
+      "originalWord": "ועל",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/3",
+      "ref": "6:3",
+      "wordIndex": 3,
+      "originalWord": "גידול",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/4",
+      "ref": "6:3",
+      "wordIndex": 4,
+      "originalWord": "יו",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/5",
+      "ref": "6:3",
+      "wordIndex": 5,
+      "originalWord": "מן",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/6",
+      "ref": "6:3",
+      "wordIndex": 6,
+      "originalWord": "הארץ",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/7",
+      "ref": "6:3",
+      "wordIndex": 7,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/18",
+      "ref": "6:3",
+      "wordIndex": 18,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/22",
+      "ref": "6:3",
+      "wordIndex": 22,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/23",
+      "ref": "6:3",
+      "wordIndex": 23,
+      "originalWord": "י",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/24",
+      "ref": "6:3",
+      "wordIndex": 24,
+      "originalWord": "הודה",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.3/word/25",
+      "ref": "6:3",
+      "wordIndex": 25,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/1",
+      "ref": "6:4",
+      "wordIndex": 1,
+      "originalWord": "לפני",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/2",
+      "ref": "6:4",
+      "wordIndex": 2,
+      "originalWord": "ו",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/5",
+      "ref": "6:4",
+      "wordIndex": 5,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/6",
+      "ref": "6:4",
+      "wordIndex": 6,
+      "originalWord": "י",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/7",
+      "ref": "6:4",
+      "wordIndex": 7,
+      "originalWord": "הודה",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/8",
+      "ref": "6:4",
+      "wordIndex": 8,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/17",
+      "ref": "6:4",
+      "wordIndex": 17,
+      "originalWord": "וחכמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/18",
+      "ref": "6:4",
+      "wordIndex": 18,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/19",
+      "ref": "6:4",
+      "wordIndex": 19,
+      "originalWord": "מברך",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.4/word/21",
+      "ref": "6:4",
+      "wordIndex": 21,
+      "originalWord": "איזה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/25",
+      "ref": "6:5",
+      "wordIndex": 25,
+      "originalWord": "הפרפר",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/26",
+      "ref": "6:5",
+      "wordIndex": 26,
+      "originalWord": "יות",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.5/word/35",
+      "ref": "6:5",
+      "wordIndex": 35,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.6/word/10",
+      "ref": "6:6",
+      "wordIndex": 10,
+      "originalWord": "לכולם",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.6/word/26",
+      "ref": "6:6",
+      "wordIndex": 26,
+      "originalWord": "ואומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/8",
+      "ref": "6:8",
+      "wordIndex": 8,
+      "originalWord": "דב'",
+      "reasons": [
+        "reference-pointing-suspect"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/9",
+      "ref": "6:8",
+      "wordIndex": 9,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/10",
+      "ref": "6:8",
+      "wordIndex": 10,
+      "originalWord": "גמליא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/11",
+      "ref": "6:8",
+      "wordIndex": 11,
+      "originalWord": "וחכ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/12",
+      "ref": "6:8",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/15",
+      "ref": "6:8",
+      "wordIndex": 15,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/17",
+      "ref": "6:8",
+      "wordIndex": 17,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/21",
+      "ref": "6:8",
+      "wordIndex": 21,
+      "originalWord": "וה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/22",
+      "ref": "6:8",
+      "wordIndex": 22,
+      "originalWord": "וא",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/26",
+      "ref": "6:8",
+      "wordIndex": 26,
+      "originalWord": "של",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/27",
+      "ref": "6:8",
+      "wordIndex": 27,
+      "originalWord": "ש",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/32",
+      "ref": "6:8",
+      "wordIndex": 32,
+      "originalWord": "או'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/36",
+      "ref": "6:8",
+      "wordIndex": 36,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/38",
+      "ref": "6:8",
+      "wordIndex": 38,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.6.8/word/41",
+      "ref": "6:8",
+      "wordIndex": 41,
+      "originalWord": "רבות",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.2/word/12",
+      "ref": "7:2",
+      "wordIndex": 12,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.2/word/14",
+      "ref": "7:2",
+      "wordIndex": 14,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/3",
+      "ref": "7:3",
+      "wordIndex": 3,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/7",
+      "ref": "7:3",
+      "wordIndex": 7,
+      "originalWord": "או'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/10",
+      "ref": "7:3",
+      "wordIndex": 10,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/15",
+      "ref": "7:3",
+      "wordIndex": 15,
+      "originalWord": "אומר",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/16",
+      "ref": "7:3",
+      "wordIndex": 16,
+      "originalWord": "ברכו",
+      "reasons": [
+        "reference-has-no-pointing"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/19",
+      "ref": "7:3",
+      "wordIndex": 19,
+      "originalWord": "ואחד",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/23",
+      "ref": "7:3",
+      "wordIndex": 23,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/26",
+      "ref": "7:3",
+      "wordIndex": 26,
+      "originalWord": "אלהינו",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/30",
+      "ref": "7:3",
+      "wordIndex": 30,
+      "originalWord": "ברכו",
+      "reasons": [
+        "reference-has-no-pointing"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/32",
+      "ref": "7:3",
+      "wordIndex": 32,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/35",
+      "ref": "7:3",
+      "wordIndex": 35,
+      "originalWord": "אלהינו",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/37",
+      "ref": "7:3",
+      "wordIndex": 37,
+      "originalWord": "ישרא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/40",
+      "ref": "7:3",
+      "wordIndex": 40,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/41",
+      "ref": "7:3",
+      "wordIndex": 41,
+      "originalWord": "ברכו",
+      "reasons": [
+        "reference-has-no-pointing"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/43",
+      "ref": "7:3",
+      "wordIndex": 43,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/46",
+      "ref": "7:3",
+      "wordIndex": 46,
+      "originalWord": "אלהינו",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/47",
+      "ref": "7:3",
+      "wordIndex": 47,
+      "originalWord": "אלהי",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/48",
+      "ref": "7:3",
+      "wordIndex": 48,
+      "originalWord": "ישרא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/49",
+      "ref": "7:3",
+      "wordIndex": 49,
+      "originalWord": "אלהי",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/53",
+      "ref": "7:3",
+      "wordIndex": 53,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/54",
+      "ref": "7:3",
+      "wordIndex": 54,
+      "originalWord": "ברכו",
+      "reasons": [
+        "reference-has-no-pointing"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/61",
+      "ref": "7:3",
+      "wordIndex": 61,
+      "originalWord": "ב'",
+      "reasons": [
+        "reference-pointing-suspect"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/63",
+      "ref": "7:3",
+      "wordIndex": 63,
+      "originalWord": "אלהינו",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/64",
+      "ref": "7:3",
+      "wordIndex": 64,
+      "originalWord": "אלהי",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/65",
+      "ref": "7:3",
+      "wordIndex": 65,
+      "originalWord": "ישר'",
+      "reasons": [
+        "reference-pointing-suspect"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/66",
+      "ref": "7:3",
+      "wordIndex": 66,
+      "originalWord": "אלהי",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/73",
+      "ref": "7:3",
+      "wordIndex": 73,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/76",
+      "ref": "7:3",
+      "wordIndex": 76,
+      "originalWord": "או'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/82",
+      "ref": "7:3",
+      "wordIndex": 82,
+      "originalWord": "שנ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/88",
+      "ref": "7:3",
+      "wordIndex": 88,
+      "originalWord": "ישרא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/89",
+      "ref": "7:3",
+      "wordIndex": 89,
+      "originalWord": "אמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/90",
+      "ref": "7:3",
+      "wordIndex": 90,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/100",
+      "ref": "7:3",
+      "wordIndex": 100,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/104",
+      "ref": "7:3",
+      "wordIndex": 104,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/105",
+      "ref": "7:3",
+      "wordIndex": 105,
+      "originalWord": "ישמעא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.3/word/106",
+      "ref": "7:3",
+      "wordIndex": 106,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.4/word/14",
+      "ref": "7:4",
+      "wordIndex": 14,
+      "originalWord": "ועשרה",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/24",
+      "ref": "7:5",
+      "wordIndex": 24,
+      "originalWord": "אי",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/25",
+      "ref": "7:5",
+      "wordIndex": 25,
+      "originalWord": "ן",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/31",
+      "ref": "7:5",
+      "wordIndex": 31,
+      "originalWord": "לתוכו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/34",
+      "ref": "7:5",
+      "wordIndex": 34,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.7.5/word/36",
+      "ref": "7:5",
+      "wordIndex": 36,
+      "originalWord": "וחכמ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.1/word/19",
+      "ref": "8:1",
+      "wordIndex": 19,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.1/word/21",
+      "ref": "8:1",
+      "wordIndex": 21,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/2",
+      "ref": "8:2",
+      "wordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/10",
+      "ref": "8:2",
+      "wordIndex": 10,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.2/word/12",
+      "ref": "8:2",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/2",
+      "ref": "8:3",
+      "wordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/3",
+      "ref": "8:3",
+      "wordIndex": 3,
+      "originalWord": "מקניח",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/5",
+      "ref": "8:3",
+      "wordIndex": 5,
+      "originalWord": "ידיו",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/6",
+      "ref": "8:3",
+      "wordIndex": 6,
+      "originalWord": "במפה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/7",
+      "ref": "8:3",
+      "wordIndex": 7,
+      "originalWord": "ומניחה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/8",
+      "ref": "8:3",
+      "wordIndex": 8,
+      "originalWord": "על",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/9",
+      "ref": "8:3",
+      "wordIndex": 9,
+      "originalWord": "השולחן",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/10",
+      "ref": "8:3",
+      "wordIndex": 10,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/12",
+      "ref": "8:3",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/13",
+      "ref": "8:3",
+      "wordIndex": 13,
+      "originalWord": "על",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.3/word/14",
+      "ref": "8:3",
+      "wordIndex": 14,
+      "originalWord": "הכסת",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/2",
+      "ref": "8:4",
+      "wordIndex": 2,
+      "originalWord": "אומ'",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/3",
+      "ref": "8:4",
+      "wordIndex": 3,
+      "originalWord": "מכבדין",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/5",
+      "ref": "8:4",
+      "wordIndex": 5,
+      "originalWord": "הבית",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/6",
+      "ref": "8:4",
+      "wordIndex": 6,
+      "originalWord": "ואחר",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/7",
+      "ref": "8:4",
+      "wordIndex": 7,
+      "originalWord": "כך",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/8",
+      "ref": "8:4",
+      "wordIndex": 8,
+      "originalWord": "נוטלים",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/9",
+      "ref": "8:4",
+      "wordIndex": 9,
+      "originalWord": "לידים",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/10",
+      "ref": "8:4",
+      "wordIndex": 10,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/12",
+      "ref": "8:4",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/13",
+      "ref": "8:4",
+      "wordIndex": 13,
+      "originalWord": "נוטלים",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/14",
+      "ref": "8:4",
+      "wordIndex": 14,
+      "originalWord": "לידים",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/15",
+      "ref": "8:4",
+      "wordIndex": 15,
+      "originalWord": "ואחר",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/16",
+      "ref": "8:4",
+      "wordIndex": 16,
+      "originalWord": "כך",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/17",
+      "ref": "8:4",
+      "wordIndex": 17,
+      "originalWord": "מכבדין",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/18",
+      "ref": "8:4",
+      "wordIndex": 18,
+      "originalWord": "את",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.4/word/19",
+      "ref": "8:4",
+      "wordIndex": 19,
+      "originalWord": "הבית",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/7",
+      "ref": "8:5",
+      "wordIndex": 7,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/9",
+      "ref": "8:5",
+      "wordIndex": 9,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/16",
+      "ref": "8:5",
+      "wordIndex": 16,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.5/word/22",
+      "ref": "8:5",
+      "wordIndex": 22,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.6/word/9",
+      "ref": "8:6",
+      "wordIndex": 9,
+      "originalWord": "ע'ע'ז'",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.6/word/26",
+      "ref": "8:6",
+      "wordIndex": 26,
+      "originalWord": "אין",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/7",
+      "ref": "8:7",
+      "wordIndex": 7,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/11",
+      "ref": "8:7",
+      "wordIndex": 11,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/13",
+      "ref": "8:7",
+      "wordIndex": 13,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.7/word/25",
+      "ref": "8:7",
+      "wordIndex": 25,
+      "originalWord": "במעיו",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/12",
+      "ref": "8:8",
+      "wordIndex": 12,
+      "originalWord": "אומ'",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/21",
+      "ref": "8:8",
+      "wordIndex": 21,
+      "originalWord": "ובית",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/23",
+      "ref": "8:8",
+      "wordIndex": 23,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/35",
+      "ref": "8:8",
+      "wordIndex": 35,
+      "originalWord": "ישרא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.8.8/word/37",
+      "ref": "8:8",
+      "wordIndex": 37,
+      "originalWord": "ואין",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/3",
+      "ref": "9:1",
+      "wordIndex": 3,
+      "originalWord": "בו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/5",
+      "ref": "9:1",
+      "wordIndex": 5,
+      "originalWord": "לישרא'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/6",
+      "ref": "9:1",
+      "wordIndex": 6,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.1/word/18",
+      "ref": "9:1",
+      "wordIndex": 18,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/3",
+      "ref": "9:2",
+      "wordIndex": 3,
+      "originalWord": "הזועות",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/4",
+      "ref": "9:2",
+      "wordIndex": 4,
+      "originalWord": "ועל",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/15",
+      "ref": "9:2",
+      "wordIndex": 15,
+      "originalWord": "עולם",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/16",
+      "ref": "9:2",
+      "wordIndex": 16,
+      "originalWord": "על",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/24",
+      "ref": "9:2",
+      "wordIndex": 24,
+      "originalWord": "ועל",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/27",
+      "ref": "9:2",
+      "wordIndex": 27,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/31",
+      "ref": "9:2",
+      "wordIndex": 31,
+      "originalWord": "ר'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/33",
+      "ref": "9:2",
+      "wordIndex": 33,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/38",
+      "ref": "9:2",
+      "wordIndex": 38,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/46",
+      "ref": "9:2",
+      "wordIndex": 46,
+      "originalWord": "רואהו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/54",
+      "ref": "9:2",
+      "wordIndex": 54,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/55",
+      "ref": "9:2",
+      "wordIndex": 55,
+      "originalWord": "ב'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/58",
+      "ref": "9:2",
+      "wordIndex": 58,
+      "originalWord": "ועל",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/62",
+      "ref": "9:2",
+      "wordIndex": 62,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.2/word/63",
+      "ref": "9:2",
+      "wordIndex": 63,
+      "originalWord": "ב'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/6",
+      "ref": "9:3",
+      "wordIndex": 6,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/8",
+      "ref": "9:3",
+      "wordIndex": 8,
+      "originalWord": "שהיגיענו",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/14",
+      "ref": "9:3",
+      "wordIndex": 14,
+      "originalWord": "מעין",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/16",
+      "ref": "9:3",
+      "wordIndex": 16,
+      "originalWord": "הט",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/17",
+      "ref": "9:3",
+      "wordIndex": 17,
+      "originalWord": "ובה",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/18",
+      "ref": "9:3",
+      "wordIndex": 18,
+      "originalWord": "ועל",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/33",
+      "ref": "9:3",
+      "wordIndex": 33,
+      "originalWord": "ואמ'",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.3/word/50",
+      "ref": "9:3",
+      "wordIndex": 50,
+      "originalWord": "ואמ'",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/6",
+      "ref": "9:4",
+      "wordIndex": 6,
+      "originalWord": "ואח",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/7",
+      "ref": "9:4",
+      "wordIndex": 7,
+      "originalWord": "ת",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.4/word/11",
+      "ref": "9:4",
+      "wordIndex": 11,
+      "originalWord": "אומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/4",
+      "ref": "9:5",
+      "wordIndex": 4,
+      "originalWord": "כשם",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/9",
+      "ref": "9:5",
+      "wordIndex": 9,
+      "originalWord": "שנ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/13",
+      "ref": "9:5",
+      "wordIndex": 13,
+      "originalWord": "אלהיך",
+      "reasons": [
+        "reference-editorial-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/30",
+      "ref": "9:5",
+      "wordIndex": 30,
+      "originalWord": "אפיל",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/31",
+      "ref": "9:5",
+      "wordIndex": 31,
+      "originalWord": "ו",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/52",
+      "ref": "9:5",
+      "wordIndex": 52,
+      "originalWord": "מודה",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/71",
+      "ref": "9:5",
+      "wordIndex": 71,
+      "originalWord": "לא",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/83",
+      "ref": "9:5",
+      "wordIndex": 83,
+      "originalWord": "קפנדרייה",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/85",
+      "ref": "9:5",
+      "wordIndex": 85,
+      "originalWord": "מקל",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/95",
+      "ref": "9:5",
+      "wordIndex": 95,
+      "originalWord": "משקלקלו",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/97",
+      "ref": "9:5",
+      "wordIndex": 97,
+      "originalWord": "ואמרו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/110",
+      "ref": "9:5",
+      "wordIndex": 110,
+      "originalWord": "שיהא",
+      "reasons": [
+        "no-unique-reference-anchor",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/117",
+      "ref": "9:5",
+      "wordIndex": 117,
+      "originalWord": "שנ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/127",
+      "ref": "9:5",
+      "wordIndex": 127,
+      "originalWord": "ויאמר",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/131",
+      "ref": "9:5",
+      "wordIndex": 131,
+      "originalWord": "ואומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/136",
+      "ref": "9:5",
+      "wordIndex": 136,
+      "originalWord": "ואומ'",
+      "reasons": [
+        "Non-pointing characters differ"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/138",
+      "ref": "9:5",
+      "wordIndex": 138,
+      "originalWord": "תבוז",
+      "reasons": [
+        "no-unique-reference-anchor"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/147",
+      "ref": "9:5",
+      "wordIndex": 147,
+      "originalWord": "ר'",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/148",
+      "ref": "9:5",
+      "wordIndex": 148,
+      "originalWord": "נתן",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/149",
+      "ref": "9:5",
+      "wordIndex": 149,
+      "originalWord": "אומ'",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/150",
+      "ref": "9:5",
+      "wordIndex": 150,
+      "originalWord": "הפרו",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/151",
+      "ref": "9:5",
+      "wordIndex": 151,
+      "originalWord": "תורתך",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/152",
+      "ref": "9:5",
+      "wordIndex": 152,
+      "originalWord": "עת",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/153",
+      "ref": "9:5",
+      "wordIndex": 153,
+      "originalWord": "לעשות",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    },
+    {
+      "id": "S07326.1.1.9.5/word/154",
+      "ref": "9:5",
+      "wordIndex": 154,
+      "originalWord": "לייי",
+      "reasons": [
+        "reference-editorial-annotation",
+        "source-word-annotation"
+      ]
+    }
+  ],
+  "imageFeatureConflicts": [
+    {
+      "id": "S07326.1.1.3.1/word/14",
+      "ref": "3:1",
+      "wordIndex": 14,
+      "cautions": [
+        {
+          "letterIndex": 0,
+          "imageMarks": [
+            "ֶ"
+          ],
+          "accordanceMarks": [
+            "ֵ"
+          ],
+          "note": "Offener Bildkonflikt: KI-Bildablesung אֶ gegenüber Accordance אֵ. Der einzelne Zeichenbefund bleibt zur Nachprüfung offen."
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "pointing": "Only the user-supplied Accordance text supplies pointing; open positions retain original unpointed Digital Mishnah text.",
+    "analysis": "Existing Be’eri-position candidates retained with explicit mismatch status; no new morphology inferred from pointing.",
+    "translation": "Existing editorial glosses remain conditional on unverified analyses; rabbinic dictionary links only.",
+    "manuscript": "Original source characters, corrections, raw TEI and image observations remain unchanged."
+  }
+}
