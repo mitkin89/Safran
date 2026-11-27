@@ -39,6 +39,17 @@ module.exports=async({win,js,waitFor})=>{
  await waitFor("document.querySelector('#dictCardMatches').textContent.includes('Kein passendes')",'No matches clears stale suggestions');
  await js("document.querySelector('#dictQ').value='דבר';document.querySelector('#dictQ').dispatchEvent(new Event('input',{bubbles:true}))");
  await waitFor("document.querySelector('#dictCardMatches [data-kind=root]')",'Live root suggestions restored');
+ await js("document.querySelector('#dictQ').value='ܒܪܐ';document.querySelector('#dictQ').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelector('#dictCardMatches [data-key=\"ps:BRJ\"]')",'Peshitta suggestions');
+ assert(await js("document.querySelector('#dictCardMatches [data-key=\"ps:BRJ\"]').textContent.includes('Aramäisch')"));
+ await js("document.querySelector('#dictCardMatches [data-key=\"ps:BRJ\"]').click()");
+ await waitFor("document.querySelector('#wcBody [data-pesh-field=vt]')",'Peshitta card with grammar');
+ await js("document.querySelector('#wcBody [data-pesh-field=vt][data-value=pf]').click();document.querySelector('#fmTabs [data-t=forms]').click()");
+ await waitFor("document.querySelector('#fmBody').textContent.includes('Perfekt')",'Peshitta filtered forms');
+ await js("document.querySelector('#fmTabs [data-t=concordance]').click()");
+ await waitFor("document.querySelector('#fmConcordanceBody [data-pesh-ref]')",'Peshitta concordance');
+ await js("document.querySelector('#fmConcordanceBody [data-pesh-ref=\"Genesis 1:1\"]').click()");
+ await waitFor("document.querySelector('#rOut').textContent.includes('ܒܪܫܝܬ')",'Peshitta reference opens the Syriac edition');
  win.setSize(1250,901);await new Promise(r=>setTimeout(r,300));
  fs.writeFileSync('/tmp/safran-dictionary-card.png',(await win.webContents.capturePage()).toPNG());
  console.log('Electron: dictionary switch, lemma disambiguation, root families, full card and reader restoration passed.');

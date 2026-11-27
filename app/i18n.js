@@ -1845,6 +1845,8 @@
     "kein Wortanker": "no word anchor",
     "Phrase in Anführungszeichen": "Phrase in quotation marks",
     "Aramäisch": "Aramaic",
+    "Weitere Belege": "More occurrences",
+    "Peschitta: 39 alttestamentliche Bücher, belegte Analysen aus ETCBC. Fundstellen in Peschitta-Zählung.": "Peshitta: 39 Old Testament books, attested analyses from ETCBC. References use Peshitta numbering.",
     "Auflösung": "Expansion",
     "Ganzer Vers (Lemma der Edition)": "Whole verse (lemma of the edition)",
     "Text zu diesem Vers:": "text on this verse:",

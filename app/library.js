@@ -1067,6 +1067,11 @@
   // reader-module:word-cards
   const wordCardsUI = window.LibraryWordCards.create({
     concordanceCoverageHtml,
+    openPeshittaRef(book,version,chapter,verse,mode){
+      const entry=entries.find(e=>e.title===book&&e.versionTitle===version);
+      if(!entry)return;
+      return openGroup(groupsByKey.get(keyOf(entry)),{rel:entry.rel,sectionPath:[Number(chapter)-1],rowLabel:String(verse)},mode);
+    },
     getBibleTranslation: () => disp.pvDe==='*'?'':disp.pvDe||'Zunz',
     get $() { return $; },
     get $$() { return $$; },

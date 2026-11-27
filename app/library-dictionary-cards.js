@@ -23,7 +23,9 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
  async function open(item,token){
   if(token!==serial||!active())return;selected=true;
   $('#dictCardMatches').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.key===item.key)));
-  if(item.kind==='greek')await cards.openGForms(item.id,null,'card');
+  if(item.kind==='peshitta')await cards.openPForms(item.id);
+  else if(item.kind==='targum')await cards.openTForms(item.id,null,'card');
+  else if(item.kind==='greek')await cards.openGForms(item.id,null,'card');
   else if(item.kind==='syriac')await cards.openSForms(item.id,null,'card');
   else if(item.root)await cards.openRoot(item.id);
   else await cards.openForms(item.id,null,'card');
@@ -44,7 +46,7 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
    if(/[\u0370-\u03ff\u1f00-\u1fff]/u.test(q)){
     const G=await loadGreek();matches=window.GMorph.dictionaryLemmas(G,q).map(id=>({key:id,id,kind:'greek',label:id,count:window.GMorph.model(G,id)?.total||0}));
    }else if(/[\u0710-\u072f]/u.test(q)){
-    matches=[{key:q,id:q,kind:'syriac',label:q,count:0}];
+    matches=(await cards.loadPeshittaCards()).suggest(q,live);
    }else{
     matches=Object.entries(lemmas).filter(([id,l])=>q===id||match(l[0])).map(([id,l])=>({key:id,id,label:l[0],gloss:I18N.lang==='de'&&l[2]?l[2]:l[1],count:total(D,id)})).filter(x=>x.count);
     const roots=(await loadRoots()).roots,families=new Map();
@@ -54,12 +56,19 @@ window.LibraryDictionaryCards={create({$,esc,cards,loadRoots,loadGreek,submit}){
      families.get(familyKey).count+=n;
     }
     matches.push(...families.values());
+    if(key){const T=await cards.loadTForms();
+      for(const [id,[lex,forms]] of Object.entries(T.L))if(match(lex[0])||forms.some(f=>match(f[0]))){
+        const model=window.TargumForms.model(T,id);
+        if(model?.total)matches.push({key:'tg:'+id,id,label:lex[0],gloss:lex[2],count:model.total,kind:'targum',language:'Aramäisch',source:'Targumim'});
+      }
+    }
+    matches.push(...(await cards.loadPeshittaCards()).suggest(q,live));
    }
    if(token!==serial||!active())return true;
    matches.sort((a,b)=>Number(fold(b.label)===key)-Number(fold(a.label)===key)||Number(!!a.root)-Number(!!b.root)||b.count-a.count||a.key.localeCompare(b.key));
    if(!matches.length){out.textContent=I18N.t('Kein passendes Lemma oder keine passende Wurzel gefunden.');return true;}
    matches=matches.slice(0,40);
-   out.innerHTML=matches.map(x=>`<button type="button" data-key="${esc(x.key)}" data-kind="${x.root?'root':'lemma'}" aria-pressed="false"><bdi>${esc(x.label)}</bdi>${x.gloss?' · '+esc(x.gloss):''}<small>${esc(I18N.t(x.root?'Wurzel':'Lemma'))}${x.count?' · '+x.count.toLocaleString(I18N.loc):''}${!x.kind&&!x.root?' · Strong '+esc(x.id):''}</small></button>`).join('');
+   out.innerHTML=matches.map(x=>`<button type="button" data-key="${esc(x.key)}" data-kind="${x.root?'root':'lemma'}" aria-pressed="false"><bdi>${esc(x.label)}</bdi>${x.gloss?' · '+esc(x.gloss):''}<small>${esc(I18N.t(x.root?'Wurzel':'Lemma'))}${x.language?' · '+esc(I18N.t(x.language)):''}${x.source?' · '+esc(I18N.t(x.source)):''}${x.count?' · '+x.count.toLocaleString(I18N.loc):''}${!x.kind&&!x.root?' · Strong '+esc(x.id):''}</small></button>`).join('');
    out.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{input.value=matches[i].label;open(matches[i],serial);});
    if(!live)await open(matches[0],token);
   }catch(error){if(token===serial&&active())out.textContent=I18N.t('Wortkarte konnte nicht geladen werden.');}

@@ -3175,3 +3175,10 @@ html[data-tab=research] :is(.pinp,#dockTabs,#leftDockTabs,#stackBar,#stackSplit,
 
 #dictCardMatches button { text-align:start; }
 #dictCardMatches small { display:block; color:var(--muted); margin-top:3px; }
+
+.wcPeshFilter { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:6px 0; }
+.wcPeshFilter > span { min-width:90px; color:var(--muted); }
+.wcPeshFilter [aria-pressed=true] { color:var(--accent); border-color:var(--accent); }
+.wcPeshBook { display:inline-block; margin:5px 12px 5px 0; }
+#formsPanel .wcPeshGrammar ~ table td { padding:6px; }
+#dictCardMatches [lang=syr] { font-family:"Safran Syriac",serif; }

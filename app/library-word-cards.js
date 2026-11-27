@@ -17,6 +17,34 @@ window.LibraryWordCards = (() => {
     if (!formsP) formsP = lazyScript('oshb-forms.js', () => window.OSHB_FORMS).catch(e => { formsP = null; throw e; });
     return formsP;
   }
+  let peshCardsP=null;
+  const loadPeshittaCards=()=>peshCardsP||(peshCardsP=Promise.all([lazyScript('peshitta-word-index.js',()=>window.PESHITTA_WORD_INDEX),lazyScript('peshitta-word-cards.js',()=>window.PeshittaWordCards),lazyScript('syriac-morph.js',()=>window.SyriacMorph)]).then(([data,api,morph])=>api.create(data,morph)).catch(e=>{peshCardsP=null;throw e;}));
+  function renderPeshitta(){
+    if(!fmCur?.peshitta)return;
+    const out=fmCur.model.render(fmCur.id,fmCur.filters,fmCur.limit,host.esc,s=>I18N.t(s));if(!out)return;
+    host.$('#fmHead').innerHTML=out.head;
+    host.$('#wcBody').innerHTML='<div class="wcPeshGrammar">'+out.grammar+'</div>'+out.card;
+    host.$('#fmBody').innerHTML='<div class="wcPeshGrammar">'+out.grammar+'</div>'+out.forms;
+    host.$('#fmConcordanceBody').innerHTML='<div class="wcPeshGrammar">'+out.grammar+'</div>'+out.concordance;
+  }
+  async function openPForms(id,info={},tab='card',rest){
+    info={...info,peshitta:true,id};fmHistOpen(false,'ps:'+id,info,tab,rest);
+    const token=++wcToken;fmCur=null;fmTrData=null;host.$('#formsPanel').hidden=false;fmShowTab(tab);
+    host.$('#fmHead').textContent=I18N.t('Lädt …');
+    host.$('#wcBody').replaceChildren();host.$('#fmBody').replaceChildren();host.$('#fmConcordanceBody').replaceChildren();
+    try{const model=await loadPeshittaCards();if(token!==wcToken)return;
+      const out=model.render(id,{},200,host.esc,s=>I18N.t(s));if(!out)throw Error('Missing Peshitta lemma');
+      fmCur={peshitta:true,lemma:'ps:'+id,id,model,filters:{...(rest?.peshFilters||{})},limit:200,lem:[out.label]};
+      renderPeshitta();fmShowTab(tab);
+    }catch{if(token===wcToken)host.$('#wcBody').textContent=I18N.t('Wortkarte konnte nicht geladen werden.');}
+  }
+  host.$('#formsPanel').addEventListener('click',e=>{
+    if(!fmCur?.peshitta)return;
+    const filter=e.target.closest('[data-pesh-field]'),more=e.target.closest('[data-pesh-more]'),ref=e.target.closest('[data-pesh-ref]');
+    if(filter){const k=filter.dataset.peshField,v=filter.dataset.value;if(fmCur.filters[k]===v)delete fmCur.filters[k];else fmCur.filters[k]=v;fmCur.limit=200;renderPeshitta();fmHistSave();}
+    if(more){fmCur.limit+=200;renderPeshitta();}
+    if(ref){e.preventDefault();host.openPeshittaRef(ref.dataset.book,ref.dataset.gvt,ref.dataset.chapter,ref.dataset.verse,host.BG(e));}
+  });
   let lxxP = null;
   let stemP = null;
   const loadStems = () => stemP || (stemP = lazyScript('oshb-stems.js', () => window.OSHB_STEMS).catch(() => { stemP = null; return null; }));
@@ -32,7 +60,7 @@ window.LibraryWordCards = (() => {
     host.$('#wcBody').hidden = fmTab !== 'card'; host.$('#fmBody').hidden = fmTab !== 'forms';
     host.$('#fmConcordance').disabled = !fmCur?.lem?.[0];
     host.$('#fmConcordanceBody').hidden = fmTab !== 'concordance';
-    if (fmTab === 'concordance') wcLoadConcordance(wcConcordance?.token === wcToken ? wcConcordance.mode : fmCur?.family ? 'root' : 'lemma');
+    if (fmTab === 'concordance' && !fmCur?.peshitta) wcLoadConcordance(wcConcordance?.token === wcToken ? wcConcordance.mode : fmCur?.family ? 'root' : 'lemma');
     host.hovApi && host.hovApi.hide();
     wcFindSoon();
   }
@@ -1106,6 +1134,7 @@ window.LibraryWordCards = (() => {
     const h = fmHist[fmHi], p = host.$('#formsPanel');
     if (!h || p.hidden || !fmCur || fmCur.lemma !== h.lemma || !!fmCur.greek !== h.greek) return; // geschlossen oder noch am Laden
     h.tab = fmTab; h.scroll = p.scrollTop;
+    if(fmCur.peshitta)h.peshFilters={...fmCur.filters};
     const S = wcTrLive(); if (S) h.tr = { lemma: S.lemma, cur: S.cur, cmp: S.cmp || null, f: { ...S.f }, open: S.open, allRows: S.allRows, refLim: S.refLim, same:S.same??null,sameLimits:{...S.sameLimits} };
     const bx = host.$('#wcBookRefs'), c = host.$('#wcBody .wcForms .fmF.sel'), fc = host.$('#fmBody .fmF.sel');
     h.book = (bx && bx.dataset.b) || ''; h.chip = c ? c.dataset.i : null; h.fchip = fc ? fc.dataset.i : null;
@@ -1157,7 +1186,8 @@ window.LibraryWordCards = (() => {
     if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && !!fmCur.family === !!h.family && host.$('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
       if (h.tr) { fmRestTr(h); wcTrRender(); }
       fmRestBase(h);
-    } else if(h.info?.syriac)openSForms(h.info.query,h.info,h.tab,h);
+    } else if(h.info?.peshitta)openPForms(h.info.id,h.info,h.tab,h);
+    else if(h.info?.syriac)openSForms(h.info.query,h.info,h.tab,h);
     else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
     else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
   }
@@ -1450,6 +1480,8 @@ window.LibraryWordCards = (() => {
       async matchSyriacAnalysis(query,part){if(!part)return null;try{return (await loadSyriacCards()).matchAnalysis(query,part);}catch{return null;}},
       get canOpenCard(){return canOpenCard;},
       get openTextCard(){return openTextCard;},
+      get loadPeshittaCards(){return loadPeshittaCards;},
+      get openPForms(){return openPForms;},
       get openSForms() { return openSForms; },
       get openForms() { return openForms; },
       get openGForms() { return openGForms; },
