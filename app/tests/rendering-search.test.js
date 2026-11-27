@@ -60,3 +60,26 @@ test('paradigm renderings count attested surface forms by morphology and verse, 
  assert.equal(aggregate(new Set(['perfect']),new Set([1002])).cores[0].t,'εἶπον');
  assert.equal(aggregate(new Set(['absent']),null),null);
 });
+
+test('ancient reverse lookup keeps source, lexeme identity and repeated original forms',()=>{
+ const {findAncient}=require('../rendering-search');
+ const indices={LXX:{'1':[['λέγω'],[[0,'HV',2,enc([1001,1001]),['εἶπα','εἶπα']]]],'2':[['λέγω'],[[0,'HV',1,enc([1002]),['λέγει']]]]},
+ targum:{'1':[[['אמר','say','a'],['אמר','other','b']],[[0,'HV',1,0,9,enc([1001]),'',enc([1002]),[[2,'אמרית']]],[1,'HV',4,0,0,enc([1003]),'','',[[1,'אמר']]]]]},witness:{groups:{}}};
+ const greek=findAncient(indices,'LXX',{forms:['λέγω']});
+ assert.deepEqual(greek.map(x=>[x.lemma,x.count]),[['1',2],['2',1]]);
+ assert.deepEqual(greek[0].forms,[['εἶπα',2]]);assert.deepEqual(greek[0].refs,[1001,1001]);
+ const aramaic=findAncient(indices,'O',{forms:['אמר'],targumLex:'a'});
+ assert.equal(aramaic[0].count,1);assert.deepEqual(aramaic[0].forms,[['אמרית',1]]);
+ for(const source of ['Peshitta','Samaritan']){
+  const label={key:'lemma:a',type:'lemma',forms:['אב']};
+  indices.witness.groups[source]={
+   '1':[[label,{key:'lemma:b',type:'lemma',forms:['אב']},{key:'form:אב',type:'form',forms:['אב']}],[[0,'HV',2,enc([1001,1001]),'אביו'],[1,'HV',8,enc([1002]),'אב'],[2,'HV',5,enc([1003]),'אב']]],
+   '2':[[label],[[0,'AV',1,enc([2001]),'אבי']]]};
+  const found=findAncient(indices,source,label);
+  assert.deepEqual(found.map(x=>[x.lemma,x.count]),[['1',2],['2',1]]);
+  assert.deepEqual(found[0].forms,[['אביו',2]]);assert.deepEqual(found[1].languages,['arc']);
+  assert.equal(findAncient(indices,source,{key:'form:אב',type:'form',forms:['אב']})[0].count,5);
+ }
+ assert.deepEqual(findAncient(indices,'LXX',{forms:['*'],other:true}),[]);
+ assert.deepEqual(findAncient({},'O',{forms:['אמר']}),[]);
+});

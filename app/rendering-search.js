@@ -20,6 +20,39 @@
     }
     return found.sort((a,b)=>b.count-a.count||a.lemma.localeCompare(b.lemma));
   }
+  // Keep witness lexeme IDs distinct from unresolved forms and phrases.
+  function findAncient(indices, source, selected) {
+    if (!selected || selected.other || selected.forms[0] === '*') return [];
+    const witness = source === 'Peshitta' || source === 'Samaritan';
+    const entries = source === 'LXX' ? indices.LXX : source === 'O' ? indices.targum
+      : witness ? (indices.witness?.groups?.[source] || indices.witness?.[source]) : null;
+    const exact = value => String(value || '').normalize('NFC');
+    const matches = label => source === 'LXX' ? exact(label) === exact(selected.forms[0])
+      : source === 'O' ? (selected.targumLex != null ? label[2] === selected.targumLex : label[2] == null && exact(label[0]) === exact(selected.forms[0]))
+      : typeof label === 'string' ? !selected.key && exact(label) === exact(selected.forms[0])
+      : selected.key ? label.key === selected.key && label.type === selected.type
+      : !label.key && exact(label.forms[0]) === exact(selected.forms[0]);
+    const adapted = {};
+    for (const [lemma, [labels, cells]] of Object.entries(entries || {})) {
+      const groups = new Set(labels.flatMap((label, i) => matches(label) ? [i] : []));
+      if (!groups.size) continue;
+      const forms = new Map(), rows = [];
+      for (const cell of cells) {
+        const [g, code] = cell;
+        if (!groups.has(g)) continue;
+        const n = cell[2], refs = source === 'O' ? cell[5] : cell[3];
+        if (!n) continue;
+        rows.push([0, code, n, refs]);
+        if (witness && cell[4]) forms.set(cell[4], (forms.get(cell[4]) || 0) + n);
+        else for (const target of (source === 'O' ? cell[8] : cell[4]) || []) {
+          const form = source === 'O' ? target[1] : target;
+          if (form) forms.set(form, (forms.get(form) || 0) + 1);
+        }
+      }
+      adapted[lemma] = [[['match', ...forms]], rows];
+    }
+    return find({tr:{[source]:adapted}}, source, 'match');
+  }
   function familySources(members) {
     const sources = {};
     for (const [lemma, details] of members) {
@@ -78,6 +111,6 @@
         cores: sorted, groups: [...groups].sort((a, b) => b[1] - a[1]), col: null, de: false };
     };
   }
-  const api={find,familySources,surfaceIndex};if(typeof module==='object'&&module.exports)module.exports=api;
+  const api={find,findAncient,familySources,surfaceIndex};if(typeof module==='object'&&module.exports)module.exports=api;
   else root.RenderingSearch=api;
 })(typeof window==='object'?window:globalThis);

@@ -718,17 +718,18 @@ window.LibraryWordCards = (() => {
     return out.sort((a, b) => a.i - b.i);
   }
   function wcSameHtml(S,D){
-    if(D.lang!=='de'||S.same==null)return '';
+    if(S.same==null)return '';
     const label=D.labels[+S.same]?.forms[0];if(!label)return '';
-    const matches=window.RenderingSearch.find(S.IR,S.cur,label),LEM=window.OSHB_LEMMAS||{};
+    const matches=D.lang==='de' ? window.RenderingSearch.find(S.IR,S.cur,label) : window.RenderingSearch.findAncient({LXX:window.LXX_REN,targum:window.TARGUM_REN,witness:window.WITNESS_REN},S.cur,D.labels[+S.same]);
+    const LEM=window.OSHB_LEMMAS||{};
     const t=(s,...a)=>host.esc(I18N.t(s,...a));
-    return `<section class="wcSame"><h5>${t('Gleiche Wiedergabe')}: <span lang="de">${host.esc(label)}</span> · ${t(WC_TR_LABEL[S.cur])}<button type="button" class="wcSameClose" aria-label="${t('Schließen')}">✕</button></h5>
-      <p class="muted">${t('Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.')}</p>
+    return `<section class="wcSame"><h5>${t('Gleiche Wiedergabe')}: <bdi lang="${D.lang}" dir="${RTL(D.lang)?'rtl':'ltr'}">${host.esc(label)}</bdi> · ${t(WC_TR_LABEL[S.cur])}<button type="button" class="wcSameClose" aria-label="${t('Schließen')}">✕</button></h5>
+      <p class="muted">${t(D.lang==='de' ? 'Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.' : 'Gleiches Lexem bzw. gleiche Wortform oder Wortgruppe in dieser Quelle, über alle erfassten Tanachstellen. Wortformfilter gelten hier nicht.')}</p>
       <p>${t('{} Wörter · {} zugeordnete Belege',wcNum(matches.length),wcNum(matches.reduce((n,x)=>n+x.count,0)))}</p>
       ${matches.map(x=>{const lem=LEM[x.lemma],lim=S.sameLimits?.[x.lemma]||60;
         return `<details class="wcSameEntry" data-lemma="${host.esc(x.lemma)}"><summary><bdi lang="he" dir="rtl">${host.esc(lem?.[0]||x.lemma)}</bdi> ${host.esc(lem?(I18N.lang==='de'&&lem[2]?lem[2]:lem[1]):'')} ${x.languages.includes('arc')?' ('+t('Aramäisch')+')':''} · ${x.count===1?t('1 Beleg'):t('{} Belege',wcNum(x.count))}${x.lemma===S.lemma?' · '+t('Aktuelles Wort'):''}</summary>
         <button type="button" class="wcHL" data-hl="${host.esc(x.lemma)}">${t('Wortkarte öffnen')}</button>
-        <p lang="de">${x.forms.map(([f,n])=>host.esc(f)+' ('+wcNum(n)+')').join(' · ')}</p>
+        <p lang="${D.lang}" dir="${RTL(D.lang)?'rtl':'ltr'}">${x.forms.map(([f,n])=>host.esc(f)+' ('+wcNum(n)+')').join(' · ')}</p>
         <div class="fmRL">${x.refs.slice(0,lim).map(num=>{const book=S.IR.books[Math.floor(num/1e6)],c=Math.floor(num/1000)%1000,v=num%1000,ref=book+' '+c+':'+v;return `<a data-ref="${host.esc(ref)}" data-same-lemma="${host.esc(x.lemma)}">${host.esc(fmBook(book))} ${c}:${v}</a>`;}).join(' · ')}${x.refs.length>lim?`<button type="button" class="wcSameMore" data-lemma="${host.esc(x.lemma)}" data-limit="${lim+60}">${t('weitere {} Stellen zeigen',wcNum(Math.min(60,x.refs.length-lim)))}</button>`:''}</div></details>`;
       }).join('')}
     </section>`;
@@ -819,7 +820,7 @@ window.LibraryWordCards = (() => {
     const chev = can => `<span class="chev" aria-hidden="true">${can ? '›' : ''}</span>`;
     const sw = '<i class="sw" aria-hidden="true"></i>';
     const bar = n => `<span class="b"><i style="width:${(n / tot * 100).toFixed(1)}%"></i></span>`;
-    const name = g => de&&!g.other ? `<button type="button" class="wcSamePick" data-g="${g.g}" aria-pressed="${S.same===String(g.g)}" title="${host.esc(I18N.t('Andere hebräische Wörter mit dieser Wiedergabe zeigen'))}">${host.esc(lab(g))}</button>` : g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
+    const name = g => (de || ['Peshitta','LXX','O','Samaritan'].includes(S.cur))&&!g.other ? `<button type="button" class="wcSamePick" data-g="${g.g}" aria-pressed="${S.same===String(g.g)}" title="${host.esc(I18N.t('Andere hebräische Wörter mit dieser Wiedergabe zeigen'))}">${host.esc(lab(g))}</button>` : g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
     const row = g => {
       const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
       return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${g.targumLex ? ` data-tg-lexeme="${host.esc(g.targumLex)}"` : ''}${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${host.esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${host.esc(g.gl)}</small>` : ''}${D.grouped ? ` <small class="muted wcTrKind">${host.esc(I18N.t(g.type === 'lemma' ? 'Lemma' : g.type === 'phrase' ? 'Wortgruppe' : 'Wortform ohne sichere Lemma-Zuordnung'))}</small>` : ''}${h ? ` <small class="hint" title="${host.esc(h)}">${host.esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
